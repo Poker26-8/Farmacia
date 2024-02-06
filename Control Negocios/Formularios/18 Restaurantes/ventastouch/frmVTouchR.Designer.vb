@@ -1554,6 +1554,7 @@ Partial Class frmVTouchR
         Me.Name = "frmVTouchR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Venta Touch"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)

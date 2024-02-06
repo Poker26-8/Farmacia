@@ -649,25 +649,25 @@ Partial Class frmAgregarProducto
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
         Me.pDepartamento.Location = New System.Drawing.Point(0, 100)
         Me.pDepartamento.Name = "pDepartamento"
-        Me.pDepartamento.Size = New System.Drawing.Size(98, 598)
+        Me.pDepartamento.Size = New System.Drawing.Size(112, 598)
         Me.pDepartamento.TabIndex = 4
         '
         'pgrupo
         '
         Me.pgrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(115, Byte), Integer))
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pgrupo.Location = New System.Drawing.Point(98, 100)
+        Me.pgrupo.Location = New System.Drawing.Point(112, 100)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(104, 598)
+        Me.pgrupo.Size = New System.Drawing.Size(125, 598)
         Me.pgrupo.TabIndex = 5
         '
         'pProductos
         '
         Me.pProductos.BackColor = System.Drawing.Color.White
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(202, 100)
+        Me.pProductos.Location = New System.Drawing.Point(237, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(663, 598)
+        Me.pProductos.Size = New System.Drawing.Size(628, 598)
         Me.pProductos.TabIndex = 6
         '
         'pteclado
@@ -1291,6 +1291,7 @@ Partial Class frmAgregarProducto
         Me.Name = "frmAgregarProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Agregar Productos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)

@@ -838,17 +838,28 @@ Public Class frmAgregarProducto
 
     Public Sub Preferencias(ByVal producto As String)
 
-        Dim preferencia As Integer = 0
+        Dim preferencia As Integer = 1
+        Dim cuantospre As Integer = Math.Truncate(pPreferencias.Height / 55)
 
-        'If TotPrefe <= 3 Then
-        '    pPreferencias.AutoScroll = False
-        'Else
-        pPreferencias.AutoScroll = True
-        ' End If
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT DISTINCT IdPrefe FROM preferencia WHERE Codigo='" & CodigoProducto & "' order by Codigo"
+        rd1 = cmd1.ExecuteReader
+        Do While rd1.Read
+            If rd1.HasRows Then
+                TotPrefe = TotPrefe + 1
+            End If
+        Loop
+        rd1.Close()
+
+        If TotPrefe <= 4 Then
+            pPreferencias.AutoScroll = False
+        Else
+            pPreferencias.AutoScroll = True
+        End If
 
         Try
 
-            cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT distinct NombrePrefe FROM Preferencia WHERE Codigo='" & producto & "' order by NombrePrefe"
             rd1 = cmd1.ExecuteReader
@@ -863,7 +874,51 @@ Public Class frmAgregarProducto
                     btnPrefe.Height = 55
                     btnPrefe.Width = 70
 
-                    btnPrefe.Top = (preferencia) * (btnPrefe.Height + 0.5)
+                    If preferencia > cuantospre And preferencia < ((cuantospre * 2) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 1)
+                        btnPrefe.Top = (preferencia - (cuantospre + 1)) * (btnPrefe.Height + 0.5)
+                        '2
+                    ElseIf preferencia > (cuantospre * 2) And preferencia < ((cuantospre * 3) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 2)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 2) + 1)) * (btnPrefe.Height + 0.5)
+                        '3
+                    ElseIf preferencia > (cuantospre * 3) And preferencia < ((cuantospre * 4) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 3)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 3) + 1)) * (btnPrefe.Height + 0.5)
+                        '4
+                    ElseIf preferencia > (cuantospre * 4) And preferencia < ((cuantospre * 5) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 4)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 4) + 1)) * (btnPrefe.Height + 0.5)
+                        '5
+                    ElseIf preferencia > (cuantospre * 5) And preferencia < ((cuantospre * 6) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 5)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 5) + 1)) * (btnPrefe.Height + 0.5)
+                        '6
+                    ElseIf preferencia > (cuantospre * 6) And preferencia < ((cuantospre * 7) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 6)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 6) + 1)) * (btnPrefe.Height + 0.5)
+                        '7
+                    ElseIf preferencia > (cuantospre * 7) And preferencia < ((cuantospre * 8) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 7)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 7) + 1)) * (btnPrefe.Height + 0.5)
+                        '8
+                    ElseIf preferencia > (cuantospre * 8) And preferencia < ((cuantospre * 9) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 8)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 8) + 1)) * (btnPrefe.Height + 0.5)
+                        '9
+                    ElseIf preferencia > (cuantospre * 9) And preferencia < ((cuantospre * 10) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 9)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 9) + 1)) * (btnPrefe.Height + 0.5)
+                        '10
+                    ElseIf preferencia > (cuantospre * 10) And preferencia < ((cuantospre * 11) + 1) Then
+                        btnPrefe.Left = (btnPrefe.Width * 10)
+                        btnPrefe.Top = (preferencia - ((cuantospre * 10) + 1)) * (btnPrefe.Height + 0.5)
+                    Else
+                        btnPrefe.Left = 0
+                        btnPrefe.Top = (preferencia - 1) * (btnPrefe.Height + 0.5)
+                    End If
+
+
                     btnPrefe.BackColor = Color.Orange
                     btnPrefe.FlatStyle = FlatStyle.Flat
                     btnPrefe.FlatAppearance.BorderSize = 1
@@ -1124,13 +1179,16 @@ Public Class frmAgregarProducto
 
     Public Sub Extras(ByVal productos As String)
 
-        Dim extra As Integer = 0
+        Dim extra As Integer = 1
 
-        If totExtras <= 10 Then
+        Dim cuantosextra As Integer = Math.Truncate(pExtras.Height / 60)
+
+        If totExtras <= 5 Then
             pExtras.AutoScroll = False
         Else
             pExtras.AutoScroll = True
         End If
+
 
         Try
             cnn2.Close() : cnn2.Open()
@@ -1146,10 +1204,33 @@ Public Class frmAgregarProducto
                     btnExtra.Text = extras
                     btnExtra.Tag = rd2("Codigo").ToString
                     btnExtra.Name = "btnExtra(" & extra & ")"
-                    btnExtra.Height = 55
-                    btnExtra.Width = 70
+                    btnExtra.Height = 70
+                    btnExtra.Width = 80
 
-                    btnExtra.Top = (extra) * (btnExtra.Height + 0.5)
+                    If extra > cuantosextra And extra < ((cuantosextra * 2) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 1)
+                        btnExtra.Top = (extra - (cuantosextra + 1)) * (btnExtra.Height + 0.5)
+                        '2
+                    ElseIf extra > (cuantosextra * 2) And extra < ((cuantosextra * 3) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 2)
+                        btnExtra.Top = (extra - ((cuantosextra * 2) + 1)) * (btnExtra.Height + 0.5)
+                        '3
+                    ElseIf extra > (cuantosextra * 3) And extra < ((cuantosextra * 4) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 3)
+                        btnExtra.Top = (extra - ((cuantosextra * 3) + 1)) * (btnExtra.Height + 0.5)
+                        '4
+                    ElseIf extra > (cuantosextra * 4) And extra < ((cuantosextra * 5) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 4)
+                        btnExtra.Top = (extra - ((cuantosextra * 4) + 1)) * (btnExtra.Height + 0.5)
+                        '5
+                    ElseIf extra > (cuantosextra * 5) And extra < ((cuantosextra * 6) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 5)
+                        btnExtra.Top = (extra - ((cuantosextra * 5) + 1)) * (btnExtra.Height + 0.5)
+                    Else
+                        btnExtra.Left = 0
+                        btnExtra.Top = (extra - 1) * (btnExtra.Height + 0.5)
+                    End If
+
                     btnExtra.BackColor = Color.Orange
                     btnExtra.FlatStyle = FlatStyle.Flat
                     btnExtra.FlatAppearance.BorderSize = 1
