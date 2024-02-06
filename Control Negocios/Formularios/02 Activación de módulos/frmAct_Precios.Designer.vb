@@ -31,6 +31,7 @@ Partial Class frmAct_Precios
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class frmAct_Precios
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(412, 44)
+        Me.Label1.Size = New System.Drawing.Size(531, 44)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Módulo comparador de precios"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -49,9 +50,9 @@ Partial Class frmAct_Precios
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(180, 205)
+        Me.Label5.Location = New System.Drawing.Point(310, 183)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(124, 19)
+        Me.Label5.Size = New System.Drawing.Size(91, 19)
         Me.Label5.TabIndex = 19
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -59,9 +60,10 @@ Partial Class frmAct_Precios
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(310, 175)
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(407, 83)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(91, 47)
+        Me.Button1.Size = New System.Drawing.Size(113, 47)
         Me.Button1.TabIndex = 18
         Me.Button1.Text = "Activar módulo"
         Me.Button1.UseVisualStyleBackColor = False
@@ -118,11 +120,24 @@ Partial Class frmAct_Precios
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "Con Delsscom® Módulo comparador de precios podrás:"
         '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesactivar.Location = New System.Drawing.Point(407, 136)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
+        Me.btnDesactivar.TabIndex = 23
+        Me.btnDesactivar.Text = "Desactivar módulo"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
+        '
         'frmAct_Precios
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(412, 234)
+        Me.ClientSize = New System.Drawing.Size(531, 214)
+        Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
@@ -133,7 +148,9 @@ Partial Class frmAct_Precios
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(547, 253)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(547, 253)
         Me.Name = "frmAct_Precios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Módulo comparador de precios"
@@ -152,4 +169,5 @@ Partial Class frmAct_Precios
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents btnDesactivar As Button
 End Class

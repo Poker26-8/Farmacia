@@ -2,6 +2,32 @@
     Private Sub frmAct_Gym_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label5.Text = Mid(SerialNumber(), 1, 7)
         SFormatos("Gimnasio", "")
+
+        Dim resta As Integer = 0
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Gimnasio'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    resta = rd1(0).ToString
+                    If resta = 1 Then
+                        btnDesactivar.Enabled = True
+                        Button1.Enabled = False
+                    Else
+                        btnDesactivar.Enabled = False
+                        Button1.Visible = True
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

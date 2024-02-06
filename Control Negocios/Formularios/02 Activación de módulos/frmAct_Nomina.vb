@@ -58,7 +58,7 @@
 
     Private Sub frmAct_Nomina_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label5.Text = Mid(SerialNumber(), 1, 7)
-        SFormatos("Restaurante", "")
+        SFormatos("Nomina", "")
 
         Dim resta As Integer = 0
         Try
