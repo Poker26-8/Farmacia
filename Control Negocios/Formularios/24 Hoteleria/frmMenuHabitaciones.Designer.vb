@@ -35,7 +35,7 @@ Partial Class frmMenuHabitaciones
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(137, 12)
+        Me.Button2.Location = New System.Drawing.Point(184, 12)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(155, 64)
         Me.Button2.TabIndex = 7
@@ -50,7 +50,7 @@ Partial Class frmMenuHabitaciones
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(298, 12)
+        Me.Button1.Location = New System.Drawing.Point(345, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(84, 64)
         Me.Button1.TabIndex = 6
@@ -63,11 +63,14 @@ Partial Class frmMenuHabitaciones
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.Location = New System.Drawing.Point(12, 12)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(119, 64)
+        Me.Button3.Size = New System.Drawing.Size(166, 64)
         Me.Button3.TabIndex = 5
         Me.Button3.Text = "Habitaciones"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
         '
         'frmMenuHabitaciones
@@ -75,7 +78,7 @@ Partial Class frmMenuHabitaciones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(393, 84)
+        Me.ClientSize = New System.Drawing.Size(438, 84)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button3)

@@ -183,7 +183,6 @@ Partial Class frmManejo
         Me.btnHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnHabitacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHabitacion.Image = CType(resources.GetObject("btnHabitacion.Image"), System.Drawing.Image)
-        Me.btnHabitacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnHabitacion.Location = New System.Drawing.Point(6, 12)
         Me.btnHabitacion.Name = "btnHabitacion"
         Me.btnHabitacion.Size = New System.Drawing.Size(97, 80)
@@ -271,7 +270,7 @@ Partial Class frmManejo
         'lblidusuario
         '
         Me.lblidusuario.BackColor = System.Drawing.Color.Silver
-        Me.lblidusuario.Location = New System.Drawing.Point(101, 560)
+        Me.lblidusuario.Location = New System.Drawing.Point(7, 536)
         Me.lblidusuario.Name = "lblidusuario"
         Me.lblidusuario.Size = New System.Drawing.Size(85, 20)
         Me.lblidusuario.TabIndex = 121
