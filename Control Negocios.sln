@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Control Negocios", "Control Negocios\Control Negocios.vbproj", "{23601A2C-C434-431B-B15C-A92E16030A68}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "Setup2\Setup2.vdproj", "{42F69271-FCB4-4C44-AE2E-FA7BE77F21E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23601A2C-C434-431B-B15C-A92E16030A68}.Debug|x86.ActiveCfg = Debug|x86
+		{23601A2C-C434-431B-B15C-A92E16030A68}.Debug|x86.Build.0 = Debug|x86
+		{23601A2C-C434-431B-B15C-A92E16030A68}.Release|x86.ActiveCfg = Release|x86
+		{23601A2C-C434-431B-B15C-A92E16030A68}.Release|x86.Build.0 = Release|x86
+		{42F69271-FCB4-4C44-AE2E-FA7BE77F21E7}.Debug|x86.ActiveCfg = Debug
+		{42F69271-FCB4-4C44-AE2E-FA7BE77F21E7}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {492DB1A4-A7AF-4FE6-B3AD-4D44EC91345F}
+	EndGlobalSection
+EndGlobal

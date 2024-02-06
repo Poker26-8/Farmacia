@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtCrear_procedimientos.Text" xml:space="preserve">
+    <value>
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `cn1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `abonoe`
+--
+
+CREATE TABLE `abonoe` (
+  `Id` int(11) NOT NULL,
+  `NumRemision` varchar(80) NOT NULL DEFAULT '',
+  `NumFactura` varchar(80) NOT NULL DEFAULT '',
+  `NumPedido` varchar(100) NOT NULL DEFAULT '',
+  `IdProv` int(11) NOT NULL DEFAULT '0',
+  `Proveedor` varchar(255) NOT NULL DEFAULT '',
+  `Concepto` varchar(100) NOT NULL DEFAULT '',
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL,
+  `Cargo` float NOT NULL DEFAULT '0',
+  `Abono` float NOT NULL DEFAULT '0',
+  `Saldo` float NOT NULL DEFAULT '0',
+  `Efectivo` float NOT NULL DEFAULT '0',
+  `Tarjeta` float NOT NULL DEFAULT '0',
+  `Transfe` float NOT NULL DEFAULT '0',
+  `Otro` float NOT NULL DEFAULT '0',
+  `Banco` varchar(100) NOT NULL DEFAULT '',
+  `Referencia` varchar(20) NOT NULL DEFAULT '',
+  `Usuario` varchar(100) NOT NULL DEFAULT '',
+  `Corte` int(1) NOT NULL DEFAULT '0',
+  `CorteU` int(1) NOT NULL DEFAULT '0',
+  `Cargado` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `abonoi`
+--
+
+CREATE TABLE `abonoi` (
+  `Id` int(11) NOT NULL,
+  `NumFolio` int(11) NOT NULL DEFAULT '0',
+  `IdCliente` int(11) NOT NULL DEFAULT '0',
+  `Cliente` varchar(250) NOT NULL DEFAULT '',
+  `Concepto` varchar(100) NOT NULL DEFAULT '',
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL,
+  `Cargo` float NOT NULL DEFAULT '0',
+  `Abono` float NOT NULL DEFAULT '0',
+  `Saldo` float NOT NULL DEFAULT '0',
+  `Efectivo` float NOT NULL DEFAULT '0',
+  `Tarjeta` float NOT NULL DEFAULT '0',
+  `Transfe` float NOT NULL DEFAULT '0',
+  `Monedero` float NOT NULL DEFAULT '0',
+  `Otro` float NOT NULL DEFAULT '0',
+  `Banco` varchar(100) NOT NULL DEFAULT '',
+  `Referencia` varchar(50) NOT NULL DEFAULT '',
+  `Usuario` varchar(100) NOT NULL DEFAULT '',
+  `Corte` int(1) NOT NULL DEFAULT '0',
+  `CorteU` int(1) NOT NULL DEFAULT '0',
+  `Cargado` int(1) NOT NULL DEFAULT '0',
+  `MontoSF` float NOT NULL DEFAULT '0',
+  `CargadoAndroid` int(1) NOT NULL DEFAULT '0',
+  `FolioAndroid` varchar(100) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `acreedores`
+--
+
+CREATE TABLE `acreedores` (
+  `IdAcreedor` int(11) NOT NULL,
+  `Nombre` varchar(255) NOT NULL DEFAULT '',
+  `RazonS` varchar(255) NOT NULL DEFAULT '',
+  `RFC` varchar(50) NOT NULL DEFAULT '',
+  `Calle` varchar(250) NOT NULL DEFAULT '',
+  `Colonia` varchar(250) NOT NULL DEFAULT '',
+  `CP` varchar(20) NOT NULL DEFAULT '',
+  `Delegacion` varchar(250) NOT NULL DEFAULT '',
+  `Entidad` varchar(250) NOT NULL DEFAULT '',
+  `Telefono` varchar(20) NOT NULL DEFAULT '',
+  `Correo` varchar(150) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asistencia`
+--
+
+CREATE TABLE `asistencia` (
+  `Id` int(11) NOT NULL,
+  `NumEmp` int(11) NOT NULL DEFAULT '0',
+  `Nombre` varchar(250) NOT NULL DEFAULT '0',
+  `Hora` time NOT NULL,
+  `Fecha` date NOT NULL,
+  `Estatus` varchar(50) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auditoria`
+--
+
+CREATE TABLE `auditoria` (
+  `Id` int(11) NOT NULL,
+  `Movimiento` varchar(250) NOT NULL DEFAULT '',
+  `Usuario` varchar(50) NOT NULL DEFAULT '',
+  `Formulario` varchar(100) NOT NULL DEFAULT '',
+  `Concepto` text NOT NULL,
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auxcompras`
+--
+
+CREATE TABLE `auxcompras` (
+  `Id` int(11) NOT NULL,
+  `Rem` varchar(80) NOT NULL DEFAULT '',
+  `Fac` varchar(80) NOT NULL DEFAULT '',
+  `Ped` varchar(80) NOT NULL DEFAULT '',
+  `Proveedor` varchar(250) NOT NULL DEFAULT '',
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(250) NOT NULL DEFAULT '',
+  `Unidad` varchar(30) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Total` float NOT NULL DEFAULT '0',
+  `Caducidad` varchar(50) NOT NULL DEFAULT '',
+  `Lote` varchar(50) NOT NULL DEFAULT '',
+  `CP` varchar(50) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auxcomprasseries`
+--
+
+CREATE TABLE `auxcomprasseries` (
+  `Id` int(11) NOT NULL,
+  `Rem` varchar(80) NOT NULL DEFAULT '',
+  `Fac` varchar(80) NOT NULL DEFAULT '',
+  `Ped` varchar(80) NOT NULL DEFAULT '',
+  `Proveedor` varchar(250) NOT NULL DEFAULT '',
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(250) NOT NULL DEFAULT '',
+  `Unidad` varchar(30) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Total` float NOT NULL DEFAULT '0',
+  `CP` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auxpedidos`
+--
+
+CREATE TABLE `auxpedidos` (
+  `Id` int(11) NOT NULL,
+  `Num` varchar(80) NOT NULL DEFAULT '',
+  `Proveedor` varchar(250) NOT NULL DEFAULT '',
+  `Total` float NOT NULL DEFAULT '0',
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(250) NOT NULL DEFAULT '',
+  `Unidad` varchar(30) NOT NULL DEFAULT '',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Existencia` float NOT NULL DEFAULT '0',
+  `Minimo` float NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bancos`
+--
+
+CREATE TABLE `bancos` (
+  `Banco` varchar(90) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `bancos`
+--
+
+INSERT INTO `bancos` (`Banco`) VALUES
+('BBVA'),
+('HSBC'),
+('AZTECA'),
+('COOPEL'),
+('SCOTIABANCK'),
+('SANTANDER');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cardex`
+--
+
+CREATE TABLE `cardex` (
+  `Id` int(11) NOT NULL,
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(255) NOT NULL DEFAULT '',
+  `Movimiento` varchar(70) NOT NULL DEFAULT '',
+  `Inicial` float NOT NULL DEFAULT '0',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Final` float NOT NULL DEFAULT '0',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Fecha` datetime NOT NULL,
+  `Usuario` varchar(50) NOT NULL DEFAULT '',
+  `Folio` varchar(50) NOT NULL DEFAULT '',
+  `Tipo` varchar(100) NOT NULL DEFAULT '',
+  `Cedula` varchar(70) NOT NULL DEFAULT '',
+  `Receta` varchar(50) NOT NULL DEFAULT '',
+  `Medico` varchar(200) NOT NULL DEFAULT '',
+  `Domicilio` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cardex`
+--
+
+INSERT INTO `cardex` (`Id`, `Codigo`, `Nombre`, `Movimiento`, `Inicial`, `Cantidad`, `Final`, `Precio`, `Fecha`, `Usuario`, `Folio`, `Tipo`, `Cedula`, `Receta`, `Medico`, `Domicilio`) VALUES
+(1, '000003', 'ABRAZADERA 1 1/4" (32MM) - 2" (51MM) PIEZA C-44239 FIERO', 'Venta', 0, 5, -5, 13, '2023-08-01 11:46:22', 'ADMIN', '8', '', '', '', '', ''),
+(2, '000012', 'ABRAZADERA 4 1/8" (105MM) - 5" (127MM) PIEZA C-44250 FIERO', 'Venta', 0, 23, -23, 22, '2023-08-01 11:46:23', 'ADMIN', '8', '', '', '', '', ''),
+(3, '000013', 'ABRAZADERA 5 1/8" (130MM) - 6" (152MM) PIEZA C-44252 FIERO', 'Venta', 0, 5, -5, 24, '2023-08-01 11:46:25', 'ADMIN', '8', '', '', '', '', ''),
+(4, '004001', 'MANGO PARA HACHA MICHIGAN DE 34" C-15932 TRUPER', 'Venta', 0, 5, -5, 226, '2023-08-01 12:13:03', 'ADMIN', '9', '', '', '', '', ''),
+(5, '004001', 'MANGO PARA HACHA MICHIGAN DE 34" C-15932 TRUPER', 'Cancelación de venta', -5, 5, 0, 194.83, '2023-08-01 12:15:34', 'ADMIN', '9', '', '', '', '', ''),
+(6, '000001', ' P.T.R. 4 X 4 CAL.14 ', 'Venta', 0, 1, -1, 575, '2023-08-01 12:35:01', 'ADMIN', '9', '', '', '', '', ''),
+(7, '000002', 'ABRAZADERA  (14MM)  (27MM) PIEZA C-44257 FIERO', 'Venta', 0, 1, -1, 11, '2023-08-01 12:36:34', 'ADMIN', '10', '', '', '', '', ''),
+(8, '000003', 'ABRAZADERA 1 1/4" (32MM) - 2" (51MM) PIEZA C-44239 FIERO', 'Venta', -5, 1, -6, 13, '2023-08-01 12:36:54', 'ADMIN', '11', '', '', '', '', ''),
+(9, '000002', 'ABRAZADERA  (14MM)  (27MM) PIEZA C-44257 FIERO', 'Venta', -1, 1, -2, 11, '2023-08-01 12:42:34', 'ADMIN', '12', '', '', '', '', ''),
+(10, '000004', 'ABRAZADERA 1/2 - 3/4  4 PIEZAS C-10030 TRUPER', 'Venta', 0, 5, -5, 10, '2023-08-01 12:42:57', 'ADMIN', '13', '', '', '', '', ''),
+(11, '000015', 'ABRAZADERA 5/8" (16MM) - 7/8" (23MM) PIEZA C-44234 FIERO', 'Venta', 0, 2, -2, 11, '2023-08-01 12:48:45', 'ADMIN', '14', '', '', '', '', ''),
+(12, '000022', 'ABRAZADERA DE BRONCE PARA TOMA DE AGUA 1 1/2"', 'Venta', 0, 2, -2, 276, '2023-08-01 12:49:08', 'ADMIN', '15', '', '', '', '', ''),
+(13, '000011', 'ABRAZADERA 3/8" (10MM) - 5/8" (16MM) PIEZA C-44232 FIERO', 'Venta', 0, 1, -1, 9, '2023-08-01 12:49:24', 'ADMIN', '16', '', '', '', '', ''),
+(14, '000014', 'ABRAZADERA 5/8" (16MM) - 1 1/4 (32MM) PIEZA C-44236 FIERO', 'Venta', 0, 1, -1, 11, '2023-08-01 12:54:20', 'ADMIN', '17', '', '', '', '', ''),
+(15, '000013', 'ABRAZADERA 5 1/8" (130MM) - 6" (152MM) PIEZA C-44252 FIERO', 'Venta', -5, 5, -10, 24, '2023-08-01 12:54:35', 'ADMIN', '18', '', '', '', '', ''),
+(16, '002632', 'EXTRACTOR DE AIRE 8" COLOR BLANCO C-46099 VOLTECK', 'Venta', 0, 2, -2, 661, '2023-08-01 12:54:51', 'ADMIN', '19', '', '', '', '', ''),
+(17, '000003', 'ABRAZADERA 1 1/4" (32MM) - 2" (51MM) PIEZA C-44239 FIERO', 'Venta', -6, 2, -8, 13, '2023-08-01 13:09:39', 'ADMIN', '20', '', '', '', '', ''),
+(18, '000011', 'ABRAZADERA 3/8" (10MM) - 5/8" (16MM) PIEZA C-44232 FIERO', 'Venta', -1, 2, -3, 9, '2023-08-01 13:10:55', 'ADMIN', '21', '', '', '', '', ''),
+(19, '000025', 'ABRAZADERA DE BRONCE PARA TOMA DE AGUA 3"', 'Venta', 0, 2, -2, 200, '2023-08-01 13:12:54', 'ADMIN', '22', '', '', '', '', ''),
+(20, '000010', 'ABRAZADERA 3/4" (19MM) - 1 3/4" (44MM) PIEZA C-44238 FIERO', 'Venta', 0, 2, -2, 11, '2023-08-01 13:13:15', 'ADMIN', '23', '', '', '', '', ''),
+(21, '000009', 'ABRAZADERA 3/4" (19MM) - 1 1/16" (27MM) PIEZA C-10013 FIERO', 'Venta', 0, 1, -1, 21, '2023-08-01 13:35:32', 'ADMIN', '24', '', '', '', '', ''),
+(22, '000005', 'ABRAZADERA 1/2" (13MM) - 3/4" (19MM) FIERO C-44233 FIERO', 'Venta', 0, 1, -1, 11, '2023-08-04 09:51:52', 'ADMIN', '25', '', '', '', '', ''),
+(23, '000003', 'ABRAZADERA 1 1/4" (32MM) - 2" (51MM) PIEZA C-44239 FIERO', 'Venta', -8, 2, -10, 13, '2023-08-04 10:13:03', 'ADMIN', '26', '', '', '', '', ''),
+(24, '000005', 'ABRAZADERA 1/2" (13MM) - 3/4" (19MM) FIERO C-44233 FIERO', 'Venta', -1, 2, -3, 11, '2023-08-04 10:13:45', 'ADMIN', '27', '', '', '', '', ''),
+(25, '000010', 'ABRAZADERA 3/4" (19MM) - 1 3/4" (44MM) PIEZA C-44238 FIERO', 'Venta', -2, 2, -4, 11, '2023-08-04 10:17:34', 'ADMIN', '28', '', '', '', '', ''),
+(26, '000017', 'ABRAZADERA CONPLASA PVC 1 1/2', 'Venta', 0, 2, -2, 46, '2023-08-04 10:17:55', 'ADMIN', '29', '', '', '', '', ''),
+(27, '000019', 'ABRAZADERA CONPLASA PVC 2" ', 'Venta', 0, 2, -2, 49, '2023-08-04 10:18:09', 'ADMIN', '30', '', '', '', '', ''),
+(28, '000009', 'ABRAZADERA 3/4" (19MM) - 1 1/16" (27MM) PIEZA C-10013 FIERO', 'Venta', -1, 2, -3, 21, '2023-08-04 10:23:27', 'ADMIN', '31', '', '', '', '', ''),
+(29, '000007', 'ABRAZADERA 2 9/16" (65MM) - 3 1/2" (89MM) PIEZA C-44245 FIERO', 'Venta', 0, 1, -1, 18, '2023-08-04 10:25:18', 'ADMIN', '32', '', '', '', '', ''),
+(30, '003886', 'M3 DE TEZONTLE ROJO/NEGRO 3/4 (10 CARRETILLADAS)', 'Venta', 0, 1, -1, 549, '2023-08-04 11:08:34', 'ADMIN', '33', '', '', '', '', ''),
+(31, '003880', 'M3 DE ARENA BLANCA (10 CARRETILLADAS)', 'Venta', 0, 1, -1, 379, '2023-08-04 11:08:34', 'ADMIN', '33', '', '', '', '', ''),
+(32, '000013', 'ABRAZADERA 5 1/8" (130MM) - 6" (152MM) PIEZA C-44252 FIERO', 'Venta', -10, 2, -12, 24, '2023-08-04 11:25:18', 'ADMIN', '34', '', '', '', '', ''),
+(33, '000016', 'ABRAZADERA 6 1/8" (156MM) - 7" (178MM) PIEZA C-44254 FIERO', 'Venta', 0, 2, -2, 28, '2023-08-04 11:39:46', 'ADMIN', '35', '', '', '', '', ''),
+(34, '000007', 'ABRAZADERA 2 9/16" (65MM) - 3 1/2" (89MM) PIEZA C-44245 FIERO', 'Venta', -1, 1, -2, 18, '2023-08-04 11:59:17', 'ADMIN', '36', '', '', '', '', ''),
+(35, '000006', 'ABRAZADERA 2 1/4" (57MM) - 3" (76MM)  PIEZA C-44243 FIERO', 'Venta', 0, 2, -2, 18, '2023-08-04 12:01:24', 'ADMIN', '37', '', '', '', '', ''),
+(36, '000003', 'ABRAZADERA 1 1/4" (32MM) - 2" (51MM) PIEZA C-44239 FIERO', 'Venta', -10, 2, -12, 13, '2023-08-04 12:03:54', 'ADMIN', '38', '', '', '', '', ''),
+(37, '000010', 'ABRAZADERA 3/4" (19MM) - 1 3/4" (44MM) PIEZA C-44238 FIERO', 'Venta', -4, 2, -6, 11, '2023-08-04 12:12:46', 'ADMIN', '39', '', '', '', '', ''),
+(38, '000013', 'ABRAZADERA 5 1/8" (130MM) - 6" (152MM) PIEZA C-44252 FIERO', 'Venta', -12, 2, -14, 24, '2023-08-04 12:13:29', 'ADMIN', '40', '', '', '', '', ''),
+(39, '000016', 'ABRAZADERA 6 1/8" (156MM) - 7" (178MM) PIEZA C-44254 FIERO', 'Venta', -2, 1, -3, 28, '2023-08-04 12:18:08', 'ADMIN', '41', '', '', '', '', ''),
+(40, '000010', 'ABRAZADERA 3/4" (19MM) - 1 3/4" (44MM) PIEZA C-44238 FIERO', 'Venta', -6, 1, -7, 11, '2023-08-04 12:19:34', 'ADMIN', '42', '', '', '', '', ''),
+(41, '000019', 'ABRAZADERA CONPLASA PVC 2" ', 'Venta', -2, 1, -3, 49, '2023-08-04 12:20:59', 'ADMIN', '43', '', '', '', '', ''),
+(42, '000012', 'ABRAZADERA 4 1/8" (105MM) - 5" (127MM) PIEZA C-44250 FIERO', 'Venta', -23, 1, -24, 22, '2023-08-04 12:26:00', 'ADMIN', '44', '', '', '', '', ''),
+(43, '000027', 'ABRAZADERA DE UÑA 1 1/4"C-46040 VOLTECH', 'Venta', 0, 1, -1, 26, '2023-08-04 12:35:13', 'ADMIN', '45', '', '', '', '', ''),
+(44, '000008', 'ABRAZADERA 3 1/16" (78MM) -  4" (102MM) PIEZA C-44247 FIERO', 'Venta', 0, 1, -1, 19, '2023-08-04 13:05:54', 'ADMIN', '46', '', '', '', '', ''),
+(45, '000013', 'ABRAZADERA 5 1/8" (130MM) - 6" (152MM) PIEZA C-44252 FIERO', 'Venta', -14, 2, -16, 24, '2023-08-04 15:38:32', 'ADMIN', '47', '', '', '', '', ''),
+(46, '000010', 'ABRAZADERA 3/4" (19MM) - 1 3/4" (44MM) PIEZA C-44238 FIERO', 'Venta', -7, 2, -9, 11, '2023-08-04 15:38:58', 'ADMIN', '48', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cargosabonos`
+--
+
+CREATE TABLE `cargosabonos` (
+  `Nombre` varchar(200) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cartaporte`
+--
+
+CREATE TABLE `cartaporte` (
+  `Id` int(11) NOT NULL,
+  `FolioCarta` int(11) NOT NULL DEFAULT '0',
+  `EmiNombre` varchar(255) NOT NULL DEFAULT '',
+  `EmiRFC` varchar(255) NOT NULL DEFAULT '',
+  `EmiCP` varchar(10) NOT NULL DEFAULT '',
+  `EmiRegFis` varchar(255) NOT NULL DEFAULT '',
+  `CliRFC` varchar(50) NOT NULL DEFAULT '',
+  `CliNombre` varchar(255) NOT NULL DEFAULT '',
+  `Inter` varchar(255) NOT NULL DEFAULT '',
+  `OrigNombre` varchar(255) NOT NULL DEFAULT '',
+  `OrigRFC` varchar(50) NOT NULL DEFAULT '',
+  `OrigFechaHora` datetime NOT NULL,
+  `OrigCP` varchar(20) NOT NULL DEFAULT '',
+  `OrigCalle` varchar(255) NOT NULL DEFAULT '',
+  `OrigNumExt` varchar(20) NOT NULL DEFAULT '',
+  `OrigNumInt` varchar(20) NOT NULL DEFAULT '',
+  `OrigColonia` varchar(255) NOT NULL DEFAULT '',
+  `OrigEdo` varchar(100) NOT NULL DEFAULT '',
+  `OrigMun` varchar(100) NOT NULL DEFAULT '',
+  `TotalDistancia` varchar(100) NOT NULL DEFAULT '',
+  `DesNombre` varchar(255) NOT NULL DEFAULT '',
+  `DesRFC` varchar(50) NOT NULL DEFAULT '',
+  `DesFechaHora` datetime NOT NULL,
+  `DesCP` varchar(20) NOT NULL DEFAULT '',
+  `DesPais` varchar(100) NOT NULL DEFAULT '',
+  `DesCalle` varchar(255) NOT NULL DEFAULT '',
+  `DesNumExt` varchar(20) NOT NULL DEFAULT '',
+  `DesNumInt` varchar(20) NOT NULL DEFAULT '',
+  `DesCol` varchar(255) NOT NULL DEFAULT '',
+  `DesEdo` varchar(100) NOT NULL DEFAULT '',
+  `DesMun` varchar(100) NOT NULL DEFAULT '',
+  `PermisoSCT` varchar(255) NOT NULL DEFAULT '',
+  `NumPoliza` varchar(255) NOT NULL DEFAULT '',
+  `NumPermisoSCT` varchar(255) NOT NULL DEFAULT '',
+  `Aseguradora` varchar(255) NOT NULL DEFAULT '',
+  `Placa` varchar(50) NOT NULL DEFAULT '',
+  `Config` varchar(255) NOT NULL DEFAULT '',
+  `ModeloA` varchar(255) NOT NULL DEFAULT '',
+  `OpeRFC` varchar(50) NOT NULL DEFAULT '',
+  `OpeLic` varchar(50) NOT NULL DEFAULT '',
+  `OpeNombre` varchar(255) NOT NULL DEFAULT '',
+  `OpeNumExt` varchar(50) NOT NULL DEFAULT '',
+  `OpeNumInt` varchar(50) NOT NULL DEFAULT '',
+  `OpeMun` varchar(255) NOT NULL DEFAULT '',
+  `OpeEdo` varchar(100) NOT NULL DEFAULT '',
+  `OpeColonia` varchar(100) NOT NULL DEFAULT '',
+  `OpeCP` varchar(20) NOT NULL DEFAULT '',
+  `OpeCalle` varchar(100) NOT NULL DEFAULT '',
+  `TotalMercancias` varchar(150) NOT NULL DEFAULT '',
+  `Certificado` text NOT NULL,
+  `UUID` varchar(255) NOT NULL DEFAULT '',
+  `Sello` text NOT NULL,
+  `NoCert` varchar(255) NOT NULL DEFAULT '',
+  `SelloCFD` text NOT NULL,
+  `NoCertSat` varchar(255) NOT NULL DEFAULT '',
+  `SelloSat` text NOT NULL,
+  `FechaTimbrado` date NOT NULL,
+  `CadenaOriginal` text NOT NULL,
+  `Estatus` int(11) NOT NULL DEFAULT '0',
+  `FechaEmi` date NOT NULL,
+  `OrigColoniaT` varchar(150) NOT NULL DEFAULT '',
+  `OrigEdoT` varchar(100) NOT NULL DEFAULT '',
+  `OrigMunT` varchar(100) NOT NULL DEFAULT '',
+  `DesColT` varchar(100) NOT NULL DEFAULT '',
+  `DesEdoT` varchar(100) NOT NULL DEFAULT '',
+  `DesMunT` varchar(100) NOT NULL DEFAULT '',
+  `OpeColoniaT` varchar(100) NOT NULL DEFAULT '',
+  `OpeEdoT` varchar(100) NOT NULL DEFAULT '',
+  `OpeMunT` varchar(100) NOT NULL DEFAULT '',
+  `TotalPesoM` varchar(100) NOT NULL DEFAULT '',
+  `DesLocalidad` varchar(100) NOT NULL DEFAULT '',
+  `TransDEs` varchar(100) NOT NULL DEFAULT '',
+  `TransImporte` varchar(100) NOT NULL DEFAULT '',
+  `TransUniMedSat` varchar(255) NOT NULL DEFAULT '',
+  `TransClaveSat` varchar(255) NOT NULL DEFAULT '',
+  `NumPed` varchar(255) NOT NULL DEFAULT '',
+  `FiguraTransporte` varchar(255) NOT NULL DEFAULT '',
+  `AseguradoraMedAmb` varchar(255) NOT NULL DEFAULT '',
+  `NumPolizaMedAmb` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cartaportedet`
+--
+
+CREATE TABLE `cartaportedet` (
+  `Id` int(11) NOT NULL,
+  `IdCarta` int(11) NOT NULL DEFAULT '0',
+  `FolioCarta` int(11) NOT NULL DEFAULT '0',
+  `Descripcion` varchar(255) NOT NULL DEFAULT '',
+  `UniMedSAT` varchar(255) NOT NULL DEFAULT '',
+  `ProdServSAT` varchar(255) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `ValorM` varchar(255) NOT NULL DEFAULT '',
+  `PesoKg` varchar(255) NOT NULL DEFAULT '',
+  `NumPed` varchar(255) NOT NULL DEFAULT '',
+  `UUIDComE` varchar(255) NOT NULL DEFAULT '',
+  `FracArancelaria` varchar(255) NOT NULL DEFAULT '',
+  `MatPel` varchar(255) NOT NULL DEFAULT '',
+  `ClaveMatPel` varchar(255) NOT NULL DEFAULT '',
+  `DescMatPel` varchar(255) NOT NULL DEFAULT '',
+  `Embalaje` varchar(255) NOT NULL DEFAULT '',
+  `ClaveEmbalaje` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cartaportedeti`
+--
+
+CREATE TABLE `cartaportedeti` (
+  `Id` int(11) NOT NULL,
+  `IdCarta` int(11) NOT NULL DEFAULT '0',
+  `FolioCarta` int(11) NOT NULL DEFAULT '0',
+  `Descripcion` varchar(255) NOT NULL DEFAULT '',
+  `UniMedSAT` varchar(255) NOT NULL DEFAULT '',
+  `ProdServSAT` varchar(255) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `ValorM` varchar(255) NOT NULL DEFAULT '',
+  `PesoKg` varchar(255) NOT NULL DEFAULT '',
+  `NumPed` varchar(255) NOT NULL DEFAULT '',
+  `UUIDComE` varchar(255) NOT NULL DEFAULT '',
+  `FracArancelaria` varchar(255) NOT NULL DEFAULT '',
+  `MatPel` varchar(255) NOT NULL DEFAULT '',
+  `ClaveMatPel` varchar(255) NOT NULL DEFAULT '',
+  `DescMatPel` varchar(255) NOT NULL DEFAULT '',
+  `Embalaje` varchar(255) NOT NULL DEFAULT '',
+  `ClaveEmbalaje` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cartaportei`
+--
+
+CREATE TABLE `cartaportei` (
+  `Id` int(11) NOT NULL,
+  `FolioCarta` int(11) NOT NULL DEFAULT '0',
+  `Inter` varchar(255) NOT NULL DEFAULT '',
+  `OrigNombre` varchar(255) NOT NULL DEFAULT '',
+  `OrigRFC` varchar(255) NOT NULL DEFAULT '',
+  `OrigFechaHora` datetime NOT NULL,
+  `OrigCP` varchar(255) NOT NULL DEFAULT '',
+  `OrigCalle` varchar(255) NOT NULL DEFAULT '',
+  `OrigNumExt` varchar(255) NOT NULL DEFAULT '',
+  `OrigNumInt` varchar(255) NOT NULL DEFAULT '',
+  `OrigColonia` varchar(255) NOT NULL DEFAULT '',
+  `OrigEdo` varchar(255) NOT NULL DEFAULT '',
+  `OrigMun` varchar(255) NOT NULL DEFAULT '',
+  `TotalDistancia` varchar(255) NOT NULL DEFAULT '',
+  `DesNombre` varchar(255) NOT NULL DEFAULT '',
+  `DesRFC` varchar(20) NOT NULL DEFAULT '',
+  `DesFechaHora` datetime NOT NULL,
+  `DesCP` varchar(255) NOT NULL DEFAULT '',
+  `DesPais` varchar(100) NOT NULL DEFAULT '',
+  `DesCalle` varchar(100) NOT NULL DEFAULT '',
+  `DesNumExt` varchar(100) NOT NULL DEFAULT '',
+  `DesNumInt` varchar(255) NOT NULL DEFAULT '',
+  `DesCol` varchar(255) NOT NULL DEFAULT '',
+  `DesEdo` varchar(255) NOT NULL DEFAULT '',
+  `DesMun` varchar(200) NOT NULL DEFAULT '',
+  `PermisoSCTn` varchar(100) NOT NULL DEFAULT '',
+  `NumPoliza` varchar(255) NOT NULL DEFAULT '',
+  `NumPermisoSCT` varchar(200) NOT NULL DEFAULT '',
+  `Aseguradora` varchar(200) NOT NULL DEFAULT '',
+  `Placa` varchar(255) NOT NULL DEFAULT '',
+  `Config` varchar(100) NOT NULL DEFAULT '',
+  `ModeloA` varchar(100) NOT NULL DEFAULT '',
+  `OpeRFC` varchar(255) NOT NULL DEFAULT '',
+  `OpeLic` varchar(255) NOT NULL DEFAULT '',
+  `OpeNombre` varchar(255) NOT NULL DEFAULT '',
+  `OpeNumExt` varchar(255) NOT NULL DEFAULT '',
+  `OpeNumInt` varchar(50) NOT NULL DEFAULT '',
+  `OpeMun` varchar(255) NOT NULL DEFAULT '',
+  `OpeEdo` varchar(255) NOT NULL DEFAULT '',
+  `OpeColonia` varchar(50) NOT NULL DEFAULT '',
+  `OpeCP` varchar(50) NOT NULL DEFAULT '',
+  `OpeCalle` varchar(255) NOT NULL DEFAULT '',
+  `TotalMercancias` varchar(50) NOT NULL DEFAULT '',
+  `Estatus` int(11) NOT NULL DEFAULT '0',
+  `OrigColoniaT` varchar(255) NOT NULL DEFAULT '',
+  `OrigEdoT` varchar(100) NOT NULL DEFAULT '',
+  `OrigMunT` varchar(100) NOT NULL DEFAULT '',
+  `DesColT` varchar(20) NOT NULL DEFAULT '',
+  `DesEdoT` varchar(100) NOT NULL DEFAULT '',
+  `DesMunT` varchar(150) NOT NULL DEFAULT '',
+  `OpeColoniaT` varchar(255) NOT NULL DEFAULT '',
+  `OpeEdoT` varchar(255) NOT NULL DEFAULT '',
+  `OpeMunT` varchar(255) NOT NULL DEFAULT '',
+  `TotalPesoM` varchar(255) NOT NULL DEFAULT '',
+  `DesLocalidad` varchar(255) NOT NULL DEFAULT '',
+  `TransDes` varchar(255) NOT NULL DEFAULT '',
+  `TransImporte` varchar(255) NOT NULL DEFAULT '',
+  `TransUniMedSat` varchar(255) NOT NULL DEFAULT '',
+  `TransClaveSat` varchar(255) NOT NULL DEFAULT '',
+  `NumPed` varchar(255) NOT NULL DEFAULT '',
+  `FiguraTransporte` varchar(255) NOT NULL DEFAULT '',
+  `AseguradoraMedAmb` varchar(150) NOT NULL DEFAULT '',
+  `NumPolizaMedAmb` varchar(100) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `Id` int(11) NOT NULL,
+  `Nombre` varchar(255) NOT NULL DEFAULT '',
+  `RazonSocial` varchar(255) NOT NULL DEFAULT '',
+  `Tipo` varchar(100) NOT NULL DEFAULT '',
+  `RFC` varchar(50) NOT NULL DEFAULT '',
+  `Telefono` varchar(100) NOT NULL DEFAULT '',
+  `Correo` varchar(100) NOT NULL DEFAULT '',
+  `Credito` float NOT NULL DEFAULT '0',
+  `DiasCred` float NOT NULL DEFAULT '0',
+  `Comisionista` varchar(255) NOT NULL DEFAULT '',
+  `Suspender` int(1) NOT NULL DEFAULT '0',
+  `Calle` varchar(255) NOT NULL DEFAULT '',
+  `Colonia` varchar(250) NOT NULL DEFAULT '',
+  `CP` varchar(50) NOT NULL DEFAULT '',
+  `Delegacion` varchar(250) NOT NULL DEFAULT '',
+  `Entidad` varchar(100) NOT NULL DEFAULT '',
+  `Pais` varchar(100) NOT NULL DEFAULT '',
+  `RegFis` varchar(255) NOT NULL DEFAULT '',
+  `NInterior` varchar(50) NOT NULL DEFAULT '',
+  `NExterior` varchar(50) NOT NULL DEFAULT '',
+  `CargadoAndroid` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `Id` int(11) NOT NULL,
+  `NumRemision` varchar(80) NOT NULL DEFAULT '',
+  `NumFactura` varchar(80) NOT NULL DEFAULT '',
+  `NumPedido` varchar(80) NOT NULL DEFAULT '',
+  `NotaCred` varchar(80) NOT NULL DEFAULT '',
+  `IdProv` int(11) NOT NULL DEFAULT '0',
+  `Proveedor` varchar(250) NOT NULL DEFAULT '',
+  `Sub1` float NOT NULL DEFAULT '0',
+  `Desc1` float NOT NULL DEFAULT '0',
+  `Sub2` float NOT NULL DEFAULT '0',
+  `IVA` float NOT NULL DEFAULT '0',
+  `Total` float NOT NULL DEFAULT '0',
+  `Desc2` float NOT NULL DEFAULT '0',
+  `IEPS` float NOT NULL DEFAULT '0',
+  `Pagar` float NOT NULL DEFAULT '0',
+  `ACuenta` float NOT NULL DEFAULT '0',
+  `Anticipo` float NOT NULL DEFAULT '0',
+  `Resta` float NOT NULL DEFAULT '0',
+  `FechaC` datetime NOT NULL,
+  `FechaP` date NOT NULL,
+  `FechaNC` varchar(80) NOT NULL DEFAULT '',
+  `Status` varchar(90) NOT NULL DEFAULT '',
+  `FechaCancela` varchar(80) NOT NULL DEFAULT '',
+  `Usuario` varchar(80) NOT NULL DEFAULT '',
+  `Corte` int(1) NOT NULL DEFAULT '0',
+  `CorteU` int(1) NOT NULL DEFAULT '0',
+  `Cargado` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comprasdet`
+--
+
+CREATE TABLE `comprasdet` (
+  `Id` int(11) NOT NULL,
+  `Id_Compra` int(11) NOT NULL DEFAULT '0',
+  `NumRemision` varchar(80) NOT NULL DEFAULT '',
+  `NumFactura` varchar(80) NOT NULL DEFAULT '',
+  `Proveedor` varchar(250) NOT NULL DEFAULT '',
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(250) NOT NULL DEFAULT '',
+  `UCompra` varchar(50) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Total` float NOT NULL DEFAULT '0',
+  `FechaC` datetime NOT NULL,
+  `Grupo` varchar(150) NOT NULL DEFAULT '',
+  `Depto` varchar(150) NOT NULL DEFAULT '',
+  `Caducidad` varchar(50) NOT NULL DEFAULT '',
+  `Lote` varchar(100) NOT NULL DEFAULT '',
+  `FolioRep` int(11) NOT NULL DEFAULT '0',
+  `NotaCred` varchar(80) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cortecaja`
+--
+
+CREATE TABLE `cortecaja` (
+  `Id` int(11) NOT NULL,
+  `NumCorte` int(11) NOT NULL DEFAULT '0',
+  `Saldo_Ini` float NOT NULL DEFAULT '0',
+  `Fecha` date NOT NULL,
+  `Saldo_Fin` float NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `corteusuario`
+--
+
+CREATE TABLE `corteusuario` (
+  `Id` int(11) NOT NULL,
+  `NumCorte` int(11) NOT NULL DEFAULT '0',
+  `Saldo_Ini` float NOT NULL DEFAULT '0',
+  `Calculo` float NOT NULL DEFAULT '0',
+  `Diferencia` float NOT NULL DEFAULT '0',
+  `Saldo_Fin` float NOT NULL DEFAULT '0',
+  `Usuario` varchar(250) NOT NULL DEFAULT '',
+  `Fecha` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cotped`
+--
+
+CREATE TABLE `cotped` (
+  `Folio` int(11) NOT NULL,
+  `IdCliente` int(11) NOT NULL DEFAULT '0',
+  `Cliente` varchar(250) NOT NULL DEFAULT '',
+  `Direccion` varchar(250) NOT NULL DEFAULT '',
+  `Subtotal` float NOT NULL DEFAULT '0',
+  `IVA` float NOT NULL DEFAULT '0',
+  `Totales` float NOT NULL DEFAULT '0',
+  `ACuenta` float NOT NULL DEFAULT '0',
+  `Resta` float NOT NULL DEFAULT '0',
+  `Usuario` varchar(50) NOT NULL DEFAULT '',
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL,
+  `Status` varchar(50) NOT NULL DEFAULT '',
+  `Tipo` varchar(50) NOT NULL DEFAULT '',
+  `Comentario` text NOT NULL,
+  `Formato` varchar(100) NOT NULL DEFAULT '',
+  `CargadoAndroid` int(1) NOT NULL DEFAULT '0',
+  `FolioAndroid` varchar(50) NOT NULL DEFAULT '',
+  `Descuento` float NOT NULL DEFAULT '0',
+  `FPago` date NOT NULL,
+  `PorcentajeDesc` float NOT NULL DEFAULT '0',
+  `MontoSinDesc` float NOT NULL DEFAULT '0',
+  `IP` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cotpeddet`
+--
+
+CREATE TABLE `cotpeddet` (
+  `Id` int(11) NOT NULL,
+  `Folio` int(11) NOT NULL DEFAULT '0',
+  `Codigo` varchar(50) NOT NULL DEFAULT '',
+  `Nombre` varchar(255) NOT NULL DEFAULT '',
+  `Cantidad` float NOT NULL DEFAULT '0',
+  `Unidad` varchar(50) NOT NULL DEFAULT '',
+  `CostoV` float NOT NULL DEFAULT '0',
+  `Precio` float NOT NULL DEFAULT '0',
+  `Total` float NOT NULL DEFAULT '0',
+  `PrecioSIVA` float NOT NULL DEFAULT '0',
+  `TotalSIVA` float NOT NULL DEFAULT '0',
+  `Fecha` datetime NOT NULL,
+  `Usuario` varchar(50) NOT NULL DEFAULT '',
+  `Depto` varchar(100) NOT NULL DEFAULT '',
+  `Grupo` varchar(100) NOT NULL DEFAULT '',
+  `CostVR` text NOT NULL,
+  `Tipo` varchar(50) NOT NULL DEFAULT '',
+  `Comisionista` varchar(100) NOT NULL DEFAULT '',
+  `Descuento` float DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cotpeddet`
+--
+
+INSERT INTO `cotpeddet` (`Id`, `Folio`, `Codigo`, `Nombre`, `Cantidad`, `Unidad`, `CostoV`, `Precio`, `Total`, `PrecioSIVA`, `TotalSIVA`, `Fecha`, `Usuario`, `Depto`, `Grupo`, `CostVR`, `Tipo`, `Comisionista`, `Descuento`) VALUES
+(1, 1, '000001', 'COCA COLA DE 355 ML', 1, 'PZA', 17.24, 23.2, 23.2, 20, 20, '2023-07-31 16:23:01', 'ADMIN', 'BEBIDAS', 'REFRESCO', '', 'PEDIDO', '', 0),
+(2, 2, '000001', 'COCA COLA DE 355 ML', 1, 'PZA', 17.24, 23.2, 23.2, 20, 20, '2023-08-01 10:52:23', 'ADMIN', 'BEBIDAS', 'REFRESCO', '', 'COTIZACION', '', 0),
+(3, 3, '000004', 'MANTECADAS DE NUEZ', 1, 'PZA', 25.86, 32, 32, 27.5862, 27.5862, '2023-08-01 10:55:03', 'ADMIN', 'BIMBO', 'BIMBO', '', 'COTIZACION', '', 0),
+(4, 4, '000002', 'ABRAZADERA  (14MM)  (27MM) PIEZA C-44257 FIERO', 1, 'PIEZA', 41.38, 11, 11, 9.48276, 9.48276, '2023-08-01 11:43:23', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(5, 4, '000004', 'ABRAZADERA 1/2 - 3/4  4 PIEZAS C-10030 TRUPER', 1, 'PIEZA', 7.53, 20, 20, 17.2414, 17.2414, '2023-08-01 11:43:24', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(6, 5, '000005', 'ABRAZADERA 1/2" (13MM) - 3/4" (19MM) FIERO C-44233 FIERO', 2, 'PIEZA', 75.14, 11, 22, 9.48276, 18.9655, '2023-08-01 12:38:30', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'COTIZACION', '', 0),
+(7, 6, '000015', 'ABRAZADERA 5/8" (16MM) - 7/8" (23MM) PIEZA C-44234 FIERO', 2, 'PIEZA', 83.32, 11, 22, 9.48276, 18.9655, '2023-08-01 12:38:56', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(8, 6, '000019', 'ABRAZADERA CONPLASA PVC 2" ', 5, 'PIEZA', 127.495, 49, 245, 42.2414, 211.207, '2023-08-01 12:38:56', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(9, 7, '000022', 'ABRAZADERA DE BRONCE PARA TOMA DE AGUA 1 1/2"', 1, 'PIEZA', 0, 276, 276, 237.931, 237.931, '2023-08-01 12:43:17', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'COTIZACION', '', 0),
+(10, 8, '000015', 'ABRAZADERA 5/8" (16MM) - 7/8" (23MM) PIEZA C-44234 FIERO', 2, 'PIEZA', 83.32, 11, 22, 9.48276, 18.9655, '2023-08-01 12:43:39', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(11, 8, '003528', 'LAMPARA RECARGABLE DE 5 LEDS C-24080 PRETUL', 2, 'PIEZA', 81.52, 83, 166, 71.5517, 143.103, '2023-08-01 12:43:39', 'ADMIN', 'FERRETERIA', 'LUMINARIAS', '', 'PEDIDO', '', 0),
+(12, 9, '000023', 'ABRAZADERA DE BRONCE PARA TOMA DE AGUA 2 1/2"', 2, 'PIEZA', 213.7, 10, 20, 8.62069, 17.2414, '2023-08-01 12:49:57', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'COTIZACION', '', 0),
+(13, 9, '002825', 'FOCO LUZ DE DIA  C-46844 VOLTECH', 2, 'PIEZA', 52.7, 44, 88, 37.931, 75.8621, '2023-08-01 12:49:57', 'ADMIN', 'FERRETERIA', 'LUMINARIA', '', 'COTIZACION', '', 0),
+(14, 9, '006602', 'VIAJE DE ARENA ROSA DE BONDOJITO (6M3)', 5, 'VJ', 0, 52, 260, 44.8276, 224.138, '2023-08-01 12:49:57', 'ADMIN', 'AGREGADOS', 'CONSTRUCCION', '', 'COTIZACION', '', 0),
+(15, 10, '000014', 'ABRAZADERA 5/8" (16MM) - 1 1/4 (32MM) PIEZA C-44236 FIERO', 2, 'PIEZA', 7.8, 11, 22, 9.48276, 18.9655, '2023-08-01 12:50:09', 'ADMIN', 'FERRETERIA', 'JARDINERIA', '', 'PEDIDO', '', 0),
+(16, 11, '</value>
+  </data>
+  <metadata name="BackgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+</root>

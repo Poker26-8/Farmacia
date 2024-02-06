@@ -1,0 +1,428 @@
+﻿Public Class frmPagoNomina
+    Private Sub frmPagoNomina_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        cbonombre.Focus().Equals(True)
+    End Sub
+
+    Private Sub cbonombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cbonombre.DropDown
+        cbonombre.Items.Clear()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Nombre from Usuarios order by Nombre"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then cbonombre.Items.Add(rd1(0).ToString())
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbonombre_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbonombre.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        lblid_usu.Text = rd1("IdEmpleado").ToString()
+                        dtpingreso.Value = rd1("Ingreso").ToString()
+                        txtarea.Text = rd1("Area").ToString()
+                        txtsueldo.Text = FormatNumber(IIf(rd1("Sueldo").ToString() = "", 0, rd1("Sueldo").ToString()), 2)
+                        txtpuesta.Text = rd1("Puesto").ToString()
+                        txtnss.Text = rd1("NSS").ToString()
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+            cbofolio.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub cbonombre_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbonombre.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Usuarios where Nombre='" & cbonombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    lblid_usu.Text = rd1("IdEmpleado").ToString()
+                    dtpingreso.Value = rd1("Ingreso").ToString()
+                    txtarea.Text = rd1("Area").ToString()
+                    txtsueldo.Text = FormatNumber(IIf(rd1("Sueldo").ToString() = "", 0, rd1("Sueldo").ToString()), 2)
+                    txtpuesta.Text = rd1("Puesto").ToString()
+                    txtnss.Text = rd1("NSS").ToString()
+                    txtsueldo.Text = FormatNumber(IIf(rd1("Sueldo").ToString() = "", 0, rd1("Sueldo").ToString()), 2)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbofolio_DropDown(sender As System.Object, e As System.EventArgs) Handles cbofolio.DropDown
+        cbofolio.Items.Clear()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select distinct Folio from SaldosEmpleados where Concepto='PRESTAMO' and Estado=0 and IdEmpleado=" & lblid_usu.Text
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then cbofolio.Items.Add(rd1(0).ToString())
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbofolio_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbofolio.SelectedValueChanged
+        Dim cargos As Double = 0
+        Dim abonos As Double = 0
+
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from SaldosEmpleados where Folio=" & cbofolio.Text & " and IdEmpleado=" & lblid_usu.Text
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+                    cargos = cargos + IIf(rd1("Cargo").ToString() = "", 0, rd1("Cargo").ToString())
+                    abonos = abonos + IIf(rd1("Abono").ToString() = "", 0, rd1("Abono").ToString())
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+
+            txtsaldo.Text = FormatNumber(cargos - abonos, 2)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub txtmonto_Click(sender As Object, e As System.EventArgs) Handles txtmonto.Click
+        txtmonto.SelectionStart = 0
+        txtmonto.SelectionLength = Len(txtmonto.Text)
+    End Sub
+
+    Private Sub txtmonto_GotFocus(sender As Object, e As System.EventArgs) Handles txtmonto.GotFocus
+        txtmonto.SelectionStart = 0
+        txtmonto.SelectionLength = Len(txtmonto.Text)
+    End Sub
+
+    Private Sub txtmonto_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtmonto.TextChanged
+        If txtmonto.Text = "" Then Exit Sub
+        If txtsueldo.Text = "" Then Exit Sub
+        If txthoras.Text = "" Then Exit Sub
+        If txtotros_p.Text = "" Then Exit Sub
+        If txtotros_d.Text = "" Then Exit Sub
+        If txtsueldo_neta.Text = "" Then Exit Sub
+        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) + CDbl(txtotros_d.Text)
+        txtsueldo_neta.Text = FormatNumber(txtsueldo_neta.Text, 2)
+    End Sub
+
+    Private Sub txtmonto_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtmonto.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtmonto.Text = "" Then txtmonto.Text = "0.00"
+            txthoras.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub cbofolio_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbofolio.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If cbofolio.Text = "" Then txthoras.Focus().Equals(True) : Exit Sub
+            Dim cargos As Double = 0
+            Dim abonos As Double = 0
+
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from SaldosEmpleados where Folio=" & cbofolio.Text & " and IdEmpleado=" & lblid_usu.Text
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        cargos = cargos + IIf(rd1("Cargo").ToString() = "", 0, rd1("Cargo").ToString())
+                        abonos = abonos + IIf(rd1("Abono").ToString() = "", 0, rd1("Abono").ToString())
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
+                txtsaldo.Text = FormatNumber(cargos - abonos, 2)
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub txthoras_Click(sender As System.Object, e As System.EventArgs) Handles txthoras.Click
+        txthoras.SelectionStart = 0
+        txthoras.SelectionLength = Len(txthoras.Text)
+    End Sub
+
+    Private Sub txthoras_GotFocus(sender As Object, e As System.EventArgs) Handles txthoras.GotFocus
+        txthoras.SelectionStart = 0
+        txthoras.SelectionLength = Len(txthoras.Text)
+    End Sub
+
+    Private Sub txthoras_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txthoras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txthoras.Text = "" Then txthoras.Text = "0.00" : Exit Sub
+            txtotros_p.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txthoras_TextChanged(sender As Object, e As System.EventArgs) Handles txthoras.TextChanged
+        If txtmonto.Text = "" Then Exit Sub
+        If txtsueldo.Text = "" Then Exit Sub
+        If txthoras.Text = "" Then Exit Sub
+        If txtotros_p.Text = "" Then Exit Sub
+        If txtotros_d.Text = "" Then Exit Sub
+        If txtsueldo_neta.Text = "" Then Exit Sub
+        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) + CDbl(txtotros_d.Text)
+        txtsueldo_neta.Text = FormatNumber(txtsueldo_neta.Text, 2)
+    End Sub
+
+    Private Sub txtotros_p_Click(sender As System.Object, e As System.EventArgs) Handles txtotros_p.Click
+        txtotros_p.SelectionStart = 0
+        txtotros_p.SelectionLength = Len(txtotros_p.Text)
+    End Sub
+
+    Private Sub txtotros_p_GotFocus(sender As Object, e As System.EventArgs) Handles txtotros_p.GotFocus
+        txtotros_p.SelectionStart = 0
+        txtotros_p.SelectionLength = Len(txtotros_p.Text)
+    End Sub
+
+    Private Sub txtotros_p_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtotros_p.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtotros_p.Text = "" Then txtotros_p.Text = "0.00" : Exit Sub
+            txtotros_d.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtotros_p_TextChanged(sender As Object, e As System.EventArgs) Handles txtotros_p.TextChanged
+        If txtmonto.Text = "" Then Exit Sub
+        If txtsueldo.Text = "" Then Exit Sub
+        If txthoras.Text = "" Then Exit Sub
+        If txtotros_p.Text = "" Then Exit Sub
+        If txtotros_d.Text = "" Then Exit Sub
+        If txtsueldo_neta.Text = "" Then Exit Sub
+        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) + CDbl(txtotros_d.Text)
+        txtsueldo_neta.Text = FormatNumber(txtsueldo_neta.Text, 2)
+    End Sub
+
+    Private Sub txtotros_d_Click(sender As System.Object, e As System.EventArgs) Handles txtotros_d.Click
+        txtotros_d.SelectionStart = 0
+        txtotros_d.SelectionLength = Len(txtotros_d.Text)
+    End Sub
+
+    Private Sub txtotros_d_GotFocus(sender As Object, e As System.EventArgs) Handles txtotros_d.GotFocus
+        txtotros_d.SelectionStart = 0
+        txtotros_d.SelectionLength = Len(txtotros_d.Text)
+    End Sub
+
+    Private Sub txtotros_d_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtotros_d.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtotros_d.Text = "" Then txtotros_d.Text = "0.00" : Exit Sub
+            dtpdesde.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtotros_d_TextChanged(sender As Object, e As System.EventArgs) Handles txtotros_d.TextChanged
+        If txtmonto.Text = "" Then Exit Sub
+        If txtsueldo.Text = "" Then Exit Sub
+        If txthoras.Text = "" Then Exit Sub
+        If txtotros_p.Text = "" Then Exit Sub
+        If txtotros_d.Text = "" Then Exit Sub
+        If txtsueldo_neta.Text = "" Then Exit Sub
+        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) + CDbl(txtotros_d.Text)
+        txtsueldo_neta.Text = FormatNumber(txtsueldo_neta.Text, 2)
+    End Sub
+
+    Private Sub dtpdesde_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles dtpdesde.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            dtphasta.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub dtphasta_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles dtphasta.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnguardar.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtcontraseña_Click(sender As System.Object, e As System.EventArgs) Handles txtcontraseña.Click
+        txtcontraseña.SelectionStart = 0
+        txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
+    End Sub
+
+    Private Sub txtcontraseña_GotFocus(sender As Object, e As System.EventArgs) Handles txtcontraseña.GotFocus
+        txtcontraseña.SelectionStart = 0
+        txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
+    End Sub
+
+    Private Sub txtcontraseña_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcontraseña.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        lblusuario.Text = rd1("Alias").ToString()
+                        btnguardar.Focus().Equals(True)
+                    End If
+                Else
+                    MsgBox("No se encuentra el usuario, revisa la contraseña.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus().Equals(True) : Exit Sub
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnguardar_Click(sender As System.Object, e As System.EventArgs) Handles btnguardar.Click
+        If cbotipo.Text = "" Then MsgBox("Selecciona el tipo de movimiento para guardar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbotipo.Focus().Equals(True) : Exit Sub
+        If cbonombre.Text = "" Then MsgBox("Selecciona un usuario para guardar el movimiento.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbonombre.Focus().Equals(True) : Exit Sub
+        If lblid_usu.Text = "" Then MsgBox("Selecciona un registro del catálogo de empleados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbonombre.Focus().Equals(True) : Exit Sub
+        If CDbl(txtmonto.Text) > 0 And cbofolio.Text = "" Then MsgBox("No puedes asignar un descuento sin seleccionar un folio del mismo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
+        If cbofolio.Text <> "" And CDbl(txtmonto.Text) <= 0 Then MsgBox("El monto descontado no puede ser 0.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtmonto.Focus().Equals(True) : Exit Sub
+        If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña paara guardar el movimiento.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus().Equals(True) : Exit Sub
+        If CDbl(txtmonto.Text) > CDbl(txtsaldo.Text) Then MsgBox("El monto descontado no puede ser mayor al restante del préstamo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtmonto.Focus().Equals(True) : Exit Sub
+        If CDbl(txtsueldo_neta.Text) <= 0 Then MsgBox("No puede guardar el movimiento sin un saldo neto mayor a 0.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txthoras.Focus().Equals(True) : Exit Sub
+        If ValidaPermisos(lblusuario.Text, "Egr_Nom") = False Then MsgBox("No cuentas con permisos para realizar este movimiento.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus().Equals(True) : Exit Sub
+
+        If MsgBox("¿Deseas guardar este movimiento de nómina?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                If cbofolio.Text <> "" Then
+                    Dim cargos As Double = 0
+                    Dim abonos As Double = 0
+                    Dim resta As Double = 0
+
+                    Dim acuenta As Double = txtmonto.Text
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select * from SaldosEmpleados where Folio=" & cbofolio.Text & " and IdEmpleado=" & lblid_usu.Text
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then
+                            cargos = cargos + CDbl(IIf(rd1("Cargo").ToString() = "", 0, rd1("Cargo").ToString()))
+                            abonos = abonos + CDbl(IIf(rd1("Abono").ToString() = "", 0, rd1("Abono").ToString()))
+                        End If
+                    Loop
+                    rd1.Close()
+
+                    resta = cargos - abonos
+                    If acuenta > resta Then
+                        MsgBox("El monto descontado no puede ser mayor al restante del préstamo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtmonto.Focus().Equals(True) : cnn1.Close() : Exit Sub
+                    ElseIf acuenta = resta Then
+                        'inserta pago y pone estado en 0
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into SaldosEmpleados(Folio,IdEmpleado,Nombre,Fecha,FechaPago,FechaPagado,Cargo,Abono,Tipo,Concepto,Monto,Nota,Usuario,Corte,CorteU,Estado) values(" & cbofolio.Text & "," & lblid_usu.Text & ",'" & cbonombre.Text & "','" & Date.Now & "','" & Date.Now & "','',0," & CDbl(txtmonto.Text) & ",'" & cbotipo.Text & "','COBRO'," & CDbl(txtmonto.Text) & ",'DESCUENTO POR NÓMINA','" & lblusuario.Text & "',0,0)"
+                        cmd1.ExecuteNonQuery()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update SaldosEmpleados set Estado=1, FechaPagado='" & Date.Now & "' where Folio=" & cbofolio.Text & " and Concepto='PRESTAMO' and IdEmpleado=" & lblid_usu.Text
+                        cmd1.ExecuteNonQuery()
+                    ElseIf acuenta < resta Then
+                        'inserta pago
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into SaldosEmpleados(Folio,IdEmpleado,Nombre,Fecha,FechaPago,FechaPagado,Cargo,Abono,Tipo,Concepto,Monto,Nota,Usuario,Corte,CorteU,Estado) values(" & cbofolio.Text & "," & lblid_usu.Text & ",'" & cbonombre.Text & "','" & Date.Now & "','" & Date.Now & "','',0," & CDbl(txtmonto.Text) & ",'" & cbotipo.Text & "','COBRO'," & CDbl(txtmonto.Text) & ",'DESCUENTO POR NÓMINA','" & lblusuario.Text & "',0,0,0)"
+                        cmd1.ExecuteNonQuery()
+                    End If
+                End If
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into Nomina(IdEmpleado,Nombre,Area,Puesto,Fecha,Sueldo,Descuento,Horas,OtrosD,OtrosP,SueldoNeto,Desde,Hasta,Usuario,Corte,CorteU) values(" & lblid_usu.Text & ",'" & cbonombre.Text & "','" & txtarea.Text & "','" & txtpuesta.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & CDbl(txtsueldo.Text) & "," & CDbl(txtmonto.Text) & "," & CDbl(txthoras.Text) & "," & CDbl(txtotros_d.Text) & "," & CDbl(txtotros_p.Text) & "," & CDbl(txtsueldo_neta.Text) & ",'" & Format(dtpdesde.Value, "yyyy-MM-dd") & "','" & Format(dtphasta.Value, "yyyy-MM-dd") & "','" & lblusuario.Text & "',0,0)"
+                If cmd1.ExecuteNonQuery Then
+                    MsgBox("Movimiento de nómina registrado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    btnnuevo.PerformClick()
+                End If
+
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub cbotipo_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cbotipo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cbonombre.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
+        cbotipo.Items.Clear()
+        cbotipo.Text = ""
+        txtcontraseña.Text = ""
+        lblusuario.Text = ""
+        cbonombre.Items.Clear()
+        cbonombre.Text = ""
+        txtarea.Text = ""
+        txtpuesta.Text = ""
+        txtsueldo.Text = "0.00"
+        txtnss.Text = ""
+        cbofolio.Items.Clear()
+        cbofolio.Text = ""
+        txtmonto.Text = "0.00"
+        txtsaldo.Text = "0.00"
+        lblid_usu.Text = ""
+        txthoras.Text = "0.00"
+        txtotros_p.Text = "0.00"
+        txtotros_d.Text = "0.00"
+        txtsueldo_neta.Text = "0.00"
+        dtpdesde.Value = Date.Now
+        dtphasta.Value = Date.Now
+    End Sub
+
+    Private Sub cbotipo_DropDown(sender As System.Object, e As System.EventArgs) Handles cbotipo.DropDown
+        cbotipo.Items.Clear()
+        cbotipo.Items.Add("ADMINISTRACION")
+        cbotipo.Items.Add("OPERACION")
+        cbotipo.Items.Add("VENTAS")
+    End Sub
+End Class
