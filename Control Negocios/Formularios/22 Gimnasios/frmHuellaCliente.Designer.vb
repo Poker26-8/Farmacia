@@ -73,7 +73,7 @@ Partial Class frmHuellaCliente
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
@@ -115,7 +115,7 @@ Partial Class frmHuellaCliente
         '
         'btnguardar
         '
-        Me.btnguardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnguardar.BackColor = System.Drawing.Color.White
         Me.btnguardar.Enabled = False
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -131,7 +131,7 @@ Partial Class frmHuellaCliente
         '
         'btnlimpiar
         '
-        Me.btnlimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnlimpiar.BackColor = System.Drawing.Color.White
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
@@ -185,7 +185,7 @@ Partial Class frmHuellaCliente
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
@@ -218,6 +218,7 @@ Partial Class frmHuellaCliente
         Me.Controls.Add(Me.picHuella)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button3)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(448, 429)
         Me.MinimumSize = New System.Drawing.Size(448, 429)
         Me.Name = "frmHuellaCliente"

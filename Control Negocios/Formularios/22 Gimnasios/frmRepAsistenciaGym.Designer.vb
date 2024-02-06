@@ -63,6 +63,7 @@ Partial Class frmRepAsistenciaGym
         '
         'Button3
         '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button3.Location = New System.Drawing.Point(688, 555)
@@ -76,11 +77,12 @@ Partial Class frmRepAsistenciaGym
         'btnexportar
         '
         Me.btnexportar.BackColor = System.Drawing.Color.White
+        Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnexportar.Image = CType(resources.GetObject("btnexportar.Image"), System.Drawing.Image)
         Me.btnexportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnexportar.Location = New System.Drawing.Point(607, 557)
+        Me.btnexportar.Location = New System.Drawing.Point(595, 557)
         Me.btnexportar.Name = "btnexportar"
-        Me.btnexportar.Size = New System.Drawing.Size(74, 79)
+        Me.btnexportar.Size = New System.Drawing.Size(86, 79)
         Me.btnexportar.TabIndex = 82
         Me.btnexportar.Text = "EXPORTAR"
         Me.btnexportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -89,9 +91,10 @@ Partial Class frmRepAsistenciaGym
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(527, 557)
+        Me.Button1.Location = New System.Drawing.Point(514, 557)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(74, 79)
         Me.Button1.TabIndex = 81

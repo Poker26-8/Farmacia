@@ -83,9 +83,10 @@ Partial Class frmRenovacion
         '
         'Button3
         '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(588, 312)
+        Me.Button3.Location = New System.Drawing.Point(576, 312)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(74, 79)
         Me.Button3.TabIndex = 128
@@ -190,7 +191,7 @@ Partial Class frmRenovacion
         Me.txtservicio.FormattingEnabled = True
         Me.txtservicio.Location = New System.Drawing.Point(144, 312)
         Me.txtservicio.Name = "txtservicio"
-        Me.txtservicio.Size = New System.Drawing.Size(278, 28)
+        Me.txtservicio.Size = New System.Drawing.Size(266, 28)
         Me.txtservicio.TabIndex = 124
         '
         'lblfin
@@ -235,15 +236,16 @@ Partial Class frmRenovacion
         Me.txtcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcliente.Location = New System.Drawing.Point(144, 269)
         Me.txtcliente.Name = "txtcliente"
-        Me.txtcliente.Size = New System.Drawing.Size(278, 26)
+        Me.txtcliente.Size = New System.Drawing.Size(266, 26)
         Me.txtcliente.TabIndex = 119
         '
         'btnlimpiar
         '
         Me.btnlimpiar.BackColor = System.Drawing.Color.White
+        Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
         Me.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnlimpiar.Location = New System.Drawing.Point(508, 312)
+        Me.btnlimpiar.Location = New System.Drawing.Point(496, 312)
         Me.btnlimpiar.Name = "btnlimpiar"
         Me.btnlimpiar.Size = New System.Drawing.Size(74, 79)
         Me.btnlimpiar.TabIndex = 118
@@ -254,9 +256,10 @@ Partial Class frmRenovacion
         'btnguardar
         '
         Me.btnguardar.BackColor = System.Drawing.Color.White
+        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(428, 312)
+        Me.btnguardar.Location = New System.Drawing.Point(416, 312)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(74, 79)
         Me.btnguardar.TabIndex = 117
