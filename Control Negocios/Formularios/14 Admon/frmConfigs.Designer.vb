@@ -289,6 +289,7 @@ Partial Class frmConfigs
         Me.chkSeries = New System.Windows.Forms.CheckBox()
         Me.chkCodAuto = New System.Windows.Forms.CheckBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.chkImg_PDF = New System.Windows.Forms.CheckBox()
         Me.chkFranquicia = New System.Windows.Forms.CheckBox()
         Me.chkDesc_Ventas = New System.Windows.Forms.CheckBox()
         Me.chkDesglosa = New System.Windows.Forms.CheckBox()
@@ -317,7 +318,6 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.chkImg_PDF = New System.Windows.Forms.CheckBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2085,19 +2085,19 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
         '
         'cbOrdenEntrega
         '
-        Me.cbOrdenEntrega.Location = New System.Drawing.Point(283, 328)
+        Me.cbOrdenEntrega.Location = New System.Drawing.Point(283, 345)
         Me.cbOrdenEntrega.Name = "cbOrdenEntrega"
-        Me.cbOrdenEntrega.Size = New System.Drawing.Size(189, 17)
+        Me.cbOrdenEntrega.Size = New System.Drawing.Size(187, 26)
         Me.cbOrdenEntrega.TabIndex = 15
         Me.cbOrdenEntrega.Text = "Imprimir Orden de Entrega"
         Me.cbOrdenEntrega.UseVisualStyleBackColor = True
@@ -3066,9 +3066,9 @@ Partial Class frmConfigs
         Me.TabPage1.Controls.Add(Me.boxCosteo)
         Me.TabPage1.Controls.Add(Me.GroupBox23)
         Me.TabPage1.Controls.Add(Me.GroupBox9)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 58)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(478, 457)
+        Me.TabPage1.Size = New System.Drawing.Size(478, 463)
         Me.TabPage1.TabIndex = 7
         Me.TabPage1.Text = "Funcionalidades"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -3286,6 +3286,17 @@ Partial Class frmConfigs
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Adaptables"
         '
+        'chkImg_PDF
+        '
+        Me.chkImg_PDF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkImg_PDF.Location = New System.Drawing.Point(8, 184)
+        Me.chkImg_PDF.Name = "chkImg_PDF"
+        Me.chkImg_PDF.Size = New System.Drawing.Size(203, 19)
+        Me.chkImg_PDF.TabIndex = 9
+        Me.chkImg_PDF.Text = "Imágenes en PDF"
+        Me.chkImg_PDF.UseVisualStyleBackColor = True
+        '
         'chkFranquicia
         '
         Me.chkFranquicia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -3367,9 +3378,9 @@ Partial Class frmConfigs
         Me.tabMigracion.Controls.Add(Me.chkProductos)
         Me.tabMigracion.Controls.Add(Me.Label72)
         Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 64)
+        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
         Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 457)
+        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
         Me.tabMigracion.TabIndex = 8
         Me.tabMigracion.Text = "Migración de datos"
         Me.tabMigracion.UseVisualStyleBackColor = True
@@ -3521,7 +3532,7 @@ Partial Class frmConfigs
         Me.Label76.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label76.Location = New System.Drawing.Point(92, 83)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(311, 32)
+        Me.Label76.Size = New System.Drawing.Size(310, 32)
         Me.Label76.TabIndex = 27
         Me.Label76.Text = "Configuración de Accesos"
         '
@@ -3581,17 +3592,6 @@ Partial Class frmConfigs
         Me.Label78.Size = New System.Drawing.Size(143, 21)
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
-        '
-        'chkImg_PDF
-        '
-        Me.chkImg_PDF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkImg_PDF.Location = New System.Drawing.Point(8, 184)
-        Me.chkImg_PDF.Name = "chkImg_PDF"
-        Me.chkImg_PDF.Size = New System.Drawing.Size(203, 19)
-        Me.chkImg_PDF.TabIndex = 9
-        Me.chkImg_PDF.Text = "Imágenes en PDF"
-        Me.chkImg_PDF.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '

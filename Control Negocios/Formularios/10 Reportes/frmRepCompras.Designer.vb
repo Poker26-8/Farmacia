@@ -36,6 +36,8 @@ Partial Class frmRepCompras
         Me.Label1 = New System.Windows.Forms.Label()
         Me.optabonosprove = New System.Windows.Forms.RadioButton()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.cms1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EliminarCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnreporte = New System.Windows.Forms.Button()
         Me.btnexportar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -44,8 +46,6 @@ Partial Class frmRepCompras
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.optnotascredprov = New System.Windows.Forms.RadioButton()
         Me.optconcentrado = New System.Windows.Forms.RadioButton()
-        Me.cms1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EliminarCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cms1.SuspendLayout()
         Me.SuspendLayout()
@@ -180,6 +180,19 @@ Partial Class frmRepCompras
         Me.grdcaptura.Size = New System.Drawing.Size(958, 255)
         Me.grdcaptura.TabIndex = 73
         '
+        'cms1
+        '
+        Me.cms1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarCompraToolStripMenuItem})
+        Me.cms1.Name = "cms1"
+        Me.cms1.Size = New System.Drawing.Size(162, 26)
+        '
+        'EliminarCompraToolStripMenuItem
+        '
+        Me.EliminarCompraToolStripMenuItem.BackColor = System.Drawing.Color.White
+        Me.EliminarCompraToolStripMenuItem.Name = "EliminarCompraToolStripMenuItem"
+        Me.EliminarCompraToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.EliminarCompraToolStripMenuItem.Text = "Eliminar compra"
+        '
         'btnreporte
         '
         Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -277,19 +290,6 @@ Partial Class frmRepCompras
         Me.optconcentrado.TabStop = True
         Me.optconcentrado.Text = "Productos recibidos (concentrado)"
         Me.optconcentrado.UseVisualStyleBackColor = True
-        '
-        'cms1
-        '
-        Me.cms1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarCompraToolStripMenuItem})
-        Me.cms1.Name = "cms1"
-        Me.cms1.Size = New System.Drawing.Size(181, 48)
-        '
-        'EliminarCompraToolStripMenuItem
-        '
-        Me.EliminarCompraToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.EliminarCompraToolStripMenuItem.Name = "EliminarCompraToolStripMenuItem"
-        Me.EliminarCompraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EliminarCompraToolStripMenuItem.Text = "Eliminar compra"
         '
         'frmRepCompras
         '
