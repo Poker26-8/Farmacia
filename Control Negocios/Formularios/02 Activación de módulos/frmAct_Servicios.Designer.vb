@@ -31,6 +31,7 @@ Partial Class frmAct_Servicios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,9 +48,10 @@ Partial Class frmAct_Servicios
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(312, 184)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(409, 92)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(91, 47)
+        Me.Button1.Size = New System.Drawing.Size(113, 47)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = "Activar módulo"
         Me.Button1.UseVisualStyleBackColor = False
@@ -113,17 +115,30 @@ Partial Class frmAct_Servicios
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(417, 44)
+        Me.Label1.Size = New System.Drawing.Size(529, 44)
         Me.Label1.TabIndex = 32
         Me.Label1.Text = "Módulo de control de servicios"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesactivar.Location = New System.Drawing.Point(409, 145)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
+        Me.btnDesactivar.TabIndex = 39
+        Me.btnDesactivar.Text = "Desactivar módulo"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
         '
         'frmAct_Servicios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(417, 239)
+        Me.ClientSize = New System.Drawing.Size(529, 239)
+        Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
@@ -132,8 +147,8 @@ Partial Class frmAct_Servicios
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(433, 278)
-        Me.MinimumSize = New System.Drawing.Size(433, 278)
+        Me.MaximumSize = New System.Drawing.Size(545, 278)
+        Me.MinimumSize = New System.Drawing.Size(545, 278)
         Me.Name = "frmAct_Servicios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Módulo de control de servicios"
@@ -151,4 +166,5 @@ Partial Class frmAct_Servicios
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnDesactivar As Button
 End Class

@@ -31,6 +31,7 @@ Partial Class frmAct_Asistencia
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class frmAct_Asistencia
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(465, 66)
+        Me.Label1.Size = New System.Drawing.Size(582, 66)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Monitorea la asistencia de tus empleados en tu negocio"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -50,7 +51,8 @@ Partial Class frmAct_Asistencia
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(341, 197)
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(460, 105)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(113, 47)
         Me.Button1.TabIndex = 12
@@ -112,17 +114,30 @@ Partial Class frmAct_Asistencia
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(182, 227)
+        Me.Label5.Location = New System.Drawing.Point(341, 201)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(153, 19)
+        Me.Label5.Size = New System.Drawing.Size(113, 19)
         Me.Label5.TabIndex = 13
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesactivar.Location = New System.Drawing.Point(460, 158)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
+        Me.btnDesactivar.TabIndex = 22
+        Me.btnDesactivar.Text = "Desactivar módulo"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
         '
         'frmAct_Asistencia
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(465, 253)
+        Me.ClientSize = New System.Drawing.Size(582, 232)
+        Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
@@ -133,7 +148,9 @@ Partial Class frmAct_Asistencia
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(598, 271)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(598, 271)
         Me.Name = "frmAct_Asistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Módulo de asistencia"
@@ -152,4 +169,5 @@ Partial Class frmAct_Asistencia
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents btnDesactivar As Button
 End Class

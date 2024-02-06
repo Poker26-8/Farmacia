@@ -19,94 +19,94 @@
 
     Private Sub frmModulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Carga las activaciones realizadas
-        Try
-            cnn1.Close() : cnn1.Open()
+        ' Try
+        'cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Mod_Asis'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        Button1.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Mod_Asis'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NumPart").ToString() = 1 Then
+        '            Button1.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Gimnasio'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NotasCred").ToString() = 1 Then
-                        Button6.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Gimnasio'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NotasCred").ToString() = 1 Then
+        '            Button6.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Mod_Comp'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        Button3.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Mod_Comp'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NumPart").ToString() = 1 Then
+        '            Button3.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Entregas'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        Button2.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Entregas'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NumPart").ToString() = 1 Then
+        '            Button2.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Papos'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        Button7.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Control_Servicios'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        btncontrol_servicios.Enabled = False
-                    End If
-                End If
-            End If
-            rd1.Close()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Papos'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NumPart").ToString() = 1 Then
+        '            Button7.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
 
 
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText =
+        '    "select * from Formatos where Facturas='Control_Servicios'"
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+        '        If rd1("NumPart").ToString() = 1 Then
+        '            btncontrol_servicios.Enabled = False
+        '        End If
+        '    End If
+        'End If
+        'rd1.Close()
+
+
+        '    cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString())
+        '    cnn1.Close()
+        'End Try
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click

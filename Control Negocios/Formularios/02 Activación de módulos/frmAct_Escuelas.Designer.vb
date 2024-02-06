@@ -30,17 +30,18 @@ Partial Class frmAct_Escuelas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(337, 196)
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(496, 75)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(127, 36)
+        Me.Button1.Size = New System.Drawing.Size(113, 36)
         Me.Button1.TabIndex = 13
         Me.Button1.Text = "Activar módulo"
         Me.Button1.UseVisualStyleBackColor = False
@@ -50,7 +51,7 @@ Partial Class frmAct_Escuelas
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 200)
+        Me.Label4.Location = New System.Drawing.Point(8, 198)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(165, 19)
         Me.Label4.TabIndex = 12
@@ -61,7 +62,7 @@ Partial Class frmAct_Escuelas
         Me.txtcontra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtcontra.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtcontra.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontra.Location = New System.Drawing.Point(179, 196)
+        Me.txtcontra.Location = New System.Drawing.Point(179, 194)
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtcontra.Size = New System.Drawing.Size(139, 27)
@@ -70,14 +71,13 @@ Partial Class frmAct_Escuelas
         '
         'Panel1
         '
-        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Location = New System.Drawing.Point(12, 76)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(452, 114)
+        Me.Panel1.Size = New System.Drawing.Size(478, 112)
         Me.Panel1.TabIndex = 10
         '
         'Label3
@@ -87,7 +87,7 @@ Partial Class frmAct_Escuelas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.Location = New System.Drawing.Point(8, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(433, 94)
+        Me.Label3.Size = New System.Drawing.Size(459, 92)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = resources.GetString("Label3.Text")
         '
@@ -96,7 +96,7 @@ Partial Class frmAct_Escuelas
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 54)
+        Me.Label2.Location = New System.Drawing.Point(12, 52)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(321, 19)
         Me.Label2.TabIndex = 9
@@ -109,16 +109,29 @@ Partial Class frmAct_Escuelas
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(476, 46)
+        Me.Label1.Size = New System.Drawing.Size(619, 46)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Facilitamos tu control escolar"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesactivar.Location = New System.Drawing.Point(496, 117)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
+        Me.btnDesactivar.TabIndex = 22
+        Me.btnDesactivar.Text = "Desactivar módulo"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
         '
         'frmAct_Escuelas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(476, 244)
+        Me.ClientSize = New System.Drawing.Size(619, 242)
+        Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtcontra)
@@ -128,7 +141,9 @@ Partial Class frmAct_Escuelas
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(635, 281)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(635, 281)
         Me.Name = "frmAct_Escuelas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Módulo de control escolar"
@@ -146,4 +161,5 @@ Partial Class frmAct_Escuelas
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnDesactivar As Button
 End Class

@@ -49,7 +49,7 @@ Partial Class frmAct_Restaurantes
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(458, 148)
+        Me.Button1.Location = New System.Drawing.Point(458, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(113, 47)
         Me.Button1.TabIndex = 19
@@ -123,7 +123,7 @@ Partial Class frmAct_Restaurantes
         Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesactivar.Location = New System.Drawing.Point(458, 95)
+        Me.btnDesactivar.Location = New System.Drawing.Point(458, 156)
         Me.btnDesactivar.Name = "btnDesactivar"
         Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
         Me.btnDesactivar.TabIndex = 21
