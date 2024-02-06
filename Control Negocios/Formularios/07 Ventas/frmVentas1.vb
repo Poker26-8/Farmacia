@@ -3514,6 +3514,7 @@ Public Class frmVentas1
             txtCambio.Text = "0.00"
         End If
         txtResta.Text = txtPagar.Text
+        txtcant_productos.Text = txtcant_productos.Text - CantDX
         Call cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(Chr(Keys.Enter)))
 
     End Sub
@@ -4045,6 +4046,7 @@ Public Class frmVentas1
         cboNombre.Items.Clear()
         cbonombretag = ""
         txtdireccion.Text = ""
+        txtcant_productos.Text = "0"
 
         txtMonedero.Text = ""
         lblmonedero.BackColor = Color.White
