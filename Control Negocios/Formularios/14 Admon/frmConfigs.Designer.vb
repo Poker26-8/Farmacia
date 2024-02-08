@@ -2099,7 +2099,7 @@ Partial Class frmConfigs
         Me.cbOrdenEntrega.Name = "cbOrdenEntrega"
         Me.cbOrdenEntrega.Size = New System.Drawing.Size(187, 26)
         Me.cbOrdenEntrega.TabIndex = 15
-        Me.cbOrdenEntrega.Text = "Imprimir Orden de Entregaa"
+        Me.cbOrdenEntrega.Text = "Imprimir Orden de Entrega"
         Me.cbOrdenEntrega.UseVisualStyleBackColor = True
         '
         'GroupBox25
