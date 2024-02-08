@@ -2431,6 +2431,7 @@ Public Class frmConsultaNotas
                 If VaDe = "CANCELA" Then
                     btnCancela.Focus().Equals(True)
                 End If
+                cbofolio.Focus.Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()

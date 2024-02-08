@@ -678,6 +678,7 @@ Partial Class frmVentas1
         Me.txtcontraseña.TabIndex = 12
         Me.txtcontraseña.Text = "CONTRASEÑA"
         Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtcontraseña.UseSystemPasswordChar = True
         '
         'dtpFecha_E
         '
