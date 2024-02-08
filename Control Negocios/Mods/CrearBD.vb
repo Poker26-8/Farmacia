@@ -1,5 +1,44 @@
 ﻿Module CrearBD
 
+    'clienteeliminado
+    Public vartablaclienteeliminado As String = "CREATE TABLE `clienteeliminado` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Nombre` varchar(50) DEFAULT '',
+                                                  `CargadoAndroid` int(11) DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'productoeliminado
+    Public vartablaproductoeliminado As String = "CREATE TABLE `productoeliminado` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(255) NOT NULL DEFAULT '',
+                                                  `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'pedidostemporal
+    Public vartablapedidostemporal As String = "CREATE TABLE `pedidostemporal` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `IdNube` int(11) NOT NULL DEFAULT '0',
+                                                  `IdPedido` int(11) NOT NULL DEFAULT '0',
+                                                  `IdVenta` int(11) NOT NULL DEFAULT '0',
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `Descripcion` varchar(255) NOT NULL DEFAULT '',
+                                                  `Cantidad` float NOT NULL DEFAULT '0',
+                                                  `Precio` float NOT NULL DEFAULT '0',
+                                                  `FechaHora` varchar(50) NOT NULL DEFAULT '',
+                                                  `Usuario` varchar(50) NOT NULL DEFAULT '',
+                                                  `FVenta` varchar(50) NOT NULL DEFAULT ''
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'pedidoseliminados
+
+    Public vartablaPedidoEliminado As String = "CREATE TABLE `pedidoeliminado` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `IdPedido` varchar(50) NOT NULL DEFAULT '',
+                                                  `IdPedidoA` varchar(50) NOT NULL DEFAULT '',
+                                                  `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'detalle_nomina
     Public vartabladetallenomina As String = "CREATE TABLE `detalle_nomina` (
                                                   `Id_detalle` int(11) NOT NULL,
@@ -1466,7 +1505,8 @@
                                                 ('65','Control_Servicios', '0', 0),
                                                 ('66','Whatsapp', '0', 0),
                                                 ('67','Produccion', '0', 0),
-                                                ('68','LinkAuto', '0', 0);"
+                                                ('68','LinkAuto', '0', 0),
+                                                ('69','ActuClientesNube', '0', 0);"
 
 
 
@@ -2223,11 +2263,13 @@
                                               `Ad_Cort` int(1) NOT NULL DEFAULT '0',
                                               `Ad_Cli` int(1) NOT NULL DEFAULT '0',
                                               `Desocupar` int(1) NOT NULL DEFAULT '0',
-                                              `Cambiar` int(1) NOT NULL DEFAULT '0'
+                                              `Cambiar` int(1) NOT NULL DEFAULT '0',
+                                              `ReimprimirApp` int(1) NOT NULL DEFAULT '0',
+                                              `CobAboRem` int(1) NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
-    Public varinsertapermisos As String = "INSERT INTO `permisos` (`Id`, `IdEmpleado`, `Cat_Emp`, `Cat_Cli`, `Cat_Prov`, `Cat_Mone`, `Asis_Hora`, `Asis_Hue`, `Asis_Asis`, `Asis_Rep`, `Prod_Prod`, `Prod_Serv`, `Prod_Pre`, `Prod_Prom`, `Prod_Kits`, `Comp_Ped`, `Comp_CPed`, `Comp_Com`, `Comp_CCom`, `Comp_NCred`, `Comp_CtPag`, `Comp_Abon`, `Comp_Anti`, `Vent_Most`, `Vent_Touch`, `Vent_NVen`, `Vent_Coti`, `Vent_Pedi`, `Vent_Devo`, `Vent_CFol`, `Vent_Abo`, `Vent_Canc`, `Vent_EPrec`, `Ing_CEmp`, `Egr_PEmp`, `Egr_Nom`, `Egr_Tran`, `Egr_Otro`, `Rep_Vent`, `Rep_VentG`, `Rep_Comp`, `Rep_CCob`, `Rep_CPag`, `Rep_Ent`, `Rep_Sal`, `Rep_Inv`, `Rep_Aju`, `List_Pre`, `List_Pro`, `List_Fal`, `Fact_Fact`, `Fact_Rep`, `Ad_Perm`, `Ad_Conf`, `Ad_Util`, `Ad_Cort`,`Ad_Cli`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1);"
+    Public varinsertapermisos As String = "INSERT INTO `permisos` (`Id`, `IdEmpleado`, `Cat_Emp`, `Cat_Cli`, `Cat_Prov`, `Cat_Mone`, `Asis_Hora`, `Asis_Hue`, `Asis_Asis`, `Asis_Rep`, `Prod_Prod`, `Prod_Serv`, `Prod_Pre`, `Prod_Prom`, `Prod_Kits`, `Comp_Ped`, `Comp_CPed`, `Comp_Com`, `Comp_CCom`, `Comp_NCred`, `Comp_CtPag`, `Comp_Abon`, `Comp_Anti`, `Vent_Most`, `Vent_Touch`, `Vent_NVen`, `Vent_Coti`, `Vent_Pedi`, `Vent_Devo`, `Vent_CFol`, `Vent_Abo`, `Vent_Canc`, `Vent_EPrec`, `Ing_CEmp`, `Egr_PEmp`, `Egr_Nom`, `Egr_Tran`, `Egr_Otro`, `Rep_Vent`, `Rep_VentG`, `Rep_Comp`, `Rep_CCob`, `Rep_CPag`, `Rep_Ent`, `Rep_Sal`, `Rep_Inv`, `Rep_Aju`, `List_Pre`, `List_Pro`, `List_Fal`, `Fact_Fact`, `Fact_Rep`, `Ad_Perm`, `Ad_Conf`, `Ad_Util`, `Ad_Cort`,`Ad_Cli`,`ReimprimirApp`,`CobAboRem`) VALUES
+(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1);"
 
 
 
@@ -5578,7 +5620,8 @@
                                               `F44` float NOT NULL DEFAULT '0',
                                               `PrecioDomicilio` float NOT NULL DEFAULT '0',
                                               `PrecioDomicilioIVA` float NOT NULL DEFAULT '0',
-                                              `NumPromo` varchar(50) NOT NULL DEFAULT '' 
+                                              `NumPromo` varchar(50) NOT NULL DEFAULT '',
+                                              `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
@@ -6092,7 +6135,8 @@
                                           `FormaPago` varchar(50) DEFAULT '',
                                           `Banco` varchar(50) DEFAULT '',
                                           `ClaveP` varchar(50) DEFAULT '',
-                                          `CuentaP` varchar(50) DEFAULT ''
+                                          `CuentaP` varchar(50) DEFAULT '',
+                                          `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
@@ -6152,7 +6196,10 @@
                                               `Formato` varchar(150) NOT NULL DEFAULT '',
                                               `TComensales` varchar(50) NOT NULL DEFAULT '',
                                               `MntoCortesia` float NOT NULL DEFAULT '0',
-                                              `Franquicia` INT(1) NOT NULL DEFAULT '0'
+                                              `Franquicia` INT(1) NOT NULL DEFAULT '0',
+                                              `CargadoAndroid` INT(1) NOT NULL DEFAULT '0',
+                                              `FolioAndroid` varchar(100) NOT NULL DEFAULT '',
+                                              `HVenta2` varchar(100) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
@@ -6192,7 +6239,8 @@
                                       `Porc_Descuento` float NOT NULL DEFAULT '0',
                                       `Precio_Original` float NOT NULL DEFAULT '0',
                                       `Comensal` varchar(80) NOT NULL DEFAULT '',
-                                      `Comentario` varchar(255) NOT NULL DEFAULT ''
+                                      `Comentario` varchar(255) NOT NULL DEFAULT '',
+                                      `Usuario` varchar(100) NOT NULL DEFAULT ''
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
@@ -6231,6 +6279,10 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public varKeyclienteeliminado As String = "ALTER TABLE `clienteeliminado` ADD PRIMARY KEY (`Id`);"
+    Public varKeyproductoeliminado As String = "ALTER TABLE `productoeliminado` ADD PRIMARY KEY (`Id`);"
+    Public varKeypedidostemporal As String = "ALTER TABLE `pedidostemporal` ADD PRIMARY KEY (`Id`);"
+    Public varKeypedidoeliminado As String = "ALTER TABLE `pedidoeliminado` ADD PRIMARY KEY (`Id`);"
     Public varKeydetallenomina As String = "ALTER TABLE `detalle_nomina` ADD PRIMARY KEY (`Id_detalle`);"
     Public varKeyotipoincapacidadsat As String = "ALTER TABLE `tipoincapacidadsat` ADD PRIMARY KEY (`Id`);"
     Public varKeyotiponomina As String = "ALTER TABLE `tiponomina` ADD PRIMARY KEY (`Id`);"
@@ -6259,8 +6311,6 @@
     Public varKeyhisasigpc As String = "ALTER TABLE `histasigpc` ADD PRIMARY KEY (`Id`);"
     Public varKeymesa As String = "ALTER TABLE `mesa` ADD PRIMARY KEY (`IdMesa`);"
     Public varKeyasigpc As String = "ALTER TABLE `asigpc` ADD PRIMARY KEY (`Id`);"
-
-    'Daniel 08/Nov/2023
     Public varKeyalumnos As String = "ALTER TABLE `alumnos` ADD PRIMARY KEY (`Id`);"
     Public varKeyfechacobros As String = "ALTER TABLE `fechacobros` ADD PRIMARY KEY (`Id`);"
     Public varKeygrupos As String = "ALTER TABLE `grupos` ADD PRIMARY KEY (`Id`);"
@@ -6376,6 +6426,10 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutoclienteeliminado As String = "ALTER TABLE `clienteeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoproductoeliminado As String = "ALTER TABLE `productoeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutopedidostemporal As String = "ALTER TABLE `pedidostemporal` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutopedidoeliminado As String = "ALTER TABLE `pedidoeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodetallenomina As String = "ALTER TABLE `detalle_nomina` MODIFY `Id_detalle` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotipoincapacidadsat As String = "ALTER TABLE `tipoincapacidadsat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotiponomina As String = "ALTER TABLE `tiponomina` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
@@ -6404,8 +6458,6 @@
     Public varAutohisasigpc As String = "ALTER TABLE `histasigpc` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomesa As String = "ALTER TABLE `mesa` MODIFY `IdMesa` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoasigpc As String = "ALTER TABLE `asigpc` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
-
-    'Daniel 08/Nov/2023
     Public varAutoalumnos As String = "ALTER TABLE `alumnos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutofechacobros As String = "ALTER TABLE `fechacobros` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutogrupos As String = "ALTER TABLE `grupos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

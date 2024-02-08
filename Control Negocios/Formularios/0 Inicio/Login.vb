@@ -768,6 +768,26 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                            'clienteeliminado
+                            .runSp(cnnprueba, vartablaclienteeliminado, sinfo)
+                            .runSp(cnnprueba, varKeyclienteeliminado, sinfo)
+                            .runSp(cnnprueba, varAutoclienteeliminado, sinfo)
+
+                            'productoeliminado
+                            .runSp(cnnprueba, vartablaproductoeliminado, sinfo)
+                            .runSp(cnnprueba, varKeyproductoeliminado, sinfo)
+                            .runSp(cnnprueba, varAutoproductoeliminado, sinfo)
+
+                            'pedidostemporal
+                            .runSp(cnnprueba, vartablapedidostemporal, sinfo)
+                            .runSp(cnnprueba, varKeypedidostemporal, sinfo)
+                            .runSp(cnnprueba, varAutopedidostemporal, sinfo)
+
+                            ' pedidoeliminado
+                            .runSp(cnnprueba, vartablaPedidoEliminado, sinfo)
+                            .runSp(cnnprueba, varKeypedidoeliminado, sinfo)
+                            .runSp(cnnprueba, varAutopedidoeliminado, sinfo)
+
                             'detalle_nomina
                             .runSp(cnnprueba, vartabladetallenomina, sinfo)
                             .runSp(cnnprueba, varKeydetallenomina, sinfo)
