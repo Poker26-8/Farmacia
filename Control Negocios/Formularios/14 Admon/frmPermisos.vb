@@ -686,7 +686,7 @@
                 End If
                 rd1.Close() : cnn1.Close()
 
-                btnnuevo.PerformClick()
+                GroupBox3.Visible = True
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -869,9 +869,16 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = ""
+            cmd1.CommandText = "Update usuarios set P1='" & txt1.Text & "', P2='" & txt2.Text & "', P3='" & txt3.Text & "' where IdEMpleado=" & lblid_usu.Text & ""
+            If cmd1.ExecuteNonQuery Then
+                MsgBox("Respuestas de seguridad guardadas correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios PRO")
+            End If
+            cnn1.Close()
+            GroupBox3.Visible = False
+            btnnuevo.PerformClick()
         Catch ex As Exception
-
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 End Class
