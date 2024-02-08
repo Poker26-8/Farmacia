@@ -322,4 +322,8 @@ Public Class frmRecargas
             PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".png")
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmRecargaC.Show()
+    End Sub
 End Class

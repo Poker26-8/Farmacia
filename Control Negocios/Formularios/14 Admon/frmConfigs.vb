@@ -2578,7 +2578,7 @@ Public Class frmConfigs
     End Sub
 
     Private Sub Button25_Click_1(sender As Object, e As EventArgs) Handles Button25.Click
-        If txtnumero.Text.Length <> 10 Then MsgBox("El número de télefono debe de ser de 10 digitos", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : txtnumero.Focus.Equals(True) : Exit Sub
+        'If txtnumero.Text.Length >= 10 Then MsgBox("El número de télefono debe de ser de 10 digitos", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : txtnumero.Focus.Equals(True) : Exit Sub
         If txtusuario.Text = "" Then MsgBox("El usuario no puede ir vacio", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus.Equals(True) : Exit Sub
         If txtcontra.Text = "" Then MsgBox("La contraseña no puede ir vacia", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontra.Focus.Equals(True) : Exit Sub
 

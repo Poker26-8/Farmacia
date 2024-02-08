@@ -40,6 +40,7 @@ Partial Class frmRecargas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -210,12 +211,22 @@ Partial Class frmRecargas
         Me.Label1.TabIndex = 56
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(507, 297)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 73
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmRecargas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 332)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblSaldo)
         Me.Controls.Add(Me.Label7)
@@ -236,6 +247,7 @@ Partial Class frmRecargas
         Me.MaximumSize = New System.Drawing.Size(816, 371)
         Me.MinimumSize = New System.Drawing.Size(816, 371)
         Me.Name = "frmRecargas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Recargas Telefonicas"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -260,4 +272,5 @@ Partial Class frmRecargas
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class

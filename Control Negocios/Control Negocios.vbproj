@@ -406,6 +406,12 @@
     <Compile Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\07 Ventas\Series\frmVentas_Series.Designer.vb">
+      <DependentUpon>frmVentas_Series.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Series\frmVentas_Series.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\Control de servicios\frmReporte_CS.Designer.vb">
       <DependentUpon>frmReporte_CS.vb</DependentUpon>
     </Compile>
@@ -1210,6 +1216,12 @@
     <Compile Include="Formularios\19 Recargas\frmPagoServicios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\19 Recargas\frmRecargaC.Designer.vb">
+      <DependentUpon>frmRecargaC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\19 Recargas\frmRecargaC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\19 Recargas\frmRecargas.Designer.vb">
       <DependentUpon>frmRecargas.vb</DependentUpon>
     </Compile>
@@ -1569,6 +1581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.resx">
       <DependentUpon>frmVentas1_Partes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Series\frmVentas_Series.resx">
+      <DependentUpon>frmVentas_Series.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Control de servicios\frmReporte_CS.resx">
       <DependentUpon>frmReporte_CS.vb</DependentUpon>
@@ -1983,6 +1998,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\19 Recargas\frmPagoServicios.resx">
       <DependentUpon>frmPagoServicios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\19 Recargas\frmRecargaC.resx">
+      <DependentUpon>frmRecargaC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\19 Recargas\frmRecargas.resx">
       <DependentUpon>frmRecargas.vb</DependentUpon>
