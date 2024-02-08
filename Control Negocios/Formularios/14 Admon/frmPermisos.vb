@@ -863,4 +863,15 @@
 
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = ""
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
