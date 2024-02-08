@@ -1685,4 +1685,44 @@ Public Class Login
             End If
         End If
     End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+        If GroupBox2.Visible = True Then
+            GroupBox2.Visible = False
+        Else
+            GroupBox2.Visible = True
+        End If
+    End Sub
+
+    Private Sub ComboBox2_DropDown(sender As Object, e As EventArgs) Handles ComboBox2.DropDown
+        Try
+            ComboBox2.Items.Clear()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select distinct Nombre from Usuarios where Nombre<>''"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                ComboBox2.Items.Add(rd1(0).ToString)
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        TextBox1.Focus.Equals(True)
+        MsgBox(ComboBox1.SelectedIndex)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

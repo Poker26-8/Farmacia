@@ -53,10 +53,19 @@ Partial Class Login
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCrearBase = New System.Windows.Forms.Button()
         Me.txtContraCreaBase = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.boxEmpresa.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -95,7 +104,7 @@ Partial Class Login
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Light", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(14, 351)
+        Me.Label5.Location = New System.Drawing.Point(17, 360)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(192, 13)
         Me.Label5.TabIndex = 15
@@ -106,7 +115,7 @@ Partial Class Login
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Light", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(33, 365)
+        Me.Label4.Location = New System.Drawing.Point(36, 374)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(155, 13)
         Me.Label4.TabIndex = 14
@@ -117,7 +126,7 @@ Partial Class Login
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semilight", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(17, 333)
+        Me.Label3.Location = New System.Drawing.Point(20, 342)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(187, 19)
         Me.Label3.TabIndex = 13
@@ -363,11 +372,94 @@ Partial Class Login
         Me.txtContraCreaBase.Size = New System.Drawing.Size(193, 22)
         Me.txtContraCreaBase.TabIndex = 0
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Black", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(37, 327)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(143, 13)
+        Me.Label8.TabIndex = 32
+        Me.Label8.Text = "¿Olvidaste tu contraseña?"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ComboBox2)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 124)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 200)
+        Me.GroupBox2.TabIndex = 33
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Recuperacion de contraseña"
+        Me.GroupBox2.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(8, 74)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(138, 13)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Selecciona una pregunta "
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"¿En que año naciste?", "¿Ciudad en la que naciste?", "¿Nombre de tu mascota?"})
+        Me.ComboBox1.Location = New System.Drawing.Point(11, 94)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(167, 21)
+        Me.ComboBox1.TabIndex = 1
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(11, 122)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(167, 22)
+        Me.TextBox1.TabIndex = 2
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(50, 150)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(96, 32)
+        Me.Button3.TabIndex = 22
+        Me.Button3.Text = "Aceptar"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"¿En que año naciste?", "¿Ciudad en la que naciste?", "¿Nombre de tu mascota?"})
+        Me.ComboBox2.Location = New System.Drawing.Point(11, 41)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(167, 21)
+        Me.ComboBox2.TabIndex = 24
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(8, 21)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(123, 13)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "Selecciona tu usuario: "
+        '
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(224, 414)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblsoporte)
         Me.Controls.Add(Me.Label7)
@@ -405,6 +497,8 @@ Partial Class Login
         Me.boxEmpresa.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -438,4 +532,12 @@ Partial Class Login
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnCrearBase As Button
     Friend WithEvents txtContraCreaBase As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label10 As Label
 End Class
