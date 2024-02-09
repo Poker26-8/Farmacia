@@ -50,6 +50,7 @@ Module Module1
     Public titulomensajes As String = "Delsscom® Restaurant Pro"
     Public titulotaller As String = "Delsscom® Control Taller"
     Public titulorefaccionaria As String = "Delsscom® Control Refaccionaria"
+    Public titulocentral As String = "Delsscom® Control Negocios Pro"
     Public tomacontralog As Integer = 0
 
     'variables para factura global

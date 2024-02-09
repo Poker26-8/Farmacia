@@ -1076,8 +1076,36 @@ Public Class Inicio
     End Sub
 
     Private Sub AjusteDeInventarioToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pAjuste.Click
-        frmAjusteInv.Show()
-        frmAjusteInv.BringToFront()
+
+        Try
+            Dim DATO As Integer = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    DATO = rd1(0).ToString
+
+                    If DATO = 1 Then
+                        frmSeries.Show()
+                        frmSeries.BringToFront()
+                    Else
+                        frmAjusteInv.Show()
+                        frmAjusteInv.BringToFront()
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+
+        End Try
+
+
     End Sub
 
     Private Sub ListadoDePreciosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pLisPrecios.Click

@@ -127,6 +127,7 @@ Public Class frmTallerR
 
 
             txtvehiculo.Text = var_vehiculo
+            txtplaca.Text = var_placa
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -1007,7 +1008,7 @@ Door:
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 15
 
-                e.Graphics.DrawString(txtvehiculo.Text, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(var_vehiculo, fuente_prods, Brushes.Black, 1, Y)
                 Y += 13
                 e.Graphics.DrawString("Placa: " & var_placa, fuente_prods, Brushes.Black, 1, Y)
                 Y += 13

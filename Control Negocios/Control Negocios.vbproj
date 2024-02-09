@@ -403,6 +403,12 @@
     <Compile Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\07 Ventas\Series\frmSeries.Designer.vb">
+      <DependentUpon>frmSeries.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Series\frmSeries.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\07 Ventas\Series\frmVentas_Series.Designer.vb">
       <DependentUpon>frmVentas_Series.vb</DependentUpon>
     </Compile>
@@ -1578,6 +1584,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.resx">
       <DependentUpon>frmVentas1_Partes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Series\frmSeries.resx">
+      <DependentUpon>frmSeries.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Series\frmVentas_Series.resx">
       <DependentUpon>frmVentas_Series.vb</DependentUpon>

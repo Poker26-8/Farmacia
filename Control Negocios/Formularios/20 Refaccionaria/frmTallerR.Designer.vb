@@ -75,6 +75,8 @@ Partial Class frmTallerR
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtplaca = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.grdProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -148,6 +150,8 @@ Partial Class frmTallerR
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.txtplaca)
+        Me.Panel7.Controls.Add(Me.Label11)
         Me.Panel7.Controls.Add(Me.txtvehiculo)
         Me.Panel7.Controls.Add(Me.Label3)
         Me.Panel7.Controls.Add(Me.txtclave)
@@ -162,9 +166,9 @@ Partial Class frmTallerR
         '
         Me.txtvehiculo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtvehiculo.Location = New System.Drawing.Point(28, 86)
+        Me.txtvehiculo.Location = New System.Drawing.Point(6, 86)
         Me.txtvehiculo.Name = "txtvehiculo"
-        Me.txtvehiculo.Size = New System.Drawing.Size(300, 20)
+        Me.txtvehiculo.Size = New System.Drawing.Size(203, 20)
         Me.txtvehiculo.TabIndex = 85
         Me.txtvehiculo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -174,9 +178,9 @@ Partial Class frmTallerR
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(28, 55)
+        Me.Label3.Location = New System.Drawing.Point(6, 55)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(300, 28)
+        Me.Label3.Size = New System.Drawing.Size(203, 28)
         Me.Label3.TabIndex = 84
         Me.Label3.Text = "Vehiculo"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -185,9 +189,9 @@ Partial Class frmTallerR
         '
         Me.txtclave.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtclave.Location = New System.Drawing.Point(28, 32)
+        Me.txtclave.Location = New System.Drawing.Point(6, 32)
         Me.txtclave.Name = "txtclave"
-        Me.txtclave.Size = New System.Drawing.Size(300, 20)
+        Me.txtclave.Size = New System.Drawing.Size(339, 20)
         Me.txtclave.TabIndex = 81
         Me.txtclave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtclave.UseSystemPasswordChar = True
@@ -286,7 +290,7 @@ Partial Class frmTallerR
         Me.TableLayoutPanel1.Controls.Add(Me.Label6, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label5, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.lblcliente, 4, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblcliente, 4, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -446,9 +450,9 @@ Partial Class frmTallerR
         Me.lblcliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblcliente.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.lblcliente.Location = New System.Drawing.Point(455, 85)
+        Me.lblcliente.Location = New System.Drawing.Point(455, 61)
         Me.lblcliente.Name = "lblcliente"
-        Me.lblcliente.Size = New System.Drawing.Size(444, 39)
+        Me.lblcliente.Size = New System.Drawing.Size(444, 24)
         Me.lblcliente.TabIndex = 16
         '
         'Panel3
@@ -645,6 +649,29 @@ Partial Class frmTallerR
         'PVenta58
         '
         '
+        'Label11
+        '
+        Me.Label11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(215, 55)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(130, 28)
+        Me.Label11.TabIndex = 86
+        Me.Label11.Text = "Placa"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'txtplaca
+        '
+        Me.txtplaca.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtplaca.Location = New System.Drawing.Point(215, 86)
+        Me.txtplaca.Name = "txtplaca"
+        Me.txtplaca.Size = New System.Drawing.Size(130, 20)
+        Me.txtplaca.TabIndex = 87
+        Me.txtplaca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmTallerR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -725,4 +752,6 @@ Partial Class frmTallerR
     Friend WithEvents txtclave As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents btnRefaccion As Button
+    Friend WithEvents txtplaca As TextBox
+    Friend WithEvents Label11 As Label
 End Class
