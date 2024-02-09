@@ -10,6 +10,7 @@ Imports MySql.Data
 Public Class Login
 
     Private Campo As String = ""
+    Public soy As Integer = 0
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
         End
@@ -1715,14 +1716,38 @@ Public Class Login
 
     Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
         TextBox1.Focus.Equals(True)
-        MsgBox(ComboBox1.SelectedIndex)
+        soy = ComboBox1.SelectedIndex + 1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-
+            cnn1.Close()
+            cnn1.Open()s
+            cmd1 = cnn1.CreateCommand
+            If soy = 1 Then
+                cmd1.CommandText = "Select P1,Clave from Usuarios where Nombre='" & ComboBox2.Text & "'"
+            ElseIf soy = 2 Then
+                cmd1.CommandText = "Select P2,CLave from Usuarios where Nombre='" & ComboBox2.Text & "'"
+            ElseIf soy = 3 Then
+                cmd1.CommandText = "Select P3,Clave from Usuarios where Nombre='" & ComboBox2.Text & "'"
+            End If
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                If rd1(0).ToString = TextBox1.Text Then
+                    MsgBox("Tu contraseña es: " & rd1(1).ToString, vbOKOnly + vbOKOnly, "Delsscom Control Negocios PRO")
+                    ComboBox1.Text = ""
+                    ComboBox2.Text = ""
+                    TextBox1.Text = ""
+                    GroupBox2.Visible = False
+                Else
+                    MsgBox("Respuesta Incorrecta", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
         Catch ex As Exception
-
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 End Class
