@@ -1722,7 +1722,7 @@ Public Class Login
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
             cnn1.Close()
-            cnn1.Open()s
+            cnn1.Open()
             cmd1 = cnn1.CreateCommand
             If soy = 1 Then
                 cmd1.CommandText = "Select P1,Clave from Usuarios where Nombre='" & ComboBox2.Text & "'"

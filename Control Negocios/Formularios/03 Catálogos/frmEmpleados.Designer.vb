@@ -70,9 +70,13 @@ Partial Class frmEmpleados
         Me.txthoras = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtsueldo_hora = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.picFotica, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboNombre
@@ -234,7 +238,7 @@ Partial Class frmEmpleados
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(369, 204)
+        Me.btnNuevo.Location = New System.Drawing.Point(395, 204)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 23
@@ -248,7 +252,7 @@ Partial Class frmEmpleados
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(303, 204)
+        Me.btnGuardar.Location = New System.Drawing.Point(329, 204)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 24
@@ -262,7 +266,7 @@ Partial Class frmEmpleados
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(237, 204)
+        Me.btnEliminar.Location = New System.Drawing.Point(263, 204)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 25
@@ -483,7 +487,7 @@ Partial Class frmEmpleados
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(440, 31)
+        Me.Label1.Size = New System.Drawing.Size(465, 31)
         Me.Label1.TabIndex = 41
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -502,7 +506,7 @@ Partial Class frmEmpleados
         Me.btnhuella.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnhuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnhuella.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnhuella.Location = New System.Drawing.Point(171, 204)
+        Me.btnhuella.Location = New System.Drawing.Point(197, 204)
         Me.btnhuella.Name = "btnhuella"
         Me.btnhuella.Size = New System.Drawing.Size(60, 63)
         Me.btnhuella.TabIndex = 43
@@ -552,11 +556,44 @@ Partial Class frmEmpleados
         Me.txtsueldo_hora.Text = "0.00"
         Me.txtsueldo_hora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(121, 204)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(70, 63)
+        Me.Button2.TabIndex = 223
+        Me.Button2.Text = "Importar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(497, 46)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(282, 221)
+        Me.DataGridView1.TabIndex = 224
+        '
+        'barsube
+        '
+        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.barsube.Location = New System.Drawing.Point(129, 184)
+        Me.barsube.Name = "barsube"
+        Me.barsube.Size = New System.Drawing.Size(62, 14)
+        Me.barsube.TabIndex = 225
+        '
         'frmEmpleados
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(440, 280)
+        Me.ClientSize = New System.Drawing.Size(465, 280)
+        Me.Controls.Add(Me.barsube)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.txtsueldo_hora)
         Me.Controls.Add(Me.Label11)
@@ -589,8 +626,6 @@ Partial Class frmEmpleados
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(456, 570)
-        Me.MinimumSize = New System.Drawing.Size(456, 319)
         Me.Name = "frmEmpleados"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Catálogo de usuarios"
@@ -599,6 +634,7 @@ Partial Class frmEmpleados
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.picFotica, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -649,4 +685,7 @@ Partial Class frmEmpleados
     Friend WithEvents txthoras As TextBox
     Friend WithEvents Label17 As Label
     Friend WithEvents txtsueldo_hora As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents barsube As ProgressBar
 End Class

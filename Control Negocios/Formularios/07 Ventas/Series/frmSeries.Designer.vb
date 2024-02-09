@@ -24,33 +24,36 @@ Partial Class frmSeries
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSeries))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtclave = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtClave = New System.Windows.Forms.TextBox()
         Me.lblusuario = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label48 = New System.Windows.Forms.Label()
         Me.txtunidad = New System.Windows.Forms.TextBox()
         Me.cbodesc = New System.Windows.Forms.ComboBox()
         Me.Label45 = New System.Windows.Forms.Label()
-        Me.cbocodigo = New System.Windows.Forms.ComboBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtSistema = New System.Windows.Forms.TextBox()
+        Me.txtFisica = New System.Windows.Forms.TextBox()
+        Me.txtDiferencia = New System.Windows.Forms.TextBox()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.btnserie = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtserie = New System.Windows.Forms.TextBox()
-        Me.btnnuevos = New System.Windows.Forms.Button()
+        Me.cbofactura = New System.Windows.Forms.ComboBox()
+        Me.txtfecha = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.btnnuevo_serie = New System.Windows.Forms.Button()
         Me.btnguardars = New System.Windows.Forms.Button()
         Me.grdseries = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtserie = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cboCodigo = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.grdseries, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,34 +62,24 @@ Partial Class frmSeries
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.txtClave)
         Me.Panel1.Controls.Add(Me.lblusuario)
         Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.txtclave)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(466, 41)
         Me.Panel1.TabIndex = 1
         '
-        'txtclave
+        'txtClave
         '
-        Me.txtclave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtclave.Location = New System.Drawing.Point(245, 6)
-        Me.txtclave.Name = "txtclave"
-        Me.txtclave.Size = New System.Drawing.Size(99, 20)
-        Me.txtclave.TabIndex = 27
-        Me.txtclave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtclave.UseSystemPasswordChar = True
-        '
-        'Label9
-        '
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(170, 6)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(69, 20)
-        Me.Label9.TabIndex = 26
-        Me.Label9.Text = "Usuario"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.txtClave.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtClave.Location = New System.Drawing.Point(245, 6)
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(100, 20)
+        Me.txtClave.TabIndex = 183
+        Me.txtClave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtClave.UseSystemPasswordChar = True
         '
         'lblusuario
         '
@@ -98,6 +91,16 @@ Partial Class frmSeries
         Me.lblusuario.Size = New System.Drawing.Size(112, 20)
         Me.lblusuario.TabIndex = 182
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label9
+        '
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(170, 6)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(69, 20)
+        Me.Label9.TabIndex = 26
+        Me.Label9.Text = "Usuario"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label48
         '
@@ -149,16 +152,6 @@ Partial Class frmSeries
         Me.Label45.TabIndex = 77
         Me.Label45.Text = "Descripción"
         Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'cbocodigo
-        '
-        Me.cbocodigo.BackColor = System.Drawing.Color.White
-        Me.cbocodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbocodigo.FormattingEnabled = True
-        Me.cbocodigo.Location = New System.Drawing.Point(12, 78)
-        Me.cbocodigo.Name = "cbocodigo"
-        Me.cbocodigo.Size = New System.Drawing.Size(86, 23)
-        Me.cbocodigo.TabIndex = 76
         '
         'Label38
         '
@@ -212,33 +205,33 @@ Partial Class frmSeries
         Me.Label3.Text = "Exis.Sistema"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox1
+        'txtSistema
         '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 130)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(144, 23)
-        Me.TextBox1.TabIndex = 84
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtSistema.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSistema.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSistema.Location = New System.Drawing.Point(12, 130)
+        Me.txtSistema.Name = "txtSistema"
+        Me.txtSistema.Size = New System.Drawing.Size(144, 23)
+        Me.txtSistema.TabIndex = 84
+        Me.txtSistema.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox2
+        'txtFisica
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(156, 130)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(173, 23)
-        Me.TextBox2.TabIndex = 85
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtFisica.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFisica.Location = New System.Drawing.Point(156, 130)
+        Me.txtFisica.Name = "txtFisica"
+        Me.txtFisica.Size = New System.Drawing.Size(173, 23)
+        Me.txtFisica.TabIndex = 85
+        Me.txtFisica.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TextBox3
+        'txtDiferencia
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(329, 130)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(133, 23)
-        Me.TextBox3.TabIndex = 86
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtDiferencia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiferencia.Location = New System.Drawing.Point(329, 130)
+        Me.txtDiferencia.Name = "txtDiferencia"
+        Me.txtDiferencia.Size = New System.Drawing.Size(133, 23)
+        Me.txtDiferencia.TabIndex = 86
+        Me.txtDiferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnnuevo
         '
@@ -287,61 +280,83 @@ Partial Class frmSeries
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.btnnuevos)
+        Me.Panel2.Controls.Add(Me.cbofactura)
+        Me.Panel2.Controls.Add(Me.txtfecha)
+        Me.Panel2.Controls.Add(Me.Label11)
+        Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.btnnuevo_serie)
         Me.Panel2.Controls.Add(Me.btnguardars)
         Me.Panel2.Controls.Add(Me.grdseries)
         Me.Panel2.Controls.Add(Me.txtserie)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 240)
+        Me.Panel2.Location = New System.Drawing.Point(0, 244)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(466, 288)
+        Me.Panel2.Size = New System.Drawing.Size(466, 295)
         Me.Panel2.TabIndex = 90
         '
-        'Label8
+        'cbofactura
         '
-        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(243, Byte), Integer))
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(0, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(466, 28)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Serie"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.cbofactura.FormattingEnabled = True
+        Me.cbofactura.Location = New System.Drawing.Point(5, 83)
+        Me.cbofactura.Name = "cbofactura"
+        Me.cbofactura.Size = New System.Drawing.Size(121, 21)
+        Me.cbofactura.TabIndex = 34
         '
-        'txtserie
+        'txtfecha
         '
-        Me.txtserie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtserie.Location = New System.Drawing.Point(5, 31)
-        Me.txtserie.Name = "txtserie"
-        Me.txtserie.Size = New System.Drawing.Size(457, 20)
-        Me.txtserie.TabIndex = 20
+        Me.txtfecha.BackColor = System.Drawing.Color.White
+        Me.txtfecha.ForeColor = System.Drawing.Color.Black
+        Me.txtfecha.Location = New System.Drawing.Point(132, 84)
+        Me.txtfecha.Name = "txtfecha"
+        Me.txtfecha.ReadOnly = True
+        Me.txtfecha.Size = New System.Drawing.Size(115, 20)
+        Me.txtfecha.TabIndex = 33
+        Me.txtfecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btnnuevos
+        'Label11
         '
-        Me.btnnuevos.BackColor = System.Drawing.Color.White
-        Me.btnnuevos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnnuevos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevos.Image = CType(resources.GetObject("btnnuevos.Image"), System.Drawing.Image)
-        Me.btnnuevos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnnuevos.Location = New System.Drawing.Point(306, 227)
-        Me.btnnuevos.Name = "btnnuevos"
-        Me.btnnuevos.Size = New System.Drawing.Size(75, 56)
-        Me.btnnuevos.TabIndex = 24
-        Me.btnnuevos.Text = "Nuevo"
-        Me.btnnuevos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevos.UseVisualStyleBackColor = False
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(132, 57)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(115, 23)
+        Me.Label11.TabIndex = 32
+        Me.Label11.Text = "Fecha Compra"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label10
+        '
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(5, 57)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(121, 23)
+        Me.Label10.TabIndex = 31
+        Me.Label10.Text = "N° Factura"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'btnnuevo_serie
+        '
+        Me.btnnuevo_serie.BackColor = System.Drawing.Color.White
+        Me.btnnuevo_serie.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnnuevo_serie.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo_serie.Image = CType(resources.GetObject("btnnuevo_serie.Image"), System.Drawing.Image)
+        Me.btnnuevo_serie.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnnuevo_serie.Location = New System.Drawing.Point(303, 57)
+        Me.btnnuevo_serie.Name = "btnnuevo_serie"
+        Me.btnnuevo_serie.Size = New System.Drawing.Size(75, 56)
+        Me.btnnuevo_serie.TabIndex = 24
+        Me.btnnuevo_serie.Text = "Nuevo"
+        Me.btnnuevo_serie.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo_serie.UseVisualStyleBackColor = False
         '
         'btnguardars
         '
         Me.btnguardars.BackColor = System.Drawing.Color.White
         Me.btnguardars.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnguardars.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardars.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardars.Image = CType(resources.GetObject("btnguardars.Image"), System.Drawing.Image)
         Me.btnguardars.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardars.Location = New System.Drawing.Point(385, 227)
+        Me.btnguardars.Location = New System.Drawing.Point(384, 57)
         Me.btnguardars.Name = "btnguardars"
         Me.btnguardars.Size = New System.Drawing.Size(78, 56)
         Me.btnguardars.TabIndex = 23
@@ -355,8 +370,8 @@ Partial Class frmSeries
         Me.grdseries.AllowUserToDeleteRows = False
         Me.grdseries.BackgroundColor = System.Drawing.Color.White
         Me.grdseries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
-        Me.grdseries.Location = New System.Drawing.Point(5, 57)
+        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3})
+        Me.grdseries.Location = New System.Drawing.Point(5, 119)
         Me.grdseries.Name = "grdseries"
         Me.grdseries.ReadOnly = True
         Me.grdseries.RowHeadersVisible = False
@@ -370,33 +385,58 @@ Partial Class frmSeries
         Me.Column1.ReadOnly = True
         Me.Column1.Width = 70
         '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Descripción"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 239
-        '
         'Column3
         '
         Me.Column3.HeaderText = "Serie"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 120
+        Me.Column3.Width = 170
+        '
+        'txtserie
+        '
+        Me.txtserie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtserie.Location = New System.Drawing.Point(5, 31)
+        Me.txtserie.Name = "txtserie"
+        Me.txtserie.Size = New System.Drawing.Size(457, 20)
+        Me.txtserie.TabIndex = 20
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(466, 28)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Serie"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'cboCodigo
+        '
+        Me.cboCodigo.BackColor = System.Drawing.Color.White
+        Me.cboCodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCodigo.FormattingEnabled = True
+        Me.cboCodigo.Location = New System.Drawing.Point(12, 78)
+        Me.cboCodigo.Name = "cboCodigo"
+        Me.cboCodigo.Size = New System.Drawing.Size(86, 23)
+        Me.cboCodigo.TabIndex = 183
         '
         'frmSeries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(466, 528)
+        Me.ClientSize = New System.Drawing.Size(466, 539)
+        Me.Controls.Add(Me.cboCodigo)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnnuevo)
         Me.Controls.Add(Me.btnserie)
         Me.Controls.Add(Me.btnguardar)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtDiferencia)
+        Me.Controls.Add(Me.txtFisica)
+        Me.Controls.Add(Me.txtSistema)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label3)
@@ -404,7 +444,6 @@ Partial Class frmSeries
         Me.Controls.Add(Me.txtunidad)
         Me.Controls.Add(Me.cbodesc)
         Me.Controls.Add(Me.Label45)
-        Me.Controls.Add(Me.cbocodigo)
         Me.Controls.Add(Me.Label38)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -422,31 +461,34 @@ Partial Class frmSeries
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents txtclave As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents lblusuario As Label
     Friend WithEvents Label48 As Label
     Friend WithEvents txtunidad As TextBox
     Friend WithEvents cbodesc As ComboBox
     Friend WithEvents Label45 As Label
-    Friend WithEvents cbocodigo As ComboBox
     Friend WithEvents Label38 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtSistema As TextBox
+    Friend WithEvents txtFisica As TextBox
+    Friend WithEvents txtDiferencia As TextBox
     Friend WithEvents btnnuevo As Button
     Friend WithEvents btnserie As Button
     Friend WithEvents btnguardar As Button
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents btnnuevos As Button
+    Friend WithEvents btnnuevo_serie As Button
     Friend WithEvents btnguardars As Button
     Friend WithEvents grdseries As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents txtserie As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents cbofactura As ComboBox
+    Friend WithEvents txtfecha As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents txtClave As TextBox
+    Friend WithEvents cboCodigo As ComboBox
 End Class

@@ -1084,9 +1084,11 @@ Public Class frmProductos
 
             'Variables para alojar los datos de archivo de Excel
             Dim codigo, barras, nombrec, nombrel, proveedorp, proveedore, depto, grupo, unidad, clave_sat, unidad_sat As String
-            Dim mini, maxi, comision, iva, pcompra, pcompraiva, utilidad, pventasiva, pventaciva, ieps, existencias As Double
+            Dim mini, maxi, comision, iva, pcompra, pcompraiva, utilidad, pventasiva, pventaciva, ieps, existencias, pormay, porcmm, porcesp, premay, premm, preesp, cantmin1, cantmin2, cantmay1, cantmay2, cantmm1, cantmm2, cantesp1, cantesp2, cantlst1, cantlst2, preciominimo As Double
             Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
             Dim conteo As Integer = 0
+
+
 
             barsube.Value = 0
             barsube.Maximum = grdcaptura.Rows.Count
@@ -1118,19 +1120,37 @@ Public Class frmProductos
                 existencias = NulVa(grdcaptura.Rows(zef).Cells(19).Value.ToString())
                 ieps = NulVa(grdcaptura.Rows(zef).Cells(20).Value.ToString())
 
+                pormay = NulVa(grdcaptura.Rows(zef).Cells(21).Value.ToString())
+                porcmm = NulVa(grdcaptura.Rows(zef).Cells(22).Value.ToString())
+                porcesp = NulVa(grdcaptura.Rows(zef).Cells(23).Value.ToString())
+                premay = NulVa(grdcaptura.Rows(zef).Cells(24).Value.ToString())
+                premm = NulVa(grdcaptura.Rows(zef).Cells(25).Value.ToString())
+                preesp = NulVa(grdcaptura.Rows(zef).Cells(26).Value.ToString())
+                cantmin1 = NulVa(grdcaptura.Rows(zef).Cells(27).Value.ToString())
+                cantmin2 = NulVa(grdcaptura.Rows(zef).Cells(28).Value.ToString())
+                cantmay1 = NulVa(grdcaptura.Rows(zef).Cells(29).Value.ToString())
+                cantmay2 = NulVa(grdcaptura.Rows(zef).Cells(30).Value.ToString())
+                cantmm1 = NulVa(grdcaptura.Rows(zef).Cells(31).Value.ToString())
+                cantmm2 = NulVa(grdcaptura.Rows(zef).Cells(32).Value.ToString())
+                cantesp1 = NulVa(grdcaptura.Rows(zef).Cells(33).Value.ToString())
+                cantesp2 = NulVa(grdcaptura.Rows(zef).Cells(34).Value.ToString())
+                cantlst1 = NulVa(grdcaptura.Rows(zef).Cells(35).Value.ToString())
+                cantlst2 = NulVa(grdcaptura.Rows(zef).Cells(36).Value.ToString())
+                preciominimo = NulVa(grdcaptura.Rows(zef).Cells(37).Value.ToString())
 
                 If (Comprueba(codigo, nombrec, barras, proveedorp, proveedore)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS) values('" & codigo & "','" & barras & "','" & nombrec & "','" & nombrel & "','" & proveedorp & "','" & proveedore & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & pcompra & "," & pventasiva & "," & pventaciva & "," & iva & "," & existencias & "," & utilidad & ",'" & fecha & "',0,1,0,0," & pcompra & ",'" & clave_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ")"
+                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,PreMin) values('" & codigo & "','" & barras & "','" & nombrec & "','" & nombrel & "','" & proveedorp & "','" & proveedore & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & pcompra & "," & pventasiva & "," & pventaciva & "," & iva & "," & existencias & "," & utilidad & ",'" & fecha & "',0,1,0,0," & pcompra & ",'" & clave_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & "," & pormay & "," & porcmm & "," & porcesp & "," & premay & "," & premm & "," & preesp & "," & cantmin1 & "," & cantmin2 & "," & cantmay1 & "," & cantmay2 & "," & cantmm1 & "," & cantmm2 & "," & cantesp1 & "," & cantesp2 & "," & cantlst1 & "," & cantlst2 & "," & preciominimo & ")"
                     cmd1.ExecuteNonQuery()
                 Else
                     conteo += 1
                     barsube.Value = conteo
                     Continue For
                 End If
+
                 conteo += 1
                 barsube.Value = conteo
             Next
