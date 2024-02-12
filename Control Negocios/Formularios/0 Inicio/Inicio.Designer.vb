@@ -110,6 +110,7 @@ Partial Class Inicio
         Me.pAjuste = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEstResultados = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeSeriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
@@ -161,7 +162,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ReporteDeSeriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -893,6 +894,12 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Text = "Reporte de control de servicios"
         '
+        'ReporteDeSeriesToolStripMenuItem
+        '
+        Me.ReporteDeSeriesToolStripMenuItem.Name = "ReporteDeSeriesToolStripMenuItem"
+        Me.ReporteDeSeriesToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeSeriesToolStripMenuItem.Text = "Reporte de Series"
+        '
         'pEgresos
         '
         Me.pEgresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pPEmpleados, Me.pOtros, Me.pNomina, Me.pTransporte})
@@ -1158,6 +1165,7 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
+        Me.Panel2.Controls.Add(Me.Button8)
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
@@ -1237,9 +1245,9 @@ Partial Class Inicio
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(0, 534)
+        Me.Button6.Location = New System.Drawing.Point(0, 590)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 80)
+        Me.Button6.Size = New System.Drawing.Size(90, 24)
         Me.Button6.TabIndex = 9
         Me.Button6.UseVisualStyleBackColor = False
         '
@@ -1322,11 +1330,18 @@ Partial Class Inicio
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Visible = False
         '
-        'ReporteDeSeriesToolStripMenuItem
+        'Button8
         '
-        Me.ReporteDeSeriesToolStripMenuItem.Name = "ReporteDeSeriesToolStripMenuItem"
-        Me.ReporteDeSeriesToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.ReporteDeSeriesToolStripMenuItem.Text = "Reporte de Series"
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.Location = New System.Drawing.Point(0, 522)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(90, 90)
+        Me.Button8.TabIndex = 184
+        Me.Button8.UseVisualStyleBackColor = True
         '
         'Inicio
         '
@@ -1495,4 +1510,5 @@ Partial Class Inicio
     Friend WithEvents NominaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuNominaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeSeriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button8 As Button
 End Class

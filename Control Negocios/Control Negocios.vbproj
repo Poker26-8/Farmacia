@@ -1453,6 +1453,12 @@
     <Compile Include="Formularios\24 Hoteleria\frmServicioCuarto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPolleria.Designer.vb">
+      <DependentUpon>frmPolleria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPolleria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -1490,6 +1496,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\frmScript.resx">
       <DependentUpon>frmScript.vb</DependentUpon>
@@ -1644,6 +1651,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPagar.resx">
       <DependentUpon>frmPagar.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPermisosRestaurant.resx">
       <DependentUpon>frmPermisosRestaurant.vb</DependentUpon>
@@ -2127,6 +2135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmServicioCuarto.resx">
       <DependentUpon>frmServicioCuarto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\25 Pollos\frmPolleria.resx">
+      <DependentUpon>frmPolleria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

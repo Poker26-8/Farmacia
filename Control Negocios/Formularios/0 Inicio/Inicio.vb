@@ -2265,4 +2265,9 @@ Public Class Inicio
         frmRepSeries.Show()
         frmRepSeries.BringToFront()
     End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        frmPolleria.Show()
+        frmPolleria.BringToFront()
+    End Sub
 End Class

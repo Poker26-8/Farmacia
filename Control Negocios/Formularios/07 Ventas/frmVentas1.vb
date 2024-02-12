@@ -11639,4 +11639,8 @@ ecomoda:
         End Try
 
     End Sub
+
+    Private Sub txtcantidad_KeyDown(sender As Object, e As KeyEventArgs) Handles txtcantidad.KeyDown
+
+    End Sub
 End Class
