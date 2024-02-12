@@ -1741,6 +1741,7 @@ Public Class Login
                     GroupBox2.Visible = False
                 Else
                     MsgBox("Respuesta Incorrecta", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
+                    TextBox1.Focus.Equals(True)
                 End If
             End If
             rd1.Close()

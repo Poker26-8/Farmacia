@@ -103,7 +103,7 @@ Public Class Inicio
         If varrutabase = "" Then
             ActualizaCampos()
         End If
-
+        verif()
         'Licencia()
         Try
             cnn1.Close()
@@ -470,6 +470,47 @@ Public Class Inicio
 
         VieneDe_Compras = ""
         VieneDe_Folios = ""
+    End Sub
+
+    Public Sub verif()
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select NoPrintCom from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Alter table Ticket add column NoPrintCom int(11) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select P1,P2,P3 from Usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Alter table Usuarios add column P1 varchar(255)"
+            cmd1.ExecuteNonQuery()
+            cmd1.CommandText = "Alter table Usuarios add column P2 varchar(255)"
+            cmd1.ExecuteNonQuery()
+            cmd1.CommandText = "Alter table Usuarios add column P3 varchar(255)"
+            cmd1.ExecuteNonQuery()
+        End Try
     End Sub
 
     Private Sub ActualizaCampos()
