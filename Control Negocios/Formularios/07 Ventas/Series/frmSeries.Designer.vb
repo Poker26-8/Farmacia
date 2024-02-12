@@ -49,11 +49,12 @@ Partial Class frmSeries
         Me.btnnuevo_serie = New System.Windows.Forms.Button()
         Me.btnguardars = New System.Windows.Forms.Button()
         Me.grdseries = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtserie = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cboCodigo = New System.Windows.Forms.ComboBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.grdseries, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -370,27 +371,13 @@ Partial Class frmSeries
         Me.grdseries.AllowUserToDeleteRows = False
         Me.grdseries.BackgroundColor = System.Drawing.Color.White
         Me.grdseries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3})
+        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
         Me.grdseries.Location = New System.Drawing.Point(5, 119)
         Me.grdseries.Name = "grdseries"
         Me.grdseries.ReadOnly = True
         Me.grdseries.RowHeadersVisible = False
         Me.grdseries.Size = New System.Drawing.Size(457, 164)
         Me.grdseries.TabIndex = 22
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "código"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 70
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Serie"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 170
         '
         'txtserie
         '
@@ -422,6 +409,27 @@ Partial Class frmSeries
         Me.cboCodigo.Name = "cboCodigo"
         Me.cboCodigo.Size = New System.Drawing.Size(86, 23)
         Me.cboCodigo.TabIndex = 183
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "código"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 70
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 250
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Serie"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 130
         '
         'frmSeries
         '
@@ -487,8 +495,9 @@ Partial Class frmSeries
     Friend WithEvents txtfecha As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents txtClave As TextBox
     Friend WithEvents cboCodigo As ComboBox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
 End Class

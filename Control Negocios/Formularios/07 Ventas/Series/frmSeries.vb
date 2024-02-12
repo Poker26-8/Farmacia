@@ -387,8 +387,9 @@ Public Class frmSeries
     Private Sub grdseries_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdseries.CellDoubleClick
         Dim t As Integer = grdseries.CurrentRow.Index
 
-        txtserie.Text = grdseries.Rows(t).Cells(1).Value.ToString
+        txtserie.Text = grdseries.Rows(t).Cells(2).Value.ToString
         cboCodigo.Text = grdseries.Rows(t).Cells(0).Value.ToString
+        cbodesc.Text = grdseries.Rows(t).Cells(1).Value.ToString
         grdseries.Rows.Remove(grdseries.Rows(t))
         txtserie.Focus.Equals(True)
     End Sub
@@ -400,7 +401,7 @@ Public Class frmSeries
                 btnguardar.Focus.Equals(True)
             Else
                 If grdseries.Rows.Count < txtSistema.Text Then
-                    grdseries.Rows.Add(cboCodigo.Text, txtserie.Text)
+                    grdseries.Rows.Add(cboCodigo.Text, cbodesc.Text, txtserie.Text)
                 Else
                     MsgBox("Se alcanzo el limite permitido de series", vbInformation + vbOKOnly, titulocentral)
                 End If
@@ -435,12 +436,12 @@ Public Class frmSeries
 
         Dim codigo As String = ""
         Dim serie As String = ""
-
+        Dim nombre As String = ""
         For zi As Integer = 0 To grdseries.Rows.Count - 1
 
             codigo = grdseries.Rows(zi).Cells(0).Value.ToString
-            serie = grdseries.Rows(zi).Cells(1).Value.ToString
-
+            serie = grdseries.Rows(zi).Cells(2).Value.ToString
+            nombre = grdseries.Rows(zi).Cells(1).Value.ToString
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT * FROM Series WHERE Serie='" & serie & "'"
@@ -452,7 +453,7 @@ Public Class frmSeries
             Else
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Series(Codigo,Serie,Fecha,Eliminado,FechaEliminado,Factura,FFactura,Status) VALUES('" & codigo & "','" & serie & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','','','" & cbofactura.Text & "','" & txtfecha.Text & "','0')"
+                cmd3.CommandText = "INSERT INTO Series(Codigo,Nombre,Serie,Fecha,Eliminado,FechaEliminado,Factura,FFactura,Status) VALUES('" & codigo & "','" & nombre & "','" & serie & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','','','" & cbofactura.Text & "','" & txtfecha.Text & "','0')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
             End If
@@ -462,5 +463,46 @@ Public Class frmSeries
         MsgBox("Series agregadas correctamente", vbInformation + vbOK, titulocentral)
 
         btnnuevo_serie.PerformClick()
+    End Sub
+
+    Private Sub cbofactura_DropDown(sender As Object, e As EventArgs) Handles cbofactura.DropDown
+        cbofactura.Items.Clear()
+
+        Try
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT NumFactura FROM Compras where NumFactura<>'' order by NumFactura"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cbofactura.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cbofactura_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbofactura.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FCompra FROM Compras WHERE NumFactura='" & cbofactura.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    'txtfecha.Text = rd1(0).ToString
+                    txtfecha.Text = FormatDateTime(rd1(0).ToString, DateFormat.ShortDate)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

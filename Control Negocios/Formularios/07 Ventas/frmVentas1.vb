@@ -4186,6 +4186,8 @@ Public Class frmVentas1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'frmVentas2.Show()
         'frmVentas2.BringToFront()
+        frmVentas_Series.Show()
+        frmVentas_Series.BringToFront()
     End Sub
 
     'Cotizaciones

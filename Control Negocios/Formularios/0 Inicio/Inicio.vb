@@ -2220,5 +2220,8 @@ Public Class Inicio
         frmMenuNomina.BringToFront()
     End Sub
 
-
+    Private Sub ReporteDeSeriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeSeriesToolStripMenuItem.Click
+        frmRepSeries.Show()
+        frmRepSeries.BringToFront()
+    End Sub
 End Class
