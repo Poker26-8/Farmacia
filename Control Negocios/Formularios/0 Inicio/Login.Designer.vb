@@ -55,12 +55,12 @@ Partial Class Login
         Me.txtContraCreaBase = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.boxEmpresa.SuspendLayout()
@@ -398,43 +398,6 @@ Partial Class Login
         Me.GroupBox2.Text = "Recuperacion de contraseña"
         Me.GroupBox2.Visible = False
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(8, 74)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(138, 13)
-        Me.Label9.TabIndex = 0
-        Me.Label9.Text = "Selecciona una pregunta "
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"¿En que año naciste?", "¿Ciudad en la que naciste?", "¿Nombre de tu mascota?"})
-        Me.ComboBox1.Location = New System.Drawing.Point(11, 94)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(167, 21)
-        Me.ComboBox1.TabIndex = 1
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(11, 122)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(167, 22)
-        Me.TextBox1.TabIndex = 2
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(50, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(96, 32)
-        Me.Button3.TabIndex = 22
-        Me.Button3.Text = "Aceptar"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
@@ -453,12 +416,48 @@ Partial Class Login
         Me.Label10.TabIndex = 23
         Me.Label10.Text = "Selecciona tu usuario: "
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(50, 150)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(96, 32)
+        Me.Button3.TabIndex = 22
+        Me.Button3.Text = "Aceptar"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(11, 122)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(167, 22)
+        Me.TextBox1.TabIndex = 2
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"¿En que año naciste?", "¿Ciudad en la que naciste?", "¿Nombre de tu mascota?"})
+        Me.ComboBox1.Location = New System.Drawing.Point(11, 94)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(167, 21)
+        Me.ComboBox1.TabIndex = 1
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(8, 74)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(138, 13)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Selecciona una pregunta "
+        '
         'Login
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(224, 414)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblsoporte)
@@ -481,6 +480,7 @@ Partial Class Login
         Me.Controls.Add(Me.boxEmpresa)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

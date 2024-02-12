@@ -105,7 +105,7 @@ Public Class frmfacturacion
                     varrutabase = dr(1).ToString
                     If varrutabase = "" Then
                         ' sTarget = "Data Source=" & dameIP2() & "; Integrated Security=false; initial catalog=CN" & varnumbase & "; user id=Delsscom; password=jipl22; timeout=300"
-                        sTarget = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & varnumbase & ";persist security info=false;connect timeout=300"
+                        sTarget = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & baseseleccionada & ";persist security info=false;connect timeout=300"
 
                         sTargetlocal = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
                     Else

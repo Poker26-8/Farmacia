@@ -362,6 +362,7 @@ Public Class Login
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtContrasena.Text = "" Then Exit Sub
             Try
+                baseseleccionada = cboEmpresa.Text
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
@@ -444,12 +445,13 @@ Public Class Login
         Dim cadena As String = ""
 
         Try
+            baseseleccionada = cboEmpresa.Text
             cias.Close() : cias.Open()
 
             coma = cias.CreateCommand
             coma.CommandText =
                 "update Server set base='" & cboEmpresa.Text & "'"
-        coma.ExecuteNonQuery()
+            coma.ExecuteNonQuery()
 
             coma = cias.CreateCommand
             coma.CommandText =
@@ -540,6 +542,7 @@ Public Class Login
                     If lect.HasRows Then
                         If lect.Read Then
                             lblEmpresa.Text = lect(0).ToString
+
                         End If
                     Else
                         MsgBox("No existe la empresa " & cboEmpresa.Text & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -608,6 +611,7 @@ Public Class Login
                 cias.Close()
             End Try
 
+            baseseleccionada = cboEmpresa.Text
             My.Application.DoEvents()
 
             Try
@@ -622,6 +626,8 @@ Public Class Login
                     zinc = lect(1).ToString()
                 End If
                 lect.Close()
+
+
 
                 coma = cias.CreateCommand
                 coma.CommandText =

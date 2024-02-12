@@ -242,7 +242,7 @@ Public Class frmAgregarProducto
                     If TotGrupo <= 10 Then
                         btnGrupo.Width = pgrupo.Width
                     Else
-                        btnGrupo.Width = btnGrupo.Width - 17
+                        btnGrupo.Width = pgrupo.Width - 17
                     End If
                     btnGrupo.Top = grupos * (btnGrupo.Height + 1)
                     btnGrupo.BackColor = pgrupo.BackColor

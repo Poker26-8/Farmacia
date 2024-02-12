@@ -30,6 +30,8 @@ End Structure
 
 Module Module1
 
+    Public baseseleccionada As String = ""
+
     'datos nomina
     Public sello As String
 

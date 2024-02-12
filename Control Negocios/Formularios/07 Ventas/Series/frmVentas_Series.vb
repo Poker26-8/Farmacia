@@ -4464,8 +4464,8 @@ doorcita:
         txtprecio.Tag = 0
         txttotal.Text = "0.00"
         txtexistencia.Text = ""
-        cboLote.Text = ""
-        cboLote.Tag = 0
+        cboSerie.Text = ""
+        cboSerie.Tag = 0
         txtfechacad.Text = ""
         txtubicacion.Text = ""
         grdcaptura.Rows.Clear()
