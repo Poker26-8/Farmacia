@@ -456,7 +456,7 @@ Public Class frmProductosS
         Dim p_venta As Double = txtpventa.Text
         Dim porcentaje As Double = txtutilidad.Text
         Dim iva As Double = cboIVA.Text
-        Dim p_ventaiva As Double = (1 + iva) * p_venta
+        Dim p_ventaiva As Double = p_venta
         Dim existencia As Double = 0
         Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
 
@@ -518,6 +518,11 @@ Public Class frmProductosS
                     cnn2.Close()
                 End If
             Else
+                If iva = 0 Then
+                    p_ventaiva = p_venta
+                    'Else
+                    '    p_ventaiva = (1 + iva) * p_venta
+                End If
                 'Inserta
                 cnn2.Close() : cnn2.Open()
 
