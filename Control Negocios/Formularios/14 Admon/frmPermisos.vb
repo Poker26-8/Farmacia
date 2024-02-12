@@ -1,5 +1,5 @@
 ﻿Public Class frmPermisos
-
+    Public contraaa As String = ""
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
         cboNombre.Items.Clear()
         Try
@@ -36,6 +36,7 @@
                     txtpuesto.Text = rd1("Puesto").ToString
                     txtcontra.Text = rd1("Clave").ToString
                     txtingreso.Text = FormatDateTime(rd1("Ingreso").ToString, DateFormat.ShortDate)
+                    contraaa = txtcontra.Text
                 End If
             End If
             rd1.Close()
@@ -285,6 +286,8 @@
     End Sub
 
     Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
+        contraaa = ""
+        GroupBox3.Visible = False
         cboNombre.Items.Clear()
         cboNombre.Text = ""
         txtarea.Text = ""
@@ -685,8 +688,12 @@
                     cnn2.Close()
                 End If
                 rd1.Close() : cnn1.Close()
+                If txtcontra.Text = contraaa Then
+                    btnnuevo.PerformClick()
+                Else
+                    GroupBox3.Visible = True
+                End If
 
-                GroupBox3.Visible = True
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
