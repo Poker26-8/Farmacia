@@ -2394,8 +2394,7 @@ Public Class frmVentas1
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Codigo from Productos order by Codigo"
+            cmd1.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE LEFT(Codigo, 6) = LEFT('" & cbocodigo.Text & "', 6) ORDER BY Codigo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbocodigo.Items.Add(
