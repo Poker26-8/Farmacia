@@ -173,5 +173,9 @@
         Me.Close()
     End Sub
 
-
+    Private Sub BTNPOLO_Click(sender As Object, e As EventArgs) Handles BTNPOLO.Click
+        frmAct_mpollo.Show()
+        frmAct_mpollo.BringToFront()
+        Me.Close()
+    End Sub
 End Class
