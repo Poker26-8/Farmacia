@@ -104,6 +104,9 @@ Public Class Inicio
             ActualizaCampos()
         End If
         SFormatos("Pollos", "")
+        SFormatos("Pto-Bascula", "")
+        SFormatos("TBascula", "")
+        SFormatos("Bascula", "")
         verif()
         'Licencia()
         Try
