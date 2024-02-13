@@ -1183,20 +1183,9 @@ Public Class frmPolleria
 
     End Sub
 
-    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        grdCaptura.Rows.Clear()
-        lblTotalVenta.Text = "0.00"
-        LBLLETRA.Text = ""
-        lblAtiende.Text = ""
-        pProductos.Controls.Clear()
-    End Sub
 
-    Private Sub btnAsignar_Click(sender As Object, e As EventArgs) Handles btnAsignar.Click
-        EnviarComanda()
 
-        pEmpleado.Controls.Clear()
-        Empleados()
-    End Sub
+
 
     Public Sub UpGridCaptura()
 
@@ -1443,66 +1432,38 @@ Public Class frmPolleria
 
     End Sub
 
+    Private Sub BTNINTRO_Click(sender As Object, e As EventArgs) Handles BTNINTRO.Click
+        With ppeso
+            cantidad = txtPeso.Text
+        End With
+
+        ObtenerProducto(CodigoProducto)
+        ppeso.Visible = False
+        txtPeso.Text = ""
+    End Sub
+
     Public Sub Limpiar()
         pProductos.Controls.Clear()
         grdCaptura.Rows.Clear()
 
     End Sub
 
-    Private Sub BTN1_Click(sender As Object, e As EventArgs) Handles BTN1.Click
-        txtpeso.Text = txtpeso.Text + BTN1.Text
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        grdCaptura.Rows.Clear()
+        lblTotalVenta.Text = "0.00"
+        LBLLETRA.Text = ""
+        lblAtiende.Text = ""
+        pProductos.Controls.Clear()
     End Sub
 
-    Private Sub BTN2_Click(sender As Object, e As EventArgs) Handles BTN2.Click
-        txtpeso.Text = txtpeso.Text + BTN2.Text
+    Private Sub btnAsiganar_Click(sender As Object, e As EventArgs) Handles btnAsiganar.Click
+        EnviarComanda()
+
+        pEmpleado.Controls.Clear()
+        Empleados()
     End Sub
 
-    Private Sub BTN6_Click(sender As Object, e As EventArgs) Handles BTN6.Click
-        txtpeso.Text = txtpeso.Text + BTN6.Text
-    End Sub
 
-    Private Sub BTN7_Click(sender As Object, e As EventArgs) Handles BTN7.Click
-        txtpeso.Text = txtpeso.Text + BTN7.Text
-    End Sub
-
-    Private Sub BTN8_Click(sender As Object, e As EventArgs) Handles BTN8.Click
-        txtpeso.Text = txtpeso.Text + BTN8.Text
-    End Sub
-
-    Private Sub BTN9_Click(sender As Object, e As EventArgs) Handles BTN9.Click
-        txtpeso.Text = txtpeso.Text + BTN9.Text
-    End Sub
-
-    Private Sub BTN0_Click(sender As Object, e As EventArgs) Handles BTN0.Click
-        txtpeso.Text = txtpeso.Text + BTN0.Text
-    End Sub
-
-    Private Sub BTNP_Click(sender As Object, e As EventArgs) Handles BTNP.Click
-        txtpeso.Text = txtpeso.Text + BTNP.Text
-    End Sub
-
-    Private Sub BTNINTRO_Click(sender As Object, e As EventArgs) Handles BTNINTRO.Click
-
-        With ppeso
-            cantidad = txtpeso.Text
-        End With
-
-        ObtenerProducto(CodigoProducto)
-        ppeso.Visible = False
-        txtpeso.Text = ""
-
-    End Sub
-
-    Private Sub BTN3_Click(sender As Object, e As EventArgs) Handles BTN3.Click
-        txtpeso.Text = txtpeso.Text + BTN3.Text
-    End Sub
-
-    Private Sub BTN4_Click(sender As Object, e As EventArgs) Handles BTN4.Click
-        txtpeso.Text = txtpeso.Text + BTN4.Text
-    End Sub
-
-    Private Sub BTN5_Click(sender As Object, e As EventArgs) Handles BTN5.Click
-        txtpeso.Text = txtpeso.Text + BTN5.Text
-    End Sub
 
 End Class
