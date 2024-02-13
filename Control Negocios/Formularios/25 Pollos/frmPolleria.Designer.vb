@@ -313,7 +313,7 @@ Partial Class frmPolleria
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(138, 9)
+        Me.Button3.Location = New System.Drawing.Point(107, 12)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 82)
         Me.Button3.TabIndex = 2
