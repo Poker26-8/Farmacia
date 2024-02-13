@@ -123,6 +123,7 @@ Module ModGral
                     "update Formatos set NotasCred='" & valor & "' where Facturas='" & campo & "'"
                 cmd5.ExecuteNonQuery()
             Else
+                valor = 0
                 cmd5 = cnn5.CreateCommand
                 cmd5.CommandText =
                     "insert into Formatos(Facturas,NotasCred,NumPart) values('" & campo & "','" & valor & "',0)"

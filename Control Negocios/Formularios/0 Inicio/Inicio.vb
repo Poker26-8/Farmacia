@@ -103,6 +103,7 @@ Public Class Inicio
         If varrutabase = "" Then
             ActualizaCampos()
         End If
+        SFormatos("Pollos", "")
         verif()
         'Licencia()
         Try
