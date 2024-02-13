@@ -384,6 +384,7 @@ Partial Class Login
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.SkyBlue
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.Button3)
@@ -458,6 +459,7 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(224, 414)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblsoporte)
@@ -480,7 +482,6 @@ Partial Class Login
         Me.Controls.Add(Me.boxEmpresa)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
