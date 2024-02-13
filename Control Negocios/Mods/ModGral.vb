@@ -115,15 +115,9 @@ Module ModGral
                 existe = False
             End If
             rd5.Close()
-
+            valor = 0
             If (existe) Then
-
-                cmd5 = cnn5.CreateCommand
-                cmd5.CommandText =
-                    "update Formatos set NotasCred='" & valor & "' where Facturas='" & campo & "'"
-                cmd5.ExecuteNonQuery()
             Else
-                valor = 0
                 cmd5 = cnn5.CreateCommand
                 cmd5.CommandText =
                     "insert into Formatos(Facturas,NotasCred,NumPart) values('" & campo & "','" & valor & "',0)"
