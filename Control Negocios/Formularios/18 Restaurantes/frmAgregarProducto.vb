@@ -1262,8 +1262,6 @@ Public Class frmAgregarProducto
         ObtenerProducto(CodigoProducto)
 
     End Sub
-
-
     Public Sub Promociones(ByVal productos As String)
 
         Dim promocion As Integer = 0
@@ -1353,7 +1351,6 @@ Public Class frmAgregarProducto
 
         End If
     End Sub
-
     Public Sub ObtenerProducto(Codigo As String)
         Try
             cnn1.Close() : cnn1.Open()

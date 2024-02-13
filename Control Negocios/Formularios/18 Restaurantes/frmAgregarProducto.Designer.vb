@@ -336,7 +336,7 @@ Partial Class frmAgregarProducto
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel3.Location = New System.Drawing.Point(865, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(336, 785)
+        Me.Panel3.Size = New System.Drawing.Size(336, 701)
         Me.Panel3.TabIndex = 2
         '
         'grdCaptura
@@ -351,7 +351,7 @@ Partial Class frmAgregarProducto
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(336, 422)
+        Me.grdCaptura.Size = New System.Drawing.Size(336, 338)
         Me.grdCaptura.TabIndex = 2
         '
         'Column1
@@ -418,7 +418,7 @@ Partial Class frmAgregarProducto
         Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel8.Controls.Add(Me.TabControl1)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel8.Location = New System.Drawing.Point(0, 522)
+        Me.Panel8.Location = New System.Drawing.Point(0, 438)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(336, 263)
         Me.Panel8.TabIndex = 1
@@ -527,7 +527,7 @@ Partial Class frmAgregarProducto
         Me.Panel2.Controls.Add(Me.btnRepertir)
         Me.Panel2.Controls.Add(Me.btnordenar)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 698)
+        Me.Panel2.Location = New System.Drawing.Point(0, 614)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(865, 87)
         Me.Panel2.TabIndex = 3
@@ -649,7 +649,7 @@ Partial Class frmAgregarProducto
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
         Me.pDepartamento.Location = New System.Drawing.Point(0, 100)
         Me.pDepartamento.Name = "pDepartamento"
-        Me.pDepartamento.Size = New System.Drawing.Size(112, 598)
+        Me.pDepartamento.Size = New System.Drawing.Size(112, 514)
         Me.pDepartamento.TabIndex = 4
         '
         'pgrupo
@@ -658,7 +658,7 @@ Partial Class frmAgregarProducto
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
         Me.pgrupo.Location = New System.Drawing.Point(112, 100)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(125, 598)
+        Me.pgrupo.Size = New System.Drawing.Size(125, 514)
         Me.pgrupo.TabIndex = 5
         '
         'pProductos
@@ -667,7 +667,7 @@ Partial Class frmAgregarProducto
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pProductos.Location = New System.Drawing.Point(237, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(628, 598)
+        Me.pProductos.Size = New System.Drawing.Size(628, 514)
         Me.pProductos.TabIndex = 6
         '
         'pteclado
@@ -1279,7 +1279,7 @@ Partial Class frmAgregarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1201, 785)
+        Me.ClientSize = New System.Drawing.Size(1201, 701)
         Me.Controls.Add(Me.pteclado)
         Me.Controls.Add(Me.pProductos)
         Me.Controls.Add(Me.pgrupo)

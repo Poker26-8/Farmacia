@@ -13,7 +13,7 @@ Public Class frmPolleria
     Dim CodigoProducto As String = ""
 
     Dim existencia As Double = 0
-    Dim descripcion As String = ""
+    Public descripcion As String = ""
     Dim unidadventa As String = ""
     Dim minimo As Double = 0
     Dim ubicacion As String = ""
@@ -25,6 +25,9 @@ Public Class frmPolleria
     Dim PU As Double = 0
     Dim Importe As Double = 0
     Dim cantidad As Double = 0
+    Dim cantidad2 As Double = 0
+
+    Dim foliocomanda1 As Integer = 0
 
     Friend WithEvents btnEmp, btnDepa, btnGrupo, btnProd As System.Windows.Forms.Button
     Private Sub frmPolleria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -938,6 +941,35 @@ Public Class frmPolleria
 
     End Sub
 
+    Private Sub lblTotalVenta_TextChanged(sender As Object, e As EventArgs) Handles lblTotalVenta.TextChanged
+
+        If lblTotalVenta.Text = "" Then Exit Sub
+        Dim TotalImporte As Double = lblTotalVenta.Text
+        Dim CantidadLetra As String = ""
+        If TotalImporte > 0 Then
+
+            CantidadLetra = UCase(convLetras(TotalImporte))
+        Else
+
+            CantidadLetra = ""
+        End If
+        LBLLETRA.Text = CantidadLetra
+
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        Dim importe = grdCaptura.Rows(index).Cells(4).Value.ToString
+
+        lblTotalVenta.Text = lblTotalVenta.Text - importe
+        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+        grdCaptura.Rows.Remove(grdCaptura.CurrentRow)
+
+    End Sub
+
     Public Sub ObtenerProducto(Codigo As String)
         Try
             cnn1.Close() : cnn1.Open()
@@ -1006,6 +1038,115 @@ Public Class frmPolleria
     End Sub
 
     Public Sub UpGridCaptura()
+
+        Dim TotalVenta As Double = 0
+
+
+        Try
+            With Me.grdCaptura
+                Dim banderaentraa As Integer = 0
+                banderaentraa = 0
+                For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                    If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+
+                        grdCaptura.Rows(qq).Cells(1).Value = descripcion
+
+                        grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+
+
+                        grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                        grdCaptura.Rows(qq).Cells(4).Value = grdCaptura.Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
+
+                        grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                        banderaentraa = 1
+
+                    End If
+                Next
+
+                If banderaentraa = 0 Then
+
+                    grdCaptura.Rows.Add(CodigoProducto, descripcion,
+                    FormatNumber(cantidad, 2),
+                    FormatNumber(PU, 2),
+                    FormatNumber(Importe, 2)
+                                        )
+                    lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Public Sub EnviarComanda()
+
+        Try
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Max(Folio) FROM Comanda1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    foliocomanda1 = CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) + 1
+                Else
+                    foliocomanda1 = "1"
+                End If
+            Else
+                foliocomanda1 = "1"
+            End If
+            rd1.Close()
+
+            Dim mysubtotal As Double = 0
+            Dim codigoproducto As String = ""
+
+            For luffy As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                codigoproducto = grdCaptura.Rows(luffy).Cells(0).Value.ToString
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT IVA FROM productos WHERE Codigo=" & codigoproducto & ""
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        If grdCaptura.Rows(luffy).Cells(3).Value.ToString <> "" Then
+                            If CDec(grdCaptura.Rows(luffy).Cells(3).Value.ToString) > 0 Then
+
+                                mysubtotal = mysubtotal + (CDec(grdCaptura.Rows(luffy).Cells(3).Value.ToString)) / (1 + rd1("IVA").ToString)
+                                mysubtotal = FormatNumber(mysubtotal, 2)
+
+                            End If
+                        End If
+
+                    End If
+                End If
+                rd1.Close()
+            Next luffy
+
+            If grdCaptura.Rows.Count < 1 Then
+                Exit Sub
+            End If
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = ""
+            cmd2.ExecuteNonQuery()
+            cnn2.Close()
+
+            cnn1.Close()
+
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
 
     End Sub
 End Class
