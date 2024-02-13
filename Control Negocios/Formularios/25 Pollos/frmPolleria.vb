@@ -5,6 +5,7 @@ Imports System.IO
 Imports Microsoft.VisualBasic.Devices
 
 Public Class frmPolleria
+    Private Const V As String = "',')"
     Dim cantidadempleados As Double = 0
     Dim cantidaddepartamentos As Double = 0
     Dim cantidadgrupos As Double = 0
@@ -13,7 +14,7 @@ Public Class frmPolleria
     Dim CodigoProducto As String = ""
 
     Dim existencia As Double = 0
-    Dim descripcion As String = ""
+    Public descripcion As String = ""
     Dim unidadventa As String = ""
     Dim minimo As Double = 0
     Dim ubicacion As String = ""
@@ -25,6 +26,9 @@ Public Class frmPolleria
     Dim PU As Double = 0
     Dim Importe As Double = 0
     Dim cantidad As Double = 0
+    Dim cantidad2 As Double = 0
+
+    Dim foliocomanda1 As Integer = 0
 
     Friend WithEvents btnEmp, btnDepa, btnGrupo, btnProd As System.Windows.Forms.Button
     Private Sub frmPolleria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -938,6 +942,35 @@ Public Class frmPolleria
 
     End Sub
 
+    Private Sub lblTotalVenta_TextChanged(sender As Object, e As EventArgs) Handles lblTotalVenta.TextChanged
+
+        If lblTotalVenta.Text = "" Then Exit Sub
+        Dim TotalImporte As Double = lblTotalVenta.Text
+        Dim CantidadLetra As String = ""
+        If TotalImporte > 0 Then
+
+            CantidadLetra = UCase(convLetras(TotalImporte))
+        Else
+
+            CantidadLetra = ""
+        End If
+        LBLLETRA.Text = CantidadLetra
+
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        Dim importe = grdCaptura.Rows(index).Cells(4).Value.ToString
+
+        lblTotalVenta.Text = lblTotalVenta.Text - importe
+        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+        grdCaptura.Rows.Remove(grdCaptura.CurrentRow)
+
+    End Sub
+
     Public Sub ObtenerProducto(Codigo As String)
         Try
             cnn1.Close() : cnn1.Open()
@@ -982,6 +1015,16 @@ Public Class frmPolleria
         End Try
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+        frmPagarPoo.Show()
+        'EnviarComanda()
+    End Sub
+
     Public Sub find_preciovta(codigo As String)
 
         Dim MyPrecio As Double = 0
@@ -1006,6 +1049,239 @@ Public Class frmPolleria
     End Sub
 
     Public Sub UpGridCaptura()
+
+        Dim TotalVenta As Double = 0
+
+
+        Try
+            With Me.grdCaptura
+                Dim banderaentraa As Integer = 0
+                banderaentraa = 0
+                For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                    If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+
+                        grdCaptura.Rows(qq).Cells(1).Value = descripcion
+
+                        grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+
+
+                        grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                        grdCaptura.Rows(qq).Cells(4).Value = grdCaptura.Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
+
+                        grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                        banderaentraa = 1
+
+                    End If
+                Next
+
+                If banderaentraa = 0 Then
+
+                    grdCaptura.Rows.Add(CodigoProducto, descripcion,
+                    FormatNumber(cantidad, 2),
+                    FormatNumber(PU, 2),
+                    FormatNumber(Importe, 2)
+                                        )
+                    lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Public Sub EnviarComanda()
+
+        Try
+
+            If lblAtiende.Text = "" Then MsgBox("Debe seleccionar a un empleado", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Max(Folio) FROM Comanda1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    foliocomanda1 = CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) + 1
+                Else
+                    foliocomanda1 = "1"
+                End If
+            Else
+                foliocomanda1 = "1"
+            End If
+            rd1.Close()
+
+            Dim mysubtotal As Double = 0
+            Dim codigoproducto As String = ""
+            Dim mytotalc As Double = 0
+            Dim myivac As Double = 0
+
+            cnn2.Close() : cnn2.Open()
+            For luffy As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                codigoproducto = grdCaptura.Rows(luffy).Cells(0).Value.ToString
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT IVA FROM productos WHERE Codigo='" & codigoproducto & "'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        If grdCaptura.Rows(luffy).Cells(3).Value.ToString <> "" Then
+                            If CDec(grdCaptura.Rows(luffy).Cells(3).Value.ToString) > 0 Then
+
+                                mysubtotal = mysubtotal + (CDec(grdCaptura.Rows(luffy).Cells(3).Value.ToString)) / (1 + rd1("IVA").ToString)
+                                mysubtotal = FormatNumber(mysubtotal, 2)
+
+
+                                mytotalc = IIf(mytotalc = 0, 0, mytotalc) / (1 + rd1("IVA").ToString)
+
+
+                            End If
+                        End If
+
+                    End If
+                Loop
+
+
+                rd1.Close()
+            Next luffy
+
+            If grdCaptura.Rows.Count < 1 Then
+                Exit Sub
+            End If
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO comanda1(Folio,Nombre,Subtotal,IVA,Totales,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "'," & mysubtotal & "," & mytotalc & "," & lblTotalVenta.Text & ",'','','','" & lblAtiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','','')"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+
+            Dim EMPLEADO As String = ""
+            Dim MYCODE As String = ""
+            Dim MYDESC As String = ""
+            Dim MYCANT As Double = 0
+            Dim MYPRECIO As Double = 0
+            Dim MYTOTAL As Double = 0
+            Dim UVENTA As String = ""
+            Dim MYIVA As Double = 0
+            Dim MYPRECIOSIN As Double = 0
+            Dim MYPRECIOCOMPRA As Double = 0
+            Dim MYTOTALSIN As Double = 0
+            Dim MYCOSTVUE As Double = 0
+            Dim MYDEPTO As String = ""
+            Dim MYGRUPO As String = ""
+            Dim MYMCD As Double = 0
+            Dim MYMULTIPLO As Double = 0
+            Dim COMENTARIO As String = ""
+
+            Dim MYEXINV As Double = 0
+            Dim MYMULTIPLOD As Double = 0
+
+            Dim HrTiempo As String = ""
+            Dim HrEntrega As String = ""
+
+
+            For deku As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                If grdCaptura.Rows(deku).Cells(0).Value.ToString <> "" Then
+
+                    EMPLEADO = lblAtiende.Text
+                    MYCODE = grdCaptura.Rows(deku).Cells(0).Value.ToString
+                    MYDESC = grdCaptura.Rows(deku).Cells(1).Value.ToString
+                    MYCANT = grdCaptura.Rows(deku).Cells(2).Value.ToString
+                    MYPRECIO = grdCaptura.Rows(deku).Cells(3).Value.ToString
+                    MYTOTAL = grdCaptura.Rows(deku).Cells(4).Value.ToString
+                    COMENTARIO = grdCaptura.Rows(deku).Cells(5).Value
+
+                    MYPRECIO = FormatNumber(MYPRECIO, 2)
+                    MYTOTAL = FormatNumber(MYTOTAL, 2)
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & MYCODE & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+
+                            MYIVA = rd2("iva").ToString
+                            MYPRECIOSIN = IIf(MYPRECIO = 0, 0, MYPRECIO) / (1 + MYIVA)
+
+                            MYTOTALSIN = IIf(MYTOTAL = 0, 0, MYTOTAL) / (1 + MYIVA)
+
+                            MYPRECIOSIN = FormatNumber(MYPRECIOSIN, 2)
+                            MYTOTALSIN = FormatNumber(MYTOTALSIN, 2)
+
+                            If rd2("Departamento").ToString = "SERVICIOS" Then
+                                MYCOSTVUE = 0
+                                MYDEPTO = rd2("Departamento").ToString
+                                MYGRUPO = rd2("Grupo").ToString
+                            End If
+
+                            MYMCD = rd2("MCD").ToString
+                            MYMULTIPLO = rd2("Multiplo").ToString
+                            MYDEPTO = rd2("Departamento").ToString
+                            MYGRUPO = rd2("Grupo").ToString
+                            UVENTA = rd2("UVenta").ToString
+
+                        End If
+                    End If
+                    rd2.Close()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & Strings.Left(MYCODE, 7) & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+
+                            MYMULTIPLOD = rd2("Multiplo").ToString
+
+                            MYEXINV = rd2("Existencia").ToString / MYMULTIPLOD
+
+                            If rd2("Departamento").ToString <> "SERVICIOS" Then
+                                MYPRECIOCOMPRA = rd2("PrecioCompra").ToString
+                                MYCOSTVUE = (MYPRECIOCOMPRA) * (MYCANT / MYMCD)
+                            End If
+
+                        End If
+                    End If
+                    rd2.Close()
+
+                    HrTiempo = Format(Date.Now, "HH:mm:ss")
+                    HrTiempo = Format(Date.Now, "HH:mm:ss")
+
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,EstatusT,Hr,EntregaT) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "','" & MYCODE & "','" & MYDESC & "'," & MYCANT & ",'" & UVENTA & "'," & MYCOSTVUE & ",0," & MYPRECIO & "," & MYTOTAL & "," & MYPRECIOSIN & "," & MYTOTALSIN & ",'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & MYDEPTO & "','" & MYGRUPO & "','1','RESTA','" & COMENTARIO & "','','" & lblAtiende.Text & "','1',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                    cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,EstatusT,Hr,EntregaT) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "','" & MYCODE & "','" & MYDESC & "'," & MYCANT & ",'" & UVENTA & "'," & MYCOSTVUE & ",0," & MYPRECIO & "," & MYTOTAL & "," & MYPRECIOSIN & "," & MYTOTALSIN & ",'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & MYDEPTO & "','" & MYGRUPO & "','1','ORDENADA','" & COMENTARIO & "','','" & lblAtiende.Text & "','1',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+
+                End If
+            Next
+            cnn2.Close()
+            cnn1.Close()
+
+            Limpiar
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+    End Sub
+
+    Public Sub Limpiar()
+        pProductos.Controls.Clear()
+        grdCaptura.Rows.Clear()
+        lblAtiende.Text = "0.0"
+        LBLLETRA.Text = ""
+        lblAtiende.Text = ""
 
     End Sub
 End Class

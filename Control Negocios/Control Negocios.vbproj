@@ -74,22 +74,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Controls">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Controls.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.Imaging.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.Math.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -153,10 +153,10 @@
       <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="Servisim.WS.Conector">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\Servisim.WS.Conector.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\DLL\Servisim.WS.Conector.dll</HintPath>
     </Reference>
     <Reference Include="Servisim.WS.Conector.Impl">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\Servisim.WS.Conector.Impl.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\00\DLL\Servisim.WS.Conector.Impl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1453,6 +1453,12 @@
     <Compile Include="Formularios\24 Hoteleria\frmServicioCuarto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPagarPoo.Designer.vb">
+      <DependentUpon>frmPagarPoo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPagarPoo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\25 Pollos\frmPolleria.Designer.vb">
       <DependentUpon>frmPolleria.vb</DependentUpon>
     </Compile>
@@ -2135,6 +2141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmServicioCuarto.resx">
       <DependentUpon>frmServicioCuarto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\25 Pollos\frmPagarPoo.resx">
+      <DependentUpon>frmPagarPoo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\25 Pollos\frmPolleria.resx">
       <DependentUpon>frmPolleria.vb</DependentUpon>
