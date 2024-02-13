@@ -330,6 +330,22 @@ Public Class Inicio
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    restaurante = rd1(0).ToString
+                    If restaurante = 1 Then
+                        btnpollo.Visible = True
+                    Else
+                        btnpollo.Visible = False
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -2266,7 +2282,7 @@ Public Class Inicio
         frmRepSeries.BringToFront()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btnpollo.Click
         frmPolleria.Show()
         frmPolleria.BringToFront()
     End Sub

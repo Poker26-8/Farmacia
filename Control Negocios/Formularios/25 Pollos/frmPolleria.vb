@@ -29,9 +29,29 @@ Public Class frmPolleria
     Dim cantidad2 As Double = 0
 
     Dim foliocomanda1 As Integer = 0
+    Dim reportecomanda As Integer = 0
+
+    Dim montomapeo As Double = 0
+
+    Dim contralogueo As String = ""
+    Dim usuariologueo As String = ""
 
     Friend WithEvents btnEmp, btnDepa, btnGrupo, btnProd As System.Windows.Forms.Button
     Private Sub frmPolleria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                contralogueo = rd2(0).ToString
+                usuariologueo = rd2(1).ToString
+
+            End If
+        End If
+        rd2.Close()
+        cnn2.Close()
 
         pEmpleado.Controls.Clear()
         pDepartamento.Controls.Clear()
@@ -168,7 +188,31 @@ Public Class frmPolleria
                         btnEmp.Top = (emple - 1) * (btnEmp.Height + 0.5)
                     End If
 
-                    btnEmp.BackColor = pEmpleado.BackColor
+
+                    Dim pn As Integer = 0
+
+                    cnn9.Close() : cnn9.Open()
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "select NMESA from Comandas where NMESA='" & Trim(btnEmp.Text) & "' and Status='RESTA'"
+                    rd9 = cmd9.ExecuteReader
+                    If rd9.HasRows Then
+                        If rd9.Read Then
+                            pn = 1
+
+                            If pn <> 0 Then
+                                btnEmp.BackColor = Color.FromArgb(255, 128, 0)
+                            Else
+                                btnEmp.BackColor = Color.FromArgb(255, 255, 128)
+                            End If
+
+                        End If
+                    Else
+                        ' btnMesa2.BackColor = Color.FromArgb(255, 128, 0)
+                    End If
+                    rd9.Close()
+                    cnn9.Close()
+
+
                     btnEmp.FlatStyle = FlatStyle.Popup
                     btnEmp.FlatAppearance.BorderSize = 0
                     AddHandler btnEmp.Click, AddressOf btnEmp_Click
@@ -902,7 +946,7 @@ Public Class frmPolleria
                         btnProd.Top = (prods - 1) * (btnProd.Height + 0.5)
                     End If
 
-                    btnProd.BackColor = Color.Orange
+                    btnProd.BackColor = Color.SkyBlue
                     btnProd.FlatStyle = FlatStyle.Popup
                     btnProd.FlatAppearance.BorderSize = 0
 
@@ -936,9 +980,17 @@ Public Class frmPolleria
         CodigoProducto = ""
         CodigoProducto = btnProducto.Tag
 
-        cantidad = 1
 
-        ObtenerProducto(btnProducto.Tag)
+        ppeso.Visible = True
+        txtpeso.Focus.Equals(True)
+        'With ppeso
+        '    cantidad = txtpeso.Text
+        'End With
+
+        ' If cantidad > 0 Then
+        ' ObtenerProducto(btnProducto.Tag)
+        'End If
+
 
     End Sub
 
@@ -1021,8 +1073,91 @@ Public Class frmPolleria
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
 
-        frmPagarPoo.Show()
-        'EnviarComanda()
+        If lblAtiende.Text = "" Then MsgBox("Debe seleccionar un empleado", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
+
+
+        Try
+                Dim idemp As Integer = 0
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Alias='" & usuariologueo & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        idemp = rd2(0).ToString
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.HasRows Then
+                            If rd3.Read Then
+
+                                If rd3(0).ToString = 1 Then
+
+
+
+                                    montomapeo = 0
+
+                                    cnn1.Close() : cnn1.Open()
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "SELECT SUM(Total) FROM Comandas WHERE NMESA='" & lblAtiende.Text & "'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
+                                        montomapeo = FormatNumber(montomapeo, 2)
+
+                                        frmPagar.txtSubtotalmapeo.Text = montomapeo
+                                        frmPagar.subtotalmapeo = montomapeo
+                                        frmPagar.focomapeo = 1
+                                        frmPagar.txtEfectivo.Focus.Equals(True)
+                                        frmPagar.lblmesa.Text = lblAtiende.Text
+                                        frmPagar.lblusuario2.Text = usuariologueo
+                                        frmPagar.contraseñamesero = contralogueo
+                                        frmPagar.COMENSALES = 1
+                                        frmPagar.Show()
+
+
+                                    Else
+                                            MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
+                                            Exit Sub
+                                        End If
+                                    End If
+                                    rd1.Close()
+                                    cnn1.Close()
+
+                                Else
+                                    MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
+                                    Exit Sub
+                                End If
+
+                            End If
+                        Else
+                            MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
+                            Exit Sub
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+                    End If
+                Else
+                    MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
+                    Exit Sub
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+
+
+        Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
+
+
     End Sub
 
     Public Sub find_preciovta(codigo As String)
@@ -1046,6 +1181,21 @@ Public Class frmPolleria
         rd2.Close()
         cnn2.Close()
 
+    End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        grdCaptura.Rows.Clear()
+        lblTotalVenta.Text = "0.00"
+        LBLLETRA.Text = ""
+        lblAtiende.Text = ""
+        pProductos.Controls.Clear()
+    End Sub
+
+    Private Sub btnAsignar_Click(sender As Object, e As EventArgs) Handles btnAsignar.Click
+        EnviarComanda()
+
+        pEmpleado.Controls.Clear()
+        Empleados()
     End Sub
 
     Public Sub UpGridCaptura()
@@ -1115,6 +1265,20 @@ Public Class frmPolleria
             End If
             rd1.Close()
 
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Max(Id) FROM rep_comandas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    reportecomanda = CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) + 1
+                Else
+                    reportecomanda = "1"
+                End If
+            Else
+                reportecomanda = "1"
+            End If
+            rd1.Close()
+
             Dim mysubtotal As Double = 0
             Dim codigoproducto As String = ""
             Dim mytotalc As Double = 0
@@ -1151,9 +1315,8 @@ Public Class frmPolleria
                 rd1.Close()
             Next luffy
 
-            If grdCaptura.Rows.Count < 1 Then
-                Exit Sub
-            End If
+            If grdCaptura.Rows.Count < 1 Then MsgBox("Debes seleccionar un producto", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
+
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -1259,7 +1422,7 @@ Public Class frmPolleria
                     cmd3.ExecuteNonQuery()
 
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,EstatusT,Hr,EntregaT) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "','" & MYCODE & "','" & MYDESC & "'," & MYCANT & ",'" & UVENTA & "'," & MYCOSTVUE & ",0," & MYPRECIO & "," & MYTOTAL & "," & MYPRECIOSIN & "," & MYTOTALSIN & ",'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & MYDEPTO & "','" & MYGRUPO & "','1','ORDENADA','" & COMENTARIO & "','','" & lblAtiende.Text & "','1',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                    cmd3.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,EstatusT,Hr,EntregaT) VALUES(" & reportecomanda & ",'" & lblAtiende.Text & "','" & MYCODE & "','" & MYDESC & "'," & MYCANT & ",'" & UVENTA & "'," & MYCOSTVUE & ",0," & MYPRECIO & "," & MYTOTAL & "," & MYPRECIOSIN & "," & MYTOTALSIN & ",'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & MYDEPTO & "','" & MYGRUPO & "','1','ORDENADA','" & COMENTARIO & "','','" & lblAtiende.Text & "','1',0,'" & HrTiempo & "','" & HrEntrega & "')"
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
 
@@ -1268,7 +1431,11 @@ Public Class frmPolleria
             cnn2.Close()
             cnn1.Close()
 
-            Limpiar
+            lblAtiende.Text = ""
+            lblTotalVenta.Text = "0.00"
+            LBLLETRA.Text = ""
+
+            Limpiar()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -1279,9 +1446,63 @@ Public Class frmPolleria
     Public Sub Limpiar()
         pProductos.Controls.Clear()
         grdCaptura.Rows.Clear()
-        lblAtiende.Text = "0.0"
-        LBLLETRA.Text = ""
-        lblAtiende.Text = ""
 
     End Sub
+
+    Private Sub BTN1_Click(sender As Object, e As EventArgs) Handles BTN1.Click
+        txtpeso.Text = txtpeso.Text + BTN1.Text
+    End Sub
+
+    Private Sub BTN2_Click(sender As Object, e As EventArgs) Handles BTN2.Click
+        txtpeso.Text = txtpeso.Text + BTN2.Text
+    End Sub
+
+    Private Sub BTN6_Click(sender As Object, e As EventArgs) Handles BTN6.Click
+        txtpeso.Text = txtpeso.Text + BTN6.Text
+    End Sub
+
+    Private Sub BTN7_Click(sender As Object, e As EventArgs) Handles BTN7.Click
+        txtpeso.Text = txtpeso.Text + BTN7.Text
+    End Sub
+
+    Private Sub BTN8_Click(sender As Object, e As EventArgs) Handles BTN8.Click
+        txtpeso.Text = txtpeso.Text + BTN8.Text
+    End Sub
+
+    Private Sub BTN9_Click(sender As Object, e As EventArgs) Handles BTN9.Click
+        txtpeso.Text = txtpeso.Text + BTN9.Text
+    End Sub
+
+    Private Sub BTN0_Click(sender As Object, e As EventArgs) Handles BTN0.Click
+        txtpeso.Text = txtpeso.Text + BTN0.Text
+    End Sub
+
+    Private Sub BTNP_Click(sender As Object, e As EventArgs) Handles BTNP.Click
+        txtpeso.Text = txtpeso.Text + BTNP.Text
+    End Sub
+
+    Private Sub BTNINTRO_Click(sender As Object, e As EventArgs) Handles BTNINTRO.Click
+
+        With ppeso
+            cantidad = txtpeso.Text
+        End With
+
+        ObtenerProducto(CodigoProducto)
+        ppeso.Visible = False
+        txtpeso.Text = ""
+
+    End Sub
+
+    Private Sub BTN3_Click(sender As Object, e As EventArgs) Handles BTN3.Click
+        txtpeso.Text = txtpeso.Text + BTN3.Text
+    End Sub
+
+    Private Sub BTN4_Click(sender As Object, e As EventArgs) Handles BTN4.Click
+        txtpeso.Text = txtpeso.Text + BTN4.Text
+    End Sub
+
+    Private Sub BTN5_Click(sender As Object, e As EventArgs) Handles BTN5.Click
+        txtpeso.Text = txtpeso.Text + BTN5.Text
+    End Sub
+
 End Class

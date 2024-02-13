@@ -99,7 +99,30 @@ Public Class frmPagar
     End Sub
 
     Private Sub frmPagar_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frmMesas.Show()
+        Dim pollo As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+
+                pollo = rd1(0).ToString
+                If pollo = 1 Then
+                    frmPolleria.Show()
+                Else
+                    frmMesas.Close()
+                    frmMesas.Show()
+                End If
+
+            End If
+        Else
+            frmMesas.Close()
+            frmMesas.Show()
+        End If
+        rd1.Close()
+        cnn1.Close()
     End Sub
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
@@ -367,7 +390,7 @@ Public Class frmPagar
 
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT IDC FROM Comandas WHERE Nmesa='" & lblmesa.Text & "'"
+            cmd5.CommandText = "SELECT DISTINCT Id FROM Comandas WHERE Nmesa='" & lblmesa.Text & "'"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -580,7 +603,7 @@ Public Class frmPagar
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE IDC='" & cboComanda.Text & "' AND NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT * FROM Comandas WHERE Id='" & cboComanda.Text & "' AND NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -895,7 +918,7 @@ Public Class frmPagar
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura) VALUES('','" & lblmesa.Text & "',''," & Subtotales1 & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "')"
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura) VALUES('','" & lblmesa.Text & "',''," & Subtotales1 & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 
@@ -1072,7 +1095,7 @@ Public Class frmPagar
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'" & formapago & "'," & txtPropina.Text & "," & montopago & ",'" & bancoforma & "','" & referencia & "','" & comentario & "','" & lblusuario.Text & "'," & totcomi & ")"
+                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'" & formapago & "'," & txtPropina.Text & "," & montopago & ",'" & bancoforma & "','" & referencia & "','" & comentario & "','" & lblusuario2.Text & "'," & totcomi & ")"
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
                 End If
@@ -1097,7 +1120,7 @@ Public Class frmPagar
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'EFECTIVO'," & txtPropina.Text & "," & MontoEffe & ",'','','','" & lblusuario.Text & "'," & totcomi & ")"
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'EFECTIVO'," & txtPropina.Text & "," & MontoEffe & ",'','','','" & lblusuario2.Text & "'," & totcomi & ")"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
         End If
@@ -1155,7 +1178,7 @@ Public Class frmPagar
 
                                         cnn4.Close() : cnn4.Open()
                                         cmd4 = cnn4.CreateCommand
-                                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & CDec(rd1("PrecioCompra").ToString) & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario.Text & "'," & existencia_inicial & "," & opediferencia & "," & folio & ")"
+                                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & CDec(rd1("PrecioCompra").ToString) & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & existencia_inicial & "," & opediferencia & "," & folio & ")"
                                         cmd4.ExecuteNonQuery()
                                         cnn4.Close()
                                     End If
@@ -1192,7 +1215,7 @@ Public Class frmPagar
 
                         cnn4.Close() : cnn4.Open()
                         cmd4 = cnn4.CreateCommand
-                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & CDec(rd1("PrecioCompra").ToString) & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario.Text & "'," & existencia_inicial & "," & opediferencia & "," & folio & ")"
+                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & CDec(rd1("PrecioCompra").ToString) & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & existencia_inicial & "," & opediferencia & "," & folio & ")"
                         cmd4.ExecuteNonQuery()
 
                         cmd4 = cnn4.CreateCommand
@@ -1364,8 +1387,33 @@ Public Class frmPagar
 
         btnlimpiar.PerformClick()
         Me.Close()
-        frmMesas.Close()
-        frmMesas.Show()
+
+        Dim pollo As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+
+                pollo = rd1(0).ToString
+                If pollo = 1 Then
+                    frmPolleria.Close()
+                    frmPolleria.Show()
+                Else
+                    frmMesas.Close()
+                    frmMesas.Show()
+                End If
+
+            End If
+        Else
+            frmMesas.Close()
+            frmMesas.Show()
+        End If
+        rd1.Close()
+        cnn1.Close()
+
 
     End Sub
 
@@ -1373,13 +1421,13 @@ Public Class frmPagar
 
         If grdcomanda.Rows.Count <> 0 Then
 
-            If lblusuario.Text = "" Then
+            If lblusuario2.Text = "" Then
                 MsgBox("Digite la clave de usuario", vbInformation + vbOKOnly, titulomensajes)
                 Exit Sub
             Else
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT IdEmpleado,Status from Usuarios WHERE Alias='" & lblusuario.Text & "'"
+                cmd1.CommandText = "SELECT IdEmpleado,Status from Usuarios WHERE Alias='" & lblusuario2.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1850,7 +1898,7 @@ Public Class frmPagar
         End If
         Y += 12
 
-        e.Graphics.DrawString("Le atiende: " & lblusuario.Text, fuente_r, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Le atiende: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
         Y += 20
 
 
@@ -2192,7 +2240,7 @@ Public Class frmPagar
         End If
         Y += 12
 
-        e.Graphics.DrawString("Le atiende: " & lblusuario.Text, fuente_r, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("Le atiende: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
 
         cnn4.Close()
         cnn3.Close()
@@ -2311,7 +2359,7 @@ Public Class frmPagar
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT IdEmpleado,Status FROM Usuarios WHERE Alias='" & lblusuario.Text & "'"
+            cmd1.CommandText = "SELECT IdEmpleado,Status FROM Usuarios WHERE Alias='" & lblusuario2.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2382,7 +2430,7 @@ Public Class frmPagar
 
                     cnn4.Close() : cnn4.Open()
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "INSERT INTO Devoluciones(Folio,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,ImporteEfec,NMESA,CUsuario,Hr,TipoMov) VALUES(" & ideliminar & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & unidadeliminar & "'," & CantidadP & ",0,0," & COSTVUE1 & "," & precioeliminar & "," & TOTAL1 & "," & PRECIOSINIVA1 & "," & TOTALSINIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','',0,'" & DEPA & "','" & GRUPO1 & "',0,'" & lblmesa.Text & "','" & lblusuario.Text & "','" & Format(Date.Now, "HH:mm:ss") & "','CANCELACION')"
+                    cmd4.CommandText = "INSERT INTO Devoluciones(Folio,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,ImporteEfec,NMESA,CUsuario,Hr,TipoMov) VALUES(" & ideliminar & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & unidadeliminar & "'," & CantidadP & ",0,0," & COSTVUE1 & "," & precioeliminar & "," & TOTAL1 & "," & PRECIOSINIVA1 & "," & TOTALSINIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','',0,'" & DEPA & "','" & GRUPO1 & "',0,'" & lblmesa.Text & "','" & lblusuario2.Text & "','" & Format(Date.Now, "HH:mm:ss") & "','CANCELACION')"
                     cmd4.ExecuteNonQuery()
                     cnn4.Close()
 
@@ -2687,7 +2735,7 @@ Public Class frmPagar
             Y += 15
             e.Graphics.DrawString("MESA: " & lblmesa.Text, fuente_r, Brushes.Black, 1, Y)
             Y += 18
-            e.Graphics.DrawString("MESERO: " & lblusuario.Text, fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("MESERO: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
 
             cnn4.Close()
             e.HasMorePages = False
@@ -2818,7 +2866,7 @@ Public Class frmPagar
             Y += 15
             e.Graphics.DrawString("MESA: " & lblmesa.Text, fuente_r, Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("MESERO: " & lblusuario.Text, fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("MESERO: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
 
             cnn4.Close()
             e.HasMorePages = False
@@ -3082,7 +3130,7 @@ Public Class frmPagar
                                 Do While rd1.Read
                                     If rd1.HasRows Then
                                         ope = importepro / 1.16
-                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd3(0).ToString)
+                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
                                         TotalIVA = FormatNumber(TotalIVA, 2)
                                     End If
                                 Loop

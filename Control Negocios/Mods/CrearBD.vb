@@ -1506,7 +1506,8 @@
                                                 ('66','Whatsapp', '0', 0),
                                                 ('67','Produccion', '0', 0),
                                                 ('68','LinkAuto', '0', 0),
-                                                ('69','ActuClientesNube', '0', 0);"
+                                                ('69','ActuClientesNube', '0', 0),
+                                                ('70','Pollos', '0', 0);"
 
 
 

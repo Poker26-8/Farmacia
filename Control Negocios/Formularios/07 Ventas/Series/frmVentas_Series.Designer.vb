@@ -199,6 +199,9 @@ Partial Class frmVentas_Series
         Me.pVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.pVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.pVentaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pCotiza80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCotiza58 = New System.Drawing.Printing.PrintDocument()
+        Me.pCotizaCarta = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2369,4 +2372,7 @@ Partial Class frmVentas_Series
     Friend WithEvents pVenta80 As Printing.PrintDocument
     Friend WithEvents pVenta58 As Printing.PrintDocument
     Friend WithEvents pVentaCarta As Printing.PrintDocument
+    Friend WithEvents pCotiza80 As Printing.PrintDocument
+    Friend WithEvents pCotiza58 As Printing.PrintDocument
+    Friend WithEvents pCotizaCarta As Printing.PrintDocument
 End Class

@@ -2147,6 +2147,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\25 Pollos\frmPolleria.resx">
       <DependentUpon>frmPolleria.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

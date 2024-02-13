@@ -162,6 +162,162 @@ Public Class datos_delsscom
                 With odata
                     If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                        'clienteeliminado
+                        .runSp(cnnprueba, vartablaclienteeliminado, sinfo)
+                        .runSp(cnnprueba, varKeyclienteeliminado, sinfo)
+                        .runSp(cnnprueba, varAutoclienteeliminado, sinfo)
+
+                        'productoeliminado
+                        .runSp(cnnprueba, vartablaproductoeliminado, sinfo)
+                        .runSp(cnnprueba, varKeyproductoeliminado, sinfo)
+                        .runSp(cnnprueba, varAutoproductoeliminado, sinfo)
+
+                        'pedidostemporal
+                        .runSp(cnnprueba, vartablapedidostemporal, sinfo)
+                        .runSp(cnnprueba, varKeypedidostemporal, sinfo)
+                        .runSp(cnnprueba, varAutopedidostemporal, sinfo)
+
+                        ' pedidoeliminado
+                        .runSp(cnnprueba, vartablaPedidoEliminado, sinfo)
+                        .runSp(cnnprueba, varKeypedidoeliminado, sinfo)
+                        .runSp(cnnprueba, varAutopedidoeliminado, sinfo)
+
+                        'detalle_nomina
+                        .runSp(cnnprueba, vartabladetallenomina, sinfo)
+                        .runSp(cnnprueba, varKeydetallenomina, sinfo)
+                        .runSp(cnnprueba, varAutodetallenomina, sinfo)
+
+                        'tipoincapacidadsat
+                        .runSp(cnnprueba, vartablatipoincapacidadsat, sinfo)
+                        Dim dtprueba11 As New DataTable
+                        If .getDt(cnnprueba, dtprueba11, "SELECT * from tipoincapacidadsat", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatipoincapacidadsat, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyotipoincapacidadsat, sinfo)
+                        .runSp(cnnprueba, varAutotipoincapacidadsat, sinfo)
+
+                        'tiponomina
+                        .runSp(cnnprueba, vartablatiponomina, sinfo)
+                        Dim dtprueba10 As New DataTable
+                        If .getDt(cnnprueba, dtprueba10, "SELECT * from tiponomina", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatiponomina, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyotiponomina, sinfo)
+                        .runSp(cnnprueba, varAutotiponomina, sinfo)
+
+
+                        'otrospagos
+                        .runSp(cnnprueba, vartablaotrospagos, sinfo)
+                        Dim dtprueba9 As New DataTable
+                        If .getDt(cnnprueba, dtprueba9, "SELECT * from otrospagos", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertaotrospagos, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyotrospagos, sinfo)
+                        .runSp(cnnprueba, varAutootrospagos, sinfo)
+
+                        'tipopercepcioncontable
+                        .runSp(cnnprueba, vartablatipopercepcioncontable, sinfo)
+                        Dim dtprueba8 As New DataTable
+                        If .getDt(cnnprueba, dtprueba8, "SELECT * from tipo_percepcion_contable", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatipopercepcioncontable, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeytipopercepcioncontable, sinfo)
+                        .runSp(cnnprueba, varAutotipopercepcioncontable, sinfo)
+
+                        'tipodeduccioncontable
+                        .runSp(cnnprueba, vartablatipodeduccioncontable, sinfo)
+                        Dim dtprueba7 As New DataTable
+                        If .getDt(cnnprueba, dtprueba7, "SELECT * from tipo_deduccion_contable", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatipodeduccioncontable, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeytipodeduccioncontable, sinfo)
+                        .runSp(cnnprueba, varAutotipodeduccioncontable, sinfo)
+
+                        'riesgopuesto
+                        .runSp(cnnprueba, vartablariesgopuesto, sinfo)
+                        Dim dtprueba6 As New DataTable
+                        If .getDt(cnnprueba, dtprueba6, "SELECT * from riesgo_puesto", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertariesgopuesto, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyriesgopuesto, sinfo)
+                        .runSp(cnnprueba, varAutoriesgopuesto, sinfo)
+
+                        'tipocontrato
+                        .runSp(cnnprueba, vartablatipocontrato, sinfo)
+                        Dim dtprueba5 As New DataTable
+                        If .getDt(cnnprueba, dtprueba5, "SELECT * from tipo_contrato", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatipocontrato, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeytipocontrato, sinfo)
+                        .runSp(cnnprueba, varAutotipocontrato, sinfo)
+
+                        'tipojornada
+                        .runSp(cnnprueba, vartablatipojornada, sinfo)
+                        Dim dtprueba4 As New DataTable
+                        If .getDt(cnnprueba, dtprueba4, "SELECT * from tipo_jornada", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertatipojornada, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeytipojornada, sinfo)
+                        .runSp(cnnprueba, varAutotipojornada, sinfo)
+
+                        'periodicidad_pago
+                        .runSp(cnnprueba, vartablaperiodicidadpago, sinfo)
+                        Dim dtprueba3 As New DataTable
+                        If .getDt(cnnprueba, dtprueba3, "SELECT * from periodicidad_pago", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertaperiodicidadpago, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyperiodicidadpago, sinfo)
+                        .runSp(cnnprueba, varAutoperiodicidadpago, sinfo)
+
+                        'regimencontrataciontrabajador
+                        .runSp(cnnprueba, vartablaregimencontrataciontrabajador, sinfo)
+                        Dim dtprueba2 As New DataTable
+                        If .getDt(cnnprueba, dtprueba2, "SELECT * from regimen_contratacion_trabajador", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertaregimencontrataciontrabajador, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeyregimencontrataciontrabajador, sinfo)
+                        .runSp(cnnprueba, varAutoregimencontrataciontrabajador, sinfo)
+
+
+                        'habitacion
+                        .runSp(cnnprueba, vartablahabitacion, sinfo)
+                        .runSp(cnnprueba, varKeyhabitacion, sinfo)
+                        .runSp(cnnprueba, varAutohabitacion, sinfo)
+
+                        'detallehotel
+                        .runSp(cnnprueba, vartabladetallehotel, sinfo)
+                        .runSp(cnnprueba, varKeydetallehotel, sinfo)
+                        .runSp(cnnprueba, varAutodetallehotel, sinfo)
+
+                        'controlserviciodet
+                        .runSp(cnnprueba, vartablacontrolserviciosdet, sinfo)
+                        .runSp(cnnprueba, varKeycontrolserviciodet, sinfo)
+                        .runSp(cnnprueba, varAutocontrolserviciodet, sinfo)
+
+                        'controlservicio
+                        .runSp(cnnprueba, vartablacontrolservicios, sinfo)
+                        .runSp(cnnprueba, varKeycontrolservicio, sinfo)
+                        .runSp(cnnprueba, varAutocontrolservicio, sinfo)
+
+                        .runSp(cnnprueba, vartablahisasigpc, sinfo)
+                        .runSp(cnnprueba, varKeyhisasigpc, sinfo)
+                        .runSp(cnnprueba, varAutohisasigpc, sinfo)
+
+                        'vtaimpresion
+                        .runSp(cnnprueba, vartablavtaimpresion, sinfo)
+                        .runSp(cnnprueba, varKeyvtaimpresion, sinfo)
+                        .runSp(cnnprueba, varAutovtaimpresion, sinfo)
+
 
                         'REP_COMANDAS
                         .runSp(cnnprueba, vartablarepcomandas, sinfo)

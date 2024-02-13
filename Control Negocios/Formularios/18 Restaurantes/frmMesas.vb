@@ -1036,7 +1036,7 @@ Public Class frmMesas
                                                 frmPagar.focomapeo = 1
                                                 frmPagar.txtEfectivo.Focus.Equals(True)
                                                 frmPagar.lblmesa.Text = txtMesa.Text
-                                                frmPagar.lblusuario.Text = lblusuario.Text
+                                                frmPagar.lblusuario2.Text = lblusuario.Text
                                                 frmPagar.contraseñamesero = txtUsuario.Text
                                                 frmPagar.COMENSALES = txtNComensales.Text
                                                 frmPagar.Show()

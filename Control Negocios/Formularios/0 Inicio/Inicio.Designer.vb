@@ -151,6 +151,7 @@ Partial Class Inicio
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnpollo = New System.Windows.Forms.Button()
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
@@ -162,7 +163,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1165,7 +1165,7 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
-        Me.Panel2.Controls.Add(Me.Button8)
+        Me.Panel2.Controls.Add(Me.btnpollo)
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
@@ -1178,6 +1178,19 @@ Partial Class Inicio
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(90, 614)
         Me.Panel2.TabIndex = 5
+        '
+        'btnpollo
+        '
+        Me.btnpollo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnpollo.FlatAppearance.BorderSize = 0
+        Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 522)
+        Me.btnpollo.Name = "btnpollo"
+        Me.btnpollo.Size = New System.Drawing.Size(90, 90)
+        Me.btnpollo.TabIndex = 184
+        Me.btnpollo.UseVisualStyleBackColor = True
         '
         'btnHoteleria
         '
@@ -1329,19 +1342,6 @@ Partial Class Inicio
         Me.Label2.Text = "SINCRONIZADOR"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Visible = False
-        '
-        'Button8
-        '
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(0, 522)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(90, 90)
-        Me.Button8.TabIndex = 184
-        Me.Button8.UseVisualStyleBackColor = True
         '
         'Inicio
         '
@@ -1510,5 +1510,5 @@ Partial Class Inicio
     Friend WithEvents NominaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuNominaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeSeriesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button8 As Button
+    Friend WithEvents btnpollo As Button
 End Class
