@@ -1442,6 +1442,50 @@ Public Class frmPolleria
         txtPeso.Text = ""
     End Sub
 
+    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        txtPeso.Text = txtPeso.Text + btn1.Text
+    End Sub
+
+    Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        txtPeso.Text = txtPeso.Text + btn2.Text
+    End Sub
+
+    Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
+        txtPeso.Text = txtPeso.Text + btn3.Text
+    End Sub
+
+    Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
+        txtPeso.Text = txtPeso.Text + btn4.Text
+    End Sub
+
+    Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
+        txtPeso.Text = txtPeso.Text + btn5.Text
+    End Sub
+
+    Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
+        txtPeso.Text = txtPeso.Text + btn6.Text
+    End Sub
+
+    Private Sub BTN7_Click(sender As Object, e As EventArgs) Handles BTN7.Click
+        txtPeso.Text = txtPeso.Text + BTN7.Text
+    End Sub
+
+    Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
+        txtPeso.Text = txtPeso.Text + btn8.Text
+    End Sub
+
+    Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
+        txtPeso.Text = txtPeso.Text + btn9.Text
+    End Sub
+
+    Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
+        txtPeso.Text = txtPeso.Text + btn0.Text
+    End Sub
+
+    Private Sub btnp_Click(sender As Object, e As EventArgs) Handles btnp.Click
+        txtPeso.Text = txtPeso.Text + btnp.Text
+    End Sub
+
     Public Sub Limpiar()
         pProductos.Controls.Clear()
         grdCaptura.Rows.Clear()

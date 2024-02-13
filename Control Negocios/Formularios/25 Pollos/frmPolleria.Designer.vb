@@ -52,17 +52,17 @@ Partial Class frmPolleria
         Me.pProductos = New System.Windows.Forms.Panel()
         Me.ppeso = New System.Windows.Forms.Panel()
         Me.BTNINTRO = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnp = New System.Windows.Forms.Button()
+        Me.btn3 = New System.Windows.Forms.Button()
+        Me.btn6 = New System.Windows.Forms.Button()
+        Me.btn9 = New System.Windows.Forms.Button()
+        Me.btn2 = New System.Windows.Forms.Button()
+        Me.btn5 = New System.Windows.Forms.Button()
+        Me.btn8 = New System.Windows.Forms.Button()
+        Me.btn0 = New System.Windows.Forms.Button()
+        Me.btn1 = New System.Windows.Forms.Button()
+        Me.btn4 = New System.Windows.Forms.Button()
+        Me.BTN7 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtPeso = New System.Windows.Forms.TextBox()
         Me.plateral.SuspendLayout()
@@ -364,17 +364,17 @@ Partial Class frmPolleria
         '
         Me.ppeso.BackColor = System.Drawing.Color.Bisque
         Me.ppeso.Controls.Add(Me.BTNINTRO)
-        Me.ppeso.Controls.Add(Me.Button13)
-        Me.ppeso.Controls.Add(Me.Button10)
-        Me.ppeso.Controls.Add(Me.Button11)
-        Me.ppeso.Controls.Add(Me.Button12)
-        Me.ppeso.Controls.Add(Me.Button7)
-        Me.ppeso.Controls.Add(Me.Button8)
-        Me.ppeso.Controls.Add(Me.Button9)
-        Me.ppeso.Controls.Add(Me.Button6)
-        Me.ppeso.Controls.Add(Me.Button5)
-        Me.ppeso.Controls.Add(Me.Button4)
-        Me.ppeso.Controls.Add(Me.Button3)
+        Me.ppeso.Controls.Add(Me.btnp)
+        Me.ppeso.Controls.Add(Me.btn3)
+        Me.ppeso.Controls.Add(Me.btn6)
+        Me.ppeso.Controls.Add(Me.btn9)
+        Me.ppeso.Controls.Add(Me.btn2)
+        Me.ppeso.Controls.Add(Me.btn5)
+        Me.ppeso.Controls.Add(Me.btn8)
+        Me.ppeso.Controls.Add(Me.btn0)
+        Me.ppeso.Controls.Add(Me.btn1)
+        Me.ppeso.Controls.Add(Me.btn4)
+        Me.ppeso.Controls.Add(Me.BTN7)
         Me.ppeso.Controls.Add(Me.GroupBox1)
         Me.ppeso.Location = New System.Drawing.Point(450, 150)
         Me.ppeso.Name = "ppeso"
@@ -394,137 +394,137 @@ Partial Class frmPolleria
         Me.BTNINTRO.Text = "INTRO"
         Me.BTNINTRO.UseVisualStyleBackColor = False
         '
-        'Button13
+        'btnp
         '
-        Me.Button13.BackColor = System.Drawing.Color.Linen
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button13.Location = New System.Drawing.Point(185, 293)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(75, 61)
-        Me.Button13.TabIndex = 11
-        Me.Button13.Text = "."
-        Me.Button13.UseVisualStyleBackColor = False
+        Me.btnp.BackColor = System.Drawing.Color.Linen
+        Me.btnp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnp.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnp.Location = New System.Drawing.Point(185, 293)
+        Me.btnp.Name = "btnp"
+        Me.btnp.Size = New System.Drawing.Size(75, 61)
+        Me.btnp.TabIndex = 11
+        Me.btnp.Text = "."
+        Me.btnp.UseVisualStyleBackColor = False
         '
-        'Button10
+        'btn3
         '
-        Me.Button10.BackColor = System.Drawing.Color.Linen
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(185, 226)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 61)
-        Me.Button10.TabIndex = 10
-        Me.Button10.Text = "3"
-        Me.Button10.UseVisualStyleBackColor = False
+        Me.btn3.BackColor = System.Drawing.Color.Linen
+        Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn3.Location = New System.Drawing.Point(185, 226)
+        Me.btn3.Name = "btn3"
+        Me.btn3.Size = New System.Drawing.Size(75, 61)
+        Me.btn3.TabIndex = 10
+        Me.btn3.Text = "3"
+        Me.btn3.UseVisualStyleBackColor = False
         '
-        'Button11
+        'btn6
         '
-        Me.Button11.BackColor = System.Drawing.Color.Linen
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(185, 159)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(75, 61)
-        Me.Button11.TabIndex = 9
-        Me.Button11.Text = "6"
-        Me.Button11.UseVisualStyleBackColor = False
+        Me.btn6.BackColor = System.Drawing.Color.Linen
+        Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn6.Location = New System.Drawing.Point(185, 159)
+        Me.btn6.Name = "btn6"
+        Me.btn6.Size = New System.Drawing.Size(75, 61)
+        Me.btn6.TabIndex = 9
+        Me.btn6.Text = "6"
+        Me.btn6.UseVisualStyleBackColor = False
         '
-        'Button12
+        'btn9
         '
-        Me.Button12.BackColor = System.Drawing.Color.Linen
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Location = New System.Drawing.Point(185, 92)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(75, 61)
-        Me.Button12.TabIndex = 8
-        Me.Button12.Text = "9"
-        Me.Button12.UseVisualStyleBackColor = False
+        Me.btn9.BackColor = System.Drawing.Color.Linen
+        Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn9.Location = New System.Drawing.Point(185, 92)
+        Me.btn9.Name = "btn9"
+        Me.btn9.Size = New System.Drawing.Size(75, 61)
+        Me.btn9.TabIndex = 8
+        Me.btn9.Text = "9"
+        Me.btn9.UseVisualStyleBackColor = False
         '
-        'Button7
+        'btn2
         '
-        Me.Button7.BackColor = System.Drawing.Color.Linen
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(104, 226)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 61)
-        Me.Button7.TabIndex = 7
-        Me.Button7.Text = "2"
-        Me.Button7.UseVisualStyleBackColor = False
+        Me.btn2.BackColor = System.Drawing.Color.Linen
+        Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn2.Location = New System.Drawing.Point(104, 226)
+        Me.btn2.Name = "btn2"
+        Me.btn2.Size = New System.Drawing.Size(75, 61)
+        Me.btn2.TabIndex = 7
+        Me.btn2.Text = "2"
+        Me.btn2.UseVisualStyleBackColor = False
         '
-        'Button8
+        'btn5
         '
-        Me.Button8.BackColor = System.Drawing.Color.Linen
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(104, 159)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(75, 61)
-        Me.Button8.TabIndex = 6
-        Me.Button8.Text = "5"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.btn5.BackColor = System.Drawing.Color.Linen
+        Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn5.Location = New System.Drawing.Point(104, 159)
+        Me.btn5.Name = "btn5"
+        Me.btn5.Size = New System.Drawing.Size(75, 61)
+        Me.btn5.TabIndex = 6
+        Me.btn5.Text = "5"
+        Me.btn5.UseVisualStyleBackColor = False
         '
-        'Button9
+        'btn8
         '
-        Me.Button9.BackColor = System.Drawing.Color.Linen
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(104, 92)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(75, 61)
-        Me.Button9.TabIndex = 5
-        Me.Button9.Text = "8"
-        Me.Button9.UseVisualStyleBackColor = False
+        Me.btn8.BackColor = System.Drawing.Color.Linen
+        Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn8.Location = New System.Drawing.Point(104, 92)
+        Me.btn8.Name = "btn8"
+        Me.btn8.Size = New System.Drawing.Size(75, 61)
+        Me.btn8.TabIndex = 5
+        Me.btn8.Text = "8"
+        Me.btn8.UseVisualStyleBackColor = False
         '
-        'Button6
+        'btn0
         '
-        Me.Button6.BackColor = System.Drawing.Color.Linen
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(23, 293)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(156, 61)
-        Me.Button6.TabIndex = 4
-        Me.Button6.Text = "0"
-        Me.Button6.UseVisualStyleBackColor = False
+        Me.btn0.BackColor = System.Drawing.Color.Linen
+        Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn0.Location = New System.Drawing.Point(23, 293)
+        Me.btn0.Name = "btn0"
+        Me.btn0.Size = New System.Drawing.Size(156, 61)
+        Me.btn0.TabIndex = 4
+        Me.btn0.Text = "0"
+        Me.btn0.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btn1
         '
-        Me.Button5.BackColor = System.Drawing.Color.Linen
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(23, 226)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 61)
-        Me.Button5.TabIndex = 3
-        Me.Button5.Text = "1"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btn1.BackColor = System.Drawing.Color.Linen
+        Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1.Location = New System.Drawing.Point(23, 226)
+        Me.btn1.Name = "btn1"
+        Me.btn1.Size = New System.Drawing.Size(75, 61)
+        Me.btn1.TabIndex = 3
+        Me.btn1.Text = "1"
+        Me.btn1.UseVisualStyleBackColor = False
         '
-        'Button4
+        'btn4
         '
-        Me.Button4.BackColor = System.Drawing.Color.Linen
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(23, 159)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 61)
-        Me.Button4.TabIndex = 2
-        Me.Button4.Text = "4"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btn4.BackColor = System.Drawing.Color.Linen
+        Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn4.Location = New System.Drawing.Point(23, 159)
+        Me.btn4.Name = "btn4"
+        Me.btn4.Size = New System.Drawing.Size(75, 61)
+        Me.btn4.TabIndex = 2
+        Me.btn4.Text = "4"
+        Me.btn4.UseVisualStyleBackColor = False
         '
-        'Button3
+        'BTN7
         '
-        Me.Button3.BackColor = System.Drawing.Color.Linen
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(23, 92)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 61)
-        Me.Button3.TabIndex = 1
-        Me.Button3.Text = "7"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.BTN7.BackColor = System.Drawing.Color.Linen
+        Me.BTN7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BTN7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN7.Location = New System.Drawing.Point(23, 92)
+        Me.BTN7.Name = "BTN7"
+        Me.BTN7.Size = New System.Drawing.Size(75, 61)
+        Me.BTN7.TabIndex = 1
+        Me.BTN7.Text = "7"
+        Me.BTN7.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -608,16 +608,16 @@ Partial Class frmPolleria
     Friend WithEvents ppeso As Panel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtPeso As TextBox
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btn3 As Button
+    Friend WithEvents btn6 As Button
+    Friend WithEvents btn9 As Button
+    Friend WithEvents btn2 As Button
+    Friend WithEvents btn5 As Button
+    Friend WithEvents btn8 As Button
+    Friend WithEvents btn0 As Button
+    Friend WithEvents btn1 As Button
+    Friend WithEvents btn4 As Button
+    Friend WithEvents BTN7 As Button
     Friend WithEvents BTNINTRO As Button
-    Friend WithEvents Button13 As Button
+    Friend WithEvents btnp As Button
 End Class
