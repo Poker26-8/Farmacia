@@ -63,9 +63,10 @@ Partial Class frmPolleria
         Me.plateral.Controls.Add(Me.grdCaptura)
         Me.plateral.Controls.Add(Me.Panel2)
         Me.plateral.Dock = System.Windows.Forms.DockStyle.Right
-        Me.plateral.Location = New System.Drawing.Point(864, 0)
+        Me.plateral.Location = New System.Drawing.Point(1296, 0)
+        Me.plateral.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.plateral.Name = "plateral"
-        Me.plateral.Size = New System.Drawing.Size(290, 701)
+        Me.plateral.Size = New System.Drawing.Size(435, 1050)
         Me.plateral.TabIndex = 0
         '
         'grdCaptura
@@ -76,12 +77,13 @@ Partial Class frmPolleria
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 100)
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 154)
+        Me.grdCaptura.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.RowHeadersWidth = 62
-        Me.grdCaptura.Size = New System.Drawing.Size(290, 601)
+        Me.grdCaptura.Size = New System.Drawing.Size(435, 896)
         Me.grdCaptura.TabIndex = 68
         '
         'Column1
@@ -139,8 +141,9 @@ Partial Class frmPolleria
         Me.Panel2.Controls.Add(Me.lblTotalVenta)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(290, 100)
+        Me.Panel2.Size = New System.Drawing.Size(435, 154)
         Me.Panel2.TabIndex = 67
         '
         'Label6
@@ -149,8 +152,9 @@ Partial Class frmPolleria
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(288, 30)
+        Me.Label6.Size = New System.Drawing.Size(432, 46)
         Me.Label6.TabIndex = 64
         Me.Label6.Text = "VENTA TOTAL"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -160,9 +164,10 @@ Partial Class frmPolleria
         Me.LBLLETRA.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.LBLLETRA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBLLETRA.ForeColor = System.Drawing.Color.Black
-        Me.LBLLETRA.Location = New System.Drawing.Point(0, 61)
+        Me.LBLLETRA.Location = New System.Drawing.Point(0, 94)
+        Me.LBLLETRA.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBLLETRA.Name = "LBLLETRA"
-        Me.LBLLETRA.Size = New System.Drawing.Size(288, 39)
+        Me.LBLLETRA.Size = New System.Drawing.Size(432, 60)
         Me.LBLLETRA.TabIndex = 66
         Me.LBLLETRA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -171,9 +176,10 @@ Partial Class frmPolleria
         Me.lblTotalVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalVenta.ForeColor = System.Drawing.Color.Black
-        Me.lblTotalVenta.Location = New System.Drawing.Point(0, 30)
+        Me.lblTotalVenta.Location = New System.Drawing.Point(0, 46)
+        Me.lblTotalVenta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalVenta.Name = "lblTotalVenta"
-        Me.lblTotalVenta.Size = New System.Drawing.Size(288, 31)
+        Me.lblTotalVenta.Size = New System.Drawing.Size(432, 48)
         Me.lblTotalVenta.TabIndex = 65
         Me.lblTotalVenta.Text = "0.00"
         Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -185,8 +191,9 @@ Partial Class frmPolleria
         Me.psuperior.Controls.Add(Me.Panel1)
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.psuperior.Location = New System.Drawing.Point(0, 0)
+        Me.psuperior.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(864, 100)
+        Me.psuperior.Size = New System.Drawing.Size(1296, 154)
         Me.psuperior.TabIndex = 7
         '
         'Panel4
@@ -194,27 +201,30 @@ Partial Class frmPolleria
         Me.Panel4.Controls.Add(Me.lblAtiende)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(194, 0)
+        Me.Panel4.Location = New System.Drawing.Point(291, 0)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(320, 100)
+        Me.Panel4.Size = New System.Drawing.Size(480, 154)
         Me.Panel4.TabIndex = 2
         '
         'lblAtiende
         '
         Me.lblAtiende.BackColor = System.Drawing.Color.Khaki
         Me.lblAtiende.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAtiende.Location = New System.Drawing.Point(62, 8)
+        Me.lblAtiende.Location = New System.Drawing.Point(93, 12)
+        Me.lblAtiende.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAtiende.Name = "lblAtiende"
-        Me.lblAtiende.Size = New System.Drawing.Size(171, 21)
+        Me.lblAtiende.Size = New System.Drawing.Size(256, 32)
         Me.lblAtiende.TabIndex = 1
         Me.lblAtiende.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 6)
+        Me.Label1.Location = New System.Drawing.Point(4, 9)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 23)
+        Me.Label1.Size = New System.Drawing.Size(96, 35)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Atiende"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -224,9 +234,10 @@ Partial Class frmPolleria
         Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(514, 0)
+        Me.Panel3.Location = New System.Drawing.Point(771, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(350, 100)
+        Me.Panel3.Size = New System.Drawing.Size(525, 154)
         Me.Panel3.TabIndex = 1
         '
         'Button2
@@ -235,9 +246,10 @@ Partial Class frmPolleria
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(183, 12)
+        Me.Button2.Location = New System.Drawing.Point(274, 18)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 82)
+        Me.Button2.Size = New System.Drawing.Size(120, 126)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Pagar"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -249,9 +261,10 @@ Partial Class frmPolleria
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(269, 12)
+        Me.Button1.Location = New System.Drawing.Point(404, 18)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 82)
+        Me.Button1.Size = New System.Drawing.Size(112, 126)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Salir"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -262,8 +275,9 @@ Partial Class frmPolleria
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(194, 100)
+        Me.Panel1.Size = New System.Drawing.Size(291, 154)
         Me.Panel1.TabIndex = 0
         '
         'PictureBox1
@@ -271,8 +285,9 @@ Partial Class frmPolleria
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(194, 100)
+        Me.PictureBox1.Size = New System.Drawing.Size(291, 154)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -281,44 +296,48 @@ Partial Class frmPolleria
         '
         Me.pEmpleado.BackColor = System.Drawing.Color.PaleTurquoise
         Me.pEmpleado.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pEmpleado.Location = New System.Drawing.Point(0, 100)
+        Me.pEmpleado.Location = New System.Drawing.Point(0, 154)
+        Me.pEmpleado.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pEmpleado.Name = "pEmpleado"
-        Me.pEmpleado.Size = New System.Drawing.Size(194, 601)
+        Me.pEmpleado.Size = New System.Drawing.Size(291, 896)
         Me.pEmpleado.TabIndex = 8
         '
         'pDepartamento
         '
         Me.pDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pDepartamento.Location = New System.Drawing.Point(194, 100)
+        Me.pDepartamento.Location = New System.Drawing.Point(291, 154)
+        Me.pDepartamento.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pDepartamento.Name = "pDepartamento"
-        Me.pDepartamento.Size = New System.Drawing.Size(121, 601)
+        Me.pDepartamento.Size = New System.Drawing.Size(182, 896)
         Me.pDepartamento.TabIndex = 9
         '
         'pgrupo
         '
         Me.pgrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(115, Byte), Integer))
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pgrupo.Location = New System.Drawing.Point(315, 100)
+        Me.pgrupo.Location = New System.Drawing.Point(473, 154)
+        Me.pgrupo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(199, 601)
+        Me.pgrupo.Size = New System.Drawing.Size(298, 896)
         Me.pgrupo.TabIndex = 10
         '
         'pProductos
         '
         Me.pProductos.BackColor = System.Drawing.Color.White
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(514, 100)
+        Me.pProductos.Location = New System.Drawing.Point(771, 154)
+        Me.pProductos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(350, 601)
+        Me.pProductos.Size = New System.Drawing.Size(525, 896)
         Me.pProductos.TabIndex = 11
         '
         'frmPolleria
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1154, 701)
+        Me.ClientSize = New System.Drawing.Size(1731, 1050)
         Me.Controls.Add(Me.pProductos)
         Me.Controls.Add(Me.pgrupo)
         Me.Controls.Add(Me.pDepartamento)
@@ -326,6 +345,7 @@ Partial Class frmPolleria
         Me.Controls.Add(Me.psuperior)
         Me.Controls.Add(Me.plateral)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmPolleria"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Polleria"
