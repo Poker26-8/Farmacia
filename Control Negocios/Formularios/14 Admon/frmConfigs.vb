@@ -660,6 +660,7 @@ Public Class frmConfigs
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
                     "update Ticket set Cab0='" & txtrazon.Text & "', Cab1='" & txtrfc.Text & "', Cab2='" & txtcalle.Text & "', Cab3='" & txtcolonia.Text & "', Cab4='" & txtdeleg.Text & "', Cab5='" & txttel.Text & "', Cab6='" & txtcorreo.Text & "', Cab7='" & txtComerciall.Text & "', Pie1='" & txtPdomicilio.Text & "', Pie2='" & txtPcotiza.Text & "', Copias=" & IIf(txtCopias.Text = "", 0, txtCopias.Text)
+
                 cmd1.ExecuteNonQuery()
 
                 Insert_Configs()

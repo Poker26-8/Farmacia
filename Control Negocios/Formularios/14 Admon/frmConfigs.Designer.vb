@@ -199,6 +199,7 @@ Partial Class frmConfigs
         Me.cboImpCarta = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rbRhino = New System.Windows.Forms.RadioButton()
         Me.opttorrey = New System.Windows.Forms.RadioButton()
@@ -208,7 +209,6 @@ Partial Class frmConfigs
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cboImpTickets = New System.Windows.Forms.ComboBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tabFormatos = New System.Windows.Forms.TabPage()
         Me.boxpagare = New System.Windows.Forms.GroupBox()
         Me.Button22 = New System.Windows.Forms.Button()
@@ -250,8 +250,6 @@ Partial Class frmConfigs
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label799 = New System.Windows.Forms.Label()
-        Me.txtComerciall = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -321,7 +319,8 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.rbNoval = New System.Windows.Forms.RadioButton()
+        Me.txtComerciall = New System.Windows.Forms.TextBox()
+        Me.label799 = New System.Windows.Forms.Label()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -1866,9 +1865,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 64)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 457)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2089,10 +2088,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2333,13 +2332,21 @@ Partial Class frmConfigs
         'rbNoval
         '
         Me.rbNoval.AutoSize = True
-        Me.rbNoval.Location = New System.Drawing.Point(13, 51)
+        Me.rbNoval.Location = New System.Drawing.Point(196, 19)
         Me.rbNoval.Name = "rbNoval"
         Me.rbNoval.Size = New System.Drawing.Size(56, 19)
-        Me.rbNoval.TabIndex = 6
+        Me.rbNoval.TabIndex = 7
         Me.rbNoval.TabStop = True
         Me.rbNoval.Text = "Noval"
         Me.rbNoval.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Location = New System.Drawing.Point(350, 377)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(120, 65)
+        Me.Panel1.TabIndex = 6
         '
         'rbRhino
         '
@@ -2417,14 +2424,6 @@ Partial Class frmConfigs
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(188, 23)
         Me.TextBox1.TabIndex = 12
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(350, 377)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(120, 65)
-        Me.Panel1.TabIndex = 6
         '
         'tabFormatos
         '
@@ -2508,9 +2507,9 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(37, 48)
+        Me.boxclausulas.Location = New System.Drawing.Point(16, 40)
         Me.boxclausulas.Name = "boxclausulas"
-        Me.boxclausulas.Size = New System.Drawing.Size(410, 281)
+        Me.boxclausulas.Size = New System.Drawing.Size(431, 289)
         Me.boxclausulas.TabIndex = 263
         Me.boxclausulas.TabStop = False
         Me.boxclausulas.Text = "Ingresa el texto"
@@ -2691,7 +2690,7 @@ Partial Class frmConfigs
         Me.Button23.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button23.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button23.Location = New System.Drawing.Point(323, 245)
+        Me.Button23.Location = New System.Drawing.Point(344, 253)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(81, 30)
         Me.Button23.TabIndex = 1
@@ -2841,9 +2840,9 @@ Partial Class frmConfigs
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.White
-        Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.Label799)
+        Me.GroupBox4.Controls.Add(Me.label799)
         Me.GroupBox4.Controls.Add(Me.txtComerciall)
+        Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.txtcorreo)
         Me.GroupBox4.Controls.Add(Me.Label13)
@@ -2872,24 +2871,6 @@ Partial Class frmConfigs
         Me.Label9.Size = New System.Drawing.Size(31, 15)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "RFC:"
-        '
-        'Label799
-        '
-        Me.Label799.Location = New System.Drawing.Point(8, 39)
-        Me.Label799.Name = "Label799"
-        Me.Label799.Size = New System.Drawing.Size(67, 44)
-        Me.Label799.TabIndex = 15
-        Me.Label799.Text = "Nombre Comercial:"
-        '
-        'txtComerciall
-        '
-        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComerciall.Location = New System.Drawing.Point(89, 46)
-        Me.txtComerciall.Name = "txtComerciall"
-        Me.txtComerciall.Size = New System.Drawing.Size(296, 18)
-        Me.txtComerciall.TabIndex = 14
         '
         'Label14
         '
@@ -3629,25 +3610,23 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
-        'rbNoval
+        'txtComerciall
         '
-        Me.rbNoval.AutoSize = True
-        Me.rbNoval.Location = New System.Drawing.Point(196, 19)
-        Me.rbNoval.Name = "rbNoval"
-        Me.rbNoval.Size = New System.Drawing.Size(56, 19)
-        Me.rbNoval.TabIndex = 7
-        Me.rbNoval.TabStop = True
-        Me.rbNoval.Text = "Noval"
-        Me.rbNoval.UseVisualStyleBackColor = True
+        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComerciall.Location = New System.Drawing.Point(123, 51)
+        Me.txtComerciall.Name = "txtComerciall"
+        Me.txtComerciall.Size = New System.Drawing.Size(262, 18)
+        Me.txtComerciall.TabIndex = 264
         '
-        'Label79
+        'label799
         '
-        Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(8, 48)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(75, 15)
-        Me.Label79.TabIndex = 15
-        Me.Label79.Text = "Razón social:"
+        Me.label799.Location = New System.Drawing.Point(6, 51)
+        Me.label799.Name = "label799"
+        Me.label799.Size = New System.Drawing.Size(111, 18)
+        Me.label799.TabIndex = 264
+        Me.label799.Text = "Nombre Comercial:"
         '
         'frmConfigs
         '
@@ -4046,4 +4025,6 @@ Partial Class frmConfigs
     Friend WithEvents rbNoval As RadioButton
     Friend WithEvents txtComercial As TextBox
     Friend WithEvents Label79 As Label
+    Friend WithEvents label799 As Label
+    Friend WithEvents txtComerciall As TextBox
 End Class
