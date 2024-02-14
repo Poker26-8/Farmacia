@@ -248,6 +248,9 @@ Partial Class frmConfigs
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label799 = New System.Windows.Forms.Label()
+        Me.txtComerciall = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -258,7 +261,6 @@ Partial Class frmConfigs
         Me.txtcolonia = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtcalle = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtrfc = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtrazon = New System.Windows.Forms.TextBox()
@@ -318,8 +320,6 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.txtComercial = New System.Windows.Forms.TextBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2828,8 +2828,8 @@ Partial Class frmConfigs
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.White
         Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.Label79)
-        Me.GroupBox4.Controls.Add(Me.txtComercial)
+        Me.GroupBox4.Controls.Add(Me.Label799)
+        Me.GroupBox4.Controls.Add(Me.txtComerciall)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.txtcorreo)
         Me.GroupBox4.Controls.Add(Me.Label13)
@@ -2849,6 +2849,33 @@ Partial Class frmConfigs
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Cabecera del ticket"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(8, 77)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(31, 15)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "RFC:"
+        '
+        'Label799
+        '
+        Me.Label799.Location = New System.Drawing.Point(8, 39)
+        Me.Label799.Name = "Label799"
+        Me.Label799.Size = New System.Drawing.Size(67, 44)
+        Me.Label799.TabIndex = 15
+        Me.Label799.Text = "Nombre Comercial:"
+        '
+        'txtComerciall
+        '
+        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComerciall.Location = New System.Drawing.Point(89, 46)
+        Me.txtComerciall.Name = "txtComerciall"
+        Me.txtComerciall.Size = New System.Drawing.Size(296, 18)
+        Me.txtComerciall.TabIndex = 14
         '
         'Label14
         '
@@ -2944,15 +2971,6 @@ Partial Class frmConfigs
         Me.txtcalle.Name = "txtcalle"
         Me.txtcalle.Size = New System.Drawing.Size(296, 18)
         Me.txtcalle.TabIndex = 4
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(8, 77)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(31, 15)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "RFC:"
         '
         'txtrfc
         '
@@ -3597,24 +3615,6 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
-        'Label79
-        '
-        Me.Label79.Location = New System.Drawing.Point(8, 39)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(67, 44)
-        Me.Label79.TabIndex = 15
-        Me.Label79.Text = "Nombre Comercial:"
-        '
-        'txtComercial
-        '
-        Me.txtComercial.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtComercial.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtComercial.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComercial.Location = New System.Drawing.Point(89, 46)
-        Me.txtComercial.Name = "txtComercial"
-        Me.txtComercial.Size = New System.Drawing.Size(296, 18)
-        Me.txtComercial.TabIndex = 14
-        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -4009,6 +4009,6 @@ Partial Class frmConfigs
     Friend WithEvents txtlink As TextBox
     Friend WithEvents cbOrdenEntrega As CheckBox
     Friend WithEvents chkImg_PDF As CheckBox
-    Friend WithEvents Label79 As Label
-    Friend WithEvents txtComercial As TextBox
+    Friend WithEvents Label799 As Label
+    Friend WithEvents txtComerciall As TextBox
 End Class
