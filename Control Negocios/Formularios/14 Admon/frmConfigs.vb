@@ -470,6 +470,7 @@ Public Class frmConfigs
                     txtdeleg.Text = rd4("Cab4").ToString()
                     txttel.Text = rd4("Cab5").ToString()
                     txtcorreo.Text = rd4("Cab6").ToString()
+
                     txtPdomicilio.Text = rd4("Pie1").ToString()
                     txtPcotiza.Text = rd4("Pie2").ToString()
                     'txtPagare.Text = rd4("Pagare").ToString()
@@ -658,7 +659,7 @@ Public Class frmConfigs
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Ticket set Cab0='" & txtrazon.Text & "', Cab1='" & txtrfc.Text & "', Cab2='" & txtcalle.Text & "', Cab3='" & txtcolonia.Text & "', Cab4='" & txtdeleg.Text & "', Cab5='" & txttel.Text & "', Cab6='" & txtcorreo.Text & "', Pie1='" & txtPdomicilio.Text & "', Pie2='" & txtPcotiza.Text & "', Copias=" & IIf(txtCopias.Text = "", 0, txtCopias.Text)
+                    "update Ticket set Cab0='" & txtrazon.Text & "', Cab1='" & txtrfc.Text & "', Cab2='" & txtcalle.Text & "', Cab3='" & txtcolonia.Text & "', Cab4='" & txtdeleg.Text & "', Cab5='" & txttel.Text & "', Cab6='" & txtcorreo.Text & "',Pie1='" & txtPdomicilio.Text & "', Pie2='" & txtPcotiza.Text & "', Copias=" & IIf(txtCopias.Text = "", 0, txtCopias.Text)
                 cmd1.ExecuteNonQuery()
 
                 Insert_Configs()

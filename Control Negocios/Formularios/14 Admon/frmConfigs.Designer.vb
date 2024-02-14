@@ -318,7 +318,8 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.rbNoval = New System.Windows.Forms.RadioButton()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.txtComercial = New System.Windows.Forms.TextBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2084,13 +2085,12 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox25)
         Me.tabPuertos.Controls.Add(Me.boxTickets)
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
-        Me.tabPuertos.Controls.Add(Me.GroupBox1)
-        Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Controls.Add(Me.Panel1)
         Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
+        Me.tabPuertos.Controls.Add(Me.TextBox1)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2442,7 +2442,7 @@ Partial Class frmConfigs
         Me.boxpagare.BackColor = System.Drawing.Color.SteelBlue
         Me.boxpagare.Controls.Add(Me.Button22)
         Me.boxpagare.Controls.Add(Me.txtPagare)
-        Me.boxpagare.Location = New System.Drawing.Point(29, 119)
+        Me.boxpagare.Location = New System.Drawing.Point(29, 408)
         Me.boxpagare.Name = "boxpagare"
         Me.boxpagare.Size = New System.Drawing.Size(426, 202)
         Me.boxpagare.TabIndex = 262
@@ -2494,7 +2494,7 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(37, 69)
+        Me.boxclausulas.Location = New System.Drawing.Point(37, 358)
         Me.boxclausulas.Name = "boxclausulas"
         Me.boxclausulas.Size = New System.Drawing.Size(410, 303)
         Me.boxclausulas.TabIndex = 263
@@ -2771,35 +2771,35 @@ Partial Class frmConfigs
         Me.GroupBox5.Controls.Add(Me.txtPdomicilio)
         Me.GroupBox5.Controls.Add(Me.Label20)
         Me.GroupBox5.Controls.Add(Me.Label21)
-        Me.GroupBox5.Location = New System.Drawing.Point(10, 199)
+        Me.GroupBox5.Location = New System.Drawing.Point(10, 225)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(461, 104)
+        Me.GroupBox5.Size = New System.Drawing.Size(461, 78)
         Me.GroupBox5.TabIndex = 244
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Pie de nota"
         '
         'txtPcotiza
         '
-        Me.txtPcotiza.Location = New System.Drawing.Point(89, 60)
+        Me.txtPcotiza.Location = New System.Drawing.Point(89, 47)
         Me.txtPcotiza.MaxLength = 400
         Me.txtPcotiza.Name = "txtPcotiza"
-        Me.txtPcotiza.Size = New System.Drawing.Size(362, 33)
+        Me.txtPcotiza.Size = New System.Drawing.Size(362, 24)
         Me.txtPcotiza.TabIndex = 7
         Me.txtPcotiza.Text = ""
         '
         'txtPdomicilio
         '
-        Me.txtPdomicilio.Location = New System.Drawing.Point(89, 21)
+        Me.txtPdomicilio.Location = New System.Drawing.Point(89, 22)
         Me.txtPdomicilio.MaxLength = 400
         Me.txtPdomicilio.Name = "txtPdomicilio"
-        Me.txtPdomicilio.Size = New System.Drawing.Size(362, 33)
+        Me.txtPdomicilio.Size = New System.Drawing.Size(362, 19)
         Me.txtPdomicilio.TabIndex = 6
         Me.txtPdomicilio.Text = ""
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(8, 69)
+        Me.Label20.Location = New System.Drawing.Point(8, 56)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(74, 15)
         Me.Label20.TabIndex = 3
@@ -2808,7 +2808,7 @@ Partial Class frmConfigs
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(8, 30)
+        Me.Label21.Location = New System.Drawing.Point(8, 26)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(41, 15)
         Me.Label21.TabIndex = 1
@@ -2827,6 +2827,9 @@ Partial Class frmConfigs
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.White
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Label79)
+        Me.GroupBox4.Controls.Add(Me.txtComercial)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.txtcorreo)
         Me.GroupBox4.Controls.Add(Me.Label13)
@@ -2837,13 +2840,12 @@ Partial Class frmConfigs
         Me.GroupBox4.Controls.Add(Me.txtcolonia)
         Me.GroupBox4.Controls.Add(Me.Label10)
         Me.GroupBox4.Controls.Add(Me.txtcalle)
-        Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.txtrfc)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.Controls.Add(Me.txtrazon)
         Me.GroupBox4.Location = New System.Drawing.Point(10, 16)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(394, 182)
+        Me.GroupBox4.Size = New System.Drawing.Size(394, 203)
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Cabecera del ticket"
@@ -2851,7 +2853,7 @@ Partial Class frmConfigs
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(8, 156)
+        Me.Label14.Location = New System.Drawing.Point(8, 187)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(46, 15)
         Me.Label14.TabIndex = 13
@@ -2862,7 +2864,7 @@ Partial Class frmConfigs
         Me.txtcorreo.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtcorreo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcorreo.Location = New System.Drawing.Point(89, 154)
+        Me.txtcorreo.Location = New System.Drawing.Point(89, 185)
         Me.txtcorreo.Name = "txtcorreo"
         Me.txtcorreo.Size = New System.Drawing.Size(296, 18)
         Me.txtcorreo.TabIndex = 12
@@ -2870,7 +2872,7 @@ Partial Class frmConfigs
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(8, 134)
+        Me.Label13.Location = New System.Drawing.Point(8, 165)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(55, 15)
         Me.Label13.TabIndex = 11
@@ -2881,7 +2883,7 @@ Partial Class frmConfigs
         Me.txttel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txttel.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txttel.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttel.Location = New System.Drawing.Point(89, 132)
+        Me.txttel.Location = New System.Drawing.Point(89, 163)
         Me.txttel.Name = "txttel"
         Me.txttel.Size = New System.Drawing.Size(296, 18)
         Me.txttel.TabIndex = 10
@@ -2889,7 +2891,7 @@ Partial Class frmConfigs
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 112)
+        Me.Label12.Location = New System.Drawing.Point(8, 143)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(69, 15)
         Me.Label12.TabIndex = 9
@@ -2900,7 +2902,7 @@ Partial Class frmConfigs
         Me.txtdeleg.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtdeleg.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtdeleg.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdeleg.Location = New System.Drawing.Point(89, 110)
+        Me.txtdeleg.Location = New System.Drawing.Point(89, 141)
         Me.txtdeleg.Name = "txtdeleg"
         Me.txtdeleg.Size = New System.Drawing.Size(296, 18)
         Me.txtdeleg.TabIndex = 8
@@ -2908,7 +2910,7 @@ Partial Class frmConfigs
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(8, 90)
+        Me.Label11.Location = New System.Drawing.Point(8, 121)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(51, 15)
         Me.Label11.TabIndex = 7
@@ -2919,7 +2921,7 @@ Partial Class frmConfigs
         Me.txtcolonia.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtcolonia.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtcolonia.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcolonia.Location = New System.Drawing.Point(89, 88)
+        Me.txtcolonia.Location = New System.Drawing.Point(89, 119)
         Me.txtcolonia.Name = "txtcolonia"
         Me.txtcolonia.Size = New System.Drawing.Size(296, 18)
         Me.txtcolonia.TabIndex = 6
@@ -2927,7 +2929,7 @@ Partial Class frmConfigs
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(8, 68)
+        Me.Label10.Location = New System.Drawing.Point(8, 99)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(67, 15)
         Me.Label10.TabIndex = 5
@@ -2938,7 +2940,7 @@ Partial Class frmConfigs
         Me.txtcalle.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtcalle.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtcalle.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcalle.Location = New System.Drawing.Point(89, 66)
+        Me.txtcalle.Location = New System.Drawing.Point(89, 97)
         Me.txtcalle.Name = "txtcalle"
         Me.txtcalle.Size = New System.Drawing.Size(296, 18)
         Me.txtcalle.TabIndex = 4
@@ -2946,7 +2948,7 @@ Partial Class frmConfigs
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(8, 46)
+        Me.Label9.Location = New System.Drawing.Point(8, 77)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(31, 15)
         Me.Label9.TabIndex = 3
@@ -2957,7 +2959,7 @@ Partial Class frmConfigs
         Me.txtrfc.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtrfc.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtrfc.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrfc.Location = New System.Drawing.Point(89, 44)
+        Me.txtrfc.Location = New System.Drawing.Point(89, 75)
         Me.txtrfc.Name = "txtrfc"
         Me.txtrfc.Size = New System.Drawing.Size(296, 18)
         Me.txtrfc.TabIndex = 2
@@ -3593,18 +3595,7 @@ Partial Class frmConfigs
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(143, 21)
         Me.Label78.TabIndex = 21
-        Me.Label78.Text = "Numero telefonico:"
-        '
-        'rbNoval
-        '
-        Me.rbNoval.AutoSize = True
-        Me.rbNoval.Location = New System.Drawing.Point(13, 51)
-        Me.rbNoval.Name = "rbNoval"
-        Me.rbNoval.Size = New System.Drawing.Size(56, 19)
-        Me.rbNoval.TabIndex = 6
-        Me.rbNoval.TabStop = True
-        Me.rbNoval.Text = "Noval"
-        Me.rbNoval.UseVisualStyleBackColor = True
+        Me.txtComercial.TabIndex = 14
         '
         'frmConfigs
         '
@@ -3998,7 +3989,6 @@ Partial Class frmConfigs
     Friend WithEvents Button27 As Button
     Friend WithEvents Label80 As Label
     Friend WithEvents txtlink As TextBox
-    Friend WithEvents cbOrdenEntrega As CheckBox
-    Friend WithEvents chkImg_PDF As CheckBox
-    Friend WithEvents rbNoval As RadioButton
+    Friend WithEvents Label79 As Label
+    Friend WithEvents txtComercial As TextBox
 End Class
