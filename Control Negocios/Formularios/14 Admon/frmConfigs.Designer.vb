@@ -199,7 +199,7 @@ Partial Class frmConfigs
         Me.cboImpCarta = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.rbRhino = New System.Windows.Forms.RadioButton()
         Me.opttorrey = New System.Windows.Forms.RadioButton()
         Me.optmetrologic = New System.Windows.Forms.RadioButton()
@@ -208,6 +208,7 @@ Partial Class frmConfigs
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cboImpTickets = New System.Windows.Forms.ComboBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tabFormatos = New System.Windows.Forms.TabPage()
         Me.boxpagare = New System.Windows.Forms.GroupBox()
         Me.Button22 = New System.Windows.Forms.Button()
@@ -248,6 +249,7 @@ Partial Class frmConfigs
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -258,7 +260,6 @@ Partial Class frmConfigs
         Me.txtcolonia = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtcalle = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtrfc = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtrazon = New System.Windows.Forms.TextBox()
@@ -318,8 +319,8 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
         Me.txtComercial = New System.Windows.Forms.TextBox()
+        Me.Label79 = New System.Windows.Forms.Label()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -1864,9 +1865,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 64)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 457)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2085,12 +2086,13 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox25)
         Me.tabPuertos.Controls.Add(Me.boxTickets)
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
+        Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Controls.Add(Me.Panel1)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2327,13 +2329,16 @@ Partial Class frmConfigs
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Marca de la báscula"
         '
-        'Panel1
+        'rbNoval
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(350, 377)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(120, 65)
-        Me.Panel1.TabIndex = 6
+        Me.rbNoval.AutoSize = True
+        Me.rbNoval.Location = New System.Drawing.Point(13, 51)
+        Me.rbNoval.Name = "rbNoval"
+        Me.rbNoval.Size = New System.Drawing.Size(56, 19)
+        Me.rbNoval.TabIndex = 6
+        Me.rbNoval.TabStop = True
+        Me.rbNoval.Text = "Noval"
+        Me.rbNoval.UseVisualStyleBackColor = True
         '
         'rbRhino
         '
@@ -2411,6 +2416,14 @@ Partial Class frmConfigs
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(188, 23)
         Me.TextBox1.TabIndex = 12
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Location = New System.Drawing.Point(350, 377)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(120, 65)
+        Me.Panel1.TabIndex = 6
         '
         'tabFormatos
         '
@@ -2827,9 +2840,9 @@ Partial Class frmConfigs
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.White
-        Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label79)
         Me.GroupBox4.Controls.Add(Me.txtComercial)
+        Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.txtcorreo)
         Me.GroupBox4.Controls.Add(Me.Label13)
@@ -2849,6 +2862,15 @@ Partial Class frmConfigs
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Cabecera del ticket"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(8, 77)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(31, 15)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "RFC:"
         '
         'Label14
         '
@@ -2944,15 +2966,6 @@ Partial Class frmConfigs
         Me.txtcalle.Name = "txtcalle"
         Me.txtcalle.Size = New System.Drawing.Size(296, 18)
         Me.txtcalle.TabIndex = 4
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(8, 77)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(31, 15)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "RFC:"
         '
         'txtrfc
         '
@@ -3595,7 +3608,26 @@ Partial Class frmConfigs
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(143, 21)
         Me.Label78.TabIndex = 21
+        Me.Label78.Text = "Numero telefonico:"
+        '
+        'txtComercial
+        '
+        Me.txtComercial.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtComercial.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtComercial.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComercial.Location = New System.Drawing.Point(89, 46)
+        Me.txtComercial.Name = "txtComercial"
+        Me.txtComercial.Size = New System.Drawing.Size(296, 18)
         Me.txtComercial.TabIndex = 14
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Location = New System.Drawing.Point(8, 48)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(75, 15)
+        Me.Label79.TabIndex = 15
+        Me.Label79.Text = "Razón social:"
         '
         'frmConfigs
         '
@@ -3989,6 +4021,9 @@ Partial Class frmConfigs
     Friend WithEvents Button27 As Button
     Friend WithEvents Label80 As Label
     Friend WithEvents txtlink As TextBox
-    Friend WithEvents Label79 As Label
+    Friend WithEvents cbOrdenEntrega As CheckBox
+    Friend WithEvents chkImg_PDF As CheckBox
+    Friend WithEvents rbNoval As RadioButton
     Friend WithEvents txtComercial As TextBox
+    Friend WithEvents Label79 As Label
 End Class
