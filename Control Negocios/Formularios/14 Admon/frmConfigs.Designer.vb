@@ -199,7 +199,7 @@ Partial Class frmConfigs
         Me.cboImpCarta = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.rbNoval = New System.Windows.Forms.RadioButton()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rbRhino = New System.Windows.Forms.RadioButton()
         Me.opttorrey = New System.Windows.Forms.RadioButton()
         Me.optmetrologic = New System.Windows.Forms.RadioButton()
@@ -250,6 +250,8 @@ Partial Class frmConfigs
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label799 = New System.Windows.Forms.Label()
+        Me.txtComerciall = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -319,8 +321,7 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.txtComercial = New System.Windows.Forms.TextBox()
-        Me.Label79 = New System.Windows.Forms.Label()
+        Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2088,7 +2089,6 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Controls.Add(Me.Panel1)
         Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
@@ -2319,6 +2319,7 @@ Partial Class frmConfigs
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.White
         Me.GroupBox3.Controls.Add(Me.rbNoval)
+        Me.GroupBox3.Controls.Add(Me.Panel1)
         Me.GroupBox3.Controls.Add(Me.rbRhino)
         Me.GroupBox3.Controls.Add(Me.opttorrey)
         Me.GroupBox3.Controls.Add(Me.optmetrologic)
@@ -2343,7 +2344,7 @@ Partial Class frmConfigs
         'rbRhino
         '
         Me.rbRhino.AutoSize = True
-        Me.rbRhino.Location = New System.Drawing.Point(109, 19)
+        Me.rbRhino.Location = New System.Drawing.Point(85, 19)
         Me.rbRhino.Name = "rbRhino"
         Me.rbRhino.Size = New System.Drawing.Size(56, 19)
         Me.rbRhino.TabIndex = 5
@@ -2354,7 +2355,7 @@ Partial Class frmConfigs
         'opttorrey
         '
         Me.opttorrey.AutoSize = True
-        Me.opttorrey.Location = New System.Drawing.Point(178, 19)
+        Me.opttorrey.Location = New System.Drawing.Point(140, 19)
         Me.opttorrey.Name = "opttorrey"
         Me.opttorrey.Size = New System.Drawing.Size(57, 19)
         Me.opttorrey.TabIndex = 4
@@ -2365,7 +2366,7 @@ Partial Class frmConfigs
         'optmetrologic
         '
         Me.optmetrologic.AutoSize = True
-        Me.optmetrologic.Location = New System.Drawing.Point(13, 19)
+        Me.optmetrologic.Location = New System.Drawing.Point(4, 19)
         Me.optmetrologic.Name = "optmetrologic"
         Me.optmetrologic.Size = New System.Drawing.Size(83, 19)
         Me.optmetrologic.TabIndex = 3
@@ -2455,9 +2456,9 @@ Partial Class frmConfigs
         Me.boxpagare.BackColor = System.Drawing.Color.SteelBlue
         Me.boxpagare.Controls.Add(Me.Button22)
         Me.boxpagare.Controls.Add(Me.txtPagare)
-        Me.boxpagare.Location = New System.Drawing.Point(29, 408)
+        Me.boxpagare.Location = New System.Drawing.Point(29, 98)
         Me.boxpagare.Name = "boxpagare"
-        Me.boxpagare.Size = New System.Drawing.Size(426, 202)
+        Me.boxpagare.Size = New System.Drawing.Size(426, 180)
         Me.boxpagare.TabIndex = 262
         Me.boxpagare.TabStop = False
         Me.boxpagare.Text = "Ingresa el texto"
@@ -2507,9 +2508,9 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(37, 358)
+        Me.boxclausulas.Location = New System.Drawing.Point(37, 48)
         Me.boxclausulas.Name = "boxclausulas"
-        Me.boxclausulas.Size = New System.Drawing.Size(410, 303)
+        Me.boxclausulas.Size = New System.Drawing.Size(410, 281)
         Me.boxclausulas.TabIndex = 263
         Me.boxclausulas.TabStop = False
         Me.boxclausulas.Text = "Ingresa el texto"
@@ -2690,7 +2691,7 @@ Partial Class frmConfigs
         Me.Button23.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button23.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button23.Location = New System.Drawing.Point(323, 267)
+        Me.Button23.Location = New System.Drawing.Point(323, 245)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(81, 30)
         Me.Button23.TabIndex = 1
@@ -2761,7 +2762,7 @@ Partial Class frmConfigs
         Me.optPregunta.Name = "optPregunta"
         Me.optPregunta.Size = New System.Drawing.Size(221, 38)
         Me.optPregunta.TabIndex = 250
-        Me.optPregunta.Text = "Preguntar para imprimir notas de venta"
+        Me.optPregunta.Text = "Preguntar para imprimir notas de venta."
         Me.optPregunta.UseVisualStyleBackColor = True
         '
         'btnGuardaFormatos
@@ -2840,9 +2841,9 @@ Partial Class frmConfigs
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.White
-        Me.GroupBox4.Controls.Add(Me.Label79)
-        Me.GroupBox4.Controls.Add(Me.txtComercial)
         Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Label799)
+        Me.GroupBox4.Controls.Add(Me.txtComerciall)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.txtcorreo)
         Me.GroupBox4.Controls.Add(Me.Label13)
@@ -2871,6 +2872,24 @@ Partial Class frmConfigs
         Me.Label9.Size = New System.Drawing.Size(31, 15)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "RFC:"
+        '
+        'Label799
+        '
+        Me.Label799.Location = New System.Drawing.Point(8, 39)
+        Me.Label799.Name = "Label799"
+        Me.Label799.Size = New System.Drawing.Size(67, 44)
+        Me.Label799.TabIndex = 15
+        Me.Label799.Text = "Nombre Comercial:"
+        '
+        'txtComerciall
+        '
+        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComerciall.Location = New System.Drawing.Point(89, 46)
+        Me.txtComerciall.Name = "txtComerciall"
+        Me.txtComerciall.Size = New System.Drawing.Size(296, 18)
+        Me.txtComerciall.TabIndex = 14
         '
         'Label14
         '
@@ -3610,15 +3629,16 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
-        'txtComercial
+        'rbNoval
         '
-        Me.txtComercial.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtComercial.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtComercial.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComercial.Location = New System.Drawing.Point(89, 46)
-        Me.txtComercial.Name = "txtComercial"
-        Me.txtComercial.Size = New System.Drawing.Size(296, 18)
-        Me.txtComercial.TabIndex = 14
+        Me.rbNoval.AutoSize = True
+        Me.rbNoval.Location = New System.Drawing.Point(196, 19)
+        Me.rbNoval.Name = "rbNoval"
+        Me.rbNoval.Size = New System.Drawing.Size(56, 19)
+        Me.rbNoval.TabIndex = 7
+        Me.rbNoval.TabStop = True
+        Me.rbNoval.Text = "Noval"
+        Me.rbNoval.UseVisualStyleBackColor = True
         '
         'Label79
         '

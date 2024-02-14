@@ -290,7 +290,7 @@ Public Class frmConfigs
             'puerto bascula
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Pto-Bascula'"
+    "select NotasCred from Formatos where Facturas='Pto-Bascula'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -308,7 +308,7 @@ Public Class frmConfigs
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='Bascula'"
+    "select NotasCred from Formatos where Facturas='Bascula'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -436,7 +436,7 @@ Public Class frmConfigs
                     End If
 
                 End If
-                End If
+            End If
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
@@ -470,7 +470,7 @@ Public Class frmConfigs
                     txtdeleg.Text = rd4("Cab4").ToString()
                     txttel.Text = rd4("Cab5").ToString()
                     txtcorreo.Text = rd4("Cab6").ToString()
-
+                    txtComerciall.Text = rd4("Cab7").ToString
                     txtPdomicilio.Text = rd4("Pie1").ToString()
                     txtPcotiza.Text = rd4("Pie2").ToString()
                     'txtPagare.Text = rd4("Pagare").ToString()
@@ -659,7 +659,7 @@ Public Class frmConfigs
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Ticket set Cab0='" & txtrazon.Text & "', Cab1='" & txtrfc.Text & "', Cab2='" & txtcalle.Text & "', Cab3='" & txtcolonia.Text & "', Cab4='" & txtdeleg.Text & "', Cab5='" & txttel.Text & "', Cab6='" & txtcorreo.Text & "',Pie1='" & txtPdomicilio.Text & "', Pie2='" & txtPcotiza.Text & "', Copias=" & IIf(txtCopias.Text = "", 0, txtCopias.Text)
+                    "update Ticket set Cab0='" & txtrazon.Text & "', Cab1='" & txtrfc.Text & "', Cab2='" & txtcalle.Text & "', Cab3='" & txtcolonia.Text & "', Cab4='" & txtdeleg.Text & "', Cab5='" & txttel.Text & "', Cab6='" & txtcorreo.Text & "', Cab7='" & txtComerciall.Text & "', Pie1='" & txtPdomicilio.Text & "', Pie2='" & txtPcotiza.Text & "', Copias=" & IIf(txtCopias.Text = "", 0, txtCopias.Text)
                 cmd1.ExecuteNonQuery()
 
                 Insert_Configs()
@@ -1080,14 +1080,14 @@ Public Class frmConfigs
             If cboImpTickets.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+                      "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -1095,7 +1095,7 @@ Public Class frmConfigs
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
+                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If
@@ -1105,14 +1105,14 @@ Public Class frmConfigs
             If cboImpCarta.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update RutasImpresion set Impresora='" & cboImpCarta.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+                      "update RutasImpresion set Impresora='" & cboImpCarta.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -1120,7 +1120,7 @@ Public Class frmConfigs
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','CARTA','','" & cboImpCarta.Text & "')"
+                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','CARTA','','" & cboImpCarta.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If
