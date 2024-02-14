@@ -11686,6 +11686,8 @@ ecomoda:
 
                 If e.Control AndAlso e.KeyCode = Keys.F8 Then
 
+
+
                     ' Según el técnico se le envia un: P {Enter} para que el Display envie la lectura del peso
 
                 End If

@@ -979,6 +979,8 @@ Public Class frmPagar
             mycomensal = grdcomanda.Rows(kreaper).Cells(7).Value.ToString
             mymesero = grdcomanda.Rows(kreaper).Cells(8).Value.ToString
 
+
+            mycantidad = FormatNumber(mycantidad, 2)
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"

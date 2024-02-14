@@ -200,7 +200,7 @@ Partial Class frmConfigs
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.rbRhino = New System.Windows.Forms.RadioButton()
         Me.opttorrey = New System.Windows.Forms.RadioButton()
         Me.optmetrologic = New System.Windows.Forms.RadioButton()
         Me.cboBascula = New System.Windows.Forms.ComboBox()
@@ -318,6 +318,7 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
+        Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2085,6 +2086,7 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
+        Me.tabPuertos.Controls.Add(Me.Panel1)
         Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
@@ -2314,13 +2316,13 @@ Partial Class frmConfigs
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.White
-        Me.GroupBox3.Controls.Add(Me.Panel1)
-        Me.GroupBox3.Controls.Add(Me.RadioButton1)
+        Me.GroupBox3.Controls.Add(Me.rbNoval)
+        Me.GroupBox3.Controls.Add(Me.rbRhino)
         Me.GroupBox3.Controls.Add(Me.opttorrey)
         Me.GroupBox3.Controls.Add(Me.optmetrologic)
         Me.GroupBox3.Location = New System.Drawing.Point(10, 164)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(249, 45)
+        Me.GroupBox3.Size = New System.Drawing.Size(249, 82)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Marca de la báscula"
@@ -2328,21 +2330,21 @@ Partial Class frmConfigs
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(147, 45)
+        Me.Panel1.Location = New System.Drawing.Point(350, 377)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(120, 65)
         Me.Panel1.TabIndex = 6
         '
-        'RadioButton1
+        'rbRhino
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(109, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(56, 19)
-        Me.RadioButton1.TabIndex = 5
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Rhino"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.rbRhino.AutoSize = True
+        Me.rbRhino.Location = New System.Drawing.Point(109, 19)
+        Me.rbRhino.Name = "rbRhino"
+        Me.rbRhino.Size = New System.Drawing.Size(56, 19)
+        Me.rbRhino.TabIndex = 5
+        Me.rbRhino.TabStop = True
+        Me.rbRhino.Text = "Rhino"
+        Me.rbRhino.UseVisualStyleBackColor = True
         '
         'opttorrey
         '
@@ -3593,6 +3595,17 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
+        'rbNoval
+        '
+        Me.rbNoval.AutoSize = True
+        Me.rbNoval.Location = New System.Drawing.Point(13, 51)
+        Me.rbNoval.Name = "rbNoval"
+        Me.rbNoval.Size = New System.Drawing.Size(56, 19)
+        Me.rbNoval.TabIndex = 6
+        Me.rbNoval.TabStop = True
+        Me.rbNoval.Text = "Noval"
+        Me.rbNoval.UseVisualStyleBackColor = True
+        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3856,7 +3869,7 @@ Partial Class frmConfigs
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents rbRhino As System.Windows.Forms.RadioButton
     Friend WithEvents opttorrey As System.Windows.Forms.RadioButton
     Friend WithEvents optmetrologic As System.Windows.Forms.RadioButton
     Friend WithEvents cboBascula As System.Windows.Forms.ComboBox
@@ -3987,4 +4000,5 @@ Partial Class frmConfigs
     Friend WithEvents txtlink As TextBox
     Friend WithEvents cbOrdenEntrega As CheckBox
     Friend WithEvents chkImg_PDF As CheckBox
+    Friend WithEvents rbNoval As RadioButton
 End Class

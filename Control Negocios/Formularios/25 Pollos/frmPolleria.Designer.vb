@@ -65,6 +65,7 @@ Partial Class frmPolleria
         Me.BTN7 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtPeso = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.plateral.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -210,6 +211,7 @@ Partial Class frmPolleria
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.Button3)
         Me.Panel4.Controls.Add(Me.lblAtiende)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
@@ -545,6 +547,15 @@ Partial Class frmPolleria
         Me.txtPeso.Size = New System.Drawing.Size(293, 26)
         Me.txtPeso.TabIndex = 0
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(58, 51)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'frmPolleria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -620,4 +631,5 @@ Partial Class frmPolleria
     Friend WithEvents BTN7 As Button
     Friend WithEvents BTNINTRO As Button
     Friend WithEvents btnp As Button
+    Friend WithEvents Button3 As Button
 End Class

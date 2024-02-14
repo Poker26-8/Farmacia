@@ -3,6 +3,7 @@
 Imports System.Net
 Imports System.IO
 Imports Microsoft.VisualBasic.Devices
+Imports System.IO.Ports
 
 Public Class frmPolleria
     Private Const V As String = "',')"
@@ -37,6 +38,8 @@ Public Class frmPolleria
     Dim usuariologueo As String = ""
 
     Friend WithEvents btnEmp, btnDepa, btnGrupo, btnProd As System.Windows.Forms.Button
+
+    Public WithEvents serialPortT As New SerialPort()
     Private Sub frmPolleria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         cnn2.Close() : cnn2.Open()
@@ -981,15 +984,79 @@ Public Class frmPolleria
         CodigoProducto = btnProducto.Tag
 
 
-        ppeso.Visible = True
-        txtpeso.Focus.Equals(True)
-        'With ppeso
-        '    cantidad = txtpeso.Text
-        'End With
+        Dim puertoba As String = ""
+        Dim bascula As String = ""
 
-        ' If cantidad > 0 Then
-        ' ObtenerProducto(btnProducto.Tag)
-        'End If
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Pto-Bascula'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                puertoba = rd2(0).ToString
+            End If
+        End If
+        rd2.Close()
+
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Bascula'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                bascula = rd2(0).ToString
+            End If
+        End If
+        rd2.Close()
+
+        If bascula <> "" Then
+
+            ' Configurar el puerto serie
+            With serialPortT
+                .PortName = puertoba ' Cambia esto al puerto correcto de tu báscula
+                .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
+                .DataBits = 8
+                .StopBits = StopBits.One
+                .Parity = Parity.None
+            End With
+
+            ' Abrir el puerto serie
+            If Not serialPortT.IsOpen Then
+                serialPortT.Open()
+                ' MessageBox.Show("Conectado a la báscula.")
+            End If
+
+            ' Leer datos de la báscula
+            If serialPortT.IsOpen Then
+                Dim data As Double = serialPortT.ReadLine()
+                cantidad = data
+                cantidad = FormatNumber(cantidad, 2)
+                MessageBox.Show("Datos de la báscula: " & data)
+            Else
+                MessageBox.Show("La báscula no está conectada.")
+            End If
+
+            ObtenerProducto(CodigoProducto)
+
+            ' Cerrar el puerto serie al cerrar la aplicación
+            If serialPortT.IsOpen Then
+                serialPortT.Close()
+            End If
+
+
+
+        Else
+            ppeso.Visible = True
+            txtPeso.Focus.Equals(True)
+        End If
+
+
+        cnn2.Close()
+
+
+
+
+
+
 
 
     End Sub
@@ -1067,48 +1134,40 @@ Public Class frmPolleria
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
 
         If lblAtiende.Text = "" Then MsgBox("Debe seleccionar un empleado", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
-
-
         Try
-                Dim idemp As Integer = 0
+            Dim idemp As Integer = 0
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Alias='" & usuariologueo & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    idemp = rd2(0).ToString
 
-                cnn2.Close() : cnn2.Open()
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Alias='" & usuariologueo & "'"
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        idemp = rd2(0).ToString
-
-                        cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
-                        rd3 = cmd3.ExecuteReader
-                        If rd3.HasRows Then
-                            If rd3.Read Then
-
-                                If rd3(0).ToString = 1 Then
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If rd3(0).ToString = 1 Then
 
 
 
-                                    montomapeo = 0
+                                montomapeo = 0
 
-                                    cnn1.Close() : cnn1.Open()
-                                    cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText = "SELECT SUM(Total) FROM Comandas WHERE NMESA='" & lblAtiende.Text & "'"
-                                    rd1 = cmd1.ExecuteReader
-                                    If rd1.HasRows Then
-                                        If rd1.Read Then
-                                            montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
+                                cnn1.Close() : cnn1.Open()
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText = "SELECT SUM(Total) FROM Comandas WHERE NMESA='" & lblAtiende.Text & "'"
+                                rd1 = cmd1.ExecuteReader
+                                If rd1.HasRows Then
+                                    If rd1.Read Then
+                                        montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
                                         montomapeo = FormatNumber(montomapeo, 2)
-
                                         frmPagar.txtSubtotalmapeo.Text = montomapeo
                                         frmPagar.subtotalmapeo = montomapeo
                                         frmPagar.focomapeo = 1
@@ -1121,47 +1180,43 @@ Public Class frmPolleria
 
 
                                     Else
-                                            MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
-                                            Exit Sub
-                                        End If
+                                        MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
+                                        Exit Sub
                                     End If
-                                    rd1.Close()
-                                    cnn1.Close()
-
-                                Else
-                                    MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
-                                    Exit Sub
                                 End If
+                                rd1.Close()
+                                cnn1.Close()
 
+                            Else
+                                MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
+                                Exit Sub
                             End If
+                            rd1.Close()
+                            cnn1.Close()
+
                         Else
-                            MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
+                            MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
                             Exit Sub
                         End If
-                        rd3.Close()
-                        cnn3.Close()
-
+                    Else
+                        MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
+                        Exit Sub
                     End If
-                Else
-                    MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
-                    Exit Sub
+                    rd3.Close()
+                    cnn3.Close()
                 End If
-                rd2.Close()
-                cnn2.Close()
-
-
-
+            Else
+                MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+            rd2.Close()
+            cnn2.Close()
         Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-
-
-
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
-
     Public Sub find_preciovta(codigo As String)
-
         Dim MyPrecio As Double = 0
 
         cnn2.Close() : cnn2.Open()
@@ -1182,9 +1237,6 @@ Public Class frmPolleria
         cnn2.Close()
 
     End Sub
-
-
-
 
 
     Public Sub UpGridCaptura()
@@ -1484,6 +1536,10 @@ Public Class frmPolleria
 
     Private Sub btnp_Click(sender As Object, e As EventArgs) Handles btnp.Click
         txtPeso.Text = txtPeso.Text + btnp.Text
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        FRMPRUBEA.Show()
     End Sub
 
     Public Sub Limpiar()
