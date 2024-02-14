@@ -2455,7 +2455,7 @@ Partial Class frmConfigs
         Me.boxpagare.BackColor = System.Drawing.Color.SteelBlue
         Me.boxpagare.Controls.Add(Me.Button22)
         Me.boxpagare.Controls.Add(Me.txtPagare)
-        Me.boxpagare.Location = New System.Drawing.Point(29, 171)
+        Me.boxpagare.Location = New System.Drawing.Point(29, 94)
         Me.boxpagare.Name = "boxpagare"
         Me.boxpagare.Size = New System.Drawing.Size(426, 180)
         Me.boxpagare.TabIndex = 262
@@ -2507,7 +2507,7 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(16, 113)
+        Me.boxclausulas.Location = New System.Drawing.Point(16, 36)
         Me.boxclausulas.Name = "boxclausulas"
         Me.boxclausulas.Size = New System.Drawing.Size(431, 289)
         Me.boxclausulas.TabIndex = 263
