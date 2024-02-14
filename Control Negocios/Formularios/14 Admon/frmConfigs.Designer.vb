@@ -249,6 +249,8 @@ Partial Class frmConfigs
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.label799 = New System.Windows.Forms.Label()
+        Me.txtComerciall = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtcorreo = New System.Windows.Forms.TextBox()
@@ -319,8 +321,6 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.txtComerciall = New System.Windows.Forms.TextBox()
-        Me.label799 = New System.Windows.Forms.Label()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2455,7 +2455,7 @@ Partial Class frmConfigs
         Me.boxpagare.BackColor = System.Drawing.Color.SteelBlue
         Me.boxpagare.Controls.Add(Me.Button22)
         Me.boxpagare.Controls.Add(Me.txtPagare)
-        Me.boxpagare.Location = New System.Drawing.Point(29, 98)
+        Me.boxpagare.Location = New System.Drawing.Point(29, 171)
         Me.boxpagare.Name = "boxpagare"
         Me.boxpagare.Size = New System.Drawing.Size(426, 180)
         Me.boxpagare.TabIndex = 262
@@ -2507,7 +2507,7 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(16, 40)
+        Me.boxclausulas.Location = New System.Drawing.Point(16, 113)
         Me.boxclausulas.Name = "boxclausulas"
         Me.boxclausulas.Size = New System.Drawing.Size(431, 289)
         Me.boxclausulas.TabIndex = 263
@@ -2862,6 +2862,24 @@ Partial Class frmConfigs
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Cabecera del ticket"
+        '
+        'label799
+        '
+        Me.label799.Location = New System.Drawing.Point(8, 39)
+        Me.label799.Name = "label799"
+        Me.label799.Size = New System.Drawing.Size(77, 41)
+        Me.label799.TabIndex = 264
+        Me.label799.Text = "Nombre Comercial:"
+        '
+        'txtComerciall
+        '
+        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComerciall.Location = New System.Drawing.Point(89, 51)
+        Me.txtComerciall.Name = "txtComerciall"
+        Me.txtComerciall.Size = New System.Drawing.Size(296, 18)
+        Me.txtComerciall.TabIndex = 264
         '
         'Label9
         '
@@ -3609,24 +3627,6 @@ Partial Class frmConfigs
         Me.Label78.Size = New System.Drawing.Size(143, 21)
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
-        '
-        'txtComerciall
-        '
-        Me.txtComerciall.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtComerciall.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtComerciall.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComerciall.Location = New System.Drawing.Point(123, 51)
-        Me.txtComerciall.Name = "txtComerciall"
-        Me.txtComerciall.Size = New System.Drawing.Size(262, 18)
-        Me.txtComerciall.TabIndex = 264
-        '
-        'label799
-        '
-        Me.label799.Location = New System.Drawing.Point(6, 51)
-        Me.label799.Name = "label799"
-        Me.label799.Size = New System.Drawing.Size(111, 18)
-        Me.label799.TabIndex = 264
-        Me.label799.Text = "Nombre Comercial:"
         '
         'frmConfigs
         '
