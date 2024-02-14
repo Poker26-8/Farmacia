@@ -287,6 +287,50 @@ Public Class frmConfigs
             End If
             rd4.Close()
 
+            'puerto bascula
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText =
+    "select NotasCred from Formatos where Facturas='Pto-Bascula'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    cboBascula.Text = rd4(0).ToString
+
+                End If
+            Else
+                cboImpTickets.Text = ""
+            End If
+            rd4.Close()
+
+            'nombre bascula
+
+            Dim ba As String = ""
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText =
+    "select NotasCred from Formatos where Facturas='Bascula'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+
+                    ba = rd4(0).ToString
+
+                    If ba = "Noval" Then
+                        rbNoval.Checked = True
+                    ElseIf ba = "Metrologic" Then
+                        optmetrologic.Checked = True
+                    ElseIf ba = "Torrey" Then
+                        opttorrey.Checked = True
+                    ElseIf ba = "Rhino" Then
+                        rbRhino.Checked = True
+                    End If
+
+                End If
+            Else
+                cboImpTickets.Text = ""
+            End If
+            rd4.Close()
+
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
                 "select NotasCred from Formatos where Facturas='TipoLogo'"
@@ -1013,19 +1057,37 @@ Public Class frmConfigs
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         Try
+            Dim bascula As String = ""
+
+            If (rbNoval.Checked) Then
+                bascula = "Noval"
+            End If
+
+            If (optmetrologic.Checked) Then
+                bascula = "Metrologic"
+            End If
+
+            If opttorrey.Checked Then
+                bascula = "Torrey"
+            End If
+
+            If (rbRhino.Checked) Then
+                bascula = "Rhino"
+            End If
+
             cnn1.Close() : cnn1.Open()
 
             If cboImpTickets.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+                      "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -1033,7 +1095,7 @@ Public Class frmConfigs
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
+                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If
@@ -1043,14 +1105,14 @@ Public Class frmConfigs
             If cboImpCarta.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+              "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update RutasImpresion set Impresora='" & cboImpCarta.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+                      "update RutasImpresion set Impresora='" & cboImpCarta.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -1058,12 +1120,50 @@ Public Class frmConfigs
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','CARTA','','" & cboImpCarta.Text & "')"
+                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','CARTA','','" & cboImpCarta.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If
                 rd1.Close()
             End If
+
+            If cboBascula.Text <> "" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM formatos WHERE Facturas='Pto-Bascula'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE formatos SET NotasCred='" & cboBascula.Text & "' WHERE Facturas='Pto-Bascula'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    End If
+                End If
+                rd1.Close()
+
+            End If
+
+            If bascula <> "" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM formatos WHERE Facturas='Bascula'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE formatos SET NotasCred='" & bascula & "' WHERE Facturas='Bascula'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    End If
+                End If
+                rd1.Close()
+            End If
+
 
             cnn1.Close()
             MsgBox("Configuración actualizada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
