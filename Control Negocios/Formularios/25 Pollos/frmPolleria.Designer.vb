@@ -37,6 +37,7 @@ Partial Class frmPolleria
         Me.lblTotalVenta = New System.Windows.Forms.Label()
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.lblAtiende = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -65,7 +66,6 @@ Partial Class frmPolleria
         Me.BTN7 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtPeso = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.plateral.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -211,7 +211,6 @@ Partial Class frmPolleria
         '
         'Panel4
         '
-        Me.Panel4.Controls.Add(Me.Button3)
         Me.Panel4.Controls.Add(Me.lblAtiende)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
@@ -219,6 +218,16 @@ Partial Class frmPolleria
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(320, 100)
         Me.Panel4.TabIndex = 2
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(83, 6)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
         '
         'lblAtiende
         '
@@ -309,6 +318,7 @@ Partial Class frmPolleria
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
@@ -546,15 +556,6 @@ Partial Class frmPolleria
         Me.txtPeso.Name = "txtPeso"
         Me.txtPeso.Size = New System.Drawing.Size(293, 26)
         Me.txtPeso.TabIndex = 0
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(58, 51)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'frmPolleria
         '

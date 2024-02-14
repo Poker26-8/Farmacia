@@ -3014,7 +3014,6 @@ Public Class frmPagar
             Y += 15
 
             e.Graphics.DrawString("Mesa: " & lblmesa.Text, fuente_r, Brushes.Black, 1, Y)
-
             e.Graphics.DrawString("Folio: " & folio, fuente_r, Brushes.Black, 270, Y, derecha)
             Y += 23
             e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/dd"), fuente_r, Brushes.Black, 1, Y)
@@ -3056,7 +3055,7 @@ Public Class frmPagar
 
                         acumuladocortesia = acumuladocortesia + (preciopro * cantidadpro)
 
-                        e.Graphics.DrawString(cantidadpro, fuente_p, Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(FormatNumber(cantidadpro, 3), fuente_p, Brushes.Black, 1, Y)
 
                         Dim caracteresPorLinea As Integer = 40
                         Dim texto As String = nombrepro
@@ -3066,8 +3065,8 @@ Public Class frmPagar
                         While inicio < longitudTexto
                             Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                             Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
-                            Y += 15
+                            e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 33, Y)
+                            Y += 13
                             inicio += caracteresPorLinea
                         End While
 
@@ -3138,7 +3137,7 @@ Public Class frmPagar
                                 Loop
                                 rd1.Close()
 
-                                e.Graphics.DrawString(cantidadpro, fuente_p, Brushes.Black, 1, Y)
+                                e.Graphics.DrawString(FormatNumber(cantidadpro, 3), fuente_p, Brushes.Black, 1, Y)
 
                                 Dim caracteresPorLinea As Integer = 40
                                 Dim texto As String = nombrepro
@@ -3148,8 +3147,8 @@ Public Class frmPagar
                                 While inicio < longitudTexto
                                     Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                                     Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                                    e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
-                                    Y += 15
+                                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 33, Y)
+                                    Y += 13
                                     inicio += caracteresPorLinea
                                 End While
 

@@ -286,7 +286,7 @@ Partial Class frmRepSeries
         Me.Column7.HeaderText = "Fecha Salida"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
-        Me.Column7.Width = 85
+        Me.Column7.Width = 95
         '
         'Column8
         '

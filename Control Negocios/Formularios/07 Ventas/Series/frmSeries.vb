@@ -203,7 +203,7 @@ Public Class frmSeries
                     grdseries.Rows.Clear()
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM series WHERE Codigo='" & cboCodigo.Text & "'"
+                    cmd1.CommandText = "SELECT * FROM series WHERE Codigo='" & cboCodigo.Text & "' AND Status='0'"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then

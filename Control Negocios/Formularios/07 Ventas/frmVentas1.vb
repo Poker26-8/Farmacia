@@ -3,8 +3,10 @@ Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
-
+Imports System.IO.Ports
 Public Class frmVentas1
+
+    Public WithEvents serialPortT As New SerialPort()
 
     Public IMPRE As String = ""
 
@@ -1253,8 +1255,6 @@ Public Class frmVentas1
         End If
     End Function
 #End Region
-
-
 
     'Pantalla
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
@@ -6793,9 +6793,6 @@ Door:
     End Sub
 
 
-
-
-
     'Devolucines
     Private Sub btndevo_Click(sender As System.Object, e As System.EventArgs) Handles btndevo.Click
         Dim id_usu As Integer = 0
@@ -7243,6 +7240,7 @@ ecomoda:
                     'ActualizaCosteo(cbonota.Text, mycode, Mycant)
                 End If
                 Dim MyExiste As Double = 0
+
                 If MyDepto <> "SERVICIOS" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
@@ -7704,6 +7702,7 @@ ecomoda:
                 e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 13.5
             End If
+
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
             Y += 18
@@ -11641,188 +11640,68 @@ ecomoda:
 
     Private Sub txtcantidad_KeyDown(sender As Object, e As KeyEventArgs) Handles txtcantidad.KeyDown
 
-        Dim PTOSerial As String
-        Dim PTO_s As Integer
-        Dim Lectura As String
-        Dim TBas As String
 
-        On Error GoTo Ers
+        If e.Control AndAlso e.KeyCode = Keys.F8 Then
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "Select NotasCred From Formatos Where Facturas='Pto Báscula'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
+            Try
 
-                PTOSerial = rd1("NotasCred").ToString
-
-                Select Case PTOSerial
-                    Case "COM1"
-                        PTO_s = 1
-                    Case "COM2"
-                        PTO_s = 2
-                    Case "COM3"
-                        PTO_s = 3
-                    Case "COM4"
-                        PTO_s = 4
-                    Case "COM5"
-                        PTO_s = 5
-                    Case "COM6"
-                        PTO_s = 6
-                    Case "COM7"
-                        PTO_s = 7
-                    Case "COM8"
-                        PTO_s = 8
-                    Case "COM9"
-                        PTO_s = 9
-                    Case Else
-                        MsgBox("Verifique la configuracion del puerto serial!", vbInformation + vbOKOnly, titulocentral)
-
-                        Exit Sub
-                End Select
-
-                TBas = SFormatos("TBascula", "")
-
-                If e.Control AndAlso e.KeyCode = Keys.F8 Then
+                Dim PTOSerial As String
+                Dim PTO_s As Integer
+                Dim Lectura As String
+                Dim TBas As String
 
 
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select NotasCred From Formatos Where Facturas='Pto-Bascula'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
 
-                    ' Según el técnico se le envia un: P {Enter} para que el Display envie la lectura del peso
+                        PTOSerial = rd1("NotasCred").ToString
 
+                        TBas = SFormatos("TBascula", "")
+
+
+                        ' Configurar el puerto serie
+                        With serialPortT
+                            .PortName = PTOSerial ' Cambia esto al puerto correcto de tu báscula
+                            .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
+                            .DataBits = 8
+                            .StopBits = StopBits.One
+                            .Parity = Parity.None
+                        End With
+
+                        ' Abrir el puerto serie
+                        If Not serialPortT.IsOpen Then
+                            serialPortT.Open()
+                            MessageBox.Show("Conectado a la báscula.")
+                        End If
+
+                        ' Leer datos de la báscula
+                        If serialPortT.IsOpen Then
+                            Dim data As String = serialPortT.ReadLine()
+                            txtcantidad.Text = data
+                            'txtcantidad.Text = Mid(data, 3)
+                        Else
+                            MessageBox.Show("La báscula no está conectada.")
+                        End If
+
+
+                        ' Cerrar el puerto serie al cerrar la aplicación
+                        If serialPortT.IsOpen Then
+                            serialPortT.Close()
+                        End If
+
+                    End If
                 End If
+                rd1.Close()
+                cnn1.Close()
 
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            End Try
 
-            End If
         End If
-        rd1.Close()
-        cnn1.Close()
-
-
-
-        'Com1.CommPort = PTO_s
-        '            If Com1.PortOpen = False Then
-        '                'Com1.PortOpen = False
-        '                Com1.PortOpen = True
-        '                'If MSComm1.PortOpen = False Then MSComm1.PortOpen = True
-        '                'Com1.output = "P" + Chr(13)
-        '                'Com1.output = Chr$(80)
-        '                Com1.Output = "P"
-
-        '                Sleep(1000)
-
-        '                Lectura = Com1.Input
-
-        '                If TBas = "0" Then
-
-        '                    If Len(Lectura) < 4 Then
-        '                        MsgBox "Valores no validos" & "(" & Lectura & ")", vbInformation
-        '               Exit Sub
-        '                    End If
-
-        '                    Lectura = Trim(Lectura)
-        '                    Lectura = Mid(Lectura, 1, Len(Lectura) - 2)
-        '                    Lectura = Replace(Lectura, " ", "")
-        '                    Lectura = Replace(Lectura, "g", "")
-        '                    Lectura = Replace(Lectura, "k", "")
-        '                    Lectura = Replace(Lectura, "K", "")
-        '                    Lectura = Replace(Lectura, "G", "")
-
-        '                    txtcantidad.Text = Lectura
-
-        '                ElseIf TBas = "1" Then
-
-        '                    If Len(Lectura) < 4 Then
-        '                        MsgBox "Valores no validos", vbInformation
-        '               Exit Sub
-        '                    End If
-
-        '                    Lectura = Trim(Lectura)
-        '                    Lectura = Mid(Lectura, 1, Len(Lectura) - 2)
-        '                    Lectura = Replace(Lectura, " ", "")
-        '                    Lectura = Replace(Lectura, "g", "")
-        '                    Lectura = Replace(Lectura, "k", "")
-        '                    Lectura = Replace(Lectura, "K", "")
-        '                    Lectura = Replace(Lectura, "G", "")
-        '                    txtcantidad.Text = Lectura
-
-        '                ElseIf TBas = "" Then
-
-        '                    MsgBox "¡Debe configurar un tipo de báscula!", vbInformation
-        '            txtcantidad.SetFocus
-        '                    Exit Sub
-        '                End If
-
-        '                If txtcantidad.Text = "" Then
-        '                    txtcantidad.Text = 0
-        '                ElseIf Not IsNumeric(txtcantidad.Text) Then
-        '                    MsgBox "Lectura: " & Lectura
-        '            txtcantidad.Text = 0
-        '                End If
-
-        '                Call txtcantidad_KeyPress(13)
-        '            Else
-        '                Com1.Output = "P"
-
-        '                Sleep(1000)
-
-        '                Lectura = Com1.Input
-
-        '                If TBas = "0" Then
-
-        '                    If Len(Lectura) < 4 Then
-        '                        MsgBox "Valores no validos" & "(" & Lectura & ")", vbInformation
-        '               Exit Sub
-        '                    End If
-
-        '                    Lectura = Trim(Lectura)
-        '                    Lectura = Mid(Lectura, 1, Len(Lectura) - 2)
-        '                    Lectura = Replace(Lectura, " ", "")
-        '                    Lectura = Replace(Lectura, "g", "")
-        '                    Lectura = Replace(Lectura, "k", "")
-        '                    Lectura = Replace(Lectura, "K", "")
-        '                    Lectura = Replace(Lectura, "G", "")
-
-        '                    txtcantidad.Text = Lectura
-
-        '                ElseIf TBas = "1" Then
-
-        '                    If Len(Lectura) < 4 Then
-        '                        MsgBox "Valores no validos", vbInformation
-        '               Exit Sub
-        '                    End If
-
-        '                    Lectura = Trim(Lectura)
-        '                    Lectura = Mid(Lectura, 1, Len(Lectura) - 3)
-        '                    Lectura = Replace(Lectura, " ", "")
-        '                    Lectura = Replace(Lectura, "g", "")
-        '                    Lectura = Replace(Lectura, "k", "")
-        '                    Lectura = Replace(Lectura, "K", "")
-        '                    Lectura = Replace(Lectura, "G", "")
-
-        '                    txtcantidad.Text = Lectura
-
-        '                ElseIf TBas = "" Then
-
-        '                    MsgBox "Debe Configurar un Tipo de Bascula!", vbInformation
-        '            txtcantidad.SetFocus
-        '                    Exit Sub
-        '                End If
-
-        '                If txtcantidad.Text = "" Then
-        '                    txtcantidad.Text = 0
-        '                ElseIf Not IsNumeric(txtcantidad.Text) Then
-        '                    MsgBox "Lectura: " & Lectura
-        '            txtcantidad.Text = 0
-        '                End If
-        '                Call txtcantidad_KeyPress(13)
-        '            End If
-
-        '        If Com1.PortOpen = True Then Com1.PortOpen = False
-Ers:
-        If Err.Number = "8002" Then
-            MsgBox("Verifique que su equipo contenga puerto serial.", vbInformation + vbOKOnly, titulocentral)
-        End If
-
     End Sub
 End Class

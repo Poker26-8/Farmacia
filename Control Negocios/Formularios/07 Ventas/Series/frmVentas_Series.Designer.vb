@@ -176,6 +176,17 @@ Partial Class frmVentas_Series
         Me.txtProdClave = New System.Windows.Forms.TextBox()
         Me.txtcoment = New System.Windows.Forms.RichTextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.txtdia = New System.Windows.Forms.TextBox()
+        Me.txtsaldo_monedero = New System.Windows.Forms.TextBox()
+        Me.lblsaldo_monedero = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.pVenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.pVenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.pVentaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pCotiza80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCotiza58 = New System.Drawing.Printing.PrintDocument()
+        Me.pCotizaCarta = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -191,17 +202,11 @@ Partial Class frmVentas_Series
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtdia = New System.Windows.Forms.TextBox()
-        Me.txtsaldo_monedero = New System.Windows.Forms.TextBox()
-        Me.lblsaldo_monedero = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.pVenta80 = New System.Drawing.Printing.PrintDocument()
-        Me.pVenta58 = New System.Drawing.Printing.PrintDocument()
-        Me.pVentaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pCotiza80 = New System.Drawing.Printing.PrintDocument()
-        Me.pCotiza58 = New System.Drawing.Printing.PrintDocument()
-        Me.pCotizaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
+        Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
+        Me.PDevo80 = New System.Drawing.Printing.PrintDocument()
+        Me.PDevoCarta = New System.Drawing.Printing.PrintDocument()
+        Me.PDevo58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1978,7 +1983,6 @@ Partial Class frmVentas_Series
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column14, Me.Column20, Me.Column8, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(8, 202)
@@ -1988,6 +1992,55 @@ Partial Class frmVentas_Series
         Me.grdcaptura.RowTemplate.Height = 30
         Me.grdcaptura.Size = New System.Drawing.Size(1197, 450)
         Me.grdcaptura.TabIndex = 87
+        '
+        'txtdia
+        '
+        Me.txtdia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtdia.Location = New System.Drawing.Point(1143, 263)
+        Me.txtdia.Name = "txtdia"
+        Me.txtdia.Size = New System.Drawing.Size(59, 20)
+        Me.txtdia.TabIndex = 186
+        Me.txtdia.Visible = False
+        '
+        'txtsaldo_monedero
+        '
+        Me.txtsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtsaldo_monedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsaldo_monedero.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsaldo_monedero.Location = New System.Drawing.Point(280, 614)
+        Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
+        Me.txtsaldo_monedero.Size = New System.Drawing.Size(144, 25)
+        Me.txtsaldo_monedero.TabIndex = 196
+        Me.txtsaldo_monedero.Text = "0.00"
+        Me.txtsaldo_monedero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtsaldo_monedero.Visible = False
+        '
+        'lblsaldo_monedero
+        '
+        Me.lblsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblsaldo_monedero.AutoSize = True
+        Me.lblsaldo_monedero.Location = New System.Drawing.Point(235, 619)
+        Me.lblsaldo_monedero.Name = "lblsaldo_monedero"
+        Me.lblsaldo_monedero.Size = New System.Drawing.Size(37, 13)
+        Me.lblsaldo_monedero.TabIndex = 195
+        Me.lblsaldo_monedero.Text = "Saldo:"
+        Me.lblsaldo_monedero.Visible = False
+        '
+        'Label41
+        '
+        Me.Label41.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(232, 743)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(62, 13)
+        Me.Label41.TabIndex = 223
+        Me.Label41.Text = "Banco rec.:"
+        '
+        'Timer1
+        '
+        '
+        'pVenta80
+        '
         '
         'Column1
         '
@@ -2063,7 +2116,6 @@ Partial Class frmVentas_Series
         Me.Column14.HeaderText = "IdLote"
         Me.Column14.Name = "Column14"
         Me.Column14.ReadOnly = True
-        Me.Column14.Visible = False
         '
         'Column20
         '
@@ -2115,52 +2167,6 @@ Partial Class frmVentas_Series
         Me.Column26.Name = "Column26"
         Me.Column26.ReadOnly = True
         Me.Column26.Visible = False
-        '
-        'txtdia
-        '
-        Me.txtdia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtdia.Location = New System.Drawing.Point(1143, 263)
-        Me.txtdia.Name = "txtdia"
-        Me.txtdia.Size = New System.Drawing.Size(59, 20)
-        Me.txtdia.TabIndex = 186
-        Me.txtdia.Visible = False
-        '
-        'txtsaldo_monedero
-        '
-        Me.txtsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtsaldo_monedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtsaldo_monedero.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsaldo_monedero.Location = New System.Drawing.Point(280, 614)
-        Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
-        Me.txtsaldo_monedero.Size = New System.Drawing.Size(144, 25)
-        Me.txtsaldo_monedero.TabIndex = 196
-        Me.txtsaldo_monedero.Text = "0.00"
-        Me.txtsaldo_monedero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtsaldo_monedero.Visible = False
-        '
-        'lblsaldo_monedero
-        '
-        Me.lblsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblsaldo_monedero.AutoSize = True
-        Me.lblsaldo_monedero.Location = New System.Drawing.Point(235, 619)
-        Me.lblsaldo_monedero.Name = "lblsaldo_monedero"
-        Me.lblsaldo_monedero.Size = New System.Drawing.Size(37, 13)
-        Me.lblsaldo_monedero.TabIndex = 195
-        Me.lblsaldo_monedero.Text = "Saldo:"
-        Me.lblsaldo_monedero.Visible = False
-        '
-        'Label41
-        '
-        Me.Label41.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(232, 743)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(62, 13)
-        Me.Label41.TabIndex = 223
-        Me.Label41.Text = "Banco rec.:"
-        '
-        'Timer1
-        '
         '
         'frmVentas_Series
         '
@@ -2348,6 +2354,18 @@ Partial Class frmVentas_Series
     Friend WithEvents txtProdClave As TextBox
     Friend WithEvents txtcoment As RichTextBox
     Friend WithEvents grdcaptura As DataGridView
+    Friend WithEvents txtdia As TextBox
+    Friend WithEvents txtsaldo_monedero As TextBox
+    Friend WithEvents lblsaldo_monedero As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents txtfechacad As TextBox
+    Friend WithEvents pVenta80 As Printing.PrintDocument
+    Friend WithEvents pVenta58 As Printing.PrintDocument
+    Friend WithEvents pVentaCarta As Printing.PrintDocument
+    Friend WithEvents pCotiza80 As Printing.PrintDocument
+    Friend WithEvents pCotiza58 As Printing.PrintDocument
+    Friend WithEvents pCotizaCarta As Printing.PrintDocument
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -2363,16 +2381,9 @@ Partial Class frmVentas_Series
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
-    Friend WithEvents txtdia As TextBox
-    Friend WithEvents txtsaldo_monedero As TextBox
-    Friend WithEvents lblsaldo_monedero As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents Timer1 As Timer
-    Friend WithEvents txtfechacad As TextBox
-    Friend WithEvents pVenta80 As Printing.PrintDocument
-    Friend WithEvents pVenta58 As Printing.PrintDocument
-    Friend WithEvents pVentaCarta As Printing.PrintDocument
-    Friend WithEvents pCotiza80 As Printing.PrintDocument
-    Friend WithEvents pCotiza58 As Printing.PrintDocument
-    Friend WithEvents pCotizaCarta As Printing.PrintDocument
+    Friend WithEvents PComanda80 As Printing.PrintDocument
+    Friend WithEvents PComanda58 As Printing.PrintDocument
+    Friend WithEvents PDevo80 As Printing.PrintDocument
+    Friend WithEvents PDevoCarta As Printing.PrintDocument
+    Friend WithEvents PDevo58 As Printing.PrintDocument
 End Class
