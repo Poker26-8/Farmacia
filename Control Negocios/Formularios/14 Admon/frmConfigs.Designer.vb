@@ -2750,7 +2750,7 @@ Partial Class frmConfigs
         Me.optPregunta.Name = "optPregunta"
         Me.optPregunta.Size = New System.Drawing.Size(221, 38)
         Me.optPregunta.TabIndex = 250
-        Me.optPregunta.Text = "Preguntar para imprimir notas de venta"
+        Me.optPregunta.Text = "Preguntar para imprimir notas de venta."
         Me.optPregunta.UseVisualStyleBackColor = True
         '
         'btnGuardaFormatos
