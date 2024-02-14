@@ -2087,10 +2087,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2442,9 +2442,9 @@ Partial Class frmConfigs
         Me.boxpagare.BackColor = System.Drawing.Color.SteelBlue
         Me.boxpagare.Controls.Add(Me.Button22)
         Me.boxpagare.Controls.Add(Me.txtPagare)
-        Me.boxpagare.Location = New System.Drawing.Point(29, 408)
+        Me.boxpagare.Location = New System.Drawing.Point(29, 98)
         Me.boxpagare.Name = "boxpagare"
-        Me.boxpagare.Size = New System.Drawing.Size(426, 202)
+        Me.boxpagare.Size = New System.Drawing.Size(426, 180)
         Me.boxpagare.TabIndex = 262
         Me.boxpagare.TabStop = False
         Me.boxpagare.Text = "Ingresa el texto"
@@ -2494,9 +2494,9 @@ Partial Class frmConfigs
         Me.boxclausulas.Controls.Add(Me.Label61)
         Me.boxclausulas.Controls.Add(Me.txtC1)
         Me.boxclausulas.Controls.Add(Me.Button23)
-        Me.boxclausulas.Location = New System.Drawing.Point(37, 358)
+        Me.boxclausulas.Location = New System.Drawing.Point(37, 48)
         Me.boxclausulas.Name = "boxclausulas"
-        Me.boxclausulas.Size = New System.Drawing.Size(410, 303)
+        Me.boxclausulas.Size = New System.Drawing.Size(410, 281)
         Me.boxclausulas.TabIndex = 263
         Me.boxclausulas.TabStop = False
         Me.boxclausulas.Text = "Ingresa el texto"
@@ -2677,7 +2677,7 @@ Partial Class frmConfigs
         Me.Button23.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button23.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button23.Location = New System.Drawing.Point(323, 267)
+        Me.Button23.Location = New System.Drawing.Point(323, 245)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(81, 30)
         Me.Button23.TabIndex = 1
