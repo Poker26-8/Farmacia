@@ -1268,7 +1268,7 @@ Public Class frmVentas1
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "select Nombre from Clientes where Nombre<>''"
+                            "select Nombre from Clientes where Nombre<>'' order by Nombre asc"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
