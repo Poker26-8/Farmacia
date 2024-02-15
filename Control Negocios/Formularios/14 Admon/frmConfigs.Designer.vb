@@ -2457,7 +2457,7 @@ Partial Class frmConfigs
         Me.boxpagare.Controls.Add(Me.txtPagare)
         Me.boxpagare.Location = New System.Drawing.Point(29, 94)
         Me.boxpagare.Name = "boxpagare"
-        Me.boxpagare.Size = New System.Drawing.Size(426, 180)
+        Me.boxpagare.Size = New System.Drawing.Size(436, 203)
         Me.boxpagare.TabIndex = 262
         Me.boxpagare.TabStop = False
         Me.boxpagare.Text = "Ingresa el texto"
@@ -2479,7 +2479,7 @@ Partial Class frmConfigs
         Me.txtPagare.Dock = System.Windows.Forms.DockStyle.Top
         Me.txtPagare.Location = New System.Drawing.Point(3, 19)
         Me.txtPagare.Name = "txtPagare"
-        Me.txtPagare.Size = New System.Drawing.Size(420, 141)
+        Me.txtPagare.Size = New System.Drawing.Size(430, 141)
         Me.txtPagare.TabIndex = 0
         Me.txtPagare.Text = ""
         '

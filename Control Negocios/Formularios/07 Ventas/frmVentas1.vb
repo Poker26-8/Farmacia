@@ -4973,8 +4973,6 @@ Door:
         cbodesc.Focus().Equals(True)
     End Sub
 
-
-
     'Ventas
     Private Sub Insert_Venta()
         Dim oData As New ToolKitSQL.oledbdata
