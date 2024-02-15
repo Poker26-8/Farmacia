@@ -957,7 +957,7 @@ malo:
 
     Function dame_RFC_Cliente(ByVal varRS As String) As String
         Dim cnn10 As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select RFC from Clientes where RazonSocial = '" & varRS & "'"
+        Dim sSQL As String = "Select RFC from Clientes where RazonSocial = '" & Trim(Replace(varRS, "'", "''")) & "'"
         Dim dr As DataRow
         Dim dt As New DataTable
         Dim sinfo As String = ""
