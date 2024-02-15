@@ -37,7 +37,6 @@ Partial Class frmPolleria
         Me.lblTotalVenta = New System.Windows.Forms.Label()
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.lblAtiende = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -47,6 +46,7 @@ Partial Class frmPolleria
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.pEmpleado = New System.Windows.Forms.Panel()
         Me.pDepartamento = New System.Windows.Forms.Panel()
         Me.pgrupo = New System.Windows.Forms.Panel()
@@ -219,16 +219,6 @@ Partial Class frmPolleria
         Me.Panel4.Size = New System.Drawing.Size(320, 100)
         Me.Panel4.TabIndex = 2
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(83, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        Me.Button3.Visible = False
-        '
         'lblAtiende
         '
         Me.lblAtiende.BackColor = System.Drawing.Color.Khaki
@@ -286,6 +276,7 @@ Partial Class frmPolleria
         Me.btnAsiganar.Text = "Asignar"
         Me.btnAsiganar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnAsiganar.UseVisualStyleBackColor = True
+        Me.btnAsiganar.Visible = False
         '
         'Button2
         '
@@ -335,6 +326,16 @@ Partial Class frmPolleria
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(83, 6)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
         '
         'pEmpleado
         '

@@ -1289,7 +1289,7 @@ Public Class frmPolleria
 
         Try
 
-            If lblAtiende.Text = "" Then MsgBox("Debe seleccionar a un empleado", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
+            If lblAtiende.Text = "" Then MsgBox("Debe seleccionar a un empleado", vbInformation + vbOKOnly, titulorestaurante) : btnLimpiar.PerformClick() : Exit Sub
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1490,6 +1490,14 @@ Public Class frmPolleria
         End With
 
         ObtenerProducto(CodigoProducto)
+        My.Application.DoEvents()
+
+        EnviarComanda()
+        pEmpleado.Controls.Clear()
+        Empleados()
+
+        My.Application.DoEvents()
+
         ppeso.Visible = False
         txtPeso.Text = ""
     End Sub
