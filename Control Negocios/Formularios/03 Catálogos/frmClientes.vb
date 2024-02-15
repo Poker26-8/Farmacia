@@ -47,7 +47,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where Nombre='" & cboNombre.Text & "'"
+                        "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -90,7 +90,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select *  from Clientes where Nombre='" & cboNombre.Text & "'"
+                 "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -158,7 +158,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where RazonSocial='" & cboRazon.Text & "'"
+                        "select *  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -202,7 +202,7 @@ Public Class frmClientes
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                  "select * from Clientes where RazonSocial='" &
-                 cboRazon.Text & "'"
+                 Trim(Replace(cboRazon.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
