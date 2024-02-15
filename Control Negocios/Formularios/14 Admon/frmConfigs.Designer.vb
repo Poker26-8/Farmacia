@@ -2460,7 +2460,7 @@ Partial Class frmConfigs
         Me.boxpagare.Size = New System.Drawing.Size(436, 203)
         Me.boxpagare.TabIndex = 262
         Me.boxpagare.TabStop = False
-        Me.boxpagare.Text = "Ingresa el texto"
+        Me.boxpagare.Text = "s"
         Me.boxpagare.Visible = False
         '
         'Button22
@@ -2512,7 +2512,7 @@ Partial Class frmConfigs
         Me.boxclausulas.Size = New System.Drawing.Size(431, 289)
         Me.boxclausulas.TabIndex = 263
         Me.boxclausulas.TabStop = False
-        Me.boxclausulas.Text = "Ingresa el texto"
+        Me.boxclausulas.Text = "s"
         Me.boxclausulas.Visible = False
         '
         'Label70

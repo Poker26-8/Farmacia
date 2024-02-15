@@ -948,7 +948,7 @@ Partial Class frmfacturacion
         Me.GroupBox9.Controls.Add(Me.btnAceptarCP)
         Me.GroupBox9.Controls.Add(Me.btnLimpiarCP)
         Me.GroupBox9.Controls.Add(Me.TabControl1)
-        Me.GroupBox9.Location = New System.Drawing.Point(4, 39)
+        Me.GroupBox9.Location = New System.Drawing.Point(4, 83)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(980, 596)
         Me.GroupBox9.TabIndex = 89

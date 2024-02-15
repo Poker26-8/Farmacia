@@ -47,7 +47,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where Nombre='" & cboNombre.Text & "'"
+                        "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -90,7 +90,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select *  from Clientes where Nombre='" & cboNombre.Text & "'"
+                 "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -158,7 +158,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where RazonSocial='" & cboRazon.Text & "'"
+                        "select *  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -202,7 +202,7 @@ Public Class frmClientes
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                  "select * from Clientes where RazonSocial='" &
-                 cboRazon.Text & "'"
+                 Trim(Replace(cboRazon.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -332,6 +332,8 @@ Public Class frmClientes
     End Sub
 
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
+        'eliminacomillas(cboNombre.Text)
+
         If cboNombre.Text = "" Then MsgBox("Necesitas escribir el nombre del cliente para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboNombre.Focus().Equals(True) : Exit Sub
         If cboTipo.Text = "" Then MsgBox("Selecciona el tipo de cliente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboTipo.Focus().Equals(True) : Exit Sub
         If cboRazon.Text = "" Then MsgBox("Necesitas escribir la razón social del cliente para continuar." & vbNewLine & "En caso de no conocerlo, puede ser el mismo que el nombre comercial.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboRazon.Focus().Equals(True) : Exit Sub
@@ -374,7 +376,7 @@ Public Class frmClientes
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select * from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     MsgBox("Al parecer ya hay un cliente registrado bajo ese nombre.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -383,7 +385,7 @@ Public Class frmClientes
                     cboNombre.Focus.Equals(True)
                     Exit Sub
                 Else
-                    sql = "insert into Clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior) values('" & cboNombre.Text & "','" & cboRazon.Text & "','" & cboTipo.Text & "','" & cboRFC.Text & "','" & txtTelefono.Text & "','" & txtCorreo.Text & "'," & CDbl(txtCredito.Text) & "," & txtDias.Text & ",'" & cboVendedor.Text & "'," & IIf(chkSusp.Checked, 1, 0) & ",'" & txtCalle.Text & "','" & txtColonia.Text & "','" & txtCP.Text & "','" & txtDelegacion.Text & "','" & txtEntidad.Text & "','" & txtPais.Text & "','" & txtClaveRegFis.Text & "','" & txtninterior.Text & "','" & txtnexterior.Text & "')"
+                    sql = "insert into Clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior) values('" & Trim(Replace(cboNombre.Text, "'", "''")) & "','" & Trim(Replace(cboRazon.Text, "'", "''")) & "','" & cboTipo.Text & "','" & cboRFC.Text & "','" & txtTelefono.Text & "','" & txtCorreo.Text & "'," & CDbl(txtCredito.Text) & "," & txtDias.Text & ",'" & cboVendedor.Text & "'," & IIf(chkSusp.Checked, 1, 0) & ",'" & txtCalle.Text & "','" & txtColonia.Text & "','" & txtCP.Text & "','" & txtDelegacion.Text & "','" & txtEntidad.Text & "','" & txtPais.Text & "','" & txtClaveRegFis.Text & "','" & txtninterior.Text & "','" & txtnexterior.Text & "')"
                 End If
                 rd1.Close()
 
