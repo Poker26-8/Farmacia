@@ -376,7 +376,7 @@ Public Class frmClientes
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select * from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     MsgBox("Al parecer ya hay un cliente registrado bajo ese nombre.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")

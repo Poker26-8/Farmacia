@@ -851,7 +851,7 @@ door:
 
     Function dame_IdClienteRS(ByVal varRS As String) As Integer
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        Dim sSQL As String = "Select Id from Clientes where RazonSocial = '" & varRS & "'"
+        Dim sSQL As String = "Select Id from Clientes where RazonSocial = '" & Trim(Replace(varRS, "'", "''")) & "'"
         Dim dr As DataRow
         Dim dt As New DataTable
         Dim sinfo As String = ""
