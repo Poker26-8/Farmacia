@@ -358,7 +358,7 @@ Public Class frmClientes
                 If rd1.HasRows Then
                     If rd1.Read Then
                         'Actualiza
-                        sql = "update Clientes set Tipo='" & cboTipo.Text & "', RFC='" & cboRFC.Text & "', Telefono='" & txtTelefono.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & CDbl(txtCredito.Text) & ", DiasCred=" & txtDias.Text & ", Comisionista='" & cboVendedor.Text & "', Suspender=" & IIf(chkSusp.Checked, 1, 0) & ", Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Pais='" & txtPais.Text & "', RegFis='" & txtClaveRegFis.Text & "', NInterior='" & txtninterior.Text & "', NExterior='" & txtnexterior.Text & "',RazonSocial='" & cboRazon.Text & "' where Id=" & txtId.Text
+                        sql = "update Clientes set Tipo='" & cboTipo.Text & "', RFC='" & cboRFC.Text & "', Telefono='" & txtTelefono.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & CDbl(txtCredito.Text) & ", DiasCred=" & txtDias.Text & ", Comisionista='" & cboVendedor.Text & "', Suspender=" & IIf(chkSusp.Checked, 1, 0) & ", Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Pais='" & txtPais.Text & "', RegFis='" & txtClaveRegFis.Text & "', NInterior='" & txtninterior.Text & "', NExterior='" & txtnexterior.Text & "',RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "' where Id=" & txtId.Text
                     End If
                 End If
                 rd1.Close()
