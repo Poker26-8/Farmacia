@@ -5607,7 +5607,26 @@ doorcita:
         Try
             Select Case lblNumCliente.Text
                 Case Is = "MOSTRADOR"
-                    IdCliente = 0
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * from clientes WHERE Nombre='PUBLICO EN GENERAL'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            IdCliente = rd2("Id").ToString
+                        End If
+                    Else
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "INSERT INTO Clientes(Nombre,RazonSocial,Tipo,RFC) VALUES('PUBLICO EN GENERAL','PUBLICO EN GENERAL','Lista','')"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+
+
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
                     Cliente = ""
                     Efectivo = txtefectivo.Text
                     ACuenta = FormatNumber((Efectivo - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 2)
@@ -5720,6 +5739,8 @@ doorcita:
             End If
             rd2.Close()
         Loop
+
+
 
         If txtMonedero.Text <> "" Then
             cmd2 = cnn2.CreateCommand
