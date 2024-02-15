@@ -242,6 +242,12 @@ Module Module1
 
     End Sub
 
+
+    Public Sub eliminacomillas(ByVal datoxd As String)
+        datoxd = datoxd.Replace("'", "")
+        frmClientes.cboNombre.Text = datoxd
+    End Sub
+
     Sub SendSerialData(ByVal data As String, ByVal puerto As String)
         Dim objFSO
         Dim objStream

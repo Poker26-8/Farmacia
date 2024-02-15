@@ -1472,15 +1472,15 @@ Module Facturacion
         "nom_del_mun_cliente,nom_rfc_cliente,nom_folio,nom_metodo_pago,nom_tipo_pago," &
         "nom_folio_sat_uuid,nom_fecha_folio_sat,nom_sello_emisor,nom_sello_sat,nom_cadena_original," &
         "nom_total_pagado,nom_no_csd_emp,nom_no_csd_sat,estatus_fac,n_ext_cliente,id_evento,edo_cli,descripcion,descuento,iva,preciopaq,nom_fecha_factura, id_emisor,UsoCFDI,nom_cpago,nom_isr,nom_numext_empresa,nom_numint_empresa,nom_comercial_cli,nom_status)Values(" &
-         numero_cliente & ", '" & razon_social & "', '" & rfc_empresa & "','" & reg_fiscal & "','" & actividad_empresa & "','" & calle_empresa &
-         "','" & colonia_empresa & "','" & municipio_empresa & "','" & cp_empresa & "','" & pais_empresa & "', '" & estado_empresa & "','" & nombre_cliente &
+         numero_cliente & ", '" & Trim(Replace(razon_social, "'", "''")) & "', '" & rfc_empresa & "','" & reg_fiscal & "','" & actividad_empresa & "','" & calle_empresa &
+         "','" & colonia_empresa & "','" & municipio_empresa & "','" & cp_empresa & "','" & pais_empresa & "', '" & estado_empresa & "','" & Trim(Replace(nombre_cliente, "'", "''")) &
          "','" & calle_cliente & "','" & colonia_cliente & "','" & municipio_cliente &
          "','" & rfc_cliente & "'," & folio & ",'" & metodo_pago &
          "','" & tipo_pago_e & "','" & folio_sat_uuid & "'," &
          "'" & fecha_folio_sat & "','" & sello_emisor & "','" & sello_sat & "','" & cadena_orig &
          "','" & Replace(total, ",", "") & "','" & csd_no_emp & "','" & csd_no_sat & "'," & ESTATUS_PREFACTURA & ",'" & nextcli & "'," &
          id_evento & ",'" & edocli & "','" & descripcion & "'," & Replace(descuento, ",", "") & "," & Replace(iva, ",", "") & "," & Replace(frmfacturacion.Text_SubTotal.Text, ",", "") & ",'" & Format(Now, "yyyy-MM-ddTHH:mm:ss") & "'," & frmfacturacion.cbo_emisor.SelectedValue & ",'" & frmfacturacion.cbo_usocfdi.SelectedValue & "', '" & frmfacturacion.Text_CondiPago.Text & "','" & frmfacturacion.txtISR.Text &
-         "','" & num_empresa & "','" & numint_empresa & "','" & frmfacturacion.txt_nombrec.Text & "','1')"
+         "','" & num_empresa & "','" & numint_empresa & "','" & Trim(Replace(frmfacturacion.txt_nombrec.Text, "'", "''")) & "','1')"
 
         Dim odata As New ToolKitSQL.myssql
         If odata.dbOpen(cnn, sTarget, sinfo) Then
@@ -1807,8 +1807,8 @@ Module Facturacion
         "nom_folio_sat_uuid,nom_fecha_folio_sat,nom_sello_emisor,nom_sello_sat,nom_cadena_original," &
         "nom_total_pagado,nom_no_csd_emp,nom_no_csd_sat,estatus_fac,n_ext_cliente,id_evento,edo_cli,descripcion,descuento,iva,preciopaq,nom_fecha_factura," &
         " id_emisor, nom_numcuenta, nom_mdescuento, nom_leyenda, nom_ivaret, UsoCFDI, nom_cpago,CartaPorte,regfis_cliente,nom_isr,nom_numext_empresa,nom_numint_empresa,nom_comercial_cli,nom_status)Values(" &
-         numero_cliente & ", '" & razon_social & "', '" & rfc_empresa & "','" & reg_fiscal & "','" & actividad_empresa & "','" & calle_empresa &
-         "','" & colonia_empresa & "','" & municipio_empresa & "','" & cp_empresa & "','" & pais_empresa & "', '" & estado_empresa & "','" & nombre_cliente &
+         numero_cliente & ", '" & Trim(Replace(razon_social, "'", "''")) & "', '" & rfc_empresa & "','" & reg_fiscal & "','" & actividad_empresa & "','" & calle_empresa &
+         "','" & colonia_empresa & "','" & municipio_empresa & "','" & cp_empresa & "','" & pais_empresa & "', '" & estado_empresa & "','" & Trim(Replace(nombre_cliente, "'", "''")) &
          "','" & calle_cliente & "','" & colonia_cliente & "','" & municipio_cliente &
          "','" & rfc_cliente & "', " & folio & ",'" & metodo_pago &
          "','" & tipo_pago_e & "','" & folio_sat_uuid & "'," &
@@ -1816,7 +1816,7 @@ Module Facturacion
          "','" & Replace(total, ",", "") & "','" & csd_no_emp & "','" & csd_no_sat & "'," & IIf(frmfacturacion.Cmb_TipoFact.Text = "NOTA DE CREDITO", ESTATUS_NOTASCREDITO, ESTATUS_FACTURA) & ",'" & nextcli & "'," &
          id_evento & ",'" & edocli & "','" & descripcion & "'," & Replace(descuento, ",", "") & "," & Replace(iva, ",", "") & "," & Replace(frmfacturacion.Text_SubTotal.Text, ",", "") & ",'" & Format(Now, "yyyy-MM-ddTHH:mm:ss") & "', " & frmfacturacion.cbo_emisor.SelectedValue &
         ", '" & frmfacturacion.Text_nCuenta.Text & "', '" & Replace(frmfacturacion.txt_impuestos.Text, ",", "") & "', '" & frmfacturacion.txt_leyenda_add.Text & "', " & Replace(frmfacturacion.Text_IVARET.Text, ",", "") & ", '" & frmfacturacion.cbo_usocfdi.SelectedValue & "', '" & frmfacturacion.Text_CondiPago.Text & "'," & cartap & ",'" & numregfiscliente & "','" & frmfacturacion.txtISR.Text &
-        "', '" & num_empresa & "','" & numint_empresa & "','" & frmfacturacion.txt_nombrec.Text & "','1')"
+        "', '" & num_empresa & "','" & numint_empresa & "','" & Trim(Replace(frmfacturacion.txt_nombrec.Text, "'", "''")) & "','1')"
 
         Dim odata As New ToolKitSQL.myssql
 
