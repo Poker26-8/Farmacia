@@ -6,6 +6,7 @@ Imports Microsoft.VisualBasic.Devices
 Imports System.IO.Ports
 
 Public Class frmPolleria
+
     Private Const V As String = "',')"
     Dim cantidadempleados As Double = 0
     Dim cantidaddepartamentos As Double = 0
@@ -102,7 +103,7 @@ Public Class frmPolleria
                     btnEmp.Text = aleas
                     btnEmp.Name = "btnEmp(" & emple & ")"
                     btnEmp.Left = 0
-                    btnEmp.Height = 55
+                    btnEmp.Height = 90
                     btnEmp.Width = 96
 
 
@@ -217,6 +218,7 @@ Public Class frmPolleria
 
 
                     btnEmp.FlatStyle = FlatStyle.Popup
+                    btnEmp.Font = New Font(btnEmp.Font, FontStyle.Bold)
                     btnEmp.FlatAppearance.BorderSize = 0
                     AddHandler btnEmp.Click, AddressOf btnEmp_Click
                     pEmpleado.Controls.Add(btnEmp)
@@ -245,8 +247,8 @@ Public Class frmPolleria
 
     Public Sub Departamentos()
 
-        Dim deptos As Integer = 0
-
+        Dim deptos As Integer = 1
+        Dim cuantos As Integer = Math.Truncate(pDepartamento.Height / 40)
         Try
 
             cnn1.Close() : cnn1.Open()
@@ -278,15 +280,97 @@ Public Class frmPolleria
                     btnDepa.Text = departamento
                     btnDepa.Name = "btnDepto(" & deptos & ")"
                     btnDepa.Left = 0
-                    btnDepa.Height = 55
+                    btnDepa.Height = 90
+                    btnDepa.Width = pDepartamento.Width
 
-                    If cantidaddepartamentos <= 10 Then
-                        btnDepa.Width = pDepartamento.Width
+                    If deptos > cuantos And deptos < ((cuantos * 2) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 1)
+                        btnDepa.Top = (deptos - (cuantos + 1)) * (btnDepa.Height + 0.5)
+                        '2
+                    ElseIf deptos > (cuantos * 2) And deptos < ((cuantos * 3) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 2)
+                        btnDepa.Top = (deptos - ((cuantos * 2) + 1)) * (btnDepa.Height + 0.5)
+                        '3
+                    ElseIf deptos > (cuantos * 3) And deptos < ((cuantos * 4) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 3)
+                        btnDepa.Top = (deptos - ((cuantos * 3) + 1)) * (btnDepa.Height + 0.5)
+                        '4
+                    ElseIf deptos > (cuantos * 4) And deptos < ((cuantos * 5) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 4)
+                        btnDepa.Top = (deptos - ((cuantos * 4) + 1)) * (btnDepa.Height + 0.5)
+                        '5
+                    ElseIf deptos > (cuantos * 5) And deptos < ((cuantos * 6) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 5)
+                        btnDepa.Top = (deptos - ((cuantos * 5) + 1)) * (btnDepa.Height + 0.5)
+                        '6
+                    ElseIf deptos > (cuantos * 6) And deptos < ((cuantos * 7) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 6)
+                        btnDepa.Top = (deptos - ((cuantos * 6) + 1)) * (btnDepa.Height + 0.5)
+                        '7
+                    ElseIf deptos > (cuantos * 7) And deptos < ((cuantos * 8) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 7)
+                        btnDepa.Top = (deptos - ((cuantos * 7) + 1)) * (btnDepa.Height + 0.5)
+                        '8
+                    ElseIf deptos > (cuantos * 8) And deptos < ((cuantos * 9) + 1) Then
+                        btnGrupo.Left = (btnDepa.Width * 8)
+                        btnGrupo.Top = (deptos - ((cuantos * 8) + 1)) * (btnDepa.Height + 0.5)
+                        '9
+                    ElseIf deptos > (cuantos * 9) And deptos < ((cuantos * 10) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 9)
+                        btnDepa.Top = (deptos - ((cuantos * 9) + 1)) * (btnDepa.Height + 0.5)
+                        '10
+                    ElseIf deptos > (cuantos * 10) And deptos < ((cuantos * 11) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 10)
+                        btnDepa.Top = (deptos - ((cuantos * 10) + 1)) * (btnDepa.Height + 0.5)
+                        '11
+                    ElseIf deptos > (cuantos * 11) And deptos < ((cuantos * 12) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 11)
+                        btnDepa.Top = (deptos - ((cuantos * 11) + 1)) * (btnDepa.Height + 0.5)
+                        '12
+                    ElseIf deptos > (cuantos * 12) And deptos < ((cuantos * 13) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 12)
+                        btnDepa.Top = (deptos - ((cuantos * 12) + 1)) * (btnDepa.Height + 0.5)
+                        '13
+                    ElseIf deptos > (cuantos * 13) And deptos < ((cuantos * 14) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 13)
+                        btnDepa.Top = (deptos - ((cuantos * 13) + 1)) * (btnDepa.Height + 0.5)
+                        '14
+                    ElseIf deptos > (cuantos * 14) And deptos < ((cuantos * 15) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 14)
+                        btnDepa.Top = (deptos - ((cuantos * 14) + 1)) * (btnDepa.Height + 0.5)
+                        '15
+                    ElseIf deptos > (cuantos * 15) And deptos < ((cuantos * 16) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 15)
+                        btnDepa.Top = (deptos - ((cuantos * 15) + 1)) * (btnDepa.Height + 0.5)
+                        '16
+                    ElseIf deptos > (cuantos * 16) And deptos < ((cuantos * 17) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 16)
+                        btnDepa.Top = (deptos - ((cuantos * 16) + 1)) * (btnDepa.Height + 0.5)
+                        '17
+                    ElseIf deptos > (cuantos * 17) And deptos < ((cuantos * 18) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 17)
+                        btnDepa.Top = (deptos - ((cuantos * 17) + 1)) * (btnDepa.Height + 0.5)
+                        '18
+                    ElseIf deptos > (cuantos * 18) And deptos < ((cuantos * 19) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 18)
+                        btnDepa.Top = (deptos - ((cuantos * 18) + 1)) * (btnDepa.Height + 0.5)
+                        '19
+                    ElseIf deptos > (cuantos * 19) And deptos < ((cuantos * 20) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 19)
+                        btnDepa.Top = (deptos - ((cuantos * 19) + 1)) * (btnDepa.Height + 0.5)
+                        '20
+                    ElseIf deptos > (cuantos * 20) And deptos < ((cuantos * 21) + 1) Then
+                        btnDepa.Left = (btnDepa.Width * 20)
+                        btnDepa.Top = (deptos - ((cuantos * 20) + 1)) * (btnDepa.Height + 0.5)
+                        '21
                     Else
-                        btnDepa.Width = pDepartamento.Width - 17
+                        btnDepa.Left = 0
+                        btnDepa.Top = (deptos - 1) * (btnDepa.Height + 0.5)
                     End If
 
-                    btnDepa.Top = (deptos) * (btnDepa.Height + 1)
+
+
+
                     btnDepa.BackColor = pDepartamento.BackColor
                     btnDepa.FlatStyle = FlatStyle.Popup
                     btnDepa.FlatAppearance.BorderSize = 0
@@ -325,7 +409,7 @@ Public Class frmPolleria
     Public Sub Grupos(ByVal depto As String)
 
         Dim grupos As Integer = 1
-        Dim cuantos As Integer = Math.Truncate(pProductos.Height / 40)
+        Dim cuantos As Integer = Math.Truncate(pgrupo.Height / 40)
         cantidadgrupos = 0
         Try
             cnn2.Close() : cnn2.Open()
@@ -356,8 +440,8 @@ Public Class frmPolleria
                     btnGrupo.Tag = depto
                     btnGrupo.Name = "btnGrupo(" & grupos & ")"
                     btnGrupo.Left = 0
-                    btnGrupo.Height = 55
-                    btnGrupo.Width = 90
+                    btnGrupo.Height = 95
+                    btnGrupo.Width = 95
 
                     If grupos > cuantos And grupos < ((cuantos * 2) + 1) Then
                         btnGrupo.Left = (btnGrupo.Width * 1)

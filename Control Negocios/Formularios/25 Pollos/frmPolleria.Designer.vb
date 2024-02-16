@@ -82,11 +82,11 @@ Partial Class frmPolleria
         '
         Me.plateral.Controls.Add(Me.grdCaptura)
         Me.plateral.Controls.Add(Me.Panel2)
-        Me.plateral.Dock = System.Windows.Forms.DockStyle.Right
         Me.plateral.Location = New System.Drawing.Point(864, 0)
         Me.plateral.Name = "plateral"
         Me.plateral.Size = New System.Drawing.Size(290, 682)
         Me.plateral.TabIndex = 0
+        Me.plateral.Visible = False
         '
         'grdCaptura
         '
@@ -95,13 +95,12 @@ Partial Class frmPolleria
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 100)
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 309)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.RowHeadersWidth = 62
-        Me.grdCaptura.Size = New System.Drawing.Size(290, 582)
+        Me.grdCaptura.Size = New System.Drawing.Size(290, 373)
         Me.grdCaptura.TabIndex = 68
         '
         'Column1
@@ -206,7 +205,7 @@ Partial Class frmPolleria
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.psuperior.Location = New System.Drawing.Point(0, 0)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(864, 100)
+        Me.psuperior.Size = New System.Drawing.Size(1154, 100)
         Me.psuperior.TabIndex = 7
         '
         'Panel4
@@ -216,7 +215,7 @@ Partial Class frmPolleria
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(194, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(320, 100)
+        Me.Panel4.Size = New System.Drawing.Size(610, 100)
         Me.Panel4.TabIndex = 2
         '
         'lblAtiende
@@ -246,7 +245,7 @@ Partial Class frmPolleria
         Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(514, 0)
+        Me.Panel3.Location = New System.Drawing.Point(804, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(350, 100)
         Me.Panel3.TabIndex = 1
@@ -343,34 +342,34 @@ Partial Class frmPolleria
         Me.pEmpleado.Dock = System.Windows.Forms.DockStyle.Left
         Me.pEmpleado.Location = New System.Drawing.Point(0, 100)
         Me.pEmpleado.Name = "pEmpleado"
-        Me.pEmpleado.Size = New System.Drawing.Size(194, 582)
+        Me.pEmpleado.Size = New System.Drawing.Size(201, 582)
         Me.pEmpleado.TabIndex = 8
         '
         'pDepartamento
         '
         Me.pDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pDepartamento.Location = New System.Drawing.Point(194, 100)
+        Me.pDepartamento.Location = New System.Drawing.Point(201, 100)
         Me.pDepartamento.Name = "pDepartamento"
-        Me.pDepartamento.Size = New System.Drawing.Size(121, 582)
+        Me.pDepartamento.Size = New System.Drawing.Size(124, 582)
         Me.pDepartamento.TabIndex = 9
         '
         'pgrupo
         '
         Me.pgrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(115, Byte), Integer))
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pgrupo.Location = New System.Drawing.Point(315, 100)
+        Me.pgrupo.Location = New System.Drawing.Point(325, 100)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(199, 582)
+        Me.pgrupo.Size = New System.Drawing.Size(220, 582)
         Me.pgrupo.TabIndex = 10
         '
         'pProductos
         '
         Me.pProductos.BackColor = System.Drawing.Color.White
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(514, 100)
+        Me.pProductos.Location = New System.Drawing.Point(545, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(350, 582)
+        Me.pProductos.Size = New System.Drawing.Size(609, 582)
         Me.pProductos.TabIndex = 11
         '
         'ppeso
