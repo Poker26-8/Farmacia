@@ -1030,7 +1030,6 @@ Public Class frmPolleria
                 Dim data As Double = serialPortT.ReadLine()
                 cantidad = data
                 cantidad = FormatNumber(cantidad, 2)
-                MessageBox.Show("Datos de la báscula: " & data)
             Else
                 MessageBox.Show("La báscula no está conectada.")
             End If
@@ -1042,7 +1041,11 @@ Public Class frmPolleria
                 serialPortT.Close()
             End If
 
+            My.Application.DoEvents()
 
+            EnviarComanda()
+            pEmpleado.Controls.Clear()
+            Empleados()
 
         Else
             ppeso.Visible = True
@@ -1358,10 +1361,12 @@ Public Class frmPolleria
 
             If grdCaptura.Rows.Count < 1 Then MsgBox("Debes seleccionar un producto", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub
 
+            Dim totales As Double = 0
+            totales = lblTotalVenta.Text
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO comanda1(Folio,Nombre,Subtotal,IVA,Totales,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "'," & mysubtotal & "," & mytotalc & "," & lblTotalVenta.Text & ",'','','','" & lblAtiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','','')"
+            cmd3.CommandText = "INSERT INTO comanda1(Folio,Nombre,Subtotal,IVA,Totales,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES(" & foliocomanda1 & ",'" & lblAtiende.Text & "'," & mysubtotal & "," & mytotalc & "," & totales & ",'','','','" & lblAtiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','','')"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 
@@ -1549,6 +1554,7 @@ Public Class frmPolleria
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         FRMPRUBEA.Show()
     End Sub
+
 
     Public Sub Limpiar()
         pProductos.Controls.Clear()
