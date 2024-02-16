@@ -611,7 +611,7 @@ Partial Class frmRepEntradas
         'cboFormaPago
         '
         Me.cboFormaPago.FormattingEnabled = True
-        Me.cboFormaPago.Location = New System.Drawing.Point(559, 610)
+        Me.cboFormaPago.Location = New System.Drawing.Point(572, 601)
         Me.cboFormaPago.Name = "cboFormaPago"
         Me.cboFormaPago.Size = New System.Drawing.Size(145, 23)
         Me.cboFormaPago.TabIndex = 337
