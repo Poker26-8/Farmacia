@@ -4160,7 +4160,11 @@ Public Class frmVentas1
         txtdia.Text = Weekday(Date.Now)
         txtResta.Text = "0.00"
         txtcotped.Text = ""
+
+        boxcomentario.Visible = False
+        txtcomentario.Text = ""
         Timer1.Start()
+
     End Sub
     Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
         VieneDe_Folios = "frmVentas1"

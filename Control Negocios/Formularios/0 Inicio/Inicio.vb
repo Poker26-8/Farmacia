@@ -2309,4 +2309,9 @@ Public Class Inicio
         frmPolleria.Show()
         frmPolleria.BringToFront()
     End Sub
+
+    Private Sub ControlServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        frmControlServ.Show()
+        frmControlServ.BringToFront()
+    End Sub
 End Class

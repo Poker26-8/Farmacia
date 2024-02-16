@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Inicio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Inicio
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
@@ -732,28 +732,28 @@ Partial Class Inicio
         '
         Me.pVentasM.BackColor = System.Drawing.Color.White
         Me.pVentasM.Name = "pVentasM"
-        Me.pVentasM.Size = New System.Drawing.Size(169, 22)
+        Me.pVentasM.Size = New System.Drawing.Size(180, 22)
         Me.pVentasM.Text = "Ventas mostrador"
         '
         'pVentasT
         '
         Me.pVentasT.BackColor = System.Drawing.Color.White
         Me.pVentasT.Name = "pVentasT"
-        Me.pVentasT.Size = New System.Drawing.Size(169, 22)
+        Me.pVentasT.Size = New System.Drawing.Size(180, 22)
         Me.pVentasT.Text = "Ventas touch"
         '
         'pcFolios
         '
         Me.pcFolios.BackColor = System.Drawing.Color.White
         Me.pcFolios.Name = "pcFolios"
-        Me.pcFolios.Size = New System.Drawing.Size(169, 22)
+        Me.pcFolios.Size = New System.Drawing.Size(180, 22)
         Me.pcFolios.Text = "Consulta de folios"
         '
         'pAbonosV
         '
         Me.pAbonosV.BackColor = System.Drawing.Color.White
         Me.pAbonosV.Name = "pAbonosV"
-        Me.pAbonosV.Size = New System.Drawing.Size(169, 22)
+        Me.pAbonosV.Size = New System.Drawing.Size(180, 22)
         Me.pAbonosV.Text = "Abonos a notas"
         Me.pAbonosV.Visible = False
         '
@@ -1474,12 +1474,12 @@ Partial Class Inicio
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents pNomina As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents pTransporte As System.Windows.Forms.ToolStripMenuItem
-      Friend WithEvents Panel2 As System.Windows.Forms.Panel
-      Friend WithEvents btnSincronizador As System.Windows.Forms.Button
-      Friend WithEvents Button1 As System.Windows.Forms.Button
-      Friend WithEvents Button3 As System.Windows.Forms.Button
-      Friend WithEvents Label1 As System.Windows.Forms.Label
-      Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents btnSincronizador As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents pRepPrecios As ToolStripMenuItem
     Friend WithEvents ReporteDeEgresosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubeClientesToolStripMenuItem As ToolStripMenuItem

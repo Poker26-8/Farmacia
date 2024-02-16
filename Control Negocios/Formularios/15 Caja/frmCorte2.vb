@@ -1581,7 +1581,7 @@ Public Class frmCorte2
                 e.Graphics.DrawString(FormatNumber(montopagarglobal, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 15
 
-                ingresoglobal += 1
+
 
             Next
             Y += 20
@@ -1618,7 +1618,7 @@ Public Class frmCorte2
                 e.Graphics.DrawString(" EGR. " & formaegresoglobal & "", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
                 e.Graphics.DrawString(FormatNumber(montoegresoglobal, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 15
-                regreso += 1
+
             Next
 
             'e.Graphics.DrawString(" EGR. TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
@@ -2294,6 +2294,10 @@ Public Class frmCorte2
         DepositoCajaG.Text = "0.00"
         C_Global()
         CorteGlobal = False
+
+        grdegresosglobal.Rows.Clear()
+        grdingresosglobal.Rows.Clear()
+        txtingresosformas.Text = "0.00"
     End Sub
 
     Private Sub btnSaldoGlobal_Click(sender As Object, e As EventArgs) Handles btnSaldoGlobal.Click
