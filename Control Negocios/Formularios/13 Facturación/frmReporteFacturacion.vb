@@ -738,4 +738,8 @@ Public Class frmReporteFacturacion
         End With
 
     End Sub
+
+    Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
+
+    End Sub
 End Class
