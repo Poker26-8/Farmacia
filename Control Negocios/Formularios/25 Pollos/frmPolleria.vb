@@ -1008,7 +1008,7 @@ Public Class frmPolleria
         End If
         rd2.Close()
 
-        If bascula <> "" Then
+        If bascula <> "SBascula" Then
 
             ' Configurar el puerto serie
             With serialPortT
@@ -1150,7 +1150,7 @@ Public Class frmPolleria
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
+                    cmd3.CommandText = "SELECT Vent_NVen FROM permisos WHERE IdEmpleado=" & idemp & ""
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1180,7 +1180,7 @@ Public Class frmPolleria
 
 
                                     Else
-                                        MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
+                                        MsgBox("El cliente aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
                                         Exit Sub
                                     End If
                                 End If

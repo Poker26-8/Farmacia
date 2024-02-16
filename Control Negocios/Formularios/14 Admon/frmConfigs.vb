@@ -323,6 +323,8 @@ Public Class frmConfigs
                         opttorrey.Checked = True
                     ElseIf ba = "Rhino" Then
                         rbRhino.Checked = True
+                    ElseIf ba = "SBascula" Then
+                        rbsbascula.Checked = True
                     End If
 
                 End If
@@ -1075,6 +1077,11 @@ Public Class frmConfigs
             If (rbRhino.Checked) Then
                 bascula = "Rhino"
             End If
+
+            If (rbsbascula.Checked) Then
+                bascula = "SBascula"
+            End If
+
 
             cnn1.Close() : cnn1.Open()
 

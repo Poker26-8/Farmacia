@@ -664,6 +664,8 @@ Public Class frmRepEntradas
             grdcaptura.Rows.Clear()
             grdCanceñlaciones.Rows.Clear()
             grddevoluciones.Rows.Clear()
+
+
             cnn1.Close()
             cnn1.Open()
 
@@ -689,9 +691,15 @@ Public Class frmRepEntradas
 
             cnn1.Close() : cnn1.Open()
             cnn2.Close() : cnn2.Open()
-
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario<>'' AND Concepto='ABONO'"
+
+            If ComboBox1.Text = "" Then
+                cmd1.CommandText = "SELECT DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario<>'' AND Concepto='ABONO'"
+            Else
+                cmd1.CommandText = "SELECT DISTINCT(formaPago) FROM Abonoi WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND Usuario='" & ComboBox1.Text & "' AND Concepto='ABONO'"
+            End If
+
+
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -700,7 +708,14 @@ Public Class frmRepEntradas
                     If formapago = "EFECTIVO" Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<>'' AND Concepto='ABONO'"
+
+                        If ComboBox1.Text = "" Then
+                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<>'' AND Concepto='ABONO'"
+                        Else
+                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<='" & ComboBox1.Text & "' AND Concepto='ABONO' AND Fecha between '2024-02-01' AND '2024-02-15'"
+                        End If
+
+
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

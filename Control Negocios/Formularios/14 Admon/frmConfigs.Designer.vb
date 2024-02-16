@@ -321,6 +321,7 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
+        Me.rbsbascula = New System.Windows.Forms.RadioButton()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2088,10 +2089,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2317,6 +2318,7 @@ Partial Class frmConfigs
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.White
+        Me.GroupBox3.Controls.Add(Me.rbsbascula)
         Me.GroupBox3.Controls.Add(Me.rbNoval)
         Me.GroupBox3.Controls.Add(Me.Panel1)
         Me.GroupBox3.Controls.Add(Me.rbRhino)
@@ -2332,7 +2334,7 @@ Partial Class frmConfigs
         'rbNoval
         '
         Me.rbNoval.AutoSize = True
-        Me.rbNoval.Location = New System.Drawing.Point(196, 19)
+        Me.rbNoval.Location = New System.Drawing.Point(6, 44)
         Me.rbNoval.Name = "rbNoval"
         Me.rbNoval.Size = New System.Drawing.Size(56, 19)
         Me.rbNoval.TabIndex = 7
@@ -2351,7 +2353,7 @@ Partial Class frmConfigs
         'rbRhino
         '
         Me.rbRhino.AutoSize = True
-        Me.rbRhino.Location = New System.Drawing.Point(85, 19)
+        Me.rbRhino.Location = New System.Drawing.Point(93, 19)
         Me.rbRhino.Name = "rbRhino"
         Me.rbRhino.Size = New System.Drawing.Size(56, 19)
         Me.rbRhino.TabIndex = 5
@@ -2362,7 +2364,7 @@ Partial Class frmConfigs
         'opttorrey
         '
         Me.opttorrey.AutoSize = True
-        Me.opttorrey.Location = New System.Drawing.Point(140, 19)
+        Me.opttorrey.Location = New System.Drawing.Point(155, 19)
         Me.opttorrey.Name = "opttorrey"
         Me.opttorrey.Size = New System.Drawing.Size(57, 19)
         Me.opttorrey.TabIndex = 4
@@ -3628,6 +3630,17 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
+        'rbsbascula
+        '
+        Me.rbsbascula.AutoSize = True
+        Me.rbsbascula.Location = New System.Drawing.Point(68, 44)
+        Me.rbsbascula.Name = "rbsbascula"
+        Me.rbsbascula.Size = New System.Drawing.Size(84, 19)
+        Me.rbsbascula.TabIndex = 8
+        Me.rbsbascula.TabStop = True
+        Me.rbsbascula.Text = "Sin Bascula"
+        Me.rbsbascula.UseVisualStyleBackColor = True
+        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -4027,4 +4040,5 @@ Partial Class frmConfigs
     Friend WithEvents Label79 As Label
     Friend WithEvents label799 As Label
     Friend WithEvents txtComerciall As TextBox
+    Friend WithEvents rbsbascula As RadioButton
 End Class
