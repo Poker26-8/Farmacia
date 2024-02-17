@@ -45,7 +45,7 @@ Public Class frmIngreso
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE Productos SET Serie='" & cboSerie.Text & "',Tipo='" & cboTipo.Text & "',Marca='" & txtmarca.Text & "',Modelo='" & txtmodelo.Text & "',Comentario='" & rtbComentario.Text & "',Color='" & txtcolor.Text & "' WHERE Id=" & idtelefono & ""
+                    cmd2.CommandText = "UPDATE dispositivos SET Serie='" & cboSerie.Text & "',Tipo='" & cboTipo.Text & "',Marca='" & txtmarca.Text & "',Modelo='" & txtmodelo.Text & "',Comentario='" & rtbComentario.Text & "',Color='" & txtcolor.Text & "' WHERE Id=" & idtelefono & ""
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Dispositivo actualizado correctamente", vbInformation + vbOKOnly, titulomensajes)
                     End If
@@ -104,6 +104,12 @@ Public Class frmIngreso
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE tallerd SET IdDispositivo,SerieD,Cliente,Tecnico,Operacion,Status,FechaEntrada,FechaEstimada,Fallas) values(" & idtelefono & ",'" & cboSerie.Text & "','" & cboCliente.Text & "','" & cboTecnico.Text & "','" & cboOperacion.Text & "','" & cboStatus.Text & "','" & Format(dtpIngreso.Value, "yyyy-MM-dd HH:mm:ss") & "','" & Format(dtpEntrega.Value, "yyyy-MM-dd HH:mm:ss") & "','" & rtbfallas.Text & "')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
 
                 End If
             Else
