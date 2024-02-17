@@ -287,6 +287,8 @@ Partial Class frmReporteFacturacion
         Me.Exportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
+        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Exportar.Location = New System.Drawing.Point(789, 524)
         Me.Exportar.Name = "Exportar"
         Me.Exportar.Size = New System.Drawing.Size(90, 54)
