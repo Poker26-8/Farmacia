@@ -740,8 +740,8 @@ Public Class frmReporteFacturacion
     End Sub
 
     Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
-        Try
-            If grdcaptura.Rows.Count = 0 Then
+
+        If grdcaptura.Rows.Count = 0 Then
                 Exit Sub
             End If
 
