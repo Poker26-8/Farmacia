@@ -847,7 +847,7 @@ Public Class frmPagar
                     Tiva = FormatNumber(Tiva, 2)
                 End If
             End If
-            zi = zi + 1
+
             rd2.Close()
             cnn2.Close()
         Next
@@ -1696,9 +1696,10 @@ Public Class frmPagar
                     descri = rd3("Nombre").ToString
                     precio = rd3("Precio").ToString
                     TOTAL = rd3("Total").ToString
+                    cantidad = rd3("Cantidad").ToString
 
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT IVA FROM Productos WHERE Codigo='" & rd2("Codigo").ToString & "'"
+                    cmd4.CommandText = "SELECT IVA FROM Productos WHERE Codigo='" & rd3("Codigo").ToString & "'"
                     rd4 = cmd4.ExecuteReader
                     Do While rd4.Read
                         If rd4.HasRows Then

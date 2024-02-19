@@ -78,6 +78,12 @@ Partial Class frmPagarPollos
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TFolioP = New System.Windows.Forms.Timer(Me.components)
+        Me.Precuenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.Precuenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnpunto = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         CType(Me.grdComandas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -176,7 +182,7 @@ Partial Class frmPagarPollos
         Me.btnTransfe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTransfe.Image = CType(resources.GetObject("btnTransfe.Image"), System.Drawing.Image)
         Me.btnTransfe.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTransfe.Location = New System.Drawing.Point(256, 125)
+        Me.btnTransfe.Location = New System.Drawing.Point(232, 126)
         Me.btnTransfe.Name = "btnTransfe"
         Me.btnTransfe.Size = New System.Drawing.Size(104, 64)
         Me.btnTransfe.TabIndex = 32
@@ -192,7 +198,7 @@ Partial Class frmPagarPollos
         Me.btnTarjeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTarjeta.Image = CType(resources.GetObject("btnTarjeta.Image"), System.Drawing.Image)
         Me.btnTarjeta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTarjeta.Location = New System.Drawing.Point(146, 125)
+        Me.btnTarjeta.Location = New System.Drawing.Point(122, 126)
         Me.btnTarjeta.Name = "btnTarjeta"
         Me.btnTarjeta.Size = New System.Drawing.Size(104, 64)
         Me.btnTarjeta.TabIndex = 33
@@ -219,7 +225,7 @@ Partial Class frmPagarPollos
         Me.btnEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEfectivo.Image = CType(resources.GetObject("btnEfectivo.Image"), System.Drawing.Image)
         Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEfectivo.Location = New System.Drawing.Point(36, 125)
+        Me.btnEfectivo.Location = New System.Drawing.Point(12, 126)
         Me.btnEfectivo.Name = "btnEfectivo"
         Me.btnEfectivo.Size = New System.Drawing.Size(104, 64)
         Me.btnEfectivo.TabIndex = 34
@@ -274,7 +280,7 @@ Partial Class frmPagarPollos
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
         Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPrecuenta.Location = New System.Drawing.Point(550, 125)
+        Me.btnPrecuenta.Location = New System.Drawing.Point(486, 128)
         Me.btnPrecuenta.Name = "btnPrecuenta"
         Me.btnPrecuenta.Size = New System.Drawing.Size(101, 63)
         Me.btnPrecuenta.TabIndex = 38
@@ -285,6 +291,7 @@ Partial Class frmPagarPollos
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.White
+        Me.Panel6.Controls.Add(Me.btnpunto)
         Me.Panel6.Controls.Add(Me.btnIntro)
         Me.Panel6.Controls.Add(Me.btnPagar)
         Me.Panel6.Controls.Add(Me.btn0)
@@ -299,20 +306,21 @@ Partial Class frmPagarPollos
         Me.Panel6.Controls.Add(Me.btn8)
         Me.Panel6.Controls.Add(Me.btn7)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(665, 0)
+        Me.Panel6.Location = New System.Drawing.Point(668, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(319, 239)
+        Me.Panel6.Size = New System.Drawing.Size(316, 239)
         Me.Panel6.TabIndex = 37
         '
         'btnIntro
         '
         Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnIntro.Enabled = False
         Me.btnIntro.FlatAppearance.BorderSize = 0
         Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Location = New System.Drawing.Point(234, 11)
         Me.btnIntro.Name = "btnIntro"
-        Me.btnIntro.Size = New System.Drawing.Size(73, 217)
+        Me.btnIntro.Size = New System.Drawing.Size(73, 162)
         Me.btnIntro.TabIndex = 13
         Me.btnIntro.Text = "Intro"
         Me.btnIntro.UseVisualStyleBackColor = False
@@ -324,7 +332,7 @@ Partial Class frmPagarPollos
         Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(163, 180)
+        Me.btnPagar.Location = New System.Drawing.Point(14, 179)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(65, 48)
         Me.btnPagar.TabIndex = 0
@@ -347,12 +355,13 @@ Partial Class frmPagarPollos
         'btnlimpiar
         '
         Me.btnlimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnlimpiar.Enabled = False
         Me.btnlimpiar.FlatAppearance.BorderSize = 0
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpiar.Location = New System.Drawing.Point(14, 180)
+        Me.btnlimpiar.Location = New System.Drawing.Point(234, 178)
         Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(71, 48)
+        Me.btnlimpiar.Size = New System.Drawing.Size(73, 48)
         Me.btnlimpiar.TabIndex = 10
         Me.btnlimpiar.Text = "C0"
         Me.btnlimpiar.UseVisualStyleBackColor = False
@@ -487,6 +496,7 @@ Partial Class frmPagarPollos
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Button2)
         Me.Panel7.Controls.Add(Me.btnCancelar)
         Me.Panel7.Controls.Add(Me.lblsubtotalmapeo)
         Me.Panel7.Controls.Add(Me.Panel6)
@@ -517,9 +527,9 @@ Partial Class frmPagarPollos
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(366, 125)
+        Me.btnCancelar.Location = New System.Drawing.Point(342, 127)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(178, 64)
+        Me.btnCancelar.Size = New System.Drawing.Size(138, 64)
         Me.btnCancelar.TabIndex = 40
         Me.btnCancelar.Text = "Eliminar Pedido"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -533,7 +543,7 @@ Partial Class frmPagarPollos
         Me.PCantidad.Controls.Add(Me.GroupBox1)
         Me.PCantidad.Location = New System.Drawing.Point(300, 300)
         Me.PCantidad.Name = "PCantidad"
-        Me.PCantidad.Size = New System.Drawing.Size(387, 78)
+        Me.PCantidad.Size = New System.Drawing.Size(499, 78)
         Me.PCantidad.TabIndex = 1
         Me.PCantidad.Visible = False
         '
@@ -541,11 +551,12 @@ Partial Class frmPagarPollos
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtCantidad)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(370, 63)
+        Me.GroupBox1.Size = New System.Drawing.Size(482, 63)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cantidad"
@@ -556,7 +567,7 @@ Partial Class frmPagarPollos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCantidad.Location = New System.Drawing.Point(6, 23)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(352, 24)
+        Me.txtCantidad.Size = New System.Drawing.Size(374, 24)
         Me.txtCantidad.TabIndex = 0
         '
         'Column1
@@ -637,6 +648,52 @@ Partial Class frmPagarPollos
         'TFolioP
         '
         '
+        'Precuenta80
+        '
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(386, 23)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 24)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Cancelar"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnpunto
+        '
+        Me.btnpunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnpunto.FlatAppearance.BorderSize = 0
+        Me.btnpunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpunto.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnpunto.Location = New System.Drawing.Point(163, 180)
+        Me.btnpunto.Name = "btnpunto"
+        Me.btnpunto.Size = New System.Drawing.Size(66, 48)
+        Me.btnpunto.TabIndex = 14
+        Me.btnpunto.Text = "."
+        Me.btnpunto.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(593, 128)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(69, 63)
+        Me.Button2.TabIndex = 41
+        Me.Button2.Text = "Limpiar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'frmPagarPollos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -704,4 +761,10 @@ Partial Class frmPagarPollos
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents TFolioP As Timer
+    Friend WithEvents Precuenta80 As Printing.PrintDocument
+    Friend WithEvents Precuenta58 As Printing.PrintDocument
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnpunto As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents PVenta80 As Printing.PrintDocument
 End Class

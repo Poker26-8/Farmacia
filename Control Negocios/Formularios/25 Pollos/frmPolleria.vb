@@ -1256,7 +1256,7 @@ Public Class frmPolleria
                                         montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
                                         montomapeo = FormatNumber(montomapeo, 2)
                                         'frmPagarPollos.txtSubtotalmapeo.Text = montomapeo
-                                        frmPagarPollos.lblsubtotalmapeo.Text = montomapeo
+                                        frmPagarPollos.lblsubtotalmapeo.Text = FormatNumber(montomapeo, 2)
                                         frmPagarPollos.subtotalmapeo = montomapeo
                                         frmPagarPollos.lblmesa.Text = lblAtiende.Text
                                         frmPagarPollos.lblusuario2.Text = usuariologueo
