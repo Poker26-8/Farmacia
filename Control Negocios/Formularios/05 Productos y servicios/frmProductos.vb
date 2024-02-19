@@ -1020,7 +1020,7 @@ Public Class frmProductos
                 MsgBox("Producto eliminado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 btnNuevo.PerformClick()
             End If
-
+            cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                  "delete from Kits where Cod='" & cboCodigo.Text & "'"

@@ -22,7 +22,7 @@ Partial Class frmRepVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepVentas))
         Me.mCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.mCalendar2 = New System.Windows.Forms.MonthCalendar()
@@ -70,6 +70,11 @@ Partial Class frmRepVentas
         Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
         Me.dtpfin = New System.Windows.Forms.DateTimePicker()
         Me.optdetalle2 = New System.Windows.Forms.RadioButton()
+        Me.optDerivados = New System.Windows.Forms.RadioButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtVendido = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtrestante = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -109,14 +114,14 @@ Partial Class frmRepVentas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(10, 235)
         Me.grdcaptura.Name = "grdcaptura"
@@ -340,7 +345,7 @@ Partial Class frmRepVentas
         '
         Me.lblresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblresta.AutoSize = True
-        Me.lblresta.Location = New System.Drawing.Point(898, 571)
+        Me.lblresta.Location = New System.Drawing.Point(913, 572)
         Me.lblresta.Name = "lblresta"
         Me.lblresta.Size = New System.Drawing.Size(35, 15)
         Me.lblresta.TabIndex = 186
@@ -349,7 +354,7 @@ Partial Class frmRepVentas
         'txtresta
         '
         Me.txtresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtresta.Location = New System.Drawing.Point(898, 589)
+        Me.txtresta.Location = New System.Drawing.Point(913, 590)
         Me.txtresta.Name = "txtresta"
         Me.txtresta.Size = New System.Drawing.Size(93, 23)
         Me.txtresta.TabIndex = 185
@@ -360,7 +365,7 @@ Partial Class frmRepVentas
         '
         Me.lblacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblacuenta.AutoSize = True
-        Me.lblacuenta.Location = New System.Drawing.Point(799, 571)
+        Me.lblacuenta.Location = New System.Drawing.Point(814, 572)
         Me.lblacuenta.Name = "lblacuenta"
         Me.lblacuenta.Size = New System.Drawing.Size(54, 15)
         Me.lblacuenta.TabIndex = 190
@@ -369,7 +374,7 @@ Partial Class frmRepVentas
         'txtacuenta
         '
         Me.txtacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtacuenta.Location = New System.Drawing.Point(799, 589)
+        Me.txtacuenta.Location = New System.Drawing.Point(814, 590)
         Me.txtacuenta.Name = "txtacuenta"
         Me.txtacuenta.Size = New System.Drawing.Size(93, 23)
         Me.txtacuenta.TabIndex = 189
@@ -400,7 +405,7 @@ Partial Class frmRepVentas
         '
         Me.lblpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblpeso.AutoSize = True
-        Me.lblpeso.Location = New System.Drawing.Point(700, 571)
+        Me.lblpeso.Location = New System.Drawing.Point(776, 572)
         Me.lblpeso.Name = "lblpeso"
         Me.lblpeso.Size = New System.Drawing.Size(32, 15)
         Me.lblpeso.TabIndex = 194
@@ -409,7 +414,7 @@ Partial Class frmRepVentas
         'txtpeso
         '
         Me.txtpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtpeso.Location = New System.Drawing.Point(700, 589)
+        Me.txtpeso.Location = New System.Drawing.Point(723, 590)
         Me.txtpeso.Name = "txtpeso"
         Me.txtpeso.Size = New System.Drawing.Size(93, 23)
         Me.txtpeso.TabIndex = 193
@@ -585,11 +590,67 @@ Partial Class frmRepVentas
         Me.optdetalle2.Text = "Ventas totales (Detalle pago)"
         Me.optdetalle2.UseVisualStyleBackColor = True
         '
+        'optDerivados
+        '
+        Me.optDerivados.AutoSize = True
+        Me.optDerivados.Location = New System.Drawing.Point(225, 178)
+        Me.optDerivados.Name = "optDerivados"
+        Me.optDerivados.Size = New System.Drawing.Size(209, 19)
+        Me.optDerivados.TabIndex = 210
+        Me.optDerivados.TabStop = True
+        Me.optDerivados.Text = "Ventas de derivados por porcentaje"
+        Me.optDerivados.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(502, 572)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(112, 15)
+        Me.Label2.TabIndex = 212
+        Me.Label2.Text = "Porcentaje vendido:"
+        '
+        'txtVendido
+        '
+        Me.txtVendido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtVendido.Location = New System.Drawing.Point(502, 589)
+        Me.txtVendido.Name = "txtVendido"
+        Me.txtVendido.Size = New System.Drawing.Size(93, 23)
+        Me.txtVendido.TabIndex = 211
+        Me.txtVendido.Text = "0.00"
+        Me.txtVendido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(618, 572)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(111, 15)
+        Me.Label3.TabIndex = 216
+        Me.Label3.Text = "Porcentaje restante:"
+        '
+        'txtrestante
+        '
+        Me.txtrestante.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtrestante.Location = New System.Drawing.Point(621, 590)
+        Me.txtrestante.Name = "txtrestante"
+        Me.txtrestante.Size = New System.Drawing.Size(93, 23)
+        Me.txtrestante.TabIndex = 215
+        Me.txtrestante.Text = "0.00"
+        Me.txtrestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 622)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.txtrestante)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtVendido)
+        Me.Controls.Add(Me.optDerivados)
         Me.Controls.Add(Me.optdetalle2)
         Me.Controls.Add(Me.dtpfin)
         Me.Controls.Add(Me.dtpinicio)
@@ -694,4 +755,9 @@ Partial Class frmRepVentas
     Friend WithEvents dtpinicio As DateTimePicker
     Friend WithEvents dtpfin As DateTimePicker
     Friend WithEvents optdetalle2 As RadioButton
+    Friend WithEvents optDerivados As RadioButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtVendido As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtrestante As TextBox
 End Class
