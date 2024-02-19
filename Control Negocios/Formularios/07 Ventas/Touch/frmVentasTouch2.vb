@@ -705,8 +705,8 @@ Class frmVentasTouch2
                     btnProd.Font = New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
 
                     btnProd.FlatAppearance.BorderSize = 0
-                    If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg") Then
-                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg")
+                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg") Then
+                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg")
                         btnProd.BackgroundImageLayout = ImageLayout.Stretch
                     End If
                     AddHandler btnProd.Click, AddressOf btnProd_Click
