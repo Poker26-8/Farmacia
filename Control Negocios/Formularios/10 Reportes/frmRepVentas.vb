@@ -41,6 +41,8 @@
         ComboBox1.Text = ""
         ComboBox1.Items.Clear()
         ComboBox1.Visible = False
+        txtrestante.Text = "0.00"
+        txtVendido.Text = "0.00"
     End Sub
 
     Private Sub opttotales_Click(sender As System.Object, e As System.EventArgs) Handles opttotales.Click
@@ -735,7 +737,141 @@
             barcarga.Value = 0
         End If
 
+        If optDerivados.Checked = True Then
+            Try
+                Dim temp As Integer = 0
+                Dim Totales As Double = 0
+                cnn2.Close() : cnn2.Open()
 
+                Dim folio As Integer = 0
+                Dim cliente As String = ""
+
+                Dim codigo As String = "", barras As String = "", descrip As String = "", unidad As String = "", cantidad As Double = 0, precio As Double = 0, ieps As Double = 0, fecha As String = "", Dscto As Double = 0, MyTotalSI As Double = 0, lote As String = "", caduca As String = "", n_parte As String = ""
+                Dim MyUC2 As Double = 0, IvaTemp As Double = 0, YTem As Double = 0, XTem As Double = 0, ImporteDsct As Double = 0, ImpDscto As Double = 0, VarSumXD As Double = 0, VarSubtotal As Double = 0
+                Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0
+
+                Dim soyTotal As Double = 0
+                Dim voy As Double = 0
+                Dim ahorasi As Double = 0
+                Dim porcentajee As Double = 0
+                Dim sumaPorcentaje As Double = 0
+
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select Existencia from Productos where Codigo='" & ComboBox1.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        soyTotal = rd1(0).ToString
+                    End If
+                Else
+                    soyTotal = 0
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+
+                'cmd2 = cnn2.CreateCommand
+                'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+                'rd2 = cmd2.ExecuteReader
+                'Do While rd2.Read
+                '    If rd2.HasRows Then
+                '        folio = rd2("Folio").ToString
+                '        cliente = rd2("Cliente").ToString
+                '        temp = folio
+                '        Desc = CDbl(rd2("Descuento").ToString)
+                '        Desc3 = Desc3 + CDbl(rd2("Descuento").ToString)
+                '        Desc2 = FormatNumber(CDbl(rd2("Descuento").ToString) / (CDbl(rd2("Totales").ToString) + IIf(CDbl(rd2("Totales").ToString) <= 0, 1, 0)), 2)
+                '        Totales = Totales + CDbl(rd2("Totales").ToString)
+
+                cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                            "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
+                rd3 = cmd3.ExecuteReader
+                        Do While rd3.Read
+                            cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
+                            voy = voy + cantidad
+                        Loop
+
+                        ahorasi = soyTotal + CDec(voy)
+                        rd3.Close()
+                        cnn3.Close()
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                            "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
+                rd3 = cmd3.ExecuteReader
+                Do While rd3.Read
+                    If rd3.HasRows Then
+                        codigo = rd3("Codigo").ToString()
+                        barras = CB(codigo)
+                        descrip = rd3("Nombre").ToString()
+                        unidad = rd3("Unidad").ToString()
+                        cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
+                        precio = IIf(rd3("Precio").ToString() = "", 0, rd3("Precio").ToString())
+                        MyTotalSI = IIf(rd3("TotalSinIVA").ToString() = "", 0, rd3("TotalSinIVA").ToString())
+                        ieps = rd3("TotalIEPS").ToString()
+                        fecha = rd3("Fecha").ToString()
+                        MyUC2 = DameUti(folio, codigo, cantidad)
+                        IvaTemp = IvaDSC(codigo)
+                        YTem = CDbl(rd3("TotalSinIVA").ToString()) - (CDbl(rd3("TotalSinIVA").ToString()) * Desc2)
+                        XTem = CDbl(rd3("TotalSinIVA").ToString()) * IvaTemp
+                        lote = rd3("Lote").ToString()
+                        caduca = IIf(rd3("Caducidad").ToString() = "", "", rd3("Caducidad").ToString())
+                        ImporteDsct = Desc / cantidad
+                        Dscto = rd3("Descto").ToString()
+                        If IvaTemp = 0.16 Then
+                            ImpDscto = Dscto * 1.16
+                        Else
+                            ImpDscto = Dscto
+                        End If
+                    End If
+
+
+                    VarSumXD = MyTotalSI + XTem
+                    VarSubtotal = ImpDscto + VarSumXD
+
+                    n_parte = Saca_NumParte(codigo)
+
+                    If Len(codigo) <= 6 Then
+                        porcentajee = 0
+                        sumaPorcentaje = 0
+                    Else
+                        porcentajee = cantidad * 100 / ahorasi
+                        porcentajee = FormatNumber(porcentajee, 2)
+                        sumaPorcentaje = sumaPorcentaje + CDec(porcentajee)
+                    End If
+
+                    grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, porcentajee, FormatNumber(precio, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
+
+
+                    T_descuento = T_descuento + ImpDscto
+                    T_ieps = T_ieps + ieps
+                    T_iva = T_iva + XTem
+                    T_subtotal = T_subtotal + MyTotalSI
+                    T_total = T_total + (MyTotalSI + XTem)
+                    txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
+
+                Loop
+                If Len(codigo) <= 6 Then
+                    txtrestante.Text = 0
+                    txtVendido.Text = 0
+                Else
+                    txtrestante.Text = soyTotal * 100 / ahorasi
+                    txtrestante.Text = FormatNumber(txtrestante.Text, 2)
+                    txtVendido.Text = sumaPorcentaje
+                End If
+
+                ' End If
+                ' Loop
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
         'TotalesDetalle
         If (opttotalesdet.Checked) Then
             Dim temp As Integer = 0
@@ -1745,6 +1881,11 @@
 
         If (RadioButton1.Checked) Then
             querry = "select distinct Formato from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "'"
+        End If
+
+        If (optDerivados.Checked) Then
+            querry =
+                    "select Codigo from Productos where LENGTH(Codigo)=6 order by Codigo"
         End If
 
         Try
@@ -3403,5 +3544,312 @@
         End If
     End Sub
 
+    Private Sub optDerivados_Click(sender As Object, e As EventArgs) Handles optDerivados.Click
+        If (optDerivados.Checked) Then
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+            ComboBox1.Items.Clear()
+            ComboBox1.Text = ""
+            ComboBox1.Visible = True
+            txtiva.Text = "0.00"
+            txtdescuento.Text = "0.00"
+            txtsubtotal.Text = "0.00"
+            txtieps.Text = "0.00"
+            txttotal.Text = "0.00"
+            txtutilidad.Text = "0.00"
+            txtpeso.Text = "0.00"
+            txtacuenta.Text = "0.00"
+            txtresta.Text = "0.00"
+            txtrestante.Text = "0.00"
+            txtVendido.Text = "0.00"
 
+            If (Partes) Then
+                grdcaptura.ColumnCount = 17
+                With grdcaptura
+                    With .Columns(0)
+                        .HeaderText = "Folio"
+                        .Width = 70
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(1)
+                        .HeaderText = "Cliente"
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(2)
+                        .HeaderText = "Código"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(3)
+                        .HeaderText = "Cod. Barras"
+                        .Width = 120
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(4)
+                        .HeaderText = "N. Parte"
+                        .Width = 120
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(5)
+                        .HeaderText = "Descripción"
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(6)
+                        .HeaderText = "Unidad"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(7)
+                        .HeaderText = "Cantidad"
+                        .Width = 85
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(8)
+                        .HeaderText = "Porcentaje"
+                        .Width = 85
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(9)
+                        .HeaderText = "Precio"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(10)
+                        .HeaderText = "Subtotal"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(11)
+                        .HeaderText = "Descuento"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(12)
+                        .HeaderText = "IEPS"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(13)
+                        .HeaderText = "IVA"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(14)
+                        .HeaderText = "Total"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(15)
+                        .HeaderText = "Fecha"
+                        .Width = 110
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(16)
+                        .HeaderText = "Ultilidad"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                End With
+            Else
+                grdcaptura.ColumnCount = 16
+                With grdcaptura
+                    With .Columns(0)
+                        .HeaderText = "Folio"
+                        .Width = 70
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(1)
+                        .HeaderText = "Cliente"
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(2)
+                        .HeaderText = "Código"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(3)
+                        .HeaderText = "Cod. Barras"
+                        .Width = 120
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(4)
+                        .HeaderText = "Descripción"
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(5)
+                        .HeaderText = "Unidad"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(6)
+                        .HeaderText = "Cantidad"
+                        .Width = 85
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(7)
+                        .HeaderText = "Porcentaje"
+                        .Width = 85
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(8)
+                        .HeaderText = "Precio"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(9)
+                        .HeaderText = "Subtotal"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(10)
+                        .HeaderText = "Descuento"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(11)
+                        .HeaderText = "IEPS"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(12)
+                        .HeaderText = "IVA"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(13)
+                        .HeaderText = "Total"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(14)
+                        .HeaderText = "Fecha"
+                        .Width = 110
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                    With .Columns(15)
+                        .HeaderText = "Ultilidad"
+                        .Width = 75
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .Visible = True
+                        .Resizable = DataGridViewTriState.False
+                    End With
+                End With
+            End If
+
+            Exportar.Enabled = False
+            lblacuenta.Visible = False
+            txtacuenta.Visible = False
+            lblresta.Visible = False
+            txtresta.Visible = False
+            txtiva.Visible = True
+            lbliva.Visible = True
+            lblutilidad.Visible = True
+            txtutilidad.Visible = True
+
+            lblpeso.Visible = False
+            txtpeso.Visible = False
+
+            lblieps.Visible = True
+            txtieps.Visible = True
+
+            lbldescuento.Visible = True
+            txtdescuento.Visible = True
+            lblsubtotal.Visible = True
+            txtsubtotal.Visible = True
+            lbltotal.Visible = True
+            txttotal.Visible = True
+        End If
+    End Sub
 End Class
