@@ -1263,7 +1263,7 @@ Public Class frmPolleria
                                         'frmPagarPollos.contraseñamesero = contralogueo
                                         frmPagar.COMENSALES = 1
                                         frmPagarPollos.Show()
-
+                                        Me.Close()
 
                                     Else
                                         MsgBox("El cliente aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
