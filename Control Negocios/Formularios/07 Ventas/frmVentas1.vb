@@ -63,8 +63,10 @@ Public Class frmVentas1
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 Button8.Visible = True
+                Button16.Visible = True
             Else
                 Button8.Visible = False
+                Button16.Visible = False
             End If
             rd1.Close()
             cnn1.Close()
@@ -1715,7 +1717,7 @@ Public Class frmVentas1
             btnventa.Focus().Equals(True)
         End If
     End Sub
-    Private Sub picProd_DoubleClick(sender As Object, e As System.EventArgs) Handles picProd.DoubleClick
+    Private Sub picProd_DoubleClick(sender As Object, e As System.EventArgs)
         If picProd.Width = 72 Then
             picProd.Left = 767
             picProd.Top = 93
@@ -2454,8 +2456,8 @@ Public Class frmVentas1
                                 Exit Sub
                             End If
 
-                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg") Then
-                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg")
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
+                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
                             End If
 
                             txtunidad.Text = rd1("UVenta").ToString()
