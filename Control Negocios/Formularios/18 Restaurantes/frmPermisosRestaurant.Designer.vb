@@ -502,7 +502,7 @@ Partial Class frmPermisosRestaurant
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPermisosRestaurant"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Permisos Especiales"
+        Me.Text = "Permisos de Restaurantes"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)

@@ -139,6 +139,7 @@ Public Class frmPagar
 
         txtTotal.Text = CDec(txtSubtotalmapeo.Text) + CDec(txtPropina.Text)
         txtTotal.Text = FormatNumber(txtTotal.Text, 2)
+        txtEfectivo.Text = txtTotal.Text
     End Sub
 
     Private Sub txtTotal_TextChanged(sender As Object, e As EventArgs) Handles txtTotal.TextChanged
@@ -1578,6 +1579,7 @@ Public Class frmPagar
         Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
         Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
         Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
 
         Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
@@ -1707,7 +1709,9 @@ Public Class frmPagar
                     Loop
                     rd4.Close()
 
-                    e.Graphics.DrawString(cantidad, fuente_p, Brushes.Black, 1, Y)
+                    cantidad = FormatNumber(cantidad, 2)
+
+                    e.Graphics.DrawString(cantidad, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
                     Dim caracteresPorLinea As Integer = 40
                     Dim texto As String = descri
@@ -1717,8 +1721,8 @@ Public Class frmPagar
                     While inicio < longitudTexto
                         Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                         Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                        e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
-                        Y += 15
+                        e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 35, Y)
+                        Y += 17
                         inicio += caracteresPorLinea
                     End While
 
@@ -1788,8 +1792,9 @@ Public Class frmPagar
                         descri = rd3("Nombre").ToString
                         precio = rd3("Precio").ToString
                         TOTAL = rd3("tot").ToString
+                        cantidad = FormatNumber(cantidad, 2)
 
-                        e.Graphics.DrawString(cantidad, fuente_p, Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(cantidad, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
                         Dim caracteresPorLinea As Integer = 40
                         Dim texto As String = descri
@@ -1799,7 +1804,7 @@ Public Class frmPagar
                         While inicio < longitudTexto
                             Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                             Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 35, Y)
                             Y += 15
                             inicio += caracteresPorLinea
                         End While
@@ -1863,7 +1868,7 @@ Public Class frmPagar
         End If
 
         e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(FormatNumber(totalcuenta + servicio, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+        e.Graphics.DrawString(FormatNumber(totalcuenta + servicio, 2), fuente_a, Brushes.Black, 270, Y, derecha)
         Y += 20
 
         e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
@@ -2891,6 +2896,8 @@ Public Class frmPagar
         Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
         Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
         Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+
         Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
@@ -3055,7 +3062,7 @@ Public Class frmPagar
 
                         acumuladocortesia = acumuladocortesia + (preciopro * cantidadpro)
 
-                        e.Graphics.DrawString(FormatNumber(cantidadpro, 3), fuente_p, Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
                         Dim caracteresPorLinea As Integer = 40
                         Dim texto As String = nombrepro
@@ -3065,12 +3072,12 @@ Public Class frmPagar
                         While inicio < longitudTexto
                             Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                             Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                            e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 33, Y)
+                            e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 40, Y)
                             Y += 13
                             inicio += caracteresPorLinea
                         End While
 
-                        e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 215, Y, derecha)
+                        e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 200, Y, derecha)
                         e.Graphics.DrawString(simbolo & " " & FormatNumber(importepro, 2), fuente_p, Brushes.Black, 270, Y, derecha)
                         Y += 13
 
@@ -3137,7 +3144,7 @@ Public Class frmPagar
                                 Loop
                                 rd1.Close()
 
-                                e.Graphics.DrawString(FormatNumber(cantidadpro, 3), fuente_p, Brushes.Black, 1, Y)
+                                e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
                                 Dim caracteresPorLinea As Integer = 40
                                 Dim texto As String = nombrepro
@@ -3147,12 +3154,12 @@ Public Class frmPagar
                                 While inicio < longitudTexto
                                     Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                                     Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 33, Y)
+                                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 40, Y)
                                     Y += 13
                                     inicio += caracteresPorLinea
                                 End While
 
-                                e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 215, Y, derecha)
+                                e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 195, Y, derecha)
                                 e.Graphics.DrawString(simbolo & " " & FormatNumber(importepro, 2), fuente_p, Brushes.Black, 270, Y, derecha)
                                 Y += 13
 
@@ -3219,7 +3226,7 @@ Public Class frmPagar
                 End If
 
                 e.Graphics.DrawString("TOTAL A PAGAR", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtTotal.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtTotal.Text), 2), fuente_a, Brushes.Black, 270, Y, derecha)
                 Y += 20
 
             Else
@@ -3232,11 +3239,11 @@ Public Class frmPagar
 
                 If SinNumComensal = 1 Then
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
                     Y += 20
                 Else
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
                     Y += 20
                 End If
             End If

@@ -87,8 +87,8 @@ Partial Class frmPagar
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btn1000 = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.lblusuario2 = New System.Windows.Forms.Label()
+        Me.btnPagar = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.lblmesa = New System.Windows.Forms.Label()
         Me.btn0 = New System.Windows.Forms.Button()
@@ -141,7 +141,7 @@ Partial Class frmPagar
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(434, 681)
+        Me.Panel1.Size = New System.Drawing.Size(414, 681)
         Me.Panel1.TabIndex = 0
         '
         'Panel7
@@ -380,21 +380,21 @@ Partial Class frmPagar
         Me.Panel8.Controls.Add(Me.Label18)
         Me.Panel8.Location = New System.Drawing.Point(12, 310)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(424, 245)
+        Me.Panel8.Size = New System.Drawing.Size(399, 344)
         Me.Panel8.TabIndex = 12
         '
         'txtComentario
         '
         Me.txtComentario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComentario.Location = New System.Drawing.Point(84, 70)
+        Me.txtComentario.Location = New System.Drawing.Point(87, 72)
         Me.txtComentario.Name = "txtComentario"
-        Me.txtComentario.Size = New System.Drawing.Size(333, 22)
+        Me.txtComentario.Size = New System.Drawing.Size(301, 22)
         Me.txtComentario.TabIndex = 16
         '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(2, 77)
+        Me.Label10.Location = New System.Drawing.Point(3, 72)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(81, 20)
         Me.Label10.TabIndex = 15
@@ -403,9 +403,9 @@ Partial Class frmPagar
         'txtRecepcion
         '
         Me.txtRecepcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.txtRecepcion.Location = New System.Drawing.Point(318, 94)
+        Me.txtRecepcion.Location = New System.Drawing.Point(292, 101)
         Me.txtRecepcion.Name = "txtRecepcion"
-        Me.txtRecepcion.Size = New System.Drawing.Size(99, 20)
+        Me.txtRecepcion.Size = New System.Drawing.Size(96, 20)
         Me.txtRecepcion.TabIndex = 13
         '
         'cboCuenta
@@ -413,15 +413,15 @@ Partial Class frmPagar
         Me.cboCuenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.cboCuenta.FormattingEnabled = True
         Me.cboCuenta.Items.AddRange(New Object() {"TARJETA", "TRANSFERENCIA", "DEPOSITO", "MONEDERO", "OTRO"})
-        Me.cboCuenta.Location = New System.Drawing.Point(84, 94)
+        Me.cboCuenta.Location = New System.Drawing.Point(86, 100)
         Me.cboCuenta.Name = "cboCuenta"
-        Me.cboCuenta.Size = New System.Drawing.Size(154, 21)
+        Me.cboCuenta.Size = New System.Drawing.Size(124, 21)
         Me.cboCuenta.TabIndex = 12
         '
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(3, 106)
+        Me.Label11.Location = New System.Drawing.Point(9, 97)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(71, 20)
         Me.Label11.TabIndex = 11
@@ -436,11 +436,11 @@ Partial Class frmPagar
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
         Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column18, Me.Column16, Me.Column17})
-        Me.grdPagos.Location = New System.Drawing.Point(8, 153)
+        Me.grdPagos.Location = New System.Drawing.Point(5, 162)
         Me.grdPagos.Name = "grdPagos"
         Me.grdPagos.ReadOnly = True
         Me.grdPagos.RowHeadersVisible = False
-        Me.grdPagos.Size = New System.Drawing.Size(409, 75)
+        Me.grdPagos.Size = New System.Drawing.Size(383, 165)
         Me.grdPagos.TabIndex = 10
         '
         'Column8
@@ -505,9 +505,9 @@ Partial Class frmPagar
         Me.btnagregarpago.FlatAppearance.BorderSize = 0
         Me.btnagregarpago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnagregarpago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnagregarpago.Location = New System.Drawing.Point(291, 120)
+        Me.btnagregarpago.Location = New System.Drawing.Point(220, 127)
         Me.btnagregarpago.Name = "btnagregarpago"
-        Me.btnagregarpago.Size = New System.Drawing.Size(126, 29)
+        Me.btnagregarpago.Size = New System.Drawing.Size(169, 29)
         Me.btnagregarpago.TabIndex = 4
         Me.btnagregarpago.Text = "Agregar Pago"
         Me.btnagregarpago.UseVisualStyleBackColor = False
@@ -516,15 +516,15 @@ Partial Class frmPagar
         '
         Me.dtpfechapago.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpfechapago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpfechapago.Location = New System.Drawing.Point(84, 121)
+        Me.dtpfechapago.Location = New System.Drawing.Point(86, 128)
         Me.dtpfechapago.Name = "dtpfechapago"
-        Me.dtpfechapago.Size = New System.Drawing.Size(154, 20)
+        Me.dtpfechapago.Size = New System.Drawing.Size(124, 20)
         Me.dtpfechapago.TabIndex = 9
         '
         'Label15
         '
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(5, 134)
+        Me.Label15.Location = New System.Drawing.Point(6, 128)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(58, 20)
         Me.Label15.TabIndex = 8
@@ -534,9 +534,9 @@ Partial Class frmPagar
         '
         Me.txtmonto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.txtmonto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmonto.Location = New System.Drawing.Point(291, 45)
+        Me.txtmonto.Location = New System.Drawing.Point(265, 44)
         Me.txtmonto.Name = "txtmonto"
-        Me.txtmonto.Size = New System.Drawing.Size(126, 21)
+        Me.txtmonto.Size = New System.Drawing.Size(123, 21)
         Me.txtmonto.TabIndex = 7
         Me.txtmonto.Text = "0.00"
         Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -544,7 +544,7 @@ Partial Class frmPagar
         'Label14
         '
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(242, 49)
+        Me.Label14.Location = New System.Drawing.Point(212, 45)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(58, 19)
         Me.Label14.TabIndex = 6
@@ -553,17 +553,17 @@ Partial Class frmPagar
         'txtreferencia
         '
         Me.txtreferencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.txtreferencia.Location = New System.Drawing.Point(84, 44)
+        Me.txtreferencia.Location = New System.Drawing.Point(87, 44)
         Me.txtreferencia.Name = "txtreferencia"
-        Me.txtreferencia.Size = New System.Drawing.Size(152, 20)
+        Me.txtreferencia.Size = New System.Drawing.Size(123, 20)
         Me.txtreferencia.TabIndex = 5
         '
         'Label13
         '
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(3, 49)
+        Me.Label13.Location = New System.Drawing.Point(2, 45)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(84, 21)
+        Me.Label13.Size = New System.Drawing.Size(84, 19)
         Me.Label13.TabIndex = 4
         Me.Label13.Text = "Referencia:"
         '
@@ -571,15 +571,15 @@ Partial Class frmPagar
         '
         Me.cboBanco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.cboBanco.FormattingEnabled = True
-        Me.cboBanco.Location = New System.Drawing.Point(291, 18)
+        Me.cboBanco.Location = New System.Drawing.Point(265, 16)
         Me.cboBanco.Name = "cboBanco"
-        Me.cboBanco.Size = New System.Drawing.Size(126, 21)
+        Me.cboBanco.Size = New System.Drawing.Size(123, 21)
         Me.cboBanco.TabIndex = 3
         '
         'Label12
         '
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(242, 18)
+        Me.Label12.Location = New System.Drawing.Point(217, 17)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(53, 21)
         Me.Label12.TabIndex = 2
@@ -589,9 +589,9 @@ Partial Class frmPagar
         '
         Me.cboforma.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.cboforma.FormattingEnabled = True
-        Me.cboforma.Location = New System.Drawing.Point(84, 17)
+        Me.cboforma.Location = New System.Drawing.Point(87, 17)
         Me.cboforma.Name = "cboforma"
-        Me.cboforma.Size = New System.Drawing.Size(152, 21)
+        Me.cboforma.Size = New System.Drawing.Size(124, 21)
         Me.cboforma.TabIndex = 1
         '
         'Label4
@@ -606,7 +606,7 @@ Partial Class frmPagar
         'Label18
         '
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(242, 96)
+        Me.Label18.Location = New System.Drawing.Point(217, 102)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(84, 19)
         Me.Label18.TabIndex = 14
@@ -614,10 +614,11 @@ Partial Class frmPagar
         '
         'txtSaldoM
         '
-        Me.txtSaldoM.Location = New System.Drawing.Point(10, 623)
+        Me.txtSaldoM.Location = New System.Drawing.Point(324, 270)
         Me.txtSaldoM.Name = "txtSaldoM"
         Me.txtSaldoM.Size = New System.Drawing.Size(76, 20)
         Me.txtSaldoM.TabIndex = 14
+        Me.txtSaldoM.Visible = False
         '
         'grdcomanda
         '
@@ -627,11 +628,11 @@ Partial Class frmPagar
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
         Me.grdcomanda.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdcomanda.Location = New System.Drawing.Point(434, 67)
+        Me.grdcomanda.Location = New System.Drawing.Point(414, 67)
         Me.grdcomanda.Name = "grdcomanda"
         Me.grdcomanda.ReadOnly = True
         Me.grdcomanda.RowHeadersVisible = False
-        Me.grdcomanda.Size = New System.Drawing.Size(492, 614)
+        Me.grdcomanda.Size = New System.Drawing.Size(512, 614)
         Me.grdcomanda.TabIndex = 9
         '
         'Column13
@@ -639,35 +640,35 @@ Partial Class frmPagar
         Me.Column13.HeaderText = "Comanda"
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
-        Me.Column13.Width = 70
+        Me.Column13.Width = 60
         '
         'Column1
         '
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 70
+        Me.Column1.Width = 65
         '
         'Column2
         '
         Me.Column2.HeaderText = "Descripcion"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 265
+        Me.Column2.Width = 230
         '
         'Column3
         '
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 70
+        Me.Column3.Width = 50
         '
         'Column4
         '
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        Me.Column4.Width = 70
+        Me.Column4.Width = 55
         '
         'Column7
         '
@@ -772,6 +773,16 @@ Partial Class frmPagar
         Me.Panel6.Size = New System.Drawing.Size(240, 338)
         Me.Panel6.TabIndex = 8
         '
+        'lblusuario2
+        '
+        Me.lblusuario2.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblusuario2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblusuario2.Location = New System.Drawing.Point(17, 76)
+        Me.lblusuario2.Name = "lblusuario2"
+        Me.lblusuario2.Size = New System.Drawing.Size(215, 21)
+        Me.lblusuario2.TabIndex = 26
+        Me.lblusuario2.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'btnPagar
         '
         Me.btnPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -786,16 +797,6 @@ Partial Class frmPagar
         Me.btnPagar.TabIndex = 0
         Me.btnPagar.Text = "Salir"
         Me.btnPagar.UseVisualStyleBackColor = False
-        '
-        'lblusuario2
-        '
-        Me.lblusuario2.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblusuario2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblusuario2.Location = New System.Drawing.Point(17, 76)
-        Me.lblusuario2.Name = "lblusuario2"
-        Me.lblusuario2.Size = New System.Drawing.Size(215, 21)
-        Me.lblusuario2.TabIndex = 26
-        Me.lblusuario2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label20
         '
@@ -1078,9 +1079,9 @@ Partial Class frmPagar
         Me.Panel9.Controls.Add(Me.cboComensal)
         Me.Panel9.Controls.Add(Me.Label16)
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel9.Location = New System.Drawing.Point(434, 0)
+        Me.Panel9.Location = New System.Drawing.Point(414, 0)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(492, 67)
+        Me.Panel9.Size = New System.Drawing.Size(512, 67)
         Me.Panel9.TabIndex = 13
         '
         'cboComanda
@@ -1202,16 +1203,6 @@ Partial Class frmPagar
     Friend WithEvents btnPrecuenta As Button
     Friend WithEvents btn20 As Button
     Friend WithEvents grdcomanda As DataGridView
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Panel6 As Panel
     Friend WithEvents btnPagar As Button
     Friend WithEvents lblusuario2 As Label
@@ -1269,4 +1260,14 @@ Partial Class frmPagar
     Friend WithEvents Cancelacion58 As Printing.PrintDocument
     Friend WithEvents PVentaMapeo80 As Printing.PrintDocument
     Friend WithEvents PVentaMapeo58 As Printing.PrintDocument
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
 End Class

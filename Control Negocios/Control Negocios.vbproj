@@ -1459,6 +1459,12 @@
     <Compile Include="Formularios\24 Hoteleria\frmServicioCuarto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPagarPollos.Designer.vb">
+      <DependentUpon>frmPagarPollos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\25 Pollos\frmPagarPollos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\25 Pollos\frmPolleria.Designer.vb">
       <DependentUpon>frmPolleria.vb</DependentUpon>
     </Compile>
@@ -2150,6 +2156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmServicioCuarto.resx">
       <DependentUpon>frmServicioCuarto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\25 Pollos\frmPagarPollos.resx">
+      <DependentUpon>frmPagarPollos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\25 Pollos\frmPolleria.resx">
       <DependentUpon>frmPolleria.vb</DependentUpon>

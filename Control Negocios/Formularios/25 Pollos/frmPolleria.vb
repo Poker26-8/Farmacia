@@ -1255,15 +1255,15 @@ Public Class frmPolleria
                                     If rd1.Read Then
                                         montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
                                         montomapeo = FormatNumber(montomapeo, 2)
-                                        frmPagar.txtSubtotalmapeo.Text = montomapeo
-                                        frmPagar.subtotalmapeo = montomapeo
-                                        frmPagar.focomapeo = 1
-                                        frmPagar.txtEfectivo.Focus.Equals(True)
-                                        frmPagar.lblmesa.Text = lblAtiende.Text
-                                        frmPagar.lblusuario2.Text = usuariologueo
-                                        frmPagar.contraseñamesero = contralogueo
+                                        frmPagarPollos.txtSubtotalmapeo.Text = montomapeo
+                                        frmPagarPollos.subtotalmapeo = montomapeo
+                                        'frmPagar.focomapeo = 1
+                                        'frmPagar.txtEfectivo.Focus.Equals(True)
+                                        frmPagarPollos.lblmesa.Text = lblAtiende.Text
+                                        frmPagarPollos.lblusuario2.Text = usuariologueo
+                                        'frmPagarPollos.contraseñamesero = contralogueo
                                         frmPagar.COMENSALES = 1
-                                        frmPagar.Show()
+                                        frmPagarPollos.Show()
 
 
                                     Else
@@ -1639,6 +1639,11 @@ Public Class frmPolleria
         FRMPRUBEA.Show()
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        ppeso.Visible = False
+        Exit Sub
+
+    End Sub
 
     Public Sub Limpiar()
         pProductos.Controls.Clear()

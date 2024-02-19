@@ -4025,6 +4025,8 @@ Public Class frmVentas1
         txtComentarioPago.Text = ""
         cboCuentaRecepcion.Text = ""
         cboCuentaRecepcion.Text = ""
+        cboBancoRecepcion.Text = ""
+
     End Sub
 
     'Botones
@@ -5383,25 +5385,7 @@ doorcita:
 
         Dim fecha_pago As String = ""
 
-        If cboNombre.Text <> "" Then
-            cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-            Else
-                cnn2.Close() : cnn2.Open()
-
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo,RFC,Correo,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,SaldoFavor) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista','','',1000,5,'','','','','','MEXICO','','','',0)"
-                cmd2.ExecuteNonQuery()
-                cnn2.Close()
-            End If
-            cnn1.Close()
-        End If
 
         Try
             If cboNombre.Text = "" Then
@@ -5688,6 +5672,7 @@ doorcita:
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
+
                 Case Is <> "MOSTRADOR"
                     Efectivo = txtefectivo.Text
                     MyMonto = Efectivo + CDbl(txtMontoP.Text) + CDbl(txtafavor.Text)
@@ -5872,45 +5857,36 @@ doorcita:
 
                 If grdpago.Rows.Count > 0 Then
 
-                    cnn2.Close() : cnn2.Open()
-
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select distinct FormaPago from FormasPago where FormaPago<>''"
-                    rd1 = cmd1.ExecuteReader
-                    Do While rd1.Read
-                        If rd1.HasRows Then
-                            FormaPago = rd1(0).ToString()
-
-                            For R As Integer = 0 To grdpago.Rows.Count - 1
-                                If CStr(grdpago.Rows(R).Cells(0).Value.ToString()) = FormaPago Then
-                                    TotFormaPago = TotFormaPago + CDbl(grdpago.Rows(R).Cells(3).Value.ToString())
-                                    BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
-                                    ReferenciaFP = ReferenciaFP & "-" & CStr(grdpago.Rows(R).Cells(2).Value.ToString())
-                                    CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
 
 
-                                End If
-                            Next
+                    For R As Integer = 0 To grdpago.Rows.Count - 1
 
-                            If FormaPago = "SALDO FAVOR" Then
-                                If TotFormaPago > 0 Then
-                                    TotSaldo = TotFormaPago
-                                End If
-                            End If
-
-                            If TotFormaPago > 0 Then
-
-                                cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText =
-                                    "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario) values(" & MYFOLIO & "," & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & EfectivoX & "," & (MySaldo) & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & BancoFP & "','" & lblusuario.Text & "','" & CmentarioFP & "')"
-                                cmd2.ExecuteNonQuery()
-
-                            End If
+                        FormaPago = grdpago.Rows(R).Cells(0).Value.ToString()
+                        If CStr(grdpago.Rows(R).Cells(0).Value.ToString()) = FormaPago Then
+                            TotFormaPago = CDbl(grdpago.Rows(R).Cells(3).Value.ToString())
+                            BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
+                            ReferenciaFP = grdpago.Rows(R).Cells(2).Value.ToString()
+                            CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
                         End If
-                    Loop
-                    rd1.Close()
-                    cnn2.Close()
+
+
+                        If FormaPago = "SALDO FAVOR" Then
+                            If TotFormaPago > 0 Then
+                                TotSaldo = TotFormaPago
+                            End If
+
+                        End If
+
+                        If TotFormaPago > 0 Then
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario) values(" & MYFOLIO & "," & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & (MySaldo) & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "','" & CmentarioFP & "')"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
+                        End If
+                    Next
+
                 End If
             End If
             cnn1.Close()
@@ -6310,6 +6286,26 @@ Door:
             cbocedula.Focus().Equals(True)
             btnventa.Enabled = False
             Exit Sub
+        End If
+
+        If cboNombre.Text <> "" Then
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+            Else
+                cnn2.Close() : cnn2.Open()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo,RFC,Correo,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,SaldoFavor) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista','','',100000,5,'','','','','','MEXICO','','','',0)"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            cnn1.Close()
         End If
 
         Dim Imprime As Boolean = False
