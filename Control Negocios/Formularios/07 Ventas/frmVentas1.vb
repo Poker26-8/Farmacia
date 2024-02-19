@@ -11725,4 +11725,9 @@ ecomoda:
 
         End If
     End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        frmPagoServicios.Show()
+        frmPagoServicios.BringToFront()
+    End Sub
 End Class
