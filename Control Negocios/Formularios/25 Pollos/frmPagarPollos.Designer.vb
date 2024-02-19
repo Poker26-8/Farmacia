@@ -22,27 +22,35 @@ Partial Class frmPagarPollos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarPollos))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.grdComandas = New System.Windows.Forms.DataGridView()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.lblmesa = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnIntro = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnTransfe = New System.Windows.Forms.Button()
+        Me.btnTarjeta = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnEfectivo = New System.Windows.Forms.Button()
         Me.lblusuario2 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.cboComanda = New System.Windows.Forms.ComboBox()
         Me.btnPrecuenta = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnIntro = New System.Windows.Forms.Button()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.btnlimpiar = New System.Windows.Forms.Button()
@@ -58,6 +66,9 @@ Partial Class frmPagarPollos
         Me.lblsubtotalmapeo = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.PCantidad = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,10 +77,13 @@ Partial Class frmPagarPollos
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TFolioP = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.grdComandas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.PCantidad.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -100,14 +114,14 @@ Partial Class frmPagarPollos
         Me.grdComandas.Location = New System.Drawing.Point(0, 0)
         Me.grdComandas.Name = "grdComandas"
         Me.grdComandas.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdComandas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdComandas.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.grdComandas.RowHeadersVisible = False
         Me.grdComandas.Size = New System.Drawing.Size(984, 373)
         Me.grdComandas.TabIndex = 0
@@ -154,37 +168,37 @@ Partial Class frmPagarPollos
         Me.Label2.Text = "Total Pagar:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'btnIntro
+        'btnTransfe
         '
-        Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnIntro.FlatAppearance.BorderSize = 0
-        Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIntro.Image = CType(resources.GetObject("btnIntro.Image"), System.Drawing.Image)
-        Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnIntro.Location = New System.Drawing.Point(232, 126)
-        Me.btnIntro.Name = "btnIntro"
-        Me.btnIntro.Size = New System.Drawing.Size(104, 62)
-        Me.btnIntro.TabIndex = 32
-        Me.btnIntro.Text = "Transferencia"
-        Me.btnIntro.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnIntro.UseVisualStyleBackColor = False
+        Me.btnTransfe.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnTransfe.FlatAppearance.BorderSize = 0
+        Me.btnTransfe.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTransfe.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTransfe.Image = CType(resources.GetObject("btnTransfe.Image"), System.Drawing.Image)
+        Me.btnTransfe.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnTransfe.Location = New System.Drawing.Point(256, 125)
+        Me.btnTransfe.Name = "btnTransfe"
+        Me.btnTransfe.Size = New System.Drawing.Size(104, 64)
+        Me.btnTransfe.TabIndex = 32
+        Me.btnTransfe.Text = "Transferencia"
+        Me.btnTransfe.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnTransfe.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnTarjeta
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(122, 126)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(104, 62)
-        Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Tarjeta"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnTarjeta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnTarjeta.FlatAppearance.BorderSize = 0
+        Me.btnTarjeta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTarjeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTarjeta.Image = CType(resources.GetObject("btnTarjeta.Image"), System.Drawing.Image)
+        Me.btnTarjeta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnTarjeta.Location = New System.Drawing.Point(146, 125)
+        Me.btnTarjeta.Name = "btnTarjeta"
+        Me.btnTarjeta.Size = New System.Drawing.Size(104, 64)
+        Me.btnTarjeta.TabIndex = 33
+        Me.btnTarjeta.Text = "Tarjeta"
+        Me.btnTarjeta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnTarjeta.UseVisualStyleBackColor = False
         '
         'Label22
         '
@@ -197,21 +211,21 @@ Partial Class frmPagarPollos
         Me.Label22.Text = "Folio Venta"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Button2
+        'btnEfectivo
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(12, 126)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(104, 62)
-        Me.Button2.TabIndex = 34
-        Me.Button2.Text = "Efectivo"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnEfectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEfectivo.FlatAppearance.BorderSize = 0
+        Me.btnEfectivo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEfectivo.Image = CType(resources.GetObject("btnEfectivo.Image"), System.Drawing.Image)
+        Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEfectivo.Location = New System.Drawing.Point(36, 125)
+        Me.btnEfectivo.Name = "btnEfectivo"
+        Me.btnEfectivo.Size = New System.Drawing.Size(104, 64)
+        Me.btnEfectivo.TabIndex = 34
+        Me.btnEfectivo.Text = "Efectivo"
+        Me.btnEfectivo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEfectivo.UseVisualStyleBackColor = False
         '
         'lblusuario2
         '
@@ -270,8 +284,8 @@ Partial Class frmPagarPollos
         '
         'Panel6
         '
-        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel6.Controls.Add(Me.Button3)
+        Me.Panel6.BackColor = System.Drawing.Color.White
+        Me.Panel6.Controls.Add(Me.btnIntro)
         Me.Panel6.Controls.Add(Me.btnPagar)
         Me.Panel6.Controls.Add(Me.btn0)
         Me.Panel6.Controls.Add(Me.btnlimpiar)
@@ -290,18 +304,18 @@ Partial Class frmPagarPollos
         Me.Panel6.Size = New System.Drawing.Size(319, 239)
         Me.Panel6.TabIndex = 37
         '
-        'Button3
+        'btnIntro
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(234, 11)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(73, 217)
-        Me.Button3.TabIndex = 13
-        Me.Button3.Text = "Intro"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnIntro.FlatAppearance.BorderSize = 0
+        Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIntro.Location = New System.Drawing.Point(234, 11)
+        Me.btnIntro.Name = "btnIntro"
+        Me.btnIntro.Size = New System.Drawing.Size(73, 217)
+        Me.btnIntro.TabIndex = 13
+        Me.btnIntro.Text = "Intro"
+        Me.btnIntro.UseVisualStyleBackColor = False
         '
         'btnPagar
         '
@@ -481,10 +495,10 @@ Partial Class frmPagarPollos
         Me.Panel7.Controls.Add(Me.lblfolio)
         Me.Panel7.Controls.Add(Me.Label17)
         Me.Panel7.Controls.Add(Me.lblusuario2)
-        Me.Panel7.Controls.Add(Me.Button2)
+        Me.Panel7.Controls.Add(Me.btnEfectivo)
         Me.Panel7.Controls.Add(Me.Label22)
-        Me.Panel7.Controls.Add(Me.Button1)
-        Me.Panel7.Controls.Add(Me.btnIntro)
+        Me.Panel7.Controls.Add(Me.btnTarjeta)
+        Me.Panel7.Controls.Add(Me.btnTransfe)
         Me.Panel7.Controls.Add(Me.Label2)
         Me.Panel7.Controls.Add(Me.Label20)
         Me.Panel7.Controls.Add(Me.lblmesa)
@@ -503,7 +517,7 @@ Partial Class frmPagarPollos
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(342, 125)
+        Me.btnCancelar.Location = New System.Drawing.Point(366, 125)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(178, 64)
         Me.btnCancelar.TabIndex = 40
@@ -511,9 +525,43 @@ Partial Class frmPagarPollos
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
+        'PCantidad
+        '
+        Me.PCantidad.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PCantidad.BackColor = System.Drawing.Color.PapayaWhip
+        Me.PCantidad.Controls.Add(Me.GroupBox1)
+        Me.PCantidad.Location = New System.Drawing.Point(300, 300)
+        Me.PCantidad.Name = "PCantidad"
+        Me.PCantidad.Size = New System.Drawing.Size(387, 78)
+        Me.PCantidad.TabIndex = 1
+        Me.PCantidad.Visible = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.txtCantidad)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(370, 63)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Cantidad"
+        '
+        'txtCantidad
+        '
+        Me.txtCantidad.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCantidad.Location = New System.Drawing.Point(6, 23)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(352, 24)
+        Me.txtCantidad.TabIndex = 0
+        '
         'Column1
         '
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column1.HeaderText = "Comanda"
         Me.Column1.Name = "Column1"
@@ -522,6 +570,8 @@ Partial Class frmPagarPollos
         '
         'Column2
         '
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column2.HeaderText = "Código"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
@@ -530,12 +580,16 @@ Partial Class frmPagarPollos
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column3.HeaderText = "Descripción"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
         'Column4
         '
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column4.HeaderText = "Unidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -543,6 +597,8 @@ Partial Class frmPagarPollos
         '
         'Column5
         '
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column5.HeaderText = "Cantidad"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -550,13 +606,20 @@ Partial Class frmPagarPollos
         '
         'Column6
         '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
-        Me.Column6.Width = 75
+        Me.Column6.Width = 95
         '
         'Column7
         '
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -564,10 +627,15 @@ Partial Class frmPagarPollos
         '
         'Column8
         '
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column8.HeaderText = "Id"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         Me.Column8.Width = 50
+        '
+        'TFolioP
+        '
         '
         'frmPagarPollos
         '
@@ -575,6 +643,7 @@ Partial Class frmPagarPollos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(984, 612)
+        Me.Controls.Add(Me.PCantidad)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel7)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -585,6 +654,9 @@ Partial Class frmPagarPollos
         CType(Me.grdComandas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
+        Me.PCantidad.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -594,17 +666,17 @@ Partial Class frmPagarPollos
     Friend WithEvents lblmesa As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnIntro As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnTransfe As Button
+    Friend WithEvents btnTarjeta As Button
     Friend WithEvents Label22 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnEfectivo As Button
     Friend WithEvents lblusuario2 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents lblfolio As Label
     Friend WithEvents cboComanda As ComboBox
     Friend WithEvents btnPrecuenta As Button
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnIntro As Button
     Friend WithEvents btnPagar As Button
     Friend WithEvents btn0 As Button
     Friend WithEvents btnlimpiar As Button
@@ -620,6 +692,9 @@ Partial Class frmPagarPollos
     Friend WithEvents lblsubtotalmapeo As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents btnCancelar As Button
+    Friend WithEvents PCantidad As Panel
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -628,4 +703,5 @@ Partial Class frmPagarPollos
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents TFolioP As Timer
 End Class
