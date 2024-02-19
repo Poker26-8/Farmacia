@@ -52,8 +52,8 @@ Public Class frmProductosS
             End If
             rd1.Close()
 
-            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                 txtrutaimagen.Text = ""
             End If
             cnn1.Close()
@@ -462,9 +462,10 @@ Public Class frmProductosS
 
         Dim img As String = ""
 
-        crea_ruta("C:\ControlNegociosPro\ProductosImg")
+
+        crea_ruta("C:\ControlNegociosPro\ProductosImg" & base)
         If varrutabase <> "" Then
-            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ProductosImg")
+            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base)
         End If
 
         Try
@@ -500,16 +501,16 @@ Public Class frmProductosS
                         Else
                             If txtrutaimagen.Text <> "" Then
                                 If varrutabase <> "" Then
-                                    If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                        File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                    If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                        File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                     End If
-                                    picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                    picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                                 End If
 
-                                If File.Exists("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                 End If
-                                picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
                         End If
 
@@ -536,16 +537,16 @@ Public Class frmProductosS
                     Else
                         If txtrutaimagen.Text <> "" Then
                             If varrutabase <> "" Then
-                                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                 End If
-                                picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                                picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
 
-                            If File.Exists("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                File.Delete("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg")
+                            If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                             End If
-                            picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+                            picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                         End If
                     End If
 
@@ -595,8 +596,8 @@ Public Class frmProductosS
                         Else
                             If txtrutaimagen.Text = "" Then
                                 picImagen.Image.Dispose()
-                                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
                                     picImagen.Image = Nothing
                                 End If
                             Else
@@ -631,6 +632,7 @@ Public Class frmProductosS
 
     Private Sub frmProductosS_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         txtbarras.Focus().Equals(True)
+
     End Sub
 
 
