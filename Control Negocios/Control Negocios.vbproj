@@ -337,16 +337,16 @@
     <Compile Include="Formularios\02 Activación de módulos\frmModulos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\03 Catálogos\Escuelas\frmAlumnos.designer.vb">
+    <Compile Include="Formularios\26 Escuelas\frmAlumnos.designer.vb">
       <DependentUpon>frmAlumnos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\03 Catálogos\Escuelas\frmAlumnos.vb">
+    <Compile Include="Formularios\26 Escuelas\frmAlumnos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\03 Catálogos\Escuelas\frmCatGrupos.designer.vb">
+    <Compile Include="Formularios\26 Escuelas\frmCatGrupos.designer.vb">
       <DependentUpon>frmCatGrupos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\03 Catálogos\Escuelas\frmCatGrupos.vb">
+    <Compile Include="Formularios\26 Escuelas\frmCatGrupos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\03 Catálogos\frmHuella.Designer.vb">
@@ -361,10 +361,10 @@
     <Compile Include="Formularios\05 Productos y servicios\Control de servicios\frmControlServicios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Escuelas\frmProductos_Escuelas.designer.vb">
+    <Compile Include="Formularios\26 Escuelas\frmProductos_Escuelas.designer.vb">
       <DependentUpon>frmProductos_Escuelas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Escuelas\frmProductos_Escuelas.vb">
+    <Compile Include="Formularios\26 Escuelas\frmProductos_Escuelas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\06 Compras\Desperdicios\frmComprasTouch.Designer.vb">
@@ -379,10 +379,10 @@
     <Compile Include="Formularios\07 Ventas\Control servicios\frmControlServ.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\07 Ventas\Escuelas\frmInscripcion.designer.vb">
+    <Compile Include="Formularios\26 Escuelas\frmInscripcion.designer.vb">
       <DependentUpon>frmInscripcion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\07 Ventas\Escuelas\frmInscripcion.vb">
+    <Compile Include="Formularios\26 Escuelas\frmInscripcion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\07 Ventas\frmConsultaNotas.designer.vb">
@@ -433,10 +433,10 @@
     <Compile Include="Formularios\10 Reportes\Control de servicios\frmReporte_CS.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\10 Reportes\Escuelas\frmRepCuentas.designer.vb">
+    <Compile Include="Formularios\26 Escuelas\frmRepCuentas.designer.vb">
       <DependentUpon>frmRepCuentas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\10 Reportes\Escuelas\frmRepCuentas.vb">
+    <Compile Include="Formularios\26 Escuelas\frmRepCuentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\10 Reportes\frmRepCtsCobrar.designer.vb">
@@ -1583,10 +1583,10 @@
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\03 Catálogos\Escuelas\frmAlumnos.resx">
+    <EmbeddedResource Include="Formularios\26 Escuelas\frmAlumnos.resx">
       <DependentUpon>frmAlumnos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\03 Catálogos\Escuelas\frmCatGrupos.resx">
+    <EmbeddedResource Include="Formularios\26 Escuelas\frmCatGrupos.resx">
       <DependentUpon>frmCatGrupos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\03 Catálogos\frmHuella.resx">
@@ -1595,7 +1595,7 @@
     <EmbeddedResource Include="Formularios\05 Productos y servicios\Control de servicios\frmControlServicios.resx">
       <DependentUpon>frmControlServicios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\05 Productos y servicios\Escuelas\frmProductos_Escuelas.resx">
+    <EmbeddedResource Include="Formularios\26 Escuelas\frmProductos_Escuelas.resx">
       <DependentUpon>frmProductos_Escuelas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Desperdicios\frmComprasTouch.resx">
@@ -1604,7 +1604,7 @@
     <EmbeddedResource Include="Formularios\07 Ventas\Control servicios\frmControlServ.resx">
       <DependentUpon>frmControlServ.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\07 Ventas\Escuelas\frmInscripcion.resx">
+    <EmbeddedResource Include="Formularios\26 Escuelas\frmInscripcion.resx">
       <DependentUpon>frmInscripcion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmConsultaNotas.resx">
@@ -1631,7 +1631,7 @@
     <EmbeddedResource Include="Formularios\10 Reportes\Control de servicios\frmReporte_CS.resx">
       <DependentUpon>frmReporte_CS.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\10 Reportes\Escuelas\frmRepCuentas.resx">
+    <EmbeddedResource Include="Formularios\26 Escuelas\frmRepCuentas.resx">
       <DependentUpon>frmRepCuentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmRepCtsCobrar.resx">
