@@ -139,7 +139,7 @@ Public Class frmPagar
 
         txtTotal.Text = CDec(txtSubtotalmapeo.Text) + CDec(txtPropina.Text)
         txtTotal.Text = FormatNumber(txtTotal.Text, 2)
-        txtEfectivo.Text = txtTotal.Text
+
     End Sub
 
     Private Sub txtTotal_TextChanged(sender As Object, e As EventArgs) Handles txtTotal.TextChanged
