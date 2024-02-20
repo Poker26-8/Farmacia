@@ -82,17 +82,18 @@ Public Class frmPolleria
 
 
         Dim emple As Integer = 1
-        Dim cuantos As Integer = Math.Truncate(pEmpleado.Height / 70)
+        Dim cuantos As Integer = Math.Truncate(pEmpleado.Height / 90)
+
         Try
 
-            If cantidadempleados <= 10 Then
+            If cantidadempleados <= 8 Then
                 pEmpleado.AutoScroll = False
             Else
                 pEmpleado.AutoScroll = True
             End If
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Alias FROM Usuarios WHERE Alias<>'' ORDER BY Alias"
+            cmd1.CommandText = "SELECT DISTINCT Alias FROM Usuarios WHERE Alias<>'' AND Status='1' ORDER BY Alias"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -103,7 +104,7 @@ Public Class frmPolleria
                     btnEmp.Text = aleas
                     btnEmp.Name = "btnEmp(" & emple & ")"
                     btnEmp.Left = 0
-                    btnEmp.Height = 90
+                    btnEmp.Height = 50
                     btnEmp.Width = 96
 
 
@@ -187,6 +188,42 @@ Public Class frmPolleria
                         btnEmp.Left = (btnEmp.Width * 20)
                         btnEmp.Top = (emple - ((cuantos * 20) + 1)) * (btnEmp.Height + 0.5)
                         '21
+                    ElseIf emple > (cuantos * 21) And emple < ((cuantos * 22) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 21)
+                        btnEmp.Top = (emple - ((cuantos * 21) + 1)) * (btnEmp.Height + 0.5)
+                        '22
+                    ElseIf emple > (cuantos * 22) And emple < ((cuantos * 23) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 22)
+                        btnEmp.Top = (emple - ((cuantos * 22) + 1)) * (btnEmp.Height + 0.5)
+                        '23
+                    ElseIf emple > (cuantos * 23) And emple < ((cuantos * 24) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 23)
+                        btnEmp.Top = (emple - ((cuantos * 23) + 1)) * (btnEmp.Height + 0.5)
+                        '24
+                    ElseIf emple > (cuantos * 24) And emple < ((cuantos * 25) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 24)
+                        btnEmp.Top = (emple - ((cuantos * 24) + 1)) * (btnEmp.Height + 0.5)
+                        '25
+                    ElseIf emple > (cuantos * 25) And emple < ((cuantos * 26) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 25)
+                        btnEmp.Top = (emple - ((cuantos * 25) + 1)) * (btnEmp.Height + 0.5)
+                        '26
+                    ElseIf emple > (cuantos * 26) And emple < ((cuantos * 27) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 26)
+                        btnEmp.Top = (emple - ((cuantos * 26) + 1)) * (btnEmp.Height + 0.5)
+                        '27
+                    ElseIf emple > (cuantos * 27) And emple < ((cuantos * 28) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 27)
+                        btnEmp.Top = (emple - ((cuantos * 27) + 1)) * (btnEmp.Height + 0.5)
+                        '28
+                    ElseIf emple > (cuantos * 28) And emple < ((cuantos * 29) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 28)
+                        btnEmp.Top = (emple - ((cuantos * 28) + 1)) * (btnEmp.Height + 0.5)
+                        '29
+                    ElseIf emple > (cuantos * 29) And emple < ((cuantos * 30) + 1) Then
+                        btnEmp.Left = (btnEmp.Width * 29)
+                        btnEmp.Top = (emple - ((cuantos * 29) + 1)) * (btnEmp.Height + 0.5)
+                        '30
                     Else
                         btnEmp.Left = 0
                         btnEmp.Top = (emple - 1) * (btnEmp.Height + 0.5)

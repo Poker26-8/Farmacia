@@ -214,9 +214,9 @@ Partial Class frmPolleria
         Me.Panel4.Controls.Add(Me.lblAtiende)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(194, 0)
+        Me.Panel4.Location = New System.Drawing.Point(299, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(610, 100)
+        Me.Panel4.Size = New System.Drawing.Size(505, 100)
         Me.Panel4.TabIndex = 2
         '
         'lblAtiende
@@ -313,7 +313,7 @@ Partial Class frmPolleria
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(194, 100)
+        Me.Panel1.Size = New System.Drawing.Size(299, 100)
         Me.Panel1.TabIndex = 0
         '
         'PictureBox1
@@ -322,7 +322,7 @@ Partial Class frmPolleria
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(194, 100)
+        Me.PictureBox1.Size = New System.Drawing.Size(299, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -343,14 +343,14 @@ Partial Class frmPolleria
         Me.pEmpleado.Dock = System.Windows.Forms.DockStyle.Left
         Me.pEmpleado.Location = New System.Drawing.Point(0, 100)
         Me.pEmpleado.Name = "pEmpleado"
-        Me.pEmpleado.Size = New System.Drawing.Size(214, 582)
+        Me.pEmpleado.Size = New System.Drawing.Size(299, 582)
         Me.pEmpleado.TabIndex = 8
         '
         'pDepartamento
         '
         Me.pDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pDepartamento.Location = New System.Drawing.Point(214, 100)
+        Me.pDepartamento.Location = New System.Drawing.Point(299, 100)
         Me.pDepartamento.Name = "pDepartamento"
         Me.pDepartamento.Size = New System.Drawing.Size(124, 582)
         Me.pDepartamento.TabIndex = 9
@@ -359,7 +359,7 @@ Partial Class frmPolleria
         '
         Me.pgrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(115, Byte), Integer))
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pgrupo.Location = New System.Drawing.Point(338, 100)
+        Me.pgrupo.Location = New System.Drawing.Point(423, 100)
         Me.pgrupo.Name = "pgrupo"
         Me.pgrupo.Size = New System.Drawing.Size(220, 582)
         Me.pgrupo.TabIndex = 10
@@ -368,9 +368,9 @@ Partial Class frmPolleria
         '
         Me.pProductos.BackColor = System.Drawing.Color.White
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(558, 100)
+        Me.pProductos.Location = New System.Drawing.Point(643, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(596, 582)
+        Me.pProductos.Size = New System.Drawing.Size(511, 582)
         Me.pProductos.TabIndex = 11
         '
         'ppeso

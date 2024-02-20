@@ -847,11 +847,14 @@ Module Facturacion
 
         If timbre_Par(FolioFact, serie, "PP" & FolioPar, folio_sat_uuid, fecha_folio_sat, newcarpeta, EmiRFC, cadena_orig, no_csd_emp, certificado_sat) Then
 
-            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
+            Dim Lector As System.Xml.XmlTextReader
 
-            Dim Lector As System.Xml.XmlTextReader = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+            If varrutabase = "" Then
+                crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
 
-            If varrutabase <> "" Then
+                Lector = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
+            Else
+
                 crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
 
                 Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)

@@ -468,6 +468,8 @@ Public Class frmParcialidades
         Dim nueva_fecha As String = ""
         nueva_fecha = CStr(Format(dtpFechaPago.Value, "yyyy-MM-dd")) & "T" & CStr(Format(dtpHoraPago.Value, "HH:mm:ss"))
 
+
+
         If CDec(txtSaldoAnt.Text) = 0 And CDec(txtRestante.Text) <= 0 Then
             MsgBox("La factura ha sido saldada no se puede generar otra parcialidad")
             btnNuevo.PerformClick()

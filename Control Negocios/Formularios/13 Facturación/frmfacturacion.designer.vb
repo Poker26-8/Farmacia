@@ -699,7 +699,7 @@ Partial Class frmfacturacion
         Me.gbLE.Controls.Add(Me.Label108)
         Me.gbLE.Location = New System.Drawing.Point(171, 302)
         Me.gbLE.Name = "gbLE"
-        Me.gbLE.Size = New System.Drawing.Size(878, 135)
+        Me.gbLE.Size = New System.Drawing.Size(882, 135)
         Me.gbLE.TabIndex = 92
         Me.gbLE.TabStop = False
         Me.gbLE.Text = "DATOS LUGAR DE EXPEDICION"
