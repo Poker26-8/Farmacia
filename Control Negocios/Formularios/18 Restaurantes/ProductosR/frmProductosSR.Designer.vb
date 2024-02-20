@@ -25,6 +25,7 @@ Partial Class frmProductosSR
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductosSR))
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtrutaimagen = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rboDescProductos = New System.Windows.Forms.RadioButton()
         Me.rboDescIngredientes = New System.Windows.Forms.RadioButton()
@@ -88,7 +89,6 @@ Partial Class frmProductosSR
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdsql = New System.Windows.Forms.DataGridView()
-        Me.txtrutaimagen = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,6 +165,18 @@ Partial Class frmProductosSR
         Me.GroupBox1.Size = New System.Drawing.Size(779, 602)
         Me.GroupBox1.TabIndex = 225
         Me.GroupBox1.TabStop = False
+        '
+        'txtrutaimagen
+        '
+        Me.txtrutaimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtrutaimagen.BackColor = System.Drawing.Color.White
+        Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtrutaimagen.Location = New System.Drawing.Point(512, 443)
+        Me.txtrutaimagen.Name = "txtrutaimagen"
+        Me.txtrutaimagen.Size = New System.Drawing.Size(101, 23)
+        Me.txtrutaimagen.TabIndex = 232
+        Me.txtrutaimagen.Visible = False
         '
         'GroupBox2
         '
@@ -573,7 +585,7 @@ Partial Class frmProductosSR
         '
         'cboComanda
         '
-        Me.cboComanda.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboComanda.BackColor = System.Drawing.Color.White
         Me.cboComanda.FormattingEnabled = True
         Me.cboComanda.Location = New System.Drawing.Point(537, 158)
         Me.cboComanda.Name = "cboComanda"
@@ -856,18 +868,6 @@ Partial Class frmProductosSR
         Me.grdsql.ReadOnly = True
         Me.grdsql.Size = New System.Drawing.Size(493, 184)
         Me.grdsql.TabIndex = 227
-        '
-        'txtrutaimagen
-        '
-        Me.txtrutaimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtrutaimagen.BackColor = System.Drawing.Color.White
-        Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(512, 443)
-        Me.txtrutaimagen.Name = "txtrutaimagen"
-        Me.txtrutaimagen.Size = New System.Drawing.Size(101, 23)
-        Me.txtrutaimagen.TabIndex = 232
-        Me.txtrutaimagen.Visible = False
         '
         'frmProductosSR
         '

@@ -419,7 +419,7 @@ Partial Class frmProductosDR
         '
         'cboImprimirComandaNormal
         '
-        Me.cboImprimirComandaNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboImprimirComandaNormal.BackColor = System.Drawing.Color.White
         Me.cboImprimirComandaNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboImprimirComandaNormal.FormattingEnabled = True
         Me.cboImprimirComandaNormal.Location = New System.Drawing.Point(491, 278)

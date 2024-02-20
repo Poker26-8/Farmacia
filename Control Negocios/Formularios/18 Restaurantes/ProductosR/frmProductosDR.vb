@@ -3,6 +3,7 @@ Imports System.IO
 Public Class frmProductosDR
     Private Sub frmProductosDR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboDescripcionTicketNormal.Focus.Equals(True)
+        rboDescProductos.Checked = True
     End Sub
 
     Private Sub txtVentaActual_TextChanged(sender As Object, e As EventArgs) Handles txtVentaActual.TextChanged
