@@ -2233,4 +2233,33 @@ quepaso_wey:
             MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         End If
     End Sub
+
+    Private Sub btnImpExis_Click(sender As Object, e As EventArgs) Handles btnImpExis.Click
+
+        If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Excel_Grid_SQL(DataGridView1)
+        End If
+
+
+    End Sub
+
+    Private Sub Excel_Grid_SQL(ByVal tabla As DataGridView)
+
+        Dim con As OleDb.OleDbConnection
+        Dim dt As New System.Data.DataTable
+        Dim ds As New DataSet
+        Dim da As OleDb.OleDbDataAdapter
+        Dim cuadro_dialogo As New OpenFileDialog
+        Dim ruta As String = ""
+        Dim sheet As String = "hoja1"
+
+        With cuadro_dialogo
+            .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
+            .Title = "Selecciona el archivo a importar"
+            .Multiselect = False
+            .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
+            .ShowDialog()
+        End With
+
+    End Sub
 End Class
