@@ -993,6 +993,8 @@ Module Facturacion
         nombreCFD = folio & "-" & folioFact & ".xml"
         razon_ruta = Replace(razon_social, Chr(34), "").ToString()
 
+
+
         documentoXml = New XmlDocument
 
         id = folio & "-" & folioFact
