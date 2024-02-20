@@ -74,6 +74,8 @@ Partial Class frmRepInventario
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnExpExis = New System.Windows.Forms.Button()
+        Me.btnImpExis = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -657,11 +659,45 @@ Partial Class frmRepInventario
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         '
+        'btnExpExis
+        '
+        Me.btnExpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnExpExis.BackgroundImage = CType(resources.GetObject("btnExpExis.BackgroundImage"), System.Drawing.Image)
+        Me.btnExpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnExpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExpExis.Location = New System.Drawing.Point(144, 537)
+        Me.btnExpExis.Name = "btnExpExis"
+        Me.btnExpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnExpExis.TabIndex = 250
+        Me.btnExpExis.Text = "Exportar Existencias"
+        Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnExpExis.UseVisualStyleBackColor = True
+        Me.btnExpExis.Visible = False
+        '
+        'btnImpExis
+        '
+        Me.btnImpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnImpExis.BackgroundImage = CType(resources.GetObject("btnImpExis.BackgroundImage"), System.Drawing.Image)
+        Me.btnImpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnImpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImpExis.Location = New System.Drawing.Point(317, 537)
+        Me.btnImpExis.Name = "btnImpExis"
+        Me.btnImpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnImpExis.TabIndex = 251
+        Me.btnImpExis.Text = "Importar Existencias"
+        Me.btnImpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnImpExis.UseVisualStyleBackColor = True
+        Me.btnImpExis.Visible = False
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(975, 595)
+        Me.Controls.Add(Me.btnImpExis)
+        Me.Controls.Add(Me.btnExpExis)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblexportar)
         Me.Controls.Add(Me.barCarga)
@@ -756,4 +792,6 @@ Partial Class frmRepInventario
     Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnExpExis As Button
+    Friend WithEvents btnImpExis As Button
 End Class

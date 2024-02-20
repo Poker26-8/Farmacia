@@ -56,7 +56,6 @@ Partial Class frmAjusteInv
         Me.lblusuario = New System.Windows.Forms.Label()
         Me.txtcontraseña = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsElimina.SuspendLayout()
@@ -409,28 +408,12 @@ Partial Class frmAjusteInv
         Me.Label12.TabIndex = 183
         Me.Label12.Text = "Usuario:"
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(382, 221)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(60, 63)
-        Me.Button1.TabIndex = 184
-        Me.Button1.Text = "Nuevo"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmAjusteInv
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(450, 327)
         Me.ContextMenuStrip = Me.cmsElimina
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.txtcontraseña)
         Me.Controls.Add(Me.lblusuario)
@@ -499,5 +482,4 @@ Partial Class frmAjusteInv
     Friend WithEvents cmsElimina As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents EliminaLoteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtid As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As Button
 End Class

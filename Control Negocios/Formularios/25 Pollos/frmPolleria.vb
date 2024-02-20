@@ -1681,6 +1681,18 @@ Public Class frmPolleria
 
     End Sub
 
+    Private Sub btnlimpia_Click(sender As Object, e As EventArgs) Handles btnlimpia.Click
+        txtPeso.Text = CutCad(txtPeso.Text)
+    End Sub
+
+    Public Function CutCad(VAL As String) As String
+        If Len(VAL) > 0 Then
+            CutCad = Strings.Left(VAL, Len(VAL) - 1)
+        Else
+            CutCad = ""
+        End If
+    End Function
+
     Public Sub Limpiar()
         pProductos.Controls.Clear()
         grdCaptura.Rows.Clear()

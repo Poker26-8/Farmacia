@@ -2179,4 +2179,45 @@ quepaso_wey:
             cnn3.Close()
         End Try
     End Function
+
+    Private Sub btnExpExis_Click(sender As Object, e As EventArgs) Handles btnExpExis.Click
+        If MsgBox("¿Deseas exportar todo tu catálogo a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+
+
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+
+            grdcaptura.ColumnCount = 14
+            With grdcaptura.Columns(0)
+                .Name = "Código"
+                .Width = 45
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                .Visible = True
+                .Resizable = DataGridViewTriState.False
+            End With
+            With grdcaptura.Columns(1)
+                .Name = "Nombre"
+                .Width = 110
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                .Visible = True
+                .Resizable = DataGridViewTriState.False
+            End With
+            With grdcaptura.Columns(2)
+                .Name = "Existencia"
+                .Width = 210
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                .Visible = True
+                .Resizable = DataGridViewTriState.False
+            End With
+        End If
+
+        Dim rows As Integer = 0
+
+    End Sub
 End Class

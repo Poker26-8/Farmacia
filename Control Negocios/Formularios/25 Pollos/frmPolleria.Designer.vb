@@ -67,6 +67,7 @@ Partial Class frmPolleria
         Me.BTN7 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtPeso = New System.Windows.Forms.TextBox()
+        Me.btnlimpia = New System.Windows.Forms.Button()
         Me.plateral.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -376,6 +377,7 @@ Partial Class frmPolleria
         'ppeso
         '
         Me.ppeso.BackColor = System.Drawing.Color.Bisque
+        Me.ppeso.Controls.Add(Me.btnlimpia)
         Me.ppeso.Controls.Add(Me.Button4)
         Me.ppeso.Controls.Add(Me.BTNINTRO)
         Me.ppeso.Controls.Add(Me.btnp)
@@ -425,9 +427,9 @@ Partial Class frmPolleria
         Me.btnp.BackColor = System.Drawing.Color.Linen
         Me.btnp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnp.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnp.Location = New System.Drawing.Point(218, 373)
+        Me.btnp.Location = New System.Drawing.Point(120, 373)
         Me.btnp.Name = "btnp"
-        Me.btnp.Size = New System.Drawing.Size(98, 78)
+        Me.btnp.Size = New System.Drawing.Size(92, 78)
         Me.btnp.TabIndex = 11
         Me.btnp.Text = "."
         Me.btnp.UseVisualStyleBackColor = False
@@ -511,7 +513,7 @@ Partial Class frmPolleria
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.Location = New System.Drawing.Point(23, 373)
         Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(189, 78)
+        Me.btn0.Size = New System.Drawing.Size(91, 78)
         Me.btn0.TabIndex = 4
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
@@ -570,6 +572,18 @@ Partial Class frmPolleria
         Me.txtPeso.Name = "txtPeso"
         Me.txtPeso.Size = New System.Drawing.Size(389, 26)
         Me.txtPeso.TabIndex = 0
+        '
+        'btnlimpia
+        '
+        Me.btnlimpia.BackColor = System.Drawing.Color.Linen
+        Me.btnlimpia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnlimpia.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlimpia.Location = New System.Drawing.Point(218, 373)
+        Me.btnlimpia.Name = "btnlimpia"
+        Me.btnlimpia.Size = New System.Drawing.Size(98, 78)
+        Me.btnlimpia.TabIndex = 14
+        Me.btnlimpia.Text = "C0"
+        Me.btnlimpia.UseVisualStyleBackColor = False
         '
         'frmPolleria
         '
@@ -648,4 +662,5 @@ Partial Class frmPolleria
     Friend WithEvents btnp As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents btnlimpia As Button
 End Class
