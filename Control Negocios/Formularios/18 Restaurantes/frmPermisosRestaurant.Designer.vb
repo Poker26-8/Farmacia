@@ -36,7 +36,6 @@ Partial Class frmPermisosRestaurant
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.btnguardartolerancia = New System.Windows.Forms.Button()
         Me.txttolerancia = New System.Windows.Forms.TextBox()
@@ -61,12 +60,16 @@ Partial Class frmPermisosRestaurant
         Me.Button24 = New System.Windows.Forms.Button()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.cboImpre_Comanda = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnclose = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
         Me.GroupBox20.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -149,9 +152,9 @@ Partial Class frmPermisosRestaurant
         '
         Me.lblusuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(446, 10)
+        Me.lblusuario.Location = New System.Drawing.Point(434, 10)
         Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(79, 23)
+        Me.lblusuario.Size = New System.Drawing.Size(91, 23)
         Me.lblusuario.TabIndex = 230
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -161,7 +164,7 @@ Partial Class frmPermisosRestaurant
         Me.txtcontraseña.Location = New System.Drawing.Point(531, 12)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtcontraseña.Size = New System.Drawing.Size(81, 20)
+        Me.txtcontraseña.Size = New System.Drawing.Size(99, 20)
         Me.txtcontraseña.TabIndex = 229
         Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -178,7 +181,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel1.Controls.Add(Me.txtarea)
         Me.Panel1.Controls.Add(Me.txtcontra)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 31)
+        Me.Panel1.Location = New System.Drawing.Point(0, 37)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(639, 80)
         Me.Panel1.TabIndex = 231
@@ -189,7 +192,7 @@ Partial Class frmPermisosRestaurant
         Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Location = New System.Drawing.Point(556, 193)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(80, 71)
@@ -204,7 +207,7 @@ Partial Class frmPermisosRestaurant
         Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Location = New System.Drawing.Point(470, 193)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(78, 71)
@@ -212,19 +215,6 @@ Partial Class frmPermisosRestaurant
         Me.btnnuevo.Text = "Nuevo"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(0, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label4.Size = New System.Drawing.Size(639, 31)
-        Me.Label4.TabIndex = 235
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox7
         '
@@ -448,6 +438,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox1.Controls.Add(Me.Button24)
         Me.GroupBox1.Controls.Add(Me.Label71)
         Me.GroupBox1.Controls.Add(Me.cboImpre_Comanda)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(191, 281)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(273, 79)
@@ -481,28 +472,67 @@ Partial Class frmPermisosRestaurant
         Me.cboImpre_Comanda.FormattingEnabled = True
         Me.cboImpre_Comanda.Location = New System.Drawing.Point(9, 43)
         Me.cboImpre_Comanda.Name = "cboImpre_Comanda"
-        Me.cboImpre_Comanda.Size = New System.Drawing.Size(249, 21)
+        Me.cboImpre_Comanda.Size = New System.Drawing.Size(249, 24)
         Me.cboImpre_Comanda.TabIndex = 239
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(639, 37)
+        Me.Label6.TabIndex = 244
+        Me.Label6.Text = "Permisos para restaurantes"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Label6)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(639, 37)
+        Me.Panel3.TabIndex = 245
+        '
+        'btnclose
+        '
+        Me.btnclose.BackColor = System.Drawing.Color.White
+        Me.btnclose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnclose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
+        Me.btnclose.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnclose.Location = New System.Drawing.Point(556, 270)
+        Me.btnclose.Name = "btnclose"
+        Me.btnclose.Size = New System.Drawing.Size(80, 71)
+        Me.btnclose.TabIndex = 246
+        Me.btnclose.Text = "Salir"
+        Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnclose.UseVisualStyleBackColor = False
         '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(639, 390)
+        Me.ClientSize = New System.Drawing.Size(639, 392)
+        Me.Controls.Add(Me.btnclose)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox20)
         Me.Controls.Add(Me.GroupBox19)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.btnnuevo)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnguardar)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPermisosRestaurant"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Permisos de Restaurantes"
+        Me.Text = "S"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
@@ -515,6 +545,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -532,7 +563,6 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnguardar As Button
     Friend WithEvents btnnuevo As Button
-    Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents btnguardartolerancia As Button
     Friend WithEvents txttolerancia As TextBox
@@ -557,4 +587,7 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents Button24 As Button
     Friend WithEvents Label71 As Label
     Friend WithEvents cboImpre_Comanda As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnclose As Button
 End Class
