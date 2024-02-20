@@ -212,6 +212,35 @@ Public Class frmRepSeries
         hasta = mchasta.SelectionStart.ToShortDateString
         Try
 
+            If rbventas.Checked = True Then
+                cnn1.Close() : cnn1.Open()
+
+                cnn2.Close() : cnn2.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM VentasDetalle WHERE N_Serie<>'' AND Fecha between '" & Format(desde, "yyyy-MM-dd") & "' AND '" & Format(hasta, "yyyyy-MM-dd") & "' ORDER BY Folio"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+
+                        grdseries.Rows.Add(rd1("Folio").ToString,
+                                      rd1("Codigo").ToString,
+                                      rd1("Nombre").ToString,
+                                      FormatNumber(rd1("Precio").ToString, 2),
+                                      rd1("N_Serie").ToString,
+                                      rd1("Usuario").ToString,
+                                      FormatDateTime(rd1("Fecha").ToString, DateFormat.ShortDate)
+                   )
+
+
+                    End If
+                Loop
+            End If
+            cnn2.Close()
+            rd1.Close()
+            cnn1.Close()
+
 
             Try
                 If rbproductos.Checked = True Then
@@ -292,34 +321,7 @@ Public Class frmRepSeries
             End If
 
 
-            If rbventas.Checked = True Then
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Series WHERE FSalida>='" & Format(desde, "dd/MM/yyyy") & "' AND FSalida<='" & Format(hasta, "dd/MM/yyyy") & "'"
-                rd1 = cmd1.ExecuteReader
-                Do While rd1.Read
-                    If rd1.HasRows Then
-                        Codigo = rd1("Codigo").ToString
-                        nombre = rd2("Nombre").ToString
-                        serie = rd1("Serie").ToString
-                        Factura = rd1("Factura").ToString
-                        ffactura = rd1("FFactura").ToString
-                        nota = rd1("NumNota").ToString
-                        fnota = rd1("FSalida").ToString
-                        status = rd1("Status").ToString
 
-                        If status = 1 Then
-                            esta = "VENDIDO"
-                        Else
-                            esta = "DISPONIBLE"
-                        End If
-
-                        grdseries.Rows.Add(Codigo, nombre, serie, Factura, ffactura, nota, fnota, esta)
-                    End If
-                Loop
-                rd1.Close()
-                cnn1.Close()
-            End If
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -344,40 +346,8 @@ Public Class frmRepSeries
             cbodatos.Text = ""
             cbodatos.Visible = False
             TABLAS()
-
-            cnn1.Close() : cnn1.Open()
-
-            cnn2.Close() : cnn2.Open()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM VentasDetalle WHERE N_Serie<>'' ORDER BY Folio"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM Ventas WHERE Folio=" & rd1("Folio").ToString & ""
-                    rd2 = cmd2.ExecuteReader
-                    Do While rd2.Read
-                        If rd2.HasRows Then
-                            grdseries.Rows.Add(rd1("Folio").ToString,
-                                      rd1("Codigo").ToString,
-                                      rd1("Nombre").ToString,
-                                      FormatNumber(rd1("Precio").ToString, 2),
-                                      rd1("Serie").ToString,
-                                      rd2("Usuario").ToString,
-                                      FormatDateTime(rd1("Fecha").ToString, DateFormat.ShortDate)
-                   )
-                        End If
-                    Loop
-                    rd2.Close()
-
-                End If
-            Loop
         End If
-        cnn2.Close()
-        rd1.Close()
-        cnn1.Close()
+
 
     End Sub
 
