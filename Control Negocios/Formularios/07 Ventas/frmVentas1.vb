@@ -7903,8 +7903,6 @@ ecomoda:
 
                 End If
 
-
-
             e.HasMorePages = False
         Catch ex As Exception
             MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
