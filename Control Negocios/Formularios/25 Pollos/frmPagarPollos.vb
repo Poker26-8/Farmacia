@@ -1345,4 +1345,28 @@ Public Class frmPagarPollos
 
 
     End Sub
+
+    Private Sub grdComandas_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdComandas.CellDoubleClick
+
+        Dim index As Integer = grdComandas.CurrentRow.Index
+
+        Dim idc As Integer = grdComandas.Rows(index).Cells(0).Value.ToString
+        Dim id As Integer = grdComandas.Rows(index).Cells(7).Value.ToString
+        Dim importe As Double = grdComandas.Rows(index).Cells(6).Value.ToString
+
+        lblsubtotalmapeo.Text = lblsubtotalmapeo.Text - importe
+        lblsubtotalmapeo.Text = FormatNumber(lblsubtotalmapeo.Text, 2)
+
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "DELETE FROM Comandas WHERE IDC=" & idc & " and Id=" & id & ""
+        cmd1.ExecuteNonQuery()
+        cnn1.Close()
+
+
+
+        grdComandas.Rows.Remove(grdComandas.CurrentRow)
+    End Sub
 End Class
