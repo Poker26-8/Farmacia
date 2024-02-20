@@ -6601,6 +6601,29 @@ Door:
 
         Dim imprimeorden As Integer = 0
 
+        '----------------------------------agregar cliente----------------------------------------------------
+
+        If cboNombre.Text <> "" Then
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+            Else
+                cnn2.Close() : cnn2.Open()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo,RFC,Correo,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,SaldoFavor) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista','','',100000,5,'','','','','','MEXICO','','','',0)"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        End If
+
+
         '---------------------------------------imprimir comandas---------------------------------------------
 
         cnn1.Close() : cnn1.Open()

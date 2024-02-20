@@ -690,10 +690,11 @@ Partial Class frmVentas_Series
         '
         'txtfechacad
         '
-        Me.txtfechacad.Location = New System.Drawing.Point(874, 17)
+        Me.txtfechacad.Location = New System.Drawing.Point(860, 12)
         Me.txtfechacad.Name = "txtfechacad"
-        Me.txtfechacad.Size = New System.Drawing.Size(139, 20)
+        Me.txtfechacad.Size = New System.Drawing.Size(56, 20)
         Me.txtfechacad.TabIndex = 236
+        Me.txtfechacad.Visible = False
         '
         'Panel2
         '
