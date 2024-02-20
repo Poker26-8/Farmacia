@@ -253,6 +253,7 @@ Module Facturacion
         If varrutabase <> "" Then
             crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
             miXml = New XmlTextWriter("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
+
         Else
             crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\Temporales\")
             miXml = New XmlTextWriter("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\Temporales\" & nombreCFD, System.Text.Encoding.UTF8)
@@ -854,7 +855,7 @@ Module Facturacion
 
                 Lector = New System.Xml.XmlTextReader("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
             Else
-
+                crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
                 crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\")
 
                 Lector = New System.Xml.XmlTextReader("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & newcarpeta & "\XML\PARCIALIDADES\" & nombreCFD)
@@ -1000,8 +1001,10 @@ Module Facturacion
         If varrutabase <> "" Then
             'XML Timbrado
             crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
+            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
             'XML Temporal
             documentoXml.Load("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\Temporales\" & nombreCFD)
+
         Else
             'XML Timbrado
             crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\" & razon_ruta & "\XML\PARCIALIDADES\")
