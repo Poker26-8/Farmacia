@@ -1653,72 +1653,6 @@ Public Class frmRepInventario
     Private Sub optCaducidad_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles optCaducidad.CheckedChanged
 
     End Sub
-
-    Private Sub optperdidas_Click(sender As System.Object, e As System.EventArgs) Handles optperdidas.Click
-        If (optperdidas.Checked) Then
-            cbofiltro.Text = ""
-            cbofiltro.Items.Clear()
-            cbofiltro.Enabled = False
-            boxcaduca.Enabled = True
-            dtpFin.Enabled = True
-            dtpIni.Enabled = True
-            txtCompraTot.Text = "0.00"
-            txtVentaTot.Text = "0.00"
-
-            grdcaptura.Rows.Clear()
-            grdcaptura.ColumnCount = 0
-            My.Application.DoEvents()
-            grdcaptura.ColumnCount = 6
-            With grdcaptura
-                With .Columns(0)
-                    .HeaderText = "Código"
-                    .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-                With .Columns(1)
-                    .HeaderText = "Descripción"
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-                End With
-                With .Columns(2)
-                    .HeaderText = "Unidad"
-                    .Width = 60
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-                With .Columns(3)
-                    .HeaderText = "Cantidad"
-                    .Width = 75
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-                With .Columns(4)
-                    .HeaderText = "Fecha"
-                    .Width = 110
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-                With .Columns(5)
-                    .HeaderText = "Costo"
-                    .Width = 85
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-            End With
-            btnCaduc.Focus().Equals(True)
-        End If
-    End Sub
-
     Private Sub btnreporte_Click(sender As System.Object, e As System.EventArgs) Handles btnreporte.Click
         'Producto
         Dim PCodigo As String = ""
@@ -2180,17 +2114,13 @@ quepaso_wey:
         End Try
     End Function
 
-    Private Sub btnExpExis_Click(sender As Object, e As EventArgs) Handles btnExpExis.Click
-        If MsgBox("¿Deseas exportar todo tu catálogo a un archivo de Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+    Private Sub btnExistencia_Click(sender As Object, e As EventArgs) Handles btnExistencia.Click
+        Try
 
             grdcaptura.Rows.Clear()
             grdcaptura.ColumnCount = 0
 
-
-            grdcaptura.Rows.Clear()
-            grdcaptura.ColumnCount = 0
-
-            grdcaptura.ColumnCount = 14
+            grdcaptura.ColumnCount = 3
             With grdcaptura.Columns(0)
                 .Name = "Código"
                 .Width = 45
@@ -2202,22 +2132,105 @@ quepaso_wey:
             With grdcaptura.Columns(1)
                 .Name = "Nombre"
                 .Width = 110
-                .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With grdcaptura.Columns(2)
-                .Name = "Existencia"
+                .Name = "Existencias"
                 .Width = 210
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
+
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+
+            If (optProveedor.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE ProvPri='" & cbofiltro.Text & "'"
+            End If
+
+            If (optDepartamento.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Departamento='" & cbofiltro.Text & "'"
+            End If
+
+            If (optGrupo.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos WHERE Grupo='" & cbofiltro.Text & "'"
+            End If
+
+            If (optTodos.Checked) Then
+                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos"
+            End If
+
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    grdcaptura.Rows.Add(rd1(0).ToString,
+                                        rd1(1).ToString,
+                                        rd1(2).ToString()
+)
+
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub btnExpExis_Click(sender As Object, e As EventArgs) Handles btnExpExis.Click
+        If grdcaptura.Rows.Count = 0 Then Exit Sub
+        If MsgBox("¿Deseas exportar esta información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocio Pro") = vbOK Then
+
+            Dim exApp As New Microsoft.Office.Interop.Excel.Application
+            Dim exBook As Microsoft.Office.Interop.Excel.Workbook
+            Dim exSheet As Microsoft.Office.Interop.Excel.Worksheet
+
+            Try
+
+                exBook = exApp.Workbooks.Add
+                exSheet = exBook.Application.ActiveSheet
+
+                Dim Fila As Integer = 0
+                Dim Col As Integer = 0
+
+                Dim NCol As Integer = grdcaptura.ColumnCount
+                Dim NRow As Integer = grdcaptura.RowCount
+
+                For i As Integer = 1 To NCol
+                    exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                Next
+
+                For Fila = 0 To NRow - 1
+                    For Col = 0 To NCol - 1
+                        exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+                    Next
+                Next
+
+                exSheet.Rows.Item(1).Font.Bold = 1
+                exSheet.Rows.Item(1).HorizontalAlignment = 3
+                exSheet.Columns.AutoFit()
+
+                exApp.Application.Visible = True
+                exSheet = Nothing
+                exBook = Nothing
+                exApp = Nothing
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            End Try
+            barCarga.Value = 0
+            barCarga.Visible = False
+
+            MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         End If
-
-        Dim rows As Integer = 0
-
     End Sub
 End Class

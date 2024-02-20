@@ -76,6 +76,7 @@ Partial Class frmRepInventario
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnExpExis = New System.Windows.Forms.Button()
         Me.btnImpExis = New System.Windows.Forms.Button()
+        Me.btnExistencia = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -247,7 +248,7 @@ Partial Class frmRepInventario
         Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(884, 119)
+        Me.btnsalida.Location = New System.Drawing.Point(884, 123)
         Me.btnsalida.Name = "btnsalida"
         Me.btnsalida.Size = New System.Drawing.Size(82, 63)
         Me.btnsalida.TabIndex = 235
@@ -277,7 +278,7 @@ Partial Class frmRepInventario
         Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnetiquetas.Location = New System.Drawing.Point(796, 119)
+        Me.btnetiquetas.Location = New System.Drawing.Point(796, 123)
         Me.btnetiquetas.Name = "btnetiquetas"
         Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
         Me.btnetiquetas.TabIndex = 233
@@ -309,7 +310,7 @@ Partial Class frmRepInventario
         Me.boxcaduca.Controls.Add(Me.dtpIni)
         Me.boxcaduca.Enabled = False
         Me.boxcaduca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxcaduca.Location = New System.Drawing.Point(216, 83)
+        Me.boxcaduca.Location = New System.Drawing.Point(216, 38)
         Me.boxcaduca.Margin = New System.Windows.Forms.Padding(2)
         Me.boxcaduca.Name = "boxcaduca"
         Me.boxcaduca.Padding = New System.Windows.Forms.Padding(2)
@@ -377,7 +378,7 @@ Partial Class frmRepInventario
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofiltro.FormattingEnabled = True
-        Me.cbofiltro.Location = New System.Drawing.Point(216, 168)
+        Me.cbofiltro.Location = New System.Drawing.Point(216, 123)
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(247, 25)
         Me.cbofiltro.TabIndex = 237
@@ -516,7 +517,7 @@ Partial Class frmRepInventario
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.IniCosteo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(467, 83)
+        Me.GroupBox1.Location = New System.Drawing.Point(467, 38)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
@@ -673,7 +674,6 @@ Partial Class frmRepInventario
         Me.btnExpExis.Text = "Exportar Existencias"
         Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnExpExis.UseVisualStyleBackColor = True
-        Me.btnExpExis.Visible = False
         '
         'btnImpExis
         '
@@ -691,11 +691,25 @@ Partial Class frmRepInventario
         Me.btnImpExis.UseVisualStyleBackColor = True
         Me.btnImpExis.Visible = False
         '
+        'btnExistencia
+        '
+        Me.btnExistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExistencia.Image = CType(resources.GetObject("btnExistencia.Image"), System.Drawing.Image)
+        Me.btnExistencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExistencia.Location = New System.Drawing.Point(715, 123)
+        Me.btnExistencia.Name = "btnExistencia"
+        Me.btnExistencia.Size = New System.Drawing.Size(75, 63)
+        Me.btnExistencia.TabIndex = 252
+        Me.btnExistencia.Text = "Existencias"
+        Me.btnExistencia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExistencia.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(975, 595)
+        Me.Controls.Add(Me.btnExistencia)
         Me.Controls.Add(Me.btnImpExis)
         Me.Controls.Add(Me.btnExpExis)
         Me.Controls.Add(Me.GroupBox1)
@@ -794,4 +808,5 @@ Partial Class frmRepInventario
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnExpExis As Button
     Friend WithEvents btnImpExis As Button
+    Friend WithEvents btnExistencia As Button
 End Class
