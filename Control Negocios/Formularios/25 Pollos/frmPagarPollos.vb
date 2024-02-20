@@ -1025,8 +1025,8 @@ Public Class frmPagarPollos
         Else
             If TamImpre = "80" Then
                 For naruto As Integer = 1 To copias
-                    PVenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                    PVenta58.Print()
+                    PVenta80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    PVenta80.Print()
                 Next
             End If
 

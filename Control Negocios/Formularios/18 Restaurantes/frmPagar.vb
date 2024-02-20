@@ -1391,31 +1391,9 @@ Public Class frmPagar
         btnlimpiar.PerformClick()
         Me.Close()
 
-        Dim pollo As Integer = 0
-
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-
-                pollo = rd1(0).ToString
-                If pollo = 1 Then
-                    frmPolleria.Close()
-                    frmPolleria.Show()
-                Else
-                    frmMesas.Close()
-                    frmMesas.Show()
-                End If
-
-            End If
-        Else
-            frmMesas.Close()
+        frmMesas.Close()
             frmMesas.Show()
-        End If
-        rd1.Close()
-        cnn1.Close()
+
 
 
     End Sub
