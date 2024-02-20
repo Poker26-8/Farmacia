@@ -208,6 +208,7 @@ Public Class frmSeries
                     Do While rd1.Read
                         If rd1.HasRows Then
                             grdseries.Rows.Add(rd1("Codigo").ToString,
+                                               rd1("Nombre").ToString,
                                                rd1("Serie").ToString)
                         End If
                     Loop
@@ -453,7 +454,7 @@ Public Class frmSeries
             Else
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Series(Codigo,Nombre,Serie,Fecha,Eliminado,FechaEliminado,Factura,FFactura,Status) VALUES('" & codigo & "','" & nombre & "','" & serie & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','','','" & cbofactura.Text & "','" & txtfecha.Text & "','0')"
+                cmd3.CommandText = "INSERT INTO Series(Codigo,Nombre,Serie,Fecha,FechaEliminado,Factura,FFactura,Status) VALUES('" & codigo & "','" & nombre & "','" & serie & "','" & Format(Date.Now, "yyyyy-MM-dd HH:mm:ss") & "','','" & cbofactura.Text & "','" & txtfecha.Text & "','0')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
             End If

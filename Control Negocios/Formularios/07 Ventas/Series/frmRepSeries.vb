@@ -6,9 +6,10 @@ Public Class frmRepSeries
     Dim Codigo As String = ""
     Dim nombre As String = ""
     Dim serie As String = ""
+    Dim entrada As String = ""
+    Dim nota As String = ""
     Dim Factura As String = ""
     Dim ffactura As String = ""
-    Dim nota As String = ""
     Dim fnota As String = ""
     Dim status As String = ""
     Dim esta As String = ""
@@ -40,9 +41,14 @@ Public Class frmRepSeries
                     If rd1.HasRows Then
                         id = rd1("Id").ToString
                         Codigo = rd1("Codigo").ToString
+                        nombre = rd1("Nombre").ToString
                         serie = rd1("Serie").ToString
+                        entrada = rd1("Fecha").ToString
+                        nota = rd1("NotaVenta").ToString
                         Factura = rd1("Factura").ToString
                         status = rd1("Status").ToString
+
+                        ' entrada = FormatDateTime(entrada, "yyyy-MM-dd")
 
                         If status = 1 Then
                             esta = "VENDIDO"
@@ -56,13 +62,14 @@ Public Class frmRepSeries
                         Else
                             ffactura = FormatDateTime(rd1("FFactura").ToString, DateFormat.ShortDate)
                         End If
-                        nota = rd1("NumNota").ToString
+
                         If rd1("FechaEliminado").ToString = "" Then
                             fnota = ""
                         Else
                             fnota = FormatDateTime(rd1("FechaEliminado").ToString, DateFormat.ShortDate)
                         End If
-                        grdseries.Rows.Add(Codigo, serie, Factura, ffactura, nota, fnota, esta)
+
+                        grdseries.Rows.Add(Codigo, nombre, serie, entrada, nota, fnota, Factura, ffactura, esta)
                     End If
                 Loop
                 rd1.Close()
@@ -196,64 +203,65 @@ Public Class frmRepSeries
 
     End Sub
 
-    Private Sub cbodatos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbodatos.SelectedValueChanged
 
-        grdseries.Rows.Clear()
-
-        Try
-            If rbproductos.Checked = True Then
-                cnn2.Close() : cnn2.Open()
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM Series WHERE Nombre='" & cbodatos.Text & "' order by Codigo"
-                rd2 = cmd2.ExecuteReader
-                Do While rd2.Read
-                    If rd2.HasRows Then
-                        Codigo = rd2("Codigo").ToString
-                        nombre = rd2("Nombre").ToString
-                        serie = rd2("Serie").ToString
-                        Factura = rd2("Factura").ToString
-                        status = rd2("Status").ToString
-
-                        If status = 1 Then
-                            esta = "VENDIDO"
-                        Else
-                            esta = "DISPONIBLE"
-                        End If
-
-                        If rd2("FFactura").ToString = "" Then
-                        Else
-
-                            ffactura = FormatDateTime(rd2("FFactura").ToString, DateFormat.ShortDate)
-                        End If
-                        nota = rd2("NumNota").ToString
-
-                        If rd2("FSalida").ToString = "" Then
-                        Else
-
-                            fnota = FormatDateTime(rd2("FSalida").ToString, DateFormat.ShortDate)
-                        End If
-
-
-                        grdseries.Rows.Add(Codigo, nombre, serie, Factura, ffactura, nota, fnota, esta)
-                    End If
-                Loop
-                rd2.Close()
-                cnn2.Close()
-            End If
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn2.Close()
-        End Try
-
-    End Sub
 
     Private Sub btnreporte_Click(sender As Object, e As EventArgs) Handles btnreporte.Click
 
+        grdseries.Rows.Clear()
         desde = mcdesde.SelectionStart.ToShortDateString
         hasta = mchasta.SelectionStart.ToShortDateString
         Try
+
+
+            Try
+                If rbproductos.Checked = True Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM Series WHERE Nombre='" & cbodatos.Text & "' order by Codigo"
+                    rd2 = cmd2.ExecuteReader
+                    Do While rd2.Read
+                        If rd2.HasRows Then
+                            Codigo = rd2("Codigo").ToString
+                            nombre = rd2("Nombre").ToString
+                            serie = rd2("Serie").ToString
+                            entrada = rd2("Fecha").ToString
+                            nota = rd2("NotaVenta").ToString
+                            Factura = rd2("Factura").ToString
+                            status = rd2("Status").ToString
+
+                            If status = 1 Then
+                                esta = "VENDIDO"
+                            Else
+                                esta = "DISPONIBLE"
+                            End If
+
+                            If rd2("FFactura").ToString = "" Then
+                            Else
+
+                                ffactura = FormatDateTime(rd2("FFactura").ToString, DateFormat.ShortDate)
+                            End If
+
+
+                            If rd2("FechaEliminado").ToString = "" Then
+                            Else
+
+                                fnota = FormatDateTime(rd2("FechaEliminado").ToString, DateFormat.ShortDate)
+                            End If
+
+
+                            grdseries.Rows.Add(Codigo, nombre, serie, entrada, nota, fnota, Factura, ffactura, esta)
+                        End If
+                    Loop
+                    rd2.Close()
+                    cnn2.Close()
+                End If
+
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn2.Close()
+            End Try
+
             If rbcompras.Checked = True Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
@@ -342,7 +350,7 @@ Public Class frmRepSeries
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM VentasDetalle WHERE Serie<>'' ORDER BY Folio"
+            cmd1.CommandText = "SELECT * FROM VentasDetalle WHERE N_Serie<>'' ORDER BY Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

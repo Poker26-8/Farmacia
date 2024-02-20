@@ -42,10 +42,11 @@ Partial Class frmRepSeries
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -226,26 +227,25 @@ Partial Class frmRepSeries
         '
         Me.grdseries.AllowUserToAddRows = False
         Me.grdseries.AllowUserToDeleteRows = False
-        Me.grdseries.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdseries.BackgroundColor = System.Drawing.Color.White
         Me.grdseries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
+        Me.grdseries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column5, Me.Column6, Me.Column7, Me.Column4, Me.Column9, Me.Column8})
+        Me.grdseries.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdseries.GridColor = System.Drawing.Color.White
-        Me.grdseries.Location = New System.Drawing.Point(12, 14)
+        Me.grdseries.Location = New System.Drawing.Point(0, 0)
         Me.grdseries.Name = "grdseries"
         Me.grdseries.ReadOnly = True
         Me.grdseries.RowHeadersVisible = False
-        Me.grdseries.Size = New System.Drawing.Size(779, 328)
+        Me.grdseries.Size = New System.Drawing.Size(800, 348)
         Me.grdseries.TabIndex = 2
         '
         'Column1
         '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 70
+        Me.Column1.Width = 65
         '
         'Column2
         '
@@ -256,9 +256,35 @@ Partial Class frmRepSeries
         '
         'Column3
         '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column3.HeaderText = "Serie"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
+        Me.Column3.Width = 56
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Fecha Entrada"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 102
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "N° Venta"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 75
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column7.HeaderText = "Fecha Salida"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 94
         '
         'Column4
         '
@@ -267,32 +293,19 @@ Partial Class frmRepSeries
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 60
         '
-        'Column5
+        'Column9
         '
-        Me.Column5.HeaderText = "Fecha Entrada"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 85
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "N° Venta"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 60
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Fecha Salida"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 95
+        Me.Column9.HeaderText = "Fec.Factura"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
         '
         'Column8
         '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column8.HeaderText = "Status"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
+        Me.Column8.Width = 62
         '
         'frmRepSeries
         '
@@ -337,9 +350,10 @@ Partial Class frmRepSeries
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class

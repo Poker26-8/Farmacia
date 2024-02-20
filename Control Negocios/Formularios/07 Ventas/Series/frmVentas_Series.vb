@@ -4389,7 +4389,7 @@ doorcita:
 
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         Timer1.Stop()
-        Me.Text = "Ventas (1)"
+        Me.Text = "Ventas Series"
         txttel.Text = ""
         cboNombre.Text = ""
         cboNombre.Items.Clear()
@@ -6307,6 +6307,11 @@ Door:
                         "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint,N_Serie) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & DsctoProdTod & ",0," & ieps & "," & tasaieps & ",'','',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & DsctoProdTod & ",'" & gprint & "','" & serie & "')"
                     cmd1.ExecuteNonQuery()
 
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "UPDATE series SET NotaVenta='" & MYFOLIO & "' WHERE Serie='" & serie & "'"
+                    cmd1.ExecuteNonQuery()
+
+
                     Dim necesito As Double = mycant / MyMCD
                     Dim tengo As Double = 0
                     Dim cuanto_cuestan As Double = 0
@@ -7675,6 +7680,7 @@ ecomoda:
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 Dim total As Double = FormatNumber(canti * precio, 2)
+                Dim serie As String = grdcaptura.Rows(miku).Cells(8).Value.ToString()
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
@@ -7685,6 +7691,12 @@ ecomoda:
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 21
+
+                If serie <> "" Then
+                    e.Graphics.DrawString("SERIE: " & serie, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 21
+                End If
+
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
                     Y += 21
