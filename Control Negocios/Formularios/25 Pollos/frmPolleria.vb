@@ -104,7 +104,7 @@ Public Class frmPolleria
                     btnEmp.Text = aleas
                     btnEmp.Name = "btnEmp(" & emple & ")"
                     btnEmp.Left = 0
-                    btnEmp.Height = 50
+                    btnEmp.Height = 95
                     btnEmp.Width = 96
 
 

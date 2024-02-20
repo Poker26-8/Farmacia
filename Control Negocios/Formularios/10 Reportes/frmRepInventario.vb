@@ -2198,10 +2198,10 @@ quepaso_wey:
 
                 exBook = exApp.Workbooks.Add
                 exSheet = exBook.Application.ActiveSheet
+                exSheet.Columns("A").NumberFormat = "@"
 
                 Dim Fila As Integer = 0
                 Dim Col As Integer = 0
-
                 Dim NCol As Integer = grdcaptura.ColumnCount
                 Dim NRow As Integer = grdcaptura.RowCount
 
@@ -2261,5 +2261,134 @@ quepaso_wey:
             .ShowDialog()
         End With
 
+        Try
+            If cuadro_dialogo.FileName.ToString() <> "" Then
+                ruta = cuadro_dialogo.FileName.ToString()
+                con = New OleDb.OleDbConnection(
+                    "Provider=Microsoft.ACE.OLEDB.12.0;" &
+                    " Data Source='" & ruta & "'; " &
+                    "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
+
+                da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
+
+                con.Open()
+                da.Fill(ds, "MyData")
+                dt = ds.Tables("MyData")
+                tabla.DataSource = ds
+                tabla.DataMember = "MyData"
+                con.Close()
+            End If
+
+            Dim NOMBRE, CODIGO As String
+            Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
+            Dim conteo As Integer = 0
+
+            barCarga.Value = 0
+            barCarga.Maximum = DataGridView1.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+            Dim contadorconexion As Integer = 0
+
+            For luffy As Integer = 0 To DataGridView1.Rows.Count - 1
+                contadorconexion += 1
+
+                CODIGO = DataGridView1.Rows(luffy).Cells(0).Value.ToString()
+                NOMBRE = DataGridView1.Rows(luffy).Cells(1).Value.ToString()
+                EXISTENCIA = NulVa(DataGridView1.Rows(luffy).Cells(2).Value.ToString())
+
+                If contadorconexion > 499 Then
+                    cnn1.Close() : cnn1.Open()
+                    contadorconexion = 1
+                End If
+
+                If (Comprueba(CODIGO)) Then
+                    If cnn1.State = 0 Then cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT Existencia,MCD,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            existenciacardex = rd1(0).ToString
+                            mcd = rd1(1).ToString
+                            MyPreci = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+
+                            diferencia = existenciacardex - EXISTENCIA
+                            existencia_final = EXISTENCIA / mcd
+
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario) VALUES('" & CODIGO & "','" & NOMBRE & "','Ajuste de inventario Excel'," & existenciacardex & "," & diferencia & ", " & EXISTENCIA & "," & MyPreci & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','')"
+                            cmd2.ExecuteNonQuery()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE productos SET Cargado='0',CargadoInv='0',Existencia=" & existencia_final & " WHERE codigo='" & CODIGO & "'"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
+
+                        End If
+                    End If
+                    rd1.Close()
+
+
+
+
+
+                Else
+                    conteo += 1
+                    barCarga.Value = conteo
+                    Continue For
+                End If
+                conteo += 1
+                barCarga.Value = conteo
+            Next
+            cnn1.Close()
+            tabla.DataSource = Nothing
+            tabla.Dispose()
+            DataGridView1.Rows.Clear()
+            barCarga.Value = 0
+
+            MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
     End Sub
+
+    Private Function Comprueba(ByVal codigo As String) As Boolean
+        Try
+            Dim valida As Boolean = True
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & codigo & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+
+
+                End If
+            Else
+                MsgBox("El código corto no existe " & codigo & ".", vbInformation + vbOKOnly, titulocentral)
+                valida = False
+                Exit Function
+            End If
+            rd2.Close()
+            cnn2.Close()
+            Return valida
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
+        Return Nothing
+    End Function
+
+    Private Function NulVa(ByVal cifra As Double) As Double
+        If IsDBNull(cifra) Then
+            NulVa = 0
+        Else
+            NulVa = cifra
+        End If
+    End Function
 End Class
