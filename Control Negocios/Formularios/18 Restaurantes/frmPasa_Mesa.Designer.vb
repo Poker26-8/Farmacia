@@ -52,7 +52,7 @@ Partial Class frmPasa_Mesa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.Moccasin
         Me.ClientSize = New System.Drawing.Size(207, 105)
         Me.Controls.Add(Me.txtclave)
         Me.Controls.Add(Me.Label1)
