@@ -74,22 +74,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Controls">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Controls.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.Controls.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Imaging.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Math.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Video.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\..\..\..\00\SASASA\AForge.Video.DirectShow.dll</HintPath>
+      <HintPath>..\..\..\DLL\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -130,6 +130,10 @@
     <Reference Include="Gma.QrCodeNet.Encoding">
       <HintPath>..\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.FlexCodeSDK">
+      <HintPath>..\..\..\DLL\Interop.FlexCodeSDK.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\itextsharp.dll</HintPath>
@@ -150,7 +154,7 @@
       <HintPath>..\Profact.TimbraCFDI.dll</HintPath>
     </Reference>
     <Reference Include="QRCoder">
-      <HintPath>\\DESKTOP-VP9NIBU\ControlNegociosPro\QRCoder.dll</HintPath>
+      <HintPath>..\..\..\DLL\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="Servisim.WS.Conector">
       <HintPath>..\..\..\DLL\Conector\Servisim.WS.Conector.dll</HintPath>
@@ -2189,15 +2193,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="FlexCodeSDK">
-      <Guid>{820AB693-5AC1-40DE-A2A8-E1764DD22596}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
