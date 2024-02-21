@@ -107,7 +107,7 @@ Public Class frmIngreso
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE tallerd SET IdDispositivo,SerieD,Cliente,Tecnico,Operacion,Status,FechaEntrada,FechaEstimada,Fallas) values(" & idtelefono & ",'" & cboSerie.Text & "','" & cboCliente.Text & "','" & cboTecnico.Text & "','" & cboOperacion.Text & "','" & cboStatus.Text & "','" & Format(dtpIngreso.Value, "yyyy-MM-dd HH:mm:ss") & "','" & Format(dtpEntrega.Value, "yyyy-MM-dd HH:mm:ss") & "','" & rtbfallas.Text & "')"
+                    cmd2.CommandText = "UPDATE tallerd SET Tecnico='" & cboTecnico.Text & "',Operacion='" & cboOperacion.Text & "',FechaEntrada='" & Format(dtpIngreso.Value, "yyyy-MM-dd HH:mm:ss") & "',FechaEstimada='" & Format(dtpEntrega.Value, "yyyy-MM-dd HH:mm:ss") & "',Fallas='" & rtbfallas.Text & "',Status='" & cboStatus.Text & "' WHERE SerieD='" & cboSerie.Text & "'"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 

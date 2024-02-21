@@ -151,7 +151,7 @@ Partial Class frmPermisosRestaurant
         'lblusuario
         '
         Me.lblusuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lblusuario.ForeColor = System.Drawing.Color.White
+        Me.lblusuario.ForeColor = System.Drawing.Color.Black
         Me.lblusuario.Location = New System.Drawing.Point(434, 10)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(91, 23)
@@ -532,7 +532,7 @@ Partial Class frmPermisosRestaurant
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPermisosRestaurant"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "S"
+        Me.Text = "Permisos Especiales"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
