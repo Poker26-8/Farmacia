@@ -1619,6 +1619,7 @@ Public Class frmPolleria
         My.Application.DoEvents()
 
         EnviarComanda()
+        pEmpleado.Controls.Clear()
         Empleados()
 
         My.Application.DoEvents()
