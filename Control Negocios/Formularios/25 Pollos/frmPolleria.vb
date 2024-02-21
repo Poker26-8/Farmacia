@@ -259,6 +259,7 @@ Public Class frmPolleria
                     btnEmp.FlatAppearance.BorderSize = 0
                     AddHandler btnEmp.Click, AddressOf btnEmp_Click
                     pEmpleado.Controls.Add(btnEmp)
+                    My.Application.DoEvents()
 
                     emple += 1
 
@@ -1597,7 +1598,7 @@ Public Class frmPolleria
             cnn2.Close()
             cnn1.Close()
 
-            lblAtiende.Text = ""
+            'lblAtiende.Text = ""
             lblTotalVenta.Text = "0.00"
             LBLLETRA.Text = ""
 
@@ -1618,7 +1619,7 @@ Public Class frmPolleria
         My.Application.DoEvents()
 
         EnviarComanda()
-        pEmpleado.Controls.Clear()
+        'pEmpleado.Controls.Clear()
         Empleados()
 
         My.Application.DoEvents()
@@ -1694,7 +1695,7 @@ Public Class frmPolleria
     End Function
 
     Public Sub Limpiar()
-        pProductos.Controls.Clear()
+        'pProductos.Controls.Clear()
         grdCaptura.Rows.Clear()
 
     End Sub
