@@ -58,7 +58,7 @@ Partial Class frmPasa_Mesa
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPasa_Mesa"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

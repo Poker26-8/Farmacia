@@ -24,8 +24,8 @@ Public Class frmMesas
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
-        frmAgregarMesa.Show()
-        frmAgregarMesa.BringToFront()
+        frmPasa_Mesa.Show()
+        frmPasa_Mesa.BringToFront()
     End Sub
 
     Private Sub frmMesas_Load(sender As Object, e As EventArgs) Handles MyBase.Load

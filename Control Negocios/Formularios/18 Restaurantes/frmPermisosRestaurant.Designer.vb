@@ -63,6 +63,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
+        Me.cbmesas = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -333,6 +334,7 @@ Partial Class frmPermisosRestaurant
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.cbmesas)
         Me.Panel2.Controls.Add(Me.cbCobrar)
         Me.Panel2.Controls.Add(Me.cbJuntar)
         Me.Panel2.Controls.Add(Me.chkSinComensal)
@@ -343,7 +345,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.Controls.Add(Me.cbPrecuentas)
         Me.Panel2.Location = New System.Drawing.Point(4, 120)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(170, 258)
+        Me.Panel2.Size = New System.Drawing.Size(170, 275)
         Me.Panel2.TabIndex = 240
         '
         'cbCobrar
@@ -513,12 +515,23 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
+        'cbmesas
+        '
+        Me.cbmesas.AutoSize = True
+        Me.cbmesas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbmesas.Location = New System.Drawing.Point(3, 234)
+        Me.cbmesas.Name = "cbmesas"
+        Me.cbmesas.Size = New System.Drawing.Size(67, 20)
+        Me.cbmesas.TabIndex = 239
+        Me.cbmesas.Text = "Mesas"
+        Me.cbmesas.UseVisualStyleBackColor = True
+        '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(639, 392)
+        Me.ClientSize = New System.Drawing.Size(639, 421)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -590,4 +603,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnclose As Button
+    Friend WithEvents cbmesas As CheckBox
 End Class

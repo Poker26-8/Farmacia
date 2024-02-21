@@ -2283,7 +2283,8 @@
                                               `CancelarM` int(1) DEFAULT '0',
                                               `CortesiaM` int(1) DEFAULT '0',
                                               `JuntarM` int(1) DEFAULT '0',
-                                              `CobrarM` int(1) DEFAULT '0'
+                                              `CobrarM` int(1) DEFAULT '0',
+                                              `Mesas` int(1) DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

@@ -2202,6 +2202,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="FlexCodeSDK">
+      <Guid>{820AB693-5AC1-40DE-A2A8-E1764DD22596}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>

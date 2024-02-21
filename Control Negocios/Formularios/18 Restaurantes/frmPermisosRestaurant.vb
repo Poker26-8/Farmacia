@@ -272,7 +272,8 @@
                     If rd1.Read Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
+                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & ",Mesas=" & IIf(cbmesas.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
+
                         If cmd2.ExecuteNonQuery() Then
                             MsgBox("Permisos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                         End If
@@ -287,7 +288,7 @@
                 Else
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & ")"
+                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM,Mesas) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & "," & IIf(cbmesas.Checked = True, 1, 0) & ")"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Permisos insertados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
@@ -545,4 +546,6 @@
     Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
         Me.Close()
     End Sub
+
+
 End Class
