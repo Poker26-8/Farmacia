@@ -99,30 +99,10 @@ Public Class frmPagar
     End Sub
 
     Private Sub frmPagar_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim pollo As Integer = 0
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-
-                pollo = rd1(0).ToString
-                If pollo = 1 Then
-                    frmPolleria.Show()
-                Else
-                    frmMesas.Close()
-                    frmMesas.Show()
-                End If
-
-            End If
-        Else
-            frmMesas.Close()
+        frmMesas.Close()
             frmMesas.Show()
-        End If
-        rd1.Close()
-        cnn1.Close()
+
     End Sub
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click

@@ -425,8 +425,8 @@ Public Class frmMesas
                 If rd1.HasRows Then
                     If rd1.Read Then
 
-                        lblusuario.Text = rd1("CUsuario").ToString
-                        txtNComensales.Text = IIf(rd1("Total_comensales").ToString = "", 1, rd1("Total_comensales").ToString)
+                        'lblusuario.Text = rd1("CUsuario").ToString
+                        'txtNComensales.Text = IIf(rd1("Total_comensales").ToString = "", 1, rd1("Total_comensales").ToString)
 
                     End If
                 End If
@@ -463,12 +463,12 @@ Public Class frmMesas
                     If rd1.Read Then
                         If rd1("NotasCred").ToString = "1" Then
                         Else
-                            txtUsuario.Text = ""
+                            'txtUsuario.Text = ""
                         End If
 
                     End If
                 Else
-                    txtUsuario.Text = ""
+                    ' txtUsuario.Text = ""
                 End If
                 rd1.Close()
 

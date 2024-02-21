@@ -534,6 +534,7 @@ Partial Class frmMesas
         Me.lbltotalmesa.Size = New System.Drawing.Size(61, 23)
         Me.lbltotalmesa.TabIndex = 38
         Me.lbltotalmesa.Text = "0.00"
+        Me.lbltotalmesa.Visible = False
         '
         'lblfolio
         '
@@ -543,6 +544,7 @@ Partial Class frmMesas
         Me.lblfolio.Name = "lblfolio"
         Me.lblfolio.Size = New System.Drawing.Size(61, 23)
         Me.lblfolio.TabIndex = 37
+        Me.lblfolio.Visible = False
         '
         'pmesas
         '

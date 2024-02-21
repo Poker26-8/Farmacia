@@ -517,7 +517,7 @@ Partial Class frmAgregarProducto
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnSalir)
         Me.Panel2.Controls.Add(Me.btnnuevo)
         Me.Panel2.Controls.Add(Me.btntiempo3)
@@ -539,9 +539,9 @@ Partial Class frmAgregarProducto
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(783, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(782, 0)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(82, 87)
+        Me.btnSalir.Size = New System.Drawing.Size(86, 87)
         Me.btnSalir.TabIndex = 28
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -556,7 +556,7 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
         Me.btnnuevo.Location = New System.Drawing.Point(701, 0)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(82, 87)
+        Me.btnnuevo.Size = New System.Drawing.Size(81, 87)
         Me.btnnuevo.TabIndex = 25
         Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
