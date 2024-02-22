@@ -43,6 +43,7 @@ Public Class frmPagar
 
     Private Sub frmPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        grdcomanda.Rows.Clear()
         TFolio.Start()
 
         Try
@@ -1526,6 +1527,7 @@ Public Class frmPagar
                 Precuenta58.Print()
             End If
 
+            Me.Close()
         End If
 
     End Sub
