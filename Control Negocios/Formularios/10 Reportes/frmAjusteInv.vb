@@ -666,4 +666,38 @@
         End Try
         Return respuesta
     End Function
+
+    Private Sub cbodesc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbodesc.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label12_DoubleClick(sender As Object, e As EventArgs) Handles Label12.DoubleClick
+        Try
+            Dim codig As String = ""
+            Dim canti As Double = 0
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from VentasDEtalle"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                codig = rd1("Codigo").ToString
+                canti = rd1("Cantidad").ToString
+
+                cnn2.Close()
+                cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "Update Productos set Existencia=Existencia- " & canti & " where Codigo='" & codig & "'"
+                cmd2.ExecuteNonQuery()
+            Loop
+            cnn2.Close()
+            rd1.Close()
+            cnn1.Close()
+            MsgBox("Existencias actualizadas correctamente", vbOKOnly, "Delsscom Control Negocios PRO")
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+            cnn1.Close()
+        End Try
+    End Sub
 End Class
