@@ -82,7 +82,7 @@ Public Class frmPolleria
 
 
         Dim emple As Integer = 1
-        Dim cuantos As Integer = Math.Truncate(pEmpleado.Height / 90)
+        Dim cuantos As Integer = Math.Truncate(pEmpleado.Height / 95)
 
         Try
 
@@ -605,7 +605,7 @@ Public Class frmPolleria
     Public Sub Productos(ByVal depto As String, ByVal grupo As String)
 
         Dim prods As Integer = 1
-        Dim cuantos As Integer = Math.Truncate(pProductos.Height / 70)
+        Dim cuantos As Integer = Math.Truncate(pProductos.Height / 130)
 
         Try
             cnn3.Close() : cnn3.Open()
@@ -619,7 +619,7 @@ Public Class frmPolleria
             Loop
             rd3.Close()
 
-            If cantidadproductos <= 10 Then
+            If cantidadproductos <= 7 Then
                 pProductos.AutoScroll = False
             Else
                 pProductos.AutoScroll = True
@@ -635,7 +635,7 @@ Public Class frmPolleria
                     btnProd.Text = producto
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 70
+                    btnProd.Height = 130
                     btnProd.Width = 130
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
@@ -1075,8 +1075,8 @@ Public Class frmPolleria
                     btnProd.FlatStyle = FlatStyle.Popup
                     btnProd.FlatAppearance.BorderSize = 0
 
-                    If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg") Then
-                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg")
+                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg") Then
+                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg")
                         btnProd.BackgroundImageLayout = ImageLayout.Stretch
                         btnProd.TextAlign = ContentAlignment.BottomCenter
                         btnProd.ForeColor = Color.Black

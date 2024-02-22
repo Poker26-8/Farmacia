@@ -233,9 +233,9 @@ Partial Class frmPolleria
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 6)
+        Me.Label1.Location = New System.Drawing.Point(10, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 23)
+        Me.Label1.Size = New System.Drawing.Size(65, 23)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Atiende"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -320,7 +320,6 @@ Partial Class frmPolleria
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(299, 100)
@@ -344,7 +343,7 @@ Partial Class frmPolleria
         Me.pEmpleado.Dock = System.Windows.Forms.DockStyle.Left
         Me.pEmpleado.Location = New System.Drawing.Point(0, 100)
         Me.pEmpleado.Name = "pEmpleado"
-        Me.pEmpleado.Size = New System.Drawing.Size(299, 582)
+        Me.pEmpleado.Size = New System.Drawing.Size(299, 657)
         Me.pEmpleado.TabIndex = 8
         '
         'pDepartamento
@@ -353,7 +352,7 @@ Partial Class frmPolleria
         Me.pDepartamento.Dock = System.Windows.Forms.DockStyle.Left
         Me.pDepartamento.Location = New System.Drawing.Point(299, 100)
         Me.pDepartamento.Name = "pDepartamento"
-        Me.pDepartamento.Size = New System.Drawing.Size(124, 582)
+        Me.pDepartamento.Size = New System.Drawing.Size(124, 657)
         Me.pDepartamento.TabIndex = 9
         '
         'pgrupo
@@ -362,7 +361,7 @@ Partial Class frmPolleria
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
         Me.pgrupo.Location = New System.Drawing.Point(423, 100)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(220, 582)
+        Me.pgrupo.Size = New System.Drawing.Size(220, 657)
         Me.pgrupo.TabIndex = 10
         '
         'pProductos
@@ -371,7 +370,7 @@ Partial Class frmPolleria
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pProductos.Location = New System.Drawing.Point(643, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(511, 582)
+        Me.pProductos.Size = New System.Drawing.Size(511, 657)
         Me.pProductos.TabIndex = 11
         '
         'ppeso
@@ -402,8 +401,8 @@ Partial Class frmPolleria
         '
         Me.btnlimpia.BackColor = System.Drawing.Color.Linen
         Me.btnlimpia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnlimpia.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpia.Location = New System.Drawing.Point(218, 373)
+        Me.btnlimpia.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlimpia.Location = New System.Drawing.Point(212, 370)
         Me.btnlimpia.Name = "btnlimpia"
         Me.btnlimpia.Size = New System.Drawing.Size(98, 78)
         Me.btnlimpia.TabIndex = 14
@@ -415,7 +414,7 @@ Partial Class frmPolleria
         Me.Button4.BackColor = System.Drawing.Color.Linen
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(322, 373)
+        Me.Button4.Location = New System.Drawing.Point(316, 370)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(115, 78)
         Me.Button4.TabIndex = 13
@@ -427,7 +426,7 @@ Partial Class frmPolleria
         Me.BTNINTRO.BackColor = System.Drawing.Color.Linen
         Me.BTNINTRO.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BTNINTRO.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTNINTRO.Location = New System.Drawing.Point(322, 92)
+        Me.BTNINTRO.Location = New System.Drawing.Point(316, 89)
         Me.BTNINTRO.Name = "BTNINTRO"
         Me.BTNINTRO.Size = New System.Drawing.Size(115, 275)
         Me.BTNINTRO.TabIndex = 12
@@ -438,8 +437,8 @@ Partial Class frmPolleria
         '
         Me.btnp.BackColor = System.Drawing.Color.Linen
         Me.btnp.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnp.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnp.Location = New System.Drawing.Point(120, 373)
+        Me.btnp.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnp.Location = New System.Drawing.Point(114, 370)
         Me.btnp.Name = "btnp"
         Me.btnp.Size = New System.Drawing.Size(92, 78)
         Me.btnp.TabIndex = 11
@@ -450,8 +449,8 @@ Partial Class frmPolleria
         '
         Me.btn3.BackColor = System.Drawing.Color.Linen
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(218, 280)
+        Me.btn3.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn3.Location = New System.Drawing.Point(212, 277)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(98, 87)
         Me.btn3.TabIndex = 10
@@ -462,8 +461,8 @@ Partial Class frmPolleria
         '
         Me.btn6.BackColor = System.Drawing.Color.Linen
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn6.Location = New System.Drawing.Point(218, 185)
+        Me.btn6.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn6.Location = New System.Drawing.Point(212, 182)
         Me.btn6.Name = "btn6"
         Me.btn6.Size = New System.Drawing.Size(98, 87)
         Me.btn6.TabIndex = 9
@@ -474,8 +473,8 @@ Partial Class frmPolleria
         '
         Me.btn9.BackColor = System.Drawing.Color.Linen
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(218, 92)
+        Me.btn9.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn9.Location = New System.Drawing.Point(212, 89)
         Me.btn9.Name = "btn9"
         Me.btn9.Size = New System.Drawing.Size(98, 87)
         Me.btn9.TabIndex = 8
@@ -486,8 +485,8 @@ Partial Class frmPolleria
         '
         Me.btn2.BackColor = System.Drawing.Color.Linen
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(120, 280)
+        Me.btn2.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn2.Location = New System.Drawing.Point(114, 277)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(92, 87)
         Me.btn2.TabIndex = 7
@@ -498,8 +497,8 @@ Partial Class frmPolleria
         '
         Me.btn5.BackColor = System.Drawing.Color.Linen
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn5.Location = New System.Drawing.Point(120, 185)
+        Me.btn5.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn5.Location = New System.Drawing.Point(114, 182)
         Me.btn5.Name = "btn5"
         Me.btn5.Size = New System.Drawing.Size(92, 87)
         Me.btn5.TabIndex = 6
@@ -510,8 +509,8 @@ Partial Class frmPolleria
         '
         Me.btn8.BackColor = System.Drawing.Color.Linen
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(120, 92)
+        Me.btn8.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn8.Location = New System.Drawing.Point(114, 89)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(92, 87)
         Me.btn8.TabIndex = 5
@@ -522,8 +521,8 @@ Partial Class frmPolleria
         '
         Me.btn0.BackColor = System.Drawing.Color.Linen
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn0.Location = New System.Drawing.Point(23, 373)
+        Me.btn0.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn0.Location = New System.Drawing.Point(17, 370)
         Me.btn0.Name = "btn0"
         Me.btn0.Size = New System.Drawing.Size(91, 78)
         Me.btn0.TabIndex = 4
@@ -534,8 +533,8 @@ Partial Class frmPolleria
         '
         Me.btn1.BackColor = System.Drawing.Color.Linen
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(23, 280)
+        Me.btn1.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1.Location = New System.Drawing.Point(17, 277)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(91, 87)
         Me.btn1.TabIndex = 3
@@ -546,8 +545,8 @@ Partial Class frmPolleria
         '
         Me.btn4.BackColor = System.Drawing.Color.Linen
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn4.Location = New System.Drawing.Point(23, 185)
+        Me.btn4.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn4.Location = New System.Drawing.Point(17, 182)
         Me.btn4.Name = "btn4"
         Me.btn4.Size = New System.Drawing.Size(91, 87)
         Me.btn4.TabIndex = 2
@@ -558,8 +557,8 @@ Partial Class frmPolleria
         '
         Me.BTN7.BackColor = System.Drawing.Color.Linen
         Me.BTN7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BTN7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BTN7.Location = New System.Drawing.Point(23, 92)
+        Me.BTN7.Font = New System.Drawing.Font("Bahnschrift", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTN7.Location = New System.Drawing.Point(17, 89)
         Me.BTN7.Name = "BTN7"
         Me.BTN7.Size = New System.Drawing.Size(91, 87)
         Me.BTN7.TabIndex = 1
@@ -570,19 +569,19 @@ Partial Class frmPolleria
         '
         Me.GroupBox1.Controls.Add(Me.txtPeso)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 19)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(425, 67)
+        Me.GroupBox1.Size = New System.Drawing.Size(414, 67)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Peso"
         '
         'txtPeso
         '
-        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPeso.Location = New System.Drawing.Point(17, 29)
+        Me.txtPeso.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPeso.Location = New System.Drawing.Point(13, 18)
         Me.txtPeso.Name = "txtPeso"
-        Me.txtPeso.Size = New System.Drawing.Size(389, 26)
+        Me.txtPeso.Size = New System.Drawing.Size(389, 40)
         Me.txtPeso.TabIndex = 0
         '
         'frmPolleria
@@ -590,7 +589,7 @@ Partial Class frmPolleria
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1154, 682)
+        Me.ClientSize = New System.Drawing.Size(1154, 757)
         Me.Controls.Add(Me.ppeso)
         Me.Controls.Add(Me.pProductos)
         Me.Controls.Add(Me.pgrupo)
