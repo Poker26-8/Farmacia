@@ -694,6 +694,7 @@
             rd1.Close()
             cnn1.Close()
             MsgBox("Existencias actualizadas correctamente", vbOKOnly, "Delsscom Control Negocios PRO")
+            Label12.Enabled = False
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn2.Close()
