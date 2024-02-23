@@ -1819,6 +1819,11 @@ Public Class frmConfigs
                     cmd2.CommandText =
                          "update Formatos set NotasCred='1', NumPart=1 where Facturas='Series'"
                     cmd2.ExecuteNonQuery()
+                Else
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                         "update Formatos set NotasCred='0', NumPart=0 where Facturas='Series'"
+                    cmd2.ExecuteNonQuery()
                 End If
 
                 cnn2.Close()

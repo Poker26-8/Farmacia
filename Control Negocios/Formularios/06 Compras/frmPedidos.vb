@@ -3,6 +3,8 @@ Imports System.IO
 Imports iTextSharp.text
 Imports iTextSharp.text.pdf
 
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Public Class frmPedidos
     Dim alias_pedidos As String = ""
     Dim tipo_impre As String = ""
@@ -949,7 +951,7 @@ jiji:
 
         If env_pedi = "1" Then
             If MsgBox("¿Deseas enviar por correo el pedido a tu proveedor?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSCN1\" & cboprov.Text & "\Pedido_" & cbopedido.Text & ".pdf") Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\PEDIDOS\" & cboprov.Text & "\Pedido_" & cbopedido.Text & ".pdf") Then
                 Else
                     'Crea el PDF del pedido y lo guarda en la ruta
 
@@ -963,6 +965,39 @@ jiji:
         cnn1.Close()
         tipo_impre = ""
         btnlimpia.PerformClick()
+
+    End Sub
+
+    Private Sub Insert_Pedido()
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New DataTable
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from VentasDetalle", sinfo)
+                .runSp(a_cnn, "delete from Ventas", sinfo)
+                sinfo = ""
+            End If
+        End With
+    End Sub
+
+    Private Sub PDF_Pedido()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Venta
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\PEDIDOS\" & cboprov.Text & "\Pedido_" & MyFolio & ".pdf"
     End Sub
 
     Private Sub pTicket80_PrintPage(sender As System.Object, e As System.Drawing.Printing.PrintPageEventArgs) Handles pTicket80.PrintPage

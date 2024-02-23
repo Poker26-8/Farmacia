@@ -3,7 +3,7 @@ Imports System.IO.Ports
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 Imports MySql.Data.MySqlClient
-
+Imports QRCoder
 Public Class frmVentas_Series
 
     Public IMPRE As String = ""

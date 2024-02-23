@@ -712,7 +712,7 @@ Public Class frmRepEntradas
                         If ComboBox1.Text = "" Then
                             cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<>'' AND Concepto='ABONO' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
                         Else
-                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario<='" & ComboBox1.Text & "' AND Concepto='ABONO' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
+                            cmd2.CommandText = "SELECT Sum(Monto) FROM Abonoi WHERE FormaPago='EFECTIVO' AND Usuario='" & ComboBox1.Text & "' AND Concepto='ABONO' AND Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "'"
                         End If
 
 
