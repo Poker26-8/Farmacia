@@ -675,6 +675,15 @@
         Try
             Dim codig As String = ""
             Dim canti As Double = 0
+
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Update productos set ProvRes=0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+
+
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
