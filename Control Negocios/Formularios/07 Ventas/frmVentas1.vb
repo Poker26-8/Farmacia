@@ -4637,17 +4637,8 @@ Door:
                     Panel6.Visible = False
                     My.Application.DoEvents()
 
-                    If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
-                        Dim root_name_recibo2 As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf"
 
-                        frmEnviarPDF.Show()
-                        frmEnviarPDF.BringToFront()
-                        frmEnviarPDF.archivoadj = root_name_recibo2
-                        frmEnviarPDF.txtasunto.Text = "COTIZACION" & " " & MYFOLIO
-                        frmEnviarPDF.txtpara.Text = lblcorreocli.Text
-                    End If
-                    My.Application.DoEvents()
                 Else
 
                     cmd1 = cnn1.CreateCommand
@@ -4721,6 +4712,20 @@ Door:
                     End If
                 End If
 
+                If TPrint = "PDF - CARTA" Then
+                    If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                        Dim root_name_recibo2 As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf"
+
+                        frmEnviarPDF.Show()
+                        frmEnviarPDF.BringToFront()
+                        frmEnviarPDF.archivoadj = root_name_recibo2
+                        frmEnviarPDF.txtasunto.Text = "COTIZACION" & " " & MYFOLIO
+                        frmEnviarPDF.txtpara.Text = lblcorreocli.Text
+                    End If
+                    My.Application.DoEvents()
+                End If
+
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -4741,8 +4746,6 @@ Door:
                 End If
                 MYFOLIO = 0
                 cbodesc.Focus().Equals(True)
-
-
 
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
@@ -4799,7 +4802,7 @@ Door:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select Pie2 from Ticket"
+                "Select Pie2 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
