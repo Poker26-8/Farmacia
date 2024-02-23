@@ -264,7 +264,7 @@ Partial Class frmPedidos
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(1159, 31)
+        Me.Label1.Size = New System.Drawing.Size(803, 31)
         Me.Label1.TabIndex = 99
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -366,7 +366,7 @@ Partial Class frmPedidos
         Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtusuario.BackColor = System.Drawing.Color.White
         Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(1057, 4)
+        Me.txtusuario.Location = New System.Drawing.Point(701, 4)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtusuario.Size = New System.Drawing.Size(98, 23)
@@ -924,7 +924,7 @@ Partial Class frmPedidos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1159, 423)
+        Me.ClientSize = New System.Drawing.Size(803, 423)
         Me.Controls.Add(Me.lblusuario)
         Me.Controls.Add(Me.pCorreo)
         Me.Controls.Add(Me.lblValor)

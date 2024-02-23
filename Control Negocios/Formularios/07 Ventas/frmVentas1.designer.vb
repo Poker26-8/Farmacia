@@ -164,6 +164,7 @@ Partial Class frmVentas1
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.lblcorreocli = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnRetiroCaja = New System.Windows.Forms.Button()
         Me.lblAcuentaVentas = New System.Windows.Forms.Label()
@@ -237,7 +238,6 @@ Partial Class frmVentas1
         Me.Label41 = New System.Windows.Forms.Label()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
-        Me.lblcorreocli = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -1755,6 +1755,15 @@ Partial Class frmVentas1
         Me.Panel3.Size = New System.Drawing.Size(1228, 882)
         Me.Panel3.TabIndex = 196
         '
+        'lblcorreocli
+        '
+        Me.lblcorreocli.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lblcorreocli.Location = New System.Drawing.Point(876, 37)
+        Me.lblcorreocli.Name = "lblcorreocli"
+        Me.lblcorreocli.Size = New System.Drawing.Size(181, 23)
+        Me.lblcorreocli.TabIndex = 236
+        Me.lblcorreocli.Visible = False
+        '
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -2533,14 +2542,6 @@ Partial Class frmVentas1
         '
         'pComanda80
         '
-        '
-        'lblcorreocli
-        '
-        Me.lblcorreocli.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblcorreocli.Location = New System.Drawing.Point(876, 37)
-        Me.lblcorreocli.Name = "lblcorreocli"
-        Me.lblcorreocli.Size = New System.Drawing.Size(181, 23)
-        Me.lblcorreocli.TabIndex = 236
         '
         'frmVentas1
         '

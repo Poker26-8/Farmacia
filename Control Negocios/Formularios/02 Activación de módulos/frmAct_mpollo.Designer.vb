@@ -128,7 +128,7 @@ Partial Class frmAct_mpollo
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(421, 38)
         Me.Label3.TabIndex = 0
-        Me.Label3.Text = "1. Venta con mesas mapeables" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2. Control de recetas"
+        Me.Label3.Text = "1. Venta con empleados" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2. Conexion de basculas"
         '
         'frmAct_mpollo
         '

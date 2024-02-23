@@ -2224,4 +2224,5 @@ caca:
         cboTpago.Items.Add("DEPOSITO")
         cboTpago.Items.Add("OTRO")
     End Sub
+
 End Class
