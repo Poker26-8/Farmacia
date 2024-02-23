@@ -491,7 +491,7 @@ Public Class frmSeries
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT FCompra FROM Compras WHERE NumFactura='" & cbofactura.Text & "'"
+            cmd1.CommandText = "SELECT FechaC FROM Compras WHERE NumFactura='" & cbofactura.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

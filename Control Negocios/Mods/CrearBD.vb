@@ -5808,12 +5808,19 @@
 
 
     'Series
-    Public vartablasseries As String = "CREATE TABLE IF NOT EXISTS `series` (
+    Public vartablasseries As String = "CREATE TABLE `series` (
                                                   `Id` int(11) NOT NULL,
                                                   `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(255) NOT NULL DEFAULT '',
                                                   `Serie` varchar(100) NOT NULL DEFAULT '',
-                                                  `Cantidad` float NOT NULL DEFAULT '0'
-                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+                                                  `Fecha` datetime NOT NULL,
+                                                  `NotaVenta` varchar(100) NOT NULL DEFAULT '',
+                                                  `FechaEliminado` varchar(50) NOT NULL DEFAULT '',
+                                                  `Status` int(1) DEFAULT '0',
+                                                  `Factura` varchar(50) DEFAULT '',
+                                                  `FFactura` varchar(50) DEFAULT ''
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+"
 
     Public vartablaservicios As String = "CREATE TABLE IF NOT EXISTS `servicios` (
                                                   `Id` int(11) NOT NULL,
