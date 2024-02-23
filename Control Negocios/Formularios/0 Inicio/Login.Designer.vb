@@ -459,9 +459,9 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(224, 414)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblsoporte)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Button1)
