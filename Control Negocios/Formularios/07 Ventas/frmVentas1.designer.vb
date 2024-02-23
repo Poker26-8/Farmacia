@@ -237,6 +237,7 @@ Partial Class frmVentas1
         Me.Label41 = New System.Windows.Forms.Label()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
+        Me.lblcorreocli = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -1670,6 +1671,7 @@ Partial Class frmVentas1
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.lblcorreocli)
         Me.Panel3.Controls.Add(Me.Panel1)
         Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Controls.Add(Me.Label42)
@@ -2532,6 +2534,14 @@ Partial Class frmVentas1
         'pComanda80
         '
         '
+        'lblcorreocli
+        '
+        Me.lblcorreocli.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.lblcorreocli.Location = New System.Drawing.Point(876, 37)
+        Me.lblcorreocli.Name = "lblcorreocli"
+        Me.lblcorreocli.Size = New System.Drawing.Size(181, 23)
+        Me.lblcorreocli.TabIndex = 236
+        '
         'frmVentas1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -2784,4 +2794,5 @@ Partial Class frmVentas1
     Friend WithEvents Button13 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents Button10 As Button
+    Friend WithEvents lblcorreocli As Label
 End Class

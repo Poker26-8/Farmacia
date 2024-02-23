@@ -1493,6 +1493,8 @@ Public Class frmVentas1
                         txtcredito.Text = FormatNumber(rd1("Credito").ToString, 2)
                         cbocomisionista.Text = rd1("Comisionista").ToString
                         txttel.Text = rd1("Telefono").ToString
+                        lblcorreocli.Text = rd1("Correo").ToString
+
                         If Trim(cbocomisionista.Text) <> "" Then
                             cbocomisionista.Enabled = False
                         Else
@@ -4635,6 +4637,17 @@ Door:
                     Panel6.Visible = False
                     My.Application.DoEvents()
 
+                    If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                        Dim root_name_recibo2 As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf"
+
+                        frmEnviarPDF.Show()
+                        frmEnviarPDF.BringToFront()
+                        frmEnviarPDF.archivoadj = root_name_recibo2
+                        frmEnviarPDF.txtasunto.Text = "COTIZACION" & " " & MYFOLIO
+                        frmEnviarPDF.txtpara.Text = lblcorreocli.Text
+                    End If
+                    My.Application.DoEvents()
                 Else
 
                     cmd1 = cnn1.CreateCommand
@@ -4728,6 +4741,8 @@ Door:
                 End If
                 MYFOLIO = 0
                 cbodesc.Focus().Equals(True)
+
+
 
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())

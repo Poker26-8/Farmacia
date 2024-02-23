@@ -61,6 +61,7 @@ Partial Class frmVentas_Series
         Me.lblusuario = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.txtfechacad = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnRetiroCaja = New System.Windows.Forms.Button()
@@ -207,7 +208,6 @@ Partial Class frmVentas_Series
         Me.PDevo80 = New System.Drawing.Printing.PrintDocument()
         Me.PDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.PDevo58 = New System.Drawing.Printing.PrintDocument()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -215,6 +215,7 @@ Partial Class frmVentas_Series
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -227,7 +228,6 @@ Partial Class frmVentas_Series
         Me.GroupBox4.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -690,6 +690,20 @@ Partial Class frmVentas_Series
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1153, 882)
         Me.Panel3.TabIndex = 197
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox3.Location = New System.Drawing.Point(638, 690)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(10)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox3.Size = New System.Drawing.Size(57, 55)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 237
+        Me.PictureBox3.TabStop = False
+        Me.PictureBox3.Visible = False
         '
         'txtfechacad
         '
@@ -2197,20 +2211,6 @@ Partial Class frmVentas_Series
         'PDevoCarta
         '
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Location = New System.Drawing.Point(638, 690)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(10)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox3.Size = New System.Drawing.Size(57, 55)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 237
-        Me.PictureBox3.TabStop = False
-        Me.PictureBox3.Visible = False
-        '
         'frmVentas_Series
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2233,6 +2233,7 @@ Partial Class frmVentas_Series
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel6.ResumeLayout(False)
@@ -2252,7 +2253,6 @@ Partial Class frmVentas_Series
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
