@@ -7895,7 +7895,61 @@ ecomoda:
 
             Y += 18
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
+            Y += 20
 
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+
+            If autofac = 1 Then
+
+                If linkauto <> "" Then
+                    Dim entrada As String = linkauto
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+
+                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+
+                    ' Asigna la nueva imagen al PictureBox
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
+                    Y += 15
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 209, 209)
+                End If
+
+            Else
+
+            End If
 
             e.HasMorePages = False
 

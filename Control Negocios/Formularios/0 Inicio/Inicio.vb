@@ -219,6 +219,30 @@ Public Class Inicio
             cnn1.Close()
         End Try
 
+        'series
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "select NotasCred from Formatos where Facturas='Series'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
+                        ReporteDeSeries.Visible = True
+                    Else
+                        ReporteDeSeries.Visible = False
+                    End If
+
+                End If
+                End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
 
         'Validación de la aditoria
 
@@ -2354,7 +2378,7 @@ Public Class Inicio
         frmMenuNomina.BringToFront()
     End Sub
 
-    Private Sub ReporteDeSeriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeSeriesToolStripMenuItem.Click
+    Private Sub ReporteDeSeriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeSeries.Click
         frmRepSeries.Show()
         frmRepSeries.BringToFront()
     End Sub

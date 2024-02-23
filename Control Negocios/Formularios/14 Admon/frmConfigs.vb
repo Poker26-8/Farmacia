@@ -100,6 +100,22 @@ Public Class frmConfigs
             End If
             rd4.Close()
 
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Series'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    auto = rd4(0).ToString
+
+                    If auto = 1 Then
+                        cbseries.Checked = True
+                    Else
+                        cbseries.Checked = False
+                    End If
+                End If
+            End If
+            rd4.Close()
+
             If (chkautofacturas.Checked) Then
                 pauto.Visible = True
                 cmd4 = cnn4.CreateCommand
@@ -113,23 +129,6 @@ Public Class frmConfigs
                 rd4.Close()
 
             End If
-
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                 "select NumPart from Formatos where Facturas='Series'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        chkSeries.Checked = True
-                        chkSeries.Enabled = False
-                    Else
-                        chkSeries.Checked = False
-                        chkSeries.Enabled = True
-                    End If
-                End If
-            End If
-            rd4.Close()
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
@@ -1721,7 +1720,7 @@ Public Class frmConfigs
         End If
     End Sub
 
-    Private Sub chkSeries_Click(sender As System.Object, e As System.EventArgs) Handles chkSeries.Click
+    Private Sub chkSeries_Click(sender As System.Object, e As System.EventArgs)
         SFormatos("Series", "")
     End Sub
 
@@ -1806,17 +1805,19 @@ Public Class frmConfigs
                     cmd2.ExecuteNonQuery()
                 End If
 
-                If (chkSeries.Checked) Then
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
-                         "update Formatos set NotasCred='1', NumPart=1 where Facturas='Series'"
-                    cmd2.ExecuteNonQuery()
-                End If
+
 
                 If (chkPartes.Checked) Then
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
                          "update Formatos set NotasCred='1', NumPart=1 where Facturas='Partes'"
+                    cmd2.ExecuteNonQuery()
+                End If
+
+                If (cbseries.Checked) Then
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                         "update Formatos set NotasCred='1', NumPart=1 where Facturas='Series'"
                     cmd2.ExecuteNonQuery()
                 End If
 

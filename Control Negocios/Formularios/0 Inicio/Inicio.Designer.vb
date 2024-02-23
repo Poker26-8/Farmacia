@@ -110,7 +110,7 @@ Partial Class Inicio
         Me.pAjuste = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEstResultados = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReporteDeSeriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
@@ -732,28 +732,28 @@ Partial Class Inicio
         '
         Me.pVentasM.BackColor = System.Drawing.Color.White
         Me.pVentasM.Name = "pVentasM"
-        Me.pVentasM.Size = New System.Drawing.Size(180, 22)
+        Me.pVentasM.Size = New System.Drawing.Size(169, 22)
         Me.pVentasM.Text = "Ventas mostrador"
         '
         'pVentasT
         '
         Me.pVentasT.BackColor = System.Drawing.Color.White
         Me.pVentasT.Name = "pVentasT"
-        Me.pVentasT.Size = New System.Drawing.Size(180, 22)
+        Me.pVentasT.Size = New System.Drawing.Size(169, 22)
         Me.pVentasT.Text = "Ventas touch"
         '
         'pcFolios
         '
         Me.pcFolios.BackColor = System.Drawing.Color.White
         Me.pcFolios.Name = "pcFolios"
-        Me.pcFolios.Size = New System.Drawing.Size(180, 22)
+        Me.pcFolios.Size = New System.Drawing.Size(169, 22)
         Me.pcFolios.Text = "Consulta de folios"
         '
         'pAbonosV
         '
         Me.pAbonosV.BackColor = System.Drawing.Color.White
         Me.pAbonosV.Name = "pAbonosV"
-        Me.pAbonosV.Size = New System.Drawing.Size(180, 22)
+        Me.pAbonosV.Size = New System.Drawing.Size(169, 22)
         Me.pAbonosV.Text = "Abonos a notas"
         Me.pAbonosV.Visible = False
         '
@@ -773,7 +773,7 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeriesToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries})
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
@@ -894,11 +894,11 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Text = "Reporte de control de servicios"
         '
-        'ReporteDeSeriesToolStripMenuItem
+        'ReporteDeSeries
         '
-        Me.ReporteDeSeriesToolStripMenuItem.Name = "ReporteDeSeriesToolStripMenuItem"
-        Me.ReporteDeSeriesToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.ReporteDeSeriesToolStripMenuItem.Text = "Reporte de Series"
+        Me.ReporteDeSeries.Name = "ReporteDeSeries"
+        Me.ReporteDeSeries.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeSeries.Text = "Reporte de Series"
         '
         'pEgresos
         '
@@ -1509,6 +1509,6 @@ Partial Class Inicio
     Friend WithEvents btnHoteleria As Button
     Friend WithEvents NominaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuNominaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ReporteDeSeriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeSeries As ToolStripMenuItem
     Friend WithEvents btnpollo As Button
 End Class

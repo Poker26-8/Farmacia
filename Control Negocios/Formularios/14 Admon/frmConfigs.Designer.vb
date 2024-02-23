@@ -199,6 +199,7 @@ Partial Class frmConfigs
         Me.cboImpCarta = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.rbsbascula = New System.Windows.Forms.RadioButton()
         Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.rbRhino = New System.Windows.Forms.RadioButton()
@@ -287,9 +288,9 @@ Partial Class frmConfigs
         Me.optPromedio = New System.Windows.Forms.RadioButton()
         Me.optPEPS = New System.Windows.Forms.RadioButton()
         Me.GroupBox23 = New System.Windows.Forms.GroupBox()
+        Me.cbseries = New System.Windows.Forms.CheckBox()
         Me.chkPartes = New System.Windows.Forms.CheckBox()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.chkSeries = New System.Windows.Forms.CheckBox()
         Me.chkCodAuto = New System.Windows.Forms.CheckBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.chkImg_PDF = New System.Windows.Forms.CheckBox()
@@ -321,7 +322,6 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.rbsbascula = New System.Windows.Forms.RadioButton()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2089,10 +2089,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2330,6 +2330,17 @@ Partial Class frmConfigs
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Marca de la báscula"
+        '
+        'rbsbascula
+        '
+        Me.rbsbascula.AutoSize = True
+        Me.rbsbascula.Location = New System.Drawing.Point(68, 44)
+        Me.rbsbascula.Name = "rbsbascula"
+        Me.rbsbascula.Size = New System.Drawing.Size(84, 19)
+        Me.rbsbascula.TabIndex = 8
+        Me.rbsbascula.TabStop = True
+        Me.rbsbascula.Text = "Sin Bascula"
+        Me.rbsbascula.UseVisualStyleBackColor = True
         '
         'rbNoval
         '
@@ -3103,9 +3114,9 @@ Partial Class frmConfigs
         Me.TabPage1.Controls.Add(Me.boxCosteo)
         Me.TabPage1.Controls.Add(Me.GroupBox23)
         Me.TabPage1.Controls.Add(Me.GroupBox9)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 64)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(478, 463)
+        Me.TabPage1.Size = New System.Drawing.Size(478, 457)
         Me.TabPage1.TabIndex = 7
         Me.TabPage1.Text = "Funcionalidades"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -3253,9 +3264,9 @@ Partial Class frmConfigs
         '
         'GroupBox23
         '
+        Me.GroupBox23.Controls.Add(Me.cbseries)
         Me.GroupBox23.Controls.Add(Me.chkPartes)
         Me.GroupBox23.Controls.Add(Me.Button3)
-        Me.GroupBox23.Controls.Add(Me.chkSeries)
         Me.GroupBox23.Controls.Add(Me.chkCodAuto)
         Me.GroupBox23.Location = New System.Drawing.Point(252, 12)
         Me.GroupBox23.Name = "GroupBox23"
@@ -3264,11 +3275,21 @@ Partial Class frmConfigs
         Me.GroupBox23.TabStop = False
         Me.GroupBox23.Text = "Únicos"
         '
+        'cbseries
+        '
+        Me.cbseries.AutoSize = True
+        Me.cbseries.Location = New System.Drawing.Point(10, 85)
+        Me.cbseries.Name = "cbseries"
+        Me.cbseries.Size = New System.Drawing.Size(114, 19)
+        Me.cbseries.TabIndex = 7
+        Me.cbseries.Text = "Manejo de series"
+        Me.cbseries.UseVisualStyleBackColor = True
+        '
         'chkPartes
         '
         Me.chkPartes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkPartes.Location = New System.Drawing.Point(10, 85)
+        Me.chkPartes.Location = New System.Drawing.Point(10, 60)
         Me.chkPartes.Name = "chkPartes"
         Me.chkPartes.Size = New System.Drawing.Size(203, 19)
         Me.chkPartes.TabIndex = 6
@@ -3284,17 +3305,6 @@ Partial Class frmConfigs
         Me.Button3.TabIndex = 5
         Me.Button3.Text = "Guardar"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'chkSeries
-        '
-        Me.chkSeries.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkSeries.Location = New System.Drawing.Point(10, 60)
-        Me.chkSeries.Name = "chkSeries"
-        Me.chkSeries.Size = New System.Drawing.Size(203, 19)
-        Me.chkSeries.TabIndex = 4
-        Me.chkSeries.Text = "Manejo de series de productos"
-        Me.chkSeries.UseVisualStyleBackColor = True
         '
         'chkCodAuto
         '
@@ -3630,17 +3640,6 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
-        'rbsbascula
-        '
-        Me.rbsbascula.AutoSize = True
-        Me.rbsbascula.Location = New System.Drawing.Point(68, 44)
-        Me.rbsbascula.Name = "rbsbascula"
-        Me.rbsbascula.Size = New System.Drawing.Size(84, 19)
-        Me.rbsbascula.TabIndex = 8
-        Me.rbsbascula.TabStop = True
-        Me.rbsbascula.Text = "Sin Bascula"
-        Me.rbsbascula.UseVisualStyleBackColor = True
-        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3731,6 +3730,7 @@ Partial Class frmConfigs
         Me.boxCosteo.ResumeLayout(False)
         Me.boxCosteo.PerformLayout()
         Me.GroupBox23.ResumeLayout(False)
+        Me.GroupBox23.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
         Me.tabMigracion.ResumeLayout(False)
         Me.tabMigracion.PerformLayout()
@@ -3948,7 +3948,6 @@ Partial Class frmConfigs
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
-    Friend WithEvents chkSeries As System.Windows.Forms.CheckBox
     Friend WithEvents chkautofacturas As System.Windows.Forms.CheckBox
     Friend WithEvents chkAcumula As System.Windows.Forms.CheckBox
     Friend WithEvents chkCodAuto As System.Windows.Forms.CheckBox
@@ -4041,4 +4040,5 @@ Partial Class frmConfigs
     Friend WithEvents label799 As Label
     Friend WithEvents txtComerciall As TextBox
     Friend WithEvents rbsbascula As RadioButton
+    Friend WithEvents cbseries As CheckBox
 End Class
