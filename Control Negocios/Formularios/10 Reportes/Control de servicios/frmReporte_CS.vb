@@ -440,11 +440,12 @@
                         Dim procesos As String = rd1("Proceso").ToString()
                         Dim status As Integer = rd1("Status").ToString()
                         Dim fecha_entrega As Date = rd1("Entrega").ToString()
+                        Dim comen As String = rd1("Comentario").ToString
 
                         If status = 0 Then
                             grdpendientes.Rows.Add(procesos, FormatDateTime(fecha_entrega, DateFormat.ShortDate))
                         Else
-                            grdconcluidos.Rows.Add(procesos, FormatDateTime(fecha_entrega, DateFormat.ShortDate), FormatDateTime(rd1("Entregado").ToString, DateFormat.ShortDate))
+                            grdconcluidos.Rows.Add(procesos, FormatDateTime(fecha_entrega, DateFormat.ShortDate), FormatDateTime(rd1("Entregado").ToString, DateFormat.ShortDate), comen)
                         End If
                     End If
                 Loop

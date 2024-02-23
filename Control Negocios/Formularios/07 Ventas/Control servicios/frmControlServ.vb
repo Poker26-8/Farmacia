@@ -52,7 +52,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from control_servicios where Folio=" & lblfolio.Text & " and Codigo='" & txtcodigo.Text & "'"
+                "select * from control_servicios where Folio=" & lblfolio.Text & " and Codigo='" & txtcodigo.Text & "' AND Status=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -103,8 +103,16 @@
                     If rd1.Read Then
                         lblusuario.Text = rd1("Alias").ToString()
                         id_usu = rd1("IdEmpleado").ToString()
+
+                        If rd1("Area") = "ADMINISTRACIÓN" Then
+                            btnCambiar.Visible = True
+                        Else
+                            btnCambiar.Visible = False
+                        End If
+
                     End If
-                Else
+
+                    Else
                     MsgBox("Contraseña incorrecta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     txtusuario.SelectAll()
                     Exit Sub
@@ -118,5 +126,36 @@
                 cnn1.Close()
             End Try
         End If
+    End Sub
+
+    Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click
+        Try
+
+            If lblusuario.Text = "" Then MsgBox("Necesita proporcionar la contraseña del administrador") : txtusuario.Focus.Equals(True) : Exit Sub
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM control_servicios WHERE Folio='" & lblfolio.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE control_servicios SET Encargado='" & cbousuario.Text & "' WHERE Folio='" & lblfolio.Text & "'"
+                    If cmd2.ExecuteNonQuery() Then
+                        MsgBox("Encargado actualizado correctamente", vbInformation + vbOKOnly, titulocentral)
+                    End If
+                    cnn2.Close()
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

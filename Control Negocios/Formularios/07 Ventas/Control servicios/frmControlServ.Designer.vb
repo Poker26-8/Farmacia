@@ -22,6 +22,7 @@ Partial Class frmControlServ
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmControlServ))
         Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.lblusuario = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
@@ -46,6 +47,7 @@ Partial Class frmControlServ
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtComentario = New System.Windows.Forms.RichTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.btnCambiar = New System.Windows.Forms.Button()
         Me.boxFin.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -319,12 +321,25 @@ Partial Class frmControlServ
         Me.Label8.TabIndex = 246
         Me.Label8.Text = "Comentario de nota de venta"
         '
+        'btnCambiar
+        '
+        Me.btnCambiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCambiar.Location = New System.Drawing.Point(537, 263)
+        Me.btnCambiar.Name = "btnCambiar"
+        Me.btnCambiar.Size = New System.Drawing.Size(109, 37)
+        Me.btnCambiar.TabIndex = 247
+        Me.btnCambiar.Text = "Cambiar Encargado"
+        Me.btnCambiar.UseVisualStyleBackColor = False
+        Me.btnCambiar.Visible = False
+        '
         'frmControlServ
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(656, 354)
+        Me.Controls.Add(Me.btnCambiar)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtComentario)
         Me.Controls.Add(Me.txtusuario)
@@ -340,10 +355,11 @@ Partial Class frmControlServ
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label19)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(672, 307)
         Me.Name = "frmControlServ"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Control de servvicios"
+        Me.Text = "Control de servicios"
         Me.boxFin.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -376,4 +392,5 @@ Partial Class frmControlServ
     Friend WithEvents Label19 As Label
     Friend WithEvents txtComentario As RichTextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents btnCambiar As Button
 End Class

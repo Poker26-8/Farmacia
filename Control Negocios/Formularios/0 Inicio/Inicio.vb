@@ -209,11 +209,32 @@ Public Class Inicio
                 If rd1.Read Then
                     If rd1("NumPart").ToString() = 1 Then
                         ControlDeServiciosToolStripMenuItem.Visible = True
-                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Rep_Servicios FROM permisos WHERE IdEmpleado=" & id_usu_log
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+
+                                If rd2(0).ToString = 1 Then
+                                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
+                                Else
+                                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+                                End If
+
+                            End If
+                        Else
+                            ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+                        End If
+                        rd2.Close()
+
+
                     End If
                 End If
             End If
             rd1.Close() : cnn1.Close()
+            cnn2.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
