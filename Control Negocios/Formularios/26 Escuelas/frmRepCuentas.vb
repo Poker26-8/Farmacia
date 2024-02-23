@@ -46,17 +46,17 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select SUM(ACuenta) as Acue, SUM(Resta) as Resti from Ventas where Cliente='" & alumno & "'"
+                            "select SUM(ACuenta), SUM(Resta) from Ventas where Cliente='" & alumno & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                acuenta = rd2("Acue").ToString()
-                                resta = rd2("Resti").ToString()
+                                acuenta = IIf(rd2(0).ToString() = "", 0, rd2(0).ToString())
+                                resta = IIf(rd2(1).ToString() = "", 0, rd2(1).ToString())
                             End If
                         End If
                         rd2.Close()
 
-                        grdcaptura.Rows.Add(matricula, alumno, grupo, curso, FormatNumber(acuenta, 2), FormatNumber(resta, 2), inscripcion, IIf(baja = "", "", Format(CDate(baja), "dd/MM/yyyy")))
+                        grdcaptura.Rows.Add(matricula, alumno, grupo, curso, FormatNumber(acuenta, 2), FormatNumber(resta, 2), inscripcion, baja)
                         barcarga.Value += 1
                         txtcobrar.Text = CDbl(txtcobrar.Text) + resta
                         My.Application.DoEvents()
@@ -111,17 +111,17 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select SUM(ACuenta) as Acue, SUM(Resta) as Resti from Ventas where Cliente='" & alumno & "'"
+                            "select SUM(ACuenta), SUM(Resta) from Ventas where Cliente='" & alumno & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                acuenta = rd2("Acue").ToString()
-                                resta = rd2("Resti").ToString()
+                                acuenta = IIf(rd2(0).ToString() = "", 0, rd2(0).ToString())
+                                resta = IIf(rd2(1).ToString() = "", 0, rd2(1).ToString())
                             End If
                         End If
                         rd2.Close()
 
-                        grdcaptura.Rows.Add(matricula, alumno, FormatNumber(acuenta, 2), FormatNumber(resta, 2), inscripcion, IIf(baja = "", "", Format(CDate(baja), "dd/MM/yyyy")))
+                        grdcaptura.Rows.Add(matricula, alumno, FormatNumber(acuenta, 2), FormatNumber(resta, 2), inscripcion, baja)
                         barcarga.Value += 1
                         txtcobrar.Text = CDbl(txtcobrar.Text) + resta
                         My.Application.DoEvents()
