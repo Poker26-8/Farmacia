@@ -70,6 +70,7 @@ Partial Class frmAlumnos
         Me.txtcontraseña = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.LBLID = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -566,11 +567,22 @@ Partial Class frmAlumnos
         Me.Label18.TabIndex = 232
         Me.Label18.Text = "Baja:"
         '
+        'LBLID
+        '
+        Me.LBLID.AutoSize = True
+        Me.LBLID.Location = New System.Drawing.Point(62, 429)
+        Me.LBLID.Name = "LBLID"
+        Me.LBLID.Size = New System.Drawing.Size(19, 15)
+        Me.LBLID.TabIndex = 234
+        Me.LBLID.Text = "LL"
+        Me.LBLID.Visible = False
+        '
         'frmAlumnos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(499, 479)
+        Me.Controls.Add(Me.LBLID)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.lblusuario)
@@ -659,4 +671,5 @@ Partial Class frmAlumnos
     Friend WithEvents txtcontraseña As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label18 As Label
+    Friend WithEvents LBLID As Label
 End Class

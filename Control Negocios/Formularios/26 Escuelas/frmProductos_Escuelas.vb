@@ -268,6 +268,7 @@ Public Class frmProductos_Escuelas
                 Else
                     MsgBox("Ocurrió un error al actualizar el concepto de pago.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 End If
+
                 cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
@@ -292,6 +293,8 @@ Public Class frmProductos_Escuelas
             Try
                 cnn1.Close() : cnn1.Open()
 
+                Dim folio_v As Integer = 0
+
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
                     "update Kits set Fecha='" & Format(fecha, "yyyy-MM-dd") & "' where Descrip='" & lblnombre_fecha.Text & "' and Nombre='" & cboNombre.Text & "'"
@@ -305,6 +308,7 @@ Public Class frmProductos_Escuelas
                 Else
                     MsgBox("Ocurrió un error al actualizar la fecha de pago.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 End If
+
                 cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
@@ -335,6 +339,8 @@ Public Class frmProductos_Escuelas
                 cmd1.CommandText =
                     "update Kits set PPrecio=" & monto & ", CTotal=" & monto & " where Descrip='" & lblnombre_monto.Text & "' and Nombre='" & cboNombre.Text & "'"
                 If cmd1.ExecuteNonQuery Then
+                    Cambia_Montos(txtmonto_actual.Text, monto, lblnombre_monto.Text)
+
                     MsgBox("Monto de pago actualizado correctamente.", vbInformation + vbOK, "Delsscom Control Negocios Pro")
                     boxMonto.Visible = False
                     cnn1.Close()
@@ -352,5 +358,85 @@ Public Class frmProductos_Escuelas
                 cnn1.Close()
             End Try
         End If
+    End Sub
+
+    Private Sub Cambia_Montos(ByVal anterior As Double, ByVal monto As Double, ByVal concepto As String)
+        Dim folio_v As Integer = 0
+        Dim id_cliente As Integer = 0
+        Dim id_abono As Integer = 0
+        Dim saldo As Double = 0
+        Dim status As String = ""
+
+        Try
+            cnn2.Close() : cnn2.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from VentasDetalle where Nombre='" & concepto & "'"
+            rd2 = cmd2.ExecuteReader
+            cnn3.Close() : cnn3.Open()
+
+            Do While rd2.Read
+                If rd2.HasRows Then
+                    folio_v = rd2("Folio").ToString()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                        "select * from Ventas where Folio=" & folio_v
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            id_cliente = rd3("IdCliente").ToString()
+                            status = rd3("Status").ToString()
+                        End If
+                    End If
+                    rd3.Close()
+
+                    If status <> "RESTA" Then
+                        Continue Do
+                    End If
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                    "select Id,Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where IdCliente=" & id_cliente & ")"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            id_abono = rd3(0).ToString()
+                            saldo = rd3(1).ToString()
+                        End If
+                    End If
+                    rd3.Close()
+
+                    Dim nuevo_saldo As Double = (saldo - anterior) + monto
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                    "update AbonoI set Saldo=" & nuevo_saldo & " where Id=" & id_abono
+                    cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                    "update Abonoi set Cargo=" & monto & " where IdCliente=" & id_cliente & " and NumFolio='" & folio_v & "'"
+                    cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                        "update Ventas set Subtotal=" & monto & ", Totales=" & monto & ", Resta=" & monto & " where Folio=" & folio_v
+                    cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                        "update VentasDetalle set Precio=" & monto & ", Total=" & monto & ", PrecioSinIVA=" & monto & ", TotalSinIVA=" & monto & " where Folio=" & folio_v
+                    cmd3.ExecuteNonQuery()
+                End If
+            Loop
+            cnn3.Close()
+            rd2.Close()
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
     End Sub
 End Class
