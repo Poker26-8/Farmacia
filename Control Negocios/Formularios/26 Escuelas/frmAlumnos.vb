@@ -34,6 +34,7 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
+                    LBLID.Text = rd1("Id").ToString()
                     cboMatricula.Text = rd1("Matricula").ToString()
                     txttelefono.Text = rd1("Telefono").ToString()
                     txttutor.Text = rd1("Tutor").ToString()
@@ -99,6 +100,7 @@
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
+                            LBLID.Text = rd1("Id").ToString()
                             cboMatricula.Text = rd1("Matricula").ToString()
                             txttelefono.Text = rd1("Telefono").ToString()
                             txttutor.Text = rd1("Tutor").ToString()
@@ -165,6 +167,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
+                    LBLID.Text = rd2("Id").ToString()
                     cboNombre.Text = rd2("Nombre").ToString()
                     txttelefono.Text = rd2("Telefono").ToString()
                     txttutor.Text = rd2("Tutor").ToString()
@@ -210,6 +213,7 @@
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
+                            LBLID.Text = rd2("Id").ToString()
                             cboNombre.Text = rd2("Nombre").ToString()
                             txttelefono.Text = rd2("Telefono").ToString()
                             txttutor.Text = rd2("Tutor").ToString()
@@ -353,6 +357,7 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+        LBLID.Text = ""
         cboNombre.Text = ""
         cboMatricula.Text = ""
         txttelefono.Text = ""
@@ -386,6 +391,7 @@
 
         If MsgBox("¿Deseas actualizar la información del alumno?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Dim id_grupo As Integer = 0
+            Dim id_alumno As Integer = LBLID.Text
 
             Try
                 cnn1.Close() : cnn1.Open()
@@ -403,7 +409,22 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Alumnos set Telefono='" & txttelefono.Text & "', Tutor='" & txttutor.Text & "', Contacto='" & txtcontacto.Text & "', Calle='" & txtcalle.Text & "', N_Int='" & txtnint.Text & "', N_Ext='" & txtnext.Text & "', Colonia='" & txtcolonia.Text & "', CP='" & txtcolonia.Text & "', Delegacion='" & txtdelegacion.Text & "', Estado='" & txtestado.Text & "', Id_Grupo=" & id_grupo & ", Grupo='" & txtgrupo.Text & "', Lunes=" & IIf(optlunes.Checked = True, 1, 0) & ", Martes=" & IIf(optmartes.Checked = True, 1, 0) & ", Miercoles=" & IIf(optmiercoles.Checked = True, 1, 0) & ", Jueves=" & IIf(optjueves.Checked = True, 1, 0) & ", Viernes=" & IIf(optviernes.Checked = True, 1, 0) & ", Sabado=" & IIf(optsabado.Checked = True, 1, 0) & " where Nombre='" & cboNombre.Text & "'"
+                    "update Clientes set Nombre='" & cboNombre.Text & "', RazonSocial='" & cboNombre.Text & "' where Id=" & id_alumno
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update AbonoI set Cliente='" & cboNombre.Text & "' where IdCliente=" & id_alumno
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Ventas set Cliente='" & cboNombre.Text & "' where IdCliente=" & id_alumno
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Alumnos set Nombre='" & cboNombre.Text & "', Telefono='" & txttelefono.Text & "', Tutor='" & txttutor.Text & "', Contacto='" & txtcontacto.Text & "', Calle='" & txtcalle.Text & "', N_Int='" & txtnint.Text & "', N_Ext='" & txtnext.Text & "', Colonia='" & txtcolonia.Text & "', CP='" & txtcolonia.Text & "', Delegacion='" & txtdelegacion.Text & "', Estado='" & txtestado.Text & "', Id_Grupo=" & id_grupo & ", Grupo='" & txtgrupo.Text & "', Lunes=" & IIf(optlunes.Checked = True, 1, 0) & ", Martes=" & IIf(optmartes.Checked = True, 1, 0) & ", Miercoles=" & IIf(optmiercoles.Checked = True, 1, 0) & ", Jueves=" & IIf(optjueves.Checked = True, 1, 0) & ", Viernes=" & IIf(optviernes.Checked = True, 1, 0) & ", Sabado=" & IIf(optsabado.Checked = True, 1, 0) & " where Id=" & id_alumno
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Datos del alumno actualizados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     btnlimpiar.PerformClick()
