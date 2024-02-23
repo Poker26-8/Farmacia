@@ -1116,6 +1116,7 @@ Public Class frmRepEntradas
         txtTotalAbono.Text = "0.00"
         txtEfeCaja.Text = "0.00"
         txtSalTarj.Text = "0.00"
+        txttotalformas.Text = "0.00"
 
         grdCanceñlaciones.Rows.Clear()
         grdpagos.Rows.Clear()

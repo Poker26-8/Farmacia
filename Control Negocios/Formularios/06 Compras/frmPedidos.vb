@@ -962,6 +962,8 @@ jiji:
             End If
         End If
 
+        Insert_Pedido()
+
         cnn1.Close()
         tipo_impre = ""
         btnlimpia.PerformClick()
@@ -976,11 +978,92 @@ jiji:
         Dim dr As DataRow = Nothing
         Dim dt As New DataTable
 
+        Dim tipo_pago As String = ""
+        Dim campo_pago As String = ""
+        Dim banco As String = ""
+        Dim refe As String = ""
+        Dim monto As Double = 0
+
+        Dim fecha As String = Date.Now.ToString("yyyy-MM-dd")
+        Dim hora As String = Date.Now.ToString("yyyy-MM-dd HH:mm:ss")
+
         With oData
             If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
-                .runSp(a_cnn, "delete from VentasDetalle", sinfo)
-                .runSp(a_cnn, "delete from Ventas", sinfo)
+                .runSp(a_cnn, "delete from pedidos", sinfo)
+                .runSp(a_cnn, "delete from pedidosdet", sinfo)
                 sinfo = ""
+
+                '[°]. Valida el pago/anticipo y sus componentes
+                If cboTpago.Text <> "" Then
+                    If cboTpago.Text = "EFECTIVO" Or cboTpago.Text = "TARJETA" Or cboTpago.Text = "TRANSFERENCIA" Or cboTpago.Text = "OTRO" Then
+                        Select Case cboTpago.Text
+                            Case Is = "EFECTIVO"
+                                tipo_pago = "EFECTIVO"
+                                campo_pago = "Efectivo"
+                                banco = ""
+                                refe = ""
+                                monto = txtmonto.Text
+                            Case Is = "TARJETA"
+                                tipo_pago = "TARJETA"
+                                campo_pago = "Tarjeta"
+                                banco = cboBanco.Text
+                                refe = txtref.Text
+                                monto = txtmonto.Text
+                            Case Is = "TRANSFERENCIA"
+                                tipo_pago = "TRANSFERENCIA"
+                                campo_pago = "Transfe"
+                                banco = cboBanco.Text
+                                refe = txtref.Text
+                                monto = txtmonto.Text
+                            Case Is = "OTRO"
+                                tipo_pago = "OTRO"
+                                campo_pago = "Otro"
+                                banco = cboBanco.Text
+                                refe = txtref.Text
+                                monto = txtmonto.Text
+                        End Select
+                    Else
+                        MsgBox("Forma de pago no válida, revisa la información.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        cboTpago.Focus().Equals(True)
+                        cnn1.Close()
+                        Exit Sub
+                    End If
+                Else
+                    tipo_pago = ""
+                    banco = ""
+                    refe = ""
+                    monto = 0
+                End If
+
+                Dim total As Double = FormatNumber(txtTotal.Text, 2)
+                monto = FormatNumber(monto, 2)
+
+                If .runSp(a_cnn, "insert into Pedidos(Num,Proveedor,Total,Anticipo,Fecha,Hora,Status,Usuario,TipoPago,Banco,Referencia) values('" & cbopedido.Text & "','" & cboprov.Text & "'," & total & "," & monto & ",'" & fecha & "','" & hora & "',0,'" & alias_pedidos & "','" & tipo_pago & "','" & banco & "','" & refe & "')") Then
+
+                    sinfo = ""
+                Else
+                    MsgBox(sinfo)
+                End If
+
+                For sd As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                    Dim codigo As String = grdcaptura.Rows(sd).Cells(0).Value.ToString
+                    Dim nombre As String = grdcaptura.Rows(sd).Cells(1).Value.ToString
+                    Dim unidad As String = grdcaptura.Rows(sd).Cells(2).Value.ToString
+                    Dim cantid As Double = grdcaptura.Rows(sd).Cells(3).Value.ToString
+                    Dim precio As Double = FormatNumber(grdcaptura.Rows(sd).Cells(4).Value.ToString, 4)
+                    Dim existencia As Double = grdcaptura.Rows(sd).Cells(5).Value.ToString
+                    Dim minimo As Double = grdcaptura.Rows(sd).Cells(6).Value.ToString
+
+                    If .runSp(a_cnn, "insert into PedidosDet(NumPed,Proveedor,Codigo,Nombre,Unidad,Precio,Cantidad) values('" & cbopedido.Text & "','" & cboprov.Text & "','" & codigo & "','" & nombre & "','" & unidad & "'," & precio & "," & cantid & ")") Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+
+                Next
+                a_cnn.Close()
+
             End If
         End With
     End Sub
