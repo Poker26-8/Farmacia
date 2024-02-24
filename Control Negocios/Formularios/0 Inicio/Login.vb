@@ -129,7 +129,6 @@ Public Class Login
             Me.Hide()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn1.Close()
         End Try
     End Sub
 
@@ -1756,5 +1755,9 @@ Public Class Login
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub lblEmpresa_Click(sender As Object, e As EventArgs) Handles lblEmpresa.Click
+
     End Sub
 End Class
