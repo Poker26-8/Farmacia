@@ -94,14 +94,6 @@ Public Class Login
                 cnn7 = New MySqlClient.MySqlConnection("server=" & txtRuta.Text & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
                 cnntimer = New MySqlClient.MySqlConnection("server=" & txtRuta.Text & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
                 cnntimer2 = New MySqlClient.MySqlConnection("server=" & txtRuta.Text & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
-                'cnn1 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn2 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn3 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn4 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn5 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn9 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn8 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn7 = New MySqlClient.MySqlConnection("Data source=" & txtRuta.Text & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
             Else
                 cnn1 = New MySqlClient.MySqlConnection("server=" & MyIP & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
                 cnn2 = New MySqlClient.MySqlConnection("server=" & MyIP & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
@@ -113,14 +105,6 @@ Public Class Login
                 cnn7 = New MySqlClient.MySqlConnection("server=" & MyIP & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
                 cnntimer = New MySqlClient.MySqlConnection("server=" & MyIP & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
                 cnntimer2 = New MySqlClient.MySqlConnection("server=" & MyIP & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
-                'cnn1 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn2 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn3 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn4 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn5 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn9 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn8 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
-                'cnn7 = New MySqlClient.MySqlConnection("Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22")
             End If
             varrutabase = txtRuta.Text
             empresa_activa = lblEmpresa.Text
