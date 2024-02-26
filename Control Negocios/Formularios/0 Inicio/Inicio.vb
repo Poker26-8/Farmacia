@@ -228,8 +228,8 @@ Public Class Inicio
                             ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                         End If
                         rd2.Close()
-
-
+                    Else
+                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                     End If
                 End If
             End If
