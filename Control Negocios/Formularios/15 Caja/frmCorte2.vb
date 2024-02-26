@@ -1790,7 +1790,6 @@ Public Class frmCorte2
                 e.Graphics.DrawString(FormatNumber(MONTO, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 15
 
-                lol += 1
             Next
             Y += 25
 
