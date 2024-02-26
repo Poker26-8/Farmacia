@@ -570,7 +570,7 @@ Public Class Inicio
         Catch ex As Exception
             rd1.Close()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Alter table Permisos add column Rep_Servicios int(11) defalt 0"
+            cmd1.CommandText = "Alter table Permisos add column Rep_Servicios int(11) default 0"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
