@@ -1283,6 +1283,7 @@ Public Class frmCompras
                 Else
                     txtTotalC.Text = FormatNumber(txtsub2.Text, 2)
                 End If
+
                 If (cbonombre.Text <> "" And txtprecio.Text <> "") Then
                     Call UpGrid(CP)
 

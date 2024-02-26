@@ -22,12 +22,12 @@ Partial Class frmComprasSeries
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmComprasSeries))
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblmoneda = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -35,7 +35,9 @@ Partial Class frmComprasSeries
         Me.lblvalor = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblpAnticipo = New System.Windows.Forms.Label()
+        Me.lblusuario = New System.Windows.Forms.Label()
         Me.txtpAnticipo = New System.Windows.Forms.TextBox()
+        Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cbopedido = New System.Windows.Forms.ComboBox()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -53,10 +55,15 @@ Partial Class frmComprasSeries
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cboproveedor = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.lblusuario = New System.Windows.Forms.Label()
-        Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnimportarxml = New System.Windows.Forms.Button()
+        Me.btnimportarxls = New System.Windows.Forms.Button()
+        Me.btncopia = New System.Windows.Forms.Button()
+        Me.btnguardar = New System.Windows.Forms.Button()
+        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtanticipo = New System.Windows.Forms.TextBox()
@@ -85,24 +92,8 @@ Partial Class frmComprasSeries
         Me.Label25 = New System.Windows.Forms.Label()
         Me.txtapagar = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtlote = New System.Windows.Forms.TextBox()
-        Me.txtexiste = New System.Windows.Forms.TextBox()
-        Me.txttotal = New System.Windows.Forms.TextBox()
-        Me.txtprecio = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtcantidad = New System.Windows.Forms.TextBox()
-        Me.txtunidad = New System.Windows.Forms.TextBox()
-        Me.cbonombre = New System.Windows.Forms.ComboBox()
-        Me.txtcodigo = New System.Windows.Forms.TextBox()
-        Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.barraExcel = New System.Windows.Forms.ProgressBar()
+        Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -113,15 +104,24 @@ Partial Class frmComprasSeries
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnnuevo = New System.Windows.Forms.Button()
-        Me.btnguardar = New System.Windows.Forms.Button()
-        Me.btncopia = New System.Windows.Forms.Button()
-        Me.btnimportarxls = New System.Windows.Forms.Button()
-        Me.btnimportarxml = New System.Windows.Forms.Button()
-        Me.btnPagar = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtserie = New System.Windows.Forms.TextBox()
+        Me.txtexiste = New System.Windows.Forms.TextBox()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.txtprecio = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtcantidad = New System.Windows.Forms.TextBox()
+        Me.txtunidad = New System.Windows.Forms.TextBox()
+        Me.cbonombre = New System.Windows.Forms.ComboBox()
+        Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.panpago_compra = New System.Windows.Forms.Panel()
-        Me.Label43 = New System.Windows.Forms.Label()
+        Me.btnpc_aceptar = New System.Windows.Forms.Button()
         Me.boxPago = New System.Windows.Forms.GroupBox()
         Me.dtpfpago = New System.Windows.Forms.DateTimePicker()
         Me.Label28 = New System.Windows.Forms.Label()
@@ -139,14 +139,14 @@ Partial Class frmComprasSeries
         Me.txtpc_tarjeta = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.txtpc_efectivo = New System.Windows.Forms.TextBox()
-        Me.btnpc_aceptar = New System.Windows.Forms.Button()
+        Me.Label43 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panpago_compra.SuspendLayout()
         Me.boxPago.SuspendLayout()
         Me.SuspendLayout()
@@ -251,6 +251,18 @@ Partial Class frmComprasSeries
         Me.lblpAnticipo.TabIndex = 159
         Me.lblpAnticipo.Text = "Anticipo:"
         '
+        'lblusuario
+        '
+        Me.lblusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblusuario.BackColor = System.Drawing.Color.Navy
+        Me.lblusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblusuario.ForeColor = System.Drawing.Color.White
+        Me.lblusuario.Location = New System.Drawing.Point(874, 20)
+        Me.lblusuario.Name = "lblusuario"
+        Me.lblusuario.Size = New System.Drawing.Size(98, 23)
+        Me.lblusuario.TabIndex = 229
+        Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'txtpAnticipo
         '
         Me.txtpAnticipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
@@ -261,6 +273,18 @@ Partial Class frmComprasSeries
         Me.txtpAnticipo.TabIndex = 158
         Me.txtpAnticipo.Text = "0.00"
         Me.txtpAnticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtusuario
+        '
+        Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtusuario.BackColor = System.Drawing.Color.White
+        Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtusuario.Location = New System.Drawing.Point(874, 46)
+        Me.txtusuario.Name = "txtusuario"
+        Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtusuario.Size = New System.Drawing.Size(98, 23)
+        Me.txtusuario.TabIndex = 228
+        Me.txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button1
         '
@@ -430,29 +454,6 @@ Partial Class frmComprasSeries
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Proveedor:"
         '
-        'lblusuario
-        '
-        Me.lblusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblusuario.BackColor = System.Drawing.Color.Navy
-        Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(874, 20)
-        Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(98, 23)
-        Me.lblusuario.TabIndex = 229
-        Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtusuario
-        '
-        Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtusuario.BackColor = System.Drawing.Color.White
-        Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(874, 46)
-        Me.txtusuario.Name = "txtusuario"
-        Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtusuario.Size = New System.Drawing.Size(98, 23)
-        Me.txtusuario.TabIndex = 228
-        Me.txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.btnPagar)
@@ -467,6 +468,99 @@ Partial Class frmComprasSeries
         Me.Panel1.Size = New System.Drawing.Size(72, 446)
         Me.Panel1.TabIndex = 230
         '
+        'btnPagar
+        '
+        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPagar.Location = New System.Drawing.Point(6, 364)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(61, 69)
+        Me.btnPagar.TabIndex = 229
+        Me.btnPagar.Text = "Pagar compra"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
+        'btnimportarxml
+        '
+        Me.btnimportarxml.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnimportarxml.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnimportarxml.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnimportarxml.Image = CType(resources.GetObject("btnimportarxml.Image"), System.Drawing.Image)
+        Me.btnimportarxml.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnimportarxml.Location = New System.Drawing.Point(6, 297)
+        Me.btnimportarxml.Name = "btnimportarxml"
+        Me.btnimportarxml.Size = New System.Drawing.Size(61, 61)
+        Me.btnimportarxml.TabIndex = 185
+        Me.btnimportarxml.Text = "Importar"
+        Me.btnimportarxml.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnimportarxml.UseVisualStyleBackColor = True
+        '
+        'btnimportarxls
+        '
+        Me.btnimportarxls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnimportarxls.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnimportarxls.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnimportarxls.Image = CType(resources.GetObject("btnimportarxls.Image"), System.Drawing.Image)
+        Me.btnimportarxls.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnimportarxls.Location = New System.Drawing.Point(6, 230)
+        Me.btnimportarxls.Name = "btnimportarxls"
+        Me.btnimportarxls.Size = New System.Drawing.Size(61, 61)
+        Me.btnimportarxls.TabIndex = 141
+        Me.btnimportarxls.Text = "Importar"
+        Me.btnimportarxls.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnimportarxls.UseVisualStyleBackColor = True
+        '
+        'btncopia
+        '
+        Me.btncopia.BackgroundImage = CType(resources.GetObject("btncopia.BackgroundImage"), System.Drawing.Image)
+        Me.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncopia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btncopia.Location = New System.Drawing.Point(6, 156)
+        Me.btncopia.Name = "btncopia"
+        Me.btncopia.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.btncopia.Size = New System.Drawing.Size(61, 68)
+        Me.btncopia.TabIndex = 140
+        Me.btncopia.Text = "Imprimir copia"
+        Me.btncopia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btncopia.UseVisualStyleBackColor = True
+        '
+        'btnguardar
+        '
+        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
+        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnguardar.Location = New System.Drawing.Point(6, 81)
+        Me.btnguardar.Name = "btnguardar"
+        Me.btnguardar.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
+        Me.btnguardar.Size = New System.Drawing.Size(61, 69)
+        Me.btnguardar.TabIndex = 137
+        Me.btnguardar.Text = "Guardar"
+        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnguardar.UseVisualStyleBackColor = True
+        '
+        'btnnuevo
+        '
+        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnnuevo.Location = New System.Drawing.Point(6, 6)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
+        Me.btnnuevo.Size = New System.Drawing.Size(61, 69)
+        Me.btnnuevo.TabIndex = 136
+        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.DataGridView1)
@@ -476,6 +570,18 @@ Partial Class frmComprasSeries
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(906, 116)
         Me.Panel2.TabIndex = 231
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(846, 22)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(142, 45)
+        Me.DataGridView1.TabIndex = 183
+        Me.DataGridView1.Visible = False
         '
         'GroupBox2
         '
@@ -783,7 +889,7 @@ Partial Class frmComprasSeries
         Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.txtlote)
+        Me.Panel3.Controls.Add(Me.txtserie)
         Me.Panel3.Controls.Add(Me.txtexiste)
         Me.Panel3.Controls.Add(Me.txttotal)
         Me.Panel3.Controls.Add(Me.txtprecio)
@@ -799,198 +905,21 @@ Partial Class frmComprasSeries
         Me.Panel3.Size = New System.Drawing.Size(906, 330)
         Me.Panel3.TabIndex = 232
         '
-        'Label10
+        'barraExcel
         '
-        Me.Label10.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(743, 12)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(158, 21)
-        Me.Label10.TabIndex = 104
-        Me.Label10.Text = "Serie"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label8
-        '
-        Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(678, 12)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(66, 21)
-        Me.Label8.TabIndex = 102
-        Me.Label8.Text = "Existencia"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label7
-        '
-        Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(582, 12)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(97, 21)
-        Me.Label7.TabIndex = 101
-        Me.Label7.Text = "Total"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label6
-        '
-        Me.Label6.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(496, 12)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(87, 21)
-        Me.Label6.TabIndex = 100
-        Me.Label6.Text = "Precio"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label5
-        '
-        Me.Label5.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(438, 12)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(59, 21)
-        Me.Label5.TabIndex = 99
-        Me.Label5.Text = "Cantidad"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label4
-        '
-        Me.Label4.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(390, 12)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 21)
-        Me.Label4.TabIndex = 98
-        Me.Label4.Text = "Unidad"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtlote
-        '
-        Me.txtlote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtlote.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlote.Location = New System.Drawing.Point(743, 32)
-        Me.txtlote.Name = "txtlote"
-        Me.txtlote.Size = New System.Drawing.Size(158, 23)
-        Me.txtlote.TabIndex = 97
-        '
-        'txtexiste
-        '
-        Me.txtexiste.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtexiste.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtexiste.Location = New System.Drawing.Point(678, 32)
-        Me.txtexiste.Name = "txtexiste"
-        Me.txtexiste.Size = New System.Drawing.Size(66, 23)
-        Me.txtexiste.TabIndex = 95
-        '
-        'txttotal
-        '
-        Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotal.Location = New System.Drawing.Point(582, 32)
-        Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(97, 23)
-        Me.txttotal.TabIndex = 94
-        Me.txttotal.Text = "0.00"
-        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtprecio
-        '
-        Me.txtprecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtprecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio.Location = New System.Drawing.Point(496, 32)
-        Me.txtprecio.Name = "txtprecio"
-        Me.txtprecio.Size = New System.Drawing.Size(87, 23)
-        Me.txtprecio.TabIndex = 93
-        Me.txtprecio.Text = "0.00"
-        Me.txtprecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(61, 12)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(332, 21)
-        Me.Label2.TabIndex = 92
-        Me.Label2.Text = "Descripción"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label3
-        '
-        Me.Label3.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(11, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 21)
-        Me.Label3.TabIndex = 91
-        Me.Label3.Text = "Código"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtcantidad
-        '
-        Me.txtcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtcantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(438, 32)
-        Me.txtcantidad.Name = "txtcantidad"
-        Me.txtcantidad.Size = New System.Drawing.Size(59, 23)
-        Me.txtcantidad.TabIndex = 90
-        '
-        'txtunidad
-        '
-        Me.txtunidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtunidad.Location = New System.Drawing.Point(390, 32)
-        Me.txtunidad.Name = "txtunidad"
-        Me.txtunidad.Size = New System.Drawing.Size(49, 23)
-        Me.txtunidad.TabIndex = 89
-        Me.txtunidad.Text = "PZA"
-        Me.txtunidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'cbonombre
-        '
-        Me.cbonombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cbonombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbonombre.FormattingEnabled = True
-        Me.cbonombre.Location = New System.Drawing.Point(61, 32)
-        Me.cbonombre.Name = "cbonombre"
-        Me.cbonombre.Size = New System.Drawing.Size(332, 23)
-        Me.cbonombre.TabIndex = 88
-        '
-        'txtcodigo
-        '
-        Me.txtcodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcodigo.Location = New System.Drawing.Point(11, 32)
-        Me.txtcodigo.Name = "txtcodigo"
-        Me.txtcodigo.Size = New System.Drawing.Size(51, 23)
-        Me.txtcodigo.TabIndex = 87
-        Me.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.barraExcel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.barraExcel.Location = New System.Drawing.Point(0, 311)
+        Me.barraExcel.Name = "barraExcel"
+        Me.barraExcel.Size = New System.Drawing.Size(906, 19)
+        Me.barraExcel.TabIndex = 182
+        Me.barraExcel.Visible = False
         '
         'grdcaptura
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1005,15 +934,6 @@ Partial Class frmComprasSeries
         Me.grdcaptura.RowTemplate.Height = 26
         Me.grdcaptura.Size = New System.Drawing.Size(890, 268)
         Me.grdcaptura.TabIndex = 105
-        '
-        'barraExcel
-        '
-        Me.barraExcel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barraExcel.Location = New System.Drawing.Point(0, 311)
-        Me.barraExcel.Name = "barraExcel"
-        Me.barraExcel.Size = New System.Drawing.Size(906, 19)
-        Me.barraExcel.TabIndex = 182
-        Me.barraExcel.Visible = False
         '
         'Column1
         '
@@ -1038,8 +958,8 @@ Partial Class frmComprasSeries
         '
         'Column4
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -1047,8 +967,8 @@ Partial Class frmComprasSeries
         '
         'Column5
         '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -1056,8 +976,8 @@ Partial Class frmComprasSeries
         '
         'Column6
         '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -1065,8 +985,8 @@ Partial Class frmComprasSeries
         '
         'Column7
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -1093,110 +1013,207 @@ Partial Class frmComprasSeries
         Me.Column16.ReadOnly = True
         Me.Column16.Visible = False
         '
-        'btnnuevo
+        'Label10
         '
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnnuevo.Location = New System.Drawing.Point(6, 6)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        Me.btnnuevo.Size = New System.Drawing.Size(61, 69)
-        Me.btnnuevo.TabIndex = 136
-        Me.btnnuevo.Text = "Nuevo"
-        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevo.UseVisualStyleBackColor = True
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(743, 12)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(158, 21)
+        Me.Label10.TabIndex = 104
+        Me.Label10.Text = "Serie"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnguardar
+        'Label8
         '
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
-        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(6, 81)
-        Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
-        Me.btnguardar.Size = New System.Drawing.Size(61, 69)
-        Me.btnguardar.TabIndex = 137
-        Me.btnguardar.Text = "Guardar"
-        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnguardar.UseVisualStyleBackColor = True
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(678, 12)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(66, 21)
+        Me.Label8.TabIndex = 102
+        Me.Label8.Text = "Existencia"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btncopia
+        'Label7
         '
-        Me.btncopia.BackgroundImage = CType(resources.GetObject("btncopia.BackgroundImage"), System.Drawing.Image)
-        Me.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncopia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncopia.Location = New System.Drawing.Point(6, 156)
-        Me.btncopia.Name = "btncopia"
-        Me.btncopia.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
-        Me.btncopia.Size = New System.Drawing.Size(61, 68)
-        Me.btncopia.TabIndex = 140
-        Me.btncopia.Text = "Imprimir copia"
-        Me.btncopia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncopia.UseVisualStyleBackColor = True
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(582, 12)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(97, 21)
+        Me.Label7.TabIndex = 101
+        Me.Label7.Text = "Total"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnimportarxls
+        'Label6
         '
-        Me.btnimportarxls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnimportarxls.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnimportarxls.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnimportarxls.Image = CType(resources.GetObject("btnimportarxls.Image"), System.Drawing.Image)
-        Me.btnimportarxls.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnimportarxls.Location = New System.Drawing.Point(6, 230)
-        Me.btnimportarxls.Name = "btnimportarxls"
-        Me.btnimportarxls.Size = New System.Drawing.Size(61, 61)
-        Me.btnimportarxls.TabIndex = 141
-        Me.btnimportarxls.Text = "Importar"
-        Me.btnimportarxls.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnimportarxls.UseVisualStyleBackColor = True
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(496, 12)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(87, 21)
+        Me.Label6.TabIndex = 100
+        Me.Label6.Text = "Precio"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnimportarxml
+        'Label5
         '
-        Me.btnimportarxml.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnimportarxml.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnimportarxml.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnimportarxml.Image = CType(resources.GetObject("btnimportarxml.Image"), System.Drawing.Image)
-        Me.btnimportarxml.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnimportarxml.Location = New System.Drawing.Point(6, 297)
-        Me.btnimportarxml.Name = "btnimportarxml"
-        Me.btnimportarxml.Size = New System.Drawing.Size(61, 61)
-        Me.btnimportarxml.TabIndex = 185
-        Me.btnimportarxml.Text = "Importar"
-        Me.btnimportarxml.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnimportarxml.UseVisualStyleBackColor = True
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(438, 12)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(59, 21)
+        Me.Label5.TabIndex = 99
+        Me.Label5.Text = "Cantidad"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnPagar
+        'Label4
         '
-        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(6, 364)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(61, 69)
-        Me.btnPagar.TabIndex = 229
-        Me.btnPagar.Text = "Pagar compra"
-        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPagar.UseVisualStyleBackColor = True
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(392, 12)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(47, 21)
+        Me.Label4.TabIndex = 98
+        Me.Label4.Text = "Unidad"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'DataGridView1
+        'txtserie
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(846, 22)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(142, 45)
-        Me.DataGridView1.TabIndex = 183
-        Me.DataGridView1.Visible = False
+        Me.txtserie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtserie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtserie.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtserie.Location = New System.Drawing.Point(743, 32)
+        Me.txtserie.Name = "txtserie"
+        Me.txtserie.Size = New System.Drawing.Size(158, 23)
+        Me.txtserie.TabIndex = 97
+        '
+        'txtexiste
+        '
+        Me.txtexiste.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtexiste.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtexiste.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtexiste.Location = New System.Drawing.Point(678, 32)
+        Me.txtexiste.Name = "txtexiste"
+        Me.txtexiste.Size = New System.Drawing.Size(66, 23)
+        Me.txtexiste.TabIndex = 95
+        '
+        'txttotal
+        '
+        Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotal.Location = New System.Drawing.Point(582, 32)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.Size = New System.Drawing.Size(97, 23)
+        Me.txttotal.TabIndex = 94
+        Me.txttotal.Text = "0.00"
+        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtprecio
+        '
+        Me.txtprecio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtprecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtprecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtprecio.Location = New System.Drawing.Point(496, 32)
+        Me.txtprecio.Name = "txtprecio"
+        Me.txtprecio.Size = New System.Drawing.Size(87, 23)
+        Me.txtprecio.TabIndex = 93
+        Me.txtprecio.Text = "0.00"
+        Me.txtprecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(61, 12)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(332, 21)
+        Me.Label2.TabIndex = 92
+        Me.Label2.Text = "Descripción"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(11, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 21)
+        Me.Label3.TabIndex = 91
+        Me.Label3.Text = "Código"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtcantidad
+        '
+        Me.txtcantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtcantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcantidad.Location = New System.Drawing.Point(438, 32)
+        Me.txtcantidad.Name = "txtcantidad"
+        Me.txtcantidad.Size = New System.Drawing.Size(59, 23)
+        Me.txtcantidad.TabIndex = 90
+        '
+        'txtunidad
+        '
+        Me.txtunidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtunidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtunidad.Location = New System.Drawing.Point(392, 32)
+        Me.txtunidad.Name = "txtunidad"
+        Me.txtunidad.Size = New System.Drawing.Size(49, 23)
+        Me.txtunidad.TabIndex = 89
+        Me.txtunidad.Text = "PZA"
+        Me.txtunidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'cbonombre
+        '
+        Me.cbonombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbonombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cbonombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbonombre.FormattingEnabled = True
+        Me.cbonombre.Location = New System.Drawing.Point(61, 32)
+        Me.cbonombre.Name = "cbonombre"
+        Me.cbonombre.Size = New System.Drawing.Size(332, 23)
+        Me.cbonombre.TabIndex = 88
+        '
+        'txtcodigo
+        '
+        Me.txtcodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtcodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcodigo.Location = New System.Drawing.Point(11, 32)
+        Me.txtcodigo.Name = "txtcodigo"
+        Me.txtcodigo.Size = New System.Drawing.Size(51, 23)
+        Me.txtcodigo.TabIndex = 87
+        Me.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'panpago_compra
         '
@@ -1204,21 +1221,23 @@ Partial Class frmComprasSeries
         Me.panpago_compra.Controls.Add(Me.btnpc_aceptar)
         Me.panpago_compra.Controls.Add(Me.boxPago)
         Me.panpago_compra.Controls.Add(Me.Label43)
-        Me.panpago_compra.Location = New System.Drawing.Point(350, 150)
+        Me.panpago_compra.Location = New System.Drawing.Point(345, 157)
         Me.panpago_compra.Name = "panpago_compra"
-        Me.panpago_compra.Size = New System.Drawing.Size(258, 359)
+        Me.panpago_compra.Size = New System.Drawing.Size(256, 352)
         Me.panpago_compra.TabIndex = 230
         '
-        'Label43
+        'btnpc_aceptar
         '
-        Me.Label43.AutoSize = True
-        Me.Label43.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.ForeColor = System.Drawing.Color.White
-        Me.Label43.Location = New System.Drawing.Point(12, 9)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(53, 21)
-        Me.Label43.TabIndex = 11
-        Me.Label43.Text = "PAGO"
+        Me.btnpc_aceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnpc_aceptar.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnpc_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpc_aceptar.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpc_aceptar.Location = New System.Drawing.Point(143, 312)
+        Me.btnpc_aceptar.Name = "btnpc_aceptar"
+        Me.btnpc_aceptar.Size = New System.Drawing.Size(99, 36)
+        Me.btnpc_aceptar.TabIndex = 159
+        Me.btnpc_aceptar.Text = "Aceptar"
+        Me.btnpc_aceptar.UseVisualStyleBackColor = False
         '
         'boxPago
         '
@@ -1440,18 +1459,16 @@ Partial Class frmComprasSeries
         Me.txtpc_efectivo.Text = "0.00"
         Me.txtpc_efectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnpc_aceptar
+        'Label43
         '
-        Me.btnpc_aceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnpc_aceptar.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnpc_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpc_aceptar.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpc_aceptar.Location = New System.Drawing.Point(144, 312)
-        Me.btnpc_aceptar.Name = "btnpc_aceptar"
-        Me.btnpc_aceptar.Size = New System.Drawing.Size(99, 36)
-        Me.btnpc_aceptar.TabIndex = 159
-        Me.btnpc_aceptar.Text = "Aceptar"
-        Me.btnpc_aceptar.UseVisualStyleBackColor = False
+        Me.Label43.AutoSize = True
+        Me.Label43.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.ForeColor = System.Drawing.Color.White
+        Me.Label43.Location = New System.Drawing.Point(12, 9)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(53, 21)
+        Me.Label43.TabIndex = 11
+        Me.Label43.Text = "PAGO"
         '
         'frmComprasSeries
         '
@@ -1477,12 +1494,12 @@ Partial Class frmComprasSeries
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panpago_compra.ResumeLayout(False)
         Me.panpago_compra.PerformLayout()
         Me.boxPago.ResumeLayout(False)
@@ -1555,7 +1572,7 @@ Partial Class frmComprasSeries
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtlote As TextBox
+    Friend WithEvents txtserie As TextBox
     Friend WithEvents txtexiste As TextBox
     Friend WithEvents txttotal As TextBox
     Friend WithEvents txtprecio As TextBox

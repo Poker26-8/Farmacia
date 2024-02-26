@@ -2443,4 +2443,9 @@ Public Class Inicio
         frmControlServ.Show()
         frmControlServ.BringToFront()
     End Sub
+
+    Private Sub ReporteDeAuditoriaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeAuditoriaToolStripMenuItem.Click
+        frmRepAuditoria.Show()
+        frmRepAuditoria.BringToFront()
+    End Sub
 End Class
