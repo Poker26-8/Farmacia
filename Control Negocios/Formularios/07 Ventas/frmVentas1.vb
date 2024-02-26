@@ -7540,7 +7540,7 @@ ecomoda:
                     Y += 130
                 End If
                 If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 440, 110)
+                    e.Graphics.DrawImage(Logotipo, 30, 0, 250, 150)
                     Y += 120
                 End If
             Else
@@ -7654,7 +7654,7 @@ ecomoda:
             Y += 11
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
-            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 440, Y)
+            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
             Y += 6
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
@@ -7682,7 +7682,7 @@ ecomoda:
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 4), fuente_prods, Brushes.Black, 180, Y, sf)
-                e.Graphics.DrawString(simbolo & FormatNumber(total, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 21
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
@@ -7744,7 +7744,7 @@ ecomoda:
             End If
 
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
             Y += 18
 
             e.Graphics.DrawString(convLetras(txtPagar.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
@@ -7752,12 +7752,12 @@ ecomoda:
 
             If CDbl(txtefectivo.Text) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
             If CDbl(txtCambio.Text) > 0 Then
                 e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
@@ -7773,7 +7773,7 @@ ecomoda:
                     If montopagon > 0 Then
 
                         e.Graphics.DrawString("Pago con " & formapagon & "", fuente_prods, Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(montopagon, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                        e.Graphics.DrawString(simbolo & FormatNumber(montopagon, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                         Y += 13.5
 
                     End If
@@ -7783,7 +7783,7 @@ ecomoda:
 
             If CDbl(txtResta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
@@ -7793,13 +7793,13 @@ ecomoda:
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
                         Y += 12
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                         Y += 13.5
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
             End If
@@ -7914,7 +7914,7 @@ ecomoda:
                     e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
                     Y += 15
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 409, 409)
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
                 End If
 
             Else
