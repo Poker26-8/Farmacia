@@ -107,6 +107,9 @@ Public Class Inicio
         SFormatos("Pto-Bascula", "")
         SFormatos("TBascula", "")
         SFormatos("Bascula", "")
+        SFormatos("Prefijo", "")
+        SFormatos("Codigo", "")
+        SFormatos("Peso", "")
 
         verif()
         'Licencia()
