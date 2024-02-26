@@ -1855,71 +1855,97 @@ Public Class frmConsultaNotas
         Dim Tamaño As String = ""
         Dim Pasa_Print As Boolean = False
 
-        Try
-            cnn3.Close() : cnn3.Open()
+        cnn1.Close() : cnn1.Open()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText =
-                "select Formato from RutasImpresion where Tipo='Venta' and Equipo='" & ObtenerNombreEquipo() & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    TPrint = rd3(0).ToString()
-                End If
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Imprime = rd1("NoPrint").ToString
             End If
-            rd3.Close()
+        End If
+        rd1.Close() : cnn1.Close()
 
-            If TPrint = "" Then MsgBox("No se ha establecido un tamañao para la impresión.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn3.Close() : Borra() : Exit Sub
-
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText =
-                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    Impresora = rd3(0).ToString()
-                End If
-            End If
-            rd3.Close()
-
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText =
-                "select NotasCred from Formatos where Facturas='TamImpre'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    Tamaño = rd3(0).ToString()
-                End If
+        If (Imprime) Then
+            If MsgBox("¿Deseas imprimir nota de abono?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                Pasa_Print = True
             Else
-                Tamaño = "80"
+                Pasa_Print = False
             End If
-            rd3.Close()
-            cnn3.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn3.Close()
-        End Try
+        Else
+            Pasa_Print = True
+        End If
 
-        If TPrint = "TICKET" Then
-            If Tamaño = "80" Then
-                pAbono80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                pAbono80.Print()
+        If Pasa_Print = True Then
+            Try
+                cnn3.Close() : cnn3.Open()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                "select Formato from RutasImpresion where Tipo='Venta' and Equipo='" & ObtenerNombreEquipo() & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        TPrint = rd3(0).ToString()
+                    End If
+                End If
+                rd3.Close()
+
+                If TPrint = "" Then MsgBox("No se ha establecido un tamañao para la impresión.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn3.Close() : Borra() : Exit Sub
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        Impresora = rd3(0).ToString()
+                    End If
+                End If
+                rd3.Close()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                "select NotasCred from Formatos where Facturas='TamImpre'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        Tamaño = rd3(0).ToString()
+                    End If
+                Else
+                    Tamaño = "80"
+                End If
+                rd3.Close()
+                cnn3.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn3.Close()
+            End Try
+
+            If TPrint = "TICKET" Then
+                If Tamaño = "80" Then
+                    pAbono80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pAbono80.Print()
+                End If
+                If Tamaño = "58" Then
+                    pAbono58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pAbono58.Print()
+                End If
             End If
-            If Tamaño = "58" Then
-                pAbono58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                pAbono58.Print()
+            If TPrint = "MEDIA CARTA" Then
+                'pVentaMediaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                'pVentaMediaCarta.Print()
             End If
-        End If
-        If TPrint = "MEDIA CARTA" Then
-            'pVentaMediaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-            'pVentaMediaCarta.Print()
-        End If
-        If TPrint = "CARTA" Then
-            'pVentaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-            'pVentaCarta.Print()
-        End If
-        If TPrint = "PDF - CARTA" Then
-            'Genera PDF y lo guarda en la ruta
+            If TPrint = "CARTA" Then
+                'pVentaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                'pVentaCarta.Print()
+            End If
+            If TPrint = "PDF - CARTA" Then
+                'Genera PDF y lo guarda en la ruta
+
+            End If
 
         End If
 

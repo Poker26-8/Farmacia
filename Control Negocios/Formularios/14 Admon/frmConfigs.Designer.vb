@@ -322,6 +322,14 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox26 = New System.Windows.Forms.GroupBox()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.n1 = New System.Windows.Forms.NumericUpDown()
+        Me.n2 = New System.Windows.Forms.NumericUpDown()
+        Me.n3 = New System.Windows.Forms.NumericUpDown()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -372,6 +380,10 @@ Partial Class frmConfigs
         Me.tabMigracion.SuspendLayout()
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox26.SuspendLayout()
+        CType(Me.n1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.n2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.n3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label57
@@ -2083,23 +2095,24 @@ Partial Class frmConfigs
         '
         'tabPuertos
         '
+        Me.tabPuertos.Controls.Add(Me.GroupBox26)
         Me.tabPuertos.Controls.Add(Me.cbOrdenEntrega)
         Me.tabPuertos.Controls.Add(Me.GroupBox25)
         Me.tabPuertos.Controls.Add(Me.boxTickets)
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
         '
         'cbOrdenEntrega
         '
-        Me.cbOrdenEntrega.Location = New System.Drawing.Point(283, 345)
+        Me.cbOrdenEntrega.Location = New System.Drawing.Point(282, 297)
         Me.cbOrdenEntrega.Name = "cbOrdenEntrega"
         Me.cbOrdenEntrega.Size = New System.Drawing.Size(187, 26)
         Me.cbOrdenEntrega.TabIndex = 15
@@ -2211,7 +2224,7 @@ Partial Class frmConfigs
         Me.GroupBox2.Controls.Add(Me.picLogo)
         Me.GroupBox2.Location = New System.Drawing.Point(282, 60)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(190, 260)
+        Me.GroupBox2.Size = New System.Drawing.Size(190, 231)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cargar logotipo"
@@ -2318,6 +2331,7 @@ Partial Class frmConfigs
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.White
+        Me.GroupBox3.Controls.Add(Me.RadioButton1)
         Me.GroupBox3.Controls.Add(Me.rbsbascula)
         Me.GroupBox3.Controls.Add(Me.rbNoval)
         Me.GroupBox3.Controls.Add(Me.Panel1)
@@ -2334,7 +2348,7 @@ Partial Class frmConfigs
         'rbsbascula
         '
         Me.rbsbascula.AutoSize = True
-        Me.rbsbascula.Location = New System.Drawing.Point(68, 44)
+        Me.rbsbascula.Location = New System.Drawing.Point(68, 40)
         Me.rbsbascula.Name = "rbsbascula"
         Me.rbsbascula.Size = New System.Drawing.Size(84, 19)
         Me.rbsbascula.TabIndex = 8
@@ -2345,7 +2359,7 @@ Partial Class frmConfigs
         'rbNoval
         '
         Me.rbNoval.AutoSize = True
-        Me.rbNoval.Location = New System.Drawing.Point(6, 44)
+        Me.rbNoval.Location = New System.Drawing.Point(6, 40)
         Me.rbNoval.Name = "rbNoval"
         Me.rbNoval.Size = New System.Drawing.Size(56, 19)
         Me.rbNoval.TabIndex = 7
@@ -2433,7 +2447,7 @@ Partial Class frmConfigs
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(282, 297)
+        Me.TextBox1.Location = New System.Drawing.Point(282, 262)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(188, 23)
         Me.TextBox1.TabIndex = 12
@@ -3114,9 +3128,9 @@ Partial Class frmConfigs
         Me.TabPage1.Controls.Add(Me.boxCosteo)
         Me.TabPage1.Controls.Add(Me.GroupBox23)
         Me.TabPage1.Controls.Add(Me.GroupBox9)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 58)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(478, 457)
+        Me.TabPage1.Size = New System.Drawing.Size(478, 463)
         Me.TabPage1.TabIndex = 7
         Me.TabPage1.Text = "Funcionalidades"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -3640,6 +3654,81 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 60)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(135, 19)
+        Me.RadioButton1.TabIndex = 9
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Bascula Etiquetadora"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'GroupBox26
+        '
+        Me.GroupBox26.Controls.Add(Me.n3)
+        Me.GroupBox26.Controls.Add(Me.n2)
+        Me.GroupBox26.Controls.Add(Me.n1)
+        Me.GroupBox26.Controls.Add(Me.Label83)
+        Me.GroupBox26.Controls.Add(Me.Label82)
+        Me.GroupBox26.Controls.Add(Me.Label81)
+        Me.GroupBox26.Enabled = False
+        Me.GroupBox26.Location = New System.Drawing.Point(282, 322)
+        Me.GroupBox26.Name = "GroupBox26"
+        Me.GroupBox26.Size = New System.Drawing.Size(188, 127)
+        Me.GroupBox26.TabIndex = 16
+        Me.GroupBox26.TabStop = False
+        Me.GroupBox26.Text = "Config. Etiquetas Bascula"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Location = New System.Drawing.Point(6, 29)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(141, 15)
+        Me.Label81.TabIndex = 0
+        Me.Label81.Text = "No. posiciones de prefijo:"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Location = New System.Drawing.Point(6, 55)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(146, 15)
+        Me.Label82.TabIndex = 1
+        Me.Label82.Text = "No. posiciones de Codigo:"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Location = New System.Drawing.Point(6, 84)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(132, 15)
+        Me.Label83.TabIndex = 2
+        Me.Label83.Text = "No. posiciones de Peso:"
+        '
+        'n1
+        '
+        Me.n1.Location = New System.Drawing.Point(147, 27)
+        Me.n1.Name = "n1"
+        Me.n1.Size = New System.Drawing.Size(40, 23)
+        Me.n1.TabIndex = 3
+        '
+        'n2
+        '
+        Me.n2.Location = New System.Drawing.Point(147, 53)
+        Me.n2.Name = "n2"
+        Me.n2.Size = New System.Drawing.Size(40, 23)
+        Me.n2.TabIndex = 4
+        '
+        'n3
+        '
+        Me.n3.Location = New System.Drawing.Point(147, 82)
+        Me.n3.Name = "n3"
+        Me.n3.Size = New System.Drawing.Size(40, 23)
+        Me.n3.TabIndex = 5
+        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3737,6 +3826,11 @@ Partial Class frmConfigs
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.GroupBox26.ResumeLayout(False)
+        Me.GroupBox26.PerformLayout()
+        CType(Me.n1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.n2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.n3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4041,4 +4135,12 @@ Partial Class frmConfigs
     Friend WithEvents txtComerciall As TextBox
     Friend WithEvents rbsbascula As RadioButton
     Friend WithEvents cbseries As CheckBox
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents GroupBox26 As GroupBox
+    Friend WithEvents Label81 As Label
+    Friend WithEvents n3 As NumericUpDown
+    Friend WithEvents n2 As NumericUpDown
+    Friend WithEvents n1 As NumericUpDown
+    Friend WithEvents Label83 As Label
+    Friend WithEvents Label82 As Label
 End Class

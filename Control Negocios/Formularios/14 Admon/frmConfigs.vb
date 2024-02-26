@@ -1081,6 +1081,10 @@ Public Class frmConfigs
                 bascula = "SBascula"
             End If
 
+            If (RadioButton1.Checked) Then
+                bascula = "Etiquetas"
+            End If
+
 
             cnn1.Close() : cnn1.Open()
 
@@ -1171,6 +1175,19 @@ Public Class frmConfigs
                 rd1.Close()
             End If
 
+            If bascula = "Etiquetas" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Update formatos set NotasCred='" & n1.Value & "' where Facturas='Prefijo'"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Update formatos set NotasCred='" & n2.Value & "' where Facturas='Codigo'"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Update formatos set NotasCred='" & n3.Value & "' where Facturas='Peso'"
+                cmd1.ExecuteNonQuery()
+            End If
 
             cnn1.Close()
             MsgBox("Configuración actualizada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -3085,6 +3102,14 @@ Public Class frmConfigs
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
             End Try
+        End If
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        If (RadioButton1.Checked) Then
+            GroupBox26.Enabled = True
+        Else
+            GroupBox26.Enabled = False
         End If
     End Sub
 End Class

@@ -107,6 +107,9 @@ Public Class Inicio
         SFormatos("Pto-Bascula", "")
         SFormatos("TBascula", "")
         SFormatos("Bascula", "")
+        SFormatos("Prefijo", "")
+        SFormatos("Codigo", "")
+        SFormatos("Peso", "")
 
         verif()
         'Licencia()
@@ -228,8 +231,8 @@ Public Class Inicio
                             ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                         End If
                         rd2.Close()
-
-
+                    Else
+                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                     End If
                 End If
             End If
@@ -553,6 +556,24 @@ Public Class Inicio
             rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "Alter table Ticket add column NoPrintCom int(11) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Rep_Servicios from Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Alter table Permisos add column Rep_Servicios int(11) default 0"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try

@@ -61,7 +61,38 @@
         cnn2.Close()
         rd1.Close() : cnn1.Close()
 
-        
+        Dim gastosadministrativoas As Double = 0
+        Dim gastosoperacion As Double = 0
+
+        cnn1.Close()
+        cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "Select * from otrosgastos where Tipo='ADMINISTRACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
+        rd1 = cmd1.ExecuteReader
+        Do While rd1.Read
+            gastosadministrativoas = gastosadministrativoas + CDec(rd1("Efectivo").ToString)
+        Loop
+        rd1.Close()
+        cnn1.Close()
+
+        cnn1.Close()
+        cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "Select * from otrosgastos where Tipo='OPERACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
+        rd1 = cmd1.ExecuteReader
+        Do While rd1.Read
+            gastosoperacion = gastosoperacion + CDec(rd1("Efectivo").ToString)
+        Loop
+        rd1.Close()
+        cnn1.Close()
+
+        txtgastos_op.Text = FormatNumber(gastosoperacion, 2)
+        txtgastos_ad.Text = FormatNumber(gastosadministrativoas, 2)
+
+        Dim operaciontotal As Double = 0
+        operaciontotal = CDec(gastosadministrativoas) + CDec(gastosoperacion)
+
+        txtutilidad_im.Text = FormatNumber(txtutilidad_bruta.Text - operaciontotal)
 kaka:
 
     End Sub
