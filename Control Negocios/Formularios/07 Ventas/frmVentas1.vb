@@ -7607,10 +7607,10 @@ ecomoda:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 280, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente
