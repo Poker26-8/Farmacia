@@ -23,11 +23,11 @@ Partial Class frmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompras))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
@@ -62,8 +62,6 @@ Partial Class frmCompras
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.btnguardar = New System.Windows.Forms.Button()
-        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblpAnticipo = New System.Windows.Forms.Label()
         Me.txtpAnticipo = New System.Windows.Forms.TextBox()
@@ -85,8 +83,6 @@ Partial Class frmCompras
         Me.cboproveedor = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtusuario = New System.Windows.Forms.TextBox()
-        Me.btncopia = New System.Windows.Forms.Button()
-        Me.btnimportarxls = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtanticipo = New System.Windows.Forms.TextBox()
@@ -152,9 +148,7 @@ Partial Class frmCompras
         Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
         Me.pCancelaCarta = New System.Drawing.Printing.PrintDocument()
         Me.pCancelaMC = New System.Drawing.Printing.PrintDocument()
-        Me.btnimportarxml = New System.Windows.Forms.Button()
         Me.lblusuario = New System.Windows.Forms.Label()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.panpago_compra = New System.Windows.Forms.Panel()
         Me.btnpc_aceptar = New System.Windows.Forms.Button()
         Me.Label43 = New System.Windows.Forms.Label()
@@ -173,6 +167,12 @@ Partial Class frmCompras
         Me.txtpc_tarjeta = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.txtpc_efectivo = New System.Windows.Forms.TextBox()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnimportarxml = New System.Windows.Forms.Button()
+        Me.btnimportarxls = New System.Windows.Forms.Button()
+        Me.btncopia = New System.Windows.Forms.Button()
+        Me.btnguardar = New System.Windows.Forms.Button()
+        Me.btnnuevo = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -194,7 +194,7 @@ Partial Class frmCompras
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(917, 31)
+        Me.Label1.Size = New System.Drawing.Size(916, 31)
         Me.Label1.TabIndex = 4
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -202,8 +202,8 @@ Partial Class frmCompras
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column15, Me.Column16})
@@ -240,8 +240,8 @@ Partial Class frmCompras
         '
         'Column4
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle19
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -249,8 +249,8 @@ Partial Class frmCompras
         '
         'Column5
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle20
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -258,8 +258,8 @@ Partial Class frmCompras
         '
         'Column6
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle21
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -267,8 +267,8 @@ Partial Class frmCompras
         '
         'Column7
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle22
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -523,38 +523,6 @@ Partial Class frmCompras
         Me.Label10.Text = "Lote"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnguardar
-        '
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
-        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(849, 212)
-        Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
-        Me.btnguardar.Size = New System.Drawing.Size(61, 69)
-        Me.btnguardar.TabIndex = 136
-        Me.btnguardar.Text = "Guardar"
-        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnguardar.UseVisualStyleBackColor = True
-        '
-        'btnnuevo
-        '
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnnuevo.Location = New System.Drawing.Point(849, 137)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        Me.btnnuevo.Size = New System.Drawing.Size(61, 69)
-        Me.btnnuevo.TabIndex = 135
-        Me.btnnuevo.Text = "Nuevo"
-        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevo.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.lblpAnticipo)
@@ -782,43 +750,12 @@ Partial Class frmCompras
         Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtusuario.BackColor = System.Drawing.Color.White
         Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(812, 68)
+        Me.txtusuario.Location = New System.Drawing.Point(811, 68)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtusuario.Size = New System.Drawing.Size(98, 23)
         Me.txtusuario.TabIndex = 143
         Me.txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'btncopia
-        '
-        Me.btncopia.BackgroundImage = CType(resources.GetObject("btncopia.BackgroundImage"), System.Drawing.Image)
-        Me.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncopia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncopia.Location = New System.Drawing.Point(849, 287)
-        Me.btncopia.Name = "btncopia"
-        Me.btncopia.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
-        Me.btncopia.Size = New System.Drawing.Size(61, 68)
-        Me.btncopia.TabIndex = 139
-        Me.btncopia.Text = "Imprimir copia"
-        Me.btncopia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncopia.UseVisualStyleBackColor = True
-        '
-        'btnimportarxls
-        '
-        Me.btnimportarxls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnimportarxls.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnimportarxls.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnimportarxls.Image = CType(resources.GetObject("btnimportarxls.Image"), System.Drawing.Image)
-        Me.btnimportarxls.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnimportarxls.Location = New System.Drawing.Point(849, 361)
-        Me.btnimportarxls.Name = "btnimportarxls"
-        Me.btnimportarxls.Size = New System.Drawing.Size(61, 61)
-        Me.btnimportarxls.TabIndex = 140
-        Me.btnimportarxls.Text = "Importar"
-        Me.btnimportarxls.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnimportarxls.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -1418,21 +1355,6 @@ Partial Class frmCompras
         'pCancela80
         '
         '
-        'btnimportarxml
-        '
-        Me.btnimportarxml.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnimportarxml.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnimportarxml.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnimportarxml.Image = CType(resources.GetObject("btnimportarxml.Image"), System.Drawing.Image)
-        Me.btnimportarxml.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnimportarxml.Location = New System.Drawing.Point(849, 428)
-        Me.btnimportarxml.Name = "btnimportarxml"
-        Me.btnimportarxml.Size = New System.Drawing.Size(61, 61)
-        Me.btnimportarxml.TabIndex = 184
-        Me.btnimportarxml.Text = "Importar"
-        Me.btnimportarxml.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnimportarxml.UseVisualStyleBackColor = True
-        '
         'lblusuario
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
@@ -1443,21 +1365,6 @@ Partial Class frmCompras
         Me.lblusuario.TabIndex = 227
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnPagar
-        '
-        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(849, 495)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(61, 69)
-        Me.btnPagar.TabIndex = 228
-        Me.btnPagar.Text = "Pagar compra"
-        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPagar.UseVisualStyleBackColor = True
-        '
         'panpago_compra
         '
         Me.panpago_compra.BackColor = System.Drawing.Color.Coral
@@ -1465,9 +1372,9 @@ Partial Class frmCompras
         Me.panpago_compra.Controls.Add(Me.btnpc_aceptar)
         Me.panpago_compra.Controls.Add(Me.Label43)
         Me.panpago_compra.Controls.Add(Me.boxPago)
-        Me.panpago_compra.Location = New System.Drawing.Point(336, 111)
+        Me.panpago_compra.Location = New System.Drawing.Point(337, 102)
         Me.panpago_compra.Name = "panpago_compra"
-        Me.panpago_compra.Size = New System.Drawing.Size(244, 351)
+        Me.panpago_compra.Size = New System.Drawing.Size(243, 358)
         Me.panpago_compra.TabIndex = 229
         Me.panpago_compra.Visible = False
         '
@@ -1477,7 +1384,7 @@ Partial Class frmCompras
         Me.btnpc_aceptar.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnpc_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpc_aceptar.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpc_aceptar.Location = New System.Drawing.Point(135, 305)
+        Me.btnpc_aceptar.Location = New System.Drawing.Point(134, 305)
         Me.btnpc_aceptar.Name = "btnpc_aceptar"
         Me.btnpc_aceptar.Size = New System.Drawing.Size(99, 36)
         Me.btnpc_aceptar.TabIndex = 158
@@ -1695,11 +1602,104 @@ Partial Class frmCompras
         Me.txtpc_efectivo.Text = "0.00"
         Me.txtpc_efectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'btnPagar
+        '
+        Me.btnPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPagar.Location = New System.Drawing.Point(849, 495)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(61, 69)
+        Me.btnPagar.TabIndex = 228
+        Me.btnPagar.Text = "Pagar compra"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
+        'btnimportarxml
+        '
+        Me.btnimportarxml.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnimportarxml.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnimportarxml.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnimportarxml.Image = CType(resources.GetObject("btnimportarxml.Image"), System.Drawing.Image)
+        Me.btnimportarxml.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnimportarxml.Location = New System.Drawing.Point(849, 428)
+        Me.btnimportarxml.Name = "btnimportarxml"
+        Me.btnimportarxml.Size = New System.Drawing.Size(61, 61)
+        Me.btnimportarxml.TabIndex = 184
+        Me.btnimportarxml.Text = "Importar"
+        Me.btnimportarxml.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnimportarxml.UseVisualStyleBackColor = True
+        '
+        'btnimportarxls
+        '
+        Me.btnimportarxls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnimportarxls.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnimportarxls.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnimportarxls.Image = CType(resources.GetObject("btnimportarxls.Image"), System.Drawing.Image)
+        Me.btnimportarxls.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnimportarxls.Location = New System.Drawing.Point(849, 361)
+        Me.btnimportarxls.Name = "btnimportarxls"
+        Me.btnimportarxls.Size = New System.Drawing.Size(61, 61)
+        Me.btnimportarxls.TabIndex = 140
+        Me.btnimportarxls.Text = "Importar"
+        Me.btnimportarxls.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnimportarxls.UseVisualStyleBackColor = True
+        '
+        'btncopia
+        '
+        Me.btncopia.BackgroundImage = CType(resources.GetObject("btncopia.BackgroundImage"), System.Drawing.Image)
+        Me.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncopia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btncopia.Location = New System.Drawing.Point(849, 287)
+        Me.btncopia.Name = "btncopia"
+        Me.btncopia.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
+        Me.btncopia.Size = New System.Drawing.Size(61, 68)
+        Me.btncopia.TabIndex = 139
+        Me.btncopia.Text = "Imprimir copia"
+        Me.btncopia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btncopia.UseVisualStyleBackColor = True
+        '
+        'btnguardar
+        '
+        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
+        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnguardar.Location = New System.Drawing.Point(849, 212)
+        Me.btnguardar.Name = "btnguardar"
+        Me.btnguardar.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
+        Me.btnguardar.Size = New System.Drawing.Size(61, 69)
+        Me.btnguardar.TabIndex = 136
+        Me.btnguardar.Text = "Guardar"
+        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnguardar.UseVisualStyleBackColor = True
+        '
+        'btnnuevo
+        '
+        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnnuevo.Location = New System.Drawing.Point(849, 137)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
+        Me.btnnuevo.Size = New System.Drawing.Size(61, 69)
+        Me.btnnuevo.TabIndex = 135
+        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo.UseVisualStyleBackColor = True
+        '
         'frmCompras
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(917, 570)
+        Me.ClientSize = New System.Drawing.Size(916, 570)
         Me.Controls.Add(Me.panpago_compra)
         Me.Controls.Add(Me.btnPagar)
         Me.Controls.Add(Me.lblusuario)

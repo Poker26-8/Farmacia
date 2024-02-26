@@ -1026,6 +1026,10 @@ Public Class Inicio
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+
+        Dim parte As Integer = 0
+        Dim series As Integer = 0
+
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
@@ -1033,16 +1037,34 @@ Public Class Inicio
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                If rd1(0).ToString() = 1 Then
-                    frmComprasS.Show()
-                    frmComprasS.BringToFront()
-                Else
-                    frmCompras.Show()
-                    frmCompras.BringToFront()
-                End If
+                parte = rd1(0).ToString
             End If
         End If
-        rd1.Close() : cnn1.Close()
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select NumPart from Formatos where Facturas='Series'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                series = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        If parte = 1 Then
+            frmComprasS.Show()
+            frmComprasS.BringToFront()
+        ElseIf series = 1 Then
+            frmComprasSeries.Show()
+            frmComprasSeries.BringToFront()
+        Else
+            frmCompras.Show()
+            frmCompras.BringToFront()
+        End If
+
+
+        cnn1.Close()
     End Sub
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
