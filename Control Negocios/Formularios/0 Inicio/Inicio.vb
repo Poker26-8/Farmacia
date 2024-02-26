@@ -1081,48 +1081,56 @@ Public Class Inicio
     End Sub
 
     Private Sub VentasMostradorToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pVentasM.Click
-        Try
-            cnn1.Close() : cnn1.Open()
+        Dim partes As Integer = 0
+        Dim series As Integer = 0
+        Dim descuento As Integer = 0
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='Partes'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = "1" Then
-                    Else
-                        rd1.Close()
-                        cnn1.Close()
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText =
-                            "select NotasCred from Formatos where Facturas='Desc_Ventas'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            If rd2.Read Then
-                                If rd2(0).ToString = "1" Then
-                                    rd2.Close() : cnn2.Close()
-
-                                    frmVentas1_Descuentos.Show()
-                                    frmVentas1_Descuentos.BringToFront()
-                                Else
-                                    rd2.Close() : cnn2.Close()
-                                    frmVentas1_Partes.Show()
-                                    frmVentas1_Partes.BringToFront()
-                                End If
-                            End If
-                        End If
-                        rd2.Close()
-                        cnn2.Close()
-                    End If
-                End If
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Partes'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                partes = rd1(0).ToString
             End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Desc_Ventas'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                descuento = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                series = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        If partes = 1 Then
+            frmVentas1_Partes.Show()
+            frmVentas1_Partes.BringToFront()
+        ElseIf descuento Then
+            frmVentas1_Descuentos.Show()
+            frmVentas1_Descuentos.BringToFront()
+        ElseIf series Then
+            frmVentas_Series.Show()
+            frmVentas_Series.BringToFront()
+        Else
+            frmVentas1.Show()
+            frmVentas1.BringToFront()
+
+        End If
     End Sub
 
     Private Sub RegistroDeEmpleadoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pHorariosEmp.Click
