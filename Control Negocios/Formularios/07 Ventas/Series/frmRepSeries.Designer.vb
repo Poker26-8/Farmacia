@@ -76,7 +76,7 @@ Partial Class frmRepSeries
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(924, 42)
+        Me.Panel1.Size = New System.Drawing.Size(1068, 42)
         Me.Panel1.TabIndex = 6
         '
         'Label1
@@ -85,7 +85,7 @@ Partial Class frmRepSeries
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(924, 42)
+        Me.Label1.Size = New System.Drawing.Size(1068, 42)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Reporte de Series"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -99,20 +99,20 @@ Partial Class frmRepSeries
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 42)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(924, 185)
+        Me.Panel3.Size = New System.Drawing.Size(1068, 185)
         Me.Panel3.TabIndex = 10
         '
         'mchasta
         '
         Me.mchasta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mchasta.Location = New System.Drawing.Point(667, 9)
+        Me.mchasta.Location = New System.Drawing.Point(811, 9)
         Me.mchasta.Name = "mchasta"
         Me.mchasta.TabIndex = 9
         '
         'mcdesde
         '
         Me.mcdesde.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mcdesde.Location = New System.Drawing.Point(408, 9)
+        Me.mcdesde.Location = New System.Drawing.Point(552, 9)
         Me.mcdesde.Name = "mcdesde"
         Me.mcdesde.TabIndex = 8
         '
@@ -192,7 +192,7 @@ Partial Class frmRepSeries
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel4.Location = New System.Drawing.Point(0, 575)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(924, 100)
+        Me.Panel4.Size = New System.Drawing.Size(1068, 100)
         Me.Panel4.TabIndex = 11
         '
         'btnsalir
@@ -202,7 +202,7 @@ Partial Class frmRepSeries
         Me.btnsalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsalir.Image = CType(resources.GetObject("btnsalir.Image"), System.Drawing.Image)
         Me.btnsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnsalir.Location = New System.Drawing.Point(838, 14)
+        Me.btnsalir.Location = New System.Drawing.Point(982, 14)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.Size = New System.Drawing.Size(75, 74)
         Me.btnsalir.TabIndex = 2
@@ -217,7 +217,7 @@ Partial Class frmRepSeries
         Me.btnexportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnexportar.Image = CType(resources.GetObject("btnexportar.Image"), System.Drawing.Image)
         Me.btnexportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnexportar.Location = New System.Drawing.Point(757, 14)
+        Me.btnexportar.Location = New System.Drawing.Point(901, 14)
         Me.btnexportar.Name = "btnexportar"
         Me.btnexportar.Size = New System.Drawing.Size(75, 74)
         Me.btnexportar.TabIndex = 0
@@ -232,7 +232,7 @@ Partial Class frmRepSeries
         Me.btnreporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnreporte.Image = CType(resources.GetObject("btnreporte.Image"), System.Drawing.Image)
         Me.btnreporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnreporte.Location = New System.Drawing.Point(676, 14)
+        Me.btnreporte.Location = New System.Drawing.Point(820, 14)
         Me.btnreporte.Name = "btnreporte"
         Me.btnreporte.Size = New System.Drawing.Size(75, 74)
         Me.btnreporte.TabIndex = 1
@@ -246,7 +246,7 @@ Partial Class frmRepSeries
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 227)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(924, 348)
+        Me.Panel2.Size = New System.Drawing.Size(1068, 348)
         Me.Panel2.TabIndex = 12
         '
         'grdseries
@@ -280,7 +280,7 @@ Partial Class frmRepSeries
         Me.grdseries.Name = "grdseries"
         Me.grdseries.ReadOnly = True
         Me.grdseries.RowHeadersVisible = False
-        Me.grdseries.Size = New System.Drawing.Size(924, 348)
+        Me.grdseries.Size = New System.Drawing.Size(1068, 348)
         Me.grdseries.TabIndex = 2
         '
         'Column1
@@ -320,7 +320,7 @@ Partial Class frmRepSeries
         Me.Column5.HeaderText = "Fecha Entrada"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
-        Me.Column5.Width = 140
+        Me.Column5.Width = 128
         '
         'Column6
         '
@@ -330,7 +330,7 @@ Partial Class frmRepSeries
         Me.Column6.HeaderText = "N° Venta"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
-        Me.Column6.Width = 97
+        Me.Column6.Width = 89
         '
         'Column7
         '
@@ -340,7 +340,7 @@ Partial Class frmRepSeries
         Me.Column7.HeaderText = "Fecha Salida"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
-        Me.Column7.Width = 127
+        Me.Column7.Width = 116
         '
         'Column4
         '
@@ -350,7 +350,6 @@ Partial Class frmRepSeries
         Me.Column4.HeaderText = "N° Factura"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        Me.Column4.Width = 109
         '
         'Column9
         '
@@ -377,7 +376,7 @@ Partial Class frmRepSeries
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(924, 675)
+        Me.ClientSize = New System.Drawing.Size(1068, 675)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
