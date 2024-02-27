@@ -178,6 +178,13 @@ Partial Class frmConfigs
         Me.optEM_65x27 = New System.Windows.Forms.RadioButton()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.tabPuertos = New System.Windows.Forms.TabPage()
+        Me.GroupBox26 = New System.Windows.Forms.GroupBox()
+        Me.n3 = New System.Windows.Forms.NumericUpDown()
+        Me.n2 = New System.Windows.Forms.NumericUpDown()
+        Me.n1 = New System.Windows.Forms.NumericUpDown()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
         Me.cbOrdenEntrega = New System.Windows.Forms.CheckBox()
         Me.GroupBox25 = New System.Windows.Forms.GroupBox()
         Me.Label71 = New System.Windows.Forms.Label()
@@ -199,6 +206,7 @@ Partial Class frmConfigs
         Me.cboImpCarta = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.rbsbascula = New System.Windows.Forms.RadioButton()
         Me.rbNoval = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -322,14 +330,6 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox26 = New System.Windows.Forms.GroupBox()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.n1 = New System.Windows.Forms.NumericUpDown()
-        Me.n2 = New System.Windows.Forms.NumericUpDown()
-        Me.n3 = New System.Windows.Forms.NumericUpDown()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -356,6 +356,10 @@ Partial Class frmConfigs
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox22.SuspendLayout()
         Me.tabPuertos.SuspendLayout()
+        Me.GroupBox26.SuspendLayout()
+        CType(Me.n3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.n2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.n1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox25.SuspendLayout()
         Me.boxTickets.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -380,10 +384,6 @@ Partial Class frmConfigs
         Me.tabMigracion.SuspendLayout()
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
-        Me.GroupBox26.SuspendLayout()
-        CType(Me.n1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.n2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.n3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label57
@@ -2110,6 +2110,70 @@ Partial Class frmConfigs
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
         '
+        'GroupBox26
+        '
+        Me.GroupBox26.Controls.Add(Me.n3)
+        Me.GroupBox26.Controls.Add(Me.n2)
+        Me.GroupBox26.Controls.Add(Me.n1)
+        Me.GroupBox26.Controls.Add(Me.Label83)
+        Me.GroupBox26.Controls.Add(Me.Label82)
+        Me.GroupBox26.Controls.Add(Me.Label81)
+        Me.GroupBox26.Enabled = False
+        Me.GroupBox26.Location = New System.Drawing.Point(282, 322)
+        Me.GroupBox26.Name = "GroupBox26"
+        Me.GroupBox26.Size = New System.Drawing.Size(188, 127)
+        Me.GroupBox26.TabIndex = 16
+        Me.GroupBox26.TabStop = False
+        Me.GroupBox26.Text = "Config. Etiquetas Bascula"
+        '
+        'n3
+        '
+        Me.n3.Location = New System.Drawing.Point(147, 82)
+        Me.n3.Name = "n3"
+        Me.n3.Size = New System.Drawing.Size(40, 23)
+        Me.n3.TabIndex = 5
+        '
+        'n2
+        '
+        Me.n2.Location = New System.Drawing.Point(147, 53)
+        Me.n2.Name = "n2"
+        Me.n2.Size = New System.Drawing.Size(40, 23)
+        Me.n2.TabIndex = 4
+        '
+        'n1
+        '
+        Me.n1.Location = New System.Drawing.Point(147, 27)
+        Me.n1.Name = "n1"
+        Me.n1.Size = New System.Drawing.Size(40, 23)
+        Me.n1.TabIndex = 3
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Location = New System.Drawing.Point(6, 84)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(132, 15)
+        Me.Label83.TabIndex = 2
+        Me.Label83.Text = "No. posiciones de Peso:"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Location = New System.Drawing.Point(6, 55)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(146, 15)
+        Me.Label82.TabIndex = 1
+        Me.Label82.Text = "No. posiciones de Codigo:"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Location = New System.Drawing.Point(6, 29)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(110, 15)
+        Me.Label81.TabIndex = 0
+        Me.Label81.Text = "El prefijo inicia con:"
+        '
         'cbOrdenEntrega
         '
         Me.cbOrdenEntrega.Location = New System.Drawing.Point(282, 297)
@@ -2344,6 +2408,17 @@ Partial Class frmConfigs
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Marca de la báscula"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 60)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(135, 19)
+        Me.RadioButton1.TabIndex = 9
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Bascula Etiquetadora"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'rbsbascula
         '
@@ -3654,81 +3729,6 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 60)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(135, 19)
-        Me.RadioButton1.TabIndex = 9
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Bascula Etiquetadora"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'GroupBox26
-        '
-        Me.GroupBox26.Controls.Add(Me.n3)
-        Me.GroupBox26.Controls.Add(Me.n2)
-        Me.GroupBox26.Controls.Add(Me.n1)
-        Me.GroupBox26.Controls.Add(Me.Label83)
-        Me.GroupBox26.Controls.Add(Me.Label82)
-        Me.GroupBox26.Controls.Add(Me.Label81)
-        Me.GroupBox26.Enabled = False
-        Me.GroupBox26.Location = New System.Drawing.Point(282, 322)
-        Me.GroupBox26.Name = "GroupBox26"
-        Me.GroupBox26.Size = New System.Drawing.Size(188, 127)
-        Me.GroupBox26.TabIndex = 16
-        Me.GroupBox26.TabStop = False
-        Me.GroupBox26.Text = "Config. Etiquetas Bascula"
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(6, 29)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(141, 15)
-        Me.Label81.TabIndex = 0
-        Me.Label81.Text = "No. posiciones de prefijo:"
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(6, 55)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(146, 15)
-        Me.Label82.TabIndex = 1
-        Me.Label82.Text = "No. posiciones de Codigo:"
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(6, 84)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(132, 15)
-        Me.Label83.TabIndex = 2
-        Me.Label83.Text = "No. posiciones de Peso:"
-        '
-        'n1
-        '
-        Me.n1.Location = New System.Drawing.Point(147, 27)
-        Me.n1.Name = "n1"
-        Me.n1.Size = New System.Drawing.Size(40, 23)
-        Me.n1.TabIndex = 3
-        '
-        'n2
-        '
-        Me.n2.Location = New System.Drawing.Point(147, 53)
-        Me.n2.Name = "n2"
-        Me.n2.Size = New System.Drawing.Size(40, 23)
-        Me.n2.TabIndex = 4
-        '
-        'n3
-        '
-        Me.n3.Location = New System.Drawing.Point(147, 82)
-        Me.n3.Name = "n3"
-        Me.n3.Size = New System.Drawing.Size(40, 23)
-        Me.n3.TabIndex = 5
-        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3787,6 +3787,11 @@ Partial Class frmConfigs
         Me.GroupBox22.PerformLayout()
         Me.tabPuertos.ResumeLayout(False)
         Me.tabPuertos.PerformLayout()
+        Me.GroupBox26.ResumeLayout(False)
+        Me.GroupBox26.PerformLayout()
+        CType(Me.n3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.n2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.n1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox25.ResumeLayout(False)
         Me.GroupBox25.PerformLayout()
         Me.boxTickets.ResumeLayout(False)
@@ -3826,11 +3831,6 @@ Partial Class frmConfigs
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        Me.GroupBox26.ResumeLayout(False)
-        Me.GroupBox26.PerformLayout()
-        CType(Me.n1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.n2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.n3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

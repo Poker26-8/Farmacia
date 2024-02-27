@@ -2062,16 +2062,15 @@ Public Class frmVentas1
                     Dim cuantossoy As Integer = 0
                     cuantossoy = noprefijo.Length
 
-
-                    If noprefijo = 1 Then
-                        If cbodesc.Text(0) = "2" Then
+                    If cuantossoy = 1 Then
+                        If cbodesc.Text.Substring(0, 1) = noprefijo Then
                             codrecortado = cbodesc.Text.Substring(1, 6)
                             pesofinal = cbodesc.Text.Substring(8, 4)
                         Else
                             GoTo kaka
                         End If
                     Else
-                        If cbodesc.Text(0) = "2" Then
+                        If cbodesc.Text.Substring(0, 2) = noprefijo Then
                             codrecortado = cbodesc.Text.Substring(2, 5)
                             pesofinal = cbodesc.Text.Substring(8, 4)
                         Else
