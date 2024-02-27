@@ -2625,16 +2625,17 @@ kaka:
                             txttotal.Text = FormatNumber(txttotal.Text, 4)
                             Call UpGrid()
                             My.Application.DoEvents()
-
+                            Dim voy2 As Double = 0
                             Dim VarSumXD As Double = 0
                             For w = 0 To grdcaptura.Rows.Count - 1
                                 If grdcaptura.Rows(w).Cells(6).Value.ToString = "" Then
                                 Else
                                     VarSumXD = VarSumXD + CDbl(grdcaptura.Rows(w).Cells(5).Value.ToString)
+                                    voy2 = voy2 + CDec(grdcaptura.Rows(w).Cells(3).Value)
                                 End If
                                 txtSubTotal.Text = FormatNumber(VarSumXD, 2)
                             Next
-
+                            txtcant_productos.Text = FormatNumber(voy2, 2)
                             If CDbl(txtdescuento1.Text) > 0 Then
                                 txtSubTotal.Tag = 1
                             End If
