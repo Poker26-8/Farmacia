@@ -22,7 +22,7 @@ Partial Class frmRepVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepVentas))
         Me.mCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.mCalendar2 = New System.Windows.Forms.MonthCalendar()
@@ -114,14 +114,14 @@ Partial Class frmRepVentas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(10, 235)
         Me.grdcaptura.Name = "grdcaptura"
@@ -345,7 +345,7 @@ Partial Class frmRepVentas
         '
         Me.lblresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblresta.AutoSize = True
-        Me.lblresta.Location = New System.Drawing.Point(913, 572)
+        Me.lblresta.Location = New System.Drawing.Point(898, 570)
         Me.lblresta.Name = "lblresta"
         Me.lblresta.Size = New System.Drawing.Size(35, 15)
         Me.lblresta.TabIndex = 186
@@ -354,7 +354,7 @@ Partial Class frmRepVentas
         'txtresta
         '
         Me.txtresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtresta.Location = New System.Drawing.Point(913, 590)
+        Me.txtresta.Location = New System.Drawing.Point(898, 588)
         Me.txtresta.Name = "txtresta"
         Me.txtresta.Size = New System.Drawing.Size(93, 23)
         Me.txtresta.TabIndex = 185
@@ -365,7 +365,7 @@ Partial Class frmRepVentas
         '
         Me.lblacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblacuenta.AutoSize = True
-        Me.lblacuenta.Location = New System.Drawing.Point(814, 572)
+        Me.lblacuenta.Location = New System.Drawing.Point(799, 570)
         Me.lblacuenta.Name = "lblacuenta"
         Me.lblacuenta.Size = New System.Drawing.Size(54, 15)
         Me.lblacuenta.TabIndex = 190
@@ -374,7 +374,7 @@ Partial Class frmRepVentas
         'txtacuenta
         '
         Me.txtacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtacuenta.Location = New System.Drawing.Point(814, 590)
+        Me.txtacuenta.Location = New System.Drawing.Point(799, 588)
         Me.txtacuenta.Name = "txtacuenta"
         Me.txtacuenta.Size = New System.Drawing.Size(93, 23)
         Me.txtacuenta.TabIndex = 189
@@ -405,7 +405,7 @@ Partial Class frmRepVentas
         '
         Me.lblpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblpeso.AutoSize = True
-        Me.lblpeso.Location = New System.Drawing.Point(776, 572)
+        Me.lblpeso.Location = New System.Drawing.Point(761, 570)
         Me.lblpeso.Name = "lblpeso"
         Me.lblpeso.Size = New System.Drawing.Size(32, 15)
         Me.lblpeso.TabIndex = 194
@@ -414,7 +414,7 @@ Partial Class frmRepVentas
         'txtpeso
         '
         Me.txtpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtpeso.Location = New System.Drawing.Point(723, 590)
+        Me.txtpeso.Location = New System.Drawing.Point(700, 588)
         Me.txtpeso.Name = "txtpeso"
         Me.txtpeso.Size = New System.Drawing.Size(93, 23)
         Me.txtpeso.TabIndex = 193
@@ -605,7 +605,7 @@ Partial Class frmRepVentas
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(502, 572)
+        Me.Label2.Location = New System.Drawing.Point(464, 569)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(112, 15)
         Me.Label2.TabIndex = 212
@@ -614,7 +614,7 @@ Partial Class frmRepVentas
         'txtVendido
         '
         Me.txtVendido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtVendido.Location = New System.Drawing.Point(502, 589)
+        Me.txtVendido.Location = New System.Drawing.Point(463, 587)
         Me.txtVendido.Name = "txtVendido"
         Me.txtVendido.Size = New System.Drawing.Size(93, 23)
         Me.txtVendido.TabIndex = 211
@@ -625,7 +625,7 @@ Partial Class frmRepVentas
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(618, 572)
+        Me.Label3.Location = New System.Drawing.Point(582, 570)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 15)
         Me.Label3.TabIndex = 216
@@ -634,7 +634,7 @@ Partial Class frmRepVentas
         'txtrestante
         '
         Me.txtrestante.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtrestante.Location = New System.Drawing.Point(621, 590)
+        Me.txtrestante.Location = New System.Drawing.Point(585, 591)
         Me.txtrestante.Name = "txtrestante"
         Me.txtrestante.Size = New System.Drawing.Size(93, 23)
         Me.txtrestante.TabIndex = 215

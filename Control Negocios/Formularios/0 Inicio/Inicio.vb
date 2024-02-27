@@ -110,6 +110,8 @@ Public Class Inicio
         SFormatos("Prefijo", "")
         SFormatos("Codigo", "")
         SFormatos("Peso", "")
+        SFormatos("Taller", "")
+
 
         verif()
         'Licencia()
@@ -1402,7 +1404,7 @@ Public Class Inicio
 
         Dim partes As Integer = 0
         Dim restaurante As Integer = 0
-        Dim original As Integer = 0
+        Dim refaccionaria As Integer = 0
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
@@ -1424,6 +1426,16 @@ Public Class Inicio
             End If
         End If
         rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                refaccionaria = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
         cnn1.Close()
 
 
@@ -1434,6 +1446,10 @@ Public Class Inicio
         ElseIf restaurante = 1 Then
             frmProductosSR.Show()
             frmProductosSR.BringToFront()
+
+        ElseIf refaccionaria = 1 Then
+            frmProRefaccionaria.Show()
+            frmProRefaccionaria.BringToFront()
         Else
 
             frmProductosS.Show()

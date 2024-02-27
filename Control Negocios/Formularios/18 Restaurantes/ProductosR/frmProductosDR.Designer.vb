@@ -117,7 +117,7 @@ Partial Class frmProductosDR
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(4, 162)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 23)
+        Me.Label1.Size = New System.Drawing.Size(114, 23)
         Me.Label1.TabIndex = 332
         Me.Label1.Text = "%"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -634,7 +634,7 @@ Partial Class frmProductosDR
         Me.cboIvaNormal.Items.AddRange(New Object() {"0", "16"})
         Me.cboIvaNormal.Location = New System.Drawing.Point(4, 188)
         Me.cboIvaNormal.Name = "cboIvaNormal"
-        Me.cboIvaNormal.Size = New System.Drawing.Size(107, 24)
+        Me.cboIvaNormal.Size = New System.Drawing.Size(114, 24)
         Me.cboIvaNormal.TabIndex = 287
         '
         'Label29
@@ -644,7 +644,7 @@ Partial Class frmProductosDR
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.Location = New System.Drawing.Point(4, 133)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(107, 23)
+        Me.Label29.Size = New System.Drawing.Size(114, 23)
         Me.Label29.TabIndex = 286
         Me.Label29.Text = "I.V.A %"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -690,7 +690,7 @@ Partial Class frmProductosDR
         Me.cboCodCortoNormal.FormattingEnabled = True
         Me.cboCodCortoNormal.Location = New System.Drawing.Point(4, 103)
         Me.cboCodCortoNormal.Name = "cboCodCortoNormal"
-        Me.cboCodCortoNormal.Size = New System.Drawing.Size(107, 24)
+        Me.cboCodCortoNormal.Size = New System.Drawing.Size(114, 24)
         Me.cboCodCortoNormal.TabIndex = 282
         '
         'Label31
@@ -700,9 +700,10 @@ Partial Class frmProductosDR
         Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.Location = New System.Drawing.Point(4, 77)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(107, 23)
+        Me.Label31.Size = New System.Drawing.Size(114, 23)
         Me.Label31.TabIndex = 281
         Me.Label31.Text = "Código Corto"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'txtCodBarrasNormal
         '

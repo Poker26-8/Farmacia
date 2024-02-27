@@ -38,7 +38,7 @@ Partial Class frmMenuPrincipal
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(389, 11)
+        Me.Button5.Location = New System.Drawing.Point(470, 11)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 75)
         Me.Button5.TabIndex = 27
@@ -68,7 +68,7 @@ Partial Class frmMenuPrincipal
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(470, 11)
+        Me.Button3.Location = New System.Drawing.Point(389, 11)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 75)
         Me.Button3.TabIndex = 25
@@ -122,7 +122,7 @@ Partial Class frmMenuPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(552, 95)
+        Me.ClientSize = New System.Drawing.Size(469, 95)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)

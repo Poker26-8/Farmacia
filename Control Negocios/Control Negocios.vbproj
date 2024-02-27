@@ -323,6 +323,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Sincronizador.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Taller.Designer.vb">
+      <DependentUpon>frmAct_Taller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Taller.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Telefonia.Designer.vb">
       <DependentUpon>frmAct_Telefonia.vb</DependentUpon>
     </Compile>
@@ -357,6 +363,12 @@
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmPasa_Mesa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.Designer.vb">
+      <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\26 Escuelas\frmAlumnos.designer.vb">
@@ -1596,6 +1608,9 @@
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Sincronizador.resx">
       <DependentUpon>frmAct_Sincronizador.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Taller.resx">
+      <DependentUpon>frmAct_Taller.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Telefonia.resx">
       <DependentUpon>frmAct_Telefonia.vb</DependentUpon>
     </EmbeddedResource>
@@ -1613,6 +1628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPasa_Mesa.resx">
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProRefaccionaria.resx">
+      <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\26 Escuelas\frmAlumnos.resx">
       <DependentUpon>frmAlumnos.vb</DependentUpon>

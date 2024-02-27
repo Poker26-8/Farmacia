@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmAct_Telefonia
+Partial Class frmAct_Taller
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,8 @@ Partial Class frmAct_Telefonia
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAct_Telefonia))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAct_Taller))
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -31,17 +32,28 @@ Partial Class frmAct_Telefonia
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesactivar.Location = New System.Drawing.Point(458, 149)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
+        Me.btnDesactivar.TabIndex = 43
+        Me.btnDesactivar.Text = "Desactivar módulo"
+        Me.btnDesactivar.UseVisualStyleBackColor = False
         '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(339, 206)
+        Me.Label5.Location = New System.Drawing.Point(339, 205)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(153, 19)
-        Me.Label5.TabIndex = 34
+        Me.Label5.TabIndex = 42
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Button1
@@ -49,10 +61,10 @@ Partial Class frmAct_Telefonia
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(458, 97)
+        Me.Button1.Location = New System.Drawing.Point(458, 96)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(113, 47)
-        Me.Button1.TabIndex = 33
+        Me.Button1.TabIndex = 41
         Me.Button1.Text = "Activar módulo"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -60,30 +72,30 @@ Partial Class frmAct_Telefonia
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 207)
+        Me.Label4.Location = New System.Drawing.Point(9, 206)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(165, 19)
-        Me.Label4.TabIndex = 32
+        Me.Label4.TabIndex = 40
         Me.Label4.Text = "Contraseña de activación:"
         '
         'txtcontra
         '
         Me.txtcontra.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontra.Location = New System.Drawing.Point(180, 203)
+        Me.txtcontra.Location = New System.Drawing.Point(180, 202)
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtcontra.Size = New System.Drawing.Size(153, 27)
-        Me.txtcontra.TabIndex = 31
+        Me.txtcontra.TabIndex = 39
         Me.txtcontra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(12, 111)
+        Me.Panel1.Location = New System.Drawing.Point(12, 110)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(440, 86)
-        Me.Panel1.TabIndex = 30
+        Me.Panel1.TabIndex = 38
         '
         'Label3
         '
@@ -94,18 +106,17 @@ Partial Class frmAct_Telefonia
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(421, 66)
         Me.Label3.TabIndex = 0
-        Me.Label3.Text = "1.- Ordenes de reparacion de los diferentes equipos." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2.- Reporte de equipos." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "3." &
-    "- Módulo de refacciones." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "4.- Reparación de los diferentes equipos. "
+        Me.Label3.Text = "1.- Control de taller para vehiculos"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 84)
+        Me.Label2.Location = New System.Drawing.Point(12, 83)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 19)
-        Me.Label2.TabIndex = 29
-        Me.Label2.Text = "Con Delsscom® Telefonia"
+        Me.Label2.Size = New System.Drawing.Size(142, 19)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "Con Delsscom® Taller"
         '
         'Label1
         '
@@ -115,28 +126,16 @@ Partial Class frmAct_Telefonia
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(587, 66)
-        Me.Label1.TabIndex = 28
-        Me.Label1.Text = "Telefonia"
+        Me.Label1.TabIndex = 36
+        Me.Label1.Text = "Taller"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnDesactivar
-        '
-        Me.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDesactivar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesactivar.Location = New System.Drawing.Point(458, 150)
-        Me.btnDesactivar.Name = "btnDesactivar"
-        Me.btnDesactivar.Size = New System.Drawing.Size(113, 47)
-        Me.btnDesactivar.TabIndex = 35
-        Me.btnDesactivar.Text = "Desactivar módulo"
-        Me.btnDesactivar.UseVisualStyleBackColor = False
-        '
-        'frmAct_Telefonia
+        'frmAct_Taller
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(587, 243)
+        Me.ClientSize = New System.Drawing.Size(587, 242)
         Me.Controls.Add(Me.btnDesactivar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
@@ -146,16 +145,15 @@ Partial Class frmAct_Telefonia
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmAct_Telefonia"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Reparación de Telefonos"
-        Me.TopMost = True
+        Me.Name = "frmAct_Taller"
+        Me.Text = "Activar  módulo de taller"
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
+    Friend WithEvents btnDesactivar As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Label4 As Label
@@ -164,5 +162,4 @@ Partial Class frmAct_Telefonia
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnDesactivar As Button
 End Class

@@ -519,6 +519,7 @@ Public Class frmMesas
                                         End If
                                     Else
                                         frmAsigna.Show()
+                                        frmAsigna.BringToFront()
                                     End If
                                     rd2.Close()
                                     cnn2.Close()

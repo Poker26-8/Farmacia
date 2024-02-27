@@ -178,4 +178,10 @@
         frmAct_mpollo.BringToFront()
         Me.Close()
     End Sub
+
+    Private Sub Button11_Click_1(sender As Object, e As EventArgs) Handles Button11.Click
+        frmAct_Taller.Show()
+        frmAct_Taller.BringToFront()
+        Me.Close()
+    End Sub
 End Class
