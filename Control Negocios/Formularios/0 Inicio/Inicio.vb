@@ -559,7 +559,7 @@ Public Class Inicio
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
-
+        'permisos
         Try
             cnn1.Close()
             cnn1.Open()
@@ -573,11 +573,66 @@ Public Class Inicio
         Catch ex As Exception
             rd1.Close()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Alter table Permisos add column Rep_Servicios int(11) default 0"
+            cmd1.CommandText = "Alter table Permisos add column Rep_Servicios int(1) default 0"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
 
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Rep_CamPrecio from Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Alter table Permisos add column Rep_CamPrecio int(1) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Rep_EstResultado FROM Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE Permisos ADD column Rep_EstResultado int(1) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Rep_Auditoria FROM Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE Permisos ADD column Rep_Auditoria int(1) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'ticket
         Try
             cnn1.Close()
             cnn1.Open()
@@ -592,6 +647,40 @@ Public Class Inicio
             rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "Alter table Ticket add column Cab7 varchar(255) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'compras
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Serie FROM comprasdet"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE comprasdet add column Serie varchar(80) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'permisosm
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Mesas FROM permisosm"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE permisosm add column Mesas INT(1) default '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
@@ -1907,7 +1996,7 @@ Public Class Inicio
                         pRepCompras.Enabled = True
                         P.R_Compras = True
                     Else
-                        pRepCompras.Enabled = True
+                        pRepCompras.Enabled = False
                         P.R_Compras = False
                         Repo += 1
                     End If
@@ -1944,9 +2033,11 @@ Public Class Inicio
                     End If
                     If rd5("Rep_Sal").ToString = True Then
                         pRepEgr.Enabled = True
+                        ReporteDeEgresosToolStripMenuItem.Enabled = True
                         P.R_Salidas = True
                     Else
                         pRepEgr.Enabled = False
+                        ReporteDeEgresosToolStripMenuItem.Enabled = False
                         P.R_Salidas = False
                         Repo += 1
                     End If
@@ -1973,11 +2064,31 @@ Public Class Inicio
                         Repo += 0
                         pRepInventario.Enabled = True
                     End If
-                    If Repo = 7 Then
-                        pReportes.Enabled = False
+
+
+                    If rd5("Rep_CamPrecio").ToString = True Then
+                        pRepPrecios.Enabled = True
                     Else
-                        pReportes.Enabled = True
+                        pRepPrecios.Enabled = False
                     End If
+
+                    If rd5("Rep_EstResultado").ToString = True Then
+                        pEstResultados.Enabled = True
+                    Else
+                        pEstResultados.Enabled = False
+                    End If
+
+                    If rd5("Rep_Auditoria").ToString = True Then
+                        ReporteDeAuditoriaToolStripMenuItem.Enabled = True
+                    Else
+                        ReporteDeAuditoriaToolStripMenuItem.Enabled = False
+                    End If
+
+                    'If Repo = 7 Then
+                    '    pReportes.Enabled = False
+                    'Else
+                    '    pReportes.Enabled = True
+                    'End If
 
                     'Listados
                     Dim List As Integer = 0

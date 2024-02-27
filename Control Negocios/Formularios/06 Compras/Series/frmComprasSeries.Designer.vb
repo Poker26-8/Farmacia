@@ -140,6 +140,14 @@ Partial Class frmComprasSeries
         Me.Label41 = New System.Windows.Forms.Label()
         Me.txtpc_efectivo = New System.Windows.Forms.TextBox()
         Me.Label43 = New System.Windows.Forms.Label()
+        Me.pTicket80 = New System.Drawing.Printing.PrintDocument()
+        Me.pTicket58 = New System.Drawing.Printing.PrintDocument()
+        Me.pMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pCancela80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
+        Me.pCancelaMC = New System.Drawing.Printing.PrintDocument()
+        Me.pCancelaCarta = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -168,7 +176,7 @@ Partial Class frmComprasSeries
         '
         Me.lblmoneda.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lblmoneda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmoneda.ForeColor = System.Drawing.Color.White
+        Me.lblmoneda.ForeColor = System.Drawing.Color.Black
         Me.lblmoneda.Location = New System.Drawing.Point(92, 12)
         Me.lblmoneda.Name = "lblmoneda"
         Me.lblmoneda.Size = New System.Drawing.Size(105, 17)
@@ -203,7 +211,7 @@ Partial Class frmComprasSeries
         '
         Me.lblvalor.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lblvalor.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblvalor.ForeColor = System.Drawing.Color.White
+        Me.lblvalor.ForeColor = System.Drawing.Color.Black
         Me.lblvalor.Location = New System.Drawing.Point(264, 12)
         Me.lblvalor.Name = "lblvalor"
         Me.lblvalor.Size = New System.Drawing.Size(99, 17)
@@ -292,9 +300,9 @@ Partial Class frmComprasSeries
         Me.Button1.Enabled = False
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(519, 43)
+        Me.Button1.Location = New System.Drawing.Point(456, 43)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 23)
+        Me.Button1.Size = New System.Drawing.Size(175, 23)
         Me.Button1.TabIndex = 157
         Me.Button1.Text = "Aplicar anticipo"
         Me.Button1.UseVisualStyleBackColor = False
@@ -351,7 +359,7 @@ Partial Class frmComprasSeries
         Me.btncancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btncancela.Enabled = False
         Me.btncancela.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncancela.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncancela.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancela.Location = New System.Drawing.Point(718, 16)
         Me.btncancela.Name = "btncancela"
         Me.btncancela.Size = New System.Drawing.Size(75, 49)
@@ -364,7 +372,7 @@ Partial Class frmComprasSeries
         Me.btnactualiza.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnactualiza.Enabled = False
         Me.btnactualiza.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnactualiza.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnactualiza.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnactualiza.Location = New System.Drawing.Point(637, 16)
         Me.btnactualiza.Name = "btnactualiza"
         Me.btnactualiza.Size = New System.Drawing.Size(75, 49)
@@ -925,6 +933,7 @@ Partial Class frmComprasSeries
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column9, Me.Column15, Me.Column16})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(10, 56)
@@ -1221,7 +1230,7 @@ Partial Class frmComprasSeries
         Me.panpago_compra.Controls.Add(Me.btnpc_aceptar)
         Me.panpago_compra.Controls.Add(Me.boxPago)
         Me.panpago_compra.Controls.Add(Me.Label43)
-        Me.panpago_compra.Location = New System.Drawing.Point(345, 157)
+        Me.panpago_compra.Location = New System.Drawing.Point(345, 120)
         Me.panpago_compra.Name = "panpago_compra"
         Me.panpago_compra.Size = New System.Drawing.Size(256, 352)
         Me.panpago_compra.TabIndex = 230
@@ -1470,6 +1479,21 @@ Partial Class frmComprasSeries
         Me.Label43.TabIndex = 11
         Me.Label43.Text = "PAGO"
         '
+        'pTicket80
+        '
+        '
+        'pTicket58
+        '
+        '
+        'pMediaCarta
+        '
+        '
+        'pCarta
+        '
+        '
+        'pCancela80
+        '
+        '
         'frmComprasSeries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1621,4 +1645,12 @@ Partial Class frmComprasSeries
     Friend WithEvents Label41 As Label
     Friend WithEvents txtpc_efectivo As TextBox
     Friend WithEvents btnpc_aceptar As Button
+    Friend WithEvents pTicket80 As Printing.PrintDocument
+    Friend WithEvents pTicket58 As Printing.PrintDocument
+    Friend WithEvents pMediaCarta As Printing.PrintDocument
+    Friend WithEvents pCarta As Printing.PrintDocument
+    Friend WithEvents pCancela80 As Printing.PrintDocument
+    Friend WithEvents pCancela58 As Printing.PrintDocument
+    Friend WithEvents pCancelaMC As Printing.PrintDocument
+    Friend WithEvents pCancelaCarta As Printing.PrintDocument
 End Class

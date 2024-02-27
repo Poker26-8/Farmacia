@@ -1873,15 +1873,20 @@ Public Class frmAgregarProducto
                 End If
                 rd3.Close()
 
-                If tamimpre = 80 Then
-                    PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                    PComanda80.Print()
+                If impresoracomanda = "" Then
+                Else
+                    If tamimpre = 80 Then
+                        PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                        PComanda80.Print()
+                    End If
+
+                    If tamimpre = 58 Then
+                        PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                        PComanda58.Print()
+                    End If
                 End If
 
-                If tamimpre = 58 Then
-                    PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                    PComanda58.Print()
-                End If
+
 
             End If
         Loop

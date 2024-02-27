@@ -86,6 +86,7 @@ Partial Class frmPermisos
         Me.egr_Nom = New System.Windows.Forms.CheckBox()
         Me.lblingresos = New System.Windows.Forms.Label()
         Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.cbserviciosrep = New System.Windows.Forms.CheckBox()
         Me.rep_Aju = New System.Windows.Forms.CheckBox()
         Me.rep_Inv = New System.Windows.Forms.CheckBox()
         Me.rep_Egr = New System.Windows.Forms.CheckBox()
@@ -137,7 +138,9 @@ Partial Class frmPermisos
         Me.txt1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cbserviciosrep = New System.Windows.Forms.CheckBox()
+        Me.cbCambioPrecios = New System.Windows.Forms.CheckBox()
+        Me.cbAuditoria = New System.Windows.Forms.CheckBox()
+        Me.cbEstadoResultados = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -452,7 +455,7 @@ Partial Class frmPermisos
         Me.Panel4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(162, 339)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(152, 221)
+        Me.Panel4.Size = New System.Drawing.Size(152, 212)
         Me.Panel4.TabIndex = 52
         '
         'ven_Edi
@@ -835,6 +838,9 @@ Partial Class frmPermisos
         'Panel11
         '
         Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel11.Controls.Add(Me.cbEstadoResultados)
+        Me.Panel11.Controls.Add(Me.cbAuditoria)
+        Me.Panel11.Controls.Add(Me.cbCambioPrecios)
         Me.Panel11.Controls.Add(Me.cbserviciosrep)
         Me.Panel11.Controls.Add(Me.rep_Aju)
         Me.Panel11.Controls.Add(Me.rep_Inv)
@@ -848,8 +854,18 @@ Partial Class frmPermisos
         Me.Panel11.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel11.Location = New System.Drawing.Point(317, 279)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(163, 201)
+        Me.Panel11.Size = New System.Drawing.Size(163, 272)
         Me.Panel11.TabIndex = 68
+        '
+        'cbserviciosrep
+        '
+        Me.cbserviciosrep.AutoSize = True
+        Me.cbserviciosrep.Location = New System.Drawing.Point(3, 183)
+        Me.cbserviciosrep.Name = "cbserviciosrep"
+        Me.cbserviciosrep.Size = New System.Drawing.Size(129, 17)
+        Me.cbserviciosrep.TabIndex = 10
+        Me.cbserviciosrep.Text = "Reporte de servicios"
+        Me.cbserviciosrep.UseVisualStyleBackColor = True
         '
         'rep_Aju
         '
@@ -961,9 +977,9 @@ Partial Class frmPermisos
         Me.Panel3.Controls.Add(Me.lis_Pro)
         Me.Panel3.Controls.Add(Me.lis_Pre)
         Me.Panel3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(315, 501)
+        Me.Panel3.Location = New System.Drawing.Point(7, 489)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(165, 59)
+        Me.Panel3.Size = New System.Drawing.Size(152, 62)
         Me.Panel3.TabIndex = 72
         '
         'lis_Fal
@@ -1002,9 +1018,9 @@ Partial Class frmPermisos
         Me.lbllistados.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbllistados.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbllistados.ForeColor = System.Drawing.Color.White
-        Me.lbllistados.Location = New System.Drawing.Point(315, 483)
+        Me.lbllistados.Location = New System.Drawing.Point(7, 471)
         Me.lbllistados.Name = "lbllistados"
-        Me.lbllistados.Size = New System.Drawing.Size(165, 19)
+        Me.lbllistados.Size = New System.Drawing.Size(152, 19)
         Me.lbllistados.TabIndex = 71
         Me.lbllistados.Text = "L I S T A D O S"
         Me.lbllistados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1129,7 +1145,7 @@ Partial Class frmPermisos
         Me.Panel15.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel15.Location = New System.Drawing.Point(484, 467)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(163, 93)
+        Me.Panel15.Size = New System.Drawing.Size(163, 84)
         Me.Panel15.TabIndex = 79
         '
         'chkaudita
@@ -1219,7 +1235,7 @@ Partial Class frmPermisos
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.optmostr_caja)
         Me.GroupBox2.Controls.Add(Me.optmostrador)
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 487)
+        Me.GroupBox2.Location = New System.Drawing.Point(483, 557)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(152, 69)
         Me.GroupBox2.TabIndex = 87
@@ -1410,21 +1426,41 @@ Partial Class frmPermisos
         Me.Label3.TabIndex = 48
         Me.Label3.Text = "Pregunta 1:"
         '
-        'cbserviciosrep
+        'cbCambioPrecios
         '
-        Me.cbserviciosrep.AutoSize = True
-        Me.cbserviciosrep.Location = New System.Drawing.Point(3, 183)
-        Me.cbserviciosrep.Name = "cbserviciosrep"
-        Me.cbserviciosrep.Size = New System.Drawing.Size(129, 17)
-        Me.cbserviciosrep.TabIndex = 10
-        Me.cbserviciosrep.Text = "Reporte de servicios"
-        Me.cbserviciosrep.UseVisualStyleBackColor = True
+        Me.cbCambioPrecios.AutoSize = True
+        Me.cbCambioPrecios.Location = New System.Drawing.Point(3, 203)
+        Me.cbCambioPrecios.Name = "cbCambioPrecios"
+        Me.cbCambioPrecios.Size = New System.Drawing.Size(163, 17)
+        Me.cbCambioPrecios.TabIndex = 11
+        Me.cbCambioPrecios.Text = "Reporte de cambio precios"
+        Me.cbCambioPrecios.UseVisualStyleBackColor = True
+        '
+        'cbAuditoria
+        '
+        Me.cbAuditoria.AutoSize = True
+        Me.cbAuditoria.Location = New System.Drawing.Point(3, 242)
+        Me.cbAuditoria.Name = "cbAuditoria"
+        Me.cbAuditoria.Size = New System.Drawing.Size(133, 17)
+        Me.cbAuditoria.TabIndex = 12
+        Me.cbAuditoria.Text = "Reporte de auditoria"
+        Me.cbAuditoria.UseVisualStyleBackColor = True
+        '
+        'cbEstadoResultados
+        '
+        Me.cbEstadoResultados.AutoSize = True
+        Me.cbEstadoResultados.Location = New System.Drawing.Point(3, 223)
+        Me.cbEstadoResultados.Name = "cbEstadoResultados"
+        Me.cbEstadoResultados.Size = New System.Drawing.Size(162, 17)
+        Me.cbEstadoResultados.TabIndex = 13
+        Me.cbEstadoResultados.Text = "Reporte estado resultados"
+        Me.cbEstadoResultados.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(654, 567)
+        Me.ClientSize = New System.Drawing.Size(654, 630)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.cbContraInicio)
         Me.Controls.Add(Me.cb_Add_Cli)
@@ -1611,4 +1647,7 @@ Partial Class frmPermisos
     Friend WithEvents Label8 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents cbserviciosrep As CheckBox
+    Friend WithEvents cbCambioPrecios As CheckBox
+    Friend WithEvents cbAuditoria As CheckBox
+    Friend WithEvents cbEstadoResultados As CheckBox
 End Class

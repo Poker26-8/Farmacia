@@ -1,4 +1,8 @@
-﻿Public Class frmComprasSeries
+﻿Imports System.Data.OleDb
+Imports System.IO
+Imports System.Xml
+
+Public Class frmComprasSeries
 
     Dim printLine As Integer = 0
     Dim Contador As Integer = 0
@@ -6,6 +10,7 @@
     Dim tipo_cancelacion As String = ""
     Dim alias_compras As String = ""
     Dim DondeVoy As String = ""
+    Dim tipo_impre As String = ""
     Private Sub frmComprasSeries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpfecha.Value = Now
         dtpfpago.Value = Now
@@ -61,7 +66,7 @@
 
         grdcaptura.Rows.Clear()
         grdcaptura.DefaultCellStyle.ForeColor = Color.Black
-        PrintLine = 0
+        printLine = 0
         Contador = 0
         pagina = 0
         VieneDe_Compras = ""
@@ -1735,6 +1740,8 @@ kaka:
             Dim id_usuario As Integer = 0
 
             DondeVoy = "Guarda"
+            tipo_impre = "NORMAL"
+
             If cboremision.Text = "" Then MsgBox("Escribe el número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
             If cboproveedor.Text = "" Then MsgBox("Selecciona un proveedor para continuar con la compra.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboproveedor.Focus().Equals(True) : Exit Sub
             If CDbl(txtresta.Text) < 0 Then MsgBox("El abono a la compra no puede ser mayor al total de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtefectivo.Focus().Equals(True) : Exit Sub
@@ -1747,7 +1754,548 @@ kaka:
             If txtanticipo.Text = "" Then txtanticipo.Text = "0.00"
             If txtpagos.Text = "" Then txtpagos.Text = "0.00"
 
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Id FROM Proveedores WHERE Compania='" & cboproveedor.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    MyID = rd1(0).ToString
+                End If
+            Else
+                MsgBox("Este proveedor no se encuentra egistrado en el catálogo de proveedores." & vbNewLine & "Resgístralo para continuar con la compra.", vbInformation + vbOKOnly, titulocentral)
+                rd1.Close()
+                cnn1.Close()
+                cboproveedor.Focus().Equals(True)
+                Exit Sub
+            End If
+            rd1.Close()
 
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & txtusuario.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    alias_compras = rd1("Alias").ToString()
+                End If
+            Else
+                MsgBox("No se encuentra el usuario registrado en el sistema.", vbInformation + vbOKOnly, titulocentral)
+                txtusuario.SelectionStart = 0
+                txtusuario.SelectionLength = Len(txtusuario.Text)
+                txtusuario.Focus().Equals(True)
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If MsgBox("¿Deseas guardar esta compra?", vbInformation + vbOKCancel, titulocentral) = vbCancel Then cnn1.Close() : Exit Sub
+
+            For t As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CDbl(grdcaptura.Rows(t).Cells(3).Value.ToString) = 0 Then
+                    MsgBox("Falta alguna cantidad.", vbInformation + vbOKOnly, titulocentral)
+                    cnn1.Close()
+                    Exit Sub
+                End If
+                If CDbl(grdcaptura.Rows(t).Cells(4).Value.ToString) = 0 Then
+                    MsgBox("Falta algún precio.", vbInformation + vbOKOnly, titulocentral)
+                    cnn1.Close()
+                    Exit Sub
+                End If
+            Next
+
+            Dim MySaldo As Double = 0
+            Dim Status As String = ""
+            Dim MyACuenta As Double = 0
+            Dim MySaldoF As Double = txtsaldo.Text
+            Dim MyResta As Double = txtresta.Text
+
+            Dim efectivo As Double = txtefectivo.Text
+            Dim banco As String = ""
+            Dim refer As String = ""
+            Dim tarjeta As Double = 0
+            Dim transfe As Double = 0
+            Dim otro As Double = 0
+
+            Dim pagadoc_saldo As Double = 0
+            Dim sobra_saldo As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            If MySaldoF = 0 Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtapagar.Text)
+                    End If
+                Else
+                    MySaldo = CDbl(txtapagar.Text)
+                End If
+                rd1.Close()
+                MySaldo = FormatNumber(MySaldo, 4)
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','COMPRA','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDbl(txtapagar.Text) & ",0," & MySaldo & ",'','','" & alias_compras & "')"
+                cmd1.ExecuteNonQuery()
+
+                If CDbl(txtresta.Text) = 0 Then
+                    Status = "PAGADO"
+                Else
+                    Status = "RESTA"
+                End If
+
+                MyACuenta = CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+                If MyACuenta > 0 Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) - MyACuenta
+                        End If
+                    Else
+                        MySaldo = MyACuenta
+                    End If
+                    rd1.Close()
+
+                    tarjeta = txtpc_tarjeta.Text
+                    transfe = txtpc_transfe.Text
+                    otro = txtpc_otro.Text
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','ABONO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyACuenta & "," & MySaldo & "," & efectivo & "," & tarjeta & "," & transfe & "," & otro & ",'','','" & alias_compras & "',0,0,0)"
+                    cmd1.ExecuteNonQuery()
+                End If
+            Else
+                If CDbl(txtresta.Text) = 0 Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtapagar.Text)
+                        End If
+                    Else
+                        MySaldo = CDbl(txtapagar.Text)
+                    End If
+                    rd1.Close()
+                    MySaldo = FormatNumber(MySaldo, 4)
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','COMPRA','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDbl(txtapagar.Text) & ",0," & MySaldo & ",'','','" & alias_compras & "')"
+                    cmd1.ExecuteNonQuery()
+
+                    If CDbl(txtresta.Text) = 0 Then
+                        Status = "PAGADO"
+                    Else
+                        Status = "RESTA"
+                    End If
+
+                    MyACuenta = CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+                    If MyACuenta > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) - MyACuenta
+                            End If
+                        Else
+                            MySaldo = MyACuenta
+                        End If
+                        rd1.Close()
+
+                        tarjeta = txtpc_tarjeta.Text
+                        transfe = txtpc_transfe.Text
+                        otro = txtpc_otro.Text
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','ABONO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyACuenta & "," & MySaldo & "," & efectivo & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','" & alias_compras & "',0,0,0)"
+                        cmd1.ExecuteNonQuery()
+                    End If
+                Else
+                    MyACuenta = CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+                    If MyACuenta > 0 Then
+                        If MySaldoF > 0 Then
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString))
+                                End If
+                            Else
+                                MySaldo = CDbl(txtapagar.Text)
+                            End If
+                            rd1.Close()
+                            MySaldo = FormatNumber(MySaldo, 4)
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','COMPRA','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDbl(txtapagar.Text) & ",0," & MySaldo & ",'','','" & alias_compras & "')"
+                            cmd1.ExecuteNonQuery()
+
+                            Dim pagado As Double = 0
+                            If MySaldoF > CDbl(txtresta.Text) Then
+                                pagado = FormatNumber(MyACuenta + CDbl(txtresta.Text), 2)
+                                sobra_saldo = MySaldoF - CDbl(txtresta.Text)
+                            Else
+
+                            End If
+
+                            If pagado = CDbl(txtapagar.Text) Then
+                                Status = "PAGADO"
+                            Else
+                                Status = "RESTA"
+                            End If
+
+                            If MyACuenta > 0 Then
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                                    "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                                rd1 = cmd1.ExecuteReader
+                                If rd1.HasRows Then
+                                    If rd1.Read Then
+                                        MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtresta.Text)
+                                    End If
+                                Else
+                                    MySaldo = MyACuenta
+                                End If
+                                rd1.Close()
+
+                                tarjeta = txtpc_tarjeta.Text
+                                transfe = txtpc_transfe.Text
+                                otro = txtpc_otro.Text
+
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                                    "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','ABONO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyACuenta & "," & MySaldo & "," & efectivo & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','" & alias_compras & "',0,0,0)"
+                                cmd1.ExecuteNonQuery()
+                            End If
+                        Else
+
+                        End If
+                    Else
+                        If MySaldoF > 0 Then
+
+                        Else
+
+                        End If
+                    End If
+
+                    If MySaldoF > CDbl(txtresta.Text) Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString))
+                            End If
+                        Else
+                            MySaldo = CDbl(txtapagar.Text)
+                        End If
+                        rd1.Close()
+                        MySaldo = FormatNumber(MySaldo, 4)
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','COMPRA','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDbl(txtapagar.Text) & ",0," & MySaldo & ",'','','" & alias_compras & "')"
+                        cmd1.ExecuteNonQuery()
+
+                        Status = "PAGADO"
+                        MyResta = 0
+
+                        MyACuenta = CDbl(txtapagar.Text)
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & MyID & ")"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + MyACuenta
+                            End If
+                        Else
+                            MySaldo = MyACuenta
+                        End If
+                        rd1.Close()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & MyID & ",'" & cboproveedor.Text & "','ABONO','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyACuenta & "," & MySaldo & "," & efectivo & "," & tarjeta & "," & transfe & "," & MyACuenta & ",'" & banco & "','" & refer & "','" & alias_compras & "',0,0,0)"
+                        cmd1.ExecuteNonQuery()
+                    ElseIf MySaldoF < CDbl(txtresta.Text) Then
+                        If CDbl(txtresta.Text) = 0 Then
+                            Status = "PAGADO"
+                        Else
+                            Status = "RESTA"
+                        End If
+
+                        MyACuenta = CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+                    End If
+                End If
+            End If
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "insert into Compras(NumRemision,NumFactura,NumPedido,NotaCred,IdProv,Proveedor,Sub1,Desc1,Sub2,IVA,Total,Desc2,IEPS,Pagar,ACuenta,Resta,FechaC,FechaP,FechaNC,Status,FechaCancela,Usuario,Corte,CorteU,Cargado,Anticipo) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "',''," & MyID & ",'" & cboproveedor.Text & "'," & CDbl(txtsub1.Text) & "," & CDbl(txtdesc1.Text) & "," & CDbl(txtsub2.Text) & "," & CDbl(txtiva.Text) & "," & CDbl(txtTotalC.Text) & "," & CDbl(txtdesc2.Text) & "," & CDbl(txtieps.Text) & "," & CDbl(txtapagar.Text) & "," & MyACuenta & "," & MyResta & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(dtpfpago.Value, "yyyy-MM-dd") & "','','" & Status & "','','" & alias_compras & "',0,0,0," & CDbl(txtanticipo.Text) & ")"
+            cmd1.ExecuteNonQuery()
+
+            Dim total_pagos As Double = tarjeta + transfe + otro
+
+            If total_pagos > 0 Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Hora,Folio) values('Compra','" & banco & "','" & refer & "','COMPRA'," & total_pagos & "," & total_pagos & ",0,'" & Format(Date.Now, "HH:mm:ss") & "','" & cboremision.Text & "')"
+                cmd1.ExecuteNonQuery()
+            End If
+
+            Dim IdCompra As Integer = 0
+
+            Do Until IdCompra <> 0
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        IdCompra = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+            Loop
+
+            Dim Zi As Integer = 0
+            Do While grdcaptura.Rows.Count <> Zi
+
+                Dim codigo As String = CStr(grdcaptura.Rows(Zi).Cells(0).Value.ToString())
+                Dim nombre As String = CStr(grdcaptura.Rows(Zi).Cells(1).Value.ToString())
+                Dim unidad As String = CStr(grdcaptura.Rows(Zi).Cells(2).Value.ToString())
+                Dim cantid As Double = grdcaptura.Rows(Zi).Cells(3).Value.ToString()
+                Dim precio As Double = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString()), 4)
+                Dim tottal As Double = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(5).Value.ToString()), 2)
+                Dim existe As Double = grdcaptura.Rows(Zi).Cells(6).Value.ToString()
+                Dim serie As String = grdcaptura.Rows(Zi).Cells(7).Value.ToString()
+                Dim cp As Boolean = IIf(grdcaptura.Rows(Zi).Cells(8).Value.ToString() = "", 0, grdcaptura.Rows(Zi).Cells(8).Value.ToString())
+                Dim dpto As String = "", grupo As String = ""
+                Dim mymultiplo As Double = 0
+                Dim iva_prod As Double = 0
+                Dim pcompra As Double = 0, pventaiva As Double = 0, pminimo As Double = 0, pmayoreo As Double = 0, pespecial As Double = 0, pmedio As Double = 0
+                Dim porventa As Double = 0, porminimo As Double = 0, pormayoreo As Double = 0, porespecial As Double = 0, pormedio As Double = 0
+
+                Dim tipo_anti As String = ""
+
+                pcompra = precio
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Productos where Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        iva_prod = CDbl(rd1("IVA").ToString) + 1
+                        mymultiplo = rd1("Multiplo").ToString
+                        porventa = rd1("Porcentaje").ToString
+                        porminimo = rd1("PorcMin").ToString
+                        pormayoreo = rd1("PorcMay")
+                        pormedio = rd1("PorcMM").ToString
+                        porespecial = rd1("PorcEsp").ToString
+                        dpto = rd1("Departamento").ToString
+                        grupo = rd1("Grupo").ToString
+                        existe = rd1("Existencia").ToString
+                    End If
+                End If
+                rd1.Close()
+
+                If dpto = "ANTIBIOTICO" Then
+                    tipo_anti = "ANTIBIOTICO"
+                Else
+                    tipo_anti = ""
+                End If
+
+                Dim nueva_exis As Double = existe + (cantid * mymultiplo)
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into ComprasDet(Id_Compra,NumRemision,NumFactura,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,Total,FechaC,Grupo,Depto,Serie,FolioRep,NotaCred) values(" & IdCompra & ",'" & cboremision.Text & "','" & cbofactura.Text & "','" & cboproveedor.Text & "','" & codigo & "','" & nombre & "','" & unidad & "'," & cantid & "," & precio & "," & tottal & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "','" & grupo & "','" & dpto & "','" & serie & "',0,'')"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO series(Codigo,Nombre,Serie,Fecha,NotaVenta,FechaEliminado,Factura,FFactura) VALUES('" & codigo & "','" & nombre & "','" & serie & "','" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "','','','" & cbofactura.Text & "','" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "')"
+                cmd1.ExecuteNonQuery()
+
+                If cp = 1 Then
+                    pventaiva = FormatNumber((pcompra * iva_prod) + ((pcompra * iva_prod) * (porventa / 100)), 2)
+                    pminimo = FormatNumber((pcompra * iva_prod) + ((pcompra * iva_prod) * (porminimo / 100)), 2)
+                    pmayoreo = FormatNumber((pcompra * iva_prod) + ((pcompra * iva_prod) * (pormayoreo / 100)), 2)
+                    pmedio = FormatNumber((pcompra * iva_prod) + ((pcompra * iva_prod) * (pormedio / 100)))
+                    pespecial = FormatNumber((pcompra * iva_prod) + ((pcompra * iva_prod) + (porespecial / 100)), 2)
+
+                    If porventa > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set PrecioVentaIVA=" & pventaiva & " where Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+                    End If
+
+                    If porminimo > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set PreMin=" & pminimo & " where Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+                    End If
+
+                    If pormedio > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set PreMM=" & pmedio & " where Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+                    End If
+
+                    If pormayoreo > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set PreMay=" & pmayoreo & " where Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+                    End If
+
+                    If porespecial > 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set PreEsp=" & pespecial & " where Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+                    End If
+                End If
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','COMPRA','" & cboremision.Text & "','" & codigo & "','" & nombre & "','" & unidad & "'," & (cantid * mymultiplo) & ",0," & (cantid * mymultiplo) & "," & pcompra & ",0,0,'" & alias_compras & "')"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Productos set Existencia=" & nueva_exis & ", PrecioCompra=" & pcompra & ", Cargado=0, Almacen3=" & pcompra & " where Codigo='" & codigo & "'"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Ingreso por compra'," & existe & "," & CDbl(cantid * mymultiplo) & "," & CDbl(existe + (cantid * mymultiplo)) & "," & pcompra & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & alias_compras & "','" & cboremision.Text & "','" & tipo_anti & "','','','','')"
+                cmd1.ExecuteNonQuery()
+
+
+                Zi += 1
+            Loop
+
+            If cbopedido.Text <> "" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Pedidos set Status=1 where Num='" & cbopedido.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                cmd1.ExecuteNonQuery()
+            End If
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "delete from AuxCompras"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+
+            'Pregunta sí se quiere imprimir la compra
+            If MsgBox("¿Deseas imprimir la compra?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                Dim ImprimeEn As String = ""
+                Dim Impresora As String = ""
+                Dim tPapel As String = ""
+                Dim tMilimetros As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select Formato from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Compras'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        tPapel = rd1(0).ToString
+                    End If
+                Else
+                    MsgBox("No se ha establecido un tamaño de papel para el formato de impresión de ventas.", vbInformation + vbOKOnly, titulocentral)
+                    rd1.Close()
+                    cnn1.Close()
+                End If
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select NotasCred from Formatos where Facturas='TamImpre'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        tMilimetros = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & tPapel & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Impresora = rd1(0).ToString
+                    End If
+                Else
+                    If tPapel = "MEDIA CARTA" Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText =
+                            "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                Impresora = rd2(0).ToString()
+                            End If
+                        Else
+                            MsgBox("No tienes una impresora configurada para imprimir en formato " & tPapel & ".", vbInformation + vbOKOnly, titulocentral)
+                        End If
+                        rd2.Close() : cnn2.Close()
+                    End If
+                    cnn1.Close()
+                End If
+                rd1.Close() : cnn1.Close()
+
+                If tPapel = "TICKET" Then
+                    If tMilimetros = "80" Then
+                        pTicket80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pTicket80.Print()
+                    End If
+                    If tMilimetros = "58" Then
+                        pTicket58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pTicket58.Print()
+                    End If
+                Else
+                    If tPapel = "MEDIA CARTA" Then
+                        pMediaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pMediaCarta.Print()
+                    End If
+                    If tPapel = "CARTA" Then
+                        pCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pCarta.Print()
+                    End If
+                End If
+                If tPapel = "PDF - CARTA" Then
+                    'Genera PDF y lo guarda en la ruta
+
+                End If
+            End If
 
             btnnuevo.PerformClick()
             cboproveedor.Focus().Equals(True)
@@ -1755,6 +2303,2589 @@ kaka:
             MessageBox.Show(ex.ToString())
             cnn1.Close()
             cnn2.Close()
+        End Try
+    End Sub
+
+    Private Sub txtanticipo_Click(sender As Object, e As EventArgs) Handles txtanticipo.Click
+        txtpAnticipo.SelectionStart = 0
+        txtpAnticipo.SelectionLength = Len(txtpAnticipo.Text)
+    End Sub
+
+    Private Sub txtanticipo_GotFocus(sender As Object, e As EventArgs) Handles txtanticipo.GotFocus
+        txtpAnticipo.SelectionStart = 0
+        txtpAnticipo.SelectionLength = Len(txtpAnticipo.Text)
+    End Sub
+
+    Private Sub txtanticipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtanticipo.KeyPress
+        If Not IsNumeric(txtpAnticipo.Text) Then txtpAnticipo.Text = ""
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Button1.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtanticipo_LostFocus(sender As Object, e As EventArgs) Handles txtanticipo.LostFocus
+        txtpAnticipo.Text = FormatNumber(txtpAnticipo.Text, 2)
+    End Sub
+
+    Private Sub pTicket80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pTicket80.PrintPage
+
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+
+        On Error GoTo carbon
+
+        '[°]. Logotipo
+        If tLogo <> "SIN" Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+            End If
+            If tLogo = "CUAD" Then
+                e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                Y += 130
+            End If
+            If tLogo = "RECT" Then
+                e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                Y += 120
+            End If
+        Else
+            Y = 0
+        End If
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Pie = rd1("Pie2").ToString
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                Y += 17
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close()
+
+        '[1]. Datos de la compra
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        If tipo_impre = "NORMAL" Then
+            e.Graphics.DrawString("C O M P R A", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+        End If
+        If tipo_impre = "COPIA" Then
+            e.Graphics.DrawString("C O P I A - C  O M P R A", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+        End If
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        e.Graphics.DrawString("N° Remisión: " & cboremision.Text, fuente_datos, Brushes.Black, 1, Y)
+        Y += 13.5
+        If cbofactura.Text <> "" Then
+            e.Graphics.DrawString("N° Factura: " & cbofactura.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 13.5
+        End If
+        If cbopedido.Text <> "" Then
+            e.Graphics.DrawString("N° Pedido: " & cbopedido.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 13.5
+        End If
+        Y += 4
+        e.Graphics.DrawString("Fecha: " & Date.Now, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 13.5
+        e.Graphics.DrawString("Usuario: " & alias_compras, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 17
+
+        '[2]. Datos del proveedor
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+                e.Graphics.DrawString("PROVEEDOR", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+
+                If rd1("Compania").ToString <> "" Then
+                    e.Graphics.DrawString("Nombre: " & Mid(rd1("Compania").ToString, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(rd1("Compania").ToString, 29, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Compania").ToString, 29, 100), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                If rd1("RFC").ToString <> "" Then
+                    e.Graphics.DrawString("RFC: " & rd1("RFC").ToString, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                End If
+                If rd1("Correo").ToString <> "" Then
+                    e.Graphics.DrawString("Correo: " & Mid(rd1("Correo").ToString, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(rd1("Correo").ToString, 29, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Correo").ToString, 29, 100), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                Y += 8
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            End If
+        End If
+        rd1.Close()
+
+        Dim ACUENTA As Double = 0
+        Dim RESTA As Double = 0
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT * FROM Compras WHERE NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                ACUENTA = rd1("ACuenta").ToString
+                RESTA = rd1("Resta").ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 11
+        e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
+        e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
+        Y += 6
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+            Dim codigo As String = grdcaptura.Rows(miku).Cells(0).Value.ToString()
+            Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+            Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
+            Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+            Dim total As Double = FormatNumber(canti * precio, 2)
+            Dim serie As String = grdcaptura.Rows(miku).Cells(7).Value.ToString
+
+
+            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+            Y += 12.5
+            e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
+            e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 21
+            If serie <> "" Then
+                Y -= 4
+                e.Graphics.DrawString("Serie: " & serie, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 4
+            End If
+        Next
+        Y -= 3
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("TOTAL DE PRODUCTOS " & txtprods.Text, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 7
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+        Y += 13.5
+
+        If CDbl(txtdesc1.Text) > 0 Then
+            e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+            e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+        End If
+        If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+            e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+        End If
+        If CDbl(txtdesc2.Text) > 0 Then
+            e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+            e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+        End If
+        If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+            e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 13.5
+        End If
+        Y += 3
+        e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+        Y += 18
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+        If MyAcuenta > 0 Then
+            If CDbl(txtanticipo.Text) > 0 Then
+                e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If CDbl(txtefectivo.Text) > 0 Then
+                e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If CDbl(txtanticipo.Text) > 0 Then
+                e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            Y += 17
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+        End If
+
+        If tipo_impre = "NORMAL" Then
+            If MyAcuenta > 0 Then
+                e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If CDbl(txtresta.Text) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+        End If
+
+        If tipo_impre = "COPIA" Then
+            If ACUENTA > 0 Then
+                e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If CDbl(RESTA) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+        End If
+        e.HasMorePages = False
+        Exit Sub
+carbon:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim ant_disponible As Double = 0
+        Dim ant_pedidos As Double = 0
+        Dim saldo_disponible As Double = 0
+
+        If CDbl(txtpAnticipo.Text) > 0 Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM Pedidos WHERE Proveedor='" & cboproveedor.Text & "' AND Status=0"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        ant_pedidos = ant_pedidos + CDbl(rd1("Anticipo").ToString)
+                    End If
+                Loop
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "select Saldo from AbonoE where Id=(SELECT MAX(Id) FROM AbonoE WHERE Proveedor='" & cboproveedor.Text & "')"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        saldo_disponible = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString))
+                        saldo_disponible = Math.Abs(saldo_disponible)
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
+            ant_disponible = saldo_disponible - ant_pedidos
+            If CDbl(txtpAnticipo.Text) > ant_disponible Then
+                MsgBox("No cuentas con el saldo suficiente para aplicar este anticipo.", vbInformation + vbOKOnly, titulocentral)
+                txtpAnticipo.Text = "0.00"
+                txtpAnticipo.SelectionStart = 0
+                txtpAnticipo.SelectionLength = Len(txtpAnticipo.Text)
+                Exit Sub
+            Else
+                txtanticipo.Text = FormatNumber(txtpAnticipo.Text, 2)
+            End If
+
+        Else
+            MsgBox("No has escrito un anticipo válido para aplicar a la compra.", vbInformation + vbOKOnly, titulocentral)
+            Exit Sub
+        End If
+
+    End Sub
+
+    Private Sub pTicket58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pTicket58.PrintPage
+        'Fuentes predefinidas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 8, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 7, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+
+        On Error GoTo oscuro
+
+        '[°]. Logotipo
+        If tLogo <> "SIN" Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+            End If
+            If tLogo = "CUAD" Then
+                e.Graphics.DrawImage(Logotipo, 45, 0, 90, 90)
+                Y += 100
+            End If
+            If tLogo = "RECT" Then
+                e.Graphics.DrawImage(Logotipo, 8, 0, 170, 100)
+                Y += 110
+            End If
+        Else
+            Y = 0
+        End If
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Pie = rd1("Pie2").ToString
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+                    Y += 10.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+                    Y += 10.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Gray, 94, Y, sc)
+                    Y += 10
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Gray, 94, Y, sc)
+                    Y += 10
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Gray, 94, Y, sc)
+                    Y += 10
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Gray, 94, Y, sc)
+                    Y += 10
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Gray, 94, Y, sc)
+                    Y += 12
+                End If
+                Y += 6
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close()
+
+        '[1]. Datos del pedido
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 10
+        If tipo_impre = "NORMAL" Then
+            e.Graphics.DrawString("C O M P R A", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+        End If
+        If tipo_impre = "COPIA" Then
+            e.Graphics.DrawString("C O P I A - C O M P R A", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+        End If
+        Y += 12
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+
+        e.Graphics.DrawString("N° Remisión: " & cboremision.Text, fuente_datos, Brushes.Black, 1, Y)
+        Y += 11
+        If cbofactura.Text <> "" Then
+            e.Graphics.DrawString("N° Factura: " & cbofactura.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 11
+        End If
+        If cbopedido.Text <> "" Then
+            e.Graphics.DrawString("N° Pedido: " & cbopedido.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 11
+        End If
+        Y += 4
+        e.Graphics.DrawString("Fecha: " & Date.Now, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 11
+        e.Graphics.DrawString("Usuario: " & alias_compras, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 19
+
+        '[2]. Datos del proveedor
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 9.5
+                e.Graphics.DrawString("PROVEEDOR", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 11
+
+                If rd1("Compania").ToString <> "" Then
+                    e.Graphics.DrawString("Nombre: " & Mid(rd1("Compania").ToString, 1, 23), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 10
+                    If Mid(rd1("Compania").ToString, 24, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Compania").ToString, 24, 100), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 10
+                    End If
+                End If
+                If rd1("RFC").ToString <> "" Then
+                    e.Graphics.DrawString("RFC: " & rd1("RFC").ToString, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 10
+                End If
+                If rd1("Correo").ToString <> "" Then
+                    e.Graphics.DrawString("Correo: " & Mid(rd1("Correo").ToString, 1, 23), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 10
+                    If Mid(rd1("Correo").ToString, 24, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Correo").ToString, 24, 100), fuente_prods, Brushes.Black, 1, Y)
+                    End If
+                End If
+                Y += 12
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 9.5
+            End If
+        End If
+        rd1.Close()
+
+        Dim ACUENTA As Double = 0
+        Dim RESTA As Double = 0
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT * FROM Compras WHERE NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                ACUENTA = rd1("ACuenta").ToString
+                RESTA = rd1("Resta").ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        e.Graphics.DrawString("Producto", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+        Y += 10
+        e.Graphics.DrawString("Cant.", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("P.Unit", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 115, Y, sf)
+        e.Graphics.DrawString("Total", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 187, Y, sf)
+        Y += 5.5
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 16
+
+        For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+
+        Next
+
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 11
+        e.Graphics.DrawString("TOTAL DE PRODUCTOS " & txtprods.Text, New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 94, Y, sc)
+        Y += 7
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 17
+
+        e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Beige, 187, Y, sf)
+        Y += 12
+        If CDbl(txtdesc1.Text) > 0 Then
+            e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+            e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+        End If
+        If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+            e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+        End If
+        If CDbl(txtdesc2.Text) > 0 Then
+            e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+            e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+        End If
+        If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+            e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+            Y += 12
+        End If
+        Y += 3
+        e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 1, Y)
+        e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+        Y += 12
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+        If MyAcuenta > 0 Then
+            If CDbl(txtanticipo.Text) > 0 Then
+                e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+            If CDbl(txtefectivo.Text) > 0 Then
+                e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+            If CDbl(txtanticipo.Text) > 0 Then
+                e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+            Y += 4
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+        End If
+
+        If tipo_impre = "NORMAL" Then
+            If MyAcuenta > 0 Then
+                e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+            If CDbl(txtresta.Text) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+        End If
+
+        If tipo_impre = "COPIA" Then
+            If ACUENTA > 0 Then
+                e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+            If CDbl(RESTA) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 187, Y, sf)
+                Y += 12
+            End If
+        End If
+        e.HasMorePages = False
+        Exit Sub
+oscuro:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+    End Sub
+
+    Private Sub pMediaCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pMediaCarta.PrintPage
+
+        'Fuentes predefinidas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 12, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+
+        Dim ACUENTA As Double = 0
+        Dim RESTA As Double = 0
+
+        On Error GoTo deku
+
+        If pagina = 0 Then
+
+            '[1]. Datos del pedido
+            If tipo_impre = "NORMAL" Then
+                e.Graphics.DrawString("C O M P R A", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 410, Y, sc)
+                Y += 45
+            End If
+            If tipo_impre = "COPIA" Then
+                e.Graphics.DrawString("C O P I A - C O M P R A", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 410, Y, sc)
+                Y += 45
+            End If
+
+            cnn1.Close() : cnn1.Open()
+
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 0, CInt(Y), 120, 120)
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 0, CInt(Y), 240, 110)
+                End If
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        'Razón social
+                        If rd1("Cab0").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 245, Y)
+                            Y += 14
+                        End If
+                        'RFC
+                        If rd1("Cab1").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 245, Y)
+                            Y += 14
+                        End If
+                        'Calle  N°.
+                        If rd1("Cab2").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Colonia
+                        If rd1("Cab3").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Delegación / Municipio - Entidad
+                        If rd1("Cab4").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Teléfono
+                        If rd1("Cab5").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Correo
+                        If rd1("Cab6").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        Y += 17
+                    End If
+                End If
+                rd1.Close()
+            Else
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        'Razón social
+                        If rd1("Cab0").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 1, Y)
+                            Y += 14
+                        End If
+                        'RFC
+                        If rd1("Cab1").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 1, Y)
+                            Y += 14
+                        End If
+                        'Calle  N°.
+                        If rd1("Cab2").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Colonia
+                        If rd1("Cab3").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Delegación / Municipio - Entidad
+                        If rd1("Cab4").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Teléfono
+                        If rd1("Cab5").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Correo
+                        If rd1("Cab6").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        Y += 17
+                    End If
+                End If
+                rd1.Close()
+            End If
+
+            Dim corta As Double = 0
+            corta = 54
+            '[2]. Datos del proveedor
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Y = 92
+                    If rd1("Compania").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("Compania").ToString, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                    If rd1("RFC").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("RFC").ToString, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                    If rd1("Correo").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("Correo").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    ACUENTA = rd1("ACuenta").ToString
+                    RESTA = rd1("Resta").ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            e.Graphics.DrawRectangle(pen, 535, 87, 285, CInt(corta))
+
+            e.Graphics.DrawString("N. Remisión: " & cboremision.Text, New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 820, 44, sf)
+            If cbofactura.Text <> "" Then
+                e.Graphics.DrawString("N. Factura: " & cbofactura.Text, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 820, 68, sf)
+            End If
+            'Pedido
+        End If
+
+        If Contador = grdcaptura.Rows.Count Then
+            Y += 20
+        Else
+            If pagina = 0 Then
+                e.Graphics.DrawString("Producto", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, 160)
+                e.Graphics.DrawString("Unidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 430, 160, sf)
+                e.Graphics.DrawString("Cantidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 550, 160, sf)
+                e.Graphics.DrawString("Precio U", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 680, 160, sf)
+                e.Graphics.DrawString("Total", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 820, 160, sf)
+                Y = 180
+            Else
+                e.Graphics.DrawString("Producto", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, 10)
+                e.Graphics.DrawString("Unidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 430, 10, sf)
+                e.Graphics.DrawString("Cantidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 550, 10, sf)
+                e.Graphics.DrawString("Precio U", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 680, 10, sf)
+                e.Graphics.DrawString("Total", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 820, 10, sf)
+                Y = 30
+            End If
+            e.Graphics.DrawLine(pen, New Point(1, CInt(Y)), New Point(820, CInt(Y)))
+            Y += 9
+
+            Do While printLine < grdcaptura.Rows.Count
+                If Y + 18 > 475 Then
+                    e.HasMorePages = True
+                    Exit Do
+                End If
+                Dim codigo As String = grdcaptura.Rows(printLine).Cells(0).Value.ToString()
+                Dim nombre As String = grdcaptura.Rows(printLine).Cells(1).Value.ToString()
+                Dim canti As Double = grdcaptura.Rows(printLine).Cells(3).Value.ToString()
+                Dim precio As Double = grdcaptura.Rows(printLine).Cells(4).Value.ToString()
+                Dim unidad As String = grdcaptura.Rows(printLine).Cells(2).Value.ToString
+                Dim total As Double = FormatNumber(canti * precio, 2)
+
+                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(nombre, fuente_prods, Brushes.Black, 60, Y)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 405, Y, sc)
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 545, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 680, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 19
+                printLine += 1
+                Contador += 1
+            Loop
+            Y += 5
+            e.Graphics.DrawLine(pen, New Point(1, CInt(Y)), New Point(820, CInt(Y)))
+            Y += 9
+        End If
+        pagina += 1
+        Dim pasa1 As Integer = 0
+
+        If Contador = grdcaptura.Rows.Count Then
+            Dim campos As Integer = 0
+            If CDbl(txtsub1.Text) > 0 Then campos += 1
+            If CDbl(txtdesc1.Text) > 0 Then campos += 1
+            If CDbl(txtsub1.Text) <> CDbl(txtsub2.Text) Then campos += 1
+            If CDbl(txtiva.Text) > 0 Then campos += 1
+            If CDbl(txtdesc2.Text) > 0 Then campos += 1
+            If CDbl(txtieps.Text) > 0 Then campos += 1
+            If CDbl(txtanticipo.Text) > 0 Then campos += 2
+            If CDbl(txtpagos.Text) > 0 Then campos += 2
+            If CDbl(txtefectivo.Text) > 0 Then campos += 2
+
+            If campos <= 3 Then
+                If Y + 13 > 475 Then
+                    e.HasMorePages = True
+                    e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 510, sf)
+                    e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 510, sc)
+                    Exit Sub
+                End If
+                e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+                If CDbl(txtdesc1.Text) > 0 Then
+                    e.Graphics.DrawString("Descuento: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+                    e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If CDbl(txtdesc2.Text) > 0 Then
+                    e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+                    e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                Y += 3
+                e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+
+                Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+                If MyAcuenta > 0 Then
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtefectivo.Text) > 0 Then
+                        e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+
+                If tipo_impre = "NORMAL" Then
+                    Y += 3
+                    If MyAcuenta > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtresta.Text) > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+                If tipo_impre = "COPIA" Then
+                    Y += 3
+                    If ACUENTA > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If RESTA > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+            Else
+                If Y + 13 > 430 Then
+                    e.HasMorePages = True
+                    e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 510, sf)
+                    e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 510, sc)
+                    Exit Sub
+                End If
+                e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+                If CDbl(txtdesc1.Text) > 0 Then
+                    e.Graphics.DrawString("Descuento: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+                    e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If CDbl(txtdesc2.Text) > 0 Then
+                    e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+                    e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                Y += 3
+                e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+
+                Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+                If MyAcuenta > 0 Then
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtefectivo.Text) > 0 Then
+                        e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+
+                If tipo_impre = "NORMAL" Then
+                    Y += 3
+                    If MyAcuenta > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtresta.Text) > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+                If tipo_impre = "COPIA" Then
+                    Y += 3
+                    If ACUENTA > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If RESTA > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+            End If
+        End If
+
+        e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 510, sf)
+        e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 510, sc)
+        Exit Sub
+deku:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+    End Sub
+
+    Private Sub pCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCarta.PrintPage
+
+        'Fuentes predefinidas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 12, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+
+        Dim ACUENTA As Double = 0
+        Dim RESTA As Double = 0
+
+        On Error GoTo lolkiller
+
+        If pagina = 0 Then
+            '[1]. Datos del pedido
+            If tipo_impre = "NORMAL" Then
+                e.Graphics.DrawString("C O M P R A", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 410, Y, sc)
+                Y += 45
+            End If
+            If tipo_impre = "COPIA" Then
+                e.Graphics.DrawString("C O P I A - C O M P R A", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 410, Y, sc)
+                Y += 45
+            End If
+
+            cnn1.Close() : cnn1.Open()
+
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 0, CInt(Y), 120, 120)
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 0, CInt(Y), 240, 110)
+                End If
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        'Razón social
+                        If rd1("Cab0").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 245, Y)
+                            Y += 14
+                        End If
+                        'RFC
+                        If rd1("Cab1").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 245, Y)
+                            Y += 14
+                        End If
+                        'Calle  N°.
+                        If rd1("Cab2").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Colonia
+                        If rd1("Cab3").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Delegación / Municipio - Entidad
+                        If rd1("Cab4").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Teléfono
+                        If rd1("Cab5").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        'Correo
+                        If rd1("Cab6").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 245, Y)
+                            Y += 13.5
+                        End If
+                        Y += 17
+                    End If
+                End If
+                rd1.Close()
+            Else
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        'Razón social
+                        If rd1("Cab0").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 1, Y)
+                            Y += 14
+                        End If
+                        'RFC
+                        If rd1("Cab1").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 1, Y)
+                            Y += 14
+                        End If
+                        'Calle  N°.
+                        If rd1("Cab2").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Colonia
+                        If rd1("Cab3").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Delegación / Municipio - Entidad
+                        If rd1("Cab4").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Teléfono
+                        If rd1("Cab5").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        'Correo
+                        If rd1("Cab6").ToString() <> "" Then
+                            e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 11, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 13.5
+                        End If
+                        Y += 17
+                    End If
+                End If
+                rd1.Close()
+            End If
+
+            Dim corta As Double = 0
+            corta = 54
+            '[2]. Datos del proveedor
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Y = 92
+                    If rd1("Compania").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("Compania").ToString, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                    If rd1("RFC").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("RFC").ToString, New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                    If rd1("Correo").ToString <> "" Then
+                        e.Graphics.DrawString(rd1("Correo").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 537, Y)
+                        Y += 13.5
+                    Else
+                        corta -= 13.5
+                    End If
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cbopedido.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    ACUENTA = rd1("ACuenta").ToString
+                    RESTA = rd1("Resta").ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            e.Graphics.DrawRectangle(pen, 535, 87, 285, CInt(corta))
+
+            e.Graphics.DrawString("N. Remisión: " & cboremision.Text, New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 820, 44, sf)
+            If cbofactura.Text <> "" Then
+                e.Graphics.DrawString("N. Factura: " & cbofactura.Text, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 820, 68, sf)
+            End If
+            'Pedido
+
+        End If
+
+        If Contador = grdcaptura.Rows.Count Then
+            Y += 20
+        Else
+            If pagina = 0 Then
+                e.Graphics.DrawString("Producto", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, 160)
+                e.Graphics.DrawString("Unidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 430, 160, sf)
+                e.Graphics.DrawString("Cantidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 550, 160, sf)
+                e.Graphics.DrawString("Precio U", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 680, 160, sf)
+                e.Graphics.DrawString("Total", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 820, 160, sf)
+                Y = 180
+            Else
+                e.Graphics.DrawString("Producto", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, 10)
+                e.Graphics.DrawString("Unidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 430, 10, sf)
+                e.Graphics.DrawString("Cantidad", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 550, 10, sf)
+                e.Graphics.DrawString("Precio U", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 680, 10, sf)
+                e.Graphics.DrawString("Total", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 820, 10, sf)
+                Y = 30
+            End If
+            e.Graphics.DrawLine(pen, New Point(1, CInt(Y)), New Point(820, CInt(Y)))
+            Y += 9
+
+            Do While printLine < grdcaptura.Rows.Count
+                If Y + 18 > 1000 Then
+                    e.HasMorePages = True
+                    Exit Do
+                End If
+                Dim codigo As String = grdcaptura.Rows(printLine).Cells(0).Value.ToString()
+                Dim nombre As String = grdcaptura.Rows(printLine).Cells(1).Value.ToString()
+                Dim canti As Double = grdcaptura.Rows(printLine).Cells(3).Value.ToString()
+                Dim precio As Double = grdcaptura.Rows(printLine).Cells(4).Value.ToString()
+                Dim unidad As String = grdcaptura.Rows(printLine).Cells(2).Value.ToString
+                Dim total As Double = FormatNumber(canti * precio, 2)
+
+                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(nombre, fuente_prods, Brushes.Black, 60, Y)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 405, Y, sc)
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 545, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 680, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 19
+
+                printLine += 1
+                Contador += 1
+            Loop
+            Y += 5
+            e.Graphics.DrawLine(pen, New Point(1, CInt(Y)), New Point(820, CInt(Y)))
+            Y += 9
+        End If
+        pagina += 1
+
+        If Contador = grdcaptura.Rows.Count Then
+            Dim campos As Integer = 0
+            If CDbl(txtsub1.Text) > 0 Then campos += 1
+            If CDbl(txtdesc1.Text) > 0 Then campos += 1
+            If CDbl(txtsub1.Text) <> CDbl(txtsub2.Text) Then campos += 1
+            If CDbl(txtiva.Text) > 0 Then campos += 1
+            If CDbl(txtdesc2.Text) > 0 Then campos += 1
+            If CDbl(txtieps.Text) > 0 Then campos += 1
+            If CDbl(txtanticipo.Text) > 0 Then campos += 2
+            If CDbl(txtpagos.Text) > 0 Then campos += 2
+            If CDbl(txtefectivo.Text) > 0 Then campos += 2
+
+            If campos <= 3 Then
+                If Y + 13 > 1000 Then
+                    e.HasMorePages = True
+                    e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 1050, sf)
+                    e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 1050, sc)
+                    Exit Sub
+                End If
+                e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+                If CDbl(txtdesc1.Text) > 0 Then
+                    e.Graphics.DrawString("Descuento: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+                    e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If CDbl(txtdesc2.Text) > 0 Then
+                    e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+                    e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                Y += 3
+                e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+
+                Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+                If MyAcuenta > 0 Then
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtefectivo.Text) > 0 Then
+                        e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+
+                If tipo_impre = "NORMAL" Then
+                    Y += 3
+                    If MyAcuenta > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtresta.Text) > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+                If tipo_impre = "COPIA" Then
+                    Y += 3
+                    If ACUENTA > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If RESTA > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+            Else
+                If Y + 13 > 950 Then
+                    e.HasMorePages = True
+                    e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 1050, sf)
+                    e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 1050, sc)
+                    Exit Sub
+                End If
+                e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtsub1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+                If CDbl(txtdesc1.Text) > 0 Then
+                    e.Graphics.DrawString("Descuento: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc1.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Subtotal: ", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtsub2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtiva.Text) > 0 Then
+                    e.Graphics.DrawString("IVA:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtiva.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If CDbl(txtdesc2.Text) > 0 Then
+                    e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtTotalC.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                    e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtdesc2.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                If cbofactura.Text <> "" And CDbl(txtieps.Text) > 0 Then
+                    e.Graphics.DrawString("IIEPS:", fuente_prods, Brushes.Black, 550, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(txtieps.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                    Y += 12.5
+                End If
+                Y += 3
+                e.Graphics.DrawString("Total a pagar:", fuente_prods, Brushes.Black, 550, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtapagar.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                Y += 12.5
+
+                Dim MyAcuenta As Double = CDbl(txtanticipo.Text) + CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
+
+                If MyAcuenta > 0 Then
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Anticipo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtanticipo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtefectivo.Text) > 0 Then
+                        e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtanticipo.Text) > 0 Then
+                        e.Graphics.DrawString("Pagos:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtpagos.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+
+                If tipo_impre = "NORMAL" Then
+                    Y += 3
+                    If MyAcuenta > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(MyAcuenta, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If CDbl(txtresta.Text) > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(txtresta.Text, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+                If tipo_impre = "COPIA" Then
+                    Y += 3
+                    If ACUENTA > 0 Then
+                        e.Graphics.DrawString("A cuenta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(ACUENTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                    If RESTA > 0 Then
+                        e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 550, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(RESTA, 2), fuente_prods, Brushes.Black, 820, Y, sf)
+                        Y += 12.5
+                    End If
+                End If
+            End If
+        End If
+
+        e.Graphics.DrawString("Página " & pagina, New Drawing.Font(tipografia, 6, FontStyle.Regular), Brushes.Black, 820, 1050, sf)
+        e.Graphics.DrawString("Documento generado con un sistema Delsscom®", New Drawing.Font(tipografia, 6, FontStyle.Bold), Brushes.Black, 410, 1050, sc)
+        Exit Sub
+
+lolkiller:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+
+    End Sub
+
+    Private Sub btnimportarxls_Click(sender As Object, e As EventArgs) Handles btnimportarxls.Click
+        If cboproveedor.Text = "" Then MsgBox("Selcciona un proveedor para realizar la compra.", vbInformation + vbOKOnly, "Delsscom® Restaurant") : cboproveedor.Focus().Equals(True) : Exit Sub
+        If cboremision.Text = "" Then MsgBox("Escribe el número de remisión de la compra.", vbInformation + vbOKOnly, "Delsscom® Restaurant") : cboremision.Focus().Equals(True) : Exit Sub
+        Excel_Grid(DataGridView1)
+    End Sub
+
+    Private Sub Excel_Grid(ByVal tabla As DataGridView)
+
+        Dim con As OleDb.OleDbConnection
+        Dim dt As New DataTable
+        Dim ds As New DataSet
+        Dim da As OleDb.OleDbDataAdapter
+        Dim file_dialog As New OpenFileDialog
+        Dim ruta As String = ""
+        Dim sheet As String = "Hoja1"
+
+        'Instrucción para buscar y abrir el archivo xlsx
+        With file_dialog
+            .Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx"
+            .Title = "Selecciona el archivo a importar"
+            .Multiselect = False
+            .InitialDirectory = My.Application.Info.DirectoryPath
+            .ShowDialog()
+        End With
+
+        If file_dialog.FileName.ToString <> "" Then
+            ruta = file_dialog.FileName.ToString
+
+            con = New OleDbConnection(
+                   "Provider=Microsoft.ACE.OLEDB.12.0;" &
+                   "data source=" & ruta & "; " &
+                   "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
+
+            Try
+                da = New OleDbDataAdapter("select * from [" & sheet & "$]", con)
+
+                con.Open()
+                da.Fill(ds, "MyData")
+                dt = ds.Tables("MyData")
+                tabla.DataSource = ds
+                tabla.DataMember = "MyData"
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                con.Close()
+            End Try
+            My.Application.DoEvents()
+            'Busqueda de datos dentro del Excel
+
+            If grdcaptura.Rows.Count > 0 Then
+            Else
+
+                My.Application.DoEvents()
+                Grid_SQL()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub Grid_SQL()
+        Dim codigo As String = ""
+        Dim barras As String = ""
+        Dim descripcion As String = ""
+        Dim cantidad As Double = 0
+        Dim existencia As Double = 0
+        Dim unidad As String = ""
+        Dim IVA As Double = 0
+        Dim precio_compra As Double = 0
+        Dim total_compra As Double = 0
+        Dim serie As String = ""
+
+        Dim subtotal, iva_compra, total_final As Double
+
+        If (grdcaptura.Rows.Count - 1) = 0 Then
+            MsgBox("No se pudo completar la carga del archivo de excel.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
+            Exit Sub
+        End If
+
+        barraExcel.Visible = True
+        barraExcel.Value = 0
+        barraExcel.Maximum = DataGridView1.Rows.Count
+
+        cnn1.Close() : cnn1.Open()
+        For lala As Integer = 0 To DataGridView1.Rows.Count - 1
+
+            codigo = Convert.ToString(DataGridView1.Rows(lala).Cells(0).Value)
+            barras = Convert.ToString(DataGridView1.Rows(lala).Cells(1).Value)
+            If codigo = "" Then Exit For
+            descripcion = Convert.ToString(DataGridView1.Rows(lala).Cells(2).Value)
+            cantidad = Convert.ToDouble(DataGridView1.Rows(lala).Cells(3).Value)
+            precio_compra = Convert.ToDouble(IIf(IsDBNull(DataGridView1.Rows(lala).Cells(4).Value), 0, DataGridView1.Rows(lala).Cells(4).Value))
+            serie = Convert.ToString(DataGridView1.Rows(lala).Cells(5).Value)
+
+            total_compra = precio_compra * cantidad
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Productos where Codigo='" & codigo & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    unidad = rd1("UCompra").ToString
+                    IVA = rd1("IVA").ToString
+                    existencia = rd1("Existencia").ToString
+                End If
+            Else
+                MsgBox("No se encuentra el producto con código de barras: " & barras, vbInformation + vbOKOnly, titulocentral)
+                rd1.Close()
+                barraExcel.Value += 1
+                My.Application.DoEvents()
+                Continue For
+            End If
+            rd1.Close()
+
+            If cbofactura.Text <> "" Then
+                iva_compra = iva_compra + ((total_compra * (1 + IVA)) - total_compra)
+            Else
+                iva_compra = 0
+            End If
+
+            subtotal = subtotal + total_compra
+            total_final = subtotal + iva_compra
+
+            grdcaptura.Rows.Add(
+                codigo,
+                descripcion,
+                unidad,
+                FormatNumber(cantidad, 2),
+                FormatNumber(precio_compra, 2),
+                FormatNumber(total_compra, 2),
+                existencia,
+                serie,
+                0,
+                ""
+                )
+            barraExcel.Value += 1
+            My.Application.DoEvents()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "insert into auxcompras(Proveedor,Rem,Fac,Ped,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Serie,CP) values('" & cboproveedor.Text & "','" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "','" & cantidad & "','" & precio_compra & "','" & total_compra & "','" & serie & "','0')"
+            cmd1.ExecuteNonQuery()
+        Next
+        cnn1.Close()
+        txtsub1.Text = FormatNumber(subtotal, 2)
+        txtiva.Text = FormatNumber(total_final - subtotal)
+        txtTotalC.Text = FormatNumber(total_final, 2)
+        barraExcel.Value = 0
+        barraExcel.Visible = False
+    End Sub
+
+    Private Sub btncopia_Click(sender As Object, e As EventArgs) Handles btncopia.Click
+        'Pregunta sí se quiere imprimir la compra
+        If MsgBox("¿Deseas imprimir una copia de la compra?", vbInformation + vbOKCancel, titulocentral) = vbOK Then
+            Dim ImprimeEn As String = ""
+            Dim Impresora As String = ""
+            Dim tPapel As String = ""
+            Dim tMilimetros As String = ""
+            tipo_impre = "COPIA"
+            printLine = 0
+            Contador = 0
+            pagina = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NotasCred from Formatos where Facturas='TPapelCP'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    tPapel = rd1(0).ToString
+                    If tPapel = "CARTA" Or tPapel = "MEDIA CARTA" Then
+                        ImprimeEn = "ImpreC"
+                    ElseIf tPapel = "TICKET" Then
+                        ImprimeEn = "ImpreT"
+                    Else
+                        ImprimeEn = ""
+                    End If
+                End If
+            Else
+                MsgBox("No se ha establecido un tamaño de papel para el formato de impresión de compras.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                rd1.Close()
+                cnn1.Close()
+                btnnuevo.PerformClick()
+                Exit Sub
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NotasCred from Formatos where Facturas='TamImpre'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    tMilimetros = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            If ImprimeEn <> "" Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select NotasCred from Formatos where Facturas='" & ImprimeEn & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Impresora = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+            Else
+                MsgBox("No tienes una impresora configurada para imprimir en formato " & tPapel & ".", vbInformation + vbOKOnly, titulocentral)
+                cnn1.Close()
+                btnnuevo.PerformClick()
+                Exit Sub
+            End If
+            cnn1.Close()
+
+            If tPapel = "TICKET" Then
+                If tMilimetros = "80" Then
+                    pTicket80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pTicket80.Print()
+                End If
+                If tMilimetros = "58" Then
+                    pTicket58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pTicket58.Print()
+                End If
+            End If
+
+            If tPapel = "MEDIA CARTA" Then
+                pMediaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pMediaCarta.Print()
+            End If
+            If tPapel = "CARTA" Then
+                pCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pCarta.Print()
+            End If
+            If tPapel = "PDF - CARTA" Then
+                'Genera PDF y lo guarda en la ruta
+                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSCN1\COMPRAS\" & cboproveedor.Text & "\Compra_" & cboremision.Text & ".pdf") Then
+                    File.Open(My.Application.Info.DirectoryPath & "\ARCHIVOSCN1\COMPRAS\" & cboproveedor.Text & "\Compra_" & cboremision.Text & ".pdf", FileMode.Open)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub frmComprasSeries_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        cboproveedor.Focus().Equals(True)
+    End Sub
+
+    Private Sub btncancela_Click(sender As Object, e As EventArgs) Handles btncancela.Click
+        Try
+            If cboproveedor.Text = "" Then MsgBox("Necesitas seleccionar un proveedor para continuar con el proceso.", vbInformation + vbOKOnly, "Delsscom Contol Negocios Pro") : cboproveedor.Focus().Equals(True) : Exit Sub
+            If cboremision.Text = "" Then MsgBox("Selecciona un número de remisión para continuar con el proceso.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+            If cboremision.Text = "" And cbofactura.Text = "" Then MsgBox("Necesitas seleccionar al menos el número de remisión para continuar con el proceso.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+            If grdcaptura.Rows.Count = 0 Then MsgBox("Proceso erróneo, inténtalo de nuevo más tarde." & vbNewLine & "Sí el problema persiste comunícate con tu proveedor de software.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : btnnuevo.PerformClick() : Exit Sub
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1("Status").ToString() = "CANCELADA" Then
+                        MsgBox("Esta compra ya fue cancelada anteriormente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        rd1.Close() : cnn1.Close() : Exit Sub
+                    End If
+                End If
+            End If
+            rd1.Close() : cnn1.Close()
+
+            Dim id_compra As Double = 0
+            Dim acuenta As Double = 0
+            Dim resta As Double = 0
+            Dim status As String = ""
+            Dim saldo As Double = 0
+
+            Dim id_prov As Double = 0
+
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        id_compra = rd1("Id").ToString()
+                        acuenta = rd1("ACuenta").ToString()
+                        resta = rd1("Resta").ToString()
+                        status = rd1("Status").ToString()
+                    End If
+                End If
+                rd1.Close()
+
+                If status = "CANCELADA" Then MsgBox("Esta compra ya fue cancelada anteriormente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cnn1.Close() : Exit Sub
+
+                Dim peps As Boolean = True
+
+                For rm As Integer = 0 To grdcaptura.Rows.Count - 1
+                    Dim codigo As String = grdcaptura.Rows(rm).Cells(0).Value.ToString()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select * from Costeo where Referencia='" & cboremision.Text & "' and Concepto='COMPRA' and Codigo='" & codigo & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            Dim entrada As Double = rd1("Entrada").ToString()
+                            Dim saldo_c As Double = rd1("Saldo").ToString()
+
+                            If saldo_c < entrada Then
+                                peps = False
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                Next
+
+                If peps = False Then MsgBox("No puedes cancelar esta compra ya que uno o varios productos de la misma ya tuvieron ventas.", vbInformation + vbOKOnly, titulocentral) : cnn1.Close() : Exit Sub
+
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
+            If MsgBox("¿Deseas cancelar esta compra?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                If acuenta > 0 Then
+                    Panel1.Visible = True
+                    Exit Sub
+                ElseIf acuenta <= 0 Then
+                    Dim fecha_cancela As String = Format(Date.Now, "yyyy-MM-dd")
+
+                    MsgBox("Al no abonar nada a la compra, no habrá movimientos de caja ni de saldos.", vbInformation + vbOKOnly, titulocentral)
+                    tipo_cancelacion = "CASO 1"
+
+                    cnn1.Close() : cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            id_prov = rd1("IdProv").ToString()
+                            id_compra = rd1("Id").ToString()
+                            acuenta = rd1("ACuenta").ToString()
+                            resta = rd1("Resta").ToString()
+                            status = rd1("Status").ToString()
+                        End If
+                    End If
+                    rd1.Close()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "update Compras set Status='CANCELADA', FechaCancela='" & fecha_cancela & "' where Id=" & id_compra
+                    cmd1.ExecuteNonQuery()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & id_prov & " and NumRemision='" & cboremision.Text & "')"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            saldo = rd1(0).ToString()
+                        End If
+                    End If
+                    rd1.Close()
+
+                    saldo = saldo - resta
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "'," & id_prov & ",'" & cboproveedor.Text & "','CANCELACION','" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & resta & "," & saldo & ",'','','" & alias_compras & "')"
+                    cmd1.ExecuteNonQuery()
+
+                    For t As Integer = 0 To grdcaptura.Rows.Count - 1
+                        Dim codigo As String = grdcaptura.Rows(t).Cells(0).Value.ToString()
+                        Dim nombre As String = grdcaptura.Rows(t).Cells(1).Value.ToString()
+                        Dim unidad As String = grdcaptura.Rows(t).Cells(2).Value.ToString()
+                        Dim cantidad As Double = grdcaptura.Rows(t).Cells(3).Value.ToString()
+                        Dim precio As Double = grdcaptura.Rows(t).Cells(4).Value.ToString()
+                        Dim existencia As Double = 0
+                        Dim SERIE As String = grdcaptura.Rows(t).Cells(7).Value.ToString
+
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                existencia = rd1("Existencia").ToString()
+                            End If
+                        End If
+                        rd1.Close()
+
+                        'Actualiza el cardex
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Cancela compra'," & existencia & "," & cantidad & "," & (existencia - cantidad) & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & alias_compras & "','" & cboremision.Text & "','','','','','')"
+                        cmd1.ExecuteNonQuery()
+
+                        'quita serie
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "UPDATE series SET FechaEliminado='" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',Status=1 WHERE Serie='" & SERIE & "' AND Codigo='" & codigo & "' AND Factura='" & cbofactura.Text & "'"
+                        cmd1.ExecuteNonQuery()
+
+                        'Actualiza la tabla del PEPS
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Costeo set Saldo=0 where Referencia='" & cboremision.Text & "' and Concepto='COMPRA' and Codigo='" & Strings.Left(codigo, 6) & "'"
+                        cmd1.ExecuteNonQuery()
+
+                        'Actualiza la tabla de productos
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update Productos set Existencia=" & (existencia - cantidad) & " where Codigo='" & Strings.Left(codigo, 6) & "'"
+                        cmd1.ExecuteNonQuery()
+                    Next
+                    cnn1.Close()
+
+                    If MsgBox("¿Deseas imprimir un recibo de la cancelación?", vbInformation + vbYesNo, "Delsscom Control Negocios Pro") = vbYes Then
+                        Dim ImprimeEn As String = ""
+                        Dim Impresora As String = ""
+                        Dim tPapel As String = ""
+                        Dim tMilimetros As String = ""
+                        printLine = 0
+                        Contador = 0
+                        pagina = 0
+
+                        cnn1.Close() : cnn1.Open()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select NotasCred from Formatos where Facturas='TPapelCP'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                tPapel = rd1(0).ToString
+                                If tPapel = "CARTA" Or tPapel = "MEDIA CARTA" Then
+                                    ImprimeEn = "ImpreC"
+                                ElseIf tPapel = "TICKET" Then
+                                    ImprimeEn = "ImpreT"
+                                Else
+                                    ImprimeEn = ""
+                                End If
+                            End If
+                        Else
+                            MsgBox("No se ha establecido un tamaño de papel para el formato de impresión de compras.", vbInformation + vbOKOnly, titulocentral)
+                            rd1.Close()
+                            cnn1.Close()
+                            btnnuevo.PerformClick()
+                            Exit Sub
+                        End If
+                        rd1.Close()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select NotasCred from Formatos where Facturas='TamImpre'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                tMilimetros = rd1(0).ToString
+                            End If
+                        End If
+                        rd1.Close()
+
+                        If ImprimeEn <> "" Then
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "select NotasCred from Formatos where Facturas='" & ImprimeEn & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    Impresora = rd1(0).ToString
+                                End If
+                            End If
+                            rd1.Close()
+                        Else
+                            MsgBox("No tienes una impresora configurada para imprimir en formato " & tPapel & ".", vbInformation + vbOKOnly, titulocentral)
+                            cnn1.Close()
+                            btnnuevo.PerformClick()
+                            Exit Sub
+                        End If
+                        cnn1.Close()
+
+                        If tPapel = "TICKET" Then
+                            If tMilimetros = "80" Then
+                                pCancela80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                                pCancela80.Print()
+                            End If
+                            If tMilimetros = "58" Then
+                                pCancela58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                                pCancela58.Print()
+                            End If
+                        End If
+                        If tPapel = "MEDIA CARTA" Then
+                            pCancelaMC.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pCancelaMC.Print()
+                        End If
+                        If tPapel = "CARTA" Then
+                            pCancelaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                            pCancelaCarta.Print()
+                        End If
+                        If tPapel = "PDF - CARTA" Then
+                            'Genera PDF y lo guarda en la ruta
+
+                        End If
+                    End If
+                    MsgBox("Compra cancelada correctamente.", vbInformation + vbOKOnly, titulocentral)
+                    btnnuevo.PerformClick()
+                End If
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+            cnn2.Close()
+        End Try
+    End Sub
+
+    Private Sub pCancela80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancela80.PrintPage
+
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+        Dim saldo_fav As Double = 0
+
+        On Error GoTo nopaso
+
+        '[°]. Logotipo
+        If tLogo <> "SIN" Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+            End If
+            If tLogo = "CUAD" Then
+                e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                Y += 130
+            End If
+            If tLogo = "RECT" Then
+                e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                Y += 120
+            End If
+        Else
+            Y = 0
+        End If
+
+        '[°]. Datos del negocio
+        cnn1.Close() : cnn1.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Pie = rd1("Pie2").ToString
+                'Razón social
+                If rd1("Cab0").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'RFC
+                If rd1("Cab1").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12.5
+                End If
+                'Calle  N°.
+                If rd1("Cab2").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Colonia
+                If rd1("Cab3").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Delegación / Municipio - Entidad
+                If rd1("Cab4").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Teléfono
+                If rd1("Cab5").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                'Correo
+                If rd1("Cab6").ToString() <> "" Then
+                    e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                    Y += 12
+                End If
+                Y += 17
+            End If
+        Else
+            Y += 0
+        End If
+        rd1.Close()
+
+        '[1]. Datos de la compra
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("CANCELACIÓN", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 15
+        e.Graphics.DrawString("DE COMPRA", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 12
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        e.Graphics.DrawString("N° Remisión: " & cboremision.Text, fuente_datos, Brushes.Black, 1, Y)
+        Y += 13.5
+        If cbofactura.Text <> "" Then
+            e.Graphics.DrawString("N° Factura: " & cbofactura.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 13.5
+        End If
+        If cbopedido.Text <> "" Then
+            e.Graphics.DrawString("N° Pedido: " & cbopedido.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 13.5
+        End If
+        Y += 4
+        e.Graphics.DrawString("Fecha: " & Date.Now, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 13.5
+        e.Graphics.DrawString("Usuario: " & alias_compras, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 17
+
+        '[2]. Datos del proveedor
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Proveedores where Compania='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+                e.Graphics.DrawString("PROVEEDOR", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+
+                If rd1("Compania").ToString <> "" Then
+                    e.Graphics.DrawString("Nombre: " & Mid(rd1("Compania").ToString, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(rd1("Compania").ToString, 29, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Compania").ToString, 29, 100), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                If rd1("RFC").ToString <> "" Then
+                    e.Graphics.DrawString("RFC: " & rd1("RFC").ToString, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                End If
+                If rd1("Correo").ToString <> "" Then
+                    e.Graphics.DrawString("Correo: " & Mid(rd1("Correo").ToString, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(rd1("Correo").ToString, 29, 100) <> "" Then
+                        e.Graphics.DrawString(Mid(rd1("Correo").ToString, 29, 100), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                If tipo_cancelacion = "CASO 2" Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                        "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where IdProv=" & rd1("Id").ToString & ")"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldo_fav = rd2(0).ToString()
+                        End If
+                    End If
+                    rd2.Close() : cnn2.Close()
+                End If
+                Y += 8
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            End If
+        End If
+        rd1.Close()
+
+        Dim ACUENTA As Double = 0
+        Dim RESTA As Double = 0
+        Dim TOTALC As Double = 0
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Compras where NumRemision='" & cboremision.Text & "' and Proveedor='" & cboproveedor.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                ACUENTA = rd1("ACuenta").ToString()
+                RESTA = rd1("Resta").ToString()
+                TOTALC = rd1("Pagar").ToString()
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 11
+        e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+        e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
+        e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
+        Y += 6
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+            Dim codigo As String = grdcaptura.Rows(miku).Cells(0).Value.ToString()
+            Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+            Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
+            Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+            Dim total As Double = FormatNumber(canti * precio, 2)
+            Dim caducidad As String = grdcaptura.Rows(miku).Cells(7).Value.ToString
+            Dim lote As String = grdcaptura.Rows(miku).Cells(8).Value.ToString
+
+            e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
+            Y += 12.5
+            e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
+            e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 21
+            If lote <> "" Then
+                Y -= 4
+                e.Graphics.DrawString("Caducidad: " & caducidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y)
+                Y += 4
+            End If
+        Next
+        Y -= 3
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 15
+        e.Graphics.DrawString("TOTAL DE PRODUCTOS " & txtprods.Text, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+        Y += 7
+        e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+        Y += 18
+
+        If tipo_cancelacion = "CASO 1" Then
+            Y += 3
+            e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(TOTALC, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 18
+            e.Graphics.DrawString("---------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 22
+
+            e.Graphics.DrawString("No genera movimientos", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("de caja ni de saldos", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+        End If
+        If tipo_cancelacion = "CASO 2" Then
+            Y += 3
+            e.Graphics.DrawString("Este movimiento genera un saldo", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("a favor con el proveedor", New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+            Y += 12
+            If saldo_fav < 0 Then
+                e.Graphics.DrawString("Saldo a favor: ", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(Math.Abs(saldo_fav), 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 18
+                e.Graphics.DrawString("---------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 22
+            End If
+        End If
+        If tipo_cancelacion = "CASO 3" Then
+
+        End If
+        e.HasMorePages = False
+        Exit Sub
+nopaso:
+        MsgBox("No se pudo generar el documento, a continuación se muestra la descripción del error." & vbNewLine & vbNewLine & Err.Number & " - " & Err.Description)
+        cnn1.Close()
+        Exit Sub
+    End Sub
+
+    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
+        txtpc_apagar.Text = FormatNumber(txtapagar.Text, 2)
+        txtpc_anticipo.Text = FormatNumber(txtanticipo.Text, 2)
+        txtpc_resta.Text = FormatNumber(txtresta.Text, 2)
+
+        panpago_compra.Visible = True
+        txtpc_efectivo.Focus().Equals(True)
+    End Sub
+
+    Private Sub txtpc_efectivo_Click(sender As Object, e As EventArgs) Handles txtpc_efectivo.Click
+        txtpc_efectivo.SelectionStart = 0
+        txtpc_efectivo.SelectionLength = Len(txtpc_efectivo.Text)
+    End Sub
+
+    Private Sub txtpc_efectivo_GotFocus(sender As Object, e As EventArgs) Handles txtpc_efectivo.GotFocus
+        txtpc_efectivo.SelectionStart = 0
+        txtpc_efectivo.SelectionLength = Len(txtpc_efectivo.Text)
+    End Sub
+
+    Private Sub txtpc_efectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpc_efectivo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtpc_efectivo.Text = "" Then txtpc_efectivo.Text = "0"
+            txtpc_efectivo.Text = FormatNumber(txtpc_efectivo.Text, 2)
+            txtpc_tarjeta.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtpc_tarjeta_Click(sender As Object, e As EventArgs) Handles txtpc_tarjeta.Click
+        txtpc_tarjeta.SelectionStart = 0
+        txtpc_tarjeta.SelectionLength = Len(txtpc_tarjeta.Text)
+    End Sub
+
+    Private Sub txtpc_tarjeta_GotFocus(sender As Object, e As EventArgs) Handles txtpc_tarjeta.GotFocus
+        txtpc_tarjeta.SelectionStart = 0
+        txtpc_tarjeta.SelectionLength = Len(txtpc_tarjeta.Text)
+    End Sub
+
+    Private Sub txtpc_tarjeta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpc_tarjeta.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtpc_tarjeta.Text = "" Then txtpc_tarjeta.Text = "0"
+            txtpc_tarjeta.Text = FormatNumber(txtpc_tarjeta.Text, 2)
+            txtpc_transfe.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtpc_transfe_Click(sender As Object, e As EventArgs) Handles txtpc_transfe.Click
+        txtpc_transfe.SelectionStart = 0
+        txtpc_transfe.SelectionLength = Len(txtpc_transfe.Text)
+    End Sub
+
+    Private Sub txtpc_transfe_GotFocus(sender As Object, e As EventArgs) Handles txtpc_transfe.GotFocus
+        txtpc_transfe.SelectionStart = 0
+        txtpc_transfe.SelectionLength = Len(txtpc_transfe.Text)
+    End Sub
+
+    Private Sub txtpc_transfe_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpc_transfe.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtpc_transfe.Text = "" Then txtpc_transfe.Text = "0"
+            txtpc_transfe.Text = FormatNumber(txtpc_transfe.Text, 2)
+            txtpc_otro.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtpc_otro_Click(sender As Object, e As EventArgs) Handles txtpc_otro.Click
+        txtpc_otro.SelectionStart = 0
+        txtpc_otro.SelectionLength = Len(txtpc_otro.Text)
+    End Sub
+
+    Private Sub txtpc_otro_GotFocus(sender As Object, e As EventArgs) Handles txtpc_otro.GotFocus
+        txtpc_otro.SelectionStart = 0
+        txtpc_otro.SelectionLength = Len(txtpc_otro.Text)
+    End Sub
+
+    Private Sub txtpc_otro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtpc_otro.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtpc_otro.Text = "" Then txtpc_otro.Text = "0"
+            txtpc_otro.Text = FormatNumber(txtpc_otro.Text, 2)
+            btnpc_aceptar.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtpc_efectivo_TextChanged(sender As Object, e As EventArgs) Handles txtpc_efectivo.TextChanged
+        If txtpc_apagar.Text = "" Then Exit Sub
+        If txtpc_anticipo.Text = "" Then Exit Sub
+        If txtpc_efectivo.Text = "" Then Exit Sub
+        If txtpc_tarjeta.Text = "" Then Exit Sub
+        If txtpc_transfe.Text = "" Then Exit Sub
+        If txtpc_otro.Text = "" Then Exit Sub
+        If txtpc_resta.Text = "" Then Exit Sub
+
+        txtpc_resta.Text = CDbl(txtpc_apagar.Text) - (CDbl(txtpc_anticipo.Text) + CDbl(txtpc_efectivo.Text) + CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text))
+        txtpc_resta.Text = FormatNumber(txtpc_resta.Text, 2)
+    End Sub
+
+    Private Sub txtpc_tarjeta_TextChanged(sender As Object, e As EventArgs) Handles txtpc_tarjeta.TextChanged
+        If txtpc_apagar.Text = "" Then Exit Sub
+        If txtpc_anticipo.Text = "" Then Exit Sub
+        If txtpc_efectivo.Text = "" Then Exit Sub
+        If txtpc_tarjeta.Text = "" Then Exit Sub
+        If txtpc_transfe.Text = "" Then Exit Sub
+        If txtpc_otro.Text = "" Then Exit Sub
+        If txtpc_resta.Text = "" Then Exit Sub
+
+        txtpc_resta.Text = CDbl(txtpc_apagar.Text) - (CDbl(txtpc_anticipo.Text) + CDbl(txtpc_efectivo.Text) + CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text))
+        txtpc_resta.Text = FormatNumber(txtpc_resta.Text, 2)
+    End Sub
+
+    Private Sub txtpc_transfe_TextChanged(sender As Object, e As EventArgs) Handles txtpc_transfe.TextChanged
+        If txtpc_apagar.Text = "" Then Exit Sub
+        If txtpc_anticipo.Text = "" Then Exit Sub
+        If txtpc_efectivo.Text = "" Then Exit Sub
+        If txtpc_tarjeta.Text = "" Then Exit Sub
+        If txtpc_transfe.Text = "" Then Exit Sub
+        If txtpc_otro.Text = "" Then Exit Sub
+        If txtpc_resta.Text = "" Then Exit Sub
+
+        txtpc_resta.Text = CDbl(txtpc_apagar.Text) - (CDbl(txtpc_anticipo.Text) + CDbl(txtpc_efectivo.Text) + CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text))
+        txtpc_resta.Text = FormatNumber(txtpc_resta.Text, 2)
+    End Sub
+
+    Private Sub txtpc_otro_TextChanged(sender As Object, e As EventArgs) Handles txtpc_otro.TextChanged
+        If txtpc_apagar.Text = "" Then Exit Sub
+        If txtpc_anticipo.Text = "" Then Exit Sub
+        If txtpc_efectivo.Text = "" Then Exit Sub
+        If txtpc_tarjeta.Text = "" Then Exit Sub
+        If txtpc_transfe.Text = "" Then Exit Sub
+        If txtpc_otro.Text = "" Then Exit Sub
+        If txtpc_resta.Text = "" Then Exit Sub
+
+        txtpc_resta.Text = CDbl(txtpc_apagar.Text) - (CDbl(txtpc_anticipo.Text) + CDbl(txtpc_efectivo.Text) + CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text))
+        txtpc_resta.Text = FormatNumber(txtpc_resta.Text, 2)
+    End Sub
+
+    Private Sub btnpc_aceptar_Click(sender As Object, e As EventArgs) Handles btnpc_aceptar.Click
+        Pagos.pc_porpagar = txtpc_apagar.Text
+        Pagos.pc_anticipo = txtpc_anticipo.Text
+        Pagos.pc_efectivo = txtpc_efectivo.Text
+        Pagos.pc_tarjeta = txtpc_tarjeta.Text
+        Pagos.pc_transfe = txtpc_transfe.Text
+        Pagos.pc_otros = txtpc_otro.Text
+        Pagos.pc_resta = txtpc_resta.Text
+
+        'Validaciones de datos
+        '-- No puede abonarse más del total
+        Dim suma_abono As Double = CDbl(txtpc_efectivo.Text) + CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_anticipo.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text)
+        Dim tota_abono As Double = CDbl(txtpc_apagar.Text)
+        If suma_abono > tota_abono Then
+            MsgBox("No puedes realizar un abono mayor al total de la compra.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            txtpc_efectivo.Focus().Equals(True)
+            Exit Sub
+        End If
+
+        If CDbl(txtpc_resta.Text) < 0 Then
+            MsgBox("El restante total de la compra no puede ser negativo/menor a 0.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            txtpc_efectivo.Focus().Equals(True)
+            Exit Sub
+        End If
+
+
+
+        txtefectivo.Text = FormatNumber(txtpc_efectivo.Text, 2)
+        txtpagos.Text = FormatNumber((CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text)), 2)
+        txtresta.Text = FormatNumber(txtpc_resta.Text, 2)
+
+        panpago_compra.Visible = False
+        btnguardar.Focus().Equals(True)
+    End Sub
+
+    Private Sub btnimportarxml_Click(sender As Object, e As EventArgs) Handles btnimportarxml.Click
+        ImportarXML()
+    End Sub
+
+    Public Sub ImportarXML()
+        ' Especifica la ruta del archivo XML
+        Dim rutaArchivoXML As String = "C:\ControlNegociosPro\Archivos de importación\Compras.xml"
+        ' Crea una nueva instancia de XmlDocument
+        Dim xmlDoc As New XmlDocument()
+        ' Accede a los nodos y realiza la importación según tus necesidades
+        Dim nodoslist As XmlNodeList
+        Dim nodo As XmlNode
+
+        Dim subtotal As Double = 0
+        Dim total_final As Double = 0
+        Dim iva_compra As Double = 0
+
+        Try
+            xmlDoc = New XmlDocument
+            ' Carga el archivo XML
+            xmlDoc.Load(rutaArchivoXML)
+            nodoslist = xmlDoc.SelectNodes("/G/Imagen")
+
+            For Each nodo In nodoslist
+                ' Procesa cada nodo y realiza la importación
+                Dim IdImagen = nodo.Attributes.GetNamedItem("id").Value
+                Dim codigo = nodo.ChildNodes(0).InnerText
+                Dim nombre = nodo.ChildNodes(1).InnerText
+                Dim cantidad = nodo.ChildNodes(2).InnerText
+                Dim precio = nodo.ChildNodes(3).InnerText
+
+                Dim unidad As String = ""
+                Dim existencia As Double = 0
+                Dim serie As String = ""
+
+                Dim total As Double = 0
+                Dim iva As Double = 0
+
+                ' Puedes realizar acciones adicionales con los valores obtenidos
+                ' Por ejemplo, insertar en una base de datos, realizar cálculos, etc.
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT UCompra,Existencia,IVA FROM Productos WHERE Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        unidad = rd1(0).ToString
+                        existencia = rd1(1).ToString
+                        iva = rd1(2).ToString
+
+                        total = CDbl(cantidad) * CDbl(precio)
+                        iva_compra = iva_compra + ((total * (1 + iva)) - total)
+
+                        grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, existencia, serie, 0, "")
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
+                subtotal = subtotal + total
+                total_final = subtotal + iva_compra
+            Next
+            txtsub1.Text = FormatNumber(subtotal, 2)
+            txtiva.Text = FormatNumber(total_final - subtotal)
+            txtTotalC.Text = FormatNumber(total_final, 2)
+
+            ' Mensaje de éxito
+            MessageBox.Show("Importación completada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            ' Manejo de errores
+            MessageBox.Show("Error al importar datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 End Class

@@ -1865,6 +1865,8 @@ kaka:
             Dim id_usuario As Integer = 0
 
             DondeVoy = "Guarda"
+            tipo_impre = "NORMAL"
+
             If cboremision.Text = "" Then MsgBox("Escribe el número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
             If cboproveedor.Text = "" Then MsgBox("Selecciona un proveedor para continuar con la compra.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboproveedor.Focus().Equals(True) : Exit Sub
             If CDbl(txtresta.Text) < 0 Then MsgBox("El abono a la compra no puede ser mayor al total de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtefectivo.Focus().Equals(True) : Exit Sub
@@ -2172,9 +2174,6 @@ kaka:
                         End If
 
                         MyACuenta = CDbl(txtefectivo.Text) + CDbl(txtpagos.Text)
-
-
-
                     End If
                 End If
             End If
@@ -5250,8 +5249,6 @@ quepasowey:
     End Sub
 
     Private Sub btnimportarxml_Click(sender As Object, e As EventArgs) Handles btnimportarxml.Click
-
-
         ImportarXML()
     End Sub
 
@@ -5330,4 +5327,6 @@ quepasowey:
         End Try
 
     End Sub
+
+
 End Class
