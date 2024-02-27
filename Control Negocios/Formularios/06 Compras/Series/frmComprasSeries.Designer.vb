@@ -23,11 +23,11 @@ Partial Class frmComprasSeries
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmComprasSeries))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblmoneda = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -148,6 +148,10 @@ Partial Class frmComprasSeries
         Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
         Me.pCancelaMC = New System.Drawing.Printing.PrintDocument()
         Me.pCancelaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -157,6 +161,7 @@ Partial Class frmComprasSeries
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panpago_compra.SuspendLayout()
         Me.boxPago.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -926,8 +931,8 @@ Partial Class frmComprasSeries
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle21
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -967,8 +972,8 @@ Partial Class frmComprasSeries
         '
         'Column4
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle22
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -976,8 +981,8 @@ Partial Class frmComprasSeries
         '
         'Column5
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle23
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -985,8 +990,8 @@ Partial Class frmComprasSeries
         '
         'Column6
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle24
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -994,8 +999,8 @@ Partial Class frmComprasSeries
         '
         'Column7
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle25
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -1159,9 +1164,9 @@ Partial Class frmComprasSeries
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(61, 12)
+        Me.Label2.Location = New System.Drawing.Point(68, 12)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(332, 21)
+        Me.Label2.Size = New System.Drawing.Size(325, 21)
         Me.Label2.TabIndex = 92
         Me.Label2.Text = "Descripción"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1174,7 +1179,7 @@ Partial Class frmComprasSeries
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(11, 12)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 21)
+        Me.Label3.Size = New System.Drawing.Size(61, 21)
         Me.Label3.TabIndex = 91
         Me.Label3.Text = "Código"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1209,9 +1214,9 @@ Partial Class frmComprasSeries
         Me.cbonombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbonombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonombre.FormattingEnabled = True
-        Me.cbonombre.Location = New System.Drawing.Point(61, 32)
+        Me.cbonombre.Location = New System.Drawing.Point(68, 32)
         Me.cbonombre.Name = "cbonombre"
-        Me.cbonombre.Size = New System.Drawing.Size(332, 23)
+        Me.cbonombre.Size = New System.Drawing.Size(325, 23)
         Me.cbonombre.TabIndex = 88
         '
         'txtcodigo
@@ -1220,7 +1225,7 @@ Partial Class frmComprasSeries
         Me.txtcodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcodigo.Location = New System.Drawing.Point(11, 32)
         Me.txtcodigo.Name = "txtcodigo"
-        Me.txtcodigo.Size = New System.Drawing.Size(51, 23)
+        Me.txtcodigo.Size = New System.Drawing.Size(61, 23)
         Me.txtcodigo.TabIndex = 87
         Me.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1232,7 +1237,7 @@ Partial Class frmComprasSeries
         Me.panpago_compra.Controls.Add(Me.Label43)
         Me.panpago_compra.Location = New System.Drawing.Point(345, 120)
         Me.panpago_compra.Name = "panpago_compra"
-        Me.panpago_compra.Size = New System.Drawing.Size(256, 352)
+        Me.panpago_compra.Size = New System.Drawing.Size(256, 355)
         Me.panpago_compra.TabIndex = 230
         '
         'btnpc_aceptar
@@ -1497,12 +1502,58 @@ Partial Class frmComprasSeries
         'pCancela58
         '
         '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Panel4.Controls.Add(Me.Button3)
+        Me.Panel4.Controls.Add(Me.Button2)
+        Me.Panel4.Controls.Add(Me.Label18)
+        Me.Panel4.Location = New System.Drawing.Point(350, 250)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(286, 129)
+        Me.Panel4.TabIndex = 230
+        Me.Panel4.Visible = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.White
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(146, 82)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(128, 36)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Regresar dinero a caja"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(12, 82)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(128, 36)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Saldo a favor con proveedor"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Label18
+        '
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(13, 10)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(261, 61)
+        Me.Label18.TabIndex = 0
+        Me.Label18.Text = "Como abonaste a esta compra (total o parcialmente), tienes dos opciones para mane" &
+    "jar el dinero abonado."
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmComprasSeries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(978, 591)
+        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.panpago_compra)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -1531,6 +1582,7 @@ Partial Class frmComprasSeries
         Me.panpago_compra.PerformLayout()
         Me.boxPago.ResumeLayout(False)
         Me.boxPago.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1656,4 +1708,8 @@ Partial Class frmComprasSeries
     Friend WithEvents pCancela58 As Printing.PrintDocument
     Friend WithEvents pCancelaMC As Printing.PrintDocument
     Friend WithEvents pCancelaCarta As Printing.PrintDocument
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label18 As Label
 End Class
