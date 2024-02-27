@@ -2065,7 +2065,7 @@ Public Class frmVentas1
                         codrecortado = cbodesc.Text.Substring(1, 6)
                         pesofinal = cbodesc.Text.Substring(8, 4)
                     Else
-                        codrecortado = cbodesc.Text.Substring(2, 6)
+                        codrecortado = cbodesc.Text.Substring(2, 5)
                         pesofinal = cbodesc.Text.Substring(8, 4)
                     End If
 
