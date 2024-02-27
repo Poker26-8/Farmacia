@@ -5,6 +5,7 @@
     Dim pagina As Integer = 0
     Dim tipo_cancelacion As String = ""
     Dim alias_compras As String = ""
+    Dim DondeVoy As String = ""
     Private Sub frmComprasSeries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpfecha.Value = Now
         dtpfpago.Value = Now
@@ -1725,5 +1726,35 @@ kaka:
 
     Private Sub txtdesc2_LostFocus(sender As Object, e As EventArgs) Handles txtdesc2.LostFocus
         txtdesc2.Text = FormatNumber(txtdesc2.Text, 2)
+    End Sub
+
+    Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
+        Try
+            Dim usuario As String = ""
+            Dim MyID As Integer = 0
+            Dim id_usuario As Integer = 0
+
+            DondeVoy = "Guarda"
+            If cboremision.Text = "" Then MsgBox("Escribe el número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+            If cboproveedor.Text = "" Then MsgBox("Selecciona un proveedor para continuar con la compra.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboproveedor.Focus().Equals(True) : Exit Sub
+            If CDbl(txtresta.Text) < 0 Then MsgBox("El abono a la compra no puede ser mayor al total de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtefectivo.Focus().Equals(True) : Exit Sub
+            If CDbl(txtsub1.Text) = 0 Then MsgBox("Falta algún precio o alguna cantidad.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcodigo.Focus().Equals(True) : Exit Sub
+            If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Exit Sub
+
+            If txtdesc1.Text = "" Then txtdesc1.Text = "0.00"
+            If txtdesc2.Text = "" Then txtdesc2.Text = "0.00"
+            If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
+            If txtanticipo.Text = "" Then txtanticipo.Text = "0.00"
+            If txtpagos.Text = "" Then txtpagos.Text = "0.00"
+
+
+
+            btnnuevo.PerformClick()
+            cboproveedor.Focus().Equals(True)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+            cnn2.Close()
+        End Try
     End Sub
 End Class
