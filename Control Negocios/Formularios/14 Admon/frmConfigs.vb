@@ -3108,6 +3108,36 @@ Public Class frmConfigs
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         If (RadioButton1.Checked) Then
             GroupBox26.Enabled = True
+
+            Try
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Prefijo'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    n1.Value = rd1(0).ToString
+                End If
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Codigo'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    n2.Value = rd1(0).ToString
+                End If
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Peso'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    n3.Value = rd1(0).ToString
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
         Else
             GroupBox26.Enabled = False
         End If
