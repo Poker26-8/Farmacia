@@ -2004,7 +2004,7 @@ Public Class frmVentas1
             End If
 
             Try
-                Dim noprefijo As Integer = 0
+                Dim noprefijo As String = ""
                 Dim nocodigo As Integer = 0
                 Dim nopeso As Integer = 0
                 Dim basculaxd As String = ""
@@ -2056,10 +2056,12 @@ Public Class frmVentas1
                         End If
                     End If
                     rd1.Close()
-
                     Dim codrecortado As String = ""
                     Dim pesofinal As String = ""
                     Dim primervalor As String = ""
+                    Dim cuantossoy As Integer = 0
+                    cuantossoy = noprefijo.Length
+
 
                     If noprefijo = 1 Then
                         If cbodesc.Text(0) = "2" Then
