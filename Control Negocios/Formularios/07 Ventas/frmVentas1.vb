@@ -646,7 +646,7 @@ Public Class frmVentas1
         If txtSubTotal.Tag = 0 Then
             txtSubTotal.Text = txtSubTotal.Text
             txtSubTotal.Text = CDbl(IIf(txtSubTotal.Text = "", "0", txtSubTotal.Text)) - CDbl(IIf(txtdescuento2.Text = "", "0", txtdescuento2.Text))
-            txtSubTotal.Text = FormatNumber(txtSubTotal.Text, 4)
+            txtSubTotal.Text = FormatNumber(txtSubTotal.Text, 2)
         End If
         If txtSubTotal.Tag <> 0 Then
             txtSubTotal.Text = txtSubTotal.Text
@@ -2062,11 +2062,19 @@ Public Class frmVentas1
                     Dim primervalor As String = ""
 
                     If noprefijo = 1 Then
-                        codrecortado = cbodesc.Text.Substring(1, 6)
-                        pesofinal = cbodesc.Text.Substring(8, 4)
+                        If cbodesc.Text(0) = "2" Then
+                            codrecortado = cbodesc.Text.Substring(1, 6)
+                            pesofinal = cbodesc.Text.Substring(8, 4)
+                        Else
+                            GoTo kaka
+                        End If
                     Else
-                        codrecortado = cbodesc.Text.Substring(2, 5)
-                        pesofinal = cbodesc.Text.Substring(8, 4)
+                        If cbodesc.Text(0) = "2" Then
+                            codrecortado = cbodesc.Text.Substring(2, 5)
+                            pesofinal = cbodesc.Text.Substring(8, 4)
+                        Else
+                            GoTo kaka
+                        End If
                     End If
 
                     primervalor = pesofinal(0)
@@ -2239,7 +2247,7 @@ Public Class frmVentas1
                                     Else
                                         VarSumXD = VarSumXD + CDbl(grdcaptura.Rows(w).Cells(5).Value.ToString)
                                     End If
-                                    txtSubTotal.Text = FormatNumber(VarSumXD, 4)
+                                    txtSubTotal.Text = FormatNumber(VarSumXD, 2)
                                 Next
 
                                 If CDbl(txtdescuento1.Text) > 0 Then
@@ -2264,7 +2272,7 @@ Public Class frmVentas1
 
                                 If CDbl(txtdescuento1.Text) <= 0 Then
                                     txtPagar.Text = CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text)
-                                    txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+                                    txtPagar.Text = FormatNumber(txtPagar.Text, 2)
                                 End If
 
                                 Call txtdescuento1_TextChanged(txtdescuento1, New EventArgs())
@@ -2289,7 +2297,7 @@ Public Class frmVentas1
                 End If
 
 
-
+kaka:
 
 
                 cnn1.Close() : cnn1.Open()
@@ -2622,7 +2630,7 @@ Public Class frmVentas1
                                 Else
                                     VarSumXD = VarSumXD + CDbl(grdcaptura.Rows(w).Cells(5).Value.ToString)
                                 End If
-                                txtSubTotal.Text = FormatNumber(VarSumXD, 4)
+                                txtSubTotal.Text = FormatNumber(VarSumXD, 2)
                             Next
 
                             If CDbl(txtdescuento1.Text) > 0 Then
@@ -2647,7 +2655,7 @@ Public Class frmVentas1
 
                             If CDbl(txtdescuento1.Text) <= 0 Then
                                 txtPagar.Text = CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text)
-                                txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+                                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
                             End If
 
                             Call txtdescuento1_TextChanged(txtdescuento1, New EventArgs())
@@ -3493,7 +3501,7 @@ Public Class frmVentas1
                     VarSumXD = VarSumXD + (CDbl(grdcaptura.Rows(w).Cells(3).Value.ToString) * CDbl(grdcaptura.Rows(w).Cells(4).Value.ToString))
                     total_prods = total_prods + CDbl(grdcaptura.Rows(w).Cells(3).Value.ToString)
                 End If
-                txtSubTotal.Text = FormatNumber(VarSumXD, 4)
+                txtSubTotal.Text = FormatNumber(VarSumXD, 2)
             Next
 
             txtcant_productos.Text = total_prods
@@ -3519,7 +3527,7 @@ Public Class frmVentas1
 
             If CDbl(txtdescuento1.Text) <= 0 Then
                 txtPagar.Text = CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text)
-                txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
             End If
 
             Call txtdescuento1_TextChanged(txtdescuento1, New EventArgs())
@@ -3682,14 +3690,14 @@ Public Class frmVentas1
                         total_prods = total_prods + CDbl(grdcaptura.Rows(w).Cells(3).Value.ToString())
                     Next
                     txtcant_productos.Text = total_prods
-                    txtPagar.Text = FormatNumber(VarSunXD, 4)
-                    txtSubTotal.Text = FormatNumber(Tpagar, 4)
+                    txtPagar.Text = FormatNumber(VarSunXD, 2)
+                    txtSubTotal.Text = FormatNumber(Tpagar, 2)
                 End If
                 If CDbl(txtdescuento1.Text) <= 0 Then
                     txtPagar.Text = CDbl(txtPagar.Text) - CDbl(txttotal.Text)
                 End If
                 cbocodigo.Focus().Equals(True)
-                txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
             End If
             If CDbl(txtdescuento1.Text) <= 0 Then
                 txtSubTotal.Text = txtResta.Text
@@ -3789,14 +3797,14 @@ Public Class frmVentas1
                     total_prods = total_prods + CDbl(grdcaptura.Rows(w).Cells(3).Value.ToString())
                 Next
                 txtcant_productos.Text = total_prods
-                txtPagar.Text = FormatNumber(VarSunXD, 4)
-                txtSubTotal.Text = FormatNumber(Tpagar, 4)
+                txtPagar.Text = FormatNumber(VarSunXD, 2)
+                txtSubTotal.Text = FormatNumber(Tpagar, 2)
             End If
             If CDbl(txtdescuento1.Text) <= 0 Then
                 txtPagar.Text = CDbl(txtPagar.Text) - CDbl(txttotal.Text)
             End If
             cbocodigo.Focus().Equals(True)
-            txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+            txtPagar.Text = FormatNumber(txtPagar.Text, 2)
         End If
         If CDbl(txtdescuento1.Text) <= 0 Then
             txtSubTotal.Text = txtResta.Text
@@ -3919,9 +3927,9 @@ Public Class frmVentas1
             txtdescuento2.Text = FormatNumber(txtdescuento2.Text, 4)
             txtdescu.Text = FormatNumber(txtdescu.Text, 2)
             txtPagar.Text = CDbl(txtSubTotal.Text) - ((CampoDsct / 100) * CDbl(txtSubTotal.Text))
-            txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+            txtPagar.Text = FormatNumber(txtPagar.Text, 2)
             txtResta.Text = CDbl(txtSubTotal.Text) - ((CampoDsct / 100) * CDbl(txtSubTotal.Text))
-            txtResta.Text = FormatNumber(txtResta.Text, 4)
+            txtResta.Text = FormatNumber(txtResta.Text, 2)
 
             cnn5.Close() : cnn5.Open()
 
@@ -3934,17 +3942,17 @@ Public Class frmVentas1
                     Desc = rd5(0).ToString
                     If CampoDsct = 0 Then
                         txtdescuento2.Text = "0.00"
-                        txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text) - (CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)), 4)
+                        txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text) - (CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)), 2)
                         CampoDsct = 0
-                        txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 4)
+                        txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
                         Exit Sub
                     End If
                     If CampoDsct > Desc Then
                         MsgBox("No puedes rebasar el descuento máximo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         CampoDsct = 0
                         txtdescuento2.Text = "0.00"
-                        txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text), 4)
-                        txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 4)
+                        txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text), 2)
+                        txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
                         txtdescuento1.SelectionStart = 0
                         txtdescuento1.SelectionLength = Len(txtdescuento1.Text)
                         Exit Sub
@@ -4007,31 +4015,31 @@ Public Class frmVentas1
         End If
 
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtefectivo.Text = FormatNumber(txtefectivo.Text, 4)
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
             If MyOpe < 0 Then
-                txtCambio.Text = FormatNumber(-MyOpe, 4)
+                txtCambio.Text = FormatNumber(-MyOpe, 2)
                 txtResta.Text = "0.00"
             Else
-                txtResta.Text = FormatNumber(MyOpe, 4)
+                txtResta.Text = FormatNumber(MyOpe, 2)
                 txtCambio.Text = "0.00"
             End If
-            txtCambio.Text = FormatNumber(txtCambio.Text, 4)
-            txtResta.Text = FormatNumber(txtResta.Text, 4)
+            txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+            txtResta.Text = FormatNumber(txtResta.Text, 2)
             btnventa.Focus().Equals(True)
         End If
     End Sub
     Private Sub txtefectivo_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtefectivo.TextChanged
         Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
         If MyOpe < 0 Then
-            txtCambio.Text = FormatNumber(-MyOpe, 4)
+            txtCambio.Text = FormatNumber(-MyOpe, 2)
             txtResta.Text = "0.00"
         Else
-            txtResta.Text = FormatNumber(MyOpe, 4)
+            txtResta.Text = FormatNumber(MyOpe, 2)
             txtCambio.Text = "0.00"
         End If
-        txtCambio.Text = FormatNumber(txtCambio.Text, 4)
-        txtResta.Text = FormatNumber(txtResta.Text, 4)
+        txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+        txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
     Private Sub cbobanco_DropDown(sender As System.Object, e As System.EventArgs) Handles cbobanco.DropDown
         cbobanco.Items.Clear()
@@ -4244,14 +4252,14 @@ Public Class frmVentas1
         Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
 
         If MyOpe < 0 Then
-            txtCambio.Text = FormatNumber(-MyOpe, 4)
+            txtCambio.Text = FormatNumber(-MyOpe, 2)
             txtResta.Text = "0.00"
         Else
-            txtResta.Text = FormatNumber(MyOpe, 4)
+            txtResta.Text = FormatNumber(MyOpe, 2)
             txtCambio.Text = "0.00"
         End If
-        txtCambio.Text = FormatNumber(txtCambio.Text, 4)
-        txtResta.Text = FormatNumber(txtResta.Text, 4)
+        txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+        txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
     Private Sub cbotpago_DropDown(sender As System.Object, e As System.EventArgs) Handles cbotpago.DropDown
         cbotpago.Items.Clear()
@@ -5606,7 +5614,7 @@ doorcita:
                 Else
                     ConteoXD = ConteoXD + CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString)
                 End If
-                txtSubTotal.Text = FormatNumber(ConteoXD, 4)
+                txtSubTotal.Text = FormatNumber(ConteoXD, 2)
             Next
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -5646,7 +5654,7 @@ doorcita:
 
         'Cálculo de Subtotal e IVA
         Try
-            txtefectivo.Text = FormatNumber(txtefectivo.Text, 4)
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
 
             cnn1.Close() : cnn1.Open()
@@ -5825,7 +5833,7 @@ doorcita:
             subtotal_total = subtotal_total + subtotxl
         Next
 
-        txtSubTotal.Text = FormatNumber(subtotal_total, 4)
+        txtSubTotal.Text = FormatNumber(subtotal_total, 2)
         My.Application.DoEvents()
 
 #End Region
@@ -5937,9 +5945,9 @@ doorcita:
 
                     Cliente = ""
                     Efectivo = txtefectivo.Text
-                    ACuenta = FormatNumber((Efectivo - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 4)
-                    Resta = FormatNumber(txtResta.Text, 4)
-                    MySubtotal = FormatNumber(MySubtotal, 4)
+                    ACuenta = FormatNumber((Efectivo - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 2)
+                    Resta = FormatNumber(txtResta.Text, 2)
+                    MySubtotal = FormatNumber(MySubtotal, 2)
 
                     If CDbl(txtResta.Text) = 0 Then
                         MyStatus = "PAGADO"
@@ -5996,15 +6004,15 @@ doorcita:
                 Case Is <> "MOSTRADOR"
                     Efectivo = txtefectivo.Text
                     MyMonto = Efectivo + CDbl(txtMontoP.Text) + CDbl(txtafavor.Text)
-                    Resta = FormatNumber(txtResta.Text, 4)
-                    MySubtotal = FormatNumber(MySubtotal, 4)
+                    Resta = FormatNumber(txtResta.Text, 2)
+                    MySubtotal = FormatNumber(MySubtotal, 2)
 
                     If MyMonto > CDbl(txtPagar.Text) Then
-                        ACUenta2 = FormatNumber(CDbl(txtPagar.Text), 4)
+                        ACUenta2 = FormatNumber(CDbl(txtPagar.Text), 2)
                         Resta = 0
                     Else
                         ACUenta2 = FormatNumber(MyMonto, 4)
-                        Resta = FormatNumber(CDbl(txtPagar.Text) - MyMonto, 4)
+                        Resta = FormatNumber(CDbl(txtPagar.Text) - MyMonto, 2)
                     End If
 
                     txtResta.Text = Resta
@@ -6938,7 +6946,7 @@ Door:
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
-            txtefectivo.Text = FormatNumber(txtefectivo.Text, 4)
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
 
             cnn1.Close() : cnn1.Open()
@@ -12141,9 +12149,9 @@ ecomoda:
                 txtdescuento2.Text = (Desc / 100) * CDbl(txtSubTotal.Text)
                 txtdescuento2.Text = FormatNumber(txtdescuento2.Text, 4)
                 txtPagar.Text = CDbl(txtSubTotal.Text) - ((Desc / 100) * CDbl(txtSubTotal.Text))
-                txtPagar.Text = FormatNumber(txtPagar.Text, 4)
+                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
                 txtResta.Text = CDbl(txtSubTotal.Text) - ((Desc / 100) * CDbl(txtSubTotal.Text))
-                txtResta.Text = FormatNumber(txtResta.Text, 4)
+                txtResta.Text = FormatNumber(txtResta.Text, 2)
 
                 cnn5.Close() : cnn5.Open()
 
@@ -12156,9 +12164,9 @@ ecomoda:
                         Desc = rd5(0).ToString
                         If CDbl(txtdescuento1.Text) = 0 Then
                             txtdescuento2.Text = "0.00"
-                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text) - (CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)), 4)
+                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text) - (CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)), 2)
                             CampoDsct = 0
-                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 4)
+                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
                             Exit Sub
                         End If
                         If CDbl(txtdescuento1.Text) > Desc Then
@@ -12166,8 +12174,8 @@ ecomoda:
                             CampoDsct = 0
                             txtdescu.Text = "0.00"
                             txtdescuento2.Text = "0.00"
-                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text), 4)
-                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 4)
+                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text), 2)
+                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
                             txtdescu.SelectionStart = 0
                             txtdescu.SelectionLength = Len(txtdescu.Text)
                             Exit Sub
