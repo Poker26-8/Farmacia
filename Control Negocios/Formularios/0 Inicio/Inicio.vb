@@ -98,7 +98,7 @@ Public Class Inicio
         PrimeraConfig = ""
         Login.Hide()
         'Timer1.Start()
-
+        verif()
         Permisos(id_usu_log)
         If varrutabase = "" Then
             ActualizaCampos()
@@ -113,7 +113,7 @@ Public Class Inicio
         SFormatos("Taller", "")
 
 
-        verif()
+
         'Licencia()
         Try
             cnn1.Close()
