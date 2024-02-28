@@ -1,6 +1,42 @@
 ﻿Public Class frmFormaPago
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
+
+            If cboMoneda.Text <> "" And txtValor.Text <> "" Then
+                cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        rd1.Close()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update FormasPago set Valor='" & txtValor.Text & "' where FormaPago='" & cboMoneda.Text & "'"
+                        If cmd1.ExecuteNonQuery() Then
+                            MsgBox("Forma de pago actualizada correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
+                        End If
+                    End If
+                Else
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO formaspago(FormaPago,Valor) VALUES('" & cboMoneda.Text & "','" & txtValor.Text & "')"
+                    If cmd2.ExecuteNonQuery() Then
+                        MsgBox("Forma de pago agregada correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
+                    End If
+                    cnn2.Close()
+                End If
+                cnn1.Close()
+                btnNuevo.PerformClick()
+                Exit Sub
+            Else
+                MsgBox("Faltan datos para agregar otro tipo de moneda, revisa la informacion para continuar", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
+                Exit Sub
+            End If
+
+
+
             If cboFormaPago.Text = "" Then MsgBox("Ingrese la forma de pago", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro") : cboFormaPago.Focused.Equals(True) : Exit Sub
 
             If cboFormaPago.Text <> "" Then
@@ -40,6 +76,8 @@
         cboFormaPago.Text = ""
         txtId.Text = ""
         cboFormaPago.Focus.Equals(True)
+        cboMoneda.Text = ""
+        txtValor.Text = ""
     End Sub
 
     Private Sub cboFormaPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboFormaPago.KeyPress
@@ -55,7 +93,7 @@
 
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT FormaPago FROM formaspago WHERE FormaPago<>'' ORDER BY FormaPago"
+            cmd5.CommandText = "SELECT DISTINCT FormaPago FROM formaspago WHERE FormaPago<>'' AND Valor=''"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -118,6 +156,45 @@
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn3.Close()
+        End Try
+    End Sub
+
+    Private Sub cboMoneda_DropDown(sender As Object, e As EventArgs) Handles cboMoneda.DropDown
+        Try
+            cboMoneda.Items.Clear()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select distinct FormaPago from FormasPago where FormaPago<>'' and Valor<>''"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                cboMoneda.Items.Add(rd1(0).ToString)
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cboMoneda_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboMoneda.SelectedValueChanged
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from FormasPago where FormaPago='" & cboMoneda.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                txtValor.Text = rd1("Valor").ToString
+                txtId.Text = rd1("Id").ToString
+            End If
+            rd1.Close()
+            cnn1.Close()
+            txtValor.Focus.Equals(True)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 End Class
