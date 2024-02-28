@@ -2290,6 +2290,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\IconN.ico" />
+    <Content Include="Resources\abonos1Recurso 83.png" />
+    <Content Include="Resources\abonos1Recurso 84.png" />
+    <Content Include="Resources\consulta1Recurso 75.png" />
+    <Content Include="Resources\consulta1Recurso 77.png" />
+    <Content Include="Resources\consulta2Recurso 85.png" />
+    <Content Include="Resources\corte1Recurso 80.png" />
+    <Content Include="Resources\corte2Recurso 81.png" />
+    <Content Include="Resources\DEVO1Recurso 78.png" />
+    <Content Include="Resources\entrega1Recurso 82.png" />
+    <Content Include="Resources\monedero1Recurso 79.png" />
+    <Content Include="Resources\pagoservicos1Recurso 88.png" />
+    <Content Include="Resources\recargas1Recurso 86.png" />
+    <Content Include="Resources\recargas2Recurso 87.png" />
+    <Content Include="Resources\ventas1Recurso 73-100.jpg" />
+    <Content Include="Resources\ventas1Recurso 74.png" />
     <None Include="Resources\timbrartodos.png" />
     <None Include="Resources\timbrar.png" />
     <None Include="Resources\salir.png" />
