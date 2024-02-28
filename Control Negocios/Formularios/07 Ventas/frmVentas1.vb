@@ -4291,11 +4291,13 @@ kaka:
     Private Sub grdpago_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdpago.CellDoubleClick
         Dim indexito As Integer = grdpago.CurrentRow.Index
 
-        cbotipo.Text = grdpago.Rows(indexito).Cells(0).Value.ToString()
+        cbotpago.Text = grdpago.Rows(indexito).Cells(0).Value.ToString()
         cbobanco.Text = grdpago.Rows(indexito).Cells(1).Value.ToString()
         txtnumref.Text = grdpago.Rows(indexito).Cells(2).Value.ToString()
-        txtmonto.Text = grdpago.Rows(indexito).Cells(3).Value.ToString()
+        txtmonto.Text = grdpago.Rows(indexito).Cells(10).Value.ToString()
         dtpFecha_P.Value = grdpago.Rows(indexito).Cells(4).Value.ToString()
+        txtvalor.Text = grdpago.Rows(indexito).Cells(8).Value.ToString()
+        txtequivale.Text = grdpago.Rows(indexito).Cells(9).Value.ToString()
 
         grdpago.Rows.Remove(grdpago.Rows(indexito))
 
@@ -4310,13 +4312,19 @@ kaka:
         Dim tpago As String = cbotpago.Text
         Dim banco As String = cbobanco.Text
         Dim refe As String = txtnumref.Text
-        Dim monto As Double = FormatNumber(txtmonto.Text, 4)
+        Dim monto As Double = 0
+        If txtvalor.Text <> "0.00" Then
+            monto = FormatNumber(txtmonto.Text * CDec(txtvalor.Text), 4)
+        Else
+            monto = FormatNumber(txtmonto.Text, 4)
+        End If
+
         Dim fecha As String = Format(dtpFecha_P.Value, "dd/MM/yyyy")
         Dim comentario As String = txtComentarioPago.Text
         Dim cuentar As String = cboCuentaRecepcion.Text
         Dim bancorep As String = cboBancoRecepcion.Text
 
-        grdpago.Rows.Add(tpago, banco, refe, monto, fecha, comentario, cuentar, bancorep)
+        grdpago.Rows.Add(tpago, banco, refe, monto, fecha, comentario, cuentar, bancorep, txtvalor.Text, txtequivale.Text, txtmonto.Text)
         grdpago.Refresh()
 
         Dim pagos As Double = 0
@@ -4339,6 +4347,8 @@ kaka:
         cboCuentaRecepcion.Text = ""
         cboCuentaRecepcion.Text = ""
         cboBancoRecepcion.Text = ""
+        txtvalor.Text = "0.00"
+        txtequivale.Text = "0.00"
 
     End Sub
 
@@ -4355,6 +4365,8 @@ kaka:
     Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
         Timer1.Stop()
         Me.Text = "Ventas (1)"
+        txtvalor.Text = "0.00"
+        txtequivale.Text = "0.00"
         txttel.Text = ""
         cboNombre.Text = ""
         cboNombre.Items.Clear()
@@ -12246,5 +12258,27 @@ ecomoda:
                 btnventa.Focus().Equals(True)
             End If
         End If
+    End Sub
+
+    Private Sub cbotpago_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbotpago.SelectedValueChanged
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Valor from FormasPago where Valor<>'' and FormaPago='" & cbotpago.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                txtvalor.Text = rd1(0).ToString
+                txtequivale.Text = FormatNumber(txtPagar.Text / CDec(txtvalor.Text), 2)
+            Else
+                txtvalor.Text = "0.00"
+                txtequivale.Text = "0.00"
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class
