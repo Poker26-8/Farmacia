@@ -30,6 +30,11 @@ Partial Class frmFormaPago
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cboFormaPago = New System.Windows.Forms.ComboBox()
         Me.txtId = New System.Windows.Forms.TextBox()
+        Me.cboMoneda = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtValor = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -51,7 +56,7 @@ Partial Class frmFormaPago
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(247, 73)
+        Me.btnGuardar.Location = New System.Drawing.Point(245, 164)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 228
@@ -65,7 +70,7 @@ Partial Class frmFormaPago
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(109, 73)
+        Me.btnNuevo.Location = New System.Drawing.Point(107, 164)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 227
@@ -80,7 +85,7 @@ Partial Class frmFormaPago
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(178, 73)
+        Me.btnEliminar.Location = New System.Drawing.Point(176, 164)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 226
@@ -115,11 +120,62 @@ Partial Class frmFormaPago
         Me.txtId.TabIndex = 232
         Me.txtId.Visible = False
         '
+        'cboMoneda
+        '
+        Me.cboMoneda.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMoneda.FormattingEnabled = True
+        Me.cboMoneda.Location = New System.Drawing.Point(107, 102)
+        Me.cboMoneda.Name = "cboMoneda"
+        Me.cboMoneda.Size = New System.Drawing.Size(200, 25)
+        Me.cboMoneda.TabIndex = 234
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(11, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(96, 15)
+        Me.Label3.TabIndex = 233
+        Me.Label3.Text = "Tipo de moneda:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(109, 78)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(127, 21)
+        Me.Label4.TabIndex = 235
+        Me.Label4.Text = "OTRA MONEDA"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 130)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(36, 15)
+        Me.Label5.TabIndex = 236
+        Me.Label5.Text = "Valor:"
+        '
+        'txtValor
+        '
+        Me.txtValor.Location = New System.Drawing.Point(107, 133)
+        Me.txtValor.Name = "txtValor"
+        Me.txtValor.Size = New System.Drawing.Size(198, 23)
+        Me.txtValor.TabIndex = 237
+        '
         'frmFormaPago
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(318, 148)
+        Me.ClientSize = New System.Drawing.Size(318, 239)
+        Me.Controls.Add(Me.txtValor)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cboMoneda)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cboFormaPago)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnGuardar)
@@ -144,4 +200,9 @@ Partial Class frmFormaPago
     Friend WithEvents Label2 As Label
     Friend WithEvents cboFormaPago As ComboBox
     Friend WithEvents txtId As TextBox
+    Friend WithEvents cboMoneda As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtValor As TextBox
 End Class

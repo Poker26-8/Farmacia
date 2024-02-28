@@ -98,7 +98,7 @@ Public Class Inicio
         PrimeraConfig = ""
         Login.Hide()
         'Timer1.Start()
-
+        verif()
         Permisos(id_usu_log)
         If varrutabase = "" Then
             ActualizaCampos()
@@ -113,7 +113,7 @@ Public Class Inicio
         SFormatos("Taller", "")
         SFormatos("MesasPropias", "")
 
-        verif()
+
         'Licencia()
         Try
             cnn1.Close()
@@ -560,6 +560,24 @@ Public Class Inicio
             rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE abonoi add column Mesero varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Valor from FormasPago"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Alter table FormasPago add column Valor varchar(255)"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
