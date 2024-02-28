@@ -48,6 +48,8 @@ Partial Class frmPermisosRestaurant
         Me.txtPorcentage = New System.Windows.Forms.TextBox()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbMesasPropias = New System.Windows.Forms.CheckBox()
+        Me.cbmesas = New System.Windows.Forms.CheckBox()
         Me.cbCobrar = New System.Windows.Forms.CheckBox()
         Me.cbJuntar = New System.Windows.Forms.CheckBox()
         Me.chkSinComensal = New System.Windows.Forms.CheckBox()
@@ -63,7 +65,6 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
-        Me.cbmesas = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -334,6 +335,7 @@ Partial Class frmPermisosRestaurant
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.cbMesasPropias)
         Me.Panel2.Controls.Add(Me.cbmesas)
         Me.Panel2.Controls.Add(Me.cbCobrar)
         Me.Panel2.Controls.Add(Me.cbJuntar)
@@ -345,8 +347,30 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.Controls.Add(Me.cbPrecuentas)
         Me.Panel2.Location = New System.Drawing.Point(4, 120)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(170, 275)
+        Me.Panel2.Size = New System.Drawing.Size(170, 289)
         Me.Panel2.TabIndex = 240
+        '
+        'cbMesasPropias
+        '
+        Me.cbMesasPropias.AutoSize = True
+        Me.cbMesasPropias.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMesasPropias.Location = New System.Drawing.Point(3, 260)
+        Me.cbMesasPropias.Name = "cbMesasPropias"
+        Me.cbMesasPropias.Size = New System.Drawing.Size(117, 20)
+        Me.cbMesasPropias.TabIndex = 240
+        Me.cbMesasPropias.Text = "Mesas Propias"
+        Me.cbMesasPropias.UseVisualStyleBackColor = True
+        '
+        'cbmesas
+        '
+        Me.cbmesas.AutoSize = True
+        Me.cbmesas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbmesas.Location = New System.Drawing.Point(3, 234)
+        Me.cbmesas.Name = "cbmesas"
+        Me.cbmesas.Size = New System.Drawing.Size(67, 20)
+        Me.cbmesas.TabIndex = 239
+        Me.cbmesas.Text = "Mesas"
+        Me.cbmesas.UseVisualStyleBackColor = True
         '
         'cbCobrar
         '
@@ -515,17 +539,6 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
-        'cbmesas
-        '
-        Me.cbmesas.AutoSize = True
-        Me.cbmesas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbmesas.Location = New System.Drawing.Point(3, 234)
-        Me.cbmesas.Name = "cbmesas"
-        Me.cbmesas.Size = New System.Drawing.Size(67, 20)
-        Me.cbmesas.TabIndex = 239
-        Me.cbmesas.Text = "Mesas"
-        Me.cbmesas.UseVisualStyleBackColor = True
-        '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -604,4 +617,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnclose As Button
     Friend WithEvents cbmesas As CheckBox
+    Friend WithEvents cbMesasPropias As CheckBox
 End Class

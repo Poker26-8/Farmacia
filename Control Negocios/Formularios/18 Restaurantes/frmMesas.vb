@@ -195,7 +195,7 @@ Public Class frmMesas
 
             If simesaspropia = 1 Then
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = ""
+                cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
                 rd2 = cmd2.ExecuteReader
                 If rd2.Read Then
                     If rd2.HasRows Then
@@ -216,7 +216,7 @@ Public Class frmMesas
                 If simesaspropusuario = 1 Then
                     cmd2.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
                 Else
-                    cmd2.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleado  WHERE IdEmpleado=" & id_usu_log & ""
+                    cmd2.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
                 End If
             Else
                 cmd2.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
@@ -232,7 +232,7 @@ Public Class frmMesas
                 If simesaspropusuario = 1 Then
                     cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa  WHERE Ubicacion='" & ubicacion & "' order by Orden"
                 Else
-                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='"& ubicacion &"' order by Orden"
                 End If
             Else
                 cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa WHERE Ubicacion='" & ubicacion & "' ORDER BY Orden"
@@ -824,6 +824,7 @@ Public Class frmMesas
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 
         Me.Text = "Mesas"
+        txtMesa.Text = ""
         parea.Controls.Clear()
         pmesas.Controls.Clear()
         TRAERLUGAR()

@@ -41,6 +41,25 @@
             End If
             rd2.Close()
 
+            Dim propias As Integer = 0
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='MesasPropias'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    propias = rd2(0).ToString
+
+                    If propias = 1 Then
+                        cbMesasPropias.Checked = True
+                    Else
+                        cbMesasPropias.Checked = False
+                    End If
+
+                End If
+            End If
+            rd2.Close()
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TipoCobroBillar'"
             rd2 = cmd2.ExecuteReader
@@ -547,5 +566,24 @@
         Me.Close()
     End Sub
 
+    Private Sub cbMesasPropias_CheckedChanged(sender As Object, e As EventArgs) Handles cbMesasPropias.CheckedChanged
+        Try
+            If (cbMesasPropias.Checked) Then
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='0' WHERE Facturas='MesasPropias'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            Else
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='0',NumPart='0' WHERE Facturas='MesasPropias'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
 
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

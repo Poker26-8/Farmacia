@@ -111,7 +111,7 @@ Public Class Inicio
         SFormatos("Codigo", "")
         SFormatos("Peso", "")
         SFormatos("Taller", "")
-
+        SFormatos("MesasPropias", "")
 
         verif()
         'Licencia()
@@ -544,6 +544,26 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+
+        'abonoi
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Mesero FROM abonoi"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoi add column Mesero varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         Try
             cnn1.Close()
             cnn1.Open()
@@ -2395,6 +2415,9 @@ Public Class Inicio
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         frmMesas.Show()
         frmMesas.BringToFront()
+
+        'frmMesero.Show()
+        ' frmMesero.Show()
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click

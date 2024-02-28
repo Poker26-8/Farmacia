@@ -63,6 +63,8 @@ Public Class frmPagar
                     vercomensal = rd2("Comensal").ToString
                     vermesero = rd2("CUsuario").ToString
                     verid = rd2("Id").ToString
+                    lblMesero.Text = rd2("CUsuario").ToString
+
                     grdcomanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, verprecio, vertotal, vercomensal, vermesero, verid)
                 End If
             Loop

@@ -122,6 +122,8 @@ Partial Class frmPagar
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
+        Me.lblMesero = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -135,7 +137,9 @@ Partial Class frmPagar
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblMesero)
         Me.Panel1.Controls.Add(Me.Panel7)
+        Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.Panel8)
         Me.Panel1.Controls.Add(Me.txtSaldoM)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
@@ -1143,6 +1147,27 @@ Partial Class frmPagar
         'PVentaMapeo58
         '
         '
+        'lblMesero
+        '
+        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMesero.Location = New System.Drawing.Point(238, 34)
+        Me.lblMesero.Name = "lblMesero"
+        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
+        Me.lblMesero.TabIndex = 34
+        Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(238, 13)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(170, 21)
+        Me.Label23.TabIndex = 33
+        Me.Label23.Text = "Mesero"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'frmPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1270,4 +1295,6 @@ Partial Class frmPagar
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents lblMesero As Label
+    Friend WithEvents Label23 As Label
 End Class

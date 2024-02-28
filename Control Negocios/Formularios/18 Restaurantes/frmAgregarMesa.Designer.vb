@@ -42,7 +42,11 @@ Partial Class frmAgregarMesa
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtOrden = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.pmesero = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cbomesero = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
+        Me.pmesero.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -70,7 +74,7 @@ Partial Class frmAgregarMesa
         '
         Me.lblmesero.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.lblmesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesero.Location = New System.Drawing.Point(226, 183)
+        Me.lblmesero.Location = New System.Drawing.Point(229, 186)
         Me.lblmesero.Name = "lblmesero"
         Me.lblmesero.Size = New System.Drawing.Size(104, 21)
         Me.lblmesero.TabIndex = 18
@@ -124,7 +128,7 @@ Partial Class frmAgregarMesa
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(16, 219)
+        Me.btnLimpiar.Location = New System.Drawing.Point(18, 214)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 68)
         Me.btnLimpiar.TabIndex = 28
@@ -140,7 +144,7 @@ Partial Class frmAgregarMesa
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(95, 219)
+        Me.btnGuardar.Location = New System.Drawing.Point(97, 214)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 68)
         Me.btnGuardar.TabIndex = 27
@@ -156,7 +160,7 @@ Partial Class frmAgregarMesa
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(174, 219)
+        Me.btnEliminar.Location = New System.Drawing.Point(176, 214)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 68)
         Me.btnEliminar.TabIndex = 26
@@ -172,7 +176,7 @@ Partial Class frmAgregarMesa
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(253, 219)
+        Me.btnSalir.Location = New System.Drawing.Point(255, 214)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 68)
         Me.btnSalir.TabIndex = 25
@@ -249,13 +253,42 @@ Partial Class frmAgregarMesa
         Me.Label6.TabIndex = 33
         Me.Label6.Text = "Orden:"
         '
+        'pmesero
+        '
+        Me.pmesero.Controls.Add(Me.cbomesero)
+        Me.pmesero.Controls.Add(Me.Label7)
+        Me.pmesero.Location = New System.Drawing.Point(15, 288)
+        Me.pmesero.Name = "pmesero"
+        Me.pmesero.Size = New System.Drawing.Size(318, 39)
+        Me.pmesero.TabIndex = 35
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(8, 10)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(68, 20)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "Mesero"
+        '
+        'cbomesero
+        '
+        Me.cbomesero.FormattingEnabled = True
+        Me.cbomesero.Location = New System.Drawing.Point(81, 9)
+        Me.cbomesero.Name = "cbomesero"
+        Me.cbomesero.Size = New System.Drawing.Size(121, 21)
+        Me.cbomesero.TabIndex = 1
+        '
         'frmAgregarMesa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(338, 293)
+        Me.ClientSize = New System.Drawing.Size(338, 291)
+        Me.Controls.Add(Me.pmesero)
         Me.Controls.Add(Me.txtOrden)
+        Me.Controls.Add(Me.lblmesero)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cbTiempo)
         Me.Controls.Add(Me.txtprecio)
@@ -271,13 +304,14 @@ Partial Class frmAgregarMesa
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lblmesero)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAgregarMesa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Agregar Mesas"
         Me.Panel1.ResumeLayout(False)
+        Me.pmesero.ResumeLayout(False)
+        Me.pmesero.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -302,4 +336,7 @@ Partial Class frmAgregarMesa
     Friend WithEvents Label1 As Label
     Friend WithEvents txtOrden As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents pmesero As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents cbomesero As ComboBox
 End Class
