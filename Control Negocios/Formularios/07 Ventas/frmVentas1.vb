@@ -5,6 +5,7 @@ Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Imports System.IO.Ports
 Imports QRCoder
+Imports System.Drawing
 Public Class frmVentas1
 
     Public WithEvents serialPortT As New SerialPort()
@@ -186,6 +187,16 @@ Public Class frmVentas1
                 Panel8.Controls.Add(PictureBox2)
             End If
         End If
+
+        'Try
+        '    Dim fondoxd As Image = Image.FromFile("C:\ControlNegociosPro\LogoN.jpg")
+        '    Me.DataGridView1.DefaultCellStyle.BackColor = Color.Transparent
+        '    Me.DataGridView1.BackgroundImage = fondoxd
+        '    Me.DataGridView1.BackgroundImageLayout = ImageLayout.Stretch
+        '    Me.DataGridView1.DefaultCellStyle.BackColor = Color.Transparent
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        'End Try
 
         Try
             cnn1.Close() : cnn1.Open()
@@ -12280,5 +12291,9 @@ ecomoda:
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub grdcaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdcaptura.CellPainting
+        '  e.CellStyle.BackColor = Color.Transparent
     End Sub
 End Class
