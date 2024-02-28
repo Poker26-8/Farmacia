@@ -6,7 +6,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Nombre from Ventas where Nombre<>'' and Status='RESTA' order by Nombre"
+                "select distinct Cliente from Ventas where Cliente<>'' and Status='RESTA' order by Cliente"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -23,10 +23,9 @@
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbonombre.SelectedValueChanged
         Try
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select IdCliente from Ventas where Nombre='" & cbonombre.Text & "' and IdCliente<>0"
+                "select IdCliente from Ventas where Cliente='" & cbonombre.Text & "' and IdCliente<>0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -94,7 +93,7 @@
                     'Nota de venta pagada
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='PAGADO' and Nombre='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='PAGADO' and Cliente='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -109,7 +108,7 @@
                     'Nota de venta cancelada
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='CANCELADO' and Nombre='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='CANCELADO' and Cliente='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -124,7 +123,7 @@
                     'Nota de venta inexistente
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Nombre='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Cliente='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                     Else
@@ -155,7 +154,7 @@
                     If Remision(zu) = "" Then Exit For
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Resta from Ventas where Folio=" & Remision(zu) & " and Nombre='" & cbonombre.Text & "'"
+                        "select Resta from Ventas where Folio=" & Remision(zu) & " and Cliente='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

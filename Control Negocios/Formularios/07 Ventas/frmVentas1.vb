@@ -58,25 +58,25 @@ Public Class frmVentas1
     Private Sub frmVentas1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
 
-        Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-                Button8.Visible = True
-                Button16.Visible = True
-            Else
-                Button8.Visible = False
-                Button16.Visible = False
-            End If
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        'Try
+        '    cnn1.Close()
+        '    cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "Select * from loginrecargas"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.Read Then
+        '        Button8.Visible = True
+        '        Button16.Visible = True
+        '    Else
+        '        Button8.Visible = False
+        '        Button16.Visible = False
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
         If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
 
             filenum = FreeFile()
@@ -11925,8 +11925,23 @@ ecomoda:
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        frmRecargas.Show()
-        frmRecargas.BringToFront()
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from loginrecargas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                frmRecargas.Show()
+                frmRecargas.BringToFront()
+            Else
+                MsgBox("La configuracion para pago de servicios no esta habilitada, Contacte a Delsscom", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 
     Private Sub frmVentas1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -12112,8 +12127,25 @@ ecomoda:
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
-        frmPagoServicios.Show()
-        frmPagoServicios.BringToFront()
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from loginrecargas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                frmPagoServicios.Show()
+                frmPagoServicios.BringToFront()
+            Else
+                MsgBox("La configuracion para pago de servicios no esta habilitada, Contacte a Delsscom", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
     End Sub
 
     Private Sub txtdescu_Click(sender As Object, e As EventArgs) Handles txtdescu.Click
