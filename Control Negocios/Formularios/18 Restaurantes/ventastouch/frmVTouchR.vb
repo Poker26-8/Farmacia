@@ -2741,13 +2741,66 @@ nopaso:
                             rd1.Close()
                             cnn1.Close()
                         Else
-                            existencia_inicial = 0
-                            opeCantReal = 0
-                            opediferencia = 0
 
-                            existencia_inicial = rd3("Existencia").ToString
-                            opeCantReal = CDec(grdCaptura.Rows(pain).Cells(2).Value.ToString) * CDec(rd3("Multiplo").ToString)
-                            opediferencia = existencia_inicial - opeCantReal
+                            Dim KIT As Integer = 0
+                            Dim MyMulti2 As Double = 0
+                            Dim Unico As Integer = 0
+                            Dim gprint As String = ""
+                            Dim Pre_Comp As Double = 0
+
+                            If grdCaptura.Rows(pain).Cells(0).Value.ToString = "" Then GoTo Door
+
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "select * from Productos where Codigo='" & MYCODE & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    MyCostVUE = 0
+                                    MyProm = 0
+                                    MyDepto = rd2("Departamento").ToString()
+                                    MyGrupo = rd2("Grupo").ToString()
+                                    KIT = rd2("ProvRes").ToString()
+                                    MyMCD = rd2("MCD").ToString()
+                                    MyMulti2 = rd2("Multiplo").ToString()
+                                    Unico = rd2("Unico").ToString()
+                                    gprint = rd2("GPrint").ToString
+                                    If CStr(rd2("Departamento").ToString()) = "SERVICIOS" Then
+                                        rd2.Close() : cnn2.Close()
+                                        GoTo Door
+                                    End If
+                                End If
+                            End If
+                            rd2.Close()
+                            Dim existe As Double = 0
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                    "select * from Productos where Codigo='" & Strings.Left(MYCODE, 4) & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    existe = rd2("Existencia").ToString()
+                                    MyMultiplo = rd2("MCD").ToString()
+                                    existencia = existe / MyMultiplo
+                                    If rd2("Departamento").ToString() <> "SERVICIOS" Then
+                                        Pre_Comp = rd2("PrecioCompra").ToString()
+                                        MyCostVUE = Pre_Comp * (MYCANT / MyMCD)
+                                    End If
+                                End If
+                            End If
+                            rd2.Close()
+Door:
+                            'existencia_inicial = 0
+                            'opeCantReal = 0
+                            'opediferencia = 0
+
+                            'existencia_inicial = rd3("Existencia").ToString
+                            'opeCantReal = CDec(grdCaptura.Rows(pain).Cells(2).Value.ToString) * CDec(rd3("Multiplo").ToString)
+                            'opediferencia = existencia_inicial - opeCantReal
+
+                            Dim nueva_existe As Double = 0
+                            nueva_existe = existencia - (MYCANT / MyMCD)
 
                             cnn4.Close() : cnn4.Open()
                             cmd4 = cnn4.CreateCommand
@@ -2755,10 +2808,11 @@ nopaso:
                             cmd4.ExecuteNonQuery()
 
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia-" & grdCaptura.Rows(pain).Cells(2).Value.ToString & "* " & MyMult2 & " where Codigo='" & grdCaptura.Rows(pain).Cells(1).Value.ToString & "'"
+                            cmd4.CommandText = "UPDATE Productos SET Existencia= " & nueva_existe & " ,Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(MYCODE, 4) & "'"
+
                             cmd4.ExecuteNonQuery()
                             cnn4.Close()
-
+                            cnn2.Close()
                         End If
                     End If
                 End If
@@ -2861,14 +2915,19 @@ nopaso:
                     End If
                     rd2.Close()
 
-                    If tamcomanda = "80" Then
-                        PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PComanda80.Print()
-                    ElseIf tamcomanda = "58" Then
-                        PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PComanda58.Print()
+                    If impresoracomanda = "" Then
+                    Else
+                        If tamcomanda = "80" Then
+                            PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                            PComanda80.Print()
+                        ElseIf tamcomanda = "58" Then
+                            PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                            PComanda58.Print()
 
+                        End If
                     End If
+
+
 
                     cnn2.Close()
                 End If

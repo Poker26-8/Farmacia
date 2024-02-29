@@ -1190,13 +1190,76 @@ Public Class frmPagar
                         cnn3.Close()
 
                     Else
-                        existencia_inicial = 0
-                        opeCantReal = 0
-                        opediferencia = 0
+                        If grdcomanda.Rows(koni).Cells(0).Value.ToString = "" Then GoTo Door
 
-                        existencia_inicial = rd1("Existencia").ToString
-                        opeCantReal = CDec(VarCanti) * CDec(MULTIPLO)
-                        opediferencia = existencia_inicial - opeCantReal
+                        Dim mycodigod As String = grdcomanda.Rows(koni).Cells(1).Value.ToString
+                        Dim mycant As Double = grdcomanda.Rows(koni).Cells(4).Value.ToString
+
+                        Dim MyCostVUE As Double = 0
+                        Dim MyProm As Double = 0
+                        Dim MyDepto As String = ""
+                        Dim MyGrupo As String = ""
+                        Dim Kit As Integer = 0
+                        Dim MyMCD As Double = 0
+                        Dim MyMulti2 As Double = 0
+                        Dim UNICO As Integer = 0
+                        Dim gprint As String = ""
+
+                        Dim MyMultiplo As Double = 0
+                        Dim Existencia As Double = 0
+                        Dim Pre_Comp As Double = 0
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                MyCostVUE = 0
+                                MyProm = 0
+                                MyDepto = rd2("Departamento").ToString()
+                                MyGrupo = rd2("Grupo").ToString()
+                                Kit = rd2("ProvRes").ToString()
+                                MyMCD = rd2("MCD").ToString()
+                                MyMulti2 = rd2("Multiplo").ToString()
+                                UNICO = rd2("Unico").ToString()
+                                gprint = rd2("GPrint").ToString
+                                If CStr(rd2("Departamento").ToString()) = "SERVICIOS" Then
+                                    rd2.Close() : cnn2.Close()
+                                    GoTo Door
+                                End If
+                            End If
+                        End If
+                        rd2.Close()
+
+                        Dim existe As Double = 0
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 4) & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                existe = rd2("Existencia").ToString()
+                                MyMultiplo = rd2("MCD").ToString()
+                                Existencia = existe / MyMultiplo
+                                If rd2("Departamento").ToString() <> "SERVICIOS" Then
+                                    Pre_Comp = rd2("PrecioCompra").ToString()
+                                    MyCostVUE = Pre_Comp * (mycant / MyMCD)
+                                End If
+                            End If
+                        End If
+                        rd2.Close()
+Door:
+                        'existencia_inicial = 0
+                        'opeCantReal = 0
+                        'opediferencia = 0
+
+                        'existencia_inicial = rd1("Existencia").ToString
+                        'opeCantReal = CDec(VarCanti) * CDec(MULTIPLO)
+                        'opediferencia = existencia_inicial - opeCantReal
+
+                        Dim nueva_existe As Double = 0
+                        nueva_existe = Existencia - (mycant / MyMCD)
 
 
                         cnn4.Close() : cnn4.Open()
@@ -1205,7 +1268,7 @@ Public Class frmPagar
                         cmd4.ExecuteNonQuery()
 
                         cmd4 = cnn4.CreateCommand
-                        cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia-" & grdcomanda.Rows(koni).Cells(4).Value.ToString & " * " & MULTIPLO & " WHERE Codigo='" & grdcomanda.Rows(koni).Cells(1).Value.ToString & "'"
+                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 4) & "'"
                         cmd4.ExecuteNonQuery()
                         cnn4.Close()
                     End If
@@ -3572,7 +3635,7 @@ Public Class frmPagar
                                 Do While rd1.Read
                                     If rd1.HasRows Then
                                         ope = importepro / 1.16
-                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd3(0).ToString)
+                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
                                         TotalIVA = FormatNumber(TotalIVA, 2)
                                     End If
                                 Loop
