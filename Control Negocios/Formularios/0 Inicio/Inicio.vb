@@ -2379,8 +2379,7 @@ Public Class Inicio
     End Sub
 
     Private Sub pCaja_Click(sender As Object, e As EventArgs) Handles pCaja.Click
-        frmCorte2.Show()
-        frmCorte2.BringToFront()
+
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -2636,5 +2635,15 @@ Public Class Inicio
     Private Sub ReporteDeAuditoriaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeAuditoriaToolStripMenuItem.Click
         frmRepAuditoria.Show()
         frmRepAuditoria.BringToFront()
+    End Sub
+
+    Private Sub CortePorMeseroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CortePorMeseroToolStripMenuItem.Click
+        frmcortemesero.Show()
+        frmcortemesero.BringToFront()
+    End Sub
+
+    Private Sub CorteDeCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CorteDeCajaToolStripMenuItem.Click
+        frmCorte2.Show()
+        frmCorte2.BringToFront()
     End Sub
 End Class
