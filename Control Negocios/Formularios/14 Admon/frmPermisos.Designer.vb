@@ -86,6 +86,9 @@ Partial Class frmPermisos
         Me.egr_Nom = New System.Windows.Forms.CheckBox()
         Me.lblingresos = New System.Windows.Forms.Label()
         Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.cbEstadoResultados = New System.Windows.Forms.CheckBox()
+        Me.cbAuditoria = New System.Windows.Forms.CheckBox()
+        Me.cbCambioPrecios = New System.Windows.Forms.CheckBox()
         Me.cbserviciosrep = New System.Windows.Forms.CheckBox()
         Me.rep_Aju = New System.Windows.Forms.CheckBox()
         Me.rep_Inv = New System.Windows.Forms.CheckBox()
@@ -138,9 +141,9 @@ Partial Class frmPermisos
         Me.txt1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cbCambioPrecios = New System.Windows.Forms.CheckBox()
-        Me.cbAuditoria = New System.Windows.Forms.CheckBox()
-        Me.cbEstadoResultados = New System.Windows.Forms.CheckBox()
+        Me.cat_Bancos = New System.Windows.Forms.CheckBox()
+        Me.cat_Formas = New System.Windows.Forms.CheckBox()
+        Me.cat_cuentas = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -186,6 +189,9 @@ Partial Class frmPermisos
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cat_cuentas)
+        Me.Panel1.Controls.Add(Me.cat_Formas)
+        Me.Panel1.Controls.Add(Me.cat_Bancos)
         Me.Panel1.Controls.Add(Me.cat_Mon)
         Me.Panel1.Controls.Add(Me.cat_Pro)
         Me.Panel1.Controls.Add(Me.cat_Cli)
@@ -193,7 +199,7 @@ Partial Class frmPermisos
         Me.Panel1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.Location = New System.Drawing.Point(7, 153)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(152, 84)
+        Me.Panel1.Size = New System.Drawing.Size(152, 147)
         Me.Panel1.TabIndex = 45
         '
         'cat_Mon
@@ -381,7 +387,7 @@ Partial Class frmPermisos
         Me.Panel2.Controls.Add(Me.asis_Hue)
         Me.Panel2.Controls.Add(Me.asis_Emp)
         Me.Panel2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(7, 258)
+        Me.Panel2.Location = New System.Drawing.Point(7, 325)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(152, 85)
         Me.Panel2.TabIndex = 50
@@ -432,7 +438,7 @@ Partial Class frmPermisos
         Me.lblasistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblasistencia.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblasistencia.ForeColor = System.Drawing.Color.White
-        Me.lblasistencia.Location = New System.Drawing.Point(7, 240)
+        Me.lblasistencia.Location = New System.Drawing.Point(7, 307)
         Me.lblasistencia.Name = "lblasistencia"
         Me.lblasistencia.Size = New System.Drawing.Size(152, 19)
         Me.lblasistencia.TabIndex = 49
@@ -580,7 +586,7 @@ Partial Class frmPermisos
         Me.Panel5.Controls.Add(Me.prod_Ser)
         Me.Panel5.Controls.Add(Me.prod_Pro)
         Me.Panel5.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel5.Location = New System.Drawing.Point(7, 364)
+        Me.Panel5.Location = New System.Drawing.Point(7, 431)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(152, 104)
         Me.Panel5.TabIndex = 56
@@ -641,7 +647,7 @@ Partial Class frmPermisos
         Me.lblproductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblproductos.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblproductos.ForeColor = System.Drawing.Color.White
-        Me.lblproductos.Location = New System.Drawing.Point(7, 346)
+        Me.lblproductos.Location = New System.Drawing.Point(7, 413)
         Me.lblproductos.Name = "lblproductos"
         Me.lblproductos.Size = New System.Drawing.Size(152, 19)
         Me.lblproductos.TabIndex = 55
@@ -857,6 +863,36 @@ Partial Class frmPermisos
         Me.Panel11.Size = New System.Drawing.Size(163, 272)
         Me.Panel11.TabIndex = 68
         '
+        'cbEstadoResultados
+        '
+        Me.cbEstadoResultados.AutoSize = True
+        Me.cbEstadoResultados.Location = New System.Drawing.Point(3, 223)
+        Me.cbEstadoResultados.Name = "cbEstadoResultados"
+        Me.cbEstadoResultados.Size = New System.Drawing.Size(162, 17)
+        Me.cbEstadoResultados.TabIndex = 13
+        Me.cbEstadoResultados.Text = "Reporte estado resultados"
+        Me.cbEstadoResultados.UseVisualStyleBackColor = True
+        '
+        'cbAuditoria
+        '
+        Me.cbAuditoria.AutoSize = True
+        Me.cbAuditoria.Location = New System.Drawing.Point(3, 242)
+        Me.cbAuditoria.Name = "cbAuditoria"
+        Me.cbAuditoria.Size = New System.Drawing.Size(133, 17)
+        Me.cbAuditoria.TabIndex = 12
+        Me.cbAuditoria.Text = "Reporte de auditoria"
+        Me.cbAuditoria.UseVisualStyleBackColor = True
+        '
+        'cbCambioPrecios
+        '
+        Me.cbCambioPrecios.AutoSize = True
+        Me.cbCambioPrecios.Location = New System.Drawing.Point(3, 203)
+        Me.cbCambioPrecios.Name = "cbCambioPrecios"
+        Me.cbCambioPrecios.Size = New System.Drawing.Size(163, 17)
+        Me.cbCambioPrecios.TabIndex = 11
+        Me.cbCambioPrecios.Text = "Reporte de cambio precios"
+        Me.cbCambioPrecios.UseVisualStyleBackColor = True
+        '
         'cbserviciosrep
         '
         Me.cbserviciosrep.AutoSize = True
@@ -977,7 +1013,7 @@ Partial Class frmPermisos
         Me.Panel3.Controls.Add(Me.lis_Pro)
         Me.Panel3.Controls.Add(Me.lis_Pre)
         Me.Panel3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(7, 489)
+        Me.Panel3.Location = New System.Drawing.Point(7, 556)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(152, 62)
         Me.Panel3.TabIndex = 72
@@ -1018,7 +1054,7 @@ Partial Class frmPermisos
         Me.lbllistados.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lbllistados.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbllistados.ForeColor = System.Drawing.Color.White
-        Me.lbllistados.Location = New System.Drawing.Point(7, 471)
+        Me.lbllistados.Location = New System.Drawing.Point(7, 538)
         Me.lbllistados.Name = "lbllistados"
         Me.lbllistados.Size = New System.Drawing.Size(152, 19)
         Me.lbllistados.TabIndex = 71
@@ -1426,35 +1462,35 @@ Partial Class frmPermisos
         Me.Label3.TabIndex = 48
         Me.Label3.Text = "Pregunta 1:"
         '
-        'cbCambioPrecios
+        'cat_Bancos
         '
-        Me.cbCambioPrecios.AutoSize = True
-        Me.cbCambioPrecios.Location = New System.Drawing.Point(3, 203)
-        Me.cbCambioPrecios.Name = "cbCambioPrecios"
-        Me.cbCambioPrecios.Size = New System.Drawing.Size(163, 17)
-        Me.cbCambioPrecios.TabIndex = 11
-        Me.cbCambioPrecios.Text = "Reporte de cambio precios"
-        Me.cbCambioPrecios.UseVisualStyleBackColor = True
+        Me.cat_Bancos.AutoSize = True
+        Me.cat_Bancos.Location = New System.Drawing.Point(3, 102)
+        Me.cat_Bancos.Name = "cat_Bancos"
+        Me.cat_Bancos.Size = New System.Drawing.Size(62, 17)
+        Me.cat_Bancos.TabIndex = 4
+        Me.cat_Bancos.Text = "Bancos"
+        Me.cat_Bancos.UseVisualStyleBackColor = True
         '
-        'cbAuditoria
+        'cat_Formas
         '
-        Me.cbAuditoria.AutoSize = True
-        Me.cbAuditoria.Location = New System.Drawing.Point(3, 242)
-        Me.cbAuditoria.Name = "cbAuditoria"
-        Me.cbAuditoria.Size = New System.Drawing.Size(133, 17)
-        Me.cbAuditoria.TabIndex = 12
-        Me.cbAuditoria.Text = "Reporte de auditoria"
-        Me.cbAuditoria.UseVisualStyleBackColor = True
+        Me.cat_Formas.AutoSize = True
+        Me.cat_Formas.Location = New System.Drawing.Point(3, 82)
+        Me.cat_Formas.Name = "cat_Formas"
+        Me.cat_Formas.Size = New System.Drawing.Size(109, 17)
+        Me.cat_Formas.TabIndex = 5
+        Me.cat_Formas.Text = "Formas de pago"
+        Me.cat_Formas.UseVisualStyleBackColor = True
         '
-        'cbEstadoResultados
+        'cat_cuentas
         '
-        Me.cbEstadoResultados.AutoSize = True
-        Me.cbEstadoResultados.Location = New System.Drawing.Point(3, 223)
-        Me.cbEstadoResultados.Name = "cbEstadoResultados"
-        Me.cbEstadoResultados.Size = New System.Drawing.Size(162, 17)
-        Me.cbEstadoResultados.TabIndex = 13
-        Me.cbEstadoResultados.Text = "Reporte estado resultados"
-        Me.cbEstadoResultados.UseVisualStyleBackColor = True
+        Me.cat_cuentas.AutoSize = True
+        Me.cat_cuentas.Location = New System.Drawing.Point(3, 123)
+        Me.cat_cuentas.Name = "cat_cuentas"
+        Me.cat_cuentas.Size = New System.Drawing.Size(120, 17)
+        Me.cat_cuentas.TabIndex = 6
+        Me.cat_cuentas.Text = "Cuentas bancarias"
+        Me.cat_cuentas.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '
@@ -1650,4 +1686,7 @@ Partial Class frmPermisos
     Friend WithEvents cbCambioPrecios As CheckBox
     Friend WithEvents cbAuditoria As CheckBox
     Friend WithEvents cbEstadoResultados As CheckBox
+    Friend WithEvents cat_Formas As CheckBox
+    Friend WithEvents cat_Bancos As CheckBox
+    Friend WithEvents cat_cuentas As CheckBox
 End Class

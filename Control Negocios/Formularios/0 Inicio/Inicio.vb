@@ -561,6 +561,58 @@ Public Class Inicio
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT cat_Formas FROM Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE Permisos add column cat_Formas int(11) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT cat_Bancos FROM Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE Permisos add column cat_Bancos int(11) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT cat_Cuentas FROM Permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE Permisos add column cat_Cuentas int(11) default 0"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
 
         Try
             cnn1.Close()
@@ -1713,6 +1765,24 @@ Public Class Inicio
                         pClientes.Enabled = False
                         btnClientes.Enabled = False
                         P.C_Clientes = False
+                        Cat += 1
+                    End If
+                    If rd5("cat_Formas").ToString = True Then
+                        FormasDePagoToolStripMenuItem.Enabled = True
+                    Else
+                        FormasDePagoToolStripMenuItem.Enabled = False
+                        Cat += 1
+                    End If
+                    If rd5("cat_Bancos").ToString = True Then
+                        pBancos.Enabled = True
+                    Else
+                        pBancos.Enabled = False
+                        Cat += 1
+                    End If
+                    If rd5("cat_Cuentas").ToString = True Then
+                        CuentasBancariasToolStripMenuItem.Enabled = True
+                    Else
+                        CuentasBancariasToolStripMenuItem.Enabled = False
                         Cat += 1
                     End If
                     REM Proveedores
