@@ -42,8 +42,8 @@ Public Class frmReporteFacturacion
 
     Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
         grdcaptura.Rows.Clear()
-        Dim inicio As String = ""
-        Dim final As String = ""
+        Dim inicio As Date = Nothing
+        Dim final As Date = Nothing
         Dim soy1 As String = ""
         Dim soy2 As String = ""
         Dim soy3 As String = ""
@@ -56,7 +56,7 @@ Public Class frmReporteFacturacion
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from Facturas where Fecha >= '" & inicio & "' and Fecha <= '" & final & "' order by id_evento"
+            cmd1.CommandText = "Select * from Facturas where Fecha >= '" & Format(inicio, "yyyy-MM-dd") & "' and Fecha <= '" & Format(final, "yyyy-MM-dd") & "' order by id_evento"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cnn2.Close()
@@ -101,7 +101,7 @@ Public Class frmReporteFacturacion
                 ElseIf rd1("estatus_fac").ToString = "6" Then
                     soy2 = "NOTAS CREDITO"
                 End If
-                MsgBox(rd1("Fecha").ToString)
+
                 grdcaptura.Rows.Add(rd1("id_evento").ToString, varFolioDx, rd1("nom_nombre_cliente").ToString, FormatNumber(rd1("preciopaq").ToString, 2), rd1("iva").ToString, FormatNumber(rd1("nom_total_pagado").ToString, 2), rd1("Fecha").ToString, soy1, soy2, soy3)
             Loop
             rd1.Close()
