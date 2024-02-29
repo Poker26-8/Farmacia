@@ -51,12 +51,12 @@ Public Class frmReporteFacturacion
         final = Format(mc2.SelectionStart.ToShortDateString)
         Dim idEvento As Integer = 0
         If optTotal.Checked = True Then
-
+            Dim fecha As Date = Nothing
             Dim varFolioDx As String = ""
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from Facturas where Fecha >= '" & inicio & " 00:00:00' and Fecha <= '" & final & " 23:59:59' order by id_evento"
+            cmd1.CommandText = "Select * from Facturas where Fecha >= '" & inicio & "' and Fecha <= '" & final & "' order by id_evento"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cnn2.Close()
@@ -101,7 +101,8 @@ Public Class frmReporteFacturacion
                 ElseIf rd1("estatus_fac").ToString = "6" Then
                     soy2 = "NOTAS CREDITO"
                 End If
-                grdcaptura.Rows.Add(rd1("id_evento").ToString, varFolioDx, rd1("nom_nombre_cliente").ToString, FormatNumber(rd1("preciopaq").ToString, 2), rd1("iva").ToString, FormatNumber(rd1("nom_total_pagado").ToString, 2), FormatDateTime(rd1("Fecha").ToString, DateFormat.ShortDate), soy1, soy2, soy3)
+                MsgBox(rd1("Fecha").ToString)
+                grdcaptura.Rows.Add(rd1("id_evento").ToString, varFolioDx, rd1("nom_nombre_cliente").ToString, FormatNumber(rd1("preciopaq").ToString, 2), rd1("iva").ToString, FormatNumber(rd1("nom_total_pagado").ToString, 2), rd1("Fecha").ToString, soy1, soy2, soy3)
             Loop
             rd1.Close()
             cnn1.Close()
@@ -222,7 +223,7 @@ Public Class frmReporteFacturacion
                     Else
                         varFacturado = "SI"
                     End If
-                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Nombre").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
+                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
                 Loop
                 rd1.Close()
                 cnn1.Close()
@@ -253,7 +254,7 @@ Public Class frmReporteFacturacion
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     varFacturado = "NO"
-                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Nombre").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
+                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
 
                     varSubtotal = CDec(varSubtotal) + CDec(rd1("Subtotal").ToString)
                     varIVA = CDec(varIVA) + CDec(rd1("IVA").ToString)
