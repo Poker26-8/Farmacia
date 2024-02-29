@@ -2765,7 +2765,7 @@ kaka:
                                 txtprecio.Text = FormatNumber(txtprecio.Text, 4)
 
                                 txtunidad.Text = rd1("UVenta").ToString
-
+                                txtexistencia.Text = CDbl(IIf(rd1("Existencia").ToString = "", "0", rd1("Existencia").ToString))
                                 txtcantidad.Focus().Equals(True)
                                 rd1.Close()
                                 cnn1.Close()
