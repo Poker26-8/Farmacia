@@ -341,8 +341,6 @@ Public Class Inicio
             End If
             rd1.Close()
 
-
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                  "select NumPart from Formatos where Facturas='Costeo'"
