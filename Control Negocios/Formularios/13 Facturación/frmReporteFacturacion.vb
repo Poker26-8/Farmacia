@@ -102,7 +102,7 @@ Public Class frmReporteFacturacion
                     soy2 = "NOTAS CREDITO"
                 End If
 
-                grdcaptura.Rows.Add(rd1("id_evento").ToString, varFolioDx, rd1("nom_nombre_cliente").ToString, FormatNumber(rd1("preciopaq").ToString, 2), rd1("iva").ToString, FormatNumber(rd1("nom_total_pagado").ToString, 2), rd1("Fecha").ToString, soy1, soy2, soy3)
+                grdcaptura.Rows.Add(rd1("id_evento").ToString, varFolioDx, rd1("nom_nombre_cliente").ToString, FormatNumber(rd1("preciopaq").ToString, 2), rd1("iva").ToString, FormatNumber(rd1("nom_total_pagado").ToString, 2), FormatDateTime(rd1("Fecha").ToString, DateFormat.ShortDate), soy1, soy2, soy3)
             Loop
             rd1.Close()
             cnn1.Close()
@@ -112,7 +112,7 @@ Public Class frmReporteFacturacion
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from Facturas where Fecha >='" & inicio & " 00:00:00' and Fecha <='" & final & " 23:59:59' order by id_evento"
+            cmd1.CommandText = "Select * from Facturas where Fecha >= '" & Format(inicio, "yyyy-MM-dd") & "' and Fecha <= '" & Format(final, "yyyy-MM-dd") & "' order by id_evento"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cnn2.Close()
@@ -134,7 +134,7 @@ Public Class frmReporteFacturacion
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from Facturas where nom_nombre_cliente='" & cbo.Text & "' and Fecha >='" & inicio & " 00:00:00' and Fecha <='" & final & " 23:59:59' order by id_evento"
+            cmd1.CommandText = "Select * from Facturas where nom_nombre_cliente='" & cbo.Text & "' and Fecha >= '" & Format(inicio, "yyyy-MM-dd") & "' and Fecha <= '" & Format(final, "yyyy-MM-dd") & "' order by id_evento"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cnn2.Close()
