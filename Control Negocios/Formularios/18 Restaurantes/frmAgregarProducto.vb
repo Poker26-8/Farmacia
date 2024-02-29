@@ -8,7 +8,7 @@ Public Class frmAgregarProducto
     Dim CodigoProducto As String = ""
 
     Dim VarComensal As Integer = 0
-    Dim cantidad As Double = 0
+    Public cantidad As Double = 0
     Dim cantidad2 As Double = 0
     Dim comensal As String = ""
 
@@ -287,6 +287,9 @@ Public Class frmAgregarProducto
         Dim cuantos As Integer = Math.Truncate(pProductos.Height / 70)
 
         Try
+
+
+
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText = "SELECT DISTINCT Nombre,Codigo FROM Productos WHERE Departamento='" & depto & "' AND Grupo='" & grupo & "' order by Nombre,Codigo"
@@ -801,6 +804,27 @@ Public Class frmAgregarProducto
         banderaPromo = 0
         lblpromo.Text = "0"
 
+        If cantidadPromo = 0 Then
+
+            cantpromo = 0
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "select * from Productos where Codigo = '" & CodigoProducto & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cantidadPromo = CDec(IIf(rd1("F44").ToString = "", "0", rd1("F44").ToString))
+                Else
+                    cantidadPromo = 1
+                End If
+            Else
+                cantidadPromo = 1
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        End If
+
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText = "SELECT Comensal FROM Ticket"
@@ -1058,6 +1082,8 @@ Public Class frmAgregarProducto
                                 grdCaptura.Rows(q).Cells(4).Value = FormatNumber(totalnuevo, 2)
 
                                 banderaproducto = 1
+                            Else
+                                grdCaptura.Rows(q).Cells(2).Value = FormatNumber(respuesta, 2)
                             End If
                         Next q
                     End If
@@ -1145,7 +1171,8 @@ Public Class frmAgregarProducto
                         cantpromo = CDec(cantpromo) + CDec(txtRespuesta.Text)
 
 
-                        CodigoProducto = codigop
+                        'CodigoProducto
+                        cantidad = txtRespuesta.Text
                         ObtenerProducto(CodigoProducto)
                     Else
                         MsgBox("La suma de los productos de la promoción no puede ser mayor a " & cantidadPromo & "")
@@ -1264,16 +1291,30 @@ Public Class frmAgregarProducto
     End Sub
     Public Sub Promociones(ByVal productos As String)
 
-        Dim promocion As Integer = 0
+        Dim promocion As Integer = 1
+        Dim cuantospro As Integer = Math.Truncate(pPromociones.Height / 70)
 
-        If TotPromociones <= 10 Then
-            pPromociones.AutoScroll = False
-        Else
-            pPromociones.AutoScroll = True
-        End If
+
 
         Try
             cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT count(Id) FROM Promociones WHERE CodigoAlpha='" & productos & "' ORDER BY Descx"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    TotPromociones = TotPromociones + 1
+                End If
+            Loop
+            rd3.Close()
+
+            If TotPromociones <= 10 Then
+                pPromociones.AutoScroll = False
+            Else
+                pPromociones.AutoScroll = True
+            End If
+
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText = "SELECT distinct Descx,Codigo FROM Promociones WHERE CodigoAlpha='" & productos & "' ORDER BY Descx"
             rd3 = cmd3.ExecuteReader
@@ -1291,7 +1332,53 @@ Public Class frmAgregarProducto
                     btnPromo.Width = 80
 
 
-                    btnPromo.Top = (promocion) * (btnPromo.Height + 0.5)
+
+                    If promocion > cuantospro And promocion < ((cuantospro * 2) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 1)
+                        btnPromo.Top = (promocion - (cuantospro + 1)) * (btnPromo.Height + 0.5)
+                        '2
+                    ElseIf promocion > (cuantospro * 2) And promocion < ((cuantospro * 3) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 2)
+                        btnPromo.Top = (promocion - ((cuantospro * 2) + 1)) * (btnPromo.Height + 0.5)
+                        '3
+                    ElseIf promocion > (cuantospro * 3) And promocion < ((cuantospro * 4) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 3)
+                        btnPromo.Top = (promocion - ((cuantospro * 3) + 1)) * (btnPromo.Height + 0.5)
+                        '4
+                    ElseIf promocion > (cuantospro * 4) And promocion < ((cuantospro * 5) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 4)
+                        btnPromo.Top = (promocion - ((cuantospro * 4) + 1)) * (btnPromo.Height + 0.5)
+                        '5
+                    ElseIf promocion > (cuantospro * 5) And promocion < ((cuantospro * 6) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 5)
+                        btnPromo.Top = (promocion - ((cuantospro * 5) + 1)) * (btnPromo.Height + 0.5)
+                        '6
+                    ElseIf promocion > (cuantospro * 6) And promocion < ((cuantospro * 7) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 6)
+                        btnPromo.Top = (promocion - ((cuantospro * 6) + 1)) * (btnPromo.Height + 0.5)
+                        '7
+                    ElseIf promocion > (cuantospro * 7) And promocion < ((cuantospro * 8) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 7)
+                        btnPromo.Top = (promocion - ((cuantospro * 7) + 1)) * (btnPromo.Height + 0.5)
+                        '8
+                    ElseIf promocion > (cuantospro * 8) And promocion < ((cuantospro * 9) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 8)
+                        btnPromo.Top = (promocion - ((cuantospro * 8) + 1)) * (btnPromo.Height + 0.5)
+                        '9
+                    ElseIf promocion > (cuantospro * 9) And promocion < ((cuantospro * 10) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 9)
+                        btnPromo.Top = (promocion - ((cuantospro * 9) + 1)) * (btnPromo.Height + 0.5)
+                        '10
+                    ElseIf promocion > (cuantospro * 10) And promocion < ((cuantospro * 11) + 1) Then
+                        btnPromo.Left = (btnPromo.Width * 10)
+                        btnPromo.Top = (promocion - ((cuantospro * 10) + 1)) * (btnPromo.Height + 0.5)
+                    Else
+                        btnPromo.Left = 0
+                        btnPromo.Top = (promocion - 1) * (btnPromo.Height + 0.5)
+                    End If
+
+
+
                     btnPromo.BackColor = Color.Orange
                     btnPromo.FlatStyle = FlatStyle.Flat
                     btnPromo.FlatAppearance.BorderSize = 1
@@ -1314,40 +1401,20 @@ Public Class frmAgregarProducto
         Dim btnPromocion As Button = CType(sender, Button)
 
 
-        codigop = btnPromocion.Tag
-        If cantidadPromo = 0 Then
-
-            cantpromo = 0
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Productos where Codigo = '" & CodigoProducto & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    cantidadPromo = CDec(IIf(rd1("F44").ToString = "", "0", rd1("F44").ToString))
-                Else
-                    cantidadPromo = 1
-                End If
-            Else
-                cantidadPromo = 1
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-        End If
+        CodigoProducto = btnPromocion.Tag
 
 
+
+        'ObtenerProducto(CodigoProducto)
 
         If cantpromo < cantidadPromo Then
             pteclado.Show()
             gteclas.Enabled = True
             txtRespuesta.Focus.Equals(True)
             txtRespuesta.Text = cantidadPromo
-            gdato.Text = "CANTIDAD"
-            CodigoProducto = grdCaptura.CurrentRow.Cells(0).Value.ToString
+            gdato.Text = "Cantidad"
+            CodigoProducto = CodigoProducto
             banderaPROMOCION = 1
-
-
 
         End If
     End Sub

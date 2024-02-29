@@ -205,6 +205,9 @@ Partial Class frmcortemesero
         Me.dtpht.TabIndex = 13
         Me.dtpht.Visible = False
         '
+        'PCorte80
+        '
+        '
         'frmcortemesero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

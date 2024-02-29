@@ -21,7 +21,7 @@ Public Class frmVTouchR
     Dim existencia As Double = 0
     Dim dosxuno As Double = 0
     Dim tresxdos As Double = 0
-    Dim cantidad As String = ""
+    Public cantidad As Double = 0
     Dim precio As Double = 0
     Dim importe As Double = 0
 
@@ -484,7 +484,7 @@ nopaso:
 
             precio = (precio)
 
-            cantidad = 1
+
             importe = cantidad * precio
 
             If importe <> 0 Then
@@ -525,7 +525,7 @@ nopaso:
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-
+            cnn2.Close()
         End Try
 
     End Sub
@@ -602,9 +602,10 @@ nopaso:
 
                 grdCaptura.Rows.Add(CodigoProducto,
                                     CodigoProducto & vbNewLine & descripcion,
-                                    1, FormatNumber(precio, 2),
+                                    cantidad,
+                                    FormatNumber(precio, 2),
                                     FormatNumber(importe, 2),
-1, "")
+respuesta, "")
 
                 lblTotalPagar.Text = lblTotalPagar.Text + importe
                 lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -2051,57 +2052,9 @@ nopaso:
 
     Public Sub Promociones(ByVal producto As String)
 
-        Dim promocion As Integer = 0
+        Dim promocion As Integer = 1
+        Dim cuantospro As Integer = Math.Truncate(pPromociones.Height / 70)
 
-        cnn2.Close() : cnn2.Open()
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT DISTINCT Descx FROM Promociones WHERE CodigoAlpha='" & producto & "' order by Descx"
-        rd2 = cmd2.ExecuteReader
-        Do While rd2.Read
-            If rd2.HasRows Then TotPromociones = TotPromociones + 1
-        Loop
-        rd2.Close()
-
-        If TotPromociones <= 8 Then
-            pPromociones.AutoScroll = False
-        Else
-            pPromociones.AutoScroll = True - 17
-        End If
-
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT DISTINCT Descx,Codigo FROM Promociones WHERE CodigoAlpha='" & producto & "' order by Descx"
-        rd2 = cmd2.ExecuteReader
-        Do While rd2.Read
-            If rd2.HasRows Then
-
-                Dim promociones As String = rd2(0).ToString
-                Dim codigop As String = rd2(1).ToString
-
-                btnPromo = New Button
-                btnPromo.Text = promociones
-                btnPromo.Tag = codigop
-                btnPromo.Name = "btnPromo(" & promocion & ")"
-                btnPromo.Height = 70
-                btnPromo.Width = 100
-
-                btnPromo.Top = (promocion) * (btnPromo.Height + 0.5)
-                btnPromo.BackColor = Color.Orange
-                btnPromo.FlatStyle = FlatStyle.Flat
-                btnPromo.FlatAppearance.BorderSize = 1
-                AddHandler btnPromo.Click, AddressOf btnPromo_Click
-                pPromociones.Controls.Add(btnPromo)
-                promocion += 1
-            End If
-        Loop
-        rd2.Close()
-        cnn2.Close()
-
-    End Sub
-
-    Private Sub btnPromo_Click(sender As Object, e As EventArgs)
-        Dim btnPromocion As Button = CType(sender, Button)
-
-        codigop = btnPromocion.Tag
         If cantidadPromo = 0 Then
 
             cantpromo = 0
@@ -2124,14 +2077,108 @@ nopaso:
         End If
 
 
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT count(Id) FROM Promociones WHERE CodigoAlpha='" & producto & "' order by Descx"
+        rd2 = cmd2.ExecuteReader
+        Do While rd2.Read
+            If rd2.HasRows Then TotPromociones = TotPromociones + 1
+        Loop
+        rd2.Close()
+
+        If TotPromociones <= 10 Then
+            pPromociones.AutoScroll = False
+        Else
+            pPromociones.AutoScroll = True
+        End If
+
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT DISTINCT Descx,Codigo FROM Promociones WHERE CodigoAlpha='" & producto & "' order by Descx"
+        rd2 = cmd2.ExecuteReader
+        Do While rd2.Read
+            If rd2.HasRows Then
+
+                Dim promociones As String = rd2(0).ToString
+                Dim codigop As String = rd2(1).ToString
+
+                btnPromo = New Button
+                btnPromo.Text = promociones
+                btnPromo.Tag = codigop
+                btnPromo.Name = "btnPromo(" & promocion & ")"
+                btnPromo.Height = 70
+                btnPromo.Width = 100
+
+                If promocion > cuantospro And promocion < ((cuantospro * 2) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 1)
+                    btnPromo.Top = (promocion - (cuantospro + 1)) * (btnPromo.Height + 0.5)
+                    '2
+                ElseIf promocion > (cuantospro * 2) And promocion < ((cuantospro * 3) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 2)
+                    btnPromo.Top = (promocion - ((cuantospro * 2) + 1)) * (btnPromo.Height + 0.5)
+                    '3
+                ElseIf promocion > (cuantospro * 3) And promocion < ((cuantospro * 4) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 3)
+                    btnPromo.Top = (promocion - ((cuantospro * 3) + 1)) * (btnPromo.Height + 0.5)
+                    '4
+                ElseIf promocion > (cuantospro * 4) And promocion < ((cuantospro * 5) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 4)
+                    btnPromo.Top = (promocion - ((cuantospro * 4) + 1)) * (btnPromo.Height + 0.5)
+                    '5
+                ElseIf promocion > (cuantospro * 5) And promocion < ((cuantospro * 6) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 5)
+                    btnPromo.Top = (promocion - ((cuantospro * 5) + 1)) * (btnPromo.Height + 0.5)
+                    '6
+                ElseIf promocion > (cuantospro * 6) And promocion < ((cuantospro * 7) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 6)
+                    btnPromo.Top = (promocion - ((cuantospro * 6) + 1)) * (btnPromo.Height + 0.5)
+                    '7
+                ElseIf promocion > (cuantospro * 7) And promocion < ((cuantospro * 8) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 7)
+                    btnPromo.Top = (promocion - ((cuantospro * 7) + 1)) * (btnPromo.Height + 0.5)
+                    '8
+                ElseIf promocion > (cuantospro * 8) And promocion < ((cuantospro * 9) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 8)
+                    btnPromo.Top = (promocion - ((cuantospro * 8) + 1)) * (btnPromo.Height + 0.5)
+                    '9
+                ElseIf promocion > (cuantospro * 9) And promocion < ((cuantospro * 10) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 9)
+                    btnPromo.Top = (promocion - ((cuantospro * 9) + 1)) * (btnPromo.Height + 0.5)
+                    '10
+                ElseIf promocion > (cuantospro * 10) And promocion < ((cuantospro * 11) + 1) Then
+                    btnPromo.Left = (btnPromo.Width * 10)
+                    btnPromo.Top = (promocion - ((cuantospro * 10) + 1)) * (btnPromo.Height + 0.5)
+                Else
+                    btnPromo.Left = 0
+                    btnPromo.Top = (promocion - 1) * (btnPromo.Height + 0.5)
+                End If
+
+                btnPromo.BackColor = Color.Orange
+                btnPromo.FlatStyle = FlatStyle.Flat
+                btnPromo.FlatAppearance.BorderSize = 1
+                AddHandler btnPromo.Click, AddressOf btnPromo_Click
+                pPromociones.Controls.Add(btnPromo)
+                promocion += 1
+            End If
+        Loop
+        rd2.Close()
+        cnn2.Close()
+
+    End Sub
+
+    Private Sub btnPromo_Click(sender As Object, e As EventArgs)
+        Dim btnPromocion As Button = CType(sender, Button)
+
+        CodigoProducto = btnPromocion.Tag
+
+
 
         If cantpromo < cantidadPromo Then
             PTeclado.Show()
             pletras.Enabled = True
             txtRespuesta.Focus.Equals(True)
             txtRespuesta.Text = cantidadPromo
-            pCampo.Text = "CANTIDAD"
-            CodigoProducto = grdCaptura.CurrentRow.Cells(0).Value.ToString
+            pCampo.Text = "Cantidad"
+            CodigoProducto = CodigoProducto
             banderaPROMOCION = 1
 
 
@@ -2524,7 +2571,7 @@ nopaso:
                             Case Is = "MOSTRADOR"
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "')"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "')"
                                 cmd1.ExecuteNonQuery()
                             Case Is <> "MOSTRADOR"
                                 cmd1 = cnn1.CreateCommand
@@ -2543,12 +2590,12 @@ nopaso:
                                 If Resta > 0 And AFavor_Cliente > 0 Then
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & cuentarefe & "'," & bancorefe & "','" & comentariopago & "','" & lblAtendio.Text & "'," & Resta & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & cuentarefe & "'," & bancorefe & "','" & comentariopago & "','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "')"
                                     cmd1.ExecuteNonQuery()
                                 Else
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "')"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "')"
                                     cmd1.ExecuteNonQuery()
                                 End If
                         End Select
@@ -3289,7 +3336,7 @@ Door:
                         cantpromo = CDec(cantpromo) + CDec(txtRespuesta.Text)
 
 
-                        CodigoProducto = codigop
+                        cantidad = txtRespuesta.Text
                         ObtenerProducto(CodigoProducto)
                     Else
                         MsgBox("La suma de los productos de la promoción no puede ser mayor a " & cantidadPromo & "")

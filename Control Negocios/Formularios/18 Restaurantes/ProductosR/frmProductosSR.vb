@@ -201,7 +201,7 @@ Public Class frmProductosSR
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT Codigo,Descx FROM promociones WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd4.CommandText = "SELECT Codigo,Descx FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then
@@ -791,7 +791,7 @@ Public Class frmProductosSR
             cbopromociones.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Nombre FROM productos WHERE Departamento='PROMOCIONES' AND Nombre<>'' ORDER BY Nombre"
+            cmd5.CommandText = "SELECT DISTINCT Nombre FROM productos WHERE Grupo='PROMOCIONES' AND Nombre<>'' ORDER BY Nombre"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
