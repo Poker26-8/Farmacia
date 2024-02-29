@@ -112,8 +112,6 @@
 
             End If
 
-
-
             cnn1.Close()
 
 
@@ -152,7 +150,15 @@
         e.Graphics.DrawString("DEL:" & Format(dtpfecha.Value, "yyyy-MM-dd"), fuente_prods, Brushes.Black, 1, Y)
         Y += 15
 
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = ""
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
 
+            End If
+        End If
 
         Dim totalmesero As Double = 0
         Dim formapagos As String = ""

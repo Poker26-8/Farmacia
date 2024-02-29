@@ -1081,7 +1081,7 @@ Public Class frmPagar
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'" & formapago & "'," & txtPropina.Text & "," & montopago & ",'" & bancoforma & "','" & referencia & "','" & comentario & "','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "')"
+                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'" & formapago & "'," & txtPropina.Text & "," & montopago & ",'" & bancoforma & "','" & referencia & "','" & comentario & "','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
                 End If
@@ -1106,7 +1106,7 @@ Public Class frmPagar
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'EFECTIVO'," & txtPropina.Text & "," & MontoEffe & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "')"
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & Abon & "," & SLD & ",'EFECTIVO'," & txtPropina.Text & "," & MontoEffe & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
         End If
