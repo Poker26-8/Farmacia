@@ -139,6 +139,7 @@ Partial Class Inicio
         Me.pFacturas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepFact = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCaja = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CorteDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CortePorMeseroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GimnasiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroDeHuellaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -165,7 +166,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CorteDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1101,6 +1101,12 @@ Partial Class Inicio
         Me.pCaja.Size = New System.Drawing.Size(42, 20)
         Me.pCaja.Text = "Caja"
         '
+        'CorteDeCajaToolStripMenuItem
+        '
+        Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
+        '
         'CortePorMeseroToolStripMenuItem
         '
         Me.CortePorMeseroToolStripMenuItem.Name = "CortePorMeseroToolStripMenuItem"
@@ -1148,7 +1154,7 @@ Partial Class Inicio
         'MenuNominaToolStripMenuItem
         '
         Me.MenuNominaToolStripMenuItem.Name = "MenuNominaToolStripMenuItem"
-        Me.MenuNominaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MenuNominaToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.MenuNominaToolStripMenuItem.Text = "Menu Nomina"
         '
         'ToolStripMenuItem1
@@ -1358,12 +1364,6 @@ Partial Class Inicio
         Me.Label2.Text = "SINCRONIZADOR"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Visible = False
-        '
-        'CorteDeCajaToolStripMenuItem
-        '
-        Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
         'Inicio
         '

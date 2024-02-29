@@ -2644,4 +2644,8 @@ Public Class Inicio
         frmCorte2.Show()
         frmCorte2.BringToFront()
     End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+
+    End Sub
 End Class

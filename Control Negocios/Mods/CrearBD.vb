@@ -1422,10 +1422,11 @@
 
 
 
-    'FormasPago
+    ''FormasPago
     Public vartablaformaspago As String = "CREATE TABLE IF NOT EXISTS `formaspago` (
                                               `Id` int(11) NOT NULL,
-                                              `FormaPago` varchar(255) NOT NULL DEFAULT ''
+                                              `FormaPago` varchar(255) NOT NULL DEFAULT '',
+                                              `Valor` varchar(255) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
