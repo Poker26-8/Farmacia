@@ -22,6 +22,7 @@ Partial Class frmPagarTouch
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarTouch))
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.lblfolio = New System.Windows.Forms.Label()
@@ -418,6 +419,8 @@ Partial Class frmPagarTouch
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdPagos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White

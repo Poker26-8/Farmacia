@@ -24,6 +24,7 @@ Partial Class frmAgregarProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarProducto))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblpromo = New System.Windows.Forms.Label()
@@ -66,6 +67,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo2 = New System.Windows.Forms.Button()
         Me.btntiempo1 = New System.Windows.Forms.Button()
         Me.btnOcasional = New System.Windows.Forms.Button()
+        Me.btnRepertir = New System.Windows.Forms.Button()
         Me.btnordenar = New System.Windows.Forms.Button()
         Me.pDepartamento = New System.Windows.Forms.Panel()
         Me.pgrupo = New System.Windows.Forms.Panel()
@@ -121,7 +123,6 @@ Partial Class frmAgregarProducto
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
-        Me.btnRepertir = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -352,6 +353,8 @@ Partial Class frmAgregarProducto
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
@@ -621,6 +624,21 @@ Partial Class frmAgregarProducto
         Me.btnOcasional.Text = "Producto ocasional"
         Me.btnOcasional.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnOcasional.UseVisualStyleBackColor = False
+        '
+        'btnRepertir
+        '
+        Me.btnRepertir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnRepertir.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRepertir.Image = CType(resources.GetObject("btnRepertir.Image"), System.Drawing.Image)
+        Me.btnRepertir.Location = New System.Drawing.Point(168, 0)
+        Me.btnRepertir.Name = "btnRepertir"
+        Me.btnRepertir.Size = New System.Drawing.Size(165, 87)
+        Me.btnRepertir.TabIndex = 26
+        Me.btnRepertir.Text = "Repetir producto"
+        Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRepertir.UseVisualStyleBackColor = False
         '
         'btnordenar
         '
@@ -1268,21 +1286,6 @@ Partial Class frmAgregarProducto
         '
         'PComanda58
         '
-        '
-        'btnRepertir
-        '
-        Me.btnRepertir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnRepertir.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRepertir.Image = CType(resources.GetObject("btnRepertir.Image"), System.Drawing.Image)
-        Me.btnRepertir.Location = New System.Drawing.Point(168, 0)
-        Me.btnRepertir.Name = "btnRepertir"
-        Me.btnRepertir.Size = New System.Drawing.Size(165, 87)
-        Me.btnRepertir.TabIndex = 26
-        Me.btnRepertir.Text = "Repetir producto"
-        Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnRepertir.UseVisualStyleBackColor = False
         '
         'frmAgregarProducto
         '
