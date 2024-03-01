@@ -39,6 +39,8 @@ Partial Class frmcortemesero
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dtpht = New System.Windows.Forms.DateTimePicker()
         Me.PCorte80 = New System.Drawing.Printing.PrintDocument()
+        Me.PCorteU80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCortePe80 = New System.Drawing.Printing.PrintDocument()
         Me.pperiodo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -208,6 +210,12 @@ Partial Class frmcortemesero
         'PCorte80
         '
         '
+        'PCorteU80
+        '
+        '
+        'pCortePe80
+        '
+        '
         'frmcortemesero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -249,4 +257,6 @@ Partial Class frmcortemesero
     Friend WithEvents Label4 As Label
     Friend WithEvents dtpht As DateTimePicker
     Friend WithEvents PCorte80 As Printing.PrintDocument
+    Friend WithEvents PCorteU80 As Printing.PrintDocument
+    Friend WithEvents pCortePe80 As Printing.PrintDocument
 End Class

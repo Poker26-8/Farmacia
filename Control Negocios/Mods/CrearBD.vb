@@ -519,7 +519,8 @@
                                       `BRecepcion` varchar(250) NOT NULL DEFAULT '',
                                       `Propina` float NOT NULL DEFAULT '0',
                                       `Comisiones` float NOT NULL DEFAULT '0',
-                                      `Mesero` varchar(100) NOT NULL DEFAULT ''
+                                      `Mesero` varchar(100) NOT NULL DEFAULT '',
+                                      `Descuento` float NOT NULL DEFAULT '0'
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
