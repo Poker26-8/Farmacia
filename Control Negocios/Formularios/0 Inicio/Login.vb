@@ -941,6 +941,10 @@ Public Class Login
 
                             'permisosm
                             .runSp(cnnprueba, vartablapermisosm, sinfo)
+                            If .getDt(cnnprueba, dtprueba9, "SELECT * from permisosm", sinfo) Then
+                            Else
+                                .runSp(cnnprueba, varinsertapermisosm, sinfo)
+                            End If
                             .runSp(cnnprueba, varKeypermisosm, sinfo)
                             .runSp(cnnprueba, varAutopermisosm, sinfo)
 

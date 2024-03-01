@@ -2874,7 +2874,7 @@ Door:
 
                 cnn4.Close() : cnn4.Open()
                 cmd4 = cnn4.CreateCommand
-                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,GPrint,Comentario,TasaIeps,TotalIEPS,Comensal) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & IIf(MyProm, 0, MyProm) & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "'," & vartasa & "," & vartotal & ",'" & comensal & "')"
+                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,GPrint,Comentario,TasaIeps,TotalIEPS,Comensal,Facturado) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & IIf(MyProm, 0, MyProm) & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "'," & vartasa & "," & vartotal & ",'" & comensal & "','0')"
                 cmd4.ExecuteNonQuery()
                 cnn4.Close()
 

@@ -65,6 +65,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
+        Me.cbCopas = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -162,11 +163,12 @@ Partial Class frmPermisosRestaurant
         '
         'txtcontraseña
         '
+        Me.txtcontraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcontraseña.ForeColor = System.Drawing.Color.Silver
         Me.txtcontraseña.Location = New System.Drawing.Point(531, 12)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtcontraseña.Size = New System.Drawing.Size(99, 20)
+        Me.txtcontraseña.Size = New System.Drawing.Size(99, 22)
         Me.txtcontraseña.TabIndex = 229
         Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -335,6 +337,7 @@ Partial Class frmPermisosRestaurant
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.cbCopas)
         Me.Panel2.Controls.Add(Me.cbMesasPropias)
         Me.Panel2.Controls.Add(Me.cbmesas)
         Me.Panel2.Controls.Add(Me.cbCobrar)
@@ -347,7 +350,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.Controls.Add(Me.cbPrecuentas)
         Me.Panel2.Location = New System.Drawing.Point(4, 120)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(170, 289)
+        Me.Panel2.Size = New System.Drawing.Size(170, 311)
         Me.Panel2.TabIndex = 240
         '
         'cbMesasPropias
@@ -539,12 +542,23 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
+        'cbCopas
+        '
+        Me.cbCopas.AutoSize = True
+        Me.cbCopas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCopas.Location = New System.Drawing.Point(3, 286)
+        Me.cbCopas.Name = "cbCopas"
+        Me.cbCopas.Size = New System.Drawing.Size(66, 20)
+        Me.cbCopas.TabIndex = 241
+        Me.cbCopas.Text = "Copas"
+        Me.cbCopas.UseVisualStyleBackColor = True
+        '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(639, 421)
+        Me.ClientSize = New System.Drawing.Size(639, 435)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -618,4 +632,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents btnclose As Button
     Friend WithEvents cbmesas As CheckBox
     Friend WithEvents cbMesasPropias As CheckBox
+    Friend WithEvents cbCopas As CheckBox
 End Class
