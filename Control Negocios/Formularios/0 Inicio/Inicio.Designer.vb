@@ -140,7 +140,7 @@ Partial Class Inicio
         Me.pRepFact = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCaja = New System.Windows.Forms.ToolStripMenuItem()
         Me.CorteDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CortePorMeseroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CORTEMESERO = New System.Windows.Forms.ToolStripMenuItem()
         Me.GimnasiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroDeHuellaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroDeAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -1096,7 +1096,7 @@ Partial Class Inicio
         '
         'pCaja
         '
-        Me.pCaja.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CorteDeCajaToolStripMenuItem, Me.CortePorMeseroToolStripMenuItem})
+        Me.pCaja.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CorteDeCajaToolStripMenuItem, Me.CORTEMESERO})
         Me.pCaja.Name = "pCaja"
         Me.pCaja.Size = New System.Drawing.Size(42, 20)
         Me.pCaja.Text = "Caja"
@@ -1104,14 +1104,14 @@ Partial Class Inicio
         'CorteDeCajaToolStripMenuItem
         '
         Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
-        'CortePorMeseroToolStripMenuItem
+        'CORTEMESERO
         '
-        Me.CortePorMeseroToolStripMenuItem.Name = "CortePorMeseroToolStripMenuItem"
-        Me.CortePorMeseroToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.CortePorMeseroToolStripMenuItem.Text = "Corte por mesero"
+        Me.CORTEMESERO.Name = "CORTEMESERO"
+        Me.CORTEMESERO.Size = New System.Drawing.Size(180, 22)
+        Me.CORTEMESERO.Text = "Corte por mesero"
         '
         'GimnasiosToolStripMenuItem
         '
@@ -1534,6 +1534,6 @@ Partial Class Inicio
     Friend WithEvents ReporteDeSeries As ToolStripMenuItem
     Friend WithEvents btnpollo As Button
     Friend WithEvents ReporteDeAuditoriaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CortePorMeseroToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CORTEMESERO As ToolStripMenuItem
     Friend WithEvents CorteDeCajaToolStripMenuItem As ToolStripMenuItem
 End Class

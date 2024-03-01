@@ -372,10 +372,12 @@ Public Class Inicio
                         Button12.Visible = True
                         Button13.Visible = True
                         btnvtatouch.Visible = True
+                        CORTEMESERO.Visible = True
                     Else
                         Button12.Visible = False
                         Button13.Visible = False
                         btnvtatouch.Visible = False
+                        CORTEMESERO.Visible = False
                     End If
 
                 End If
@@ -2724,7 +2726,7 @@ Public Class Inicio
         frmRepAuditoria.BringToFront()
     End Sub
 
-    Private Sub CortePorMeseroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CortePorMeseroToolStripMenuItem.Click
+    Private Sub CortePorMeseroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CORTEMESERO.Click
         frmcortemesero.Show()
         frmcortemesero.BringToFront()
     End Sub
