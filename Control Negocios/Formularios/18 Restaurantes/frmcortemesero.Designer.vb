@@ -41,6 +41,11 @@ Partial Class frmcortemesero
         Me.PCorte80 = New System.Drawing.Printing.PrintDocument()
         Me.PCorteU80 = New System.Drawing.Printing.PrintDocument()
         Me.pCortePe80 = New System.Drawing.Printing.PrintDocument()
+        Me.PCortePU80 = New System.Drawing.Printing.PrintDocument()
+        Me.PCorte58 = New System.Drawing.Printing.PrintDocument()
+        Me.PCorteU58 = New System.Drawing.Printing.PrintDocument()
+        Me.pCortePe58 = New System.Drawing.Printing.PrintDocument()
+        Me.PCortePU58 = New System.Drawing.Printing.PrintDocument()
         Me.pperiodo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -216,6 +221,21 @@ Partial Class frmcortemesero
         'pCortePe80
         '
         '
+        'PCortePU80
+        '
+        '
+        'PCorte58
+        '
+        '
+        'PCorteU58
+        '
+        '
+        'pCortePe58
+        '
+        '
+        'PCortePU58
+        '
+        '
         'frmcortemesero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -259,4 +279,9 @@ Partial Class frmcortemesero
     Friend WithEvents PCorte80 As Printing.PrintDocument
     Friend WithEvents PCorteU80 As Printing.PrintDocument
     Friend WithEvents pCortePe80 As Printing.PrintDocument
+    Friend WithEvents PCortePU80 As Printing.PrintDocument
+    Friend WithEvents PCorte58 As Printing.PrintDocument
+    Friend WithEvents PCorteU58 As Printing.PrintDocument
+    Friend WithEvents pCortePe58 As Printing.PrintDocument
+    Friend WithEvents PCortePU58 As Printing.PrintDocument
 End Class
