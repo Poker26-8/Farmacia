@@ -12350,8 +12350,10 @@ ecomoda:
 
         If e.RowIndex Mod 2 = 0 Then
             grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+            'grdcaptura.Rows(e.RowIndex).DefaultCellStyle.Font = New Font(grdcaptura.Font, FontStyle.Bold)
         Else
-            grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.DeepSkyBlue
+            grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightSteelBlue
+            'grdcaptura.Rows(e.RowIndex).DefaultCellStyle.Font = New Font(grdcaptura.Font, FontStyle.Bold)
         End If
     End Sub
 End Class
