@@ -919,10 +919,10 @@ Public Class frmProductos
                 "select Id from Proveedores where NComercial='" & cboProvP.Text & "'"
             rd1 = cmd1.ExecuteReader
             If Not rd1.HasRows Then
-                MsgBox("Este proveedor no está registrado en el catálogo. Regístralo para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 rd1.Close()
-                cnn1.Close()
-                Exit Sub
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Insert into Proveedores(NComercial,Compania) values('" & cboProvP.Text & "','" & cboProvP.Text & "')"
+                cmd1.ExecuteNonQuery()
             End If
             rd1.Close()
 

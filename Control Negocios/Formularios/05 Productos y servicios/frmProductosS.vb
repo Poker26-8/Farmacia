@@ -477,8 +477,12 @@ Public Class frmProductosS
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
             Else
-                MsgBox("Este proveedor no está registrado en el catálogo. Regístralo para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                rd1.Close() : cnn1.Close() : Exit Sub
+                'MsgBox("Este proveedor no está registrado en el catálogo. Regístralo para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                'rd1.Close() : cnn1.Close() : Exit Sub
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Insert into Proveedores(NComercial,Compania) values('" & cboProvP.Text & "','" & cboProvP.Text & "')"
+                cmd1.ExecuteNonQuery()
             End If
             rd1.Close()
 
