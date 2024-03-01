@@ -48,6 +48,7 @@ Partial Class frmPermisosRestaurant
         Me.txtPorcentage = New System.Windows.Forms.TextBox()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbCopas = New System.Windows.Forms.CheckBox()
         Me.cbMesasPropias = New System.Windows.Forms.CheckBox()
         Me.cbmesas = New System.Windows.Forms.CheckBox()
         Me.cbCobrar = New System.Windows.Forms.CheckBox()
@@ -65,7 +66,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
-        Me.cbCopas = New System.Windows.Forms.CheckBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -353,6 +354,17 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.Size = New System.Drawing.Size(170, 311)
         Me.Panel2.TabIndex = 240
         '
+        'cbCopas
+        '
+        Me.cbCopas.AutoSize = True
+        Me.cbCopas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCopas.Location = New System.Drawing.Point(3, 286)
+        Me.cbCopas.Name = "cbCopas"
+        Me.cbCopas.Size = New System.Drawing.Size(66, 20)
+        Me.cbCopas.TabIndex = 241
+        Me.cbCopas.Text = "Copas"
+        Me.cbCopas.UseVisualStyleBackColor = True
+        '
         'cbMesasPropias
         '
         Me.cbMesasPropias.AutoSize = True
@@ -542,16 +554,14 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
-        'cbCopas
+        'Button1
         '
-        Me.cbCopas.AutoSize = True
-        Me.cbCopas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCopas.Location = New System.Drawing.Point(3, 286)
-        Me.cbCopas.Name = "cbCopas"
-        Me.cbCopas.Size = New System.Drawing.Size(66, 20)
-        Me.cbCopas.TabIndex = 241
-        Me.cbCopas.Text = "Copas"
-        Me.cbCopas.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(504, 359)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(66, 50)
+        Me.Button1.TabIndex = 247
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmPermisosRestaurant
         '
@@ -559,6 +569,7 @@ Partial Class frmPermisosRestaurant
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(639, 435)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -633,4 +644,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents cbmesas As CheckBox
     Friend WithEvents cbMesasPropias As CheckBox
     Friend WithEvents cbCopas As CheckBox
+    Friend WithEvents Button1 As Button
 End Class

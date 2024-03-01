@@ -245,7 +245,7 @@ nopaso:
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT Existencia,Departamento FROM Productos WHERE Codigo='" & Strings.Left(Codigo, 4) & "'"
+                    cmd2.CommandText = "SELECT Existencia,Departamento FROM Productos WHERE Codigo='" & Strings.Left(Codigo, 6) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -2608,7 +2608,7 @@ respuesta, "")
                         Case Is = "MOSTRADOR"
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & EfectivoX & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & EfectivoX & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                             cmd1.ExecuteNonQuery()
 
                         Case Is <> "MOSTRADOR"
@@ -2824,7 +2824,7 @@ respuesta, "")
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(MYCODE, 4) & "'"
+                    "select * from Productos where Codigo='" & Strings.Left(MYCODE, 6) & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -2841,18 +2841,13 @@ respuesta, "")
 Door:
                             'copas y mililitros
 
+                            Dim codigocoproducto As String = ""
+                            Dim copas As Double = 0
 
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "SELECT Mililitros,Copas,CopasTemp FROM Productos WHERE Codigo='" & MYCODE & "'"
-                            rd2 = cmd2.ExecuteReader
-                            If rd2.Read Then
-                                If rd2.HasRows Then
+                            Dim copastem As Double = 0
+                            Dim existenciasco As Double = 0
 
-                                End If
-                            End If
-                            rd2.Close()
-
-
+                            Dim existencire As Double = 0
 
                             'existencia_inicial = 0
                             'opeCantReal = 0
@@ -2871,7 +2866,7 @@ Door:
                             cmd4.ExecuteNonQuery()
 
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "UPDATE Productos SET Existencia= " & nueva_existe & " ,Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(MYCODE, 4) & "'"
+                            cmd4.CommandText = "UPDATE Productos SET Existencia= " & nueva_existe & " ,Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(MYCODE, 6) & "'"
 
                             cmd4.ExecuteNonQuery()
                             cnn4.Close()
