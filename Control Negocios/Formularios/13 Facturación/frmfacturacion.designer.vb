@@ -4076,6 +4076,7 @@ Partial Class frmfacturacion
         Me.lblfolioventa.Name = "lblfolioventa"
         Me.lblfolioventa.Size = New System.Drawing.Size(100, 17)
         Me.lblfolioventa.TabIndex = 96
+        Me.lblfolioventa.Visible = False
         '
         'frmfacturacion
         '
