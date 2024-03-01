@@ -530,6 +530,7 @@ Public Class frmVentas1
                         GoTo kak
                     End If
                 Next
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
             Else
                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
             End If
