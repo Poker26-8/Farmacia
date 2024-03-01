@@ -510,19 +510,19 @@ Public Class frmVentas1
             rd3.Close()
             cnn3.Close()
 
-            Dim acumula As Integer = 0
+            Dim acumulaxd As Integer = 0
             cnn1.Close()
             cnn1.Open()
             cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Acumula'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
-                acumula = rd1(0).ToString
+                acumulaxd = rd1(0).ToString
             End If
             rd1.Close()
             cnn1.Close()
 
 
-            If acumula = 1 Then
+            If acumulaxd = 1 Then
                 For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
                     If codigo = grdcaptura.Rows(xxx).Cells(0).Value.ToString Then
                         grdcaptura.Rows(xxx).Cells(3).Value = cantid + CDec(grdcaptura.Rows(xxx).Cells(3).Value)
@@ -530,6 +530,7 @@ Public Class frmVentas1
                         GoTo kak
                     End If
                 Next
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
             Else
                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
             End If
