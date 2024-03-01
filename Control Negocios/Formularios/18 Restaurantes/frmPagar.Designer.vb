@@ -23,8 +23,10 @@ Partial Class frmPagar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblMesero = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -44,6 +46,7 @@ Partial Class frmPagar
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtSubtotalmapeo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -122,8 +125,6 @@ Partial Class frmPagar
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
-        Me.lblMesero = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -147,6 +148,16 @@ Partial Class frmPagar
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(414, 681)
         Me.Panel1.TabIndex = 0
+        '
+        'lblMesero
+        '
+        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMesero.Location = New System.Drawing.Point(238, 34)
+        Me.lblMesero.Name = "lblMesero"
+        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
+        Me.lblMesero.TabIndex = 34
+        Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel7
         '
@@ -360,6 +371,17 @@ Partial Class frmPagar
         Me.Label1.Size = New System.Drawing.Size(75, 21)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Subtotal:"
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(238, 13)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(170, 21)
+        Me.Label23.TabIndex = 33
+        Me.Label23.Text = "Mesero"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Panel8
         '
@@ -628,6 +650,8 @@ Partial Class frmPagar
         '
         Me.grdcomanda.AllowUserToAddRows = False
         Me.grdcomanda.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcomanda.BackgroundColor = System.Drawing.Color.White
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
@@ -1146,27 +1170,6 @@ Partial Class frmPagar
         '
         'PVentaMapeo58
         '
-        '
-        'lblMesero
-        '
-        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMesero.Location = New System.Drawing.Point(238, 34)
-        Me.lblMesero.Name = "lblMesero"
-        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
-        Me.lblMesero.TabIndex = 34
-        Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label23
-        '
-        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(238, 13)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(170, 21)
-        Me.Label23.TabIndex = 33
-        Me.Label23.Text = "Mesero"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'frmPagar
         '
