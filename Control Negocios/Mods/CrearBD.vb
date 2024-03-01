@@ -2289,12 +2289,11 @@
                                               `JuntarM` int(1) DEFAULT '0',
                                               `CobrarM` int(1) DEFAULT '0',
                                               `Mesas` int(1) DEFAULT '0',
-                                              `Propias` int(1) DEFAULT '0',
-                                              `Copas` int(1) DEFAULT '0'
+                                              `Propias` int(1) DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
-    Public varinsertapermisosm As String = "INSERT INTO `permisosm` (`Id`, `IdEmpleado`, `Precuenta`, `CambioM`, `CancelarM`, `CortesiaM`, `JuntarM`, `CobrarM`, `Mesas`, `Propias`, `Copas`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0);
+    Public varinsertapermisosm As String = "INSERT INTO `permisosm` (`Id`, `IdEmpleado`, `Precuenta`, `CambioM`, `CancelarM`, `CortesiaM`, `JuntarM`, `CobrarM`, `Mesas`, `Propias`) VALUES
+(1, 1, 1, 1, 1, 1, 1, 1, 1, 0);
 "
 
 
@@ -5634,7 +5633,9 @@
                                               `PrecioDomicilio` float NOT NULL DEFAULT '0',
                                               `PrecioDomicilioIVA` float NOT NULL DEFAULT '0',
                                               `NumPromo` varchar(50) NOT NULL DEFAULT '',
-                                              `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
+                                              `CargadoAndroid` int(11) NOT NULL DEFAULT '0',
+                                              `Mililitros` float NOT NULL DEFAULT '0',
+                                              `Copas` float NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

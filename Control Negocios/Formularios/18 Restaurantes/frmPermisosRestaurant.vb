@@ -148,7 +148,6 @@
                     If rd1("CortesiaM").ToString = True Then cbCortesia.Checked = True Else cbCortesia.Checked = False
                     If rd1("JuntarM").ToString = True Then cbJuntar.Checked = True Else cbJuntar.Checked = False
                     If rd1("CobrarM").ToString = True Then cbCobrar.Checked = True Else cbCobrar.Checked = False
-                    If rd1("Copas").ToString = True Then cbCopas.Checked = True Else cbCopas.Checked = False
                 End If
             Else
                 cbPrecuentas.Checked = False
@@ -293,7 +292,7 @@
                     If rd1.Read Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & ",Mesas=" & IIf(cbmesas.Checked = True, 1, 0) & ",Copas=" & IIf(cbCopas.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
+                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & ",Mesas=" & IIf(cbmesas.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
 
                         If cmd2.ExecuteNonQuery() Then
                             MsgBox("Permisos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
@@ -309,7 +308,7 @@
                 Else
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM,Mesas,Copas) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & "," & IIf(cbmesas.Checked = True, 1, 0) & "," & IIf(cbCopas.Checked = True, 1, 0) & ")"
+                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM,Mesas) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & "," & IIf(cbmesas.Checked = True, 1, 0) & ")"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Permisos insertados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
@@ -586,6 +585,26 @@
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub cbCopas_CheckedChanged(sender As Object, e As EventArgs) Handles cbCopas.CheckedChanged
+        Try
+            If (cbCopas.Checked) Then
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='0' WHERE Facturas='Copa'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            Else
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='0',NumPart='0' WHERE Facturas='Copa'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            End If
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class
