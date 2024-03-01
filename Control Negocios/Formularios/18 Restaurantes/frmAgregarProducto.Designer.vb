@@ -66,7 +66,6 @@ Partial Class frmAgregarProducto
         Me.btntiempo2 = New System.Windows.Forms.Button()
         Me.btntiempo1 = New System.Windows.Forms.Button()
         Me.btnOcasional = New System.Windows.Forms.Button()
-        Me.btnRepertir = New System.Windows.Forms.Button()
         Me.btnordenar = New System.Windows.Forms.Button()
         Me.pDepartamento = New System.Windows.Forms.Panel()
         Me.pgrupo = New System.Windows.Forms.Panel()
@@ -122,6 +121,7 @@ Partial Class frmAgregarProducto
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
+        Me.btnRepertir = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -149,7 +149,7 @@ Partial Class frmAgregarProducto
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.TableLayoutPanel1.ColumnCount = 5
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
@@ -181,6 +181,7 @@ Partial Class frmAgregarProducto
         '
         'lblpromo
         '
+        Me.lblpromo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblpromo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblpromo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblpromo.ForeColor = System.Drawing.Color.RoyalBlue
@@ -192,9 +193,10 @@ Partial Class frmAgregarProducto
         '
         'lblFecha
         '
+        Me.lblFecha.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblFecha.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFecha.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblFecha.ForeColor = System.Drawing.Color.White
         Me.lblFecha.Location = New System.Drawing.Point(399, 20)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(126, 30)
@@ -203,9 +205,10 @@ Partial Class frmAgregarProducto
         '
         'lblFolio
         '
+        Me.lblFolio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblFolio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFolio.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFolio.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblFolio.ForeColor = System.Drawing.Color.White
         Me.lblFolio.Location = New System.Drawing.Point(531, 70)
         Me.lblFolio.Name = "lblFolio"
         Me.lblFolio.Size = New System.Drawing.Size(129, 30)
@@ -216,7 +219,7 @@ Partial Class frmAgregarProducto
         '
         Me.lblNcomensales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNcomensales.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNcomensales.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblNcomensales.ForeColor = System.Drawing.Color.White
         Me.lblNcomensales.Location = New System.Drawing.Point(267, 70)
         Me.lblNcomensales.Name = "lblNcomensales"
         Me.lblNcomensales.Size = New System.Drawing.Size(126, 30)
@@ -225,9 +228,10 @@ Partial Class frmAgregarProducto
         '
         'lblmesa
         '
+        Me.lblmesa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblmesa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblmesa.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesa.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblmesa.ForeColor = System.Drawing.Color.White
         Me.lblmesa.Location = New System.Drawing.Point(3, 70)
         Me.lblmesa.Name = "lblmesa"
         Me.lblmesa.Size = New System.Drawing.Size(126, 30)
@@ -236,10 +240,11 @@ Partial Class frmAgregarProducto
         '
         'lblatiende
         '
+        Me.lblatiende.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.TableLayoutPanel1.SetColumnSpan(Me.lblatiende, 2)
         Me.lblatiende.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblatiende.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblatiende.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblatiende.ForeColor = System.Drawing.Color.White
         Me.lblatiende.Location = New System.Drawing.Point(3, 20)
         Me.lblatiende.Name = "lblatiende"
         Me.lblatiende.Size = New System.Drawing.Size(258, 30)
@@ -248,9 +253,10 @@ Partial Class frmAgregarProducto
         '
         'Label5
         '
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(531, 50)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(129, 20)
@@ -260,9 +266,10 @@ Partial Class frmAgregarProducto
         '
         'Label4
         '
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(399, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(126, 20)
@@ -274,7 +281,7 @@ Partial Class frmAgregarProducto
         '
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(267, 50)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(126, 20)
@@ -284,9 +291,10 @@ Partial Class frmAgregarProducto
         '
         'Label2
         '
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(3, 50)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(126, 20)
@@ -296,9 +304,10 @@ Partial Class frmAgregarProducto
         '
         'Label1
         '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 20)
@@ -440,7 +449,7 @@ Partial Class frmAgregarProducto
         'pPreferencias
         '
         Me.pPreferencias.AutoScroll = True
-        Me.pPreferencias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.pPreferencias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pPreferencias.Location = New System.Drawing.Point(4, 25)
         Me.pPreferencias.Name = "pPreferencias"
         Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3)
@@ -482,7 +491,7 @@ Partial Class frmAgregarProducto
         '
         'LBLLETRA
         '
-        Me.LBLLETRA.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LBLLETRA.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.LBLLETRA.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBLLETRA.ForeColor = System.Drawing.Color.Black
         Me.LBLLETRA.Location = New System.Drawing.Point(0, 61)
@@ -493,7 +502,7 @@ Partial Class frmAgregarProducto
         '
         'lblTotalVenta
         '
-        Me.lblTotalVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblTotalVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalVenta.ForeColor = System.Drawing.Color.Black
         Me.lblTotalVenta.Location = New System.Drawing.Point(0, 30)
@@ -505,7 +514,7 @@ Partial Class frmAgregarProducto
         '
         'Label6
         '
-        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(-4, 0)
@@ -534,12 +543,12 @@ Partial Class frmAgregarProducto
         '
         'btnSalir
         '
-        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(782, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(627, 0)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(86, 87)
         Me.btnSalir.TabIndex = 28
@@ -549,12 +558,12 @@ Partial Class frmAgregarProducto
         '
         'btnnuevo
         '
-        Me.btnnuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnnuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnnuevo.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(701, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(546, 0)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(81, 87)
         Me.btnnuevo.TabIndex = 25
@@ -564,10 +573,10 @@ Partial Class frmAgregarProducto
         '
         'btntiempo3
         '
-        Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(628, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(473, 0)
         Me.btntiempo3.Name = "btntiempo3"
         Me.btntiempo3.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo3.TabIndex = 24
@@ -576,10 +585,10 @@ Partial Class frmAgregarProducto
         '
         'btntiempo2
         '
-        Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(555, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(400, 0)
         Me.btntiempo2.Name = "btntiempo2"
         Me.btntiempo2.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo2.TabIndex = 23
@@ -588,10 +597,10 @@ Partial Class frmAgregarProducto
         '
         'btntiempo1
         '
-        Me.btntiempo1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btntiempo1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo1.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo1.Location = New System.Drawing.Point(488, 0)
+        Me.btntiempo1.Location = New System.Drawing.Point(333, 0)
         Me.btntiempo1.Name = "btntiempo1"
         Me.btntiempo1.Size = New System.Drawing.Size(67, 87)
         Me.btntiempo1.TabIndex = 22
@@ -600,37 +609,22 @@ Partial Class frmAgregarProducto
         '
         'btnOcasional
         '
-        Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOcasional.Image = CType(resources.GetObject("btnOcasional.Image"), System.Drawing.Image)
         Me.btnOcasional.Location = New System.Drawing.Point(333, 0)
         Me.btnOcasional.Name = "btnOcasional"
-        Me.btnOcasional.Size = New System.Drawing.Size(155, 87)
+        Me.btnOcasional.Size = New System.Drawing.Size(532, 87)
         Me.btnOcasional.TabIndex = 27
         Me.btnOcasional.Text = "Producto ocasional"
         Me.btnOcasional.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnOcasional.UseVisualStyleBackColor = False
         '
-        'btnRepertir
-        '
-        Me.btnRepertir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnRepertir.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRepertir.Image = CType(resources.GetObject("btnRepertir.Image"), System.Drawing.Image)
-        Me.btnRepertir.Location = New System.Drawing.Point(168, 0)
-        Me.btnRepertir.Name = "btnRepertir"
-        Me.btnRepertir.Size = New System.Drawing.Size(165, 87)
-        Me.btnRepertir.TabIndex = 26
-        Me.btnRepertir.Text = "Repetir producto"
-        Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnRepertir.UseVisualStyleBackColor = False
-        '
         'btnordenar
         '
-        Me.btnordenar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnordenar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnordenar.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnordenar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnordenar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -672,7 +666,7 @@ Partial Class frmAgregarProducto
         '
         'pteclado
         '
-        Me.pteclado.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.pteclado.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pteclado.Controls.Add(Me.gteclas)
         Me.pteclado.Controls.Add(Me.btnaceptar)
         Me.pteclado.Controls.Add(Me.Button1)
@@ -1275,6 +1269,21 @@ Partial Class frmAgregarProducto
         'PComanda58
         '
         '
+        'btnRepertir
+        '
+        Me.btnRepertir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnRepertir.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRepertir.Image = CType(resources.GetObject("btnRepertir.Image"), System.Drawing.Image)
+        Me.btnRepertir.Location = New System.Drawing.Point(168, 0)
+        Me.btnRepertir.Name = "btnRepertir"
+        Me.btnRepertir.Size = New System.Drawing.Size(165, 87)
+        Me.btnRepertir.TabIndex = 26
+        Me.btnRepertir.Text = "Repetir producto"
+        Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRepertir.UseVisualStyleBackColor = False
+        '
         'frmAgregarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1346,7 +1355,6 @@ Partial Class frmAgregarProducto
     Friend WithEvents btntiempo2 As Button
     Friend WithEvents btntiempo1 As Button
     Friend WithEvents btnOcasional As Button
-    Friend WithEvents btnRepertir As Button
     Friend WithEvents btnordenar As Button
     Friend WithEvents TFolio As Timer
     Friend WithEvents TFecha As Timer
@@ -1408,4 +1416,5 @@ Partial Class frmAgregarProducto
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents btnRepertir As Button
 End Class

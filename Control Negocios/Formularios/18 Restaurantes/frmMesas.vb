@@ -71,6 +71,17 @@ Public Class frmMesas
 
         End If
 
+        primerBoton()
+
+    End Sub
+
+    Public Sub primerBoton()
+        For Each control As Control In parea.Controls
+            If TypeOf control Is Button Then
+                DirectCast(control, Button).PerformClick()
+                Exit For
+            End If
+        Next
     End Sub
 
 

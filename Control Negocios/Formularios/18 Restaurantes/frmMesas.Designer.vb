@@ -83,7 +83,7 @@ Partial Class frmMesas
         'parea
         '
         Me.parea.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.parea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.parea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.parea.Dock = System.Windows.Forms.DockStyle.Top
         Me.parea.Location = New System.Drawing.Point(186, 0)
         Me.parea.Name = "parea"
@@ -131,7 +131,7 @@ Partial Class frmMesas
         '
         'btncambiar
         '
-        Me.btncambiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btncambiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btncambiar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btncambiar.FlatAppearance.BorderSize = 0
         Me.btncambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -149,7 +149,7 @@ Partial Class frmMesas
         '
         'btnjuntar
         '
-        Me.btnjuntar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnjuntar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnjuntar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnjuntar.FlatAppearance.BorderSize = 0
         Me.btnjuntar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -167,7 +167,7 @@ Partial Class frmMesas
         '
         'btnagregar
         '
-        Me.btnagregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnagregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnagregar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnagregar.FlatAppearance.BorderSize = 0
         Me.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -185,7 +185,7 @@ Partial Class frmMesas
         '
         'btncobro
         '
-        Me.btncobro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btncobro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btncobro.Dock = System.Windows.Forms.DockStyle.Right
         Me.btncobro.FlatAppearance.BorderSize = 0
         Me.btncobro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -203,7 +203,7 @@ Partial Class frmMesas
         '
         'btnconsulta
         '
-        Me.btnconsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnconsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnconsulta.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnconsulta.Enabled = False
         Me.btnconsulta.FlatAppearance.BorderSize = 0
@@ -222,7 +222,7 @@ Partial Class frmMesas
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnLimpiar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnLimpiar.FlatAppearance.BorderSize = 0
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -239,7 +239,7 @@ Partial Class frmMesas
         '
         'btnSalir
         '
-        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -299,7 +299,7 @@ Partial Class frmMesas
         '
         'Label4
         '
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(6, 348)
         Me.Label4.Name = "Label4"
@@ -463,7 +463,7 @@ Partial Class frmMesas
         '
         'Label3
         '
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 116)
         Me.Label3.Name = "Label3"
@@ -484,7 +484,7 @@ Partial Class frmMesas
         '
         'Label2
         '
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(6, 65)
         Me.Label2.Name = "Label2"
@@ -505,7 +505,7 @@ Partial Class frmMesas
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 13)
         Me.Label1.Name = "Label1"
