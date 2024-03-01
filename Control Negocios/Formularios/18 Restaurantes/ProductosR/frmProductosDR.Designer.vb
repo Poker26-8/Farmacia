@@ -100,10 +100,10 @@ Partial Class frmProductosDR
         Me.cbopromociones = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.PCopeo = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtmilitros = New System.Windows.Forms.TextBox()
         Me.txtcopas = New System.Windows.Forms.TextBox()
+        Me.txtmilitros = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -180,7 +180,7 @@ Partial Class frmProductosDR
         '
         'picImagen
         '
-        Me.picImagen.Location = New System.Drawing.Point(649, 570)
+        Me.picImagen.Location = New System.Drawing.Point(475, 589)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(75, 68)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -935,28 +935,18 @@ Partial Class frmProductosDR
         Me.PCopeo.Controls.Add(Me.txtmilitros)
         Me.PCopeo.Controls.Add(Me.Label3)
         Me.PCopeo.Controls.Add(Me.Label2)
-        Me.PCopeo.Location = New System.Drawing.Point(475, 589)
+        Me.PCopeo.Location = New System.Drawing.Point(556, 570)
         Me.PCopeo.Name = "PCopeo"
-        Me.PCopeo.Size = New System.Drawing.Size(168, 76)
+        Me.PCopeo.Size = New System.Drawing.Size(171, 76)
         Me.PCopeo.TabIndex = 333
+        Me.PCopeo.Visible = False
         '
-        'Label2
+        'txtcopas
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(7, 13)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 20)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Militros"
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 44)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 19)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Copas"
+        Me.txtcopas.Location = New System.Drawing.Point(62, 43)
+        Me.txtcopas.Name = "txtcopas"
+        Me.txtcopas.Size = New System.Drawing.Size(98, 20)
+        Me.txtcopas.TabIndex = 3
         '
         'txtmilitros
         '
@@ -965,12 +955,23 @@ Partial Class frmProductosDR
         Me.txtmilitros.Size = New System.Drawing.Size(98, 20)
         Me.txtmilitros.TabIndex = 2
         '
-        'txtcopas
+        'Label3
         '
-        Me.txtcopas.Location = New System.Drawing.Point(62, 43)
-        Me.txtcopas.Name = "txtcopas"
-        Me.txtcopas.Size = New System.Drawing.Size(98, 20)
-        Me.txtcopas.TabIndex = 3
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 19)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Copas"
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 13)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(58, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Militros"
         '
         'frmProductosDR
         '

@@ -112,7 +112,7 @@ Public Class Inicio
         SFormatos("Peso", "")
         SFormatos("Taller", "")
         SFormatos("MesasPropias", "")
-
+        SFormatos("Copa", "")
 
         'Licencia()
         Try

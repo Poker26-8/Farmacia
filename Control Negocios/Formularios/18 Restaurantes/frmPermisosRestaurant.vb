@@ -61,6 +61,21 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    If rd2(0).ToString = 1 Then
+                        cbCopas.Checked = True
+                    Else
+                        cbCopas.Checked = False
+                    End If
+                End If
+            End If
+            rd2.Close()
+
+
+            cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TipoCobroBillar'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then

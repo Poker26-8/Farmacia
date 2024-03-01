@@ -193,6 +193,7 @@ Public Class frmVTouchR
         Extras(btnProducto.Tag)
         Promociones(btnProducto.Tag)
 
+        cantidad = 1
         ObtenerProducto(CodigoProducto)
 nopaso:
     End Sub
@@ -2838,6 +2839,21 @@ respuesta, "")
                             End If
                             rd2.Close()
 Door:
+                            'copas y mililitros
+
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT Mililitros,Copas,CopasTemp FROM Productos WHERE Codigo='" & MYCODE & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.Read Then
+                                If rd2.HasRows Then
+
+                                End If
+                            End If
+                            rd2.Close()
+
+
+
                             'existencia_inicial = 0
                             'opeCantReal = 0
                             'opediferencia = 0

@@ -125,6 +125,30 @@ Public Class frmProductosDR
     Private Sub frmProductosDR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboDescripcionTicketNormal.Focus.Equals(True)
         rboDescProductos.Checked = True
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    If rd1(0).ToString = "1" Then
+                        PCopeo.Visible = True
+                    Else
+                        PCopeo.Visible = False
+                    End If
+
+                End If
+                End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub txtVentaActual_TextChanged(sender As Object, e As EventArgs) Handles txtVentaActual.TextChanged
@@ -859,7 +883,7 @@ Public Class frmProductosDR
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "UPDATE productos SET CodBarra='" & txtCodBarrasNormal.Text & "',Nombre='" & cboDescripcionTicketNormal.Text & "',IVA=" & cboIvaNormal.Text & ",UCompra='" & txtCompra.Text & "', UVenta='" & txtVentaActual.Text & "',UMinima='" & txtVentaMinima.Text & "',MCD='" & txtUcompra.Text & "',Multiplo='" & txtUVenta.Text & "',Min='" & txtMinAlmacen.Text & "',Max='" & txtMaxAlmacen.Text & "',Comision='" & txtComision.Text & "',ProvPri='" & cboProveedoresNormal.Text & "',ProvEme='" & cboProvEme.Text & "',ProvRes=0,Departamento='" & cboDepartamentoNormal.Text & "',Grupo='" & cboGrupoNormal.Text & "',Modo_Almacen=" & tipo_almacen & ",Ubicacion='" & cboUbicacion.Text & "',ClaveSat='" & txtCodSat.Text & "',UnidadSat='" & txtUnidadSat.Text & "',NumPromo='0',PercentIVAret=0,ISR=0,IIEPS=0,E1=0,E2=0 WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+                    cmd3.CommandText = "UPDATE productos SET CodBarra='" & txtCodBarrasNormal.Text & "',Nombre='" & cboDescripcionTicketNormal.Text & "',IVA=" & cboIvaNormal.Text & ",UCompra='" & txtCompra.Text & "', UVenta='" & txtVentaActual.Text & "',UMinima='" & txtVentaMinima.Text & "',MCD='" & txtUcompra.Text & "',Multiplo='" & txtUVenta.Text & "',Min='" & txtMinAlmacen.Text & "',Max='" & txtMaxAlmacen.Text & "',Comision='" & txtComision.Text & "',ProvPri='" & cboProveedoresNormal.Text & "',ProvEme='" & cboProvEme.Text & "',ProvRes=0,Departamento='" & cboDepartamentoNormal.Text & "',Grupo='" & cboGrupoNormal.Text & "',Modo_Almacen=" & tipo_almacen & ",Ubicacion='" & cboUbicacion.Text & "',ClaveSat='" & txtCodSat.Text & "',UnidadSat='" & txtUnidadSat.Text & "',NumPromo='0',PercentIVAret=0,ISR=0,IIEPS=0,E1=0,E2=0,Mililitros=" & txtmilitros.Text & ",Copas=" & txtcopas.Text & " WHERE Codigo='" & cboCodCortoNormal.Text & "'"
                     If cmd3.ExecuteNonQuery() Then
                         MsgBox("Producto actulizado correctamente", vbInformation + vbOKOnly, titulomensajes)
                     End If
@@ -870,7 +894,7 @@ Public Class frmProductosDR
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Productos(Codigo,CodBarra,Nombre,NombreLargo,UCompra,UVenta,UMinima,ProvPri,ProvEme,Departamento,Grupo,GPrint,Ubicacion,MCD,Multiplo,Min,Max,Comision,ClaveSat,UnidadSat,Modo_Almacen,Existencia,Fecha,Fecha_Inicial,Fecha_Final) VALUES('" & cboCodCortoNormal.Text & "','" & txtCodBarrasNormal.Text & "','" & cboDescripcionTicketNormal.Text & "','" & cboDescripcionTicketNormal.Text & "','" & txtCompra.Text & "','" & txtVentaActual.Text & "','" & txtVentaMinima.Text & "','" & cboProveedoresNormal.Text & "','" & cboProvEme.Text & "','" & cboDepartamentoNormal.Text & "','" & cboGrupoNormal.Text & "','" & cboImprimirComandaNormal.Text & "','" & cboUbicacion.Text & "'," & txtUcompra.Text & "," & txtUVenta.Text & "," & txtMinAlmacen.Text & "," & txtMaxAlmacen.Text & "," & txtComision.Text & ",'" & cboCodSat.Text & "','" & cboUnidadSat.Text & "'," & tipo_almacen & ",'0','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "')"
+                cmd3.CommandText = "INSERT INTO Productos(Codigo,CodBarra,Nombre,NombreLargo,UCompra,UVenta,UMinima,ProvPri,ProvEme,Departamento,Grupo,GPrint,Ubicacion,MCD,Multiplo,Min,Max,Comision,ClaveSat,UnidadSat,Modo_Almacen,Existencia,Fecha,Fecha_Inicial,Fecha_Final,Mililitros,Copas) VALUES('" & cboCodCortoNormal.Text & "','" & txtCodBarrasNormal.Text & "','" & cboDescripcionTicketNormal.Text & "','" & cboDescripcionTicketNormal.Text & "','" & txtCompra.Text & "','" & txtVentaActual.Text & "','" & txtVentaMinima.Text & "','" & cboProveedoresNormal.Text & "','" & cboProvEme.Text & "','" & cboDepartamentoNormal.Text & "','" & cboGrupoNormal.Text & "','" & cboImprimirComandaNormal.Text & "','" & cboUbicacion.Text & "'," & txtUcompra.Text & "," & txtUVenta.Text & "," & txtMinAlmacen.Text & "," & txtMaxAlmacen.Text & "," & txtComision.Text & ",'" & cboCodSat.Text & "','" & cboUnidadSat.Text & "'," & tipo_almacen & ",'0','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & txtmilitros.Text & "," & txtcopas.Text & ")"
 
                 If cmd3.ExecuteNonQuery() Then
                     MsgBox("Producto agregado correctamente", vbInformation + vbOKOnly, titulomensajes)
@@ -998,5 +1022,25 @@ Public Class frmProductosDR
 
     Private Sub cboCodCortoNormal_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodCortoNormal.SelectedValueChanged
         TraeDatos("CODIGO")
+    End Sub
+
+    Private Sub txtmilitros_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtmilitros.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtmilitros.Text) Then
+                txtcopas.Focus.Equals(True)
+            Else
+                txtmilitros.Text = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub txtcopas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcopas.KeyPress
+        If AscW(e.Handled) = Keys.Enter Then
+            If IsNumeric(txtcopas.Text) Then
+                btnGuardarNormal.Focus.Equals(True)
+            Else
+                txtcopas.Text = ""
+            End If
+        End If
     End Sub
 End Class
