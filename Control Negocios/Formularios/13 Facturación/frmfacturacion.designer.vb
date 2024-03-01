@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmfacturacion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmfacturacion
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmfacturacion))
@@ -699,7 +699,7 @@ Partial Class frmfacturacion
         Me.gbLE.Controls.Add(Me.Label108)
         Me.gbLE.Location = New System.Drawing.Point(171, 302)
         Me.gbLE.Name = "gbLE"
-        Me.gbLE.Size = New System.Drawing.Size(882, 135)
+        Me.gbLE.Size = New System.Drawing.Size(881, 135)
         Me.gbLE.TabIndex = 92
         Me.gbLE.TabStop = False
         Me.gbLE.Text = "DATOS LUGAR DE EXPEDICION"
@@ -950,7 +950,7 @@ Partial Class frmfacturacion
         Me.GroupBox9.Controls.Add(Me.TabControl1)
         Me.GroupBox9.Location = New System.Drawing.Point(4, 83)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(980, 596)
+        Me.GroupBox9.Size = New System.Drawing.Size(987, 596)
         Me.GroupBox9.TabIndex = 89
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Datos para el Complemento Carta Porte"
@@ -3052,7 +3052,7 @@ Partial Class frmfacturacion
         Me.GroupBox2.Controls.Add(Me.grid_prods)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 360)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1191, 204)
+        Me.GroupBox2.Size = New System.Drawing.Size(1192, 204)
         Me.GroupBox2.TabIndex = 69
         Me.GroupBox2.TabStop = False
         '
@@ -3087,7 +3087,7 @@ Partial Class frmfacturacion
         Me.grid_prods.Name = "grid_prods"
         Me.grid_prods.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.grid_prods.RowHeadersVisible = False
-        Me.grid_prods.Size = New System.Drawing.Size(1185, 182)
+        Me.grid_prods.Size = New System.Drawing.Size(1186, 182)
         Me.grid_prods.TabIndex = 23
         '
         'Codigo
@@ -3595,7 +3595,7 @@ Partial Class frmfacturacion
         '
         Me.chkAumentarISR.AutoSize = True
         Me.chkAumentarISR.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAumentarISR.Location = New System.Drawing.Point(1083, 368)
+        Me.chkAumentarISR.Location = New System.Drawing.Point(1116, 308)
         Me.chkAumentarISR.Name = "chkAumentarISR"
         Me.chkAumentarISR.Size = New System.Drawing.Size(87, 20)
         Me.chkAumentarISR.TabIndex = 91

@@ -99,6 +99,11 @@ Partial Class frmProductosDR
         Me.Label40 = New System.Windows.Forms.Label()
         Me.cbopromociones = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
+        Me.PCopeo = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtmilitros = New System.Windows.Forms.TextBox()
+        Me.txtcopas = New System.Windows.Forms.TextBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -108,6 +113,7 @@ Partial Class frmProductosDR
         CType(Me.grdextras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PCopeo.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -174,7 +180,7 @@ Partial Class frmProductosDR
         '
         'picImagen
         '
-        Me.picImagen.Location = New System.Drawing.Point(563, 569)
+        Me.picImagen.Location = New System.Drawing.Point(649, 570)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(75, 68)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -923,12 +929,56 @@ Partial Class frmProductosDR
         Me.Label39.TabIndex = 0
         Me.Label39.Text = "Promociones"
         '
+        'PCopeo
+        '
+        Me.PCopeo.Controls.Add(Me.txtcopas)
+        Me.PCopeo.Controls.Add(Me.txtmilitros)
+        Me.PCopeo.Controls.Add(Me.Label3)
+        Me.PCopeo.Controls.Add(Me.Label2)
+        Me.PCopeo.Location = New System.Drawing.Point(475, 589)
+        Me.PCopeo.Name = "PCopeo"
+        Me.PCopeo.Size = New System.Drawing.Size(168, 76)
+        Me.PCopeo.TabIndex = 333
+        '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(7, 13)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Militros"
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(9, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(47, 19)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Copas"
+        '
+        'txtmilitros
+        '
+        Me.txtmilitros.Location = New System.Drawing.Point(62, 13)
+        Me.txtmilitros.Name = "txtmilitros"
+        Me.txtmilitros.Size = New System.Drawing.Size(98, 20)
+        Me.txtmilitros.TabIndex = 2
+        '
+        'txtcopas
+        '
+        Me.txtcopas.Location = New System.Drawing.Point(62, 43)
+        Me.txtcopas.Name = "txtcopas"
+        Me.txtcopas.Size = New System.Drawing.Size(98, 20)
+        Me.txtcopas.TabIndex = 3
+        '
         'frmProductosDR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(742, 722)
+        Me.Controls.Add(Me.PCopeo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.pbimportar)
@@ -1001,6 +1051,8 @@ Partial Class frmProductosDR
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PCopeo.ResumeLayout(False)
+        Me.PCopeo.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1082,4 +1134,9 @@ Partial Class frmProductosDR
     Friend WithEvents Label40 As Label
     Friend WithEvents cbopromociones As ComboBox
     Friend WithEvents Label39 As Label
+    Friend WithEvents PCopeo As Panel
+    Friend WithEvents txtcopas As TextBox
+    Friend WithEvents txtmilitros As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
 End Class
