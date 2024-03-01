@@ -510,8 +510,31 @@ Public Class frmVentas1
             rd3.Close()
             cnn3.Close()
 
-            'Sólo agrega y ya
-            grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
+            Dim acumula As Integer = 0
+            cnn1.Close()
+            cnn1.Open()
+            cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Acumula'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                acumula = rd1(0).ToString
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+
+            If acumula = 1 Then
+                For xxx As Integer = 0 To grdcaptura.Rows.Count - 1
+                    If codigo = grdcaptura.Rows(xxx).Cells(0).Value.ToString Then
+                        grdcaptura.Rows(xxx).Cells(3).Value = cantid + CDec(grdcaptura.Rows(xxx).Cells(3).Value)
+                        grdcaptura.Rows(xxx).Cells(5).Value = FormatNumber(total + CDec(grdcaptura.Rows(xxx).Cells(5).Value), 4)
+                        GoTo kak
+                    End If
+                Next
+            Else
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
+            End If
+
+kak:
 
             If Alerta_Min = True Then
                 If (existencia - cantid) <= minimo Then
@@ -523,6 +546,31 @@ Public Class frmVentas1
             cnn3.Close()
         End Try
     End Sub
+
+    Private Sub AgregarOActualizarFila(codigo As String, nombre As String, cantidad As Integer)
+        Dim filaExistente As DataGridViewRow = BuscarFilaPorCodigo(codigo)
+
+        If filaExistente IsNot Nothing Then
+            ' Si la fila existe, sumar la cantidad
+            Dim cantidadActual As Integer = CInt(filaExistente.Cells("Cantidad").Value)
+            filaExistente.Cells("Cantidad").Value = cantidadActual + cantidad
+        Else
+            ' Si la fila no existe, agregar una nueva fila
+            grdcaptura.Rows.Add(codigo, nombre, cantidad)
+        End If
+    End Sub
+
+    Private Function BuscarFilaPorCodigo(codigo As String) As DataGridViewRow
+        ' Buscar la fila con el código especificado
+        For Each fila As DataGridViewRow In grdcaptura.Rows
+            If fila.Cells("Codigo").Value IsNot Nothing AndAlso fila.Cells("Codigo").Value.ToString() = codigo Then
+                Return fila
+            End If
+        Next
+
+        ' Si no se encuentra ninguna fila con el código, devolver Nothing
+        Return Nothing
+    End Function
     Private Function ConsultaPrecio(ByVal codigo As String, ByVal cantidad As Double) As Double
         Dim precio_base As Double = 0
 
@@ -12295,5 +12343,14 @@ ecomoda:
 
     Private Sub grdcaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdcaptura.CellPainting
         '  e.CellStyle.BackColor = Color.Transparent
+    End Sub
+
+    Private Sub grdcaptura_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles grdcaptura.RowPrePaint
+
+        If e.RowIndex Mod 2 = 0 Then
+            grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+        Else
+            grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.DeepSkyBlue
+        End If
     End Sub
 End Class
