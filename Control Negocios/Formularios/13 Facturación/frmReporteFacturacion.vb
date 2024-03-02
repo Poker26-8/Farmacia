@@ -175,6 +175,7 @@ Public Class frmReporteFacturacion
         If optGlob.Checked = True Then
             If cbo.Text = "" Then Exit Sub
 
+            Dim foli As String = ""
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -192,10 +193,21 @@ Public Class frmReporteFacturacion
                 cnn2.Close()
                 cnn2.Open()
                 cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "Select Folio from Ventas where Facturado=" & cbo.Text & ""
+                rd2 = cmd2.ExecuteReader
+                If rd2.Read Then
+                    foli = rd2(0).ToString
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+                cnn2.Close()
+                cnn2.Open()
+                cmd2 = cnn2.CreateCommand
                 cmd2.CommandText = "select * from detalle_factura where Factura=" & rd1("nom_id").ToString & ""
                 rd2 = cmd2.ExecuteReader
                 Do While rd2.Read
-                    grdcaptura.Rows.Add(rd2("descripcion").ToString, FormatNumber(rd2("preciou").ToString, 2), FormatNumber(CDec(rd2("totaliva").ToString) - CDec(rd2("preciou").ToString), 2), FormatNumber(rd2("totaliva").ToString, 2))
+                    grdcaptura.Rows.Add(foli, FormatNumber(rd2("preciou").ToString, 2), FormatNumber(CDec(rd2("totaliva").ToString) - CDec(rd2("preciou").ToString), 2), FormatNumber(rd2("totaliva").ToString, 2))
                 Loop
                 rd1.Close()
                 cnn2.Close()
