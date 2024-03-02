@@ -65,7 +65,7 @@ Public NotInheritable Class frmPagado
         If ope > 0 Then
             PC = Strings.Left(Replace(CStr(ope), ".", "9"), 13)
         Else 'Quita los negativos
-            PC = Strings.Left(Replace(CStr(Math.Abs(ope)), ".", "8"), 13)
+            PC = Strings.Left(Replace(CStr(Math.Abs(ope)), ".", "8"), 13)7
         End If
 
         For i = 1 To 12
