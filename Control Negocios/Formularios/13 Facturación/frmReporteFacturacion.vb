@@ -247,7 +247,7 @@ Public Class frmReporteFacturacion
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     varFacturado = "SI"
-                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Nombre").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
+                    grdcaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, FormatNumber(rd1("Subtotal").ToString, 2), rd1("IVA").ToString, FormatNumber(rd1("Totales").ToString, 2), FormatDateTime(rd1("FVenta").ToString, DateFormat.ShortDate), varFacturado)
 
                     varSubtotal = CDec(varSubtotal) + CDec(rd1("Subtotal").ToString)
                     varIVA = CDec(varIVA) + CDec(rd1("IVA").ToString)
