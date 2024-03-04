@@ -5578,7 +5578,7 @@ doorcita:
                         lblNumCliente.Text = MyIdCliente
                         txtcredito.Text = FormatNumber(rd4("Credito").ToString, 4)
                         cbocomisionista.Text = rd4("Comisionista").ToString
-                        txttel.Text = rd4("Telefono").ToString
+                        ' txttel.Text = rd4("Telefono").ToString
                         If Trim(cbocomisionista.Text) <> "" Then
                             cbocomisionista.Enabled = True
                         Else
@@ -6699,6 +6699,14 @@ Door:
                 "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
+
+                cnn2.Close() : cnn2.Open()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "UPDATE clientes SET Telefono='" & txttel.Text & "' WHERE Nombre='" & cboNombre.Text & "'"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
             Else
                 cnn2.Close() : cnn2.Open()
 

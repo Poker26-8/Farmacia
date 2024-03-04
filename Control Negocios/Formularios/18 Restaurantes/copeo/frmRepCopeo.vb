@@ -41,7 +41,7 @@
             barCarga.Value = 0
             barCarga.Maximum = rows
 
-            cmd1.CommandText = "SELECT * FROM Productos ORDER BY Nombre"
+            cmd1.CommandText = "SELECT * FROM Productos WHERE ORDER BY Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -65,6 +65,7 @@
                     vcompra = IIf(vcompra < 0, 0, vcompra)
                     vventa = IIf(vventa < 0, 0, vventa)
 
+                    Dim EXISTENCIAREAL As Double = 0
 
                     If existencia.IndexOf(".") <> -1 Then
                         exispunto = existenciapartida(1)
@@ -73,18 +74,30 @@
 
                         militroscopa = CDbl(militros) / CDbl(copas)
 
-
                         eximili = exispunto * CDbl(militros)
                         resultado = CDbl(eximili) / 100
                         resultado2 = CDbl(resultado) / CDbl(militroscopa)
                         resultado2 = Math.Round(resultado2, MidpointRounding.AwayFromZero)
 
+                        If copas = resultado2 Then
+                            EXISTENCIAREAL = CDbl(parteAntesDelPunto) + 1
+                        Else
+                            EXISTENCIAREAL = parteAntesDelPunto & "." & resultado2
+
+                        End If
 
                     Else
                         resultado2 = 0
                     End If
 
-                    grdCaptura.Rows.Add(codigo, nombre, unidad, parteAntesDelPunto & "." & resultado2, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                    grdCaptura.Rows.Add(codigo,
+                                        nombre,
+                                        unidad,
+                                        EXISTENCIAREAL,
+                                        FormatNumber(pcompra, 2),
+                                        FormatNumber(pventa, 2),
+                                        FormatNumber(vcompra, 2),
+                                        FormatNumber(vventa, 2))
 
 
                     ValCompra = ValCompra + vcompra
@@ -888,5 +901,6 @@
             cnn3.Close()
         End Try
     End Function
+
 
 End Class

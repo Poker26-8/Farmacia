@@ -2014,17 +2014,17 @@ doorcita:
         End If
     End Sub
 
-    Private Sub picProd_DoubleClick(sender As Object, e As EventArgs) Handles picProd.DoubleClick
-        If picProd.Width = 72 Then
-            picProd.Left = 767
-            picProd.Top = 93
-            picProd.Width = 158
-            picProd.Height = 158
+    Private Sub picProd_DoubleClick(sender As Object, e As EventArgs)
+        If picProd2.Width = 72 Then
+            picProd2.Left = 767
+            picProd2.Top = 93
+            picProd2.Width = 158
+            picProd2.Height = 158
         Else
-            picProd.Left = 853
-            picProd.Top = 96
-            picProd.Width = 72
-            picProd.Height = 72
+            picProd2.Left = 853
+            picProd2.Top = 96
+            picProd2.Width = 72
+            picProd2.Height = 72
         End If
     End Sub
 
@@ -2696,7 +2696,7 @@ doorcita:
     Private Sub cbocodigo_TextChanged(sender As Object, e As EventArgs) Handles cbocodigo.TextChanged
         Dim nombre As String = cbocodigo.Text
         If System.IO.File.Exists(ruta_servidor & "\ProductosImg\" & nombre & ".jpg") Then
-            picProd.Image = System.Drawing.Image.FromFile(ruta_servidor & "\ProductosImg\" & nombre & ".jpg")
+            picProd2.Image = System.Drawing.Image.FromFile(ruta_servidor & "\ProductosImg\" & nombre & ".jpg")
         End If
     End Sub
 
@@ -2769,7 +2769,7 @@ doorcita:
                             End If
 
                             If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg") Then
-                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg")
+                                picProd2.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & cbocodigo.Text & ".jpg")
                             End If
 
                             txtunidad.Text = rd1("UVenta").ToString()
@@ -3538,7 +3538,7 @@ doorcita:
             txtexistencia.Text = ""
             txtfechacad.Text = ""
             cboSerie.Text = ""
-            picProd.Image = Nothing
+            picProd2.Image = Nothing
             cboSerie.Items.Clear()
             cnn1.Close()
 
@@ -4423,7 +4423,7 @@ doorcita:
         lbldevo.Visible = False
         cbonota.Text = ""
         cbonota.Visible = False
-        picProd.Image = Nothing
+        picProd2.Image = Nothing
         txtcontraseña.Text = ""
         lblfolio.Text = ""
         lblNumCliente.Text = "MOSTRADOR"
@@ -10335,8 +10335,24 @@ ecomoda:
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        frmRecargas.Show()
-        frmRecargas.BringToFront()
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from loginrecargas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                frmPagoServicios.Show()
+                frmPagoServicios.BringToFront()
+            Else
+                MsgBox("La configuracion para pago de servicios no esta habilitada, Contacte a Delsscom", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub frmVentas_Series_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -10492,5 +10508,25 @@ ecomoda:
             End Try
 
         End If
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from loginrecargas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                frmRecargas.Show()
+                frmRecargas.BringToFront()
+            Else
+                MsgBox("La configuracion para pago de servicios no esta habilitada, Contacte a Delsscom", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 End Class

@@ -1044,10 +1044,10 @@ Partial Class frmVentas1_Partes
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label33.Location = New System.Drawing.Point(6, 18)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(59, 19)
+        Me.Label33.Size = New System.Drawing.Size(60, 17)
         Me.Label33.TabIndex = 170
         Me.Label33.Text = "% Desc.:"
         '
@@ -1066,10 +1066,10 @@ Partial Class frmVentas1_Partes
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label32.Location = New System.Drawing.Point(6, 50)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(59, 19)
+        Me.Label32.Size = New System.Drawing.Size(61, 17)
         Me.Label32.TabIndex = 168
         Me.Label32.Text = "Efectivo:"
         '
@@ -1088,10 +1088,10 @@ Partial Class frmVentas1_Partes
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.Location = New System.Drawing.Point(6, 82)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(59, 19)
+        Me.Label31.Size = New System.Drawing.Size(59, 17)
         Me.Label31.TabIndex = 166
         Me.Label31.Text = "Cambio:"
         '
@@ -1110,10 +1110,10 @@ Partial Class frmVentas1_Partes
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.Location = New System.Drawing.Point(6, 114)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(45, 19)
+        Me.Label29.Size = New System.Drawing.Size(45, 17)
         Me.Label29.TabIndex = 164
         Me.Label29.Text = "Resta:"
         '
