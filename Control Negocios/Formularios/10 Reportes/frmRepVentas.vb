@@ -63,7 +63,7 @@
             txtresta.Text = "0.00"
 
 
-            grdcaptura.ColumnCount = 12
+            grdcaptura.ColumnCount = 13
             With grdcaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -136,7 +136,17 @@
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
+
                 With .Columns(9)
+                    .HeaderText = "Forma Pago"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(10)
                     .HeaderText = "Estado"
                     .Width = 110
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -144,7 +154,8 @@
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(10)
+
+                With .Columns(11)
                     .HeaderText = "Fecha"
                     .Width = 110
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -152,7 +163,8 @@
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
                 End With
-                With .Columns(11)
+
+                With .Columns(12)
                     .HeaderText = "N° Factura"
                     .Width = 110
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -732,7 +744,19 @@
 
                     'subtotal = rd1("Subtotal").ToString
 
-                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(descuento, 2), FormatNumber(IEPS, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), status, Format(fecha, "yyyy-MM-dd"), factura)
+                    Dim formapago As String = ""
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            formapago = rd2(0).ToString
+                        End If
+                    End If
+                    rd2.Close()
+
+                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(descuento, 2), FormatNumber(IEPS, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
                     barcarga.Value = barcarga.Value + 1
 
                     T_descuento = T_descuento + descuento
