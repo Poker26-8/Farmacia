@@ -93,7 +93,7 @@
                     'Nota de venta pagada
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='PAGADO' and Cliente='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='PAGADO'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -108,7 +108,7 @@
                     'Nota de venta cancelada
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='CANCELADO' and Cliente='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='CANCELADO'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -123,7 +123,7 @@
                     'Nota de venta inexistente
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Ventas where Folio=" & Remision(Zi) & " and Cliente='" & cbonombre.Text & "'"
+                        "select * from Ventas where Folio=" & Remision(Zi) & ""
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                     Else
@@ -154,7 +154,7 @@
                     If Remision(zu) = "" Then Exit For
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Resta from Ventas where Folio=" & Remision(zu) & " and Cliente='" & cbonombre.Text & "'"
+                        "select Resta from Ventas where Folio=" & Remision(zu) & ""
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

@@ -7277,7 +7277,7 @@ puerta:
 
         'Sí se seleccionó un usuario
         If cbouser.Text <> "" Then
-            sSQL = "Select * from Ventas where FVenta Between '" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' And '" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Facturado = '0' and Status <> 'CANCELADA' and Totales > 0 and Usuario='" & cbouser.Text & "' Order by Folio ASC"
+            sSQL = "Select * from Ventas where FVenta Between '" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' And '" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Facturado = '0' and Status <> 'CANCELADA' and Totales > 0 and Status='PAGADO' and Usuario='" & cbouser.Text & "' Order by Folio ASC"
             With oData
                 If .dbOpen(cnn, sTarget, sinfo) Then
                     If .getDt(cnn, dt, sSQL, sinfo) Then
@@ -7298,7 +7298,7 @@ puerta:
                 End If
             End With
 
-            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 and Usuario='" & cbouser.Text & "' Order by Folio ASC"
+            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 and Status='PAGADO' and Usuario='" & cbouser.Text & "' Order by Folio ASC"
             sinfo = ""
             contador = 1
             With oData
@@ -7333,7 +7333,7 @@ puerta:
 
             'GrdCaptura.ToolTipText = VarsLeyenda
 
-            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 Order by Folio ASC"
+            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 and Status='PAGADO' Order by Folio ASC"
             sinfo = ""
             contador = 1
             With oData
@@ -7354,7 +7354,7 @@ puerta:
                 End If
             End With
         Else
-            sSQL = "Select * from Ventas where FVenta Between '" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' And '" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Facturado = '0' and Status <> 'CANCELADA' and Totales > 0 Order by Folio ASC"
+            sSQL = "Select * from Ventas where FVenta Between '" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' And '" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Facturado = '0' and Status <> 'CANCELADA' and Totales > 0 and Status='PAGADO' Order by Folio ASC"
             With oData
                 If .dbOpen(cnn, sTarget, sinfo) Then
                     If .getDt(cnn, dt, sSQL, sinfo) Then
@@ -7375,7 +7375,7 @@ puerta:
                 End If
             End With
 
-            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 Order by Folio ASC"
+            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 and Status='PAGADO' Order by Folio ASC"
             sinfo = ""
             contador = 1
             With oData
@@ -7410,7 +7410,7 @@ puerta:
 
             'GrdCaptura.ToolTipText = VarsLeyenda
 
-            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 Order by Folio ASC"
+            sSQL = "Select * From Ventas Where Facturado <> '0' and Status <> 'CANCELADA' and FVenta >='" & Format(dtpDesde.Value, "yyyy-MM-dd") & "' and FVenta<='" & Format(dtpHasta.Value, "yyyy-MM-dd") & "' and Totales > 0 and Status='PAGADO' Order by Folio ASC"
             sinfo = ""
             contador = 1
             With oData
