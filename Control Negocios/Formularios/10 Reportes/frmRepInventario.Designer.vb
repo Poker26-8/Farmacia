@@ -186,10 +186,10 @@ Partial Class frmRepInventario
         Me.tpCad.Controls.Add(Me.optCaducidades)
         Me.tpCad.Controls.Add(Me.optCaducidad)
         Me.tpCad.Controls.Add(Me.optCaducos)
-        Me.tpCad.Location = New System.Drawing.Point(4, 22)
+        Me.tpCad.Location = New System.Drawing.Point(4, 24)
         Me.tpCad.Name = "tpCad"
         Me.tpCad.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpCad.Size = New System.Drawing.Size(194, 133)
+        Me.tpCad.Size = New System.Drawing.Size(194, 131)
         Me.tpCad.TabIndex = 1
         Me.tpCad.Text = "   Caducidades   "
         Me.tpCad.UseVisualStyleBackColor = True
@@ -240,7 +240,7 @@ Partial Class frmRepInventario
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(956, 311)
+        Me.grdcaptura.Size = New System.Drawing.Size(955, 311)
         Me.grdcaptura.TabIndex = 231
         '
         'btnsalida

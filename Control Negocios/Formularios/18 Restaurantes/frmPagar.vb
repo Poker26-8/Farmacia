@@ -1235,7 +1235,7 @@ Public Class frmPagar
                         Dim existe As Double = 0
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 4) & "'"
+                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1268,7 +1268,7 @@ Door:
                         cmd4.ExecuteNonQuery()
 
                         cmd4 = cnn4.CreateCommand
-                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 4) & "'"
+                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
                         cmd4.ExecuteNonQuery()
                         cnn4.Close()
                     End If

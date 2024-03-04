@@ -623,8 +623,8 @@
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmCopeo.Show()
-        frmCopeo.BringToFront()
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
+        frmRepCopeo.Show()
+        frmRepCopeo.BringToFront()
     End Sub
 End Class

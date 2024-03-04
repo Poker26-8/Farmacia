@@ -947,6 +947,7 @@ Partial Class frmProductosDR
         Me.txtcopas.Name = "txtcopas"
         Me.txtcopas.Size = New System.Drawing.Size(98, 20)
         Me.txtcopas.TabIndex = 3
+        Me.txtcopas.Text = "0"
         '
         'txtmilitros
         '
@@ -954,6 +955,7 @@ Partial Class frmProductosDR
         Me.txtmilitros.Name = "txtmilitros"
         Me.txtmilitros.Size = New System.Drawing.Size(98, 20)
         Me.txtmilitros.TabIndex = 2
+        Me.txtmilitros.Text = "0"
         '
         'Label3
         '

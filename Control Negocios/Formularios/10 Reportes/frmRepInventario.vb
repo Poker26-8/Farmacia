@@ -1793,8 +1793,8 @@ Public Class frmRepInventario
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                Efectivo_Ventas = rd1("Vent").ToString()
-                Efectivo_Costo = rd1("Cost").ToString()
+                Efectivo_Ventas = rd1("Vent").ToString
+                Efectivo_Costo = rd1("Cost").ToString
             End If
         End If
         rd1.Close() : cnn1.Close()

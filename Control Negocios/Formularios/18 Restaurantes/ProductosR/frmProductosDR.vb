@@ -57,6 +57,8 @@ Public Class frmProductosDR
                         rboDescProductos.Checked = False
                     End If
 
+                    txtmilitros.Text = rd1("Mililitros").ToString
+                    txtcopas.Text = rd1("Copas").ToString
 
                 End If
             End If
@@ -501,6 +503,9 @@ Public Class frmProductosDR
         cboextras.Text = ""
         cbopromociones.Text = ""
         txtcantidadpromo.Text = "0"
+
+        txtmilitros.Text = "0"
+        txtcopas.Text = "0"
 
         grdpreferencia.Rows.Clear()
         grdextras.Rows.Clear()
