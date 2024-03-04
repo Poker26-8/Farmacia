@@ -207,7 +207,7 @@
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                 Else
-                    MsgBox("Éste banco no se encuentra registrado en e catálogo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("Éste banco no se encuentra registrado en el catálogo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     Exit Sub
                 End If
                 rd1.Close()
