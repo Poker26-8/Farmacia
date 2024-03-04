@@ -62,6 +62,9 @@
             txtacuenta.Text = "0.00"
             txtresta.Text = "0.00"
 
+            cboStatus.Visible = True
+            lblstatus.Visible = True
+
             grdcaptura.ColumnCount = 12
             With grdcaptura
                 With .Columns(0)
@@ -74,7 +77,7 @@
                 End With
                 With .Columns(1)
                     .HeaderText = "Cliente"
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -152,7 +155,7 @@
                     .Resizable = DataGridViewTriState.False
                 End With
                 With .Columns(11)
-                    .HeaderText = "Formato"
+                    .HeaderText = "N° Factura"
                     .Width = 110
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -657,8 +660,17 @@
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+
+            If cboStatus.Text = "" Then
+
+                cmd1.CommandText =
+              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+            Else
+                cmd1.CommandText =
+              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & cboStatus.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+            End If
+
+
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -674,8 +686,17 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
+
+            If cboStatus.Text = "" Then
+
+                cmd1.CommandText =
                 "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
+            Else
+                cmd1.CommandText =
+                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & cboStatus.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
+            End If
+
+
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -695,7 +716,7 @@
                     Dim status As String = rd1("Status").ToString()
                     Dim formato As String = rd1("Formato").ToString()
                     Dim fecha As Date = rd1("FVenta").ToString()
-
+                    Dim factura As Integer = rd1("Facturado").ToString
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
                         "select sum(Total) as Tot, sum(TotalSinIVA) as Sub, sum(Descto) as Descu, sum(TotalIEPS) as ipes from VentasDetalle where Folio=" & folio
@@ -713,7 +734,7 @@
 
                     'subtotal = rd1("Subtotal").ToString
 
-                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(descuento, 2), FormatNumber(IEPS, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), status, Format(fecha, "yyyy-MM-dd"), formato)
+                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(descuento, 2), FormatNumber(IEPS, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), status, Format(fecha, "yyyy-MM-dd"), factura)
                     barcarga.Value = barcarga.Value + 1
 
                     T_descuento = T_descuento + descuento
@@ -3851,5 +3872,30 @@
             lbltotal.Visible = True
             txttotal.Visible = True
         End If
+    End Sub
+
+    Private Sub cboStatus_DropDown(sender As Object, e As EventArgs) Handles cboStatus.DropDown
+        cboStatus.Items.Clear()
+
+        Dim M1 As Date = mCalendar1.SelectionStart.ToShortDateString
+        Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
+
+        Try
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND HVenta BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpfin.Value, "HH:mm:ss") & "' "
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboStatus.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+
+        End Try
     End Sub
 End Class

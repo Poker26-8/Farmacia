@@ -75,6 +75,8 @@ Partial Class frmRepVentas
         Me.txtVendido = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtrestante = New System.Windows.Forms.TextBox()
+        Me.cboStatus = New System.Windows.Forms.ComboBox()
+        Me.lblstatus = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -256,13 +258,13 @@ Partial Class frmRepVentas
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(10, 206)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(311, 23)
+        Me.ComboBox1.Size = New System.Drawing.Size(252, 23)
         Me.ComboBox1.TabIndex = 61
         '
         'opttraspasos
         '
         Me.opttraspasos.AutoSize = True
-        Me.opttraspasos.Location = New System.Drawing.Point(225, 206)
+        Me.opttraspasos.Location = New System.Drawing.Point(405, 40)
         Me.opttraspasos.Name = "opttraspasos"
         Me.opttraspasos.Size = New System.Drawing.Size(75, 19)
         Me.opttraspasos.TabIndex = 62
@@ -563,6 +565,7 @@ Partial Class frmRepVentas
         '
         'dtpinicio
         '
+        Me.dtpinicio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpinicio.Location = New System.Drawing.Point(486, 206)
         Me.dtpinicio.Name = "dtpinicio"
@@ -572,6 +575,7 @@ Partial Class frmRepVentas
         '
         'dtpfin
         '
+        Me.dtpfin.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpfin.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpfin.Location = New System.Drawing.Point(911, 206)
         Me.dtpfin.Name = "dtpfin"
@@ -641,11 +645,32 @@ Partial Class frmRepVentas
         Me.txtrestante.Text = "0.00"
         Me.txtrestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'cboStatus
+        '
+        Me.cboStatus.FormattingEnabled = True
+        Me.cboStatus.Location = New System.Drawing.Point(321, 206)
+        Me.cboStatus.Name = "cboStatus"
+        Me.cboStatus.Size = New System.Drawing.Size(159, 23)
+        Me.cboStatus.TabIndex = 217
+        Me.cboStatus.Visible = False
+        '
+        'lblstatus
+        '
+        Me.lblstatus.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblstatus.Location = New System.Drawing.Point(268, 205)
+        Me.lblstatus.Name = "lblstatus"
+        Me.lblstatus.Size = New System.Drawing.Size(53, 24)
+        Me.lblstatus.TabIndex = 218
+        Me.lblstatus.Text = "Status"
+        Me.lblstatus.Visible = False
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 622)
+        Me.Controls.Add(Me.lblstatus)
+        Me.Controls.Add(Me.cboStatus)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtrestante)
         Me.Controls.Add(Me.Label2)
@@ -760,4 +785,6 @@ Partial Class frmRepVentas
     Friend WithEvents txtVendido As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtrestante As TextBox
+    Friend WithEvents cboStatus As ComboBox
+    Friend WithEvents lblstatus As Label
 End Class

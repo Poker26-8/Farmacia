@@ -952,6 +952,27 @@ Public Class frmListadoPrecios
             Dim conteo As Double = 0
             Dim order_by As String = ""
 
+            'marcia
+            Dim desdecantlista As Double = 0
+            Dim hastacanlista As Double = 0
+
+            Dim pormin As Double = 0
+            Dim desdecantmin As Double = 0
+            Dim hastacantmin As Double = 0
+
+            Dim pormay As Double = 0
+            Dim desdecantmay As Double = 0
+            Dim hastacantmay As Double = 0
+
+            Dim pormedio As Double = 0
+            Dim desdecantmedio As Double = 0
+            Dim hastacantmedio As Double = 0
+
+            Dim poresp As Double = 0
+            Dim desdecantesp As Double = 0
+            Dim hastacantesp As Double = 0
+
+
             If (optord_nombre.Checked) Then order_by = "Nombre"
             If (optord_depto.Checked) Then order_by = "Departamento"
             If (optord_grupo.Checked) Then order_by = "Grupo"
@@ -986,6 +1007,25 @@ Public Class frmListadoPrecios
                     unidad = rd1("UVenta").ToString
                     provee = rd1("ProvPri").ToString
 
+                    desdecantlista = rd1("CantLst1").ToString
+                    hastacanlista = rd1("CantLst2").ToString
+
+                    pormin = rd1("PorcMin").ToString
+                    desdecantmin = rd1("CantMin1").ToString
+                    hastacantmin = rd1("CantMin2").ToString
+
+                    pormay = rd1("PorcMay").ToString
+                    desdecantmay = rd1("CantMay1").ToString
+                    hastacantmay = rd1("CantMay2").ToString
+
+                    pormedio = rd1("PorcMM").ToString
+                    desdecantmedio = rd1("CantMM1").ToString
+                    hastacantmedio = rd1("CantMM2").ToString
+
+                    poresp = rd1("PorcEsp").ToString
+                    desdecantesp = rd1("CantEsp1").ToString
+                    hastacantesp = rd1("CantEsp2").ToString
+
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
                         "select * from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
@@ -1007,7 +1047,7 @@ Public Class frmListadoPrecios
                     End If
                     rd2.Close()
 
-                    grdcaptura.Rows.Add(codigo, barras, nombre, unidad, provee, FormatNumber(cost_siva, 2), FormatNumber(cost_civa, 2), FormatNumber(pre_mini * TiCamb, 2), FormatNumber(pre_mayo * TiCamb, 2), FormatNumber(pre_medi * TiCamb, 2), FormatNumber(pre_espe * TiCamb, 2), FormatNumber(pre_list * TiCamb, 2), FormatNumber(porcentaje, 2))
+                    grdcaptura.Rows.Add(codigo, barras, nombre, unidad, provee, FormatNumber(cost_siva, 2), FormatNumber(cost_civa, 2), FormatNumber(pre_mini * TiCamb, 2), FormatNumber(pre_mayo * TiCamb, 2), FormatNumber(pre_medi * TiCamb, 2), FormatNumber(pre_espe * TiCamb, 2), FormatNumber(pre_list * TiCamb, 2), FormatNumber(porcentaje, 2), desdecantlista, hastacanlista, pormin, desdecantmin, hastacantmin, pormay, desdecantmay, hastacantmay, pormedio, desdecantmedio, hastacantmedio, poresp, desdecantesp, hastacantesp)
                     ProgressBar1.Value = ProgressBar1.Value + 1
                 Loop
                 cnn2.Close()
@@ -1335,6 +1375,27 @@ Public Class frmListadoPrecios
             Dim IVA As Double = 0
             Dim porcentaje As Double = 0
 
+            'marcia
+
+            Dim desdecantlista As Double = 0
+            Dim hastacantlista As Double = 0
+
+            Dim porminimo As Double = 0
+            Dim desdecantmin As Double = 0
+            Dim hastacantmin As Double = 0
+
+            Dim pormay As Double = 0
+            Dim desdecantmay As Double = 0
+            Dim hastacantmay As Double = 0
+
+            Dim pormedio As Double = 0
+            Dim desdecantmedio As Double = 0
+            Dim hastacantmedio As Double = 0
+
+            Dim poresp As Double = 0
+            Dim desdecantesp As Double = 0
+            Dim hastacantesp As Double = 0
+
             ProgressBar1.Value = 0
             ProgressBar1.Visible = True
             ProgressBar1.Maximum = grdimporta.Rows.Count
@@ -1360,6 +1421,25 @@ Public Class frmListadoPrecios
                 pre_especi = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(10).Value)
                 pre_lista = Convert.ToString(grdimporta.Rows.Item(X).Cells(11).Value)
                 porcentaje = Convert.ToString(grdimporta.Rows.Item(X).Cells(12).Value)
+
+                desdecantlista = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(13).Value)
+                hastacantlista = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(14).Value)
+
+                porminimo = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(15).Value)
+                desdecantmin = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(16).Value)
+                hastacantmin = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(17).Value)
+
+                pormay = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(18).Value)
+                desdecantmay = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(19).Value)
+                hastacantmay = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(20).Value)
+
+                pormedio = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(21).Value)
+                desdecantmedio = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(22).Value)
+                hastacantmedio = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(23).Value)
+
+                poresp = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(24).Value)
+                desdecantesp = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(25).Value)
+                hastacantesp = Convert.ToDouble(grdimporta.Rows.Item(X).Cells(26).Value)
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -1398,7 +1478,7 @@ Public Class frmListadoPrecios
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update Productos set PrecioCompra=" & pre_compra & ", Porcentaje=" & por_list & ", PrecioVenta=" & pre_lista_siva & ", PrecioventaIVA=" & pre_lista & ", PorcMin=" & por_mini & ", PreMin=" & pre_minimo & ", PorcMM=" & por_medi & ", PreMM=" & pre_mediom & ", PorcMay=" & por_mayo & ", PreMay=" & pre_mayore & ", PorcEsp=" & por_espe & ", PreEsp=" & pre_especi & ", Almacen3=" & pre_compra & ",Porcentaje=" & porcentaje & " where Codigo='" & codigo & "'"
+                            "update Productos set PrecioCompra=" & pre_compra & ", Porcentaje=" & por_list & ", PrecioVenta=" & pre_lista_siva & ", PrecioventaIVA=" & pre_lista & ", PorcMin=" & por_mini & ", PreMin=" & pre_minimo & ", PorcMM=" & por_medi & ", PreMM=" & pre_mediom & ", PorcMay=" & por_mayo & ", PreMay=" & pre_mayore & ", PorcEsp=" & por_espe & ", PreEsp=" & pre_especi & ", Almacen3=" & pre_compra & ",Porcentaje=" & porcentaje & ",CantLst1=" & desdecantlista & ", CantLst2=" & hastacantlista & ",PorcMin=" & porminimo & ",CantMin1=" & desdecantmin & ",CantMin2=" & hastacantmin & ",PorcMay=" & pormay & ",CantMay1=" & desdecantmay & ",CantMay2=" & hastacantmay & ",PorcMM=" & pormedio & ",CantMM1=" & desdecantmedio & ",CantMM2=" & hastacantmedio & ",PorcEsp=" & poresp & ",CantEsp1=" & desdecantesp & ",CantEsp2=" & hastacantesp & "  where Codigo='" & codigo & "'"
                         If cmd2.ExecuteNonQuery Then
                         Else
                             MsgBox("No se pudieron actualizar los precios del producto " & nombre, vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
