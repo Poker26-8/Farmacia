@@ -652,7 +652,7 @@ Partial Class frmProductos
         Me.Label14.Location = New System.Drawing.Point(0, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(746, 31)
+        Me.Label14.Size = New System.Drawing.Size(737, 31)
         Me.Label14.TabIndex = 176
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -885,7 +885,7 @@ Partial Class frmProductos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(746, 492)
+        Me.ClientSize = New System.Drawing.Size(737, 492)
         Me.Controls.Add(Me.cboComanda)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.cboubicacion)
