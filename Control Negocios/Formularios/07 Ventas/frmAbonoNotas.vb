@@ -86,7 +86,6 @@
                 NNV = Zi
                 If Zi > 10 Then MsgBox("El número de notas de venta para abonar no puede ser mayor a 10.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtfolios.Focus().Equals(True) : Exit Sub
                 If Zi < 11 Then Remision(Zi) = w
-
                 cnn1.Close() : cnn1.Open()
                 For zu = 1 To Zi
 
@@ -207,7 +206,7 @@
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                 Else
-                    MsgBox("Éste banco no se encuentra registrado en e catálogo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("Éste banco no se encuentra registrado en el catálogo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     Exit Sub
                 End If
                 rd1.Close()
