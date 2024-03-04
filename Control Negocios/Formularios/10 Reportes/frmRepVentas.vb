@@ -51,7 +51,7 @@
             grdcaptura.ColumnCount = 0
             ComboBox1.Items.Clear()
             ComboBox1.Text = ""
-            ComboBox1.Visible = False
+            ComboBox1.Visible = True
             txtiva.Text = "0.00"
             txtdescuento.Text = "0.00"
             txtsubtotal.Text = "0.00"
@@ -62,8 +62,6 @@
             txtacuenta.Text = "0.00"
             txtresta.Text = "0.00"
 
-            cboStatus.Visible = True
-            lblstatus.Visible = True
 
             grdcaptura.ColumnCount = 12
             With grdcaptura
@@ -661,13 +659,13 @@
 
             cmd1 = cnn1.CreateCommand
 
-            If cboStatus.Text = "" Then
+            If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
               "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
             Else
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & cboStatus.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & ComboBox1.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
             End If
 
 
@@ -687,13 +685,13 @@
 
             cmd1 = cnn1.CreateCommand
 
-            If cboStatus.Text = "" Then
+            If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
                 "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
             Else
                 cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & cboStatus.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
+                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & ComboBox1.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
             End If
 
 
@@ -1876,6 +1874,10 @@
         Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
         Dim querry As String = ""
         ComboBox1.Items.Clear()
+
+        If (opttotales.Checked) Then
+            querry = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND HVenta BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpfin.Value, "HH:mm:ss") & "' "
+        End If
 
         If (optcliente.Checked) Then
             querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Cliente<>'' order by Cliente"
@@ -3874,28 +3876,5 @@
         End If
     End Sub
 
-    Private Sub cboStatus_DropDown(sender As Object, e As EventArgs) Handles cboStatus.DropDown
-        cboStatus.Items.Clear()
 
-        Dim M1 As Date = mCalendar1.SelectionStart.ToShortDateString
-        Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
-
-        Try
-            cnn5.Close() : cnn5.Open()
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND HVenta BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpfin.Value, "HH:mm:ss") & "' "
-            rd5 = cmd5.ExecuteReader
-            Do While rd5.Read
-                If rd5.HasRows Then
-                    cboStatus.Items.Add(rd5(0).ToString)
-                End If
-            Loop
-            rd5.Close()
-            cnn5.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn5.Close()
-
-        End Try
-    End Sub
 End Class

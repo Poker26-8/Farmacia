@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRepVentas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRepVentas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepVentas))
@@ -75,8 +75,6 @@ Partial Class frmRepVentas
         Me.txtVendido = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtrestante = New System.Windows.Forms.TextBox()
-        Me.cboStatus = New System.Windows.Forms.ComboBox()
-        Me.lblstatus = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -645,32 +643,11 @@ Partial Class frmRepVentas
         Me.txtrestante.Text = "0.00"
         Me.txtrestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'cboStatus
-        '
-        Me.cboStatus.FormattingEnabled = True
-        Me.cboStatus.Location = New System.Drawing.Point(321, 206)
-        Me.cboStatus.Name = "cboStatus"
-        Me.cboStatus.Size = New System.Drawing.Size(159, 23)
-        Me.cboStatus.TabIndex = 217
-        Me.cboStatus.Visible = False
-        '
-        'lblstatus
-        '
-        Me.lblstatus.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblstatus.Location = New System.Drawing.Point(268, 205)
-        Me.lblstatus.Name = "lblstatus"
-        Me.lblstatus.Size = New System.Drawing.Size(53, 24)
-        Me.lblstatus.TabIndex = 218
-        Me.lblstatus.Text = "Status"
-        Me.lblstatus.Visible = False
-        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 622)
-        Me.Controls.Add(Me.lblstatus)
-        Me.Controls.Add(Me.cboStatus)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtrestante)
         Me.Controls.Add(Me.Label2)
@@ -785,6 +762,4 @@ Partial Class frmRepVentas
     Friend WithEvents txtVendido As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtrestante As TextBox
-    Friend WithEvents cboStatus As ComboBox
-    Friend WithEvents lblstatus As Label
 End Class
