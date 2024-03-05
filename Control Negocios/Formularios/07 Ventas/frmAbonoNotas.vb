@@ -362,6 +362,11 @@
                 End If
             Next
 
+            MyPago = CDec(txtefectivo.Text) + CDec(txtpagos.Text) - CDec(txtcambio.Text)
+
+            Dim totaltarjeta As Double = 0
+            Dim totaltransfe As Double = 0
+
 
         Catch ex As Exception
 
