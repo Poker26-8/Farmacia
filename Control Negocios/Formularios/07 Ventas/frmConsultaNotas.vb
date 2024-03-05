@@ -1974,14 +1974,14 @@ Public Class frmConsultaNotas
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
-                End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 130
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 120
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
                 End If
             Else
                 Y = 0
@@ -2447,13 +2447,7 @@ Public Class frmConsultaNotas
                 rd1.Close()
                 cnn1.Close()
 
-                If VaDe = "ABONO" Then
-                    btnAbono.Focus().Equals(True)
-                End If
-                If VaDe = "CANCELA" Then
-                    btnCancela.Focus().Equals(True)
-                End If
-                cbofolio.Focus.Equals(True)
+                btnAbono.Focus().Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
