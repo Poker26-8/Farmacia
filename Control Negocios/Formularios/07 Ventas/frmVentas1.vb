@@ -1389,6 +1389,8 @@ kak:
                             lblNumCliente.Text = MyIdCliente
                             txtcredito.Text = FormatNumber(rd1("Credito").ToString, 4)
                             cbocomisionista.Text = rd1("Comisionista").ToString
+                            txttel.Text = rd1("Telefono").ToString
+                            lblcorreocli.Text = rd1("Correo").ToString
                             If Trim(cbocomisionista.Text) <> "" Then
                                 cbocomisionista.Enabled = True
                             Else
