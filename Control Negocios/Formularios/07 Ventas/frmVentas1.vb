@@ -1376,7 +1376,6 @@ kak:
             If franquicia = 0 Then
                 Try
                     cnn1.Close() : cnn1.Open()
-
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                         "select * from Clientes where Nombre='" & cboNombre.Text & "'"
