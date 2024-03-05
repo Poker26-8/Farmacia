@@ -1320,4 +1320,10 @@ Public Class frmProductos
     Private Sub frmProductos_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Label18_DoubleClick(sender As Object, e As EventArgs) Handles Label18.DoubleClick
+        If MsgBox("¿Deseas continuar?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+        End If
+    End Sub
 End Class
