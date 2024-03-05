@@ -1376,7 +1376,6 @@ kak:
             If franquicia = 0 Then
                 Try
                     cnn1.Close() : cnn1.Open()
-
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                         "select * from Clientes where Nombre='" & cboNombre.Text & "'"
@@ -1389,6 +1388,8 @@ kak:
                             lblNumCliente.Text = MyIdCliente
                             txtcredito.Text = FormatNumber(rd1("Credito").ToString, 4)
                             cbocomisionista.Text = rd1("Comisionista").ToString
+                            txttel.Text = rd1("Telefono").ToString
+                            lblcorreocli.Text = rd1("Correo").ToString
                             If Trim(cbocomisionista.Text) <> "" Then
                                 cbocomisionista.Enabled = True
                             Else
@@ -8129,7 +8130,7 @@ ecomoda:
 
             If CDbl(txtdescuento2.Text) > 0 Then
                 e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 

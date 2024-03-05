@@ -222,4 +222,149 @@
     Private Sub frmAbonoNotas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            Dim MyPago As Double = 0
+            Dim MySaldo As Double = 0
+            Dim MyAcuenta As Double = 0
+
+            If Trim(cbonombre.Text) = "" Or Trim(txtfolios.Text) = "" Then MsgBox("Falta el Nombre del cliente o el folio de la venta", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : cbonombre.Focused.Equals(True) : Exit Sub
+
+            If lblusuario.Text = "" Then
+                MsgBox("Indique la clave del vendedor para continuar", vbInformation + vbOKOnly, "Delsscom COntrol Negocios Pro")
+                cbonombre.Focused.Equals(True)
+                Exit Sub
+            End If
+
+            If MsgBox("¿Desear guardar los datos de este abono?", vbQuestion + vbOKCancel, "Delsscom COntrol Negocios Pro") = vbCancel Then Exit Sub
+
+            Dim NNV As Integer = 0
+            Dim Remision(10) As String
+
+            Do While Strings.Left(txtfolios.Text, 1) = ","
+                txtfolios.Text = Mid(txtfolios.Text, 2)
+            Loop
+
+            Dim w As String = ""
+            Dim x As Integer = 0
+            Dim Zi As Integer = 0
+
+            w = txtfolios.Text
+            For Zi = 1 To 10
+                x = InStr(1, w, ",") - 1
+                If x < 0 Then Exit For
+
+                Remision(Zi) = Mid(w, 1, InStr(1, w, ",") - 1)
+                w = Mid(w, InStr(1, w, ",") + 1, 200)
+            Next
+            NNV = Zi
+            If Zi > 10 Then MsgBox("El número de notas de venta para abonar no puede ser mayor a 10.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtfolios.Focus().Equals(True) : Exit Sub
+            If Zi < 11 Then Remision(Zi) = w
+            cnn1.Close() : cnn1.Open()
+            For zu = 1 To Zi
+
+                'Nota de venta pagada
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='PAGADO'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        MsgBox("La nota de venta con el folio '" & Remision(Zi) & "' ya fue pagada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        txtfolios.SelectionStart = InStr(1, txtfolios.Text, "," & Remision(Zi))
+                        txtfolios.Text = Len(Remision(Zi))
+                        Exit Sub
+                    End If
+                End If
+                rd1.Close()
+
+                'Nota de venta cancelada
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                        "select * from Ventas where Folio=" & Remision(Zi) & " and Status='CANCELADO'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        MsgBox("La nota de venta con el folio '" & Remision(Zi) & "' fue cancelada.", vbInformation + vbOK, "Delsscom Control Negocios Pro")
+                        txtfolios.SelectionStart = InStr(1, txtfolios.Text, "," & Remision(Zi))
+                        txtfolios.Text = Len(Remision(Zi))
+                        Exit Sub
+                    End If
+                End If
+                rd1.Close()
+
+                'Nota de venta inexistente
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                        "select * from Ventas where Folio=" & Remision(Zi) & ""
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                Else
+                    MsgBox("La nota de venta con el folio '" & Remision(Zi) & "' no existe.")
+                    txtfolios.SelectionStart = InStr(1, txtfolios.Text, "," & Remision(Zi))
+                    txtfolios.Text = Len(Remision(Zi))
+                    Exit Sub
+                End If
+                rd1.Close()
+            Next
+
+            Dim MyComp As String = ""
+            For nu = 1 To 10
+                MyComp = Remision(nu)
+                For Zi = 1 To 10
+                    If Remision(Zi) = "" Then Exit For
+                    If Zi <> nu And Remision(Zi) = MyComp Then
+                        MsgBox("La nota de venta con el folio '" & Remision(Zi) & "' está repetida.", vbInformation + vbOK, "Delsscom Control Negocios Pro")
+                        txtfolios.SelectionStart = InStr(1, txtfolios.Text, "," & Remision(Zi))
+                        txtfolios.Text = Len(Remision(Zi))
+                        Exit Sub
+                    End If
+                Next
+            Next
+
+            MyPago = CDec(txtefectivo.Text) + CDec(txtpagos.Text) - CDec(txtcambio.Text)
+
+            For zu = 1 To NNV
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select Resta,Acuenta from Ventas where Folio=" & Remision(zu) & ""
+                rd1 = cmd1.ExecuteReader
+                If rd1.Read Then
+                    If MyPago < rd1(0).ToString Then
+                        rd1.Close()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update Ventas set Acuenta=Acuenta+" & MyPago & " where FOlio=" & Remision(zu) & ""
+                        cmd1.ExecuteNonQuery()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update Ventas set Resta=Resta-" & MyPago & " where Folio=" & Remision(zu) & ""
+                        cmd1.ExecuteNonQuery()
+                        MySaldo = 0
+                        cnn1.Close()
+                    Else
+                        MySaldo = MyPago - CDec(rd1(0).ToString)
+                        MyAcuenta = CDec(rd1(0).ToString) + CDec(rd1(1).ToString)
+
+                        cnn1.Close()
+                        cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update Ventas set Acuenta=" & MyAcuenta & " where FOlio=" & Remision(zu) & ""
+                        cmd1.ExecuteNonQuery()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update Ventas set Resta=0, Status='PAGADO' where Folio=" & Remision(zu) & ""
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+                    End If
+                    MySaldo = 0
+                End If
+            Next
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

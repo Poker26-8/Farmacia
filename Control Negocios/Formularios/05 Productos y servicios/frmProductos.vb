@@ -1320,4 +1320,120 @@ Public Class frmProductos
     Private Sub frmProductos_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Label18_DoubleClick(sender As Object, e As EventArgs) Handles Label18.DoubleClick
+        If MsgBox("¿Deseas continuar?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Excel_Grid(grdcaptura)
+        End If
+    End Sub
+
+    Private Sub Excel_Grid(ByVal tabla As DataGridView)
+        Dim con As OleDb.OleDbConnection
+        Dim dt As New System.Data.DataTable
+        Dim ds As New DataSet
+        Dim da As OleDb.OleDbDataAdapter
+        Dim cuadro_dialogo As New OpenFileDialog
+        Dim ruta As String = "", sheet As String = "hoja1"
+
+        With cuadro_dialogo
+            .Filter = "Archivos de cálculo(*.xls;*.xlsx)|*.xls;*.xlsx"
+            .Title = "Selecciona el archivo a importar"
+            .Multiselect = False
+            .InitialDirectory = My.Application.Info.DirectoryPath & "\Archivos de importación"
+            .ShowDialog()
+        End With
+
+        Try
+            If cuadro_dialogo.FileName.ToString() <> "" Then
+                ruta = cuadro_dialogo.FileName.ToString()
+                con = New OleDb.OleDbConnection(
+                    "Provider=Microsoft.ACE.OLEDB.12.0;" &
+                    " Data Source='" & ruta & "'; " &
+                    "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
+
+                da = New OleDb.OleDbDataAdapter("select * from [" & sheet & "$]", con)
+
+                con.Open()
+                da.Fill(ds, "MyData")
+                dt = ds.Tables("MyData")
+                tabla.DataSource = ds
+                tabla.DataMember = "MyData"
+                con.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+        End Try
+
+        If grdcaptura.Rows.Count > 0 Then
+            Sube_Productos()
+        End If
+    End Sub
+
+    Private Sub Sube_Productos()
+        Try
+            'Variables para alojar los datos de archivo de Excel
+            Dim codigo, barras, nombrec, nombrel, proveedorp, proveedore, depto, grupo, unidad, clave_sat, unidad_sat As String
+            Dim mini, maxi, comision, iva, pcompra, pcompraiva, utilidad, pventasiva, pventaciva, ieps, existencias, preciominimo As Double
+            Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
+            Dim conteo As Integer = 0
+
+            barsube.Value = 0
+            barsube.Maximum = grdcaptura.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            For zef As Integer = 0 To grdcaptura.Rows.Count - 1
+                codigo = UCase(NulCad(grdcaptura.Rows(zef).Cells(0).Value.ToString()))
+                If codigo = "" Then Exit For
+                barras = NulCad(grdcaptura.Rows(zef).Cells(1).Value.ToString())
+                nombrec = UCase(NulCad(grdcaptura.Rows(zef).Cells(2).Value.ToString()))
+                nombrel = UCase(NulCad(grdcaptura.Rows(zef).Cells(3).Value.ToString()))
+                proveedorp = UCase(NulCad(grdcaptura.Rows(zef).Cells(4).Value.ToString()))
+                proveedore = UCase(NulCad(grdcaptura.Rows(zef).Cells(5).Value.ToString()))
+                unidad = UCase(NulCad(grdcaptura.Rows(zef).Cells(6).Value.ToString()))
+                depto = UCase(NulCad(grdcaptura.Rows(zef).Cells(7).Value.ToString()))
+                grupo = UCase(NulCad(grdcaptura.Rows(zef).Cells(8).Value.ToString()))
+                mini = NulVa(grdcaptura.Rows(zef).Cells(9).Value.ToString())
+                maxi = NulVa(grdcaptura.Rows(zef).Cells(10).Value.ToString())
+                comision = NulVa(grdcaptura.Rows(zef).Cells(11).Value.ToString())
+                pcompra = NulVa(grdcaptura.Rows(zef).Cells(12).Value.ToString())
+                utilidad = NulVa(grdcaptura.Rows(zef).Cells(13).Value.ToString())
+                pventasiva = NulVa(grdcaptura.Rows(zef).Cells(14).Value.ToString())
+                pventaciva = NulVa(grdcaptura.Rows(zef).Cells(15).Value.ToString())
+                preciominimo = NulVa(grdcaptura.Rows(zef).Cells(16).Value.ToString())
+                iva = NulVa(grdcaptura.Rows(zef).Cells(17).Value.ToString())
+                existencias = NulVa(grdcaptura.Rows(zef).Cells(18).Value.ToString())
+                fecha = Date.Now
+                pcompraiva = CDbl(pcompra) * (1 + CDbl(iva))
+
+                clave_sat = NulCad(grdcaptura.Rows(zef).Cells(19).Value.ToString())
+                unidad_sat = NulCad(grdcaptura.Rows(zef).Cells(20).Value.ToString())
+
+                If (Comprueba(codigo, nombrec, barras, proveedorp, proveedore)) Then
+                    If cnn1.State = 0 Then cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,PreMin) values('" & codigo & "','" & barras & "','" & nombrec & "','" & nombrel & "','" & proveedorp & "','" & proveedore & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & pcompra & "," & pventasiva & "," & pventaciva & "," & iva & "," & existencias & "," & utilidad & ",'" & fecha & "',0,1,0,0," & pcompra & ",'" & clave_sat & "','" & unidad_sat & "',0,0,0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," & preciominimo & ")"
+                    cmd1.ExecuteNonQuery()
+                Else
+                    conteo += 1
+                    barsube.Value = conteo
+                    Continue For
+                End If
+
+                conteo += 1
+                barsube.Value = conteo
+            Next
+            cnn1.Close()
+            MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            grdcaptura.DataSource = Nothing
+            grdcaptura.Dispose()
+            grdcaptura.Rows.Clear()
+            barsube.Value = 0
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
 End Class
