@@ -8129,7 +8129,7 @@ ecomoda:
 
             If CDbl(txtdescuento2.Text) > 0 Then
                 e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
