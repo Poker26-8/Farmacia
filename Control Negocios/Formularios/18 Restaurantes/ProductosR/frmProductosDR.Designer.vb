@@ -100,10 +100,11 @@ Partial Class frmProductosDR
         Me.cbopromociones = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.PCopeo = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtcopas = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.txtmilitros = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -114,6 +115,7 @@ Partial Class frmProductosDR
         Me.TabPage5.SuspendLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PCopeo.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -144,7 +146,7 @@ Partial Class frmProductosDR
         'pbimportar
         '
         Me.pbimportar.BackColor = System.Drawing.Color.White
-        Me.pbimportar.Location = New System.Drawing.Point(475, 571)
+        Me.pbimportar.Location = New System.Drawing.Point(475, 565)
         Me.pbimportar.Name = "pbimportar"
         Me.pbimportar.Size = New System.Drawing.Size(75, 12)
         Me.pbimportar.TabIndex = 330
@@ -180,7 +182,7 @@ Partial Class frmProductosDR
         '
         'picImagen
         '
-        Me.picImagen.Location = New System.Drawing.Point(475, 589)
+        Me.picImagen.Location = New System.Drawing.Point(475, 583)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(75, 68)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -486,7 +488,7 @@ Partial Class frmProductosDR
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(236, 23)
         Me.Label20.TabIndex = 302
-        Me.Label20.Text = "Departamento *INGREDIENTES"
+        Me.Label20.Text = "Departamento *INSUMO"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboProvEme
@@ -931,49 +933,59 @@ Partial Class frmProductosDR
         '
         'PCopeo
         '
-        Me.PCopeo.Controls.Add(Me.txtcopas)
-        Me.PCopeo.Controls.Add(Me.txtmilitros)
-        Me.PCopeo.Controls.Add(Me.Label3)
-        Me.PCopeo.Controls.Add(Me.Label2)
-        Me.PCopeo.Location = New System.Drawing.Point(556, 570)
+        Me.PCopeo.Controls.Add(Me.GroupBox1)
+        Me.PCopeo.Location = New System.Drawing.Point(556, 571)
         Me.PCopeo.Name = "PCopeo"
-        Me.PCopeo.Size = New System.Drawing.Size(171, 76)
+        Me.PCopeo.Size = New System.Drawing.Size(181, 92)
         Me.PCopeo.TabIndex = 333
         Me.PCopeo.Visible = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.txtcopas)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.txtmilitros)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(171, 70)
+        Me.GroupBox1.TabIndex = 334
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Control de botellas"
+        '
         'txtcopas
         '
-        Me.txtcopas.Location = New System.Drawing.Point(62, 43)
+        Me.txtcopas.Location = New System.Drawing.Point(116, 41)
         Me.txtcopas.Name = "txtcopas"
-        Me.txtcopas.Size = New System.Drawing.Size(98, 20)
+        Me.txtcopas.Size = New System.Drawing.Size(49, 20)
         Me.txtcopas.TabIndex = 3
         Me.txtcopas.Text = "0"
         '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(6, 16)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(104, 20)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Botaella Militros"
+        '
         'txtmilitros
         '
-        Me.txtmilitros.Location = New System.Drawing.Point(62, 13)
+        Me.txtmilitros.Location = New System.Drawing.Point(116, 15)
         Me.txtmilitros.Name = "txtmilitros"
-        Me.txtmilitros.Size = New System.Drawing.Size(98, 20)
+        Me.txtmilitros.Size = New System.Drawing.Size(49, 20)
         Me.txtmilitros.TabIndex = 2
         Me.txtmilitros.Text = "0"
         '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 44)
+        Me.Label3.Location = New System.Drawing.Point(54, 41)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 19)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Copas"
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 13)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 20)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Militros"
         '
         'frmProductosDR
         '
@@ -1055,7 +1067,8 @@ Partial Class frmProductosDR
         Me.TabPage5.PerformLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PCopeo.ResumeLayout(False)
-        Me.PCopeo.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1142,4 +1155,5 @@ Partial Class frmProductosDR
     Friend WithEvents txtmilitros As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

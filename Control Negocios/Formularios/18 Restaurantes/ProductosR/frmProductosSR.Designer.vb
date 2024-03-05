@@ -617,12 +617,12 @@ Partial Class frmProductosSR
         '
         Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(536, 76)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(233, 23)
         Me.Label13.TabIndex = 22
-        Me.Label13.Text = "Grupo *PROMOCIONES, *EXTRAS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label13.Text = "Grupo *PROMOCIONES, *EXTRAS,*INSUMO" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboDepartamento

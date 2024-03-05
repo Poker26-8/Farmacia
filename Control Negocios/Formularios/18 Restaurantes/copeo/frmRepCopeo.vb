@@ -87,7 +87,7 @@
                         End If
 
                     Else
-                        resultado2 = 0
+                        EXISTENCIAREAL = parteAntesDelPunto
                     End If
 
                     grdCaptura.Rows.Add(codigo,
@@ -413,7 +413,7 @@
                             End If
 
                         Else
-                            resultado2 = 0
+                            EXISTENCIAREAL = parteAntesDelPunto
                         End If
 
                         grdCaptura.Rows.Add(codigo, nombre, unidad, EXISTENCIAREAL, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))

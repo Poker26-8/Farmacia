@@ -874,14 +874,14 @@ Partial Class Inicio
         '
         Me.pInventario.BackColor = System.Drawing.Color.White
         Me.pInventario.Name = "pInventario"
-        Me.pInventario.Size = New System.Drawing.Size(179, 22)
+        Me.pInventario.Size = New System.Drawing.Size(180, 22)
         Me.pInventario.Text = "Inventario"
         '
         'pAjuste
         '
         Me.pAjuste.BackColor = System.Drawing.Color.White
         Me.pAjuste.Name = "pAjuste"
-        Me.pAjuste.Size = New System.Drawing.Size(179, 22)
+        Me.pAjuste.Size = New System.Drawing.Size(180, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
         'pEstResultados
@@ -1104,13 +1104,13 @@ Partial Class Inicio
         'CorteDeCajaToolStripMenuItem
         '
         Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
         'CORTEMESERO
         '
         Me.CORTEMESERO.Name = "CORTEMESERO"
-        Me.CORTEMESERO.Size = New System.Drawing.Size(180, 22)
+        Me.CORTEMESERO.Size = New System.Drawing.Size(166, 22)
         Me.CORTEMESERO.Text = "Corte por mesero"
         '
         'GimnasiosToolStripMenuItem

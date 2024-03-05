@@ -1464,26 +1464,10 @@ Public Class Inicio
 
     Private Sub InventarioToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pInventario.Click
 
-        Dim res As Integer=0
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Restaurante'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                res = rd1(0).ToString
-            End If
-        End If
-        rd1.Close()
-        cnn1.Close()
 
-        If res = 1 Then
-            frmRepCopeo.Show()
-            frmRepCopeo.BringToFront()
-        Else
-            frmRepInventario.Show()
+        frmRepInventario.Show()
             frmRepInventario.BringToFront()
-        End If
+
 
 
 

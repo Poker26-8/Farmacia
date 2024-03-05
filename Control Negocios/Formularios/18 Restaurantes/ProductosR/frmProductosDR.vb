@@ -32,7 +32,7 @@ Public Class frmProductosDR
                 If rd1.Read Then
 
                     txtCodBarrasNormal.Text = rd1("CodBarra").ToString
-                    cboCodCortoNormal.Text = rd1("Codigo").ToString
+                    'cboCodCortoNormal.Text = rd1("Codigo").ToString
                     cboDescripcionTicketNormal.Text = rd1("Nombre").ToString
                     cboIvaNormal.Text = rd1("IVA").ToString
                     txtCompra.Text = rd1("UCompra").ToString
@@ -182,30 +182,30 @@ Public Class frmProductosDR
 
             Dim modo_almacen As Integer = 0
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Nombre='" & cboDescripcionTicketNormal.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txtCodBarrasNormal.Text = rd1("CodBarra").ToString
-                    cboCodCortoNormal.Text = rd1("Codigo").ToString
-                    cboIvaNormal.Text = rd1("IVA").ToString
-                    txtCompra.Text = rd1("UCompra").ToString
-                    txtVentaActual.Text = rd1("UVenta").ToString
-                    txtVentaMinima.Text = rd1("UMinima").ToString
-                    txtUcompra.Text = rd1("MCD").ToString
-                    txtUVenta.Text = rd1("Multiplo").ToString
-                    txtMinAlmacen.Text = rd1("Min").ToString
-                    txtMaxAlmacen.Text = rd1("Max").ToString
-                    txtComision.Text = rd1("Comision").ToString
-                    cboProveedoresNormal.Text = rd1("ProvPri").ToString
-                    cboProvEme.Text = rd1("ProvEme").ToString
-                    cboDepartamentoNormal.Text = rd1("Departamento").ToString
-                    cboGrupoNormal.Text = rd1("Grupo").ToString
-                    cboImprimirComandaNormal.Text = rd1("GPrint").ToString
-                    cboUbicacion.Text = rd1("Ubicacion").ToString
-                    modo_almacen = rd1("Modo_Almacen").ToString
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM Productos WHERE Nombre='" & cboDescripcionTicketNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    txtCodBarrasNormal.Text = rd3("CodBarra").ToString
+                    cboCodCortoNormal.Text = rd3("Codigo").ToString
+                    cboIvaNormal.Text = rd3("IVA").ToString
+                    txtCompra.Text = rd3("UCompra").ToString
+                    txtVentaActual.Text = rd3("UVenta").ToString
+                    txtVentaMinima.Text = rd3("UMinima").ToString
+                    txtUcompra.Text = rd3("MCD").ToString
+                    txtUVenta.Text = rd3("Multiplo").ToString
+                    txtMinAlmacen.Text = rd3("Min").ToString
+                    txtMaxAlmacen.Text = rd3("Max").ToString
+                    txtComision.Text = rd3("Comision").ToString
+                    cboProveedoresNormal.Text = rd3("ProvPri").ToString
+                    cboProvEme.Text = rd3("ProvEme").ToString
+                    cboDepartamentoNormal.Text = rd3("Departamento").ToString
+                    cboGrupoNormal.Text = rd3("Grupo").ToString
+                    cboImprimirComandaNormal.Text = rd3("GPrint").ToString
+                    cboUbicacion.Text = rd3("Ubicacion").ToString
+                    modo_almacen = rd3("Modo_Almacen").ToString
 
                     If modo_almacen = 1 Then
                         rboDescIngredientes.Checked = True
@@ -216,7 +216,7 @@ Public Class frmProductosDR
 
                 End If
             End If
-            rd1.Close()
+            rd3.Close()
 
             My.Application.DoEvents()
             If servidor <> "" Then
@@ -229,48 +229,48 @@ Public Class frmProductosDR
                 End If
             End If
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCortoNormal.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
 
-                    grdpreferencia.Rows.Add(rd1("NombrePrefe").ToString)
+                    grdpreferencia.Rows.Add(rd3("NombrePrefe").ToString)
 
                 End If
             Loop
-            rd1.Close()
+            rd3.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-                    grdextras.Rows.Add(rd1("Codigo").ToString, rd1("Descx").ToString)
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdextras.Rows.Add(rd3("Codigo").ToString, rd3("Descx").ToString)
                 End If
             Loop
-            rd1.Close()
+            rd3.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM promociones WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-                    grdpromociones.Rows.Add(rd1("Codigo").ToString, rd1("Descx").ToString)
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM promociones WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdpromociones.Rows.Add(rd3("Codigo").ToString, rd3("Descx").ToString)
                 End If
             Loop
-            rd1.Close()
+            rd3.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodCortoNormal.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txtcantidadpromo.Text = rd1("F44").ToString
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    txtcantidadpromo.Text = rd3("F44").ToString
                 End If
             End If
-            rd1.Close()
-            cnn1.Close()
+            rd3.Close()
+            cnn3.Close()
 
             cboIvaNormal.Focus.Equals(True)
         End If
@@ -396,17 +396,17 @@ Public Class frmProductosDR
     Private Sub cboIvaNormal_DropDown(sender As Object, e As EventArgs) Handles cboIvaNormal.DropDown
         cboIvaNormal.Items.Clear()
 
-        cnn2.Close() : cnn2.Open()
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT DISTINCT IVA FROM iva"
-        rd2 = cmd2.ExecuteReader
-        Do While rd2.Read
-            If rd2.HasRows Then
-                cboIvaNormal.Items.Add(rd2(0).ToString)
+        cnn5.Close() : cnn5.Open()
+        cmd5 = cnn5.CreateCommand
+        cmd5.CommandText = "SELECT DISTINCT IVA FROM iva"
+        rd5 = cmd5.ExecuteReader
+        Do While rd5.Read
+            If rd5.HasRows Then
+                cboIvaNormal.Items.Add(rd5(0).ToString)
             End If
         Loop
-        rd2.Close()
-        cnn2.Close()
+        rd5.Close()
+        cnn5.Close()
     End Sub
 
     Private Sub cboDescripcionTicketNormal_DropDown(sender As Object, e As EventArgs) Handles cboDescripcionTicketNormal.DropDown

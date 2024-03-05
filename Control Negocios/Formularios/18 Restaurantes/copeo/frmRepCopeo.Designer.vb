@@ -22,10 +22,10 @@ Partial Class frmRepCopeo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepCopeo))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.rbGrupo = New System.Windows.Forms.RadioButton()
         Me.rbDepartamento = New System.Windows.Forms.RadioButton()
@@ -33,10 +33,17 @@ Partial Class frmRepCopeo
         Me.rbTodos = New System.Windows.Forms.RadioButton()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnreporte = New System.Windows.Forms.Button()
+        Me.FinaCosteo = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.IniCosteo = New System.Windows.Forms.DateTimePicker()
         Me.cbofiltro = New System.Windows.Forms.ComboBox()
         Me.btnetiquetas = New System.Windows.Forms.Button()
         Me.btnsalida = New System.Windows.Forms.Button()
         Me.btnentrada = New System.Windows.Forms.Button()
+        Me.btnexcel = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtregistros = New System.Windows.Forms.TextBox()
@@ -45,12 +52,10 @@ Partial Class frmRepCopeo
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCompraTot = New System.Windows.Forms.TextBox()
         Me.btncardex = New System.Windows.Forms.Button()
-        Me.btnexcel = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblexportar = New System.Windows.Forms.Label()
         Me.barCarga = New System.Windows.Forms.ProgressBar()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,12 +64,6 @@ Partial Class frmRepCopeo
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnreporte = New System.Windows.Forms.Button()
-        Me.FinaCosteo = New System.Windows.Forms.DateTimePicker()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.IniCosteo = New System.Windows.Forms.DateTimePicker()
         Me.grdestado = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -76,12 +75,13 @@ Partial Class frmRepCopeo
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.grdestado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -160,6 +160,81 @@ Partial Class frmRepCopeo
         Me.Panel1.Size = New System.Drawing.Size(1103, 153)
         Me.Panel1.TabIndex = 1
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.btnreporte)
+        Me.GroupBox2.Controls.Add(Me.FinaCosteo)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.IniCosteo)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(201, 13)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox2.Size = New System.Drawing.Size(258, 80)
+        Me.GroupBox2.TabIndex = 242
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Estado de resultados"
+        Me.GroupBox2.Visible = False
+        '
+        'btnreporte
+        '
+        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
+        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
+        Me.btnreporte.Name = "btnreporte"
+        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
+        Me.btnreporte.TabIndex = 234
+        Me.btnreporte.Text = "Reporte"
+        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnreporte.UseVisualStyleBackColor = True
+        '
+        'FinaCosteo
+        '
+        Me.FinaCosteo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FinaCosteo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FinaCosteo.Location = New System.Drawing.Point(51, 47)
+        Me.FinaCosteo.Margin = New System.Windows.Forms.Padding(2)
+        Me.FinaCosteo.Name = "FinaCosteo"
+        Me.FinaCosteo.Size = New System.Drawing.Size(110, 23)
+        Me.FinaCosteo.TabIndex = 11
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(8, 51)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(32, 15)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Final"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(8, 23)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 15)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "Inicial"
+        '
+        'IniCosteo
+        '
+        Me.IniCosteo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IniCosteo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.IniCosteo.Location = New System.Drawing.Point(51, 19)
+        Me.IniCosteo.Margin = New System.Windows.Forms.Padding(2)
+        Me.IniCosteo.Name = "IniCosteo"
+        Me.IniCosteo.Size = New System.Drawing.Size(110, 23)
+        Me.IniCosteo.TabIndex = 0
+        '
         'cbofiltro
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -213,6 +288,21 @@ Partial Class frmRepCopeo
         Me.btnentrada.Text = "Traspaso Entrada"
         Me.btnentrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnentrada.UseVisualStyleBackColor = True
+        '
+        'btnexcel
+        '
+        Me.btnexcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnexcel.BackgroundImage = CType(resources.GetObject("btnexcel.BackgroundImage"), System.Drawing.Image)
+        Me.btnexcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnexcel.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexcel.Location = New System.Drawing.Point(924, 6)
+        Me.btnexcel.Name = "btnexcel"
+        Me.btnexcel.Size = New System.Drawing.Size(82, 61)
+        Me.btnexcel.TabIndex = 241
+        Me.btnexcel.Text = "Exportar"
+        Me.btnexcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnexcel.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -319,21 +409,6 @@ Partial Class frmRepCopeo
         Me.btncardex.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncardex.UseVisualStyleBackColor = True
         '
-        'btnexcel
-        '
-        Me.btnexcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnexcel.BackgroundImage = CType(resources.GetObject("btnexcel.BackgroundImage"), System.Drawing.Image)
-        Me.btnexcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnexcel.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexcel.Location = New System.Drawing.Point(924, 6)
-        Me.btnexcel.Name = "btnexcel"
-        Me.btnexcel.Size = New System.Drawing.Size(82, 61)
-        Me.btnexcel.TabIndex = 241
-        Me.btnexcel.Text = "Exportar"
-        Me.btnexcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnexcel.UseVisualStyleBackColor = True
-        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.lblexportar)
@@ -371,27 +446,27 @@ Partial Class frmRepCopeo
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column8, Me.Column5, Me.Column6, Me.Column7})
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -399,19 +474,6 @@ Partial Class frmRepCopeo
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(1103, 365)
         Me.grdCaptura.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(1103, 31)
-        Me.Label1.TabIndex = 240
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Column1
         '
@@ -468,81 +530,6 @@ Partial Class frmRepCopeo
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         Me.Column7.Width = 124
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.btnreporte)
-        Me.GroupBox2.Controls.Add(Me.FinaCosteo)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.IniCosteo)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(201, 13)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(258, 80)
-        Me.GroupBox2.TabIndex = 242
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Estado de resultados"
-        Me.GroupBox2.Visible = False
-        '
-        'btnreporte
-        '
-        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
-        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
-        Me.btnreporte.Name = "btnreporte"
-        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
-        Me.btnreporte.TabIndex = 234
-        Me.btnreporte.Text = "Reporte"
-        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnreporte.UseVisualStyleBackColor = True
-        '
-        'FinaCosteo
-        '
-        Me.FinaCosteo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FinaCosteo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.FinaCosteo.Location = New System.Drawing.Point(51, 47)
-        Me.FinaCosteo.Margin = New System.Windows.Forms.Padding(2)
-        Me.FinaCosteo.Name = "FinaCosteo"
-        Me.FinaCosteo.Size = New System.Drawing.Size(110, 23)
-        Me.FinaCosteo.TabIndex = 11
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(8, 51)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(32, 15)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Final"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(8, 23)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 15)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "Inicial"
-        '
-        'IniCosteo
-        '
-        Me.IniCosteo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IniCosteo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.IniCosteo.Location = New System.Drawing.Point(51, 19)
-        Me.IniCosteo.Margin = New System.Windows.Forms.Padding(2)
-        Me.IniCosteo.Name = "IniCosteo"
-        Me.IniCosteo.Size = New System.Drawing.Size(110, 23)
-        Me.IniCosteo.TabIndex = 0
         '
         'grdestado
         '
@@ -622,6 +609,19 @@ Partial Class frmRepCopeo
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
+        Me.Label1.Size = New System.Drawing.Size(1103, 31)
+        Me.Label1.TabIndex = 240
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmRepCopeo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -640,12 +640,12 @@ Partial Class frmRepCopeo
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         CType(Me.grdestado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

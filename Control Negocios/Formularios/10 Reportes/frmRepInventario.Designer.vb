@@ -78,6 +78,7 @@ Partial Class frmRepInventario
         Me.btnImpExis = New System.Windows.Forms.Button()
         Me.btnExistencia = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -186,10 +187,10 @@ Partial Class frmRepInventario
         Me.tpCad.Controls.Add(Me.optCaducidades)
         Me.tpCad.Controls.Add(Me.optCaducidad)
         Me.tpCad.Controls.Add(Me.optCaducos)
-        Me.tpCad.Location = New System.Drawing.Point(4, 24)
+        Me.tpCad.Location = New System.Drawing.Point(4, 22)
         Me.tpCad.Name = "tpCad"
         Me.tpCad.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpCad.Size = New System.Drawing.Size(194, 131)
+        Me.tpCad.Size = New System.Drawing.Size(194, 133)
         Me.tpCad.TabIndex = 1
         Me.tpCad.Text = "   Caducidades   "
         Me.tpCad.UseVisualStyleBackColor = True
@@ -715,11 +716,26 @@ Partial Class frmRepInventario
         Me.DataGridView1.TabIndex = 253
         Me.DataGridView1.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(633, 123)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 63)
+        Me.Button1.TabIndex = 254
+        Me.Button1.Text = "Copeo"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(973, 595)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnExistencia)
         Me.Controls.Add(Me.btnImpExis)
@@ -823,4 +839,5 @@ Partial Class frmRepInventario
     Friend WithEvents btnImpExis As Button
     Friend WithEvents btnExistencia As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button1 As Button
 End Class
