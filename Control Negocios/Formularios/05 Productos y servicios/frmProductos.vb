@@ -1365,7 +1365,7 @@ Public Class frmProductos
         End Try
 
         If grdcaptura.Rows.Count > 0 Then
-            Sube_Clientes()
+            Sube_Productos()
         End If
     End Sub
 
