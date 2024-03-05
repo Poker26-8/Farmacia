@@ -377,6 +377,12 @@
     <Compile Include="Formularios\18 Restaurantes\frmcortemesero.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\frmPromociones.Designer.vb">
+      <DependentUpon>frmPromociones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\frmPromociones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.Designer.vb">
       <DependentUpon>frmAgregarM.vb</DependentUpon>
     </Compile>
@@ -1670,6 +1676,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmcortemesero.resx">
       <DependentUpon>frmcortemesero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\frmPromociones.resx">
+      <DependentUpon>frmPromociones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.resx">
       <DependentUpon>frmAgregarM.vb</DependentUpon>

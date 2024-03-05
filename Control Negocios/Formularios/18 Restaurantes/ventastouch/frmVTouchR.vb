@@ -2740,10 +2740,11 @@ respuesta, "")
 
                             cnn1.Close() : cnn1.Open()
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "SELECT CodigoP,Codigo,Descrip,Cantidad FROM MiProd WHERE CodigoP='" & MYCODE & "'"
+                            cmd1.CommandText = "SELECT CodigoP,Codigo,Descrip,Cantidad FROM MiProd WHERE CodigoP='" & Strings.Left(MYCODE, 6) & "'"
                             rd1 = cmd1.ExecuteReader
                             Do While rd1.Read
                                 If rd1.HasRows Then
+
                                     existencia_inicial = 0
                                     opeCantReal = 0
                                     opediferencia = 0
@@ -2776,7 +2777,7 @@ respuesta, "")
 
                                     cnn4.Close() : cnn4.Open()
                                     cmd4 = cnn4.CreateCommand
-                                    cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia - " & rd1("Cantidad").ToString * grdCaptura.Rows(pain).Cells(2).Value.ToString & " * " & MyMult2 & " WHERE Codigo='" & rd1("Codigo").ToString & "'"
+                                    cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia - " & rd1("Cantidad").ToString * grdCaptura.Rows(pain).Cells(2).Value.ToString & " * " & MyMult2 & " WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
                                     cmd4.ExecuteNonQuery()
 
                                     cmd4 = cnn4.CreateCommand

@@ -1127,6 +1127,8 @@ Public Class frmPagar
             opeCantReal = 0
             opediferencia = 0
 
+            Dim MYCODIGOP As String = grdcomanda.Rows(koni).Cells(1).Value.ToString
+
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1140,7 +1142,7 @@ Public Class frmPagar
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT CodigoP,Codigo,Descrip,Cantidad FROM MiProd WHERE CodigoP='" & grdcomanda.Rows(koni).Cells(1).Value.ToString & "'"
+                        cmd2.CommandText = "SELECT CodigoP,Codigo,Descrip,Cantidad FROM MiProd WHERE CodigoP='" & Strings.Left(MYCODIGOP, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             If rd2.HasRows Then
@@ -1173,7 +1175,7 @@ Public Class frmPagar
 
                                 cnn4.Close() : cnn4.Open()
                                 cmd4 = cnn4.CreateCommand
-                                cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia-" & rd2("Cantidad").ToString * grdcomanda.Rows(koni).Cells(4).Value.ToString & " * " & MULTIPLO & " WHERE Codigo='" & VarCodigo & "'"
+                                cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia-" & rd2("Cantidad").ToString * grdcomanda.Rows(koni).Cells(4).Value.ToString & " * " & MULTIPLO & " WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
                                 cmd4.ExecuteNonQuery()
 
                                 cmd4 = cnn4.CreateCommand

@@ -6027,11 +6027,14 @@ puertaXD1:
 
                         retenidop = FormatNumber((frmfacturacion.grid_prods.Rows(i).Cells(10).Value.ToString) / CDec(CDec(frmfacturacion.grid_prods.Rows(i).Cells(5).Value.ToString) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString)), 6)
                         tretencionesp = retenidop
-                        .WriteAttributeString("Importe", Replace(FormatNumber(CDec(CDec(frmfacturacion.grid_prods.Rows(i).Cells(5).Value.ToString) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString)) * CDec(frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString), 6), ",", ""))
+
+                        Dim baseparaisr As Double = FormatNumber(CDec(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString) * CDec(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6)
+                        .WriteAttributeString("Importe", Replace(FormatNumber(CDec(baseparaisr) * CDec(frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString), 6), ",", ""))
                         .WriteAttributeString("TipoFactor", "Tasa")
                         .WriteAttributeString("TasaOCuota", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString, 6), ",", ""))
                         .WriteAttributeString("Impuesto", "001")
-                        .WriteAttributeString("Base", Replace(FormatNumber(CDec(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString) * CDec(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6), ",", ""))
+                        .WriteAttributeString("Base", Replace(FormatNumber(CDec(baseparaisr) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6), ",", ""))
+                        '.WriteAttributeString("Base", Replace(FormatNumber(CDec(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString) * CDec(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6), ",", ""))
 
                         .WriteEndElement() ' fin reten isr
 
@@ -6545,11 +6548,12 @@ puertaXD1:
 
                             .WriteStartElement("cfdi:Retencion") 'inicia reten isr
 
-                            .WriteAttributeString("Importe", Replace(FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(5).Value.ToString) * frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString, 6), ",", ""))
+                            Dim baseparaisr1 As Double = FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6)
+                            .WriteAttributeString("Importe", Replace(FormatNumber(CDec(baseparaisr1) * frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString, 6), ",", ""))
                             .WriteAttributeString("TipoFactor", "Tasa")
                             .WriteAttributeString("TasaOCuota", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(15).Value.ToString, 6), ",", ""))
                             .WriteAttributeString("Impuesto", "001")
-                            .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
+                            .WriteAttributeString("Base", Replace(baseparaisr1, ",", ""))
 
                             'valorbaseisrtotal = valorbaseisrtotal + FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6)
 
@@ -8075,13 +8079,14 @@ puertaXD1:
 
             frmfacturacion.lbl_proceso.Text = "Generando Qr ..."
             My.Application.DoEvents()
-            ima_qr(rfc_empresa, rfc_receptor, total, folio_sat_uuid, id_evento, newcarpeta, Right(sello_emisor, 8))
+            ima_qr(rfc_empresa, rfc_receptor, total, folio_sat_uuid, id_evento, newcarpeta)
             Return True
         Else
             actualiza_valores_fac(folio_sat_uuid, fecha_folio_sat, sello_emisor, sello_sat, cadena_orig, no_csd_emp, certificado_sat, ESTATUS_FACTURA_ERROR, id_evento)
             Return False
         End If
     End Function
+
 
     Public Function timbre_f(ByVal serie As String, ByVal folio As String, ByRef folio_uudi As String, ByRef fecha_sat As String, ByVal razon_social As String, ByVal frcemisor As String, ByRef cadenao As String, ByRef certificado As String, ByRef certificaco_sat As String)
         Dim x As Boolean = False
