@@ -1365,8 +1365,58 @@ Public Class frmProductos
         End Try
 
         If grdcaptura.Rows.Count > 0 Then
-            Sube_Productos()
+            Sube_Clientes()
         End If
+    End Sub
+
+    Private Sub Sube_Clientes()
+        Dim nombre, razon, tipo, rfc, calle, colonia, delegacion, entidad, cp, telefono, correo, interior, exterior, pais, regfis As String
+        Dim credito As Double = 0
+        Dim diascred As Integer = 0
+        Dim conteo As Integer = 0
+
+        Try
+            barsube.Value = 0
+            barsube.Maximum = grdcaptura.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            For zef As Integer = 0 To grdcaptura.Rows.Count - 1
+                nombre = NulCad(grdcaptura.Rows(zef).Cells(1).Value.ToString())
+                razon = NulCad(grdcaptura.Rows(zef).Cells(2).Value.ToString())
+                tipo = NulCad(grdcaptura.Rows(zef).Cells(3).Value.ToString())
+                rfc = NulCad(grdcaptura.Rows(zef).Cells(4).Value.ToString())
+                calle = NulCad(grdcaptura.Rows(zef).Cells(5).Value.ToString())
+                colonia = NulCad(grdcaptura.Rows(zef).Cells(6).Value.ToString())
+                delegacion = NulCad(grdcaptura.Rows(zef).Cells(7).Value.ToString())
+                entidad = NulCad(grdcaptura.Rows(zef).Cells(8).Value.ToString())
+                cp = NulCad(grdcaptura.Rows(zef).Cells(9).Value.ToString())
+                telefono = NulCad(grdcaptura.Rows(zef).Cells(10).Value.ToString())
+                correo = NulCad(grdcaptura.Rows(zef).Cells(11).Value.ToString())
+                credito = NulVa(grdcaptura.Rows(zef).Cells(12).Value.ToString())
+                diascred = NulVa(grdcaptura.Rows(zef).Cells(13).Value.ToString())
+                exterior = NulCad(grdcaptura.Rows(zef).Cells(14).Value.ToString())
+                interior = NulCad(grdcaptura.Rows(zef).Cells(15).Value.ToString())
+                pais = "MEXICO"
+                regfis = NulCad(grdcaptura.Rows(zef).Cells(17).Value.ToString())
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into Clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior) values('" & Trim(Replace(nombre, "'", "''")) & "','" & Trim(Replace(razon, "'", "''")) & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "'," & CDbl(credito) & "," & diascred & ",'',0,'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & regfis & "','" & interior & "','" & exterior & "')"
+                cmd1.ExecuteNonQuery()
+
+                conteo += 1
+                barsube.Value = conteo
+            Next
+            cnn1.Close()
+            MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            grdcaptura.DataSource = Nothing
+            grdcaptura.Dispose()
+            grdcaptura.Rows.Clear()
+            barsube.Value = 0
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Sube_Productos()
