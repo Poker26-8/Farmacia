@@ -1701,6 +1701,23 @@ kak:
         '    cbocomisionista.Text = ""
         '    cbocomisionista.Enabled = True
         'End If
+        If cboNombre.Text = "" Then
+            Label1.Visible = False
+            cboDomi.Visible = False
+            Label20.Visible = False
+            txtcredito.Visible = False
+            Label19.Visible = False
+            cbotipo.Visible = False
+            Label17.Visible = False
+            txtafavor.Visible = False
+            Label18.Visible = False
+            txtadeuda.Visible = False
+            chkBuscaCliente.Checked = False
+            txtNombreClave.Text = ""
+            txttel.Text = ""
+            txtdireccion.Text = ""
+            My.Application.DoEvents()
+        End If
     End Sub
     Private Sub cbotipo_DropDown(sender As System.Object, e As System.EventArgs) Handles cbotipo.DropDown
         cbotipo.Items.Clear()
