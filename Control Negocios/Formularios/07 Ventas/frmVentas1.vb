@@ -3016,10 +3016,13 @@ kaka:
         txtcantidad.SelectionLength = Len(txtcantidad.Text)
     End Sub
     Private Sub txtcantidad_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcantidad.KeyPress
-        If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = ""
+
         If txtcantidad.Text = "" Then Exit Sub
         If AscW(e.KeyChar) = Keys.Enter And cbodesc.Text = "" Then cbodesc.Focus().Equals(True)
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = ""
+
             Dim Edita As Boolean = False
             Try
                 cnn1.Close() : cnn1.Open()
@@ -3074,6 +3077,12 @@ kaka:
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
             End Try
+
+
+
+
+
+
         End If
     End Sub
     Private Sub txtcantidad_TextChanged(sender As Object, e As System.EventArgs) Handles txtcantidad.TextChanged
@@ -3359,6 +3368,8 @@ kaka:
     End Sub
     Private Sub txtprecio_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtprecio.TextChanged
         txttotal.Text = CDbl(IIf(txtcantidad.Text = "" Or txtcantidad.Text = ".", "0", txtcantidad.Text)) * CDbl(IIf(txtprecio.Text = "" Or txtprecio.Text = ".", "0", txtprecio.Text))
+
+        'txttotal.Text = CDbl(IIf(txtcantidad.Text = "", "0", txtcantidad.Text)) * CDbl(IIf(txtprecio.Text = "" Or txtprecio.Text = ".", "0", txtprecio.Text))
         txttotal.Text = FormatNumber(txttotal.Text, 4)
     End Sub
     Private Sub cboLote_DropDown(sender As Object, e As System.EventArgs) Handles cboLote.DropDown
@@ -3690,6 +3701,9 @@ kaka:
     Private Sub grdcaptura_KeyDown(sender As Object, e As KeyEventArgs) Handles grdcaptura.KeyDown
         If e.KeyCode = Keys.Delete Then
 
+            Dim totaleliminado As Double = 0
+            Dim cantidadeliminada As Double = 0
+
             Dim Tpagar As Single = 0, tmpIva As Single = 0, tmpDsct As Single = 0, tmpSub As Single = 0
             Dim index As Integer = grdcaptura.CurrentRow.Index
             Dim CODx As String = ""
@@ -3706,10 +3720,116 @@ kaka:
                     Exit Sub
                 End If
 
+                totaleliminado = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
+                cantidadeliminada = grdcaptura.Rows(index).Cells(3).Value.ToString
+
+                If grdcaptura.Rows.Count = 1 Then
+                    CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
+                    CantDX = grdcaptura.Rows(index).Cells(3).Value.ToString
+                    grdcaptura.Rows.Clear()
+                Else
+                    CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
+                    CantDX = grdcaptura.Rows(index).Cells(3).Value.ToString
+                    If grdcaptura.Rows(index).Cells(1).Value.ToString <> "" And grdcaptura.Rows(index).Cells(0).Value.ToString = "" Then
+                        MyNota = grdcaptura.Rows(index).Cells(1).Value.ToString
+                        If grdcaptura.Rows.Count = 1 Then
+                            grdcaptura.Rows.Clear()
+                        Else
+                            grdcaptura.Rows.Remove(grdcaptura.Rows(index))
+                        End If
+                    Else
+                        grdcaptura.Rows.Remove(grdcaptura.Rows(index))
+                    End If
+                End If
+
+                Dim total_prods As Double = 0
+                Dim SUBsinIVA As Double = 0
+                Dim SinDesct As Double = 0
+
+                If txtSubTotal.Text = "0.00" Or CDbl(txtSubTotal.Text) = 0 Then cbodesc.Focus().Equals(True)
+                If CDbl(txtdescuento1.Text) > 0 Then
+                    cnn1.Close() : cnn1.Open()
+                    For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                        If grdcaptura.Rows(N).Cells(0).Value.ToString() <> "" Then
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "select IVA from Productos where Codigo='" & grdcaptura.Rows(N).Cells(0).Value.ToString() & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+
+                                    SUBsinIVA = SUBsinIVA + (CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString()) / (1 + CDbl(rd1(0).ToString)))
+                                    SinDesct = SinDesct + CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString())
+
+                                    tmpIva = 1 + CDbl(rd1(0).ToString)
+                                    tmpDsct = (CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) / (1 + CDbl(rd1(0).ToString))) * CDbl(txtdescuento1.Text) / 100
+                                    Tpagar = Tpagar + ((CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString()) / (1 + CDbl(rd1(0).ToString)) - tmpDsct) * tmpIva)
+                                    tmpSub = tmpSub + ((CDec(grdcaptura.Rows(N).Cells(5).Value.ToString) - (CDec(grdcaptura.Rows(N).Cells(5).Value.ToString()) * (CDbl(txtdescuento1.Text) / 100)))) / (1 + (CDbl(rd1(0).ToString)))
+                                End If
+                            End If
+                            rd1.Close()
+                        End If
+                    Next
+                    cnn1.Close()
+
+                    txtdescuento2.Text = FormatNumber(SUBsinIVA * CDbl(txtdescuento1.Text), 4)
+                    Dim VarSunXD As Double = 0
+                    For w As Integer = 0 To grdcaptura.Rows.Count - 1
+                        VarSunXD = VarSunXD + CDbl(grdcaptura.Rows(w).Cells(5).Value.ToString)
+                        total_prods = total_prods + CDbl(grdcaptura.Rows(w).Cells(3).Value.ToString())
+                    Next
+                    txtcant_productos.Text = total_prods
+                    txtPagar.Text = FormatNumber(VarSunXD, 2)
+                    txtSubTotal.Text = FormatNumber(Tpagar, 2)
+                End If
+                If CDbl(txtdescuento1.Text) <= 0 Then
+                    txtPagar.Text = CDbl(txtPagar.Text) - CDbl(totaleliminado)
+                    txtcant_productos.Text = txtcant_productos.Text - CDbl(cantidadeliminada)
+                End If
+                cbocodigo.Focus().Equals(True)
+                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
+            End If
+            If CDbl(txtdescuento1.Text) <= 0 Then
+                txtSubTotal.Text = txtResta.Text
+            End If
+            txtSubTotal.Text = txtPagar.Text
+            txtResta.Text = txtSubTotal.Text
+            If CDbl(txtSubTotal.Text) = 0 Then
+                txtdescuento1.Text = "0"
+                txtefectivo.Text = "0.00"
+                txtCambio.Text = "0.00"
+            End If
+            txtResta.Text = txtPagar.Text
+            Call cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(Chr(Keys.Enter)))
+
+
+        End If
+
+        If e.KeyCode = Keys.Enter Then
+
+            Dim Tpagar As Single = 0, tmpIva As Single = 0, tmpDsct As Single = 0, tmpSub As Single = 0
+            Dim index As Integer = grdcaptura.CurrentRow.Index
+            Dim CODx As String = ""
+            Dim CantDX As Double = 0
+            Dim MyNota As String = ""
+
+            cbodesc.Focus().Equals(True)
+            If grdcaptura.Rows.Count > 0 Then
+
+                Dim cantidadeli As Double = 0
+                If grdcaptura.Rows(index).Cells(0).Value.ToString = "" Then
+                    renglon = grdcaptura.CurrentRow.Index
+                    txtcoment.Visible = True
+                    txtcoment.Text = grdcaptura.Rows(index).Cells(1).Value.ToString
+                    txtcoment.Focus().Equals(True)
+                    Exit Sub
+                End If
+
                 cbocodigo.Text = grdcaptura.Rows(index).Cells(0).Value.ToString
                 cbodesc.Text = grdcaptura.Rows(index).Cells(1).Value.ToString
                 txtunidad.Text = grdcaptura.Rows(index).Cells(2).Value.ToString
-                txtcantidad.Text = "" ' grdcaptura.Rows(index).Cells(3).Value.ToString
+                txtcantidad.Text = ""
+                cantidadeli = grdcaptura.Rows(index).Cells(3).Value.ToString
                 txtprecio.Text = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
                 txtprecio.Tag = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
                 txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
@@ -3776,6 +3896,7 @@ kaka:
                 End If
                 If CDbl(txtdescuento1.Text) <= 0 Then
                     txtPagar.Text = CDbl(txtPagar.Text) - CDbl(txttotal.Text)
+                    txtcant_productos.Text = txtcant_productos.Text - cantidadeli
                 End If
                 cbocodigo.Focus().Equals(True)
                 txtPagar.Text = FormatNumber(txtPagar.Text, 2)
@@ -12384,4 +12505,6 @@ ecomoda:
             'grdcaptura.Rows(e.RowIndex).DefaultCellStyle.Font = New Font(grdcaptura.Font, FontStyle.Bold)
         End If
     End Sub
+
+
 End Class
