@@ -2745,6 +2745,7 @@ respuesta, "")
                             Do While rd1.Read
                                 If rd1.HasRows Then
 
+
                                     existencia_inicial = 0
                                     opeCantReal = 0
                                     opediferencia = 0
@@ -2753,6 +2754,12 @@ respuesta, "")
                                     VarDesc = rd1("Descrip").ToString
                                     VarCanti = rd1("Cantidad").ToString * grdCaptura.Rows(pain).Cells(2).Value.ToString
 
+                                    Dim KIT As Integer = 0
+                                    Dim MyMulti2 As Double = 0
+                                    Dim Unico As Integer = 0
+                                    Dim gprint As String = ""
+                                    Dim Pre_Comp As Double = 0
+
                                     cnn2.Close() : cnn2.Open()
                                     cmd2 = cnn2.CreateCommand
                                     cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
@@ -2760,24 +2767,59 @@ respuesta, "")
                                     If rd2.HasRows Then
                                         If rd2.Read Then
 
-                                            existencia_inicial = rd2("Existencia").ToString
-                                            opeCantReal = CDec(VarCanti) - CDec(rd2("Multiplo").ToString)
-                                            opediferencia = existencia_inicial + opeCantReal
 
-                                            cnn4.Close() : cnn4.Open()
-                                            cmd4 = cnn4.CreateCommand
-                                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta - Ingrediente'," & existencia_inicial & "," & opeCantReal & "," & rd2("PrecioCompra").ToString & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & opediferencia & ",'" & MYFOLIO & "')"
-                                            cmd4.ExecuteNonQuery()
-                                            cnn4.Close()
-
+                                            MyCostVUE = 0
+                                            MyProm = 0
+                                            MyDepto = rd2("Departamento").ToString()
+                                            MyGrupo = rd2("Grupo").ToString()
+                                            KIT = rd2("ProvRes").ToString()
+                                            MyMCD = rd2("MCD").ToString()
+                                            MyMulti2 = rd2("Multiplo").ToString()
+                                            Unico = rd2("Unico").ToString()
+                                            gprint = rd2("GPrint").ToString
+                                            If CStr(rd2("Departamento").ToString()) = "SERVICIOS" Then
+                                                rd2.Close() : cnn2.Close()
+                                                GoTo Door
+                                            End If
                                         End If
                                     End If
                                     rd2.Close()
-                                    cnn2.Close()
+
+                                    Dim existe As Double = 0
+
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                    rd2 = cmd2.ExecuteReader
+                                    If rd2.HasRows Then
+                                        If rd2.Read Then
+                                            existe = rd2("Existencia").ToString()
+                                            MyMultiplo = rd2("MCD").ToString()
+                                            existencia = existe / MyMultiplo
+                                            If rd2("Departamento").ToString() <> "SERVICIOS" Then
+                                                Pre_Comp = rd2("PrecioCompra").ToString()
+                                                MyCostVUE = Pre_Comp * (MYCANT / MyMCD)
+                                            End If
+                                        End If
+                                    End If
+                                    rd2.Close()
+
+
+                                    'existencia_inicial = rd2("Existencia").ToString
+                                    opeCantReal = CDec(VarCanti) * CDec(MyMulti2)
+                                    opediferencia = existencia + opeCantReal
+
+                                    Dim nueva_existe As Double = 0
+                                    nueva_existe = existencia - (VarCanti / MyMCD)
 
                                     cnn4.Close() : cnn4.Open()
                                     cmd4 = cnn4.CreateCommand
-                                    cmd4.CommandText = "UPDATE Productos SET Existencia=Existencia - " & rd1("Cantidad").ToString * grdCaptura.Rows(pain).Cells(2).Value.ToString & " * " & MyMult2 & " WHERE Codigo='" & Strings.Left(rd1("Codigo").ToString, 6) & "'"
+                                    cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta - Ingrediente'," & existencia & "," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & opediferencia & ",'" & MYFOLIO & "')"
+                                    cmd4.ExecuteNonQuery()
+                                    cnn4.Close()
+
+                                    cnn4.Close() : cnn4.Open()
+                                    cmd4 = cnn4.CreateCommand
+                                    cmd4.CommandText = "UPDATE Productos SET Cargado=0,CargadoInv=0,Existencia=" & nueva_existe & " WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
                                     cmd4.ExecuteNonQuery()
 
                                     cmd4 = cnn4.CreateCommand
@@ -2840,7 +2882,7 @@ respuesta, "")
                             End If
                             rd2.Close()
 Door:
-                            'copas y mililitros
+
 
                             Dim codigocoproducto As String = ""
                             Dim copas As Double = 0

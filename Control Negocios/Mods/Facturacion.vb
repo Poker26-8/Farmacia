@@ -8079,7 +8079,7 @@ puertaXD1:
 
             frmfacturacion.lbl_proceso.Text = "Generando Qr ..."
             My.Application.DoEvents()
-            ima_qr(rfc_empresa, rfc_receptor, total, folio_sat_uuid, id_evento, newcarpeta)
+            ima_qr(rfc_empresa, rfc_receptor, total, folio_sat_uuid, id_evento, newcarpeta, Right(sello_emisor, 8))
             Return True
         Else
             actualiza_valores_fac(folio_sat_uuid, fecha_folio_sat, sello_emisor, sello_sat, cadena_orig, no_csd_emp, certificado_sat, ESTATUS_FACTURA_ERROR, id_evento)
@@ -8336,6 +8336,7 @@ puertaXD1:
         qre.Size = New System.Drawing.Size(200, 200)
         qre.Text = "https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?&id=" & foliofis & "&re=" & rfc_empresa & "&rr=" & rfc_receptor & "&tt=" & totalc & "&fe=" & sello_emisor
         Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
 
         If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg") Then
             File.Delete(My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & id_evento & ".jpg")
