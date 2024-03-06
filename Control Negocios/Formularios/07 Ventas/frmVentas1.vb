@@ -2078,7 +2078,7 @@ kak:
         If AscW(e.KeyChar) = Keys.Enter Then
             If Strings.Left(cbodesc.Text, 1) = "*" Then
                 Multiplica = "*"
-                cbodesc.Text = Mid(cbodesc.Text, 4, 99)
+                cbodesc.Text = Mid(cbodesc.Text, 2, 99)
             End If
 
             Try

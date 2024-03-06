@@ -854,12 +854,12 @@ Partial Class frmVentas1
         Me.txtPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPagar.BackColor = System.Drawing.Color.Navy
         Me.txtPagar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPagar.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPagar.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPagar.ForeColor = System.Drawing.Color.White
         Me.txtPagar.Location = New System.Drawing.Point(844, 528)
         Me.txtPagar.Name = "txtPagar"
         Me.txtPagar.ReadOnly = True
-        Me.txtPagar.Size = New System.Drawing.Size(158, 50)
+        Me.txtPagar.Size = New System.Drawing.Size(158, 43)
         Me.txtPagar.TabIndex = 164
         Me.txtPagar.Text = "0.00"
         Me.txtPagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
