@@ -3941,27 +3941,27 @@ kaka:
     'Pagos
     Private Sub txtPagar_DoubleClick(sender As Object, e As System.EventArgs) Handles txtPagar.DoubleClick
         Dim TotalNV As Double = 0
-        'If MsgBox("¿Deseas agregar 16% de IVA a todos los productos?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-        '    txtefectivo.Focus().Equals(True)
-        '    Exit Sub
-        'Else
-        '    Dim Ahorro As Double = 0
-        '    TotalNV = txtSubTotal.Text
-        '    Dim MyProcVent As Double = 16
-        '    txtSubTotal.Text = 0.0#
+        If MsgBox("¿Deseas agregar 16% de IVA a todos los productos?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+            txtefectivo.Focus().Equals(True)
+            Exit Sub
+        Else
+            Dim Ahorro As Double = 0
+            TotalNV = txtSubTotal.Text
+            Dim MyProcVent As Double = 16
+            txtSubTotal.Text = 0.0#
 
-        '    For Zi As Integer = 0 To grdcaptura.Rows.Count - 1
-        '        grdcaptura.Rows(Zi).Cells(4).Value = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString) + (CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString) * (MyProcVent / 100)), 4)
-        '        grdcaptura.Rows(Zi).Cells(5).Value = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString + CDbl(grdcaptura.Rows(Zi).Cells(3).Value.ToString)), 4)
-        '        txtSubTotal.Text = CDbl(txtSubTotal.Text) + CDbl(grdcaptura.Rows(Zi).Cells(6).Value.ToString)
-        '    Next
+            For Zi As Integer = 0 To grdcaptura.Rows.Count - 1
+                grdcaptura.Rows(Zi).Cells(4).Value = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString) + (CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString) * (MyProcVent / 100)), 4)
+                grdcaptura.Rows(Zi).Cells(5).Value = FormatNumber(CDbl(grdcaptura.Rows(Zi).Cells(4).Value.ToString + CDbl(grdcaptura.Rows(Zi).Cells(3).Value.ToString)), 4)
+                txtSubTotal.Text = CDbl(txtSubTotal.Text) + CDbl(grdcaptura.Rows(Zi).Cells(6).Value.ToString)
+            Next
 
-        '    Ahorro = TotalNV - CDbl(txtSubTotal.Text)
-        '    If Ahorro < 0 Then Ahorro = 0
+            Ahorro = TotalNV - CDbl(txtSubTotal.Text)
+            If Ahorro < 0 Then Ahorro = 0
 
-        '    txtPagar.Enabled = False
-        '    txtefectivo.Focus().Equals(True)
-        'End If
+            txtPagar.Enabled = False
+            txtefectivo.Focus().Equals(True)
+        End If
     End Sub
     Private Sub txtdescuento1_Click(sender As Object, e As System.EventArgs) Handles txtdescuento1.Click
         donde_va = "Descuento Porcentaje"
