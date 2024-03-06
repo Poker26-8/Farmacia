@@ -58,7 +58,7 @@ Public Class frmVentas1
     End Sub
     Private Sub frmVentas1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
-
+        txtResta.ReadOnly = True
         'Try
         '    cnn1.Close()
         '    cnn1.Open()
@@ -4050,6 +4050,8 @@ kaka:
                 End If
             End If
             rd5.Close() : cnn5.Close()
+        Else
+            txtResta.Text = FormatNumber(txtSubTotal.Text, 2)
         End If
     End Sub
     Private Sub txtdescuento2_GotFocus(sender As Object, e As System.EventArgs) Handles txtdescuento2.GotFocus
@@ -4528,9 +4530,9 @@ kaka:
         txtefectivo.Text = "0.00"
         txtefectivo.ReadOnly = False
         txtResta.Text = "0.00"
-        txtResta.ReadOnly = False
+        txtResta.ReadOnly = True
         txtCambio.Text = "0.00"
-        txtCambio.ReadOnly = False
+        txtCambio.ReadOnly = True
 
         txtMontoP.Text = "0.00"
         txtSubTotal.Text = "0.00"
