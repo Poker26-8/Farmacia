@@ -607,253 +607,228 @@
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "1"
-                Else
-                    txtEfectivo.Text = "1"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn1.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "1"
-                Else
-                    txtDescuento.Text = "1"
-                End If
+                Dim MONTO As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim NUEVO = MONTO + btn1.Text
+                txtDescuento.Text = FormatNumber(NUEVO, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "1"
-                Else
-                    txtPropina.Text = "1"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina)
+                Dim nuevo = monto + btn1.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "2"
-                Else
-                    txtEfectivo.Text = "2"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn2.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "2"
-                Else
-                    txtDescuento.Text = "2"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn2.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "2"
-                Else
-                    txtPropina.Text = "2"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn2.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
         End Select
     End Sub
 
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "3"
-                Else
-                    txtEfectivo.Text = "3"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn3.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "3"
-                Else
-                    txtDescuento.Text = "3"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn3.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "3"
-                Else
-                    txtPropina.Text = "3"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn3.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "4"
-                Else
-                    txtEfectivo.Text = "4"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn4.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "4"
-                Else
-                    txtDescuento.Text = "4"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn4.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "4"
-                Else
-                    txtPropina.Text = "4"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn4.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
         End Select
     End Sub
 
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "5"
-                Else
-                    txtEfectivo.Text = "5"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn5.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "5"
-                Else
-                    txtDescuento.Text = "5"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn5.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "5"
-                Else
-                    txtPropina.Text = "5"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn5.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
         End Select
     End Sub
 
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "6"
-                Else
-                    txtEfectivo.Text = "6"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn6.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "6"
-                Else
-                    txtDescuento.Text = "6"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn6.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "6"
-                Else
-                    txtPropina.Text = "6"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn6.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
         End Select
     End Sub
 
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "7"
-                Else
-                    txtEfectivo.Text = "7"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn7.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "7"
-                Else
-                    txtDescuento.Text = "7"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn7.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "7"
-                Else
-                    txtPropina.Text = "7"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn7.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "8"
-                Else
-                    txtEfectivo.Text = "8"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn8.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "8"
-                Else
-                    txtDescuento.Text = "8"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn8.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "8"
-                Else
-                    txtPropina.Text = "8"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn8.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "9"
-                Else
-                    txtEfectivo.Text = "9"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn9.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "9"
-                Else
-                    txtDescuento.Text = "9"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn9.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "9"
-                Else
-                    txtPropina.Text = "9"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn9.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 
     Private Sub btnPunto_Click(sender As Object, e As EventArgs) Handles btnPunto.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "."
-                Else
-                    txtEfectivo.Text = "."
-                End If
+                txtEfectivo.Text = txtEfectivo.Text + btnPunto.Text
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "."
-                Else
-                    txtDescuento.Text = "."
-                End If
+                txtDescuento.Text = txtDescuento.Text + btnPunto.Text
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "."
-                Else
-                    txtPropina.Text = "."
-                End If
+                txtPropina.Text = txtPropina.Text + btnPunto.Text
         End Select
     End Sub
 
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                If txtEfectivo.Text <> "0.00" And txtEfectivo.Text <> "" And txtEfectivo.Text <> "0" And txtEfectivo.Text <> "0.00" Then
-                    txtEfectivo.Text = txtEfectivo.Text & "0"
-                Else
-                    txtEfectivo.Text = "0"
-                End If
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + btn0.Text
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+
+
             Case Is = 2 'descuento
-                If txtDescuento.Text <> "0.00" And txtDescuento.Text <> "" And txtDescuento.Text <> "0" And txtDescuento.Text <> "0.00" Then
-                    txtDescuento.Text = txtDescuento.Text & "0"
-                Else
-                    txtDescuento.Text = "0"
-                End If
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + btn0.Text
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
             Case Is = 3 'propina
-                If txtPropina.Text <> "0.00" And txtPropina.Text <> "" And txtPropina.Text <> "0" And txtPropina.Text <> "0.00" Then
-                    txtPropina.Text = txtPropina.Text & "0"
-                Else
-                    txtPropina.Text = "0"
-                End If
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + btn0.Text
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
         End Select
     End Sub
 

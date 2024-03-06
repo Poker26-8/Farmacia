@@ -40,9 +40,6 @@ Partial Class frmRepCopeo
         Me.Label8 = New System.Windows.Forms.Label()
         Me.IniCosteo = New System.Windows.Forms.DateTimePicker()
         Me.cbofiltro = New System.Windows.Forms.ComboBox()
-        Me.btnetiquetas = New System.Windows.Forms.Button()
-        Me.btnsalida = New System.Windows.Forms.Button()
-        Me.btnentrada = New System.Windows.Forms.Button()
         Me.btnexcel = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -51,7 +48,6 @@ Partial Class frmRepCopeo
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCompraTot = New System.Windows.Forms.TextBox()
-        Me.btncardex = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblexportar = New System.Windows.Forms.Label()
         Me.barCarga = New System.Windows.Forms.ProgressBar()
@@ -93,7 +89,7 @@ Partial Class frmRepCopeo
         Me.GroupBox1.Controls.Add(Me.rbTodos)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(183, 129)
+        Me.GroupBox1.Size = New System.Drawing.Size(297, 80)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -101,7 +97,7 @@ Partial Class frmRepCopeo
         '
         Me.rbGrupo.AutoSize = True
         Me.rbGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbGrupo.Location = New System.Drawing.Point(6, 70)
+        Me.rbGrupo.Location = New System.Drawing.Point(6, 45)
         Me.rbGrupo.Name = "rbGrupo"
         Me.rbGrupo.Size = New System.Drawing.Size(62, 20)
         Me.rbGrupo.TabIndex = 57
@@ -113,7 +109,7 @@ Partial Class frmRepCopeo
         '
         Me.rbDepartamento.AutoSize = True
         Me.rbDepartamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbDepartamento.Location = New System.Drawing.Point(6, 44)
+        Me.rbDepartamento.Location = New System.Drawing.Point(110, 19)
         Me.rbDepartamento.Name = "rbDepartamento"
         Me.rbDepartamento.Size = New System.Drawing.Size(111, 20)
         Me.rbDepartamento.TabIndex = 56
@@ -137,7 +133,7 @@ Partial Class frmRepCopeo
         '
         Me.rbTodos.AutoSize = True
         Me.rbTodos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbTodos.Location = New System.Drawing.Point(6, 96)
+        Me.rbTodos.Location = New System.Drawing.Point(110, 45)
         Me.rbTodos.Name = "rbTodos"
         Me.rbTodos.Size = New System.Drawing.Size(167, 20)
         Me.rbTodos.TabIndex = 0
@@ -149,15 +145,12 @@ Partial Class frmRepCopeo
         '
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.cbofiltro)
-        Me.Panel1.Controls.Add(Me.btnetiquetas)
-        Me.Panel1.Controls.Add(Me.btnsalida)
-        Me.Panel1.Controls.Add(Me.btnentrada)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.btnexcel)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 31)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1103, 153)
+        Me.Panel1.Size = New System.Drawing.Size(1103, 99)
         Me.Panel1.TabIndex = 1
         '
         'GroupBox2
@@ -168,7 +161,7 @@ Partial Class frmRepCopeo
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.IniCosteo)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(201, 13)
+        Me.GroupBox2.Location = New System.Drawing.Point(595, 13)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
@@ -239,55 +232,10 @@ Partial Class frmRepCopeo
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofiltro.FormattingEnabled = True
-        Me.cbofiltro.Location = New System.Drawing.Point(201, 107)
+        Me.cbofiltro.Location = New System.Drawing.Point(315, 58)
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(258, 25)
         Me.cbofiltro.TabIndex = 240
-        '
-        'btnetiquetas
-        '
-        Me.btnetiquetas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnetiquetas.BackgroundImage = CType(resources.GetObject("btnetiquetas.BackgroundImage"), System.Drawing.Image)
-        Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnetiquetas.Location = New System.Drawing.Point(924, 79)
-        Me.btnetiquetas.Name = "btnetiquetas"
-        Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
-        Me.btnetiquetas.TabIndex = 238
-        Me.btnetiquetas.Text = "Etiquetas"
-        Me.btnetiquetas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnetiquetas.UseVisualStyleBackColor = True
-        '
-        'btnsalida
-        '
-        Me.btnsalida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
-        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(1012, 79)
-        Me.btnsalida.Name = "btnsalida"
-        Me.btnsalida.Size = New System.Drawing.Size(82, 63)
-        Me.btnsalida.TabIndex = 237
-        Me.btnsalida.Text = "Traspaso Salida"
-        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalida.UseVisualStyleBackColor = True
-        '
-        'btnentrada
-        '
-        Me.btnentrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnentrada.BackgroundImage = CType(resources.GetObject("btnentrada.BackgroundImage"), System.Drawing.Image)
-        Me.btnentrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnentrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnentrada.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnentrada.Location = New System.Drawing.Point(1012, 6)
-        Me.btnentrada.Name = "btnentrada"
-        Me.btnentrada.Size = New System.Drawing.Size(82, 63)
-        Me.btnentrada.TabIndex = 236
-        Me.btnentrada.Text = "Traspaso Entrada"
-        Me.btnentrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnentrada.UseVisualStyleBackColor = True
         '
         'btnexcel
         '
@@ -296,7 +244,7 @@ Partial Class frmRepCopeo
         Me.btnexcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnexcel.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexcel.Location = New System.Drawing.Point(924, 6)
+        Me.btnexcel.Location = New System.Drawing.Point(1013, 24)
         Me.btnexcel.Name = "btnexcel"
         Me.btnexcel.Size = New System.Drawing.Size(82, 61)
         Me.btnexcel.TabIndex = 241
@@ -312,7 +260,6 @@ Partial Class frmRepCopeo
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.txtCompraTot)
-        Me.Panel2.Controls.Add(Me.btncardex)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 549)
         Me.Panel2.Name = "Panel2"
@@ -394,21 +341,6 @@ Partial Class frmRepCopeo
         Me.txtCompraTot.TabIndex = 245
         Me.txtCompraTot.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btncardex
-        '
-        Me.btncardex.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btncardex.BackgroundImage = CType(resources.GetObject("btncardex.BackgroundImage"), System.Drawing.Image)
-        Me.btncardex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btncardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncardex.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncardex.Location = New System.Drawing.Point(7, 7)
-        Me.btncardex.Name = "btncardex"
-        Me.btncardex.Size = New System.Drawing.Size(60, 63)
-        Me.btncardex.TabIndex = 242
-        Me.btncardex.Text = "Cárdex"
-        Me.btncardex.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncardex.UseVisualStyleBackColor = True
-        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.lblexportar)
@@ -416,9 +348,9 @@ Partial Class frmRepCopeo
         Me.Panel3.Controls.Add(Me.grdCaptura)
         Me.Panel3.Controls.Add(Me.grdestado)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 184)
+        Me.Panel3.Location = New System.Drawing.Point(0, 130)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1103, 365)
+        Me.Panel3.Size = New System.Drawing.Size(1103, 419)
         Me.Panel3.TabIndex = 3
         '
         'lblexportar
@@ -426,7 +358,7 @@ Partial Class frmRepCopeo
         Me.lblexportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblexportar.BackColor = System.Drawing.Color.Transparent
         Me.lblexportar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblexportar.Location = New System.Drawing.Point(3, 343)
+        Me.lblexportar.Location = New System.Drawing.Point(3, 397)
         Me.lblexportar.Name = "lblexportar"
         Me.lblexportar.Size = New System.Drawing.Size(516, 19)
         Me.lblexportar.TabIndex = 249
@@ -436,7 +368,7 @@ Partial Class frmRepCopeo
         'barCarga
         '
         Me.barCarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.barCarga.Location = New System.Drawing.Point(12, 175)
+        Me.barCarga.Location = New System.Drawing.Point(12, 202)
         Me.barCarga.Name = "barCarga"
         Me.barCarga.Size = New System.Drawing.Size(1079, 18)
         Me.barCarga.TabIndex = 248
@@ -472,7 +404,7 @@ Partial Class frmRepCopeo
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(1103, 365)
+        Me.grdCaptura.Size = New System.Drawing.Size(1103, 419)
         Me.grdCaptura.TabIndex = 0
         '
         'Column1
@@ -545,7 +477,7 @@ Partial Class frmRepCopeo
         Me.grdestado.Name = "grdestado"
         Me.grdestado.ReadOnly = True
         Me.grdestado.RowHeadersVisible = False
-        Me.grdestado.Size = New System.Drawing.Size(891, 253)
+        Me.grdestado.Size = New System.Drawing.Size(891, 307)
         Me.grdestado.TabIndex = 250
         Me.grdestado.Visible = False
         '
@@ -659,12 +591,8 @@ Partial Class frmRepCopeo
     Friend WithEvents Panel3 As Panel
     Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents btnexcel As Button
-    Friend WithEvents btncardex As Button
     Friend WithEvents barCarga As ProgressBar
     Friend WithEvents lblexportar As Label
-    Friend WithEvents btnsalida As Button
-    Friend WithEvents btnentrada As Button
-    Friend WithEvents btnetiquetas As Button
     Friend WithEvents txtVentaTot As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label

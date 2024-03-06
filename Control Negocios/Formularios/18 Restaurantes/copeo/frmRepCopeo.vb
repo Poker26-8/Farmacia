@@ -120,21 +120,8 @@
         End Try
     End Sub
 
-    Private Sub btnentrada_Click(sender As Object, e As EventArgs) Handles btnentrada.Click
-        frmTraspEntrada.Show()
-    End Sub
 
-    Private Sub btnsalida_Click(sender As Object, e As EventArgs) Handles btnsalida.Click
-        frmTraspSalida.Show()
-    End Sub
 
-    Private Sub btnetiquetas_Click(sender As Object, e As EventArgs) Handles btnetiquetas.Click
-        frmEtiquetas.Show()
-    End Sub
-
-    Private Sub btncardex_Click(sender As Object, e As EventArgs) Handles btncardex.Click
-        frmCardex.Show()
-    End Sub
 
     Private Sub btnexcel_Click(sender As Object, e As EventArgs) Handles btnexcel.Click
 

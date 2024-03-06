@@ -2804,16 +2804,15 @@ respuesta, "")
                                     rd2.Close()
 
 
-                                    'existencia_inicial = rd2("Existencia").ToString
-                                    opeCantReal = CDec(VarCanti) * CDec(MyMulti2)
-                                    opediferencia = existencia + opeCantReal
+                                    opeCantReal = CDbl(VarCanti) * CDbl(MyMulti2)
+
 
                                     Dim nueva_existe As Double = 0
                                     nueva_existe = existencia - (VarCanti / MyMCD)
 
                                     cnn4.Close() : cnn4.Open()
                                     cmd4 = cnn4.CreateCommand
-                                    cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta - Ingrediente'," & existencia & "," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & opediferencia & ",'" & MYFOLIO & "')"
+                                    cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta - Ingrediente'," & existencia & "," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & nueva_existe & ",'" & MYFOLIO & "')"
                                     cmd4.ExecuteNonQuery()
                                     cnn4.Close()
 
@@ -2884,17 +2883,7 @@ respuesta, "")
 Door:
 
 
-                            Dim codigocoproducto As String = ""
-                            Dim copas As Double = 0
 
-                            Dim copastem As Double = 0
-                            Dim existenciasco As Double = 0
-
-                            Dim existencire As Double = 0
-
-                            'existencia_inicial = 0
-                            'opeCantReal = 0
-                            'opediferencia = 0
 
                             'existencia_inicial = rd3("Existencia").ToString
                             'opeCantReal = CDec(grdCaptura.Rows(pain).Cells(2).Value.ToString) * CDec(rd3("Multiplo").ToString)
@@ -2905,7 +2894,7 @@ Door:
 
                             cnn4.Close() : cnn4.Open()
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & rd3("Codigo").ToString & "','" & rd3("Nombre").ToString & "','Venta'," & existencia_inicial & "," & opeCantReal & "," & rd3("PrecioCompra").ToString & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & opediferencia & ",' ')"
+                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & rd3("Codigo").ToString & "','" & rd3("Nombre").ToString & "','Venta'," & existencia & "," & MYCANT & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & nueva_existe & ",' ')"
                             cmd4.ExecuteNonQuery()
 
                             cmd4 = cnn4.CreateCommand
@@ -3094,14 +3083,20 @@ Door:
                 End If
                 rd1.Close()
 
-                If tamcomanda = "80" Then
-                    PVentaTouch80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                    PVentaTouch80.Print()
+                If impresoracomanda <> "" Then
 
-                ElseIf tamcomanda = "58" Then
-                    PVentaTouch58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                    PVentaTouch58.Print()
+                    If tamcomanda = "80" Then
+                        PVentaTouch80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                        PVentaTouch80.Print()
+
+                    ElseIf tamcomanda = "58" Then
+                        PVentaTouch58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                        PVentaTouch58.Print()
+                    End If
+
                 End If
+
+
 
             End If
 
