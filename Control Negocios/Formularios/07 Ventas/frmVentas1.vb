@@ -1558,6 +1558,7 @@ kak:
                         cbocomisionista.Text = rd1("Comisionista").ToString
                         txttel.Text = rd1("Telefono").ToString
                         lblcorreocli.Text = rd1("Correo").ToString
+                        txtObservaciones.Text = rd1("Observaciones").ToString
 
                         If Trim(cbocomisionista.Text) <> "" Then
                             cbocomisionista.Enabled = False
@@ -4620,6 +4621,7 @@ kaka:
         cboLote.Tag = 0
         txtfechacad.Text = ""
         txtubicacion.Text = ""
+        txtObservaciones.Text = ""
         grdcaptura.Rows.Clear()
         grdcaptura.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke
         grdcaptura.DefaultCellStyle.SelectionForeColor = Color.Blue
@@ -4693,8 +4695,6 @@ kaka:
 
         boxcomentario.Visible = False
         txtcomentario.Text = ""
-        cbodesc.Focus.Equals(True)
-        My.Application.DoEvents()
         Timer1.Start()
 
     End Sub
@@ -6847,7 +6847,7 @@ Door:
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "UPDATE clientes SET Telefono='" & txttel.Text & "' WHERE Nombre='" & cboNombre.Text & "'"
+                    "UPDATE clientes SET Telefono='" & txttel.Text & "',Observaciones='" & txtObservaciones.Text & "' WHERE Nombre='" & cboNombre.Text & "'"
                 cmd2.ExecuteNonQuery()
                 cnn2.Close()
             Else
@@ -6855,7 +6855,7 @@ Door:
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo,RFC,Correo,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,SaldoFavor) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista','','',100000,5,'','','','','','MEXICO','','','',0)"
+                    "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo,RFC,Correo,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,SaldoFavor,Observaciones) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista','','',100000,5,'','','','','','MEXICO','','','',0,'" & txtObservaciones.Text & "')"
                 cmd2.ExecuteNonQuery()
                 cnn2.Close()
             End If
@@ -11036,7 +11036,8 @@ ecomoda:
 
     Private Sub txttel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttel.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            cbodesc.Focus().Equals(True)
+            txtObservaciones.Focus.Equals(True)
+
         End If
     End Sub
 
@@ -12508,5 +12509,10 @@ ecomoda:
         End If
     End Sub
 
-
+    Private Sub txtObservaciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtObservaciones.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cbodesc.Focus().Equals(True)
+        End If
+    End Sub
 End Class

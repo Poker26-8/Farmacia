@@ -949,7 +949,8 @@
                                       `Cargado` int(1) NOT NULL DEFAULT '0',
                                       `Template` longtext NOT NULL DEFAULT '',
                                       `FingerIndex` varchar(250) NOT NULL DEFAULT '',
-                                      `SaldoFavor` float NOT NULL DEFAULT '0'
+                                      `SaldoFavor` float NOT NULL DEFAULT '0',
+                                      `Observaciones` varchar(150) NOT NULL DEFAULT ''
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

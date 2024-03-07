@@ -832,6 +832,23 @@ Public Class Inicio
             cmd1.CommandText = "Alter table Usuarios add column P3 varchar(255)"
             cmd1.ExecuteNonQuery()
         End Try
+
+        'clientes
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Observaciones FROM clientes"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE clientes add column Observaciones varchar(150) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub ActualizaCampos()
