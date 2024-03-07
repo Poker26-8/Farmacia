@@ -12293,9 +12293,10 @@ ecomoda:
 
             Try
 
-                Dim PTOSerial As String
+                Dim puertobascula As String
+                Dim bascula As String
                 Dim PTO_s As Integer
-                Dim Lectura As String
+
                 Dim TBas As String
 
 
@@ -12305,49 +12306,62 @@ ecomoda:
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-
-                        PTOSerial = rd1("NotasCred").ToString
-
-                        TBas = SFormatos("TBascula", "")
-
-
-                        ' Configurar el puerto serie
-                        With serialPortT
-                            .PortName = PTOSerial ' Cambia esto al puerto correcto de tu báscula
-                            .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
-                            .DataBits = 8
-                            .StopBits = StopBits.One
-                            .Parity = Parity.None
-                        End With
-
-                        ' Abrir el puerto serie
-                        If Not serialPortT.IsOpen Then
-                            serialPortT.Open()
-                            MessageBox.Show("Conectado a la báscula.")
-                        End If
-
-                        ' Leer datos de la báscula
-                        If serialPortT.IsOpen Then
-                            Dim data As String = serialPortT.ReadLine()
-                            txtcantidad.Text = data
-                            'txtcantidad.Text = Mid(data, 3)
-                        Else
-                            MessageBox.Show("La báscula no está conectada.")
-                        End If
-
-
-                        ' Cerrar el puerto serie al cerrar la aplicación
-                        If serialPortT.IsOpen Then
-                            serialPortT.Close()
-                        End If
-
+                        puertobascula = rd1("NotasCred").ToString
                     End If
                 End If
                 rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Select NotasCred From Formatos Where Facturas='Bascula'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        bascula = rd1("NotasCred").ToString
+                    End If
+                End If
+                rd1.Close()
+
+                If bascula <> "SBascula" Then
+
+                    ' Configurar el puerto serie
+                    With serialPortT
+                        .PortName = puertobascula ' Cambia esto al puerto correcto de tu báscula
+                        .BaudRate = 9600 ' Ajusta la velocidad según las especificaciones de tu báscula
+                        .DataBits = 8
+                        .StopBits = StopBits.One
+                        .Parity = Parity.None
+                    End With
+
+                    ' Abrir el puerto serie
+                    If Not serialPortT.IsOpen Then
+                        serialPortT.Open()
+                        ' MessageBox.Show("Conectado a la báscula.")
+                    End If
+
+                    ' Leer datos de la báscula
+                    If serialPortT.IsOpen Then
+                        Dim data As String = serialPortT.ReadLine()
+                        txtcantidad.Text = data
+                        'txtcantidad.Text = Mid(data, 3)
+                    Else
+                        MessageBox.Show("La báscula no está conectada.")
+                    End If
+
+
+                    ' Cerrar el puerto serie al cerrar la aplicación
+                    If serialPortT.IsOpen Then
+                        serialPortT.Close()
+                    End If
+
+                Else
+
+                End If
                 cnn1.Close()
+
 
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
+                cnn1.Close()
             End Try
 
         End If
