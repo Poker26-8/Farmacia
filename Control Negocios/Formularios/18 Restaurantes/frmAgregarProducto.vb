@@ -2599,6 +2599,10 @@ Public Class frmAgregarProducto
         End Try
     End Sub
 
+    Private Sub btnRepertir_Click(sender As Object, e As EventArgs) Handles btnRepertir.Click
+
+    End Sub
+
     Private Sub btntiempo3_Click(sender As Object, e As EventArgs) Handles btntiempo3.Click
         Tiempos("15")
     End Sub
