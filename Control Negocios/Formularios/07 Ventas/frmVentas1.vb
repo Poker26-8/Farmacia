@@ -546,6 +546,7 @@ kak:
             MessageBox.Show(ex.ToString)
             cnn3.Close()
         End Try
+        donde_va = "Descuento Porcentaje"
     End Sub
 
     Private Sub AgregarOActualizarFila(codigo As String, nombre As String, cantidad As Integer)
@@ -3349,6 +3350,7 @@ kaka:
                                     rd1.Close() : cnn1.Close()
                                     rd2.Close() : cnn2.Close()
                                     cboLote_KeyPress(cboLote, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                                    donde_va = "Descuento Porcentaje"
                                 End If
                                 rd2.Close() : cnn2.Close()
                             End If
@@ -3617,6 +3619,7 @@ kaka:
             picProd.Image = Nothing
             cboLote.Items.Clear()
             cnn1.Close()
+            donde_va = "Descuento Porcentaje"
 
             If CDbl(txtdescuento1.Text) <= 0 Then
                 txtPagar.Text = CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text)
