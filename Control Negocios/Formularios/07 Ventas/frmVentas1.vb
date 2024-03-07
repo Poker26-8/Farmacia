@@ -4693,6 +4693,8 @@ kaka:
 
         boxcomentario.Visible = False
         txtcomentario.Text = ""
+        cbodesc.Focus.Equals(True)
+        My.Application.DoEvents()
         Timer1.Start()
 
     End Sub
