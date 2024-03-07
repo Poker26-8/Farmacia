@@ -23,7 +23,7 @@ Partial Class frmRenovacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRenovacion))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ticket = New System.Drawing.Printing.PrintDocument()
         Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.lblusuario = New System.Windows.Forms.Label()
@@ -42,7 +42,6 @@ Partial Class frmRenovacion
         Me.lblinicio = New System.Windows.Forms.Label()
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.lblid = New System.Windows.Forms.TextBox()
-        Me.txtcliente = New System.Windows.Forms.TextBox()
         Me.btnlimpiar = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -55,7 +54,12 @@ Partial Class frmRenovacion
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtcliente = New System.Windows.Forms.ComboBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ticket
@@ -86,7 +90,7 @@ Partial Class frmRenovacion
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(576, 312)
+        Me.Button3.Location = New System.Drawing.Point(596, 491)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(74, 79)
         Me.Button3.TabIndex = 128
@@ -101,20 +105,20 @@ Partial Class frmRenovacion
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(15, 48)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(628, 212)
+        Me.grdcaptura.Size = New System.Drawing.Size(656, 212)
         Me.grdcaptura.TabIndex = 127
         '
         'Column1
@@ -198,7 +202,7 @@ Partial Class frmRenovacion
         '
         Me.lblfin.AutoSize = True
         Me.lblfin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblfin.Location = New System.Drawing.Point(539, 416)
+        Me.lblfin.Location = New System.Drawing.Point(582, 395)
         Me.lblfin.Name = "lblfin"
         Me.lblfin.Size = New System.Drawing.Size(0, 20)
         Me.lblfin.TabIndex = 123
@@ -207,7 +211,7 @@ Partial Class frmRenovacion
         '
         Me.lblinicio.AutoSize = True
         Me.lblinicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblinicio.Location = New System.Drawing.Point(148, 416)
+        Me.lblinicio.Location = New System.Drawing.Point(558, 312)
         Me.lblinicio.Name = "lblinicio"
         Me.lblinicio.Size = New System.Drawing.Size(0, 20)
         Me.lblinicio.TabIndex = 122
@@ -230,22 +234,13 @@ Partial Class frmRenovacion
         Me.lblid.Size = New System.Drawing.Size(82, 26)
         Me.lblid.TabIndex = 120
         '
-        'txtcliente
-        '
-        Me.txtcliente.Enabled = False
-        Me.txtcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcliente.Location = New System.Drawing.Point(144, 269)
-        Me.txtcliente.Name = "txtcliente"
-        Me.txtcliente.Size = New System.Drawing.Size(266, 26)
-        Me.txtcliente.TabIndex = 119
-        '
         'btnlimpiar
         '
         Me.btnlimpiar.BackColor = System.Drawing.Color.White
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
         Me.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnlimpiar.Location = New System.Drawing.Point(496, 312)
+        Me.btnlimpiar.Location = New System.Drawing.Point(516, 491)
         Me.btnlimpiar.Name = "btnlimpiar"
         Me.btnlimpiar.Size = New System.Drawing.Size(74, 79)
         Me.btnlimpiar.TabIndex = 118
@@ -259,7 +254,7 @@ Partial Class frmRenovacion
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(416, 312)
+        Me.btnguardar.Location = New System.Drawing.Point(436, 491)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(74, 79)
         Me.btnguardar.TabIndex = 117
@@ -281,7 +276,7 @@ Partial Class frmRenovacion
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(392, 416)
+        Me.Label5.Location = New System.Drawing.Point(435, 395)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(141, 20)
         Me.Label5.TabIndex = 115
@@ -291,7 +286,7 @@ Partial Class frmRenovacion
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(25, 416)
+        Me.Label4.Location = New System.Drawing.Point(435, 312)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 20)
         Me.Label4.TabIndex = 114
@@ -299,13 +294,13 @@ Partial Class frmRenovacion
         '
         'mcfin
         '
-        Me.mcfin.Location = New System.Drawing.Point(396, 435)
+        Me.mcfin.Location = New System.Drawing.Point(497, 639)
         Me.mcfin.Name = "mcfin"
         Me.mcfin.TabIndex = 113
         '
         'mcinicio
         '
-        Me.mcinicio.Location = New System.Drawing.Point(25, 435)
+        Me.mcinicio.Location = New System.Drawing.Point(29, 639)
         Me.mcinicio.Name = "mcinicio"
         Me.mcinicio.TabIndex = 112
         '
@@ -316,7 +311,7 @@ Partial Class frmRenovacion
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label6.Location = New System.Drawing.Point(-3, -5)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(665, 35)
+        Me.Label6.Size = New System.Drawing.Size(696, 35)
         Me.Label6.TabIndex = 111
         '
         'Label7
@@ -359,12 +354,52 @@ Partial Class frmRenovacion
         Me.Label1.TabIndex = 107
         Me.Label1.Text = "CLIENTE"
         '
+        'txtcliente
+        '
+        Me.txtcliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcliente.FormattingEnabled = True
+        Me.txtcliente.Location = New System.Drawing.Point(144, 272)
+        Me.txtcliente.Name = "txtcliente"
+        Me.txtcliente.Size = New System.Drawing.Size(266, 28)
+        Me.txtcliente.TabIndex = 131
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(29, 414)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(384, 156)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 132
+        Me.PictureBox1.TabStop = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(439, 344)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 35)
+        Me.DateTimePicker1.TabIndex = 133
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(439, 433)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 35)
+        Me.DateTimePicker2.TabIndex = 134
+        '
         'frmRenovacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(652, 632)
+        Me.ClientSize = New System.Drawing.Size(683, 632)
+        Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.txtcliente)
         Me.Controls.Add(Me.txtusuario)
         Me.Controls.Add(Me.lblusuario)
         Me.Controls.Add(Me.Button3)
@@ -376,7 +411,6 @@ Partial Class frmRenovacion
         Me.Controls.Add(Me.lblinicio)
         Me.Controls.Add(Me.txtPrecio)
         Me.Controls.Add(Me.lblid)
-        Me.Controls.Add(Me.txtcliente)
         Me.Controls.Add(Me.btnlimpiar)
         Me.Controls.Add(Me.btnguardar)
         Me.Controls.Add(Me.Label8)
@@ -390,12 +424,12 @@ Partial Class frmRenovacion
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(668, 671)
         Me.MinimumSize = New System.Drawing.Size(668, 671)
         Me.Name = "frmRenovacion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Renovación de Membresias"
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -419,7 +453,6 @@ Partial Class frmRenovacion
     Friend WithEvents lblinicio As Label
     Friend WithEvents txtPrecio As TextBox
     Friend WithEvents lblid As TextBox
-    Friend WithEvents txtcliente As TextBox
     Friend WithEvents btnlimpiar As Button
     Friend WithEvents btnguardar As Button
     Friend WithEvents Label8 As Label
@@ -432,4 +465,8 @@ Partial Class frmRenovacion
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents txtcliente As ComboBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker2 As DateTimePicker
 End Class

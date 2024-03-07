@@ -4,6 +4,8 @@
     Private Sub frmRenovacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rbtodas.Checked = True
         busca()
+        lblinicio.Text = DateTimePicker1.Value.ToShortDateString
+        lblfin.Text = DateTimePicker2.Value.ToShortDateString
     End Sub
     Public Sub busca()
         grdcaptura.Rows.Clear()
@@ -535,5 +537,32 @@
         e.Graphics.DrawString("Fecha de término: " & mcfin.SelectionStart.ToShortDateString, fuente_prods, Brushes.Black, 1, Y)
         Y += 40
         e.HasMorePages = False
+    End Sub
+
+    Private Sub txtcliente_DropDown(sender As Object, e As EventArgs) Handles txtcliente.DropDown
+        Try
+            txtcliente.Items.Clear()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select distinct Nombre from Clientes where Nombre<>'' order by Nombre"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                txtcliente.Items.Add(rd1(0).ToString)
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        lblinicio.Text = DateTimePicker1.Value.ToShortDateString
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        lblfin.Text = DateTimePicker2.Value.ToShortDateString
     End Sub
 End Class
