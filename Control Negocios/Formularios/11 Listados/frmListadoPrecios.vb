@@ -127,7 +127,7 @@ Public Class frmListadoPrecios
                     End With
                 End With
             Else
-                grdcaptura.ColumnCount = 13
+                grdcaptura.ColumnCount = 27
                 With grdcaptura
                     With .Columns(0)
                         .HeaderText = "Código"
@@ -232,6 +232,127 @@ Public Class frmListadoPrecios
                         .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                         .Resizable = DataGridViewTriState.False
                     End With
+
+                    'marcia
+
+                    'cantidadlistas
+                    With .Columns(13)
+                        .HeaderText = "Desde_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(14)
+                        .HeaderText = "Hasta_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'minimos
+                    With .Columns(15)
+                        .HeaderText = "% Minimo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(16)
+                        .HeaderText = "Desde_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(17)
+                        .HeaderText = "Hasta_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'mayoreo
+
+                    With .Columns(18)
+                        .HeaderText = "% Mayoreo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(19)
+                        .HeaderText = "Desde_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(20)
+                        .HeaderText = "Hasta_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'medio mayoreo
+                    With .Columns(21)
+                        .HeaderText = "% MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(22)
+                        .HeaderText = "Desde_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(23)
+                        .HeaderText = "Hasta_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'especial
+                    With .Columns(24)
+                        .HeaderText = "% Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(25)
+                        .HeaderText = "Desde_Cant_Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(26)
+                        .HeaderText = "Hasta_Cant_Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
                 End With
             End If
         End If
@@ -360,7 +481,7 @@ Public Class frmListadoPrecios
                     End With
                 End With
             Else
-                grdcaptura.ColumnCount = 13
+                grdcaptura.ColumnCount = 27
                 With grdcaptura
                     With .Columns(0)
                         .HeaderText = "Código"
@@ -460,6 +581,126 @@ Public Class frmListadoPrecios
 
                     With .Columns(12)
                         .HeaderText = "% de utilidad en precio de público"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'marcia
+
+                    'cantidadlistas
+                    With .Columns(13)
+                        .HeaderText = "Desde_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(14)
+                        .HeaderText = "Hasta_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'minimos
+                    With .Columns(15)
+                        .HeaderText = "% Minimo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(16)
+                        .HeaderText = "Desde_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(17)
+                        .HeaderText = "Hasta_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'mayoreo
+
+                    With .Columns(18)
+                        .HeaderText = "% Mayoreo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(19)
+                        .HeaderText = "Desde_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(20)
+                        .HeaderText = "Hasta_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'medio mayoreo
+                    With .Columns(21)
+                        .HeaderText = "% MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(22)
+                        .HeaderText = "Desde_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(23)
+                        .HeaderText = "Hasta_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'especial
+                    With .Columns(24)
+                        .HeaderText = "% Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(25)
+                        .HeaderText = "Desde_Cant_Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(26)
+                        .HeaderText = "Hasta_Cant_Esp"
                         .Width = 80
                         .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                         .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -594,7 +835,7 @@ Public Class frmListadoPrecios
                     End With
                 End With
             Else
-                grdcaptura.ColumnCount = 13
+                grdcaptura.ColumnCount = 27
                 With grdcaptura
                     With .Columns(0)
                         .HeaderText = "Código"
@@ -699,6 +940,128 @@ Public Class frmListadoPrecios
                         .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                         .Resizable = DataGridViewTriState.False
                     End With
+
+                    'marcia
+
+                    'cantidadlistas
+                    With .Columns(13)
+                        .HeaderText = "Desde_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(14)
+                        .HeaderText = "Hasta_Cant_Lista"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'minimos
+                    With .Columns(15)
+                        .HeaderText = "% Minimo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(16)
+                        .HeaderText = "Desde_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(17)
+                        .HeaderText = "Hasta_Cant_Min"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'mayoreo
+
+                    With .Columns(18)
+                        .HeaderText = "% Mayoreo"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(19)
+                        .HeaderText = "Desde_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(20)
+                        .HeaderText = "Hasta_Cant_May"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'medio mayoreo
+                    With .Columns(21)
+                        .HeaderText = "% MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(22)
+                        .HeaderText = "Desde_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(23)
+                        .HeaderText = "Hasta_Cant_MedioMa"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    'especial
+                    With .Columns(24)
+                        .HeaderText = "% Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(25)
+                        .HeaderText = "Desde_Cant_Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+                    With .Columns(26)
+                        .HeaderText = "Hasta_Cant_Esp"
+                        .Width = 80
+                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                        .Resizable = DataGridViewTriState.False
+                    End With
+
+
                 End With
             End If
         End If
@@ -1121,6 +1484,21 @@ Public Class frmListadoPrecios
             Dim conteo As Double = 0
             Dim order_by As String = ""
 
+            Dim cantlista As Double = 0
+            Dim canlista2 As Double = 0
+            Dim porcentajemin As Double = 0
+            Dim canmin As Double = 0
+            Dim canmin2 As Double = 0
+            Dim porcentajemay As Double = 0
+            Dim canmay As Double = 0
+            Dim canmay2 As Double = 0
+            Dim porcentajemed As Double = 0
+            Dim cantmed As Double = 0
+            Dim cantmed2 As Double = 0
+            Dim porcentajeesp As Double = 0
+            Dim cantesp As Double = 0
+            Dim cantesp2 As Double = 0
+
             If (optord_nombre.Checked) Then order_by = "Nombre"
             If (optord_depto.Checked) Then order_by = "Departamento"
             If (optord_grupo.Checked) Then order_by = "Grupo"
@@ -1174,6 +1552,21 @@ Public Class frmListadoPrecios
                 unidad = rd1("UVenta").ToString
                 provee = rd1("ProvPri").ToString
 
+                cantlista = rd1("CantLst1").ToString
+                canlista2 = rd1("CantLst2").ToString
+                porcentajemin = rd1("PorcMin").ToString
+                canmin = rd1("CantMin1").ToString
+                canmin2 = rd1("CantMin2").ToString
+                porcentajemay = rd1("PorcMay").ToString
+                canmay = rd1("CantMay1").ToString
+                canmay2 = rd1("CantMay2").ToString
+                porcentajemed = rd1("PorcMM").ToString
+                cantmed = rd1("CantMM1").ToString
+                cantmed2 = rd1("CantMM2").ToString
+                porcentajeesp = rd1("PorcEsp").ToString
+                cantesp = rd1("CantEsp1").ToString
+                cantesp2 = rd1("CantEsp2").ToString
+
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
                     "select * from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
@@ -1191,11 +1584,12 @@ Public Class frmListadoPrecios
                         pre_mayo = IIf(rd2("PreMay").ToString = "", 0, rd2("PreMay").ToString)
                         pre_espe = IIf(rd2("PreEsp").ToString = "", 0, rd2("PreEsp").ToString)
                         porcentaje = IIf(rd2("Porcentaje").ToString = "", 0, rd2("Porcentaje").ToString)
+
                     End If
                 End If
                 rd2.Close()
 
-                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, provee, FormatNumber(cost_siva, 2), FormatNumber(cost_civa, 2), FormatNumber(pre_mini * TiCamb, 2), FormatNumber(pre_mayo * TiCamb, 2), FormatNumber(pre_medi * TiCamb, 2), FormatNumber(pre_espe * TiCamb, 2), FormatNumber(pre_list * TiCamb, 2), FormatNumber(porcentaje, 2))
+                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, provee, FormatNumber(cost_siva, 2), FormatNumber(cost_civa, 2), FormatNumber(pre_mini * TiCamb, 2), FormatNumber(pre_mayo * TiCamb, 2), FormatNumber(pre_medi * TiCamb, 2), FormatNumber(pre_espe * TiCamb, 2), FormatNumber(pre_list * TiCamb, 2), FormatNumber(porcentaje, 2), cantlista, canlista2, porcentajemin, canmin, canmin2, porcentajemay, canmay, canmay2, porcentajemed, cantmed, cantmed2, porcentajeesp, cantesp, cantesp2)
                 ProgressBar1.Value = ProgressBar1.Value + 1
             Loop
             cnn2.Close()
