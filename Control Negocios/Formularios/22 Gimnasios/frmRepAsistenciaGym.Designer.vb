@@ -42,12 +42,13 @@ Partial Class frmRepAsistenciaGym
         Me.MonthCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.GridCaptura = New System.Windows.Forms.DataGridView()
+        Me.CboEmpleado = New System.Windows.Forms.ComboBox()
         Me.Col0 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CboEmpleado = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.GridCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +59,7 @@ Partial Class frmRepAsistenciaGym
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(-1, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(785, 35)
+        Me.Label2.Size = New System.Drawing.Size(957, 35)
         Me.Label2.TabIndex = 84
         '
         'Button3
@@ -66,7 +67,7 @@ Partial Class frmRepAsistenciaGym
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(688, 555)
+        Me.Button3.Location = New System.Drawing.Point(846, 555)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(74, 79)
         Me.Button3.TabIndex = 83
@@ -80,7 +81,7 @@ Partial Class frmRepAsistenciaGym
         Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnexportar.Image = CType(resources.GetObject("btnexportar.Image"), System.Drawing.Image)
         Me.btnexportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnexportar.Location = New System.Drawing.Point(595, 557)
+        Me.btnexportar.Location = New System.Drawing.Point(753, 557)
         Me.btnexportar.Name = "btnexportar"
         Me.btnexportar.Size = New System.Drawing.Size(86, 79)
         Me.btnexportar.TabIndex = 82
@@ -94,7 +95,7 @@ Partial Class frmRepAsistenciaGym
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(514, 557)
+        Me.Button1.Location = New System.Drawing.Point(672, 557)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(74, 79)
         Me.Button1.TabIndex = 81
@@ -126,7 +127,7 @@ Partial Class frmRepAsistenciaGym
         '
         Me.GroupBox2.Controls.Add(Me.RbTodos)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(26, 83)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 86)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(196, 89)
         Me.GroupBox2.TabIndex = 78
@@ -139,10 +140,10 @@ Partial Class frmRepAsistenciaGym
         Me.RbTodos.Checked = True
         Me.RbTodos.Location = New System.Drawing.Point(18, 29)
         Me.RbTodos.Name = "RbTodos"
-        Me.RbTodos.Size = New System.Drawing.Size(84, 24)
+        Me.RbTodos.Size = New System.Drawing.Size(153, 24)
         Me.RbTodos.TabIndex = 0
         Me.RbTodos.TabStop = True
-        Me.RbTodos.Text = "Clientes"
+        Me.RbTodos.Text = "Todos los clientes"
         Me.RbTodos.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -151,7 +152,7 @@ Partial Class frmRepAsistenciaGym
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.MonthCalendar2)
         Me.GroupBox1.Controls.Add(Me.MonthCalendar1)
-        Me.GroupBox1.Location = New System.Drawing.Point(247, 53)
+        Me.GroupBox1.Location = New System.Drawing.Point(394, 53)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(524, 205)
         Me.GroupBox1.TabIndex = 77
@@ -198,8 +199,17 @@ Partial Class frmRepAsistenciaGym
         Me.GridCaptura.Name = "GridCaptura"
         Me.GridCaptura.ReadOnly = True
         Me.GridCaptura.RowHeadersVisible = False
-        Me.GridCaptura.Size = New System.Drawing.Size(733, 287)
+        Me.GridCaptura.Size = New System.Drawing.Size(896, 287)
         Me.GridCaptura.TabIndex = 76
+        '
+        'CboEmpleado
+        '
+        Me.CboEmpleado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboEmpleado.FormattingEnabled = True
+        Me.CboEmpleado.Location = New System.Drawing.Point(12, 205)
+        Me.CboEmpleado.Name = "CboEmpleado"
+        Me.CboEmpleado.Size = New System.Drawing.Size(359, 26)
+        Me.CboEmpleado.TabIndex = 75
         '
         'Col0
         '
@@ -210,26 +220,27 @@ Partial Class frmRepAsistenciaGym
         Me.Col0.Name = "Col0"
         Me.Col0.ReadOnly = True
         Me.Col0.Visible = False
+        Me.Col0.Width = 115
         '
         'Col1
         '
         Me.Col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Col1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Col1.HeaderText = "Empleado"
+        Me.Col1.HeaderText = "Cliente"
         Me.Col1.Name = "Col1"
         Me.Col1.ReadOnly = True
-        Me.Col1.Width = 79
+        Me.Col1.Width = 64
         '
         'Col2
         '
         Me.Col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Col2.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Col2.HeaderText = "Tipo"
+        Me.Col2.HeaderText = "Evento"
         Me.Col2.Name = "Col2"
         Me.Col2.ReadOnly = True
-        Me.Col2.Width = 53
+        Me.Col2.Width = 66
         '
         'Col3
         '
@@ -251,21 +262,23 @@ Partial Class frmRepAsistenciaGym
         Me.Col4.ReadOnly = True
         Me.Col4.Width = 55
         '
-        'CboEmpleado
+        'Label1
         '
-        Me.CboEmpleado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboEmpleado.FormattingEnabled = True
-        Me.CboEmpleado.Location = New System.Drawing.Point(12, 205)
-        Me.CboEmpleado.Name = "CboEmpleado"
-        Me.CboEmpleado.Size = New System.Drawing.Size(235, 26)
-        Me.CboEmpleado.TabIndex = 75
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 182)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 20)
+        Me.Label1.TabIndex = 85
+        Me.Label1.Text = "Cliente:"
         '
         'frmRepAsistenciaGym
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(783, 644)
+        Me.ClientSize = New System.Drawing.Size(939, 644)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.btnexportar)
@@ -277,11 +290,11 @@ Partial Class frmRepAsistenciaGym
         Me.Controls.Add(Me.GridCaptura)
         Me.Controls.Add(Me.CboEmpleado)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(799, 683)
-        Me.MinimumSize = New System.Drawing.Size(799, 683)
+        Me.MaximumSize = New System.Drawing.Size(955, 683)
+        Me.MinimumSize = New System.Drawing.Size(955, 683)
         Me.Name = "frmRepAsistenciaGym"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Reporte de Asistencia"
+        Me.Text = "Reporte de Asistencia de Clientes"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -306,10 +319,11 @@ Partial Class frmRepAsistenciaGym
     Friend WithEvents MonthCalendar2 As MonthCalendar
     Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents GridCaptura As DataGridView
+    Friend WithEvents CboEmpleado As ComboBox
     Friend WithEvents Col0 As DataGridViewTextBoxColumn
     Friend WithEvents Col1 As DataGridViewTextBoxColumn
     Friend WithEvents Col2 As DataGridViewTextBoxColumn
     Friend WithEvents Col3 As DataGridViewTextBoxColumn
     Friend WithEvents Col4 As DataGridViewTextBoxColumn
-    Friend WithEvents CboEmpleado As ComboBox
+    Friend WithEvents Label1 As Label
 End Class
