@@ -4598,7 +4598,7 @@ kaka:
         cbotipo.Visible = False
         Label19.Visible = False
         btndevo.Text = "DEVOLUCIÓN"
-        lblusuario.Text = ""
+
         cbocomisionista.Items.Clear()
         cbocomisionista.Text = ""
         dtpFecha_E.Value = Date.Now
@@ -4606,7 +4606,27 @@ kaka:
         cbonota.Text = ""
         cbonota.Visible = False
         picProd.Image = Nothing
-        txtcontraseña.Text = ""
+
+
+        'limpiar contraseña
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TomaContra'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                tomacontralog = rd1(0).ToString
+
+                If tomacontralog = "1" Then
+                Else
+                    txtcontraseña.Text = ""
+                    lblusuario.Text = ""
+                End If
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
         lblfolio.Text = ""
         lblNumCliente.Text = "MOSTRADOR"
 

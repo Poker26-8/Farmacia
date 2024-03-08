@@ -1449,7 +1449,7 @@
                                                 ('5','LogoG', 'LogoN.jpg', 0),
                                                 ('6','LogoFac', 'logo.jpg', 0),
                                                 ('7','LogoE', '', 0),
-                                                ('8','TipoLogo', 'RECT', 0),
+                                                ('8','TipoLogo', 'SIN', 0),
                                                 ('9','TamImpre', '80', 0),
                                                 ('10','Moneda', 'PESO', 0),
                                                 ('11','Simbolo', '$', 0),

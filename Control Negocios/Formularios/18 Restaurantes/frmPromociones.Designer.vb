@@ -107,13 +107,13 @@ Partial Class frmPromociones
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.chkDomingo = New System.Windows.Forms.CheckBox()
+        Me.chkSabado = New System.Windows.Forms.CheckBox()
+        Me.chkViernes = New System.Windows.Forms.CheckBox()
+        Me.chkJueves = New System.Windows.Forms.CheckBox()
+        Me.chkMiercoles = New System.Windows.Forms.CheckBox()
+        Me.chkMartes = New System.Windows.Forms.CheckBox()
+        Me.ckhLunes = New System.Windows.Forms.CheckBox()
         Me.cbPromocion2x1 = New System.Windows.Forms.CheckBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -187,14 +187,14 @@ Partial Class frmPromociones
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label87 = New System.Windows.Forms.Label()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox11 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox13 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox15 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox16 = New System.Windows.Forms.CheckBox()
+        Me.chkDomingo3 = New System.Windows.Forms.CheckBox()
+        Me.chkSabado3 = New System.Windows.Forms.CheckBox()
+        Me.chkViernes3 = New System.Windows.Forms.CheckBox()
+        Me.chkJueves3 = New System.Windows.Forms.CheckBox()
+        Me.chkMiercoles3 = New System.Windows.Forms.CheckBox()
+        Me.chkMartes3 = New System.Windows.Forms.CheckBox()
+        Me.chkLunes3 = New System.Windows.Forms.CheckBox()
+        Me.cbPromocion3 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -427,13 +427,13 @@ Partial Class frmPromociones
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.CheckBox8)
-        Me.GroupBox1.Controls.Add(Me.CheckBox7)
-        Me.GroupBox1.Controls.Add(Me.CheckBox6)
-        Me.GroupBox1.Controls.Add(Me.CheckBox5)
-        Me.GroupBox1.Controls.Add(Me.CheckBox4)
-        Me.GroupBox1.Controls.Add(Me.CheckBox3)
-        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.chkDomingo)
+        Me.GroupBox1.Controls.Add(Me.chkSabado)
+        Me.GroupBox1.Controls.Add(Me.chkViernes)
+        Me.GroupBox1.Controls.Add(Me.chkJueves)
+        Me.GroupBox1.Controls.Add(Me.chkMiercoles)
+        Me.GroupBox1.Controls.Add(Me.chkMartes)
+        Me.GroupBox1.Controls.Add(Me.ckhLunes)
         Me.GroupBox1.Controls.Add(Me.cbPromocion2x1)
         Me.GroupBox1.Location = New System.Drawing.Point(38, 6)
         Me.GroupBox1.Name = "GroupBox1"
@@ -1228,88 +1228,88 @@ Partial Class frmPromociones
         Me.Label14.Text = "PRIMER HORARIO LUNES"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CheckBox8
+        'chkDomingo
         '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox8.Location = New System.Drawing.Point(118, 594)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(88, 20)
-        Me.CheckBox8.TabIndex = 7
-        Me.CheckBox8.Text = "Domingo"
-        Me.CheckBox8.UseVisualStyleBackColor = True
+        Me.chkDomingo.AutoSize = True
+        Me.chkDomingo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkDomingo.Location = New System.Drawing.Point(118, 594)
+        Me.chkDomingo.Name = "chkDomingo"
+        Me.chkDomingo.Size = New System.Drawing.Size(88, 20)
+        Me.chkDomingo.TabIndex = 7
+        Me.chkDomingo.Text = "Domingo"
+        Me.chkDomingo.UseVisualStyleBackColor = True
         '
-        'CheckBox7
+        'chkSabado
         '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox7.Location = New System.Drawing.Point(118, 497)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(81, 20)
-        Me.CheckBox7.TabIndex = 6
-        Me.CheckBox7.Text = "Sabado"
-        Me.CheckBox7.UseVisualStyleBackColor = True
+        Me.chkSabado.AutoSize = True
+        Me.chkSabado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSabado.Location = New System.Drawing.Point(118, 497)
+        Me.chkSabado.Name = "chkSabado"
+        Me.chkSabado.Size = New System.Drawing.Size(81, 20)
+        Me.chkSabado.TabIndex = 6
+        Me.chkSabado.Text = "Sabado"
+        Me.chkSabado.UseVisualStyleBackColor = True
         '
-        'CheckBox6
+        'chkViernes
         '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox6.Location = New System.Drawing.Point(118, 398)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(79, 20)
-        Me.CheckBox6.TabIndex = 5
-        Me.CheckBox6.Text = "Viernes"
-        Me.CheckBox6.UseVisualStyleBackColor = True
+        Me.chkViernes.AutoSize = True
+        Me.chkViernes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkViernes.Location = New System.Drawing.Point(118, 398)
+        Me.chkViernes.Name = "chkViernes"
+        Me.chkViernes.Size = New System.Drawing.Size(79, 20)
+        Me.chkViernes.TabIndex = 5
+        Me.chkViernes.Text = "Viernes"
+        Me.chkViernes.UseVisualStyleBackColor = True
         '
-        'CheckBox5
+        'chkJueves
         '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox5.Location = New System.Drawing.Point(118, 308)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(76, 20)
-        Me.CheckBox5.TabIndex = 4
-        Me.CheckBox5.Text = "Jueves"
-        Me.CheckBox5.UseVisualStyleBackColor = True
+        Me.chkJueves.AutoSize = True
+        Me.chkJueves.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkJueves.Location = New System.Drawing.Point(118, 309)
+        Me.chkJueves.Name = "chkJueves"
+        Me.chkJueves.Size = New System.Drawing.Size(76, 20)
+        Me.chkJueves.TabIndex = 4
+        Me.chkJueves.Text = "Jueves"
+        Me.chkJueves.UseVisualStyleBackColor = True
         '
-        'CheckBox4
+        'chkMiercoles
         '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox4.Location = New System.Drawing.Point(118, 210)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(94, 20)
-        Me.CheckBox4.TabIndex = 3
-        Me.CheckBox4.Text = "Miercoles"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.chkMiercoles.AutoSize = True
+        Me.chkMiercoles.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkMiercoles.Location = New System.Drawing.Point(118, 210)
+        Me.chkMiercoles.Name = "chkMiercoles"
+        Me.chkMiercoles.Size = New System.Drawing.Size(94, 20)
+        Me.chkMiercoles.TabIndex = 3
+        Me.chkMiercoles.Text = "Miercoles"
+        Me.chkMiercoles.UseVisualStyleBackColor = True
         '
-        'CheckBox3
+        'chkMartes
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.Location = New System.Drawing.Point(118, 117)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(73, 20)
-        Me.CheckBox3.TabIndex = 2
-        Me.CheckBox3.Text = "Martes"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.chkMartes.AutoSize = True
+        Me.chkMartes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkMartes.Location = New System.Drawing.Point(118, 114)
+        Me.chkMartes.Name = "chkMartes"
+        Me.chkMartes.Size = New System.Drawing.Size(73, 20)
+        Me.chkMartes.TabIndex = 2
+        Me.chkMartes.Text = "Martes"
+        Me.chkMartes.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'ckhLunes
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(118, 19)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(67, 20)
-        Me.CheckBox2.TabIndex = 1
-        Me.CheckBox2.Text = "Lunes"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.ckhLunes.AutoSize = True
+        Me.ckhLunes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckhLunes.Location = New System.Drawing.Point(118, 19)
+        Me.ckhLunes.Name = "ckhLunes"
+        Me.ckhLunes.Size = New System.Drawing.Size(67, 20)
+        Me.ckhLunes.TabIndex = 1
+        Me.ckhLunes.Text = "Lunes"
+        Me.ckhLunes.UseVisualStyleBackColor = True
         '
         'cbPromocion2x1
         '
         Me.cbPromocion2x1.AutoSize = True
         Me.cbPromocion2x1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPromocion2x1.Location = New System.Drawing.Point(6, 63)
+        Me.cbPromocion2x1.Location = New System.Drawing.Point(6, 61)
         Me.cbPromocion2x1.Name = "cbPromocion2x1"
         Me.cbPromocion2x1.Size = New System.Drawing.Size(110, 22)
         Me.cbPromocion2x1.TabIndex = 0
@@ -1399,14 +1399,14 @@ Partial Class frmPromociones
         Me.GroupBox2.Controls.Add(Me.Label85)
         Me.GroupBox2.Controls.Add(Me.Label86)
         Me.GroupBox2.Controls.Add(Me.Label87)
-        Me.GroupBox2.Controls.Add(Me.CheckBox9)
-        Me.GroupBox2.Controls.Add(Me.CheckBox10)
-        Me.GroupBox2.Controls.Add(Me.CheckBox11)
-        Me.GroupBox2.Controls.Add(Me.CheckBox12)
-        Me.GroupBox2.Controls.Add(Me.CheckBox13)
-        Me.GroupBox2.Controls.Add(Me.CheckBox14)
-        Me.GroupBox2.Controls.Add(Me.CheckBox15)
-        Me.GroupBox2.Controls.Add(Me.CheckBox16)
+        Me.GroupBox2.Controls.Add(Me.chkDomingo3)
+        Me.GroupBox2.Controls.Add(Me.chkSabado3)
+        Me.GroupBox2.Controls.Add(Me.chkViernes3)
+        Me.GroupBox2.Controls.Add(Me.chkJueves3)
+        Me.GroupBox2.Controls.Add(Me.chkMiercoles3)
+        Me.GroupBox2.Controls.Add(Me.chkMartes3)
+        Me.GroupBox2.Controls.Add(Me.chkLunes3)
+        Me.GroupBox2.Controls.Add(Me.cbPromocion3)
         Me.GroupBox2.Location = New System.Drawing.Point(39, 7)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(757, 686)
@@ -2200,93 +2200,93 @@ Partial Class frmPromociones
         Me.Label87.Text = "PRIMER HORARIO LUNES"
         Me.Label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CheckBox9
+        'chkDomingo3
         '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox9.Location = New System.Drawing.Point(118, 594)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(88, 20)
-        Me.CheckBox9.TabIndex = 7
-        Me.CheckBox9.Text = "Domingo"
-        Me.CheckBox9.UseVisualStyleBackColor = True
+        Me.chkDomingo3.AutoSize = True
+        Me.chkDomingo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkDomingo3.Location = New System.Drawing.Point(118, 594)
+        Me.chkDomingo3.Name = "chkDomingo3"
+        Me.chkDomingo3.Size = New System.Drawing.Size(88, 20)
+        Me.chkDomingo3.TabIndex = 7
+        Me.chkDomingo3.Text = "Domingo"
+        Me.chkDomingo3.UseVisualStyleBackColor = True
         '
-        'CheckBox10
+        'chkSabado3
         '
-        Me.CheckBox10.AutoSize = True
-        Me.CheckBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox10.Location = New System.Drawing.Point(118, 497)
-        Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(81, 20)
-        Me.CheckBox10.TabIndex = 6
-        Me.CheckBox10.Text = "Sabado"
-        Me.CheckBox10.UseVisualStyleBackColor = True
+        Me.chkSabado3.AutoSize = True
+        Me.chkSabado3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSabado3.Location = New System.Drawing.Point(118, 499)
+        Me.chkSabado3.Name = "chkSabado3"
+        Me.chkSabado3.Size = New System.Drawing.Size(81, 20)
+        Me.chkSabado3.TabIndex = 6
+        Me.chkSabado3.Text = "Sabado"
+        Me.chkSabado3.UseVisualStyleBackColor = True
         '
-        'CheckBox11
+        'chkViernes3
         '
-        Me.CheckBox11.AutoSize = True
-        Me.CheckBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox11.Location = New System.Drawing.Point(118, 398)
-        Me.CheckBox11.Name = "CheckBox11"
-        Me.CheckBox11.Size = New System.Drawing.Size(79, 20)
-        Me.CheckBox11.TabIndex = 5
-        Me.CheckBox11.Text = "Viernes"
-        Me.CheckBox11.UseVisualStyleBackColor = True
+        Me.chkViernes3.AutoSize = True
+        Me.chkViernes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkViernes3.Location = New System.Drawing.Point(118, 401)
+        Me.chkViernes3.Name = "chkViernes3"
+        Me.chkViernes3.Size = New System.Drawing.Size(79, 20)
+        Me.chkViernes3.TabIndex = 5
+        Me.chkViernes3.Text = "Viernes"
+        Me.chkViernes3.UseVisualStyleBackColor = True
         '
-        'CheckBox12
+        'chkJueves3
         '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox12.Location = New System.Drawing.Point(118, 308)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(76, 20)
-        Me.CheckBox12.TabIndex = 4
-        Me.CheckBox12.Text = "Jueves"
-        Me.CheckBox12.UseVisualStyleBackColor = True
+        Me.chkJueves3.AutoSize = True
+        Me.chkJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkJueves3.Location = New System.Drawing.Point(118, 309)
+        Me.chkJueves3.Name = "chkJueves3"
+        Me.chkJueves3.Size = New System.Drawing.Size(76, 20)
+        Me.chkJueves3.TabIndex = 4
+        Me.chkJueves3.Text = "Jueves"
+        Me.chkJueves3.UseVisualStyleBackColor = True
         '
-        'CheckBox13
+        'chkMiercoles3
         '
-        Me.CheckBox13.AutoSize = True
-        Me.CheckBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox13.Location = New System.Drawing.Point(118, 210)
-        Me.CheckBox13.Name = "CheckBox13"
-        Me.CheckBox13.Size = New System.Drawing.Size(94, 20)
-        Me.CheckBox13.TabIndex = 3
-        Me.CheckBox13.Text = "Miercoles"
-        Me.CheckBox13.UseVisualStyleBackColor = True
+        Me.chkMiercoles3.AutoSize = True
+        Me.chkMiercoles3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkMiercoles3.Location = New System.Drawing.Point(118, 213)
+        Me.chkMiercoles3.Name = "chkMiercoles3"
+        Me.chkMiercoles3.Size = New System.Drawing.Size(94, 20)
+        Me.chkMiercoles3.TabIndex = 3
+        Me.chkMiercoles3.Text = "Miercoles"
+        Me.chkMiercoles3.UseVisualStyleBackColor = True
         '
-        'CheckBox14
+        'chkMartes3
         '
-        Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox14.Location = New System.Drawing.Point(118, 117)
-        Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(73, 20)
-        Me.CheckBox14.TabIndex = 2
-        Me.CheckBox14.Text = "Martes"
-        Me.CheckBox14.UseVisualStyleBackColor = True
+        Me.chkMartes3.AutoSize = True
+        Me.chkMartes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkMartes3.Location = New System.Drawing.Point(118, 114)
+        Me.chkMartes3.Name = "chkMartes3"
+        Me.chkMartes3.Size = New System.Drawing.Size(73, 20)
+        Me.chkMartes3.TabIndex = 2
+        Me.chkMartes3.Text = "Martes"
+        Me.chkMartes3.UseVisualStyleBackColor = True
         '
-        'CheckBox15
+        'chkLunes3
         '
-        Me.CheckBox15.AutoSize = True
-        Me.CheckBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox15.Location = New System.Drawing.Point(118, 19)
-        Me.CheckBox15.Name = "CheckBox15"
-        Me.CheckBox15.Size = New System.Drawing.Size(67, 20)
-        Me.CheckBox15.TabIndex = 1
-        Me.CheckBox15.Text = "Lunes"
-        Me.CheckBox15.UseVisualStyleBackColor = True
+        Me.chkLunes3.AutoSize = True
+        Me.chkLunes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkLunes3.Location = New System.Drawing.Point(118, 19)
+        Me.chkLunes3.Name = "chkLunes3"
+        Me.chkLunes3.Size = New System.Drawing.Size(67, 20)
+        Me.chkLunes3.TabIndex = 1
+        Me.chkLunes3.Text = "Lunes"
+        Me.chkLunes3.UseVisualStyleBackColor = True
         '
-        'CheckBox16
+        'cbPromocion3
         '
-        Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox16.Location = New System.Drawing.Point(6, 61)
-        Me.CheckBox16.Name = "CheckBox16"
-        Me.CheckBox16.Size = New System.Drawing.Size(110, 22)
-        Me.CheckBox16.TabIndex = 0
-        Me.CheckBox16.Text = "Promoción"
-        Me.CheckBox16.UseVisualStyleBackColor = True
+        Me.cbPromocion3.AutoSize = True
+        Me.cbPromocion3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPromocion3.Location = New System.Drawing.Point(6, 61)
+        Me.cbPromocion3.Name = "cbPromocion3"
+        Me.cbPromocion3.Size = New System.Drawing.Size(110, 22)
+        Me.cbPromocion3.TabIndex = 0
+        Me.cbPromocion3.Text = "Promoción"
+        Me.cbPromocion3.UseVisualStyleBackColor = True
         '
         'frmPromociones
         '
@@ -2329,13 +2329,13 @@ Partial Class frmPromociones
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents CheckBox7 As CheckBox
-    Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents chkDomingo As CheckBox
+    Friend WithEvents chkSabado As CheckBox
+    Friend WithEvents chkViernes As CheckBox
+    Friend WithEvents chkJueves As CheckBox
+    Friend WithEvents chkMiercoles As CheckBox
+    Friend WithEvents chkMartes As CheckBox
+    Friend WithEvents ckhLunes As CheckBox
     Friend WithEvents cbPromocion2x1 As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents dtpFinLunes As DateTimePicker
@@ -2478,12 +2478,12 @@ Partial Class frmPromociones
     Friend WithEvents Label85 As Label
     Friend WithEvents Label86 As Label
     Friend WithEvents Label87 As Label
-    Friend WithEvents CheckBox9 As CheckBox
-    Friend WithEvents CheckBox10 As CheckBox
-    Friend WithEvents CheckBox11 As CheckBox
-    Friend WithEvents CheckBox12 As CheckBox
-    Friend WithEvents CheckBox13 As CheckBox
-    Friend WithEvents CheckBox14 As CheckBox
-    Friend WithEvents CheckBox15 As CheckBox
-    Friend WithEvents CheckBox16 As CheckBox
+    Friend WithEvents chkDomingo3 As CheckBox
+    Friend WithEvents chkSabado3 As CheckBox
+    Friend WithEvents chkViernes3 As CheckBox
+    Friend WithEvents chkJueves3 As CheckBox
+    Friend WithEvents chkMiercoles3 As CheckBox
+    Friend WithEvents chkMartes3 As CheckBox
+    Friend WithEvents chkLunes3 As CheckBox
+    Friend WithEvents cbPromocion3 As CheckBox
 End Class
