@@ -5796,6 +5796,8 @@
 
 
 
+
+
     'SaldosEmpleados
     Public vartablasaldosempleados As String = "CREATE TABLE IF NOT EXISTS `saldosempleados` (
                                                   `Id` int(11) NOT NULL,
@@ -5897,7 +5899,8 @@
                                           `Pagare` text NOT NULL,
                                           `Comensal` int(1) NOT NULL DEFAULT '0'
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
-    Public varinsertaticket As String = "INSERT INTO `ticket` (`Cab0`, `Cab1`, `Cab2`, `Cab3`, `Cab4`, `Cab5`, `Cab6`, `Pie1`, `Pie2`, `Pie3`, `NoPrint`, `Copias`, `VSE`, `Pagare`,`Comensal`) VALUES ('', '', '', '', '', '', '', '', '', '', 0, 0, 0, '',0);"
+
+    Public varinsertaticket As String = "INSERT INTO `ticket` (`Cab0`, `Cab1`, `Cab2`, `Cab3`, `Cab4`, `Cab5`, `Cab6`, `Pie1`, `Pie2`, `Pie3`, `NoPrint`, `Copias`, `VSE`, `Pagare`,`Comensal`) VALUES ('', '', '', '', '', '', '', '', '', '', 0, 1, 0, '',0);"
 
 
 
