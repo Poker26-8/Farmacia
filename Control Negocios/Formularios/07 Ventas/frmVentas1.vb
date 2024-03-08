@@ -5039,7 +5039,7 @@ doorcita:
                             MyGrupo = rd1("Grupo").ToString
                             MyMCD = rd1("MCD").ToString
                             If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
-                                rd1.Close() : cnn1.Close()
+                                rd1.Close()
                                 GoTo Door
                             End If
                         End If
