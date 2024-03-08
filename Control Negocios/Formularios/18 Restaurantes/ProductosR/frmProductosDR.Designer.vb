@@ -466,7 +466,7 @@ Partial Class frmProductosDR
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(236, 23)
         Me.Label19.TabIndex = 304
-        Me.Label19.Text = "Grupo"
+        Me.Label19.Text = "Grupo  *INSUMO"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboDepartamentoNormal
@@ -488,7 +488,7 @@ Partial Class frmProductosDR
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(236, 23)
         Me.Label20.TabIndex = 302
-        Me.Label20.Text = "Departamento *INSUMO"
+        Me.Label20.Text = "Departamento"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboProvEme

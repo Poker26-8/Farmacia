@@ -27,9 +27,9 @@ Partial Class frmPromociones
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txtUnidad = New System.Windows.Forms.TextBox()
+        Me.cboNombre = New System.Windows.Forms.ComboBox()
+        Me.cboCodigo = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -209,9 +209,9 @@ Partial Class frmPromociones
         Me.Panel1.Controls.Add(Me.btnSalir)
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnNuevo)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.ComboBox2)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.txtUnidad)
+        Me.Panel1.Controls.Add(Me.cboNombre)
+        Me.Panel1.Controls.Add(Me.cboCodigo)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -269,31 +269,32 @@ Partial Class frmPromociones
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'txtUnidad
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(503, 41)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 24)
-        Me.TextBox1.TabIndex = 5
+        Me.txtUnidad.Enabled = False
+        Me.txtUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUnidad.Location = New System.Drawing.Point(503, 41)
+        Me.txtUnidad.Name = "txtUnidad"
+        Me.txtUnidad.Size = New System.Drawing.Size(100, 24)
+        Me.txtUnidad.TabIndex = 5
         '
-        'ComboBox2
+        'cboNombre
         '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(124, 41)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(376, 24)
-        Me.ComboBox2.TabIndex = 4
+        Me.cboNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboNombre.FormattingEnabled = True
+        Me.cboNombre.Location = New System.Drawing.Point(124, 41)
+        Me.cboNombre.Name = "cboNombre"
+        Me.cboNombre.Size = New System.Drawing.Size(376, 24)
+        Me.cboNombre.TabIndex = 4
         '
-        'ComboBox1
+        'cboCodigo
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 41)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(111, 24)
-        Me.ComboBox1.TabIndex = 3
+        Me.cboCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCodigo.FormattingEnabled = True
+        Me.cboCodigo.Location = New System.Drawing.Point(12, 41)
+        Me.cboCodigo.Name = "cboCodigo"
+        Me.cboCodigo.Size = New System.Drawing.Size(111, 24)
+        Me.cboCodigo.TabIndex = 3
         '
         'Label3
         '
@@ -2237,7 +2238,7 @@ Partial Class frmPromociones
         '
         Me.chkJueves3.AutoSize = True
         Me.chkJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkJueves3.Location = New System.Drawing.Point(118, 309)
+        Me.chkJueves3.Location = New System.Drawing.Point(118, 306)
         Me.chkJueves3.Name = "chkJueves3"
         Me.chkJueves3.Size = New System.Drawing.Size(76, 20)
         Me.chkJueves3.TabIndex = 4
@@ -2319,9 +2320,9 @@ Partial Class frmPromociones
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnNuevo As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents txtUnidad As TextBox
+    Friend WithEvents cboNombre As ComboBox
+    Friend WithEvents cboCodigo As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
