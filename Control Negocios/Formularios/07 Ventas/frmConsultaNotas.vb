@@ -2042,8 +2042,8 @@ Public Class frmConsultaNotas
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("A B O N O", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 12
+            e.Graphics.DrawString("ABONO", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 17
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
@@ -3427,14 +3427,14 @@ doorcita:
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
-                End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 130
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 120
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
                 End If
             Else
                 Y = 0
@@ -3495,8 +3495,8 @@ doorcita:
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("COPIA DE NOTA DE VENTA", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 12
+            e.Graphics.DrawString("COPIA NOTA VENTA", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 17
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
@@ -3938,15 +3938,16 @@ doorcita:
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
                 End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 130
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 120
-                End If
+
             Else
                 Y = 0
             End If
@@ -4007,8 +4008,8 @@ doorcita:
             If TipoVenta = 5 Then
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 15
-                e.Graphics.DrawString("COPIA COTIZACIÓN", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                Y += 12
+                e.Graphics.DrawString("COPIA COTIZACIÓN", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 17
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 18
             End If
@@ -4164,15 +4165,16 @@ doorcita:
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
                 End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 130
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 120
-                End If
+
             Else
                 Y = 0
             End If
@@ -4232,8 +4234,8 @@ doorcita:
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("COPIA DEVOLUCIÓN", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 12
+            e.Graphics.DrawString("COPIA DEVOLUCIÓN", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 17
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
@@ -5895,14 +5897,14 @@ doorcita:
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
-                End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 100
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 100
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 100
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 100
+                    End If
                 End If
             Else
                 Y = 0
@@ -5962,8 +5964,8 @@ doorcita:
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
-            e.Graphics.DrawString("COPIA DE NOTA DE ABONO", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 12
+            e.Graphics.DrawString("COPIA DE ABONO", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 17
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
