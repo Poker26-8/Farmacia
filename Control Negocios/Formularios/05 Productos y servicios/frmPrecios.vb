@@ -239,8 +239,8 @@
                         TxtCantLta2.Text = IIf(rd1("CantLst2").ToString = "", "0", rd1("CantLst2").ToString)
                         txtmonedero.Text = rd1("Promo_Monedero").ToString()
                         ChkTodos.Checked = rd1("pres_vol").ToString()
-                        dtpFechaI.Value = rd1("Fecha_Inicial").ToString()
-                        dtpFechaF.Value = rd1("Fecha_Final").ToString()
+                        'dtpFechaI.Value = rd1("Fecha_Inicial").ToString()
+                        'dtpFechaF.Value = rd1("Fecha_Final").ToString()
 
                         Dim activar As Integer = IIf(rd1("pres_vol").ToString() = True, 1, 0)
                         If activar = 1 Then
@@ -549,8 +549,8 @@
                     TxtCantLta2.Text = IIf(rd4("CantLst2").ToString = "", "0", rd4("CantLst2").ToString)
                     txtmonedero.Text = rd4("Promo_Monedero").ToString()
                     ChkTodos.Checked = rd4("pres_vol").ToString
-                    dtpFechaI.Value = rd4("Fecha_Inicial").ToString
-                    dtpFechaF.Value = rd4("Fecha_Final").ToString
+                    'dtpFechaI.Value = rd4("Fecha_Inicial").ToString
+                    'dtpFechaF.Value = rd4("Fecha_Final").ToString
                     Dim activar As Integer = IIf(rd4("pres_vol").ToString = True, 1, 0)
                     If activar = 1 Then
                         Call ActivarP()

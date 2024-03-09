@@ -6909,6 +6909,9 @@ puerta_FacturaG:
                         If .dbOpen(cnn1, sTarget, sinfo) Then
                             If .getDt(cnn1, dt, "Select Codigo,Nombre,Unidad,Cantidad,PrecioSinIVA,TotalSinIVA,Facturado,Descto,Total,TotalIEPS,Precio,CostVR from VentasDetalle where Folio = " & str1(x1) & " and Total <> '0'", sinfo) Then
                                 For Each dr In dt.Rows
+
+                                    Dim COdiguito As String = dr(0).ToString()
+
                                     If CDec(dr("Descto").ToString) <> CDec(0) Then
                                         If CDec(dr(6).ToString) <> CDec(0) Then
                                             MsgBox("El folio " & str1(x1) & " ya fue facturado")
@@ -7044,7 +7047,7 @@ puerta_FacturaG:
                                             Dim dr2 As DataRow
                                             With odata
                                                 If .dbOpen(cnn2, sTarget, sinfo) Then
-                                                    If .getDt(cnn2, dt2, "Select * from Productos where Codigo = '" & dr(0).ToString & "'", sinfo) Then
+                                                    If .getDt(cnn2, dt2, "Select * from `productos` where `codigo`='" & CStr(COdiguito) & "'", sinfo) Then
                                                         For Each dr2 In dt2.Rows
                                                             varClaveProd = IIf(IsDBNull(dr2("ClaveSat").ToString), "", dr2("ClaveSat").ToString)
                                                             varUniMed = IIf(IsDBNull(dr2("UnidadSat").ToString), "", dr2("UnidadSat").ToString)
