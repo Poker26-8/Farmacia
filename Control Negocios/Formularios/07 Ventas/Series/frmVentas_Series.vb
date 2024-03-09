@@ -4390,6 +4390,7 @@ doorcita:
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         Timer1.Stop()
         Me.Text = "Ventas Series"
+        cbodesc.Focus.Equals(True)
         txttel.Text = ""
         cboNombre.Text = ""
         cboNombre.Items.Clear()

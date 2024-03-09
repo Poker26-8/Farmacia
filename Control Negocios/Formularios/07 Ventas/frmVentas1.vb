@@ -4570,6 +4570,7 @@ kaka:
     Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
         Timer1.Stop()
         Me.Text = "Ventas (1)"
+        cbodesc.Focus.Equals(True)
         txtvalor.Text = "0.00"
         txtequivale.Text = "0.00"
         txttel.Text = ""
@@ -12551,5 +12552,14 @@ ecomoda:
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Focus().Equals(True)
         End If
+    End Sub
+
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        frmRepExistenciaSincronizador.Show()
+        frmRepExistenciaSincronizador.BringToFront()
+    End Sub
+
+    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+        frmConfiM.Show()
     End Sub
 End Class

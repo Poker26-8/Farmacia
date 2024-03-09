@@ -353,6 +353,12 @@
     <Compile Include="Formularios\06 Compras\Series\frmComprasSeries.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.Designer.vb">
+      <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.Designer.vb">
       <DependentUpon>frmRepAuditoria.vb</DependentUpon>
     </Compile>
@@ -1553,6 +1559,12 @@
     <Compile Include="Formularios\25 Pollos\FRMPRUBEA.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\27 Mensajes\frmConfiM.Designer.vb">
+      <DependentUpon>frmConfiM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\27 Mensajes\frmConfiM.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -1664,6 +1676,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Series\frmComprasSeries.resx">
       <DependentUpon>frmComprasSeries.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.resx">
+      <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.resx">
       <DependentUpon>frmRepAuditoria.vb</DependentUpon>
@@ -2278,6 +2293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\25 Pollos\FRMPRUBEA.resx">
       <DependentUpon>FRMPRUBEA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\27 Mensajes\frmConfiM.resx">
+      <DependentUpon>frmConfiM.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

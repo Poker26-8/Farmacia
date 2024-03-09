@@ -77,6 +77,7 @@ Module Module1
     Public varnumbase As String = ""
     Public varrutabase As String = ""
     Public sTarget As String = ""
+    Public sTargetmensajeswhatsapp As String = ""
     'Public sTargetlocal As String = ""
     Public vempresa As Integer = 1
     Public uidcancel As String
@@ -100,6 +101,8 @@ Module Module1
 
     Public susursalr As Integer = 0
 
+    Public ARCHIVO_DE_CONFIGURACIONW = My.Application.Info.DirectoryPath & "\ConfiguraW.dat"
+
     Public Function ConvertCero(ByVal vl As String) As Double
         If Not IsNumeric(vl) Then
             ConvertCero = 0
@@ -116,6 +119,15 @@ Module Module1
         userbd = Trim(configlocal.usuario_configuracion)
         passbd = Trim(configlocal.password_configuracion)
     End Sub
+
+    Structure datosMensajeria
+        Dim rutar As String
+        Dim sucursalr As String
+        Dim ipr As String
+        Dim baser As String
+        Dim usuarior As String
+        Dim passr As String
+    End Structure
 
     'Public sTargetlocal As String = "Data Source=" & dameIP2() & "; Integrated Security=true; initial catalog=CN1; user id=Delsscom; password=jipl22; timeout=300"
     ' Public sTargetlocal As String = "Server=" & ipserver & ";Database=" & database & ";User ID=" & userbd & ";Password=" & passbd & ";Connect Timeout=300;"
@@ -159,6 +171,7 @@ Module Module1
     Public ARCHIVO_DE_CONFIGURACION_F = My.Application.Info.DirectoryPath & "\Configurapdvfac.dat"
 
     Public sTargetdSincro As String = ""
+    Public sTargetdWaht As String = ""
     Public sTargetMYSQL As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
     Public sTargetdAutoFac As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
 
@@ -166,6 +179,13 @@ Module Module1
     Public database As String = ""
     Public userbd As String = ""
     Public passbd As String = ""
+
+    'datos para la mensajeria de whatsapp
+    Public ipserverW As String = ""
+    Public databaseW As String = ""
+    Public userbdW As String = ""
+    Public passbdW As String = ""
+
     Public serie_gen As String = ""
     Public timbres_totales As Integer = 0
     Public timbres_timbrados As Integer = 0
