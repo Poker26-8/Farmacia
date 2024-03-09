@@ -3214,7 +3214,6 @@ kaka:
             End If
             cnn4.Close()
 
-
             If btndevo.Text = "GUARDAR DEVOLUCIÓN" Then
                 txtprecio.Text = CalPreDevo(cbonota.Text, cbocodigo.Text)
                 txtprecio.Text = FormatNumber(txtprecio.Text, 4)
