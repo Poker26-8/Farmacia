@@ -28,11 +28,13 @@ Partial Class frmMensajeW
         Me.txtMensaje = New System.Windows.Forms.RichTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.txtCel)
         Me.GroupBox2.Controls.Add(Me.btnEnviar)
         Me.GroupBox2.Controls.Add(Me.txtMensaje)
@@ -95,6 +97,20 @@ Partial Class frmMensajeW
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Celular a 10 digitos:"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.YellowGreen
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Location = New System.Drawing.Point(374, 151)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(166, 57)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "Clientes"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'frmMensajeW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -116,4 +132,5 @@ Partial Class frmMensajeW
     Friend WithEvents txtMensaje As RichTextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class

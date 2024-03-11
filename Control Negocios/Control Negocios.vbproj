@@ -1568,6 +1568,12 @@
     <Compile Include="Formularios\25 Pollos\FRMPRUBEA.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\27 Mensajes\frmClientesW.Designer.vb">
+      <DependentUpon>frmClientesW.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\27 Mensajes\frmClientesW.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\27 Mensajes\frmConfiM.Designer.vb">
       <DependentUpon>frmConfiM.vb</DependentUpon>
     </Compile>
@@ -2311,6 +2317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\25 Pollos\FRMPRUBEA.resx">
       <DependentUpon>FRMPRUBEA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\27 Mensajes\frmClientesW.resx">
+      <DependentUpon>frmClientesW.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\27 Mensajes\frmConfiM.resx">
       <DependentUpon>frmConfiM.vb</DependentUpon>

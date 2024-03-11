@@ -1,49 +1,82 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Threading.Tasks
-Imports Chilkat
+﻿Imports Microsoft.Office.Interop
+Imports Newtonsoft.Json.Linq
+Imports Org.BouncyCastle.Utilities
 Imports WhatsAppDLL
-Public Class frmMensajeW
+Imports System.Threading.Tasks
 
-    Dim token As String = ""
-    Dim TIMBRES As Integer = 0
+Public Class frmClientesW
 
-    Private Sub frmMensajeW_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Dim timbres As Integer = 0
+    Dim TOTALREGISTROS As Integer = 0
+    Private Sub frmClientesW_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sTargetdWaht = "server=" & ipserverW & ";uid=" & userbdW & ";password=" & passbdW & ";database=" & databaseW & ";persist security info=false;connect timeout=300"
 
-        Dim cnn12 As MySql.Data.MySqlClient.MySqlConnection = New MySql.Data.MySqlClient.MySqlConnection
-        Dim sinfo12 As String = ""
-        Dim dr As DataRow
-        Dim odata12 As New ToolKitSQL.myssql
-        Dim sql12 As String = "SELECT * FROM Renta WHERE Id=" & empresaseleccionadaw & ""
-        With odata12
-            If .dbOpen(cnn12, sTargetdWaht, sinfo12) Then
-                If .getDr(cnn12, dr, sql12, sinfo12) Then
+    End Sub
+    Private Sub rbTodos_Click(sender As Object, e As EventArgs) Handles rbTodos.Click
 
-                    token = dr("tokenQR").ToString
+        Try
+            If (rbTodos.Checked) Then
 
+                TOTALREGISTROS = 0
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT COUNT(Id) FROM clientes WHERE Nombre<>'' AND Telefono<>''"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        TOTALREGISTROS = rd1(0).ToString
+                    End If
                 End If
-                cnn12.Close()
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Nombre,RazonSocial,Telefono FROM clientes WHERE Nombre<>'' AND Telefono<>'' ORDER BY Nombre"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        grdCaptura.Rows.Add(rd1(0).ToString,
+                                            rd1(1).ToString,
+                                            rd1(2).ToString
+)
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
             End If
-        End With
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-
         If checat() Then
-            If 1 > TIMBRES Then
-                MsgBox("El número de mensajes que quiere enviar es mayor al número de mensajes disponibles " & TIMBRES)
+
+            Dim telefono As String = ""
+
+            If 1 > timbres Then
+                MsgBox("El número de mensajes que quiere enviar es mayor al número de mensajes disponibles " & timbres, vbInformation + vbOKOnly, titulocentral)
                 Exit Sub
             End If
 
             If Trim(txtMensaje.Text) = "" Then MsgBox("Ha que registrar almenos un caracter en el mensaje") : txtMensaje.Focus() : Exit Sub
-            If Trim(txtCel.Text) = "" Then MsgBox("El campo celular no puede estar vacío") : txtCel.Focus() : Exit Sub
-            If IsNumeric(Trim(txtCel.Text)) = False Then MsgBox("El celular debe de ser un valor numérico") : txtCel.Focus() : Exit Sub
-            If Len(txtCel.Text) < 10 Then MsgBox("El celular debe de contener 10 caracteres") : txtCel.Focus() : Exit Sub
 
-            mandar_el_mensaje_async(Trim(txtCel.Text), Trim(txtMensaje.Text))
+            For dx As Integer = 0 To grdCaptura.Rows.Count - 1
 
-            actualiza_timbres(1)
+                telefono = grdCaptura.Rows(dx).Cells(2).Value.ToString
+
+
+                mandar_el_mensaje_async(Trim(telefono), Trim(txtMensaje.Text))
+
+            Next
+
+
+
+            actualiza_timbres(TOTALREGISTROS)
         End If
     End Sub
 
@@ -61,6 +94,7 @@ Public Class frmMensajeW
         End Try
     End Function
 
+
     Public Function checat()
 
         Dim cnn As MySql.Data.MySqlClient.MySqlConnection = New MySql.Data.MySqlClient.MySqlConnection
@@ -72,7 +106,7 @@ Public Class frmMensajeW
         With odata
             If .dbOpen(cnn, sTargetdWaht, sinfo) Then
                 If odata.getDr(cnn, dr, sql, sinfo) Then
-                    TIMBRES = CInt(dr("NumM").ToString)
+                    timbres = CInt(dr("NumM").ToString)
 
                     If CInt(dr("NumM").ToString) > 0 Then
                         cnn.Close()
@@ -107,8 +141,10 @@ Public Class frmMensajeW
         End With
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmClientesW.Show()
-        frmClientesW.BringToFront()
+    Private Sub txtMensaje_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMensaje.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnEnviar.Focus.Equals(True)
+        End If
     End Sub
 End Class

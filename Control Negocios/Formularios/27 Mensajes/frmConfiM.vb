@@ -42,7 +42,7 @@
 
             txtEmpresa.Text = Trim(configRenta.empresa)
             txtToken.Text = Trim(configRenta.token)
-
+            tokenglobal = txtToken.Text
 
             sTargetdWaht = "server=" & ipserverW & ";uid=" & userbdW & ";password=" & passbdW & ";database=" & databaseW & ";persist security info=false;connect timeout=30"
 

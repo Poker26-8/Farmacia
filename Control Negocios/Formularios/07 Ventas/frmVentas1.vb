@@ -3593,7 +3593,7 @@ kaka:
             cbodesc.Text = ""
             cbodesc.Items.Clear()
             txtunidad.Text = ""
-            txtcantidad.Text = ""
+            txtcantidad.Text = "1"
             txtprecio.Text = "0.00"
             txttotal.Text = "0.00"
             txtexistencia.Text = ""
@@ -4754,8 +4754,7 @@ kaka:
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'frmVentas2.Show()
         'frmVentas2.BringToFront()
-        frmVentas_Series.Show()
-        frmVentas_Series.BringToFront()
+
     End Sub
 
     'Cotizaciones

@@ -30,6 +30,7 @@ End Structure
 
 Module Module1
 
+    Public tokenglobal As String = ""
     Public empresaseleccionadaw As Integer = 0
     Public baseseleccionada As String = ""
 
