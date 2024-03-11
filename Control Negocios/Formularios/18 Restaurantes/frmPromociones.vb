@@ -545,15 +545,105 @@
                             lunes2 = rd2("Lunes2").ToString
                             martes2 = rd2("Martes2").ToString
                             miercoles2 = rd2("Miercoles2").ToString
-                            jueves = rd2("Jueves2").ToString
+                            jueves2 = rd2("Jueves2").ToString
                             viernes2 = rd2("Viernes2").ToString
                             sabado2 = rd2("Sabado2").ToString
-                            domingo = rd2("Domingo2").ToString
+                            domingo2 = rd2("Domingo2").ToString
 
                             If promocion3x2 = 1 Then
                                 cbPromocion3.Checked = True
                             End If
 
+                            If lunes2 = 1 Then
+                                dtpInicioLunes3.Enabled = True
+                                dtpFinLunes3.Enabled = True
+                                dtpInicioLunes33.Enabled = True
+                                dtpFinLunes33.Enabled = True
+
+                                chkLunes3.Checked = True
+                                dtpInicioLunes3.Text = rd2("HinicioL3").ToString
+                                dtpFinLunes3.Text = rd2("HFinL3").ToString
+                                dtpInicioLunes33.Text = rd2("HInicioL33").ToString
+                                dtpFinLunes33.Text = rd2("HFinL33").ToString
+                            End If
+
+                            If martes2 = 1 Then
+                                dtpInicioMartes3.Enabled = True
+                                dtpFinMartes3.Enabled = True
+                                dtpInicioMartes33.Enabled = True
+                                dtpFinMartes33.Enabled = True
+
+                                chkMartes3.Checked = True
+                                dtpInicioMartes3.Text = rd2("HInicioM3").ToString
+                                dtpFinMartes3.Text = rd2("HFinM3").ToString
+                                dtpInicioMartes33.Text = rd2("HInicioM33").ToString
+                                dtpFinMartes33.Text = rd2("HFinM33").ToString
+                            End If
+
+                            If miercoles2 = 1 Then
+                                dtpInicioMiercoles3.Enabled = True
+                                dtpFinMiercoles3.Enabled = True
+                                dtpInicioMiercoles33.Enabled = True
+                                dtpFinMiercoles33.Enabled = True
+
+                                chkMiercoles3.Checked = True
+                                dtpInicioMiercoles3.Text = rd2("HInicioMi3").ToString
+                                dtpFinMiercoles3.Text = rd2("HFinMi3").ToString
+                                dtpInicioMiercoles33.Text = rd2("HInicioMi33").ToString
+                                dtpFinMiercoles33.Text = rd2("HFinMi33").ToString
+                            End If
+
+                            If jueves2 = 1 Then
+                                dtpInicioJueves3.Enabled = True
+                                dtpFinJueves3.Enabled = True
+                                dtpInicioJueves33.Enabled = True
+                                dtpFinJueves33.Enabled = True
+
+                                chkJueves3.Checked = True
+                                dtpInicioJueves3.Text = rd2("HInicioJ3").ToString
+                                dtpFinJueves3.Text = rd2("HFinJ3").ToString
+                                dtpInicioJueves33.Text = rd2("HInicioJ33").ToString
+                                dtpFinJueves33.Text = rd2("HFinJ33").ToString
+                            End If
+
+                            If viernes2 = 1 Then
+                                dtpInicioViernes3.Enabled = True
+                                dtpFinViernes3.Enabled = True
+                                dtpInicioViernes33.Enabled = True
+                                dtpFinViernes33.Enabled = True
+
+                                chkViernes3.Checked = True
+                                dtpInicioViernes3.Text = rd2("HInicioV3").ToString
+                                dtpFinViernes3.Text = rd2("HFinV3").ToString
+                                dtpInicioViernes33.Text = rd2("HInicioV33").ToString
+                                dtpFinViernes33.Text = rd2("HFinV33").ToString
+                            End If
+
+                            If sabado2 = 1 Then
+                                dtpInicioSabdo3.Enabled = True
+                                dtpFinSabado3.Enabled = True
+                                dtpInicioSabado33.Enabled = True
+                                dtpFinSabado33.Enabled = True
+
+                                chkSabado3.Checked = True
+                                dtpInicioSabdo3.Text = rd2("HInicioS3").ToString
+                                dtpFinSabado3.Text = rd2("HFinS3").ToString
+                                dtpInicioSabado33.Text = rd2("HInicioS33").ToString
+                                dtpFinSabado33.Text = rd2("HFinS33").ToString
+                            End If
+
+                            If domingo2 = 1 Then
+                                dtpInicioDomingo3.Enabled = True
+                                dtpFinDomingo3.Enabled = True
+                                dtpInicioDomingo33.Enabled = True
+                                dtpFinDomingo33.Enabled = True
+
+                                chkDomingo3.Checked = 1
+                                dtpInicioDomingo3.Text = rd2("HInicioD3").ToString
+                                dtpFinDomingo3.Text = rd2("HFinD3").ToString
+                                dtpInicioDomingo33.Text = rd2("HInicioD33").ToString
+                                dtpFinDomingo33.Text = rd2("HFinD33").ToString
+                            End If
 
                         End If
                     End If
@@ -670,13 +760,12 @@
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO promos(Codigo,Promo2x1,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo,HInicioL,HFinL,HInicioL2,HFinL2,HInicioM,HFinM,HInicioM2,HFinM2,HInicioMi,HFinMi,HInicioMi2,HFinMi2,HInicioJ,HFinJ,HInicioJ2,HFinJ2,HInicioV,HFinV,HInicioV2,HFinV2,HInicioS,HFinS,HInicioS2,HFinS2,HInicioD,HFinD,HInicioD2,HFinD2) VALUES('" & cboCodigo.Text & "'," & IIf(cbPromocion2x1.Checked, 1, 0) & "," & IIf(ckhLunes.Checked, 1, 0) & "," & IIf(chkMartes.Checked, 1, 0) & "," & IIf(chkMiercoles.Checked, 1, 0) & "," & IIf(chkJueves.Checked, 1, 0) & "," & IIf(chkViernes.Checked, 1, 0) & "," & IIf(chkSabado.Checked, 1, 0) & "," & IIf(chkDomingo.Checked, 1, 0) & ",'" & Format(dtpInicioLunes.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes.Value, "HH:mm:ss") & "','" & Format(dtpInicioLunes2.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes2.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles2.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles2.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves2.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves2.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes2.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabado.Checked, "HH:mm:ss") & "','" & Format(dtpFinSabado.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabado2.Value, "HH:mm:ss") & "','" & Format(dtpFinSabado2.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo2.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo2.Value, "HH:mm:ss") & "')"
+                cmd2.CommandText = "INSERT INTO promos(Codigo,Promo2x1,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo,HInicioL,HFinL,HInicioL2,HFinL2,HInicioM,HFinM,HInicioM2,HFinM2,HInicioMi,HFinMi,HInicioMi2,HFinMi2,HInicioJ,HFinJ,HInicioJ2,HFinJ2,HInicioV,HFinV,HInicioV2,HFinV2,HInicioS,HFinS,HInicioS2,HFinS2,HInicioD,HFinD,HInicioD2,HFinD2,Promo3x2,Lunes2,Martes2,Miercoles2,Jueves2,Viernes2,Sabado2,Domingo2,HInicioL3,HFinL3,HInicioL33,HFinL33,HInicioM3,HFinM3,HInicioM33,HFinM33,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,HInicioV3,HFinV3,HInicioV33,HFinV33,HInicioS3,HFinS3,HInicioS33,HFinS33,HInicioD3,HFinD3,HInicioD33,HFinD33) VALUES('" & cboCodigo.Text & "'," & IIf(cbPromocion2x1.Checked, 1, 0) & "," & IIf(ckhLunes.Checked, 1, 0) & "," & IIf(chkMartes.Checked, 1, 0) & "," & IIf(chkMiercoles.Checked, 1, 0) & "," & IIf(chkJueves.Checked, 1, 0) & "," & IIf(chkViernes.Checked, 1, 0) & "," & IIf(chkSabado.Checked, 1, 0) & "," & IIf(chkDomingo.Checked, 1, 0) & ",'" & Format(dtpInicioLunes.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes.Value, "HH:mm:ss") & "','" & Format(dtpInicioLunes2.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes2.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles2.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles2.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves2.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves2.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes2.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes2.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabado.Value, "HH:mm:ss") & "','" & Format(dtpFinSabado.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabado2.Value, "HH:mm:ss") & "','" & Format(dtpFinSabado2.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo2.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo2.Value, "HH:mm:ss") & "'," & IIf(cbPromocion3.Checked, 1, 0) & "," & IIf(chkLunes3.Checked, 1, 0) & "," & IIf(chkMartes3.Checked, 1, 0) & "," & IIf(chkMiercoles3.Checked, 1, 0) & "," & IIf(chkJueves3.Checked, 1, 0) & "," & IIf(chkViernes3.Checked, 1, 0) & "," & IIf(chkSabado3.Checked, 1, 0) & "," & IIf(chkDomingo3.Checked, 1, 0) & ",'" & Format(dtpInicioLunes3.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes3.Value, "HH:mm:ss") & "','" & Format(dtpInicioLunes33.Value, "HH:mm:ss") & "','" & Format(dtpFinLunes33.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes3.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes3.Value, "HH:mm:ss") & "','" & Format(dtpInicioMartes33.Value, "HH:mm:ss") & "','" & Format(dtpFinMartes33.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles3.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles3.Value, "HH:mm:ss") & "','" & Format(dtpInicioMiercoles33.Value, "HH:mm:ss") & "','" & Format(dtpFinMiercoles33.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves3.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves3.Value, "HH:mm:ss") & "','" & Format(dtpInicioJueves33.Value, "HH:mm:ss") & "','" & Format(dtpFinJueves33.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes3.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes3.Value, "HH:mm:ss") & "','" & Format(dtpInicioViernes33.Value, "HH:mm:ss") & "','" & Format(dtpFinViernes33.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabdo3.Value, "HH:mm:ss") & "','" & Format(dtpFinSabado3.Value, "HH:mm:ss") & "','" & Format(dtpInicioSabado33.Value, "HH:mm:ss") & "','" & Format(dtpFinSabado33.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo3.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo3.Value, "HH:mm:ss") & "','" & Format(dtpInicioDomingo33.Value, "HH:mm:ss") & "','" & Format(dtpFinDomingo33.Value, "HH:mm:ss") & "')"
 
                 If cmd2.ExecuteNonQuery() Then
-                    MsgBox("Promocion asignada correctamente", vbInformation + vbOKOnly, titulorestaurante)
+                    MsgBox("Promoción asignada correctamente", vbInformation + vbOKOnly, titulorestaurante)
                     cnn2.Close()
                 End If
-
 
             End If
             rd1.Close()

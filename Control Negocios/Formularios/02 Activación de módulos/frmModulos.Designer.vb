@@ -61,6 +61,7 @@ Partial Class frmModulos
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -111,6 +112,7 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Label19)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Controls.Add(Me.Button11)
         Me.Panel2.Controls.Add(Me.Label18)
@@ -555,6 +557,17 @@ Partial Class frmModulos
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label19
+        '
+        Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(176, 237)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(121, 19)
+        Me.Label19.TabIndex = 202
+        Me.Label19.Text = "Mensajeria masiva"
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -616,4 +629,5 @@ Partial Class frmModulos
     Friend WithEvents Button11 As Button
     Friend WithEvents Label18 As Label
     Friend WithEvents Button12 As Button
+    Friend WithEvents Label19 As Label
 End Class

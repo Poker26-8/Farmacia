@@ -25,6 +25,7 @@ Partial Class frmProductosSR
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductosSR))
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BTNpORMOCIONES = New System.Windows.Forms.Button()
         Me.txtrutaimagen = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rboDescProductos = New System.Windows.Forms.RadioButton()
@@ -118,6 +119,7 @@ Partial Class frmProductosSR
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.BTNpORMOCIONES)
         Me.GroupBox1.Controls.Add(Me.txtrutaimagen)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.pbimportar)
@@ -166,15 +168,28 @@ Partial Class frmProductosSR
         Me.GroupBox1.TabIndex = 225
         Me.GroupBox1.TabStop = False
         '
+        'BTNpORMOCIONES
+        '
+        Me.BTNpORMOCIONES.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BTNpORMOCIONES.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNpORMOCIONES.Image = CType(resources.GetObject("BTNpORMOCIONES.Image"), System.Drawing.Image)
+        Me.BTNpORMOCIONES.Location = New System.Drawing.Point(682, 425)
+        Me.BTNpORMOCIONES.Name = "BTNpORMOCIONES"
+        Me.BTNpORMOCIONES.Size = New System.Drawing.Size(88, 60)
+        Me.BTNpORMOCIONES.TabIndex = 233
+        Me.BTNpORMOCIONES.Text = "Promociones"
+        Me.BTNpORMOCIONES.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.BTNpORMOCIONES.UseVisualStyleBackColor = True
+        '
         'txtrutaimagen
         '
         Me.txtrutaimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(512, 443)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(536, 443)
         Me.txtrutaimagen.Name = "txtrutaimagen"
-        Me.txtrutaimagen.Size = New System.Drawing.Size(101, 23)
+        Me.txtrutaimagen.Size = New System.Drawing.Size(77, 23)
         Me.txtrutaimagen.TabIndex = 232
         Me.txtrutaimagen.Visible = False
         '
@@ -287,9 +302,9 @@ Partial Class frmProductosSR
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(619, 425)
+        Me.PictureBox1.Location = New System.Drawing.Point(517, 472)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(131, 77)
+        Me.PictureBox1.Size = New System.Drawing.Size(96, 77)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 33
         Me.PictureBox1.TabStop = False
@@ -968,4 +983,5 @@ Partial Class frmProductosSR
     Friend WithEvents Label1 As Label
     Friend WithEvents grdsql As DataGridView
     Friend WithEvents txtrutaimagen As TextBox
+    Friend WithEvents BTNpORMOCIONES As Button
 End Class

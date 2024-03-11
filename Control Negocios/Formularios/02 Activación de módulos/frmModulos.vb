@@ -188,5 +188,6 @@
     Private Sub Button12_Click_1(sender As Object, e As EventArgs) Handles Button12.Click
         frmAct_Mensajeria.Show()
         frmAct_Mensajeria.BringToFront()
+        Me.Close()
     End Sub
 End Class

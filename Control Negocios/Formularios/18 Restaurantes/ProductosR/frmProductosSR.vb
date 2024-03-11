@@ -1255,7 +1255,10 @@ nopasowey:
         'End Try
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
+
+    Private Sub BTNpORMOCIONES_Click(sender As Object, e As EventArgs) Handles BTNpORMOCIONES.Click
+        frmPromociones.Show()
+        frmPromociones.BringToFront()
     End Sub
 End Class

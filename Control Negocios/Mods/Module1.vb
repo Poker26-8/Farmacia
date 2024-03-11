@@ -30,6 +30,7 @@ End Structure
 
 Module Module1
 
+    Public empresaseleccionadaw As Integer = 0
     Public baseseleccionada As String = ""
 
     'datos nomina
@@ -102,6 +103,7 @@ Module Module1
     Public susursalr As Integer = 0
 
     Public ARCHIVO_DE_CONFIGURACIONW = My.Application.Info.DirectoryPath & "\ConfiguraW.dat"
+    Public ARCHIVO_DE_CONFIGURACIONR = My.Application.Info.DirectoryPath & "\ConfiguraRenta.dat"
 
     Public Function ConvertCero(ByVal vl As String) As Double
         If Not IsNumeric(vl) Then
@@ -127,6 +129,11 @@ Module Module1
         Dim baser As String
         Dim usuarior As String
         Dim passr As String
+    End Structure
+
+    Structure datosRenta
+        Dim empresa As String
+        Dim token As String
     End Structure
 
     'Public sTargetlocal As String = "Data Source=" & dameIP2() & "; Integrated Security=true; initial catalog=CN1; user id=Delsscom; password=jipl22; timeout=300"
@@ -171,7 +178,7 @@ Module Module1
     Public ARCHIVO_DE_CONFIGURACION_F = My.Application.Info.DirectoryPath & "\Configurapdvfac.dat"
 
     Public sTargetdSincro As String = ""
-    Public sTargetdWaht As String = ""
+    Public sTargetdWaht As String = "server=" & ipserverW & ";uid=" & userbdW & ";password=" & passbdW & ";database=" & databaseW & ";persist security info=false;connect timeout=30"
     Public sTargetMYSQL As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
     Public sTargetdAutoFac As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
 
@@ -180,11 +187,18 @@ Module Module1
     Public userbd As String = ""
     Public passbd As String = ""
 
+
     'datos para la mensajeria de whatsapp
     Public ipserverW As String = ""
     Public databaseW As String = ""
     Public userbdW As String = ""
     Public passbdW As String = ""
+
+    'datos para la renta de whatsap
+    Public empresaw As String = ""
+    Public tokenw As String = ""
+    Public timbrew As String = ""
+    Public idempw As String = ""
 
     Public serie_gen As String = ""
     Public timbres_totales As Integer = 0

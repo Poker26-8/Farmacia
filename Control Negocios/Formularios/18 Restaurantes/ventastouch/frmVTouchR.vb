@@ -270,17 +270,17 @@ nopaso:
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo=1"
+                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo2x1=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
-                        If rd2("Promo").ToString = 1 Then
+                        If rd2("Promo2x1").ToString = 1 Then
                             dia = Weekday(Date.Now)
                             Select Case dia
                                 Case = 1
                                     If rd2("Domingo").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioDomingo").ToString And TestStr <= rd2("HFinDomingo").ToString Or TestStr >= rd2("HInicio2Domingo").ToString And TestStr <= rd2("HFin2Domingo").ToString Then
+                                        If TestStr >= rd2("HInicioD").ToString And TestStr <= rd2("HFinD").ToString Or TestStr >= rd2("HInicioD2").ToString And TestStr <= rd2("HFinD2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -292,7 +292,7 @@ nopaso:
                                 Case = 2
                                     If rd2("Lunes").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio").ToString And TestStr <= rd2("HFin").ToString Or TestStr >= rd2("HInicio2").ToString And TestStr <= rd2("HFin2").ToString Then
+                                        If TestStr >= rd2("HInicioL").ToString And TestStr <= rd2("HFinL").ToString Or TestStr >= rd2("HInicioL2").ToString And TestStr <= rd2("HFinL2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -304,7 +304,7 @@ nopaso:
                                 Case = 3
                                     If rd2("Martes").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioMartes").ToString And TestStr <= rd2("HFinMartes").ToString Or TestStr >= rd2("HInicio2Martes").ToString And TestStr <= rd2("HFin2Martes").ToString Then
+                                        If TestStr >= rd2("HInicioM").ToString And TestStr <= rd2("HFinM").ToString Or TestStr >= rd2("HInicioM2").ToString And TestStr <= rd2("HFinM2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -316,7 +316,7 @@ nopaso:
                                 Case = 4
                                     If rd2("Miercoles").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioMiercoles").ToString And TestStr <= rd2("HFinMiercoles").ToString Or TestStr >= rd2("HInicio2Miercoles").ToString And TestStr <= rd2("HFin2Miercoles").ToString Then
+                                        If TestStr >= rd2("HInicioMi").ToString And TestStr <= rd2("HFinMi").ToString Or TestStr >= rd2("HInicioMi2").ToString And TestStr <= rd2("HFinMi2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -328,7 +328,7 @@ nopaso:
                                 Case = 5
                                     If rd2("Jueves").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioJueves").ToString And TestStr <= rd2("HFinJueves").ToString Or TestStr >= rd2("HInicio2Jueves").ToString And TestStr <= rd2("HFin2Jueves").ToString Then
+                                        If TestStr >= rd2("HInicioJ").ToString And TestStr <= rd2("HFinJ").ToString Or TestStr >= rd2("HInicioJ2").ToString And TestStr <= rd2("HFinJ2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -341,7 +341,7 @@ nopaso:
                                 Case = 6
                                     If rd2("Viernes").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioViernes").ToString And TestStr <= rd2("HFinViernes").ToString Or TestStr >= rd2("HInicio2Viernes").ToString And TestStr <= rd2("HFin2Viernes").ToString Then
+                                        If TestStr >= rd2("HInicioV").ToString And TestStr <= rd2("HFinV").ToString Or TestStr >= rd2("HInicioV2").ToString And TestStr <= rd2("HFinV2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -354,7 +354,7 @@ nopaso:
                                 Case = 7
                                     If rd2("Sabado").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicioSabado").ToString And TestStr <= rd2("HFinSabado").ToString Or TestStr >= rd2("HInicio2Sabado").ToString And TestStr <= rd2("HFin2Sabado").ToString Then
+                                        If TestStr >= rd2("HInicioS").ToString And TestStr <= rd2("HFinS").ToString Or TestStr >= rd2("HInicioS2").ToString And TestStr <= rd2("HFinS2").ToString Then
                                             dosxuno = 1
                                         Else
                                             dosxuno = 0
@@ -378,17 +378,17 @@ nopaso:
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo1=1"
+                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo3x2=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
-                        If rd2("Promo1").ToString = 1 Then
+                        If rd2("Promo3x2").ToString = 1 Then
                             dia = Weekday(Date.Now)
                             Select Case dia
                                 Case = 1
-                                    If rd2("Domingo1").ToString = 1 Then
+                                    If rd2("Domingo2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Domingo").ToString And TestStr <= rd2("HFin1Domingo").ToString Or TestStr >= rd2("HInicio12Domingo").ToString And TestStr <= rd2("HFin12Domingo").ToString Then
+                                        If TestStr >= rd2("HInicioD3").ToString And TestStr <= rd2("HFinD3").ToString Or TestStr >= rd2("HInicioD33").ToString And TestStr <= rd2("HFinD33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -398,9 +398,9 @@ nopaso:
                                     End If
 
                                 Case = 2
-                                    If rd2("Lunes1").ToString = 1 Then
+                                    If rd2("Lunes2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1").ToString And TestStr <= rd2("HFin1").ToString Or TestStr >= rd2("HInicio12").ToString And TestStr <= rd2("HFin12").ToString Then
+                                        If TestStr >= rd2("HInicioL3").ToString And TestStr <= rd2("HFinL3").ToString Or TestStr >= rd2("HInicioL33").ToString And TestStr <= rd2("HFinL33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -410,9 +410,9 @@ nopaso:
                                     End If
 
                                 Case = 3
-                                    If rd2("Martes1").ToString = 1 Then
+                                    If rd2("Martes2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Martes").ToString And TestStr <= rd2("HFin1Martes").ToString Or TestStr >= rd2("HInicio12Martes").ToString And TestStr <= rd2("HFin12Martes").ToString Then
+                                        If TestStr >= rd2("HInicioM3").ToString And TestStr <= rd2("HFin1M3").ToString Or TestStr >= rd2("HInicioM33").ToString And TestStr <= rd2("HFinM33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -422,9 +422,9 @@ nopaso:
                                     End If
 
                                 Case = 4
-                                    If rd2("Miercoles1").ToString = 1 Then
+                                    If rd2("Miercoles2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Miercoles").ToString And TestStr <= rd2("HFin1Miercoles").ToString Or TestStr >= rd2("HInicio12Miercoles").ToString And TestStr <= rd2("HFin12Miercoles").ToString Then
+                                        If TestStr >= rd2("HInicioMi3").ToString And TestStr <= rd2("HFinMi3").ToString Or TestStr >= rd2("HInicioMi33").ToString And TestStr <= rd2("HFinMi33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -434,9 +434,9 @@ nopaso:
                                     End If
 
                                 Case = 5
-                                    If rd2("Jueves1").ToString = 1 Then
+                                    If rd2("Jueves2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Jueves").ToString And TestStr <= rd2("HFin1Jueves").ToString Or TestStr >= rd2("HInicio12Jueves").ToString And TestStr <= rd2("HFin12Jueves").ToString Then
+                                        If TestStr >= rd2("HInicioJ3").ToString And TestStr <= rd2("HFinJ3").ToString Or TestStr >= rd2("HInicioJ33").ToString And TestStr <= rd2("HFinJ33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -446,9 +446,9 @@ nopaso:
                                     End If
 
                                 Case = 6
-                                    If rd2("Viernes1").ToString = 1 Then
+                                    If rd2("Viernes2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Viernes").ToString And TestStr <= rd2("HFin1Viernes").ToString Or TestStr >= rd2("HInicio12Viernes").ToString And TestStr <= rd2("HFin12Viernes").ToString Then
+                                        If TestStr >= rd2("HInicioV3").ToString And TestStr <= rd2("HFinV3").ToString Or TestStr >= rd2("HInicioV33").ToString And TestStr <= rd2("HFinV33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -458,9 +458,9 @@ nopaso:
                                     End If
 
                                 Case = 7
-                                    If rd2("Sabado1").ToString = 1 Then
+                                    If rd2("Sabado2").ToString = 1 Then
                                         TestStr = Format(Date.Now, "HH:mm:ss")
-                                        If TestStr >= rd2("HInicio1Sabado").ToString And TestStr <= rd2("HFin1Sabado").ToString Or TestStr >= rd2("HInicio12Sabado").ToString And TestStr <= rd2("HFin12Sabado").ToString Then
+                                        If TestStr >= rd2("HInicioS3").ToString And TestStr <= rd2("HFinS3").ToString Or TestStr >= rd2("HInicioS33").ToString And TestStr <= rd2("HFinS33").ToString Then
                                             tresxdos = 1
                                         Else
                                             tresxdos = 0
@@ -538,7 +538,7 @@ nopaso:
         If dosxuno = 1 Then
 
             With grdCaptura.Rows
-                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2))
+                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
 
                 lblTotalPagar.Text = lblTotalPagar.Text + importe
                 lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -549,7 +549,7 @@ nopaso:
 
             With Me.grdCaptura
                 For ii As Integer = 0 To grdCaptura.Rows.Count - 1
-                    grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2))
+                    grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "")
                 Next
             End With
             Exit Sub
@@ -557,11 +557,11 @@ nopaso:
 
         If tresxdos = 1 Then
 
-            With grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2))
+            With grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
 
             End With
 
-            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2))
+            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
 
             End With
             For q As Integer = 0 To grdCaptura.Rows.Count - 1
@@ -571,7 +571,7 @@ nopaso:
                 lblRestaPagar.Text = FormatNumber(TotalVenta, 2)
             Next
 
-            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2))
+            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "")
 
             End With
             Exit Sub
@@ -2803,9 +2803,7 @@ respuesta, "")
                                     End If
                                     rd2.Close()
 
-
                                     opeCantReal = CDbl(VarCanti) * CDbl(MyMulti2)
-
 
                                     Dim nueva_existe As Double = 0
                                     nueva_existe = existencia - (VarCanti / MyMCD)
