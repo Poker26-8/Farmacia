@@ -24,6 +24,8 @@ Partial Class frmConfiM
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConfiM))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtIdEmpresa = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -32,24 +34,22 @@ Partial Class frmConfiM
         Me.txt_usuario = New System.Windows.Forms.TextBox()
         Me.txt_base = New System.Windows.Forms.TextBox()
         Me.txt_servidor = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtEmpresa = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtToken = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtEmpresa = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.txtTimbres = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -61,10 +61,28 @@ Partial Class frmConfiM
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(325, 193)
+        Me.GroupBox1.Size = New System.Drawing.Size(325, 158)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Base de datos"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(298, 109)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(96, 20)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "IdEmpresa"
+        '
+        'txtIdEmpresa
+        '
+        Me.txtIdEmpresa.Enabled = False
+        Me.txtIdEmpresa.Location = New System.Drawing.Point(400, 106)
+        Me.txtIdEmpresa.Name = "txtIdEmpresa"
+        Me.txtIdEmpresa.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtIdEmpresa.Size = New System.Drawing.Size(148, 26)
+        Me.txtIdEmpresa.TabIndex = 8
         '
         'Label4
         '
@@ -131,68 +149,55 @@ Partial Class frmConfiM
         Me.txt_servidor.Size = New System.Drawing.Size(164, 26)
         Me.txt_servidor.TabIndex = 0
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(11, 154)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(80, 20)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Empresa"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(152, 151)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox1.Size = New System.Drawing.Size(164, 26)
-        Me.TextBox1.TabIndex = 8
-        '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.txtTimbres)
+        Me.GroupBox2.Controls.Add(Me.txtIdEmpresa)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.txtToken)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtEmpresa)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 221)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 176)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(570, 123)
+        Me.GroupBox2.Size = New System.Drawing.Size(588, 152)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos de Configuracion"
+        '
+        'txtToken
+        '
+        Me.txtToken.Location = New System.Drawing.Point(126, 74)
+        Me.txtToken.Name = "txtToken"
+        Me.txtToken.Size = New System.Drawing.Size(421, 26)
+        Me.txtToken.TabIndex = 12
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(62, 77)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(58, 20)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Token"
+        '
+        'txtEmpresa
+        '
+        Me.txtEmpresa.Location = New System.Drawing.Point(126, 38)
+        Me.txtEmpresa.Name = "txtEmpresa"
+        Me.txtEmpresa.Size = New System.Drawing.Size(421, 26)
+        Me.txtEmpresa.TabIndex = 10
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(6, 38)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(80, 20)
+        Me.Label6.Size = New System.Drawing.Size(121, 20)
         Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Empresa"
-        '
-        'txtEmpresa
-        '
-        Me.txtEmpresa.Location = New System.Drawing.Point(92, 38)
-        Me.txtEmpresa.Name = "txtEmpresa"
-        Me.txtEmpresa.Size = New System.Drawing.Size(455, 26)
-        Me.txtEmpresa.TabIndex = 10
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 80)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 20)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Token"
-        '
-        'txtToken
-        '
-        Me.txtToken.Location = New System.Drawing.Point(92, 80)
-        Me.txtToken.Name = "txtToken"
-        Me.txtToken.Size = New System.Drawing.Size(455, 26)
-        Me.txtToken.TabIndex = 12
+        Me.Label6.Text = "Nom Empresa"
         '
         'Button2
         '
@@ -236,12 +241,28 @@ Partial Class frmConfiM
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'txtTimbres
+        '
+        Me.txtTimbres.Location = New System.Drawing.Point(126, 106)
+        Me.txtTimbres.Name = "txtTimbres"
+        Me.txtTimbres.Size = New System.Drawing.Size(166, 26)
+        Me.txtTimbres.TabIndex = 14
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(48, 109)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 20)
+        Me.Label8.TabIndex = 13
+        Me.Label8.Text = "Timbres"
+        '
         'frmConfiM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(620, 360)
+        Me.ClientSize = New System.Drawing.Size(620, 345)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox2)
@@ -260,7 +281,7 @@ Partial Class frmConfiM
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtIdEmpresa As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -277,4 +298,6 @@ Partial Class frmConfiM
     Friend WithEvents Label6 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents txtTimbres As TextBox
+    Friend WithEvents Label8 As Label
 End Class

@@ -12559,7 +12559,5 @@ ecomoda:
         frmRepExistenciaSincronizador.BringToFront()
     End Sub
 
-    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-        frmConfiM.Show()
-    End Sub
+
 End Class
