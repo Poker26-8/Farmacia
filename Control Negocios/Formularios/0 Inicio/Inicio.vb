@@ -373,6 +373,8 @@ Public Class Inicio
                         Button13.Visible = True
                         btnvtatouch.Visible = True
                         CORTEMESERO.Visible = True
+                        pMod_Produccion.Visible = True
+                        pMod_Produccion.Enabled = True
                     Else
                         Button12.Visible = False
                         Button13.Visible = False

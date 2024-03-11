@@ -178,7 +178,7 @@
       <HintPath>..\ToolKitSQL.dll</HintPath>
     </Reference>
     <Reference Include="WhatsAppDLL">
-      <HintPath>..\..\..\..\..\..\..\00\DELSSCOM\DLL\WhatsAppDLL.dll</HintPath>
+      <HintPath>..\..\..\Recursos\EnviarMensajeWA\WhatsAppDLL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

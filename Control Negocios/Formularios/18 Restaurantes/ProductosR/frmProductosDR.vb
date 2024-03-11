@@ -874,7 +874,6 @@ Public Class frmProductosDR
             Dim tipo_almacen As Integer = 0
 
             If rboDescIngredientes.Checked = True Then
-
                 tipo_almacen = 1
             ElseIf rboDescProductos.Checked = True Then
                 tipo_almacen = 0
