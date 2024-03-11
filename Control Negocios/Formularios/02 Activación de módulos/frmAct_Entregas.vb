@@ -2,6 +2,8 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If MsgBox("¿Deseas activar el módulo de entregas?", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") = vbOK Then
 
+
+
             If txtcontra.Text = "" Then MsgBox("Escribe la contraseña de activación." & vbNewLine & "Para generarla conmunícate con tu proveedor de software.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
 
             If txtcontra.Text = "jipl2211*" Then

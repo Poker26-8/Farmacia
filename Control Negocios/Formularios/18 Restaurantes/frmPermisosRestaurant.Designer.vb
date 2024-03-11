@@ -66,7 +66,6 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -554,22 +553,12 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(477, 377)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 49)
-        Me.Button1.TabIndex = 247
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(639, 435)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -644,5 +633,4 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents cbmesas As CheckBox
     Friend WithEvents cbMesasPropias As CheckBox
     Friend WithEvents cbCopas As CheckBox
-    Friend WithEvents Button1 As Button
 End Class

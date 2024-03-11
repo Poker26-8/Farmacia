@@ -202,23 +202,6 @@ Public Class frmVentas1
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Entregas'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        Button11.Visible = True
-                    Else
-                        Button11.Visible = False
-                    End If
-                End If
-            Else
-                Button11.Visible = False
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
                 "select Formato from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -4728,8 +4711,34 @@ kaka:
         frmConsultaNotas.BringToFront()
     End Sub
     Private Sub Button11_Click(sender As System.Object, e As System.EventArgs) Handles Button11.Click
-        frmModEntregas.Show()
-        frmModEntregas.BringToFront()
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Entregas'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
+                        frmModEntregas.Show()
+                        frmModEntregas.BringToFront()
+                    Else
+                        MsgBox("Para usar este modulo se tiene que activar, Contacte a Delsscom", vbInformation + vbOKOnly, titulocentral).ToString()
+                        Exit Sub
+                        cbodesc.Focus.Equals(True)
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+
     End Sub
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
         frmMonederos.Show()
