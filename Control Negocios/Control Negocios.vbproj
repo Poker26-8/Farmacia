@@ -275,6 +275,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Hoteleria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Mensajeria.Designer.vb">
+      <DependentUpon>frmAct_Mensajeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Mensajeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_mpollo.Designer.vb">
       <DependentUpon>frmAct_mpollo.vb</DependentUpon>
     </Compile>
@@ -1637,6 +1643,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Hoteleria.resx">
       <DependentUpon>frmAct_Hoteleria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Mensajeria.resx">
+      <DependentUpon>frmAct_Mensajeria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_mpollo.resx">
       <DependentUpon>frmAct_mpollo.vb</DependentUpon>

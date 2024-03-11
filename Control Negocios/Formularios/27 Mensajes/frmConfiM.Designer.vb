@@ -81,7 +81,7 @@ Partial Class frmConfiM
         Me.txtIdEmpresa.Location = New System.Drawing.Point(400, 106)
         Me.txtIdEmpresa.Name = "txtIdEmpresa"
         Me.txtIdEmpresa.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtIdEmpresa.Size = New System.Drawing.Size(148, 26)
+        Me.txtIdEmpresa.Size = New System.Drawing.Size(147, 26)
         Me.txtIdEmpresa.TabIndex = 8
         '
         'Label4
