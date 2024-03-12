@@ -449,10 +449,8 @@ Public Class Inicio
                     If hoteles = 1 Then
                         btnHoteleria.Visible = True
                     Else
-
                         btnHoteleria.Visible = False
                     End If
-
                 End If
             End If
             rd1.Close()
