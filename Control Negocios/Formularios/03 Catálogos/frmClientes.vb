@@ -5,10 +5,10 @@ Public Class frmClientes
     Private Sub Info_Click(sender As System.Object, e As System.EventArgs) Handles Info.Click
         If Info.Text = "> Más información" Then
             Info.Text = "v Menos información"
-            Me.Size = New Size(837, 437)
+            Me.Size = New Size(894, 433)
         Else
             Info.Text = "> Más información"
-            Me.Size = New Size(837, 290)
+            Me.Size = New Size(894, 299)
         End If
     End Sub
 
@@ -917,5 +917,10 @@ Public Class frmClientes
         If MsgBox("Estas apunto de importar tu catálogo desde un archivo de Excel, para evitar errores asegúrate de que la hoja de Excel tiene el nombre de 'Hoja1' y cerciórate de que el archivo está guardado y cerrado.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Excel_Grid_SQL(DataGridView1)
         End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnMsj.Click
+        frmClientesW.Show()
+        frmClientesW.BringToFront()
     End Sub
 End Class

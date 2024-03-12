@@ -31,14 +31,15 @@ Public Class frmClientesW
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Nombre,RazonSocial,Telefono FROM clientes WHERE Nombre<>'' AND Telefono<>'' ORDER BY Nombre"
+                cmd1.CommandText = "SELECT Nombre,RazonSocial,Telefono,Observaciones FROM clientes WHERE Nombre<>'' AND Telefono<>'' ORDER BY Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
 
                         grdCaptura.Rows.Add(rd1(0).ToString,
                                             rd1(1).ToString,
-                                            rd1(2).ToString
+                                            rd1(2).ToString,
+                                            rd1(3).ToString
 )
 
                     End If

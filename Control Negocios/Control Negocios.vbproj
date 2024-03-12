@@ -1581,12 +1581,6 @@
     <Compile Include="Formularios\27 Mensajes\frmConfiM.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\27 Mensajes\frmMensajeW.Designer.vb">
-      <DependentUpon>frmMensajeW.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\27 Mensajes\frmMensajeW.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -2324,9 +2318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\27 Mensajes\frmConfiM.resx">
       <DependentUpon>frmConfiM.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\27 Mensajes\frmMensajeW.resx">
-      <DependentUpon>frmMensajeW.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
