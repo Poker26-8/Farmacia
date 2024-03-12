@@ -168,8 +168,7 @@ Public Class frmFaltantes
                     My.Application.DoEvents()
                 Next
 
-                exSheet.Rows.Item(1).Font.Bold = 1
-                exSheet.Rows.Item(1).HorizontalAlignmenst = 3
+
                 exSheet.Columns.AutoFit()
 
                 MsgBox("Datos exportados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
