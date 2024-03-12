@@ -972,7 +972,7 @@ Partial Class frmProductosDR
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(104, 20)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Botaella Militros"
+        Me.Label2.Text = "Botella Militros"
         '
         'txtmilitros
         '

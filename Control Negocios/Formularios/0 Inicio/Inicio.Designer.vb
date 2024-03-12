@@ -565,7 +565,7 @@ Partial Class Inicio
         '
         'pMod_Produccion
         '
-        Me.pMod_Produccion.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.pMod_Produccion.BackColor = System.Drawing.Color.White
         Me.pMod_Produccion.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pConformar, Me.pProducir, Me.pRequiere_Art, Me.pRequiere_Glo, Me.pControl_Procesos})
         Me.pMod_Produccion.Name = "pMod_Produccion"
         Me.pMod_Produccion.Size = New System.Drawing.Size(241, 22)
@@ -613,19 +613,19 @@ Partial Class Inicio
         '
         Me.ProcesosToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
-        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
         '
         'ReporteToolStripMenuItem
         '
         Me.ReporteToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteToolStripMenuItem.Name = "ReporteToolStripMenuItem"
-        Me.ReporteToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.ReporteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteToolStripMenuItem.Text = "Reporte"
         '
         'pMod_Precios
         '
-        Me.pMod_Precios.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.pMod_Precios.BackColor = System.Drawing.Color.White
         Me.pMod_Precios.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRegistro_Precios, Me.pReporte_Precios})
         Me.pMod_Precios.Name = "pMod_Precios"
         Me.pMod_Precios.Size = New System.Drawing.Size(241, 22)
@@ -636,14 +636,14 @@ Partial Class Inicio
         '
         Me.pRegistro_Precios.BackColor = System.Drawing.Color.White
         Me.pRegistro_Precios.Name = "pRegistro_Precios"
-        Me.pRegistro_Precios.Size = New System.Drawing.Size(117, 22)
+        Me.pRegistro_Precios.Size = New System.Drawing.Size(180, 22)
         Me.pRegistro_Precios.Text = "Registro"
         '
         'pReporte_Precios
         '
         Me.pReporte_Precios.BackColor = System.Drawing.Color.White
         Me.pReporte_Precios.Name = "pReporte_Precios"
-        Me.pReporte_Precios.Size = New System.Drawing.Size(117, 22)
+        Me.pReporte_Precios.Size = New System.Drawing.Size(180, 22)
         Me.pReporte_Precios.Text = "Reporte"
         '
         'ControlDeServiciosToolStripMenuItem
@@ -874,14 +874,14 @@ Partial Class Inicio
         '
         Me.pInventario.BackColor = System.Drawing.Color.White
         Me.pInventario.Name = "pInventario"
-        Me.pInventario.Size = New System.Drawing.Size(180, 22)
+        Me.pInventario.Size = New System.Drawing.Size(179, 22)
         Me.pInventario.Text = "Inventario"
         '
         'pAjuste
         '
         Me.pAjuste.BackColor = System.Drawing.Color.White
         Me.pAjuste.Name = "pAjuste"
-        Me.pAjuste.Size = New System.Drawing.Size(180, 22)
+        Me.pAjuste.Size = New System.Drawing.Size(179, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
         'pEstResultados
