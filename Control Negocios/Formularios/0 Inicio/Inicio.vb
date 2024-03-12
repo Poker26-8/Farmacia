@@ -114,7 +114,7 @@ Public Class Inicio
         SFormatos("MesasPropias", "")
         SFormatos("Copa", "")
 
-        Licencia()
+        'Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
