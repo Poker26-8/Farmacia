@@ -648,12 +648,12 @@ Partial Class frmClientes
         '
         'btnMsj
         '
-        Me.btnMsj.BackgroundImage = CType(resources.GetObject("btnMsj.BackgroundImage"), System.Drawing.Image)
         Me.btnMsj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnMsj.Enabled = False
         Me.btnMsj.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMsj.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMsj.Image = CType(resources.GetObject("btnMsj.Image"), System.Drawing.Image)
+        Me.btnMsj.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnMsj.Location = New System.Drawing.Point(460, 173)
         Me.btnMsj.Name = "btnMsj"
         Me.btnMsj.Size = New System.Drawing.Size(78, 63)
