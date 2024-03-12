@@ -22,14 +22,14 @@ Partial Class frmFaltantes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFaltantes))
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cbofiltro = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.opttodos = New System.Windows.Forms.RadioButton()
@@ -38,11 +38,6 @@ Partial Class frmFaltantes
         Me.optproveedor = New System.Windows.Forms.RadioButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.ordgru = New System.Windows.Forms.RadioButton()
-        Me.orddep = New System.Windows.Forms.RadioButton()
-        Me.ordnom = New System.Windows.Forms.RadioButton()
-        Me.btnsalir = New System.Windows.Forms.Button()
-        Me.btnexportar = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +47,11 @@ Partial Class frmFaltantes
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ordgru = New System.Windows.Forms.RadioButton()
+        Me.orddep = New System.Windows.Forms.RadioButton()
+        Me.ordnom = New System.Windows.Forms.RadioButton()
+        Me.btnsalir = New System.Windows.Forms.Button()
+        Me.btnexportar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -138,8 +138,8 @@ Partial Class frmFaltantes
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -153,74 +153,10 @@ Partial Class frmFaltantes
         Me.grdcaptura.Size = New System.Drawing.Size(832, 276)
         Me.grdcaptura.TabIndex = 242
         '
-        'ordgru
-        '
-        Me.ordgru.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ordgru.AutoSize = True
-        Me.ordgru.Location = New System.Drawing.Point(594, 466)
-        Me.ordgru.Name = "ordgru"
-        Me.ordgru.Size = New System.Drawing.Size(124, 19)
-        Me.ordgru.TabIndex = 245
-        Me.ordgru.TabStop = True
-        Me.ordgru.Text = "Ordenar por grupo"
-        Me.ordgru.UseVisualStyleBackColor = True
-        '
-        'orddep
-        '
-        Me.orddep.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.orddep.AutoSize = True
-        Me.orddep.Location = New System.Drawing.Point(347, 466)
-        Me.orddep.Name = "orddep"
-        Me.orddep.Size = New System.Drawing.Size(167, 19)
-        Me.orddep.TabIndex = 244
-        Me.orddep.TabStop = True
-        Me.orddep.Text = "Ordenar por departamento"
-        Me.orddep.UseVisualStyleBackColor = True
-        '
-        'ordnom
-        '
-        Me.ordnom.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ordnom.AutoSize = True
-        Me.ordnom.Location = New System.Drawing.Point(133, 466)
-        Me.ordnom.Name = "ordnom"
-        Me.ordnom.Size = New System.Drawing.Size(134, 19)
-        Me.ordnom.TabIndex = 243
-        Me.ordnom.TabStop = True
-        Me.ordnom.Text = "Ordenar por nombre"
-        Me.ordnom.UseVisualStyleBackColor = True
-        '
-        'btnsalir
-        '
-        Me.btnsalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalir.Location = New System.Drawing.Point(759, 115)
-        Me.btnsalir.Name = "btnsalir"
-        Me.btnsalir.Size = New System.Drawing.Size(82, 63)
-        Me.btnsalir.TabIndex = 249
-        Me.btnsalir.Text = "Nuevo"
-        Me.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalir.UseVisualStyleBackColor = True
-        '
-        'btnexportar
-        '
-        Me.btnexportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnexportar.BackgroundImage = CType(resources.GetObject("btnexportar.BackgroundImage"), System.Drawing.Image)
-        Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexportar.Location = New System.Drawing.Point(759, 46)
-        Me.btnexportar.Name = "btnexportar"
-        Me.btnexportar.Size = New System.Drawing.Size(82, 63)
-        Me.btnexportar.TabIndex = 248
-        Me.btnexportar.Text = "Nuevo"
-        Me.btnexportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnexportar.UseVisualStyleBackColor = True
-        '
         'Column1
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column1.HeaderText = "Código"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -249,16 +185,16 @@ Partial Class frmFaltantes
         '
         'Column5
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column5.HeaderText = "Existencia"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
         'Column6
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column6.HeaderText = "Mínimo"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -266,8 +202,8 @@ Partial Class frmFaltantes
         '
         'Column7
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column7.HeaderText = "Máximo"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -275,8 +211,8 @@ Partial Class frmFaltantes
         '
         'Column8
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column8.HeaderText = "Falta"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
@@ -284,12 +220,79 @@ Partial Class frmFaltantes
         '
         'Column9
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column9.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column9.HeaderText = "Costo"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
         Me.Column9.Width = 75
+        '
+        'ordgru
+        '
+        Me.ordgru.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ordgru.AutoSize = True
+        Me.ordgru.Location = New System.Drawing.Point(594, 466)
+        Me.ordgru.Name = "ordgru"
+        Me.ordgru.Size = New System.Drawing.Size(124, 19)
+        Me.ordgru.TabIndex = 245
+        Me.ordgru.TabStop = True
+        Me.ordgru.Text = "Ordenar por grupo"
+        Me.ordgru.UseVisualStyleBackColor = True
+        Me.ordgru.Visible = False
+        '
+        'orddep
+        '
+        Me.orddep.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.orddep.AutoSize = True
+        Me.orddep.Location = New System.Drawing.Point(347, 466)
+        Me.orddep.Name = "orddep"
+        Me.orddep.Size = New System.Drawing.Size(167, 19)
+        Me.orddep.TabIndex = 244
+        Me.orddep.TabStop = True
+        Me.orddep.Text = "Ordenar por departamento"
+        Me.orddep.UseVisualStyleBackColor = True
+        Me.orddep.Visible = False
+        '
+        'ordnom
+        '
+        Me.ordnom.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ordnom.AutoSize = True
+        Me.ordnom.Location = New System.Drawing.Point(133, 466)
+        Me.ordnom.Name = "ordnom"
+        Me.ordnom.Size = New System.Drawing.Size(134, 19)
+        Me.ordnom.TabIndex = 243
+        Me.ordnom.TabStop = True
+        Me.ordnom.Text = "Ordenar por nombre"
+        Me.ordnom.UseVisualStyleBackColor = True
+        Me.ordnom.Visible = False
+        '
+        'btnsalir
+        '
+        Me.btnsalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalir.Location = New System.Drawing.Point(759, 115)
+        Me.btnsalir.Name = "btnsalir"
+        Me.btnsalir.Size = New System.Drawing.Size(82, 63)
+        Me.btnsalir.TabIndex = 249
+        Me.btnsalir.Text = "Nuevo"
+        Me.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnsalir.UseVisualStyleBackColor = True
+        '
+        'btnexportar
+        '
+        Me.btnexportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnexportar.BackgroundImage = CType(resources.GetObject("btnexportar.BackgroundImage"), System.Drawing.Image)
+        Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexportar.Location = New System.Drawing.Point(759, 46)
+        Me.btnexportar.Name = "btnexportar"
+        Me.btnexportar.Size = New System.Drawing.Size(82, 63)
+        Me.btnexportar.TabIndex = 248
+        Me.btnexportar.Text = "Exportar"
+        Me.btnexportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnexportar.UseVisualStyleBackColor = True
         '
         'frmFaltantes
         '
