@@ -153,6 +153,8 @@ Public Class Inicio
                         GimnasiosToolStripMenuItem.Visible = False
                     End If
                 End If
+            Else
+                GimnasiosToolStripMenuItem.Visible = False
             End If
             rd1.Close() : cnn1.Close()
         Catch ex As Exception
