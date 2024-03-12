@@ -57,6 +57,8 @@ Public Class frmClientesW
         If checat() Then
 
             Dim telefono As String = ""
+            Dim nombre As String = ""
+            Dim mensjaenuevo As String = ""
 
             If 1 > timbres Then
                 MsgBox("El número de mensajes que quiere enviar es mayor al número de mensajes disponibles " & timbres, vbInformation + vbOKOnly, titulocentral)
@@ -68,9 +70,12 @@ Public Class frmClientesW
             For dx As Integer = 0 To grdCaptura.Rows.Count - 1
 
                 telefono = grdCaptura.Rows(dx).Cells(2).Value.ToString
+                nombre = grdCaptura.Rows(dx).Cells(0).Value.ToString
 
 
-                mandar_el_mensaje_async(Trim(telefono), Trim(txtMensaje.Text))
+                mensjaenuevo = nombre & " " & txtMensaje.Text
+
+                mandar_el_mensaje_async(Trim(telefono), Trim(mensjaenuevo))
 
             Next
 
