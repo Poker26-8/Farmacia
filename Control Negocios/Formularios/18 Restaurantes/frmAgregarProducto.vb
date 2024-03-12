@@ -851,6 +851,7 @@ Public Class frmAgregarProducto
                         txtRespuesta.Focus.Equals(True)
                     End With
                 End If
+
             End If
         End If
         rd1.Close()
