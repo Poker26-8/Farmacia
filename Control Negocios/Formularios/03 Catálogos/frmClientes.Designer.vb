@@ -53,6 +53,7 @@ Partial Class frmClientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtnexterior = New System.Windows.Forms.TextBox()
+        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtninterior = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -75,7 +76,6 @@ Partial Class frmClientes
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnMsj = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
@@ -404,6 +404,13 @@ Partial Class frmClientes
         Me.txtnexterior.Size = New System.Drawing.Size(174, 23)
         Me.txtnexterior.TabIndex = 43
         '
+        'barsube
+        '
+        Me.barsube.Location = New System.Drawing.Point(306, -6)
+        Me.barsube.Name = "barsube"
+        Me.barsube.Size = New System.Drawing.Size(66, 14)
+        Me.barsube.TabIndex = 221
+        '
         'Label19
         '
         Me.Label19.AutoSize = True
@@ -625,13 +632,6 @@ Partial Class frmClientes
         Me.DataGridView1.TabIndex = 219
         Me.DataGridView1.Visible = False
         '
-        'barsube
-        '
-        Me.barsube.Location = New System.Drawing.Point(306, -6)
-        Me.barsube.Name = "barsube"
-        Me.barsube.Size = New System.Drawing.Size(66, 14)
-        Me.barsube.TabIndex = 221
-        '
         'Button2
         '
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
@@ -650,6 +650,7 @@ Partial Class frmClientes
         '
         Me.btnMsj.BackgroundImage = CType(resources.GetObject("btnMsj.BackgroundImage"), System.Drawing.Image)
         Me.btnMsj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnMsj.Enabled = False
         Me.btnMsj.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMsj.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMsj.Image = CType(resources.GetObject("btnMsj.Image"), System.Drawing.Image)

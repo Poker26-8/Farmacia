@@ -431,7 +431,7 @@ Public Class frmClientes
         cboregimen.Items.Clear()
         txtClaveRegFis.Text = ""
         Info.Text = "> Más información"
-        Me.Size = New Size(496, 265)
+        Me.Size = New Size(894, 299)
     End Sub
 
     Private Sub btnEliminar_Click(sender As System.Object, e As System.EventArgs) Handles btnEliminar.Click
@@ -497,6 +497,19 @@ Public Class frmClientes
                     Else
                         btnmigra.Visible = False
                     End If
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Mensajeria'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = "1" Then
+                        btnMsj.Enabled = True
+                    End If
+
                 End If
             End If
             rd1.Close()
