@@ -1921,10 +1921,12 @@ Public Class Inicio
                     If rd5("Prod_Prod").ToString = True Then
                         pCaptura_Prod.Enabled = True
                         P.P_Productos = True
+                        frmCompras.btnprod.Enabled = True
                     Else
                         pCaptura_Prod.Enabled = False
                         btnProductos.Enabled = False
                         P.P_Productos = False
+                        frmCompras.btnprod.Enabled = False
                         Prods += 1
                     End If
                     If rd5("Prod_Serv").ToString = True Then

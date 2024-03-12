@@ -5328,5 +5328,8 @@ quepasowey:
 
     End Sub
 
-
+    Private Sub btnprod_Click(sender As Object, e As EventArgs) Handles btnprod.Click
+        frmProductosS.Show()
+        frmProductosS.BringToFront()
+    End Sub
 End Class

@@ -671,7 +671,7 @@ Partial Class Inicio
         Me.pCaptura.BackColor = System.Drawing.Color.White
         Me.pCaptura.Name = "pCaptura"
         Me.pCaptura.Size = New System.Drawing.Size(196, 22)
-        Me.pCaptura.Text = "Captura"
+        Me.pCaptura.Text = "Compras"
         '
         'ComprasTouchToolStripMenuItem
         '
