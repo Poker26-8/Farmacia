@@ -183,8 +183,8 @@ Public Class frmVentas1
             If File.Exists(My.Application.Info.DirectoryPath & "\" & log) Then
                 PictureBox2.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & log)
                 PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
-                PictureBox2.Dock = DockStyle.Fill
-                Panel8.Controls.Add(PictureBox2)
+                'PictureBox2.Dock = DockStyle.Fill
+                'Panel8.Controls.Add(PictureBox2)
             End If
         End If
 
@@ -12567,5 +12567,7 @@ ecomoda:
         frmRepExistenciaSincronizador.BringToFront()
     End Sub
 
+    Private Sub Panel9_Paint(sender As Object, e As PaintEventArgs)
 
+    End Sub
 End Class
