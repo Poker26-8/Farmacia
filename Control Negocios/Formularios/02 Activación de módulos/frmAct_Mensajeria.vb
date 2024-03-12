@@ -104,7 +104,9 @@
     Private Sub txtcontra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontra.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtcontra.Text = "jipl2211*" Then
-
+                btnConfigurar.Enabled = True
+            Else
+                btnConfigurar.Enabled = False
             End If
         End If
     End Sub
