@@ -114,7 +114,7 @@ Public Class Inicio
         SFormatos("MesasPropias", "")
         SFormatos("Copa", "")
 
-        Licencia()
+        'Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
@@ -449,10 +449,8 @@ Public Class Inicio
                     If hoteles = 1 Then
                         btnHoteleria.Visible = True
                     Else
-
                         btnHoteleria.Visible = False
                     End If
-
                 End If
             End If
             rd1.Close()
