@@ -12626,4 +12626,8 @@ ecomoda:
     Private Sub Panel9_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
