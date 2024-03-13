@@ -1051,6 +1051,13 @@ Public Class frmProductosS
                     isr = IIf(rd1("isr").ToString = "", 0, rd1("isr").ToString)
 
 
+                    nombre = Trim(Replace(nombre, "‘", ""))
+                    nombre = Trim(Replace(nombre, "'", "''"))
+                    provpri = Trim(Replace(provpri, "'", "''"))
+                    departamento = Trim(Replace(departamento, "'", "''"))
+                    grupo = Trim(Replace(grupo, "'", "''"))
+
+
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
