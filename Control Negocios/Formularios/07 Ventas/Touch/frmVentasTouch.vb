@@ -70,6 +70,7 @@ Public Class frmVentasTouch
 
         If File.Exists(My.Application.Info.DirectoryPath & "\Fondo.jpg") Then
             pProductos.BackgroundImage = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\Fondo.jpg")
+            pProductos.BackgroundImageLayout = ImageLayout.Stretch
         End If
 
         tFecha.Start()
@@ -247,7 +248,7 @@ Public Class frmVentasTouch
 
     Private Sub Productos(ByVal depto As String, ByVal grupo As String)
         Dim prods As Integer = 1
-        Dim cuantos As Integer = Math.Truncate(pProductos.Height / 70)
+        Dim cuantos As Integer = Math.Truncate(pProductos.Height / 130)
 
         Try
             cnn3.Close()
@@ -264,8 +265,8 @@ Public Class frmVentasTouch
                     btnProd.Text = producto
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 70
-                    btnProd.Width = 130
+                    btnProd.Height = 130
+                    btnProd.Width = 100
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
                         btnProd.Left = (btnProd.Width * 1)
@@ -709,7 +710,9 @@ Public Class frmVentasTouch
                     btnProd.FlatAppearance.BorderSize = 0
                     If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg") Then
                         btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg")
-                        btnProd.BackgroundImageLayout = ImageLayout.Stretch
+                        btnProd.BackgroundImageLayout = ImageLayout.Zoom
+
+                        btnProd.TextAlign = ContentAlignment.BottomCenter
                     End If
                     AddHandler btnProd.Click, AddressOf btnProd_Click
                     pProductos.Controls.Add(btnProd)
