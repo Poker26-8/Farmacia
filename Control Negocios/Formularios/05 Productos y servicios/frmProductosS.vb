@@ -722,7 +722,10 @@ Public Class frmProductosS
                     cnn1.Close() : cnn1.Open()
                     contadorconexion = 1
                 End If
-
+                nombre = Trim(Replace(nombre, "'", "''"))
+                proveedor = Trim(Replace(proveedor, "'", "''"))
+                depto = Trim(Replace(depto, "'", "''"))
+                grupo = Trim(Replace(grupo, "'", "''"))
                 If (Comprueba(codigo, nombre, barras, proveedor)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
