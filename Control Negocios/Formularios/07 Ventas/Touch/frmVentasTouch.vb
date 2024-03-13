@@ -146,7 +146,7 @@ Public Class frmVentasTouch
                     btnDepto.Top = (deptos) * (btnDepto.Height + 0.5)
                     btnDepto.BackColor = pDeptos.BackColor
                     btnDepto.FlatStyle = FlatStyle.Flat
-                    btnDepto.Font = New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+                    btnDepto.Font = New Font("Segoe UI", 10, FontStyle.Bold)
                     btnDepto.FlatAppearance.BorderSize = 0
                     AddHandler btnDepto.Click, AddressOf btnDepto_Click
                     pDeptos.Controls.Add(btnDepto)
@@ -217,7 +217,7 @@ Public Class frmVentasTouch
                     btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
                     btnGrupo.BackColor = pGrupos.BackColor
                     btnGrupo.FlatStyle = FlatStyle.Flat
-                    btnGrupo.Font = New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+                    btnGrupo.Font = New Font("Segoe UI", 10, FontStyle.Bold)
                     btnGrupo.FlatAppearance.BorderSize = 0
                     AddHandler btnGrupo.Click, AddressOf btnGrupo_Click
                     pGrupos.Controls.Add(btnGrupo)
@@ -704,7 +704,7 @@ Public Class frmVentasTouch
                     btnProd.FlatStyle = FlatStyle.Flat
                     Dim fuenteNegrita As New Font(btnProd.Font, FontStyle.Bold)
                     btnProd.Font = fuenteNegrita
-                    btnProd.Font = New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+                    btnProd.Font = New Font("Segoe UI", 10, FontStyle.Bold)
 
                     btnProd.FlatAppearance.BorderSize = 0
                     If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg") Then
