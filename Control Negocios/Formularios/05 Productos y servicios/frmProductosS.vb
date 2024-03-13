@@ -715,8 +715,8 @@ Public Class frmProductosS
                 prod_sat = NulCad(DataGridView1.Rows(zef).Cells(10).Value.ToString())
                 unidad_sat = NulCad(DataGridView1.Rows(zef).Cells(11).Value.ToString())
                 existencia = NulVa(DataGridView1.Rows(zef).Cells(12).Value.ToString())
-                ieps = NulVa(DataGridView1.Rows(zef).Cells(13).Value.ToString())
-                numparte = NulVa(DataGridView1.Rows(zef).Cells(14).Value.ToString())
+                ieps = IIf(DataGridView1.Rows(zef).Cells(13).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(13).Value.ToString())
+                numparte = IIf(DataGridView1.Rows(zef).Cells(14).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(14).Value.ToString())
 
                 If contadorconexion > 499 Then
                     cnn1.Close() : cnn1.Open()
