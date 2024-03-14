@@ -30,6 +30,7 @@ Public Class frmManejo
             rd1.Close()
             cnn1.Close()
 
+            primerBoton()
 
 
         Catch ex As Exception
@@ -37,6 +38,15 @@ Public Class frmManejo
             cnn1.Close()
         End Try
 
+    End Sub
+
+    Public Sub primerBoton()
+        For Each control As Control In pUbicaciones.Controls
+            If TypeOf control Is Button Then
+                DirectCast(control, Button).PerformClick()
+                Exit For
+            End If
+        Next
     End Sub
 
     Public Sub TRAERUBICACION()

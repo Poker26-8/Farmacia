@@ -132,7 +132,7 @@
                 End If
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO Comanda1(Folio,IdCliente,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales) VALUES(" & cfolio & "," & lblidcliented.Text & ",'" & lblhabitacion.Text & "','','" & lblusuario.Text & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','','','','','',0)"
+                cmd1.CommandText = "INSERT INTO Comanda1(Folio,IdCliente,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales) VALUES(" & cfolio & "," & IIf(lblidcliented.Text = "", "0", lblidcliented.Text) & ",'" & lblhabitacion.Text & "','','" & lblusuario.Text & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','" & Format(Date.Now, "yyyyy-MM-dd HH:mm:ss") & "','','','','',0)"
                 cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand

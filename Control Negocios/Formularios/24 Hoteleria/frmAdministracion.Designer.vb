@@ -37,8 +37,20 @@ Partial Class frmAdministracion
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cbCambioH = New System.Windows.Forms.CheckBox()
         Me.cbDesbloqueo = New System.Windows.Forms.CheckBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtHoras = New System.Windows.Forms.TextBox()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btng = New System.Windows.Forms.Button()
+        Me.grdPrecios = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -198,12 +210,113 @@ Partial Class frmAdministracion
         Me.cbDesbloqueo.Text = "Desbloqueo de habitación"
         Me.cbDesbloqueo.UseVisualStyleBackColor = True
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.grdPrecios)
+        Me.Panel3.Controls.Add(Me.btng)
+        Me.Panel3.Controls.Add(Me.txtPrecio)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.txtHoras)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Location = New System.Drawing.Point(12, 224)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(497, 246)
+        Me.Panel3.TabIndex = 240
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(179, 10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(140, 18)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Precios Por Hora"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(30, 38)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(54, 18)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "Horas"
+        '
+        'txtHoras
+        '
+        Me.txtHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtHoras.Location = New System.Drawing.Point(8, 59)
+        Me.txtHoras.Name = "txtHoras"
+        Me.txtHoras.Size = New System.Drawing.Size(103, 22)
+        Me.txtHoras.TabIndex = 2
+        Me.txtHoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPrecio
+        '
+        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecio.Location = New System.Drawing.Point(117, 59)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(148, 22)
+        Me.txtPrecio.TabIndex = 4
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(168, 38)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 18)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Precio"
+        '
+        'btng
+        '
+        Me.btng.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btng.Location = New System.Drawing.Point(271, 59)
+        Me.btng.Name = "btng"
+        Me.btng.Size = New System.Drawing.Size(88, 23)
+        Me.btng.TabIndex = 5
+        Me.btng.Text = "Guardar"
+        Me.btng.UseVisualStyleBackColor = True
+        '
+        'grdPrecios
+        '
+        Me.grdPrecios.AllowUserToAddRows = False
+        Me.grdPrecios.AllowUserToDeleteRows = False
+        Me.grdPrecios.BackgroundColor = System.Drawing.Color.White
+        Me.grdPrecios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdPrecios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.grdPrecios.Location = New System.Drawing.Point(8, 85)
+        Me.grdPrecios.Name = "grdPrecios"
+        Me.grdPrecios.ReadOnly = True
+        Me.grdPrecios.RowHeadersVisible = False
+        Me.grdPrecios.Size = New System.Drawing.Size(257, 150)
+        Me.grdPrecios.TabIndex = 6
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Horas"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 120
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Precio"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 120
+        '
         'frmAdministracion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(514, 213)
+        Me.ClientSize = New System.Drawing.Size(514, 482)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label57)
@@ -211,15 +324,15 @@ Partial Class frmAdministracion
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(530, 252)
-        Me.MinimumSize = New System.Drawing.Size(530, 252)
         Me.Name = "frmAdministracion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Administración"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -238,4 +351,14 @@ Partial Class frmAdministracion
     Friend WithEvents Panel1 As Panel
     Friend WithEvents cbCambioH As CheckBox
     Friend WithEvents cbDesbloqueo As CheckBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtHoras As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents grdPrecios As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents btng As Button
 End Class

@@ -149,4 +149,69 @@
         lblidu.Text = ""
         cbDesbloqueo.Checked = False
     End Sub
+
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPrecio.Text) Then
+
+                grdPrecios.Rows.Add(txtHoras.Text, txtPrecio.Text)
+                txtHoras.Text = ""
+                txtPrecio.Text = "0.00"
+
+                txtHoras.Focus.Equals(True)
+            Else
+                txtPrecio.Text = "0.00"
+            End If
+        End If
+    End Sub
+
+    Private Sub txtHoras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHoras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtHoras.Text) Then
+                txtPrecio.Focus.Equals(True)
+            Else
+                txtHoras.Text = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub btng_Click(sender As Object, e As EventArgs) Handles btng.Click
+        Try
+
+            cnn1.Close() : cnn1.Open()
+            For luffy As Integer = 0 To grdPrecios.Rows.Count - 1
+
+                Dim HORAS As Double = grdPrecios.Rows(luffy).Cells(0).Value.ToString
+                Dim PRECIO As Double = grdPrecios.Rows(luffy).Cells(1).Value.ToString
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM detallehotelprecios WHERE Horas='" & txtHoras.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE detallehotelprecios SET Precio=" & PRECIO & " WHERE Horas=" & HORAS & ""
+                        rd2 = cmd2.ExecuteReader
+                        cnn2.Close()
+
+                    End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO detallehotelprecios(Horas,Precio) VALUES(" & HORAS & "," & PRECIO & ")"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+                rd1.Close()
+
+            Next
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class
