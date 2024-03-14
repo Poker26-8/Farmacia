@@ -681,34 +681,6 @@
         WIPEAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnHoteleria.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
   <data name="btnRefaccionaria.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADcAAAA4CAYAAABZjWCTAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
