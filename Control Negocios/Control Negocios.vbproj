@@ -2412,6 +2412,7 @@
     <None Include="Resources\DEVO1Recurso 781.png" />
     <Content Include="Resources\entrega1Recurso 82.png" />
     <None Include="Resources\entrega1Recurso 821.png" />
+    <Content Include="Resources\hotel.png" />
     <Content Include="Resources\monedero1Recurso 79.png" />
     <None Include="Resources\monedero1Recurso 791.png" />
     <Content Include="Resources\pagoservicos1Recurso 88.png" />
