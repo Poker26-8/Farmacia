@@ -2413,6 +2413,8 @@
     <Content Include="Resources\entrega1Recurso 82.png" />
     <None Include="Resources\entrega1Recurso 821.png" />
     <Content Include="Resources\hotel.png" />
+    <None Include="Resources\hotel1.png" />
+    <None Include="Resources\hotelRecurso 1.png" />
     <Content Include="Resources\monedero1Recurso 79.png" />
     <None Include="Resources\monedero1Recurso 791.png" />
     <Content Include="Resources\pagoservicos1Recurso 88.png" />
