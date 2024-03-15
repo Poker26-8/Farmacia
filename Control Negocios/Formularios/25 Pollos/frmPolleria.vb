@@ -589,7 +589,6 @@ Public Class frmPolleria
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
-        FRMPRUBEA.Show()
     End Sub
 
     Private Sub btnGrupo_Click(sender As Object, e As EventArgs)

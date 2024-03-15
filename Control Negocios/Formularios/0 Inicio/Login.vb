@@ -758,6 +758,11 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                            'promos
+                            .runSp(cnnprueba, vartablapromos, sinfo)
+                            .runSp(cnnprueba, varKeypromos, sinfo)
+                            .runSp(cnnprueba, varAutopromos, sinfo)
+
                             'clienteeliminado
                             .runSp(cnnprueba, vartablaclienteeliminado, sinfo)
                             .runSp(cnnprueba, varKeyclienteeliminado, sinfo)
@@ -1295,18 +1300,22 @@ Public Class Login
                             .runSp(cnnprueba, varinsertaparametros, sinfo)
                             .runSp(cnnprueba, varKeyparametros, sinfo)
 
+                            'parcialidades
                             .runSp(cnnprueba, vartablaparcialidades, sinfo)
                             .runSp(cnnprueba, varKeyparcialidades, sinfo)
                             .runSp(cnnprueba, varAutoparcialidades, sinfo)
 
+                            'parciaqlidadesdetalle
                             .runSp(cnnprueba, vartablaparcialidadesdetalle, sinfo)
                             .runSp(cnnprueba, varKeyparcialidadesdetalle, sinfo)
                             .runSp(cnnprueba, varAutoparcialidadesdetalle, sinfo)
 
+                            'parcialidadesdetallemulti
                             .runSp(cnnprueba, vartablaparcialidadesdetallemulti, sinfo)
                             .runSp(cnnprueba, varKeyparcialidadesdetallemulti, sinfo)
                             .runSp(cnnprueba, varAutoparcialidadesdetallemulti, sinfo)
 
+                            'parcialidadesmulti
                             .runSp(cnnprueba, vartablaparcialidadesmulti, sinfo)
                             .runSp(cnnprueba, varKeyparcialidadesmulti, sinfo)
                             .runSp(cnnprueba, varAutoparcialidadesmulti, sinfo)

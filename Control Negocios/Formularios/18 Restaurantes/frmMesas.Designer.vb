@@ -60,6 +60,7 @@ Partial Class frmMesas
         Me.lbltotalmesa = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.pmesas = New System.Windows.Forms.Panel()
+        Me.btntemporales = New System.Windows.Forms.Button()
         Me.psuperior.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,17 +78,17 @@ Partial Class frmMesas
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.psuperior.Location = New System.Drawing.Point(0, 0)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(1217, 104)
+        Me.psuperior.Size = New System.Drawing.Size(1372, 104)
         Me.psuperior.TabIndex = 0
         '
         'parea
         '
         Me.parea.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.parea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.parea.Dock = System.Windows.Forms.DockStyle.Top
+        Me.parea.Dock = System.Windows.Forms.DockStyle.Fill
         Me.parea.Location = New System.Drawing.Point(186, 0)
         Me.parea.Name = "parea"
-        Me.parea.Size = New System.Drawing.Size(477, 104)
+        Me.parea.Size = New System.Drawing.Size(531, 104)
         Me.parea.TabIndex = 4
         '
         'Panel1
@@ -116,6 +117,7 @@ Partial Class frmMesas
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Black
+        Me.Panel5.Controls.Add(Me.btntemporales)
         Me.Panel5.Controls.Add(Me.btncambiar)
         Me.Panel5.Controls.Add(Me.btnjuntar)
         Me.Panel5.Controls.Add(Me.btnagregar)
@@ -124,9 +126,9 @@ Partial Class frmMesas
         Me.Panel5.Controls.Add(Me.btnLimpiar)
         Me.Panel5.Controls.Add(Me.btnSalir)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel5.Location = New System.Drawing.Point(663, 0)
+        Me.Panel5.Location = New System.Drawing.Point(717, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(554, 104)
+        Me.Panel5.Size = New System.Drawing.Size(655, 104)
         Me.Panel5.TabIndex = 3
         '
         'btncambiar
@@ -139,7 +141,7 @@ Partial Class frmMesas
         Me.btncambiar.ForeColor = System.Drawing.Color.Black
         Me.btncambiar.Image = CType(resources.GetObject("btncambiar.Image"), System.Drawing.Image)
         Me.btncambiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncambiar.Location = New System.Drawing.Point(0, 0)
+        Me.btncambiar.Location = New System.Drawing.Point(101, 0)
         Me.btncambiar.Name = "btncambiar"
         Me.btncambiar.Size = New System.Drawing.Size(81, 104)
         Me.btncambiar.TabIndex = 21
@@ -157,7 +159,7 @@ Partial Class frmMesas
         Me.btnjuntar.ForeColor = System.Drawing.Color.Black
         Me.btnjuntar.Image = CType(resources.GetObject("btnjuntar.Image"), System.Drawing.Image)
         Me.btnjuntar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnjuntar.Location = New System.Drawing.Point(81, 0)
+        Me.btnjuntar.Location = New System.Drawing.Point(182, 0)
         Me.btnjuntar.Name = "btnjuntar"
         Me.btnjuntar.Size = New System.Drawing.Size(71, 104)
         Me.btnjuntar.TabIndex = 20
@@ -175,7 +177,7 @@ Partial Class frmMesas
         Me.btnagregar.ForeColor = System.Drawing.Color.Black
         Me.btnagregar.Image = CType(resources.GetObject("btnagregar.Image"), System.Drawing.Image)
         Me.btnagregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnagregar.Location = New System.Drawing.Point(152, 0)
+        Me.btnagregar.Location = New System.Drawing.Point(253, 0)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(88, 104)
         Me.btnagregar.TabIndex = 19
@@ -193,7 +195,7 @@ Partial Class frmMesas
         Me.btncobro.ForeColor = System.Drawing.Color.Black
         Me.btncobro.Image = CType(resources.GetObject("btncobro.Image"), System.Drawing.Image)
         Me.btncobro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncobro.Location = New System.Drawing.Point(240, 0)
+        Me.btncobro.Location = New System.Drawing.Point(341, 0)
         Me.btncobro.Name = "btncobro"
         Me.btncobro.Size = New System.Drawing.Size(80, 104)
         Me.btncobro.TabIndex = 18
@@ -212,7 +214,7 @@ Partial Class frmMesas
         Me.btnconsulta.ForeColor = System.Drawing.Color.Black
         Me.btnconsulta.Image = CType(resources.GetObject("btnconsulta.Image"), System.Drawing.Image)
         Me.btnconsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnconsulta.Location = New System.Drawing.Point(320, 0)
+        Me.btnconsulta.Location = New System.Drawing.Point(421, 0)
         Me.btnconsulta.Name = "btnconsulta"
         Me.btnconsulta.Size = New System.Drawing.Size(80, 104)
         Me.btnconsulta.TabIndex = 17
@@ -229,7 +231,7 @@ Partial Class frmMesas
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.ForeColor = System.Drawing.Color.Black
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.Location = New System.Drawing.Point(400, 0)
+        Me.btnLimpiar.Location = New System.Drawing.Point(501, 0)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(80, 104)
         Me.btnLimpiar.TabIndex = 16
@@ -246,7 +248,7 @@ Partial Class frmMesas
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.Color.Black
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(480, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(581, 0)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(74, 104)
         Me.btnSalir.TabIndex = 15
@@ -279,7 +281,7 @@ Partial Class frmMesas
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.Panel6)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1025, 104)
+        Me.Panel2.Location = New System.Drawing.Point(1180, 104)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(192, 640)
         Me.Panel2.TabIndex = 1
@@ -552,14 +554,31 @@ Partial Class frmMesas
         Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pmesas.Location = New System.Drawing.Point(0, 104)
         Me.pmesas.Name = "pmesas"
-        Me.pmesas.Size = New System.Drawing.Size(1025, 640)
+        Me.pmesas.Size = New System.Drawing.Size(1180, 640)
         Me.pmesas.TabIndex = 3
+        '
+        'btntemporales
+        '
+        Me.btntemporales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btntemporales.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btntemporales.FlatAppearance.BorderSize = 0
+        Me.btntemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btntemporales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btntemporales.ForeColor = System.Drawing.Color.Black
+        Me.btntemporales.Image = CType(resources.GetObject("btntemporales.Image"), System.Drawing.Image)
+        Me.btntemporales.Location = New System.Drawing.Point(1, 0)
+        Me.btntemporales.Name = "btntemporales"
+        Me.btntemporales.Size = New System.Drawing.Size(100, 104)
+        Me.btntemporales.TabIndex = 22
+        Me.btntemporales.Text = "Temporales"
+        Me.btntemporales.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btntemporales.UseVisualStyleBackColor = False
         '
         'frmMesas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1217, 744)
+        Me.ClientSize = New System.Drawing.Size(1372, 744)
         Me.Controls.Add(Me.pmesas)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.psuperior)
@@ -616,4 +635,5 @@ Partial Class frmMesas
     Friend WithEvents parea As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btntemporales As Button
 End Class

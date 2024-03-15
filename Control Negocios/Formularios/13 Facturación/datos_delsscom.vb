@@ -162,6 +162,11 @@ Public Class datos_delsscom
                 With odata
                     If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                        'promos
+                        .runSp(cnnprueba, vartablapromos, sinfo)
+                        .runSp(cnnprueba, varKeypromos, sinfo)
+                        .runSp(cnnprueba, varAutopromos, sinfo)
+
                         'clienteeliminado
                         .runSp(cnnprueba, vartablaclienteeliminado, sinfo)
                         .runSp(cnnprueba, varKeyclienteeliminado, sinfo)

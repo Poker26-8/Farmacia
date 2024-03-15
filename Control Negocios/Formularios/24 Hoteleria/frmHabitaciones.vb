@@ -21,11 +21,11 @@
     Private Sub cboTipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTipo.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtprecio.Focus.Equals(True)
+            btnGuardar.Focus.Equals(True)
         End If
     End Sub
 
-    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
+    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) 
         If AscW(e.KeyChar) = Keys.Enter Then
             rtbCaracteristicas.Focus.Equals(True)
         End If
@@ -47,11 +47,11 @@
         Try
             If cbonumero.Text = "" Then MsgBox("Debe de asignarle un número o nombre a la habitación", vbInformation + vbOKOnly, titulohotelriaa) : cbonumero.Focus.Equals(True) : Exit Sub
 
-            If cboUbicacion.Text = "" Then MsgBox("Debe de asignar la ubicacion de la habitación", vbInformation + vbOKOnly, titulohotelriaa) : txtprecio.Focus.Equals(True) : Exit Sub
+            If cboUbicacion.Text = "" Then MsgBox("Debe de asignar la ubicacion de la habitación", vbInformation + vbOKOnly, titulohotelriaa) : cboUbicacion.Focus.Equals(True) : Exit Sub
 
-            If cboTipo.Text = "" Then MsgBox("Debe de asignar el tipo de habitación", vbInformation + vbOKOnly, titulohotelriaa) : txtprecio.Focus.Equals(True) : Exit Sub
+            If cboTipo.Text = "" Then MsgBox("Debe de asignar el tipo de habitación", vbInformation + vbOKOnly, titulohotelriaa) : cboTipo.Focus.Equals(True) : Exit Sub
 
-            If txtprecio.Text = "" Then MsgBox("Debe de asignarle un precio a la habitación", vbInformation + vbOKOnly, titulohotelriaa) : txtprecio.Focus.Equals(True) : Exit Sub
+            'If txtprecio.Text = "" Then MsgBox("Debe de asignarle un precio a la habitación", vbInformation + vbOKOnly, titulohotelriaa) : txtprecio.Focus.Equals(True) : Exit Sub
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -62,7 +62,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Precio='" & txtprecio.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "' WHERE N_Habitacion='" & cbonumero.Text & "'"
+                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "' WHERE N_Habitacion='" & cbonumero.Text & "'"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Habitación " & cbonumero.Text & " actualizada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                     End If
@@ -73,7 +73,7 @@
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Precio,Caracteristicas,Tiempo) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada'," & txtprecio.Text & ",'" & rtbCaracteristicas.Text & "',1)"
+                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1)"
                 If cmd2.ExecuteNonQuery() Then
                     MsgBox("Habitacion " & cbonumero.Text & " agregada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                 End If
@@ -83,6 +83,7 @@
             rd1.Close()
             cnn1.Close()
             Me.Close()
+            frmManejo.primerBoton()
             frmManejo.btnLimpiar.PerformClick()
 
         Catch ex As Exception
@@ -96,7 +97,7 @@
         cbonumero.Text = ""
         cboUbicacion.Text = ""
         cboTipo.Text = ""
-        txtprecio.Text = ""
+        ' txtprecio.Text = ""
         rtbCaracteristicas.Text = ""
     End Sub
 
@@ -131,7 +132,7 @@
                 If rd1.Read Then
                     cboUbicacion.Text = rd1("Ubicacion").ToString
                     cboTipo.Text = rd1("Tipo").ToString
-                    txtprecio.Text = rd1("Precio").ToString
+                    ' txtprecio.Text = rd1("Precio").ToString
                     rtbCaracteristicas.Text = rd1("Caracteristicas").ToString
 
                 End If

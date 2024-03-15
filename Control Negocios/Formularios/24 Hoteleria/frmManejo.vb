@@ -7,9 +7,16 @@ Public Class frmManejo
 
     Friend WithEvents btnUbicacion As System.Windows.Forms.Button
     Friend WithEvents btnHabitacionn As System.Windows.Forms.Button
+
+    Dim VarMinutos As String = ""
+    Dim varHoras As String = ""
+    Dim vardias As String = ""
+    Dim varhora As Double = 0
     Private Sub frmManejo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         TRAERUBICACION()
+
+        Tterminar.Start()
 
         Dim nLogo As String = ""
 
@@ -117,7 +124,6 @@ Public Class frmManejo
         End Try
 
     End Sub
-
 
     Private Sub btnUbicacion_Click(sender As Object, e As EventArgs)
 
@@ -687,16 +693,7 @@ Public Class frmManejo
 
                     If estadohabitaciona = "Ocupada" Then
 
-                        'cnn2.Close() : cnn2.Open()
-                        'cmd2 = cnn2.CreateCommand
-                        'cmd2.CommandText = "SELECT * FROM detallehotel WHERE Habitacion='" & txtHabitacion.Text & "'"
-                        'rd2 = cmd2.ExecuteReader
-                        'If rd2.HasRows Then
-                        '    If rd2.Read Then
-                        '        cliente = rd2("Cliente").ToString
-                        '        lblcliente.Text = cliente
                         btnPagar.Enabled = True
-
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
@@ -705,32 +702,13 @@ Public Class frmManejo
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
-                                frmCalcularH.lblpc.Text = txtHabitacion.Text
-                                frmCalcularH.Show()
+                                frmCalcularNuvHab.lblpc.Text = txtHabitacion.Text
+                                frmCalcularNuvHab.Show()
                             End If
 
                         End If
                         rd1.Close()
                         cnn1.Close()
-
-
-
-                        '        cnn3.Close() : cnn3.Open()
-                        '        cmd3 = cnn3.CreateCommand
-                        '        cmd3.CommandText = "SELECT Id FROM Clientes WHERE Nombre='" & lblcliente.Text & "'"
-                        '        rd3 = cmd3.ExecuteReader
-                        '        If rd3.HasRows Then
-                        '            If rd3.Read Then
-                        '                lblidcliente.Text = rd3(0).ToString
-                        '            End If
-                        '        End If
-                        '        rd3.Close()
-                        '        cnn3.Close()
-
-                        '    End If
-                        'End If
-                        'rd2.Close()
-                        'cnn2.Close()
 
                     Else
                         If tiempo = 1 Then
@@ -764,7 +742,6 @@ Public Class frmManejo
 
                                         tipo = rd1("Tipo").ToString
                                         ubicacion = rd1("Ubicacion").ToString
-                                        precio = rd1("Precio").ToString
                                         descripcion = rd1("Caracteristicas").ToString
                                         estado = rd1("Estado").ToString
 
@@ -772,7 +749,6 @@ Public Class frmManejo
                                         frmDetalleH.habitacionn = txtHabitacion.Text
                                         frmDetalleH.lblhabitacion.Text = txtHabitacion.Text
                                         frmDetalleH.lbltipo.Text = tipo
-                                        frmDetalleH.lblprecio.Text = precio
                                         frmDetalleH.lblCaracteristicas.Text = descripcion
 
 
@@ -1196,5 +1172,52 @@ Public Class frmManejo
             cnn1.Close()
         End Try
 
+    End Sub
+
+    Private Sub Tterminar_Tick(sender As Object, e As EventArgs) Handles Tterminar.Tick
+        Tterminar.Stop()
+
+        Finalizadas
+
+        Tterminar.Start()
+    End Sub
+    Public Sub Finalizadas()
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * FROM AsigPC"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    Dim mesa As String = rd1("Nombre").ToString
+
+                    Dim fechaentrada As Date = Nothing
+                    Dim fechaentradan As String = ""
+
+                    Dim fechafinal As Date = Nothing
+                    Dim fechafinaln As String = ""
+
+                    fechaentrada = rd1("HorEnt").ToString
+                    fechaentradan = Format(fechaentrada, "yyyy/MM/dd HH:mm")
+
+                    fechafinal = Date.Now
+                    fechafinaln = Format(fechafinaln, "yyyy/MM/dd HH:mm")
+
+
+                    vardias = DateDiff(DateInterval.Day, CDate(fechaentradan), CDate(fechafinaln))
+                    varHoras = DateDiff(DateInterval.Hour, CDate(fechaentradan), CDate(fechafinaln))
+                    VarMinutos = DateDiff(DateInterval.Minute, CDate(fechaentradan), CDate(fechafinaln))
+
+                    MsgBox(mesa)
+                    MsgBox(fechaentradan)
+                    MsgBox(fechafinaln)
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

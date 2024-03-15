@@ -16,10 +16,23 @@
         VarMinutos = "10.00"
         varHoras = "60"
 
+        Dim precioa As Double = 0
+
         Try
             cnn2.Close() : cnn2.Open()
             cnn1.Close() : cnn1.Open()
             cnn3.Close() : cnn3.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Precio FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    precioa = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TipoCobroBillar'"
             rd2 = cmd2.ExecuteReader

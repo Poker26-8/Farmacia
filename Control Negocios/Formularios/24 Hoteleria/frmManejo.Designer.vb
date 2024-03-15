@@ -22,6 +22,7 @@ Partial Class frmManejo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmManejo))
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.pUbicaciones = New System.Windows.Forms.Panel()
@@ -64,6 +65,8 @@ Partial Class frmManejo
         Me.txtHabitacion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pHab = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Tterminar = New System.Windows.Forms.Timer(Me.components)
         Me.psuperior.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.piclogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,6 +237,7 @@ Partial Class frmManejo
         '
         'pcontra
         '
+        Me.pcontra.Controls.Add(Me.Label10)
         Me.pcontra.Controls.Add(Me.lblidusuario)
         Me.pcontra.Controls.Add(Me.Label9)
         Me.pcontra.Controls.Add(Me.Label8)
@@ -270,7 +274,7 @@ Partial Class frmManejo
         'lblidusuario
         '
         Me.lblidusuario.BackColor = System.Drawing.Color.Silver
-        Me.lblidusuario.Location = New System.Drawing.Point(7, 536)
+        Me.lblidusuario.Location = New System.Drawing.Point(15, 574)
         Me.lblidusuario.Name = "lblidusuario"
         Me.lblidusuario.Size = New System.Drawing.Size(85, 20)
         Me.lblidusuario.TabIndex = 121
@@ -282,7 +286,7 @@ Partial Class frmManejo
         Me.Label9.BackColor = System.Drawing.Color.Yellow
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(5, 443)
+        Me.Label9.Location = New System.Drawing.Point(6, 476)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(98, 20)
         Me.Label9.TabIndex = 120
@@ -294,7 +298,7 @@ Partial Class frmManejo
         Me.Label8.BackColor = System.Drawing.Color.Aqua
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(106, 383)
+        Me.Label8.Location = New System.Drawing.Point(104, 383)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(80, 20)
         Me.Label8.TabIndex = 119
@@ -306,7 +310,7 @@ Partial Class frmManejo
         Me.Label7.BackColor = System.Drawing.Color.Silver
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(6, 414)
+        Me.Label7.Location = New System.Drawing.Point(6, 446)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(127, 20)
         Me.Label7.TabIndex = 118
@@ -315,7 +319,7 @@ Partial Class frmManejo
         'lblidcliente
         '
         Me.lblidcliente.BackColor = System.Drawing.Color.LightGray
-        Me.lblidcliente.Location = New System.Drawing.Point(7, 504)
+        Me.lblidcliente.Location = New System.Drawing.Point(15, 542)
         Me.lblidcliente.Name = "lblidcliente"
         Me.lblidcliente.Size = New System.Drawing.Size(100, 23)
         Me.lblidcliente.TabIndex = 117
@@ -324,7 +328,7 @@ Partial Class frmManejo
         'lblcliente
         '
         Me.lblcliente.BackColor = System.Drawing.Color.LightGray
-        Me.lblcliente.Location = New System.Drawing.Point(5, 472)
+        Me.lblcliente.Location = New System.Drawing.Point(13, 510)
         Me.lblcliente.Name = "lblcliente"
         Me.lblcliente.Size = New System.Drawing.Size(180, 23)
         Me.lblcliente.TabIndex = 116
@@ -336,7 +340,7 @@ Partial Class frmManejo
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(156, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(6, 383)
+        Me.Label6.Location = New System.Drawing.Point(6, 414)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(95, 20)
         Me.Label6.TabIndex = 115
@@ -584,6 +588,21 @@ Partial Class frmManejo
         Me.pHab.Size = New System.Drawing.Size(988, 726)
         Me.pHab.TabIndex = 4
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Violet
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.Location = New System.Drawing.Point(6, 383)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(91, 20)
+        Me.Label10.TabIndex = 122
+        Me.Label10.Text = "Finalizada"
+        '
+        'Tterminar
+        '
+        '
         'frmManejo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -650,4 +669,6 @@ Partial Class frmManejo
     Friend WithEvents piclogo As PictureBox
     Friend WithEvents pHab As Panel
     Friend WithEvents pUbicaciones As Panel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Tterminar As Timer
 End Class

@@ -81,7 +81,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & lblprecio.Text & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy/MM/dd") & "','" & Format(dtpSalida.Value, "yyyy/MM/dd") & "','" & lblCaracteristicas.Text & "')"
+                    cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Horas,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & cbohoras.Text & "," & txtPrecio.Text & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy/MM/dd HH:mm:ss") & "','" & Format(dtpSalida.Value, "yyyy/MM/dd") & "','" & lblCaracteristicas.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
@@ -136,11 +136,11 @@
                 cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIva,TotalSinIva,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','" & "Tiempo " & lblhabitacion.Text & "',1,'SER','0','0'," & lblprecio.Text & "," & lblprecio.Text & "," & lblprecio.Text & "," & lblprecio.Text & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                cmd1.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIva,TotalSinIva,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','" & "Tiempo " & lblhabitacion.Text & "',1,'SER','0','0'," & txtPrecio.Text & "," & txtPrecio.Text & "," & txtPrecio.Text & "," & txtPrecio.Text & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
                 cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVUE,CostVP,Precio,Total,PrecioSinIva,TotalSinIva,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','" & "Tiempo " & lblhabitacion.Text & "',1,'SER',0,'0','0'," & lblprecio.Text & "," & lblprecio.Text & "," & lblprecio.Text & "," & lblprecio.Text & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                cmd1.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVUE,CostVP,Precio,Total,PrecioSinIva,TotalSinIva,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','" & "Tiempo " & lblhabitacion.Text & "',1,'SER',0,'0','0'," & txtPrecio.Text & "," & txtPrecio.Text & "," & txtPrecio.Text & "," & txtPrecio.Text & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 
@@ -179,7 +179,7 @@
                 Else
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & lblprecio.Text & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy-MM-dd") & "','" & Format(dtpSalida.Value, "yyyy-MM-dd") & "','" & lblCaracteristicas.Text & "')"
+                    cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Horas,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & cbohoras.Text & "," & txtPrecio.Text & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy-MM-dd") & "','" & Format(dtpSalida.Value, "yyyy-MM-dd") & "','" & lblCaracteristicas.Text & "')"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Habitación reservada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                     End If
@@ -306,7 +306,7 @@
     Private Sub cboRegistro_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboRegistro.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            dtpEntrada.Focus.Equals(True)
+            cbohoras.Focus.Equals(True)
         End If
     End Sub
 
@@ -431,6 +431,63 @@
     Private Sub dtpSalida_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpSalida.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             btnGuardar.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cbohoras_DropDown(sender As Object, e As EventArgs) Handles cbohoras.DropDown
+        Try
+            cbohoras.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Horas FROM detallehotelprecios WHERE horas<>'' ORDER BY Horas"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cbohoras.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+
+    End Sub
+
+    Private Sub cbohoras_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbohoras.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Precio FROM detallehotelprecios WHERE Horas='" & cbohoras.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtPrecio.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbohoras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbohoras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(cbohoras.Text) Then
+                txtPrecio.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPrecio.Text) Then
+                dtpEntrada.Focus.Equals(True)
+            End If
         End If
     End Sub
 End Class

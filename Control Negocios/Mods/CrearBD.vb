@@ -1,5 +1,83 @@
 ﻿Module CrearBD
 
+
+    'promos
+    Public vartablapromos As String = "CREATE TABLE `promos` (
+                                              `Id` int(11) NOT NULL,
+                                              `Codigo` varchar(50) DEFAULT '',
+                                              `Promo2x1` int(11) DEFAULT '0',
+                                              `Lunes` int(11) DEFAULT '0',
+                                              `Martes` int(11) DEFAULT '0',
+                                              `Miercoles` int(11) DEFAULT '0',
+                                              `Jueves` int(11) DEFAULT '0',
+                                              `Viernes` int(11) DEFAULT '0',
+                                              `Sabado` int(11) DEFAULT '0',
+                                              `Domingo` int(11) DEFAULT '0',
+                                              `HInicioL` varchar(50) DEFAULT '',
+                                              `HFinL` varchar(50) DEFAULT '',
+                                              `HInicioL2` varchar(50) DEFAULT '',
+                                              `HFinL2` varchar(50) DEFAULT '',
+                                              `HInicioM` varchar(50) DEFAULT '',
+                                              `HFinM` varchar(50) DEFAULT '',
+                                              `HinicioM2` varchar(50) DEFAULT '',
+                                              `HFinM2` varchar(50) DEFAULT '',
+                                              `HInicioMi` varchar(50) DEFAULT '',
+                                              `HFinMi` varchar(50) DEFAULT '',
+                                              `HinicioMi2` varchar(50) DEFAULT '',
+                                              `HFinMi2` varchar(50) DEFAULT '',
+                                              `HInicioJ` varchar(50) DEFAULT '',
+                                              `HFinJ` varchar(50) DEFAULT '',
+                                              `HInicioJ2` varchar(50) DEFAULT '',
+                                              `HFinJ2` varchar(50) DEFAULT '',
+                                              `HInicioV` varchar(50) DEFAULT '',
+                                              `HFinV` varchar(50) DEFAULT '',
+                                              `HInicioV2` varchar(50) DEFAULT '',
+                                              `HFinV2` varchar(50) DEFAULT '',
+                                              `HInicioS` varchar(50) DEFAULT '',
+                                              `HFinS` varchar(50) DEFAULT '',
+                                              `HInicioS2` varchar(50) DEFAULT '',
+                                              `HFinS2` varchar(50) DEFAULT '',
+                                              `HInicioD` varchar(50) DEFAULT '',
+                                              `HFinD` varchar(50) DEFAULT '',
+                                              `HInicioD2` varchar(50) DEFAULT '',
+                                              `HFinD2` varchar(50) DEFAULT '',
+                                              `Promo3x2` int(11) DEFAULT '0',
+                                              `Lunes2` int(11) DEFAULT '0',
+                                              `Martes2` int(11) DEFAULT '0',
+                                              `Miercoles2` int(11) DEFAULT '0',
+                                              `Jueves2` int(11) DEFAULT '0',
+                                              `Viernes2` int(11) DEFAULT '0',
+                                              `Sabado2` int(11) DEFAULT '0',
+                                              `Domingo2` int(11) DEFAULT '0',
+                                              `HInicioL3` varchar(50) DEFAULT '',
+                                              `HFinL3` varchar(50) DEFAULT '',
+                                              `HInicioL33` varchar(50) DEFAULT '',
+                                              `HFinL33` varchar(50) DEFAULT '',
+                                              `HInicioM3` varchar(50) DEFAULT '',
+                                              `HFinM3` varchar(50) DEFAULT '',
+                                              `HInicioM33` varchar(50) DEFAULT '',
+                                              `HFinM33` varchar(50) DEFAULT '',
+                                              `HInicioMi3` varchar(50) DEFAULT '',
+                                              `HFinMi3` varchar(50) DEFAULT '',
+                                              `HInicioMi33` varchar(50) DEFAULT '',
+                                              `HFinMi33` varchar(50) DEFAULT '',
+                                              `HInicioJ3` varchar(50) DEFAULT '',
+                                              `HFinJ3` varchar(50) DEFAULT '',
+                                              `HInicioJ33` varchar(50) DEFAULT '',
+                                              `HFinJ33` varchar(50) DEFAULT '',
+                                              `HInicioV3` varchar(50) DEFAULT '',
+                                              `HFinV3` varchar(50) DEFAULT '',
+                                              `HInicioV33` varchar(50) DEFAULT '',
+                                              `HFinV33` varchar(50) DEFAULT '',
+                                              `HInicioS3` varchar(50) DEFAULT '',
+                                              `HFinS3` varchar(50) DEFAULT '',
+                                              `HInicioS33` varchar(50) DEFAULT '',
+                                              `HFinS33` varchar(50) DEFAULT '',
+                                              `HInicioD3` varchar(50) DEFAULT '',
+                                              `HFinD3` varchar(50) DEFAULT '',
+                                              `HInicioD33` varchar(50) DEFAULT '',
+                                              `HFinD33` varchar(50) DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'clienteeliminado
     Public vartablaclienteeliminado As String = "CREATE TABLE `clienteeliminado` (
                                                   `Id` int(11) NOT NULL,
@@ -2029,10 +2107,59 @@
                                           `BancoEmi` varchar(255) NOT NULL DEFAULT ''
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+    'PARCIALIDADESDETALLE2
+    Public vartablaparcialidadesdetalle As String = "CREATE TABLE `parcialidadesdetalle` (
+                                                              `Id` int(11) NOT NULL,
+                                                              `IdParcialidades` int(11) NOT NULL DEFAULT '0',
+                                                              `Folio` varchar(255) NOT NULL DEFAULT '',
+                                                              `Serie` varchar(255) NOT NULL DEFAULT '',
+                                                              `ImpSaldoIns` varchar(255) NOT NULL DEFAULT '',
+                                                              `ImpPagado` varchar(255) NOT NULL DEFAULT '',
+                                                              `ImpSaldoAnt` varchar(255) NOT NULL DEFAULT '',
+                                                              `NumParcialidades` varchar(255) NOT NULL DEFAULT '',
+                                                              `MetodoPago` varchar(255) NOT NULL DEFAULT '',
+                                                              `Moneda` varchar(255) NOT NULL DEFAULT '',
+                                                              `UUID` varchar(255) NOT NULL DEFAULT '',
+                                                              `OpeIva` varchar(50) DEFAULT '',
+                                                              `OpeIvaRet` varchar(50) DEFAULT '',
+                                                              `OpeIsr` varchar(50) DEFAULT '',
+                                                              `OpeIeps` varchar(50) DEFAULT '',
+                                                              `OpeIva0` varchar(50) DEFAULT '',
+                                                              `IsrPorc` varchar(50) DEFAULT '',
+                                                              `IvaRetPorc` varchar(50) DEFAULT '',
+                                                              `IepsPorc` varchar(50) DEFAULT '',
+                                                              `ieps160` varchar(50) DEFAULT '',
+                                                              `ieps53` varchar(50) DEFAULT '',
+                                                              `ieps5` varchar(50) DEFAULT '',
+                                                              `ieps304` varchar(50) DEFAULT '',
+                                                              `ieps3` varchar(50) DEFAULT '',
+                                                              `ieps265` varchar(50) DEFAULT '',
+                                                              `ieps25` varchar(50) DEFAULT '',
+                                                              `ieps09` varchar(50) DEFAULT '',
+                                                              `ieps08` varchar(50) DEFAULT '',
+                                                              `ieps07` varchar(50) DEFAULT '',
+                                                              `ieps06` varchar(50) DEFAULT '',
+                                                              `ieps03` varchar(50) DEFAULT '',
+                                                              `Baseieps160` varchar(50) DEFAULT '',
+                                                              `Baseieps53` varchar(50) DEFAULT '',
+                                                              `Baseieps5` varchar(50) DEFAULT '',
+                                                              `Baseieps304` varchar(50) DEFAULT '',
+                                                              `Baseieps3` varchar(50) DEFAULT '',
+                                                              `Baseieps265` varchar(50) DEFAULT '',
+                                                              `Baseieps25` varchar(50) DEFAULT '',
+                                                              `Baseieps09` varchar(50) DEFAULT '',
+                                                              `Baseieps08` varchar(50) DEFAULT '',
+                                                              `Baseieps07` varchar(50) DEFAULT '',
+                                                              `Baseieps06` varchar(50) DEFAULT '',
+                                                              `Baseieps03` varchar(50) DEFAULT '',
+                                                              `BaseIVA16` varchar(50) DEFAULT '',
+                                                              `BaseISR` varchar(50) DEFAULT '',
+                                                              `BaseIVARet` varchar(50) DEFAULT '',
+                                                              `BaseIVA0` varchar(50) DEFAULT ''
+                                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
-
-    'ParcialidadesDetalle
-    Public vartablaparcialidadesdetalle As String = "CREATE TABLE `parcialidadesdetallemulti` (
+    'ParcialidadesDetalleMULTI
+    Public vartablaparcialidadesdetallemulti As String = "CREATE TABLE `parcialidadesdetallemulti` (
                                                                       `Id` int(11) NOT NULL,
                                                                       `IdParcialidades` int(11) NOT NULL DEFAULT '0',
                                                                       `Folio` varchar(255) NOT NULL DEFAULT '',
@@ -2081,25 +2208,6 @@
                                                                       `BaseIVARet` varchar(50) NOT NULL DEFAULT '0',
                                                                       `BaseIVA0` varchar(50) NOT NULL DEFAULT '0'
                                                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
-
-
-
-    'ParcialidadesDetalleMulti
-    Public vartablaparcialidadesdetallemulti As String = "CREATE TABLE IF NOT EXISTS `parcialidadesdetallemulti` (
-                                                      `Id` int(11) NOT NULL,
-                                                      `IdParcialidades` int(11) NOT NULL DEFAULT '0',
-                                                      `Folio` varchar(255) NOT NULL DEFAULT '',
-                                                      `Serie` varchar(255) NOT NULL DEFAULT '',
-                                                      `ImpSaldoIns` varchar(255) NOT NULL DEFAULT '',
-                                                      `ImpPagado` varchar(255) NOT NULL DEFAULT '',
-                                                      `ImpSaldoAnt` varchar(255) NOT NULL DEFAULT '',
-                                                      `NumParcialidades` varchar(255) NOT NULL DEFAULT '',
-                                                      `MetodoPago` varchar(255) NOT NULL DEFAULT '',
-                                                      `Moneda` varchar(255) NOT NULL DEFAULT '',
-                                                      `UUID` varchar(255) NOT NULL DEFAULT ''
-                                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
-
-
 
     'ParcialidadesMulti
     Public vartablaparcialidadesmulti As String = "CREATE TABLE `parcialidadesmulti` (
@@ -2156,7 +2264,6 @@
                                                                   `BaseIVA0` varchar(50) NOT NULL DEFAULT '0',
                                                                   `BaseIVARet` varchar(50) NOT NULL DEFAULT ''
                                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
-
 
 
     'Pedidos
@@ -6304,6 +6411,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public varKeypromos As String = "ALTER TABLE `promos` ADD PRIMARY KEY (`Id`);"
     Public varKeyclienteeliminado As String = "ALTER TABLE `clienteeliminado` ADD PRIMARY KEY (`Id`);"
     Public varKeyproductoeliminado As String = "ALTER TABLE `productoeliminado` ADD PRIMARY KEY (`Id`);"
     Public varKeypedidostemporal As String = "ALTER TABLE `pedidostemporal` ADD PRIMARY KEY (`Id`);"
@@ -6451,6 +6559,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutopromos As String = "ALTER TABLE `promos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoclienteeliminado As String = "ALTER TABLE `clienteeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoproductoeliminado As String = "ALTER TABLE `productoeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidostemporal As String = "ALTER TABLE `pedidostemporal` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

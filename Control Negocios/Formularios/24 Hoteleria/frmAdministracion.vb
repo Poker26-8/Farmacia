@@ -154,11 +154,13 @@
         If AscW(e.KeyChar) = Keys.Enter Then
             If IsNumeric(txtPrecio.Text) Then
 
-                grdPrecios.Rows.Add(txtHoras.Text, txtPrecio.Text)
+                grdPrecios.Rows.Add(txtnombre.Text, txtHoras.Text, txtPrecio.Text)
+
+                txtnombre.Text = ""
                 txtHoras.Text = ""
                 txtPrecio.Text = "0.00"
 
-                txtHoras.Focus.Equals(True)
+                txtnombre.Focus.Equals(True)
             Else
                 txtPrecio.Text = "0.00"
             End If
@@ -181,18 +183,19 @@
             cnn1.Close() : cnn1.Open()
             For luffy As Integer = 0 To grdPrecios.Rows.Count - 1
 
-                Dim HORAS As Double = grdPrecios.Rows(luffy).Cells(0).Value.ToString
-                Dim PRECIO As Double = grdPrecios.Rows(luffy).Cells(1).Value.ToString
+                Dim nombre As String = grdPrecios.Rows(luffy).Cells(0).Value.ToString
+                Dim HORAS As Double = grdPrecios.Rows(luffy).Cells(1).Value.ToString
+                Dim PRECIO As Double = grdPrecios.Rows(luffy).Cells(2).Value.ToString
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM detallehotelprecios WHERE Horas='" & txtHoras.Text & "'"
+                cmd1.CommandText = "SELECT * FROM detallehotelprecios WHERE Horas='" & HORAS & "' AND Nombre='" & nombre & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE detallehotelprecios SET Precio=" & PRECIO & " WHERE Horas=" & HORAS & ""
+                        cmd2.CommandText = "UPDATE detallehotelprecios SET Nombre='" & nombre & "', Precio=" & PRECIO & " WHERE Horas=" & HORAS & ""
                         rd2 = cmd2.ExecuteReader
                         cnn2.Close()
 
@@ -200,7 +203,7 @@
                 Else
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO detallehotelprecios(Horas,Precio) VALUES(" & HORAS & "," & PRECIO & ")"
+                    cmd2.CommandText = "INSERT INTO detallehotelprecios(Nombre,Horas,Precio) VALUES('" & nombre & "'," & HORAS & "," & PRECIO & ")"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
@@ -213,5 +216,12 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtHoras.Focus.Equals(True)
+        End If
     End Sub
 End Class

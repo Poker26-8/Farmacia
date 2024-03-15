@@ -24,6 +24,10 @@ Partial Class frmDetalleH
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleH))
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.cbohoras = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.lblidcliented = New System.Windows.Forms.Label()
         Me.pdesocupar = New System.Windows.Forms.Panel()
         Me.btnDesocupar = New System.Windows.Forms.Button()
@@ -46,9 +50,7 @@ Partial Class frmDetalleH
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.lblprecio = New System.Windows.Forms.Label()
         Me.lbltipo = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblCaracteristicas = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -62,6 +64,10 @@ Partial Class frmDetalleH
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.txtPrecio)
+        Me.Panel4.Controls.Add(Me.Label13)
+        Me.Panel4.Controls.Add(Me.cbohoras)
+        Me.Panel4.Controls.Add(Me.Label12)
         Me.Panel4.Controls.Add(Me.lblidcliented)
         Me.Panel4.Controls.Add(Me.pdesocupar)
         Me.Panel4.Controls.Add(Me.txtcontra)
@@ -83,13 +89,51 @@ Partial Class frmDetalleH
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 137)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(714, 193)
+        Me.Panel4.Size = New System.Drawing.Size(714, 230)
         Me.Panel4.TabIndex = 7
+        '
+        'txtPrecio
+        '
+        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecio.Location = New System.Drawing.Point(325, 116)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(138, 24)
+        Me.txtPrecio.TabIndex = 97
+        Me.txtPrecio.Text = "0.00"
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label13
+        '
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(268, 116)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(65, 20)
+        Me.Label13.TabIndex = 96
+        Me.Label13.Text = "Precio:"
+        '
+        'cbohoras
+        '
+        Me.cbohoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbohoras.FormattingEnabled = True
+        Me.cbohoras.Location = New System.Drawing.Point(136, 116)
+        Me.cbohoras.Name = "cbohoras"
+        Me.cbohoras.Size = New System.Drawing.Size(126, 24)
+        Me.cbohoras.TabIndex = 95
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(26, 116)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(104, 20)
+        Me.Label12.TabIndex = 94
+        Me.Label12.Text = "Tiempo/Hora:"
         '
         'lblidcliented
         '
         Me.lblidcliented.BackColor = System.Drawing.Color.Silver
-        Me.lblidcliented.Location = New System.Drawing.Point(212, 145)
+        Me.lblidcliented.Location = New System.Drawing.Point(212, 177)
         Me.lblidcliented.Name = "lblidcliented"
         Me.lblidcliented.Size = New System.Drawing.Size(100, 23)
         Me.lblidcliented.TabIndex = 93
@@ -98,7 +142,7 @@ Partial Class frmDetalleH
         'pdesocupar
         '
         Me.pdesocupar.Controls.Add(Me.btnDesocupar)
-        Me.pdesocupar.Location = New System.Drawing.Point(12, 121)
+        Me.pdesocupar.Location = New System.Drawing.Point(12, 153)
         Me.pdesocupar.Name = "pdesocupar"
         Me.pdesocupar.Size = New System.Drawing.Size(194, 47)
         Me.pdesocupar.TabIndex = 92
@@ -286,9 +330,7 @@ Partial Class frmDetalleH
         '
         Me.Panel2.Controls.Add(Me.lblEstado)
         Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.lblprecio)
         Me.Panel2.Controls.Add(Me.lbltipo)
-        Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.lblCaracteristicas)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -320,15 +362,6 @@ Partial Class frmDetalleH
         Me.Label9.Text = "Estado"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'lblprecio
-        '
-        Me.lblprecio.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.lblprecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblprecio.Location = New System.Drawing.Point(108, 70)
-        Me.lblprecio.Name = "lblprecio"
-        Me.lblprecio.Size = New System.Drawing.Size(150, 23)
-        Me.lblprecio.TabIndex = 7
-        '
         'lbltipo
         '
         Me.lbltipo.BackColor = System.Drawing.Color.PaleTurquoise
@@ -337,16 +370,6 @@ Partial Class frmDetalleH
         Me.lbltipo.Name = "lbltipo"
         Me.lbltipo.Size = New System.Drawing.Size(150, 23)
         Me.lbltipo.TabIndex = 6
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(40, 70)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(62, 18)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Precio:"
         '
         'Label3
         '
@@ -410,7 +433,7 @@ Partial Class frmDetalleH
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(714, 330)
+        Me.ClientSize = New System.Drawing.Size(714, 367)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -450,13 +473,15 @@ Partial Class frmDetalleH
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblEstado As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents lblprecio As Label
     Friend WithEvents lbltipo As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents lblCaracteristicas As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lblhabitacion As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents cbohoras As ComboBox
+    Friend WithEvents Label12 As Label
 End Class

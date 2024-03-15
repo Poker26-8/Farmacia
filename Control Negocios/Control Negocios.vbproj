@@ -423,10 +423,22 @@
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesero.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.Designer.vb">
+      <DependentUpon>frmTeTemp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.Designer.vb">
       <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.Designer.vb">
+      <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\26 Escuelas\frmAlumnos.designer.vb">
@@ -1726,8 +1738,14 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmMesero.resx">
       <DependentUpon>frmMesero.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTeTemp.resx">
+      <DependentUpon>frmTeTemp.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProRefaccionaria.resx">
       <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularNuvHab.resx">
+      <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\26 Escuelas\frmAlumnos.resx">
       <DependentUpon>frmAlumnos.vb</DependentUpon>

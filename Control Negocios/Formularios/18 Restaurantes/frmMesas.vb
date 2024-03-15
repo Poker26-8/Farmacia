@@ -279,8 +279,9 @@ Public Class frmMesas
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
-                                Dim col As String = rd3(0).ToString
-                                btnMesa.BackColor = Color.FromArgb(col)
+                                'Dim col As String = rd3(0).ToString
+                                'btnMesa.BackColor = Color.FromArgb(col)
+                                btnMesa.BackColor = Color.FromArgb(255, 255, 128)
                             End If
 
                         End If
@@ -313,6 +314,7 @@ Public Class frmMesas
                     rd9.Close()
                     cnn9.Close()
 
+
                     If tipo = "2" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 2.png"
                         If File.Exists(ruta) Then
@@ -324,6 +326,10 @@ Public Class frmMesas
                             btnMesa.Width = 100
                             btnMesa.Height = 100
                         End If
+                    Else
+                        btnMesa.BackgroundImage = Nothing
+                        btnMesa.Width = 100
+                        btnMesa.Height = 100
                     End If
                     If tipo = "4" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 4.png"
@@ -1093,6 +1099,12 @@ Public Class frmMesas
             End Try
         End If
 
+    End Sub
+
+    Private Sub btntemporales_Click(sender As Object, e As EventArgs) Handles btntemporales.Click
+        frmTeTemp.mesatemp = 1
+        frmTeTemp.Show()
+        frmTeTemp.BringToFront()
     End Sub
 
     Public Function CutCad(VAL As String) As String
