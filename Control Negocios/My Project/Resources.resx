@@ -151,8 +151,8 @@
   <data name="monedero1Recurso 79" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monedero1Recurso 791.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="timbrartodos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\timbrartodos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="abonos1Recurso 83" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abonos1Recurso 831.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ventas1Recurso 74" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ventas1Recurso 741.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,11 +184,14 @@
   <data name="limpiar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\limpiar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pedidoRecurso 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedidoRecurso 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="recibo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recibo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="abonos1Recurso 83" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abonos1Recurso 831.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hotelRecurso 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hotelRecurso 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="consulta1Recurso 77" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\consulta1Recurso 771.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +211,9 @@
   <data name="timbrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\timbrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="timbrartodos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\timbrartodos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ventas1Recurso 73-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ventas1Recurso 73-1001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,7 +223,7 @@
   <data name="corte2Recurso 81" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\corte2Recurso 811.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hotelRecurso 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hotelRecurso 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pedidoRecurso 89" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pedidoRecurso 89.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

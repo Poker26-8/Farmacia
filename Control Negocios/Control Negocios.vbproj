@@ -2419,6 +2419,8 @@
     <None Include="Resources\monedero1Recurso 791.png" />
     <Content Include="Resources\pagoservicos1Recurso 88.png" />
     <None Include="Resources\pagoservicos1Recurso 881.png" />
+    <None Include="Resources\pedidoRecurso 2.png" />
+    <None Include="Resources\pedidoRecurso 89.png" />
     <Content Include="Resources\recargas1Recurso 86.png" />
     <None Include="Resources\recargas1Recurso 861.png" />
     <Content Include="Resources\recargas2Recurso 87.png" />
