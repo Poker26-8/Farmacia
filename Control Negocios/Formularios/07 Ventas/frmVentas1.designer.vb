@@ -34,11 +34,11 @@ Partial Class frmVentas1
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas1))
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas1))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -97,6 +97,7 @@ Partial Class frmVentas1
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.txtdescu = New System.Windows.Forms.TextBox()
         Me.Label44 = New System.Windows.Forms.Label()
+        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.txtdescuento1 = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.txtefectivo = New System.Windows.Forms.TextBox()
@@ -142,15 +143,29 @@ Partial Class frmVentas1
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pDerecha = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.pDer_Arriba = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.picProd = New System.Windows.Forms.PictureBox()
+        Me.Button16 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btndevo = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.cboimpresion = New System.Windows.Forms.ComboBox()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.txtequivale = New System.Windows.Forms.TextBox()
         Me.Label46 = New System.Windows.Forms.Label()
         Me.txtvalor = New System.Windows.Forms.TextBox()
@@ -175,6 +190,7 @@ Partial Class frmVentas1
         Me.txtdireccion_med = New System.Windows.Forms.TextBox()
         Me.txtreceta = New System.Windows.Forms.TextBox()
         Me.Label37 = New System.Windows.Forms.Label()
+        Me.btnantis = New System.Windows.Forms.Button()
         Me.cbocedula = New System.Windows.Forms.ComboBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.grdantis = New System.Windows.Forms.DataGridView()
@@ -203,8 +219,11 @@ Partial Class frmVentas1
         Me.txtcredito = New System.Windows.Forms.TextBox()
         Me.txtafavor = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.cboDomi = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnventa = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
@@ -230,35 +249,20 @@ Partial Class frmVentas1
         Me.lblcorreocli = New System.Windows.Forms.Label()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.btnantis = New System.Windows.Forms.Button()
-        Me.btnnuevo = New System.Windows.Forms.Button()
-        Me.btnventa = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.picQR = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.picProd = New System.Windows.Forms.PictureBox()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btndevo = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.boxcomentario.SuspendLayout()
         Me.pDerecha.SuspendLayout()
         Me.Panel8.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pDer_Arriba.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -268,10 +272,6 @@ Partial Class frmVentas1
         Me.GroupBox3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label8
@@ -281,7 +281,7 @@ Partial Class frmVentas1
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(838, 165)
+        Me.Label8.Location = New System.Drawing.Point(758, 165)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(85, 20)
         Me.Label8.TabIndex = 103
@@ -295,7 +295,7 @@ Partial Class frmVentas1
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(735, 165)
+        Me.Label7.Location = New System.Drawing.Point(655, 165)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(105, 20)
         Me.Label7.TabIndex = 102
@@ -309,7 +309,7 @@ Partial Class frmVentas1
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(630, 165)
+        Me.Label6.Location = New System.Drawing.Point(550, 165)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(105, 20)
         Me.Label6.TabIndex = 101
@@ -323,7 +323,7 @@ Partial Class frmVentas1
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(551, 165)
+        Me.Label5.Location = New System.Drawing.Point(471, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 20)
         Me.Label5.TabIndex = 100
@@ -337,7 +337,7 @@ Partial Class frmVentas1
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(485, 165)
+        Me.Label4.Location = New System.Drawing.Point(405, 165)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(66, 20)
         Me.Label4.TabIndex = 99
@@ -349,7 +349,7 @@ Partial Class frmVentas1
         Me.txtexistencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtexistencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtexistencia.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtexistencia.Location = New System.Drawing.Point(838, 184)
+        Me.txtexistencia.Location = New System.Drawing.Point(758, 184)
         Me.txtexistencia.Name = "txtexistencia"
         Me.txtexistencia.Size = New System.Drawing.Size(85, 28)
         Me.txtexistencia.TabIndex = 96
@@ -359,7 +359,7 @@ Partial Class frmVentas1
         Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotal.Location = New System.Drawing.Point(735, 184)
+        Me.txttotal.Location = New System.Drawing.Point(655, 184)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Size = New System.Drawing.Size(105, 28)
         Me.txttotal.TabIndex = 95
@@ -372,7 +372,7 @@ Partial Class frmVentas1
         Me.txtprecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtprecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio.Location = New System.Drawing.Point(630, 184)
+        Me.txtprecio.Location = New System.Drawing.Point(550, 184)
         Me.txtprecio.Name = "txtprecio"
         Me.txtprecio.Size = New System.Drawing.Size(105, 28)
         Me.txtprecio.TabIndex = 94
@@ -389,7 +389,7 @@ Partial Class frmVentas1
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(105, 165)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(381, 20)
+        Me.Label2.Size = New System.Drawing.Size(301, 20)
         Me.Label2.TabIndex = 93
         Me.Label2.Text = "Descripción"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -413,7 +413,7 @@ Partial Class frmVentas1
         Me.txtcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtcantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(551, 184)
+        Me.txtcantidad.Location = New System.Drawing.Point(471, 184)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(79, 28)
         Me.txtcantidad.TabIndex = 91
@@ -425,7 +425,7 @@ Partial Class frmVentas1
         Me.txtunidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtunidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtunidad.Location = New System.Drawing.Point(485, 184)
+        Me.txtunidad.Location = New System.Drawing.Point(405, 184)
         Me.txtunidad.Name = "txtunidad"
         Me.txtunidad.Size = New System.Drawing.Size(66, 28)
         Me.txtunidad.TabIndex = 90
@@ -440,7 +440,7 @@ Partial Class frmVentas1
         Me.cbodesc.FormattingEnabled = True
         Me.cbodesc.Location = New System.Drawing.Point(105, 184)
         Me.cbodesc.Name = "cbodesc"
-        Me.cbodesc.Size = New System.Drawing.Size(381, 28)
+        Me.cbodesc.Size = New System.Drawing.Size(301, 28)
         Me.cbodesc.TabIndex = 89
         '
         'grdcaptura
@@ -474,7 +474,7 @@ Partial Class frmVentas1
         Me.grdcaptura.RowsDefaultCellStyle = DataGridViewCellStyle11
         Me.grdcaptura.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White
         Me.grdcaptura.RowTemplate.Height = 30
-        Me.grdcaptura.Size = New System.Drawing.Size(1029, 272)
+        Me.grdcaptura.Size = New System.Drawing.Size(949, 272)
         Me.grdcaptura.TabIndex = 87
         '
         'Column1
@@ -651,9 +651,9 @@ Partial Class frmVentas1
         '
         Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox4.Controls.Add(Me.txtcontraseña)
-        Me.GroupBox4.Location = New System.Drawing.Point(898, 51)
+        Me.GroupBox4.Location = New System.Drawing.Point(841, 51)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(139, 47)
+        Me.GroupBox4.Size = New System.Drawing.Size(116, 47)
         Me.GroupBox4.TabIndex = 150
         Me.GroupBox4.TabStop = False
         '
@@ -664,7 +664,7 @@ Partial Class frmVentas1
         Me.txtcontraseña.ForeColor = System.Drawing.Color.Gray
         Me.txtcontraseña.Location = New System.Drawing.Point(6, 14)
         Me.txtcontraseña.Name = "txtcontraseña"
-        Me.txtcontraseña.Size = New System.Drawing.Size(126, 25)
+        Me.txtcontraseña.Size = New System.Drawing.Size(104, 25)
         Me.txtcontraseña.TabIndex = 12
         Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtcontraseña.UseSystemPasswordChar = True
@@ -698,9 +698,9 @@ Partial Class frmVentas1
         Me.lblNumCliente.BackColor = System.Drawing.Color.Navy
         Me.lblNumCliente.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumCliente.ForeColor = System.Drawing.Color.White
-        Me.lblNumCliente.Location = New System.Drawing.Point(898, 9)
+        Me.lblNumCliente.Location = New System.Drawing.Point(841, 9)
         Me.lblNumCliente.Name = "lblNumCliente"
-        Me.lblNumCliente.Size = New System.Drawing.Size(139, 21)
+        Me.lblNumCliente.Size = New System.Drawing.Size(116, 21)
         Me.lblNumCliente.TabIndex = 153
         Me.lblNumCliente.Text = "MOSTRADOR"
         Me.lblNumCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -711,9 +711,9 @@ Partial Class frmVentas1
         Me.lblfolio.BackColor = System.Drawing.Color.Navy
         Me.lblfolio.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.ForeColor = System.Drawing.Color.White
-        Me.lblfolio.Location = New System.Drawing.Point(898, 30)
+        Me.lblfolio.Location = New System.Drawing.Point(841, 30)
         Me.lblfolio.Name = "lblfolio"
-        Me.lblfolio.Size = New System.Drawing.Size(139, 25)
+        Me.lblfolio.Size = New System.Drawing.Size(116, 25)
         Me.lblfolio.TabIndex = 154
         Me.lblfolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -810,7 +810,7 @@ Partial Class frmVentas1
         Me.txtPagar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPagar.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPagar.ForeColor = System.Drawing.Color.White
-        Me.txtPagar.Location = New System.Drawing.Point(892, 511)
+        Me.txtPagar.Location = New System.Drawing.Point(812, 511)
         Me.txtPagar.Name = "txtPagar"
         Me.txtPagar.ReadOnly = True
         Me.txtPagar.Size = New System.Drawing.Size(145, 39)
@@ -823,7 +823,7 @@ Partial Class frmVentas1
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(932, 486)
+        Me.Label25.Location = New System.Drawing.Point(852, 486)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(105, 20)
         Me.Label25.TabIndex = 165
@@ -834,7 +834,7 @@ Partial Class frmVentas1
         Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(774, 486)
+        Me.Label26.Location = New System.Drawing.Point(694, 486)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(112, 20)
         Me.Label26.TabIndex = 167
@@ -847,7 +847,7 @@ Partial Class frmVentas1
         Me.txtdescuento2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdescuento2.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdescuento2.ForeColor = System.Drawing.Color.Black
-        Me.txtdescuento2.Location = New System.Drawing.Point(776, 511)
+        Me.txtdescuento2.Location = New System.Drawing.Point(696, 511)
         Me.txtdescuento2.Name = "txtdescuento2"
         Me.txtdescuento2.ReadOnly = True
         Me.txtdescuento2.Size = New System.Drawing.Size(113, 31)
@@ -860,7 +860,7 @@ Partial Class frmVentas1
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(683, 486)
+        Me.Label27.Location = New System.Drawing.Point(603, 486)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(72, 20)
         Me.Label27.TabIndex = 169
@@ -873,7 +873,7 @@ Partial Class frmVentas1
         Me.txtSubTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtSubTotal.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubTotal.ForeColor = System.Drawing.Color.Black
-        Me.txtSubTotal.Location = New System.Drawing.Point(666, 511)
+        Me.txtSubTotal.Location = New System.Drawing.Point(586, 511)
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.ReadOnly = True
         Me.txtSubTotal.Size = New System.Drawing.Size(107, 31)
@@ -886,7 +886,7 @@ Partial Class frmVentas1
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(566, 486)
+        Me.Label28.Location = New System.Drawing.Point(486, 486)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(94, 20)
         Me.Label28.TabIndex = 171
@@ -899,7 +899,7 @@ Partial Class frmVentas1
         Me.txtMontoP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMontoP.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMontoP.ForeColor = System.Drawing.Color.Black
-        Me.txtMontoP.Location = New System.Drawing.Point(563, 511)
+        Me.txtMontoP.Location = New System.Drawing.Point(483, 511)
         Me.txtMontoP.Name = "txtMontoP"
         Me.txtMontoP.ReadOnly = True
         Me.txtMontoP.Size = New System.Drawing.Size(100, 31)
@@ -921,7 +921,7 @@ Partial Class frmVentas1
         Me.GroupBox5.Controls.Add(Me.Label31)
         Me.GroupBox5.Controls.Add(Me.txtResta)
         Me.GroupBox5.Controls.Add(Me.Label29)
-        Me.GroupBox5.Location = New System.Drawing.Point(663, 555)
+        Me.GroupBox5.Location = New System.Drawing.Point(583, 555)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(212, 175)
         Me.GroupBox5.TabIndex = 178
@@ -948,6 +948,20 @@ Partial Class frmVentas1
         Me.Label44.Size = New System.Drawing.Size(63, 20)
         Me.Label44.TabIndex = 210
         Me.Label44.Text = "$ Desc.:"
+        '
+        'picQR
+        '
+        Me.picQR.BackColor = System.Drawing.Color.White
+        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picQR.Location = New System.Drawing.Point(-43, -60)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
+        Me.picQR.Name = "picQR"
+        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picQR.Size = New System.Drawing.Size(57, 55)
+        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picQR.TabIndex = 209
+        Me.picQR.TabStop = False
+        Me.picQR.Visible = False
         '
         'txtdescuento1
         '
@@ -1174,7 +1188,7 @@ Partial Class frmVentas1
         Me.btncomentario.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btncomentario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncomentario.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncomentario.Location = New System.Drawing.Point(881, 554)
+        Me.btncomentario.Location = New System.Drawing.Point(801, 554)
         Me.btncomentario.Name = "btncomentario"
         Me.btncomentario.Size = New System.Drawing.Size(156, 30)
         Me.btncomentario.TabIndex = 183
@@ -1187,7 +1201,7 @@ Partial Class frmVentas1
         'txtdia
         '
         Me.txtdia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtdia.Location = New System.Drawing.Point(975, 263)
+        Me.txtdia.Location = New System.Drawing.Point(895, 263)
         Me.txtdia.Name = "txtdia"
         Me.txtdia.Size = New System.Drawing.Size(59, 23)
         Me.txtdia.TabIndex = 186
@@ -1240,7 +1254,7 @@ Partial Class frmVentas1
         Me.txtcoment.ForeColor = System.Drawing.Color.White
         Me.txtcoment.Location = New System.Drawing.Point(8, 211)
         Me.txtcoment.Name = "txtcoment"
-        Me.txtcoment.Size = New System.Drawing.Size(478, 120)
+        Me.txtcoment.Size = New System.Drawing.Size(398, 120)
         Me.txtcoment.TabIndex = 190
         Me.txtcoment.Text = ""
         Me.txtcoment.Visible = False
@@ -1257,7 +1271,7 @@ Partial Class frmVentas1
         Me.boxcomentario.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.boxcomentario.BackColor = System.Drawing.Color.Orange
         Me.boxcomentario.Controls.Add(Me.txtcomentario)
-        Me.boxcomentario.Location = New System.Drawing.Point(325, 283)
+        Me.boxcomentario.Location = New System.Drawing.Point(285, 283)
         Me.boxcomentario.Name = "boxcomentario"
         Me.boxcomentario.Size = New System.Drawing.Size(397, 175)
         Me.boxcomentario.TabIndex = 192
@@ -1310,7 +1324,7 @@ Partial Class frmVentas1
         Me.pDerecha.Controls.Add(Me.pDer_Arriba)
         Me.pDerecha.Controls.Add(Me.Panel5)
         Me.pDerecha.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pDerecha.Location = New System.Drawing.Point(1046, 0)
+        Me.pDerecha.Location = New System.Drawing.Point(966, 0)
         Me.pDerecha.Name = "pDerecha"
         Me.pDerecha.Size = New System.Drawing.Size(318, 740)
         Me.pDerecha.TabIndex = 195
@@ -1323,6 +1337,19 @@ Partial Class frmVentas1
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(318, 48)
         Me.Panel8.TabIndex = 0
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.White
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(10)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox2.Size = New System.Drawing.Size(318, 48)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 161
+        Me.PictureBox2.TabStop = False
         '
         'pDer_Arriba
         '
@@ -1388,6 +1415,56 @@ Partial Class frmVentas1
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(318, 560)
         Me.TableLayoutPanel1.TabIndex = 190
         '
+        'Button17
+        '
+        Me.Button17.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button17.ForeColor = System.Drawing.Color.Black
+        Me.Button17.Image = CType(resources.GetObject("Button17.Image"), System.Drawing.Image)
+        Me.Button17.Location = New System.Drawing.Point(16, 316)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(8, 8, 8, 80)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(79, 82)
+        Me.Button17.TabIndex = 241
+        Me.Button17.Text = "EXISTENCIAS"
+        Me.Button17.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button17.UseVisualStyleBackColor = False
+        Me.Button17.Visible = False
+        '
+        'picProd
+        '
+        Me.picProd.BackColor = System.Drawing.Color.White
+        Me.TableLayoutPanel1.SetColumnSpan(Me.picProd, 3)
+        Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.picProd.Location = New System.Drawing.Point(121, 318)
+        Me.picProd.Margin = New System.Windows.Forms.Padding(10)
+        Me.picProd.Name = "picProd"
+        Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picProd.Size = New System.Drawing.Size(178, 150)
+        Me.picProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picProd.TabIndex = 160
+        Me.picProd.TabStop = False
+        '
+        'Button16
+        '
+        Me.Button16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button16.ForeColor = System.Drawing.Color.Black
+        Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
+        Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button16.Location = New System.Drawing.Point(222, 215)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(79, 80)
+        Me.Button16.TabIndex = 236
+        Me.Button16.Text = "PAGO DE SERVICIOS"
+        Me.Button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button16.UseVisualStyleBackColor = False
+        '
         'Button13
         '
         Me.Button13.BackColor = System.Drawing.Color.Red
@@ -1416,6 +1493,114 @@ Partial Class frmVentas1
         Me.Button6.Text = "ENTREGAS"
         Me.Button6.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Image = Global.Control_Negocios.My.Resources.Resources.ventas1Recurso_74
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(222, 13)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(79, 80)
+        Me.Button1.TabIndex = 148
+        Me.Button1.Text = "VENTAS"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btndevo
+        '
+        Me.btndevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btndevo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btndevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndevo.ForeColor = System.Drawing.Color.Black
+        Me.btndevo.Image = Global.Control_Negocios.My.Resources.Resources.DEVO1Recurso_78
+        Me.btndevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btndevo.Location = New System.Drawing.Point(222, 114)
+        Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
+        Me.btndevo.Name = "btndevo"
+        Me.btndevo.Size = New System.Drawing.Size(79, 80)
+        Me.btndevo.TabIndex = 149
+        Me.btndevo.Text = "DEVOLUCIÓN"
+        Me.btndevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btndevo.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.Color.Black
+        Me.Button7.Image = Global.Control_Negocios.My.Resources.Resources.consulta2Recurso_85
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button7.Location = New System.Drawing.Point(119, 13)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(79, 80)
+        Me.Button7.TabIndex = 176
+        Me.Button7.Text = "CONSULTAR FOLIOS"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Black
+        Me.Button2.Image = Global.Control_Negocios.My.Resources.Resources.monedero1Recurso_79
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(119, 114)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(79, 80)
+        Me.Button2.TabIndex = 190
+        Me.Button2.Text = "MONEDERO"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.Black
+        Me.Button4.Image = Global.Control_Negocios.My.Resources.Resources.corte2Recurso_81
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button4.Location = New System.Drawing.Point(16, 114)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(79, 80)
+        Me.Button4.TabIndex = 191
+        Me.Button4.Text = "CORTE DE CAJA"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.Black
+        Me.Button5.Image = Global.Control_Negocios.My.Resources.Resources.abonos1Recurso_84
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button5.Location = New System.Drawing.Point(16, 13)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(79, 80)
+        Me.Button5.TabIndex = 192
+        Me.Button5.Text = "ABONO A VENTAS"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'cboimpresion
         '
         Me.cboimpresion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1426,6 +1611,42 @@ Partial Class frmVentas1
         Me.cboimpresion.Name = "cboimpresion"
         Me.cboimpresion.Size = New System.Drawing.Size(200, 23)
         Me.cboimpresion.TabIndex = 194
+        '
+        'Button11
+        '
+        Me.Button11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button11.ForeColor = System.Drawing.Color.Black
+        Me.Button11.Image = Global.Control_Negocios.My.Resources.Resources.entrega1Recurso_82
+        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button11.Location = New System.Drawing.Point(16, 215)
+        Me.Button11.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(79, 80)
+        Me.Button11.TabIndex = 184
+        Me.Button11.Text = "ENTREGAS"
+        Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button11.UseVisualStyleBackColor = False
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button8.Location = New System.Drawing.Point(119, 215)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(79, 80)
+        Me.Button8.TabIndex = 217
+        Me.Button8.Text = "RECARGAS TELEFONICAS"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button8.UseVisualStyleBackColor = False
         '
         'Button12
         '
@@ -1462,6 +1683,18 @@ Partial Class frmVentas1
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(318, 132)
         Me.Panel5.TabIndex = 191
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(35, 37)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox1.Size = New System.Drawing.Size(248, 88)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 107
+        Me.PictureBox1.TabStop = False
         '
         'Panel3
         '
@@ -1551,8 +1784,25 @@ Partial Class frmVentas1
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1046, 740)
+        Me.Panel3.Size = New System.Drawing.Size(966, 740)
         Me.Panel3.TabIndex = 196
+        '
+        'Button10
+        '
+        Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button10.BackgroundImage = Global.Control_Negocios.My.Resources.Resources.pedidoRecurso_89
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button10.Location = New System.Drawing.Point(801, 663)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(86, 69)
+        Me.Button10.TabIndex = 241
+        Me.Button10.Text = "PEDIDO"
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button10.UseVisualStyleBackColor = False
         '
         'txtequivale
         '
@@ -1612,7 +1862,7 @@ Partial Class frmVentas1
         Me.Panel1.Controls.Add(Me.lblDevolucion)
         Me.Panel1.Controls.Add(Me.lblTotalDevo)
         Me.Panel1.Controls.Add(Me.btnGeneraSaldo)
-        Me.Panel1.Location = New System.Drawing.Point(405, 278)
+        Me.Panel1.Location = New System.Drawing.Point(365, 278)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(237, 89)
         Me.Panel1.TabIndex = 235
@@ -1685,7 +1935,7 @@ Partial Class frmVentas1
         Me.Panel6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel6.BackColor = System.Drawing.Color.LightCoral
         Me.Panel6.Controls.Add(Me.Panel7)
-        Me.Panel6.Location = New System.Drawing.Point(382, 278)
+        Me.Panel6.Location = New System.Drawing.Point(342, 278)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(282, 88)
         Me.Panel6.TabIndex = 217
@@ -1753,7 +2003,7 @@ Partial Class frmVentas1
         Me.boxAntis.Controls.Add(Me.Label38)
         Me.boxAntis.Controls.Add(Me.grdantis)
         Me.boxAntis.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxAntis.Location = New System.Drawing.Point(257, 184)
+        Me.boxAntis.Location = New System.Drawing.Point(217, 184)
         Me.boxAntis.Name = "boxAntis"
         Me.boxAntis.Size = New System.Drawing.Size(532, 276)
         Me.boxAntis.TabIndex = 220
@@ -1826,6 +2076,22 @@ Partial Class frmVentas1
         Me.Label37.Size = New System.Drawing.Size(77, 19)
         Me.Label37.TabIndex = 179
         Me.Label37.Text = "No. Receta:"
+        '
+        'btnantis
+        '
+        Me.btnantis.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnantis.BackgroundImage = CType(resources.GetObject("btnantis.BackgroundImage"), System.Drawing.Image)
+        Me.btnantis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnantis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnantis.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnantis.ForeColor = System.Drawing.Color.White
+        Me.btnantis.Location = New System.Drawing.Point(466, 17)
+        Me.btnantis.Name = "btnantis"
+        Me.btnantis.Size = New System.Drawing.Size(60, 70)
+        Me.btnantis.TabIndex = 178
+        Me.btnantis.Text = "GUARDAR"
+        Me.btnantis.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnantis.UseVisualStyleBackColor = False
         '
         'cbocedula
         '
@@ -1969,7 +2235,7 @@ Partial Class frmVentas1
         Me.cboLote.BackColor = System.Drawing.Color.White
         Me.cboLote.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboLote.FormattingEnabled = True
-        Me.cboLote.Location = New System.Drawing.Point(922, 184)
+        Me.cboLote.Location = New System.Drawing.Point(842, 184)
         Me.cboLote.Name = "cboLote"
         Me.cboLote.Size = New System.Drawing.Size(115, 28)
         Me.cboLote.TabIndex = 219
@@ -1981,7 +2247,7 @@ Partial Class frmVentas1
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(922, 165)
+        Me.Label10.Location = New System.Drawing.Point(842, 165)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(115, 20)
         Me.Label10.TabIndex = 218
@@ -2001,7 +2267,7 @@ Partial Class frmVentas1
         Me.chkBuscaProd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkBuscaProd.AutoSize = True
         Me.chkBuscaProd.BackColor = System.Drawing.Color.Transparent
-        Me.chkBuscaProd.Location = New System.Drawing.Point(465, 168)
+        Me.chkBuscaProd.Location = New System.Drawing.Point(385, 168)
         Me.chkBuscaProd.Name = "chkBuscaProd"
         Me.chkBuscaProd.Size = New System.Drawing.Size(15, 14)
         Me.chkBuscaProd.TabIndex = 213
@@ -2013,9 +2279,9 @@ Partial Class frmVentas1
         Me.txtubicacion.BackColor = System.Drawing.Color.White
         Me.txtubicacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtubicacion.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtubicacion.Location = New System.Drawing.Point(898, 132)
+        Me.txtubicacion.Location = New System.Drawing.Point(841, 132)
         Me.txtubicacion.Name = "txtubicacion"
-        Me.txtubicacion.Size = New System.Drawing.Size(139, 28)
+        Me.txtubicacion.Size = New System.Drawing.Size(116, 28)
         Me.txtubicacion.TabIndex = 207
         Me.txtubicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -2026,9 +2292,9 @@ Partial Class frmVentas1
         Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(898, 113)
+        Me.Label16.Location = New System.Drawing.Point(841, 113)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(139, 20)
+        Me.Label16.Size = New System.Drawing.Size(116, 20)
         Me.Label16.TabIndex = 208
         Me.Label16.Text = "Ubicación"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -2123,6 +2389,22 @@ Partial Class frmVentas1
         Me.Label19.Text = "Tipo de cliente:"
         Me.Label19.Visible = False
         '
+        'btnnuevo
+        '
+        Me.btnnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnnuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.Location = New System.Drawing.Point(893, 663)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Size = New System.Drawing.Size(64, 69)
+        Me.btnnuevo.TabIndex = 177
+        Me.btnnuevo.Text = "LIMPIAR"
+        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo.UseVisualStyleBackColor = False
+        '
         'cboDomi
         '
         Me.cboDomi.FormattingEnabled = True
@@ -2142,6 +2424,39 @@ Partial Class frmVentas1
         Me.Label1.TabIndex = 197
         Me.Label1.Text = "Domicilio:"
         Me.Label1.Visible = False
+        '
+        'btnventa
+        '
+        Me.btnventa.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnventa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnventa.BackgroundImage = CType(resources.GetObject("btnventa.BackgroundImage"), System.Drawing.Image)
+        Me.btnventa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnventa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnventa.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnventa.Location = New System.Drawing.Point(893, 588)
+        Me.btnventa.Name = "btnventa"
+        Me.btnventa.Size = New System.Drawing.Size(64, 69)
+        Me.btnventa.TabIndex = 174
+        Me.btnventa.Text = "VENT&A"
+        Me.btnventa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnventa.UseCompatibleTextRendering = True
+        Me.btnventa.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(801, 588)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(86, 69)
+        Me.Button3.TabIndex = 173
+        Me.Button3.Text = "COTIZACIÓN"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -2329,7 +2644,7 @@ Partial Class frmVentas1
         Me.Panel4.Controls.Add(Me.txtProdClave)
         Me.Panel4.Location = New System.Drawing.Point(105, 211)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(381, 66)
+        Me.Panel4.Size = New System.Drawing.Size(301, 66)
         Me.Panel4.TabIndex = 214
         Me.Panel4.Visible = False
         '
@@ -2352,7 +2667,7 @@ Partial Class frmVentas1
         Me.txtProdClave.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtProdClave.Location = New System.Drawing.Point(14, 27)
         Me.txtProdClave.Name = "txtProdClave"
-        Me.txtProdClave.Size = New System.Drawing.Size(353, 29)
+        Me.txtProdClave.Size = New System.Drawing.Size(273, 29)
         Me.txtProdClave.TabIndex = 0
         '
         'txtsaldo_monedero
@@ -2402,332 +2717,17 @@ Partial Class frmVentas1
         'pComanda80
         '
         '
-        'Button10
-        '
-        Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button10.BackgroundImage = Global.Control_Negocios.My.Resources.Resources.pedidoRecurso_89
-        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button10.Location = New System.Drawing.Point(881, 663)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(86, 69)
-        Me.Button10.TabIndex = 241
-        Me.Button10.Text = "PEDIDO"
-        Me.Button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button10.UseVisualStyleBackColor = False
-        '
-        'btnantis
-        '
-        Me.btnantis.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnantis.BackgroundImage = CType(resources.GetObject("btnantis.BackgroundImage"), System.Drawing.Image)
-        Me.btnantis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnantis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnantis.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnantis.ForeColor = System.Drawing.Color.White
-        Me.btnantis.Location = New System.Drawing.Point(466, 17)
-        Me.btnantis.Name = "btnantis"
-        Me.btnantis.Size = New System.Drawing.Size(60, 70)
-        Me.btnantis.TabIndex = 178
-        Me.btnantis.Text = "GUARDAR"
-        Me.btnantis.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnantis.UseVisualStyleBackColor = False
-        '
-        'btnnuevo
-        '
-        Me.btnnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnnuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(973, 663)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(64, 69)
-        Me.btnnuevo.TabIndex = 177
-        Me.btnnuevo.Text = "LIMPIAR"
-        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevo.UseVisualStyleBackColor = False
-        '
-        'btnventa
-        '
-        Me.btnventa.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnventa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnventa.BackgroundImage = CType(resources.GetObject("btnventa.BackgroundImage"), System.Drawing.Image)
-        Me.btnventa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnventa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnventa.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnventa.Location = New System.Drawing.Point(973, 588)
-        Me.btnventa.Name = "btnventa"
-        Me.btnventa.Size = New System.Drawing.Size(64, 69)
-        Me.btnventa.TabIndex = 174
-        Me.btnventa.Text = "VENT&A"
-        Me.btnventa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnventa.UseCompatibleTextRendering = True
-        Me.btnventa.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(881, 588)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(86, 69)
-        Me.Button3.TabIndex = 173
-        Me.Button3.Text = "COTIZACIÓN"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'picQR
-        '
-        Me.picQR.BackColor = System.Drawing.Color.White
-        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picQR.Location = New System.Drawing.Point(-43, -60)
-        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
-        Me.picQR.Name = "picQR"
-        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picQR.Size = New System.Drawing.Size(57, 55)
-        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picQR.TabIndex = 209
-        Me.picQR.TabStop = False
-        Me.picQR.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.White
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(10)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox2.Size = New System.Drawing.Size(318, 48)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 161
-        Me.PictureBox2.TabStop = False
-        '
-        'Button17
-        '
-        Me.Button17.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button17.ForeColor = System.Drawing.Color.Black
-        Me.Button17.Image = CType(resources.GetObject("Button17.Image"), System.Drawing.Image)
-        Me.Button17.Location = New System.Drawing.Point(16, 316)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(8, 8, 8, 80)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(79, 82)
-        Me.Button17.TabIndex = 241
-        Me.Button17.Text = "EXISTENCIAS"
-        Me.Button17.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button17.UseVisualStyleBackColor = False
-        Me.Button17.Visible = False
-        '
-        'picProd
-        '
-        Me.picProd.BackColor = System.Drawing.Color.White
-        Me.TableLayoutPanel1.SetColumnSpan(Me.picProd, 3)
-        Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picProd.Location = New System.Drawing.Point(121, 318)
-        Me.picProd.Margin = New System.Windows.Forms.Padding(10)
-        Me.picProd.Name = "picProd"
-        Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picProd.Size = New System.Drawing.Size(178, 150)
-        Me.picProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picProd.TabIndex = 160
-        Me.picProd.TabStop = False
-        '
-        'Button16
-        '
-        Me.Button16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button16.ForeColor = System.Drawing.Color.Black
-        Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
-        Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button16.Location = New System.Drawing.Point(222, 215)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(79, 80)
-        Me.Button16.TabIndex = 236
-        Me.Button16.Text = "PAGO DE SERVICIOS"
-        Me.Button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button16.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = Global.Control_Negocios.My.Resources.Resources.ventas1Recurso_74
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(222, 13)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 80)
-        Me.Button1.TabIndex = 148
-        Me.Button1.Text = "VENTAS"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'btndevo
-        '
-        Me.btndevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btndevo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btndevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndevo.ForeColor = System.Drawing.Color.Black
-        Me.btndevo.Image = Global.Control_Negocios.My.Resources.Resources.DEVO1Recurso_78
-        Me.btndevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btndevo.Location = New System.Drawing.Point(222, 114)
-        Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
-        Me.btndevo.Name = "btndevo"
-        Me.btndevo.Size = New System.Drawing.Size(79, 80)
-        Me.btndevo.TabIndex = 149
-        Me.btndevo.Text = "DEVOLUCIÓN"
-        Me.btndevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btndevo.UseVisualStyleBackColor = False
-        '
-        'Button7
-        '
-        Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.ForeColor = System.Drawing.Color.Black
-        Me.Button7.Image = Global.Control_Negocios.My.Resources.Resources.consulta2Recurso_85
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button7.Location = New System.Drawing.Point(119, 13)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(79, 80)
-        Me.Button7.TabIndex = 176
-        Me.Button7.Text = "CONSULTAR FOLIOS"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Image = Global.Control_Negocios.My.Resources.Resources.monedero1Recurso_79
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(119, 114)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(79, 80)
-        Me.Button2.TabIndex = 190
-        Me.Button2.Text = "MONEDERO"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Image = Global.Control_Negocios.My.Resources.Resources.corte2Recurso_81
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(16, 114)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(79, 80)
-        Me.Button4.TabIndex = 191
-        Me.Button4.Text = "CORTE DE CAJA"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.Black
-        Me.Button5.Image = Global.Control_Negocios.My.Resources.Resources.abonos1Recurso_84
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(16, 13)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(79, 80)
-        Me.Button5.TabIndex = 192
-        Me.Button5.Text = "ABONO A VENTAS"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Button11
-        '
-        Me.Button11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.ForeColor = System.Drawing.Color.Black
-        Me.Button11.Image = Global.Control_Negocios.My.Resources.Resources.entrega1Recurso_82
-        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button11.Location = New System.Drawing.Point(16, 215)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(79, 80)
-        Me.Button11.TabIndex = 184
-        Me.Button11.Text = "ENTREGAS"
-        Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button11.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button8.Location = New System.Drawing.Point(119, 215)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(79, 80)
-        Me.Button8.TabIndex = 217
-        Me.Button8.Text = "RECARGAS TELEFONICAS"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button8.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(35, 37)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox1.Size = New System.Drawing.Size(248, 88)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 107
-        Me.PictureBox1.TabStop = False
-        '
         'frmVentas1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1364, 740)
+        Me.ClientSize = New System.Drawing.Size(1284, 740)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.pDerecha)
         Me.Controls.Add(Me.txtfechacad)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1380, 779)
+        Me.MinimumSize = New System.Drawing.Size(1300, 779)
         Me.Name = "frmVentas1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas (1)"
@@ -2737,14 +2737,18 @@ Partial Class frmVentas1
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).EndInit()
         Me.boxcomentario.ResumeLayout(False)
         Me.pDerecha.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pDer_Arriba.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.picProd, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -2761,10 +2765,6 @@ Partial Class frmVentas1
         Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picProd, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
