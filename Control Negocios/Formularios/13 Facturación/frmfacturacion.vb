@@ -107,12 +107,12 @@ Public Class frmfacturacion
                         ' sTarget = "Data Source=" & dameIP2() & "; Integrated Security=false; initial catalog=CN" & varnumbase & "; user id=Delsscom; password=jipl22; timeout=300"
                         sTarget = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & baseseleccionada & ";persist security info=false;connect timeout=300"
 
-                        sTargetlocal = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+                        sTargetlocal = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & baseseleccionada & ";persist security info=false;connect timeout=300"
                     Else
                         ' sTarget = "Data Source=" & varrutabase & ";Integrated Security=false; initial catalog=CN" & varnumbase & "; user id=Delsscom; password=jipl22; timeout=300"
                         sTarget = "server=" & varrutabase & ";uid=Delsscom;password=jipl22;database=cn" & varnumbase & ";persist security info=false;connect timeout=300"
 
-                        sTargetlocal = "server=" & varrutabase & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+                        sTargetlocal = "server=" & varrutabase & ";uid=Delsscom;password=jipl22;database=cn" & baseseleccionada & ";persist security info=false;connect timeout=300"
                     End If
                 End If
                 cnn.Close()
@@ -7047,7 +7047,7 @@ puerta_FacturaG:
                                             Dim dr2 As DataRow
                                             With odata
                                                 If .dbOpen(cnn2, sTarget, sinfo) Then
-                                                    If .getDt(cnn2, dt2, "Select * from `productos` where `codigo`='" & CStr(COdiguito) & "'", sinfo) Then
+                                                    If .getDt(cnn2, dt2, "Select * from Productos where Codigo='" & dr(0).ToString() & "'", sinfo) Then
                                                         For Each dr2 In dt2.Rows
                                                             varClaveProd = IIf(IsDBNull(dr2("ClaveSat").ToString), "", dr2("ClaveSat").ToString)
                                                             varUniMed = IIf(IsDBNull(dr2("UnidadSat").ToString), "", dr2("UnidadSat").ToString)
