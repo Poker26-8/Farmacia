@@ -179,7 +179,7 @@
     </Reference>
     <Reference Include="WhatsAppDLL">
       <HintPath>..\..\..\..\..\..\DLL\WhatsAppDLL.dll</HintPath>
-      <HintPath>..\..\..\Recursos\EnviarMensajeWA\WhatsAppDLL.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive\Documentos\Proyectos\EnviarMensajeWA\WhatsAppDLL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
