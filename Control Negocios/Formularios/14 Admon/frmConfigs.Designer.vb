@@ -330,6 +330,18 @@ Partial Class frmConfigs
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.txtTerminal = New System.Windows.Forms.TextBox()
+        Me.txtSolicitud = New System.Windows.Forms.TextBox()
+        Me.txtResultado = New System.Windows.Forms.TextBox()
+        Me.txtClave = New System.Windows.Forms.TextBox()
+        Me.btnGPago = New System.Windows.Forms.Button()
+        Me.btnCancela = New System.Windows.Forms.Button()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -384,6 +396,7 @@ Partial Class frmConfigs
         Me.tabMigracion.SuspendLayout()
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label57
@@ -2102,10 +2115,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 64)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 457)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3188,6 +3201,7 @@ Partial Class frmConfigs
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.tabMigracion)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.TabControl1.Location = New System.Drawing.Point(0, 39)
         Me.TabControl1.Multiline = True
@@ -3729,6 +3743,127 @@ Partial Class frmConfigs
         Me.Label78.TabIndex = 21
         Me.Label78.Text = "Numero telefonico:"
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.btnCancela)
+        Me.TabPage3.Controls.Add(Me.btnGPago)
+        Me.TabPage3.Controls.Add(Me.txtClave)
+        Me.TabPage3.Controls.Add(Me.txtResultado)
+        Me.TabPage3.Controls.Add(Me.txtSolicitud)
+        Me.TabPage3.Controls.Add(Me.txtTerminal)
+        Me.TabPage3.Controls.Add(Me.Label88)
+        Me.TabPage3.Controls.Add(Me.Label87)
+        Me.TabPage3.Controls.Add(Me.Label86)
+        Me.TabPage3.Controls.Add(Me.Label85)
+        Me.TabPage3.Controls.Add(Me.Label84)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(478, 437)
+        Me.TabPage3.TabIndex = 10
+        Me.TabPage3.Text = "Configuración de Prosepago"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(123, 20)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(227, 21)
+        Me.Label84.TabIndex = 0
+        Me.Label84.Text = "Configuración de Prosepago"
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(8, 82)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(154, 21)
+        Me.Label85.TabIndex = 1
+        Me.Label85.Text = "Número de terminal:"
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(111, 140)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(51, 21)
+        Me.Label86.TabIndex = 2
+        Me.Label86.Text = "Clave:"
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(37, 196)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(125, 21)
+        Me.Label87.TabIndex = 3
+        Me.Label87.Text = "URL de solicitud:"
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label88.Location = New System.Drawing.Point(30, 257)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(132, 21)
+        Me.Label88.TabIndex = 4
+        Me.Label88.Text = "URL de resultado:"
+        '
+        'txtTerminal
+        '
+        Me.txtTerminal.Location = New System.Drawing.Point(179, 80)
+        Me.txtTerminal.Name = "txtTerminal"
+        Me.txtTerminal.Size = New System.Drawing.Size(275, 23)
+        Me.txtTerminal.TabIndex = 5
+        '
+        'txtSolicitud
+        '
+        Me.txtSolicitud.Location = New System.Drawing.Point(179, 194)
+        Me.txtSolicitud.Name = "txtSolicitud"
+        Me.txtSolicitud.Size = New System.Drawing.Size(275, 23)
+        Me.txtSolicitud.TabIndex = 6
+        '
+        'txtResultado
+        '
+        Me.txtResultado.Location = New System.Drawing.Point(179, 259)
+        Me.txtResultado.Name = "txtResultado"
+        Me.txtResultado.Size = New System.Drawing.Size(275, 23)
+        Me.txtResultado.TabIndex = 7
+        '
+        'txtClave
+        '
+        Me.txtClave.Location = New System.Drawing.Point(179, 140)
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(275, 23)
+        Me.txtClave.TabIndex = 8
+        '
+        'btnGPago
+        '
+        Me.btnGPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnGPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGPago.Location = New System.Drawing.Point(364, 306)
+        Me.btnGPago.Name = "btnGPago"
+        Me.btnGPago.Size = New System.Drawing.Size(90, 29)
+        Me.btnGPago.TabIndex = 9
+        Me.btnGPago.Text = "Guardar"
+        Me.btnGPago.UseVisualStyleBackColor = False
+        '
+        'btnCancela
+        '
+        Me.btnCancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnCancela.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancela.Location = New System.Drawing.Point(248, 306)
+        Me.btnCancela.Name = "btnCancela"
+        Me.btnCancela.Size = New System.Drawing.Size(90, 29)
+        Me.btnCancela.TabIndex = 10
+        Me.btnCancela.Text = "Cancelar"
+        Me.btnCancela.UseVisualStyleBackColor = False
+        '
         'frmConfigs
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3831,6 +3966,8 @@ Partial Class frmConfigs
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4143,4 +4280,16 @@ Partial Class frmConfigs
     Friend WithEvents n1 As NumericUpDown
     Friend WithEvents Label83 As Label
     Friend WithEvents Label82 As Label
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents Label88 As Label
+    Friend WithEvents Label87 As Label
+    Friend WithEvents Label86 As Label
+    Friend WithEvents Label85 As Label
+    Friend WithEvents Label84 As Label
+    Friend WithEvents btnCancela As Button
+    Friend WithEvents btnGPago As Button
+    Friend WithEvents txtClave As TextBox
+    Friend WithEvents txtResultado As TextBox
+    Friend WithEvents txtSolicitud As TextBox
+    Friend WithEvents txtTerminal As TextBox
 End Class

@@ -32,6 +32,25 @@ Public Class frmConfigs
         End Try
 
         Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from DatosProsepago"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                txtTerminal.Text = rd1(1).ToString
+                txtClave.Text = rd1(2).ToString
+                txtSolicitud.Text = rd1(3).ToString
+                txtResultado.Text = rd1(4).ToString
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+        Try
             Dim tipo_logo As String = ""
             Dim tipo_impresora As String = ""
             Dim nLogo As String = ""
@@ -3141,5 +3160,45 @@ Public Class frmConfigs
         Else
             GroupBox26.Enabled = False
         End If
+    End Sub
+
+    Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
+
+    End Sub
+
+    Private Sub btnCancela_Click(sender As Object, e As EventArgs) Handles btnCancela.Click
+        txtTerminal.Text = ""
+        txtClave.Text = ""
+        txtResultado.Text = ""
+        txtSolicitud.Text = ""
+    End Sub
+
+    Private Sub btnGPago_Click(sender As Object, e As EventArgs) Handles btnGPago.Click
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from DatosProsepago"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Update DatosProsepago set Terminal='" & txtTerminal.Text & "', Clave='" & txtClave.Text & "', Solicitud='" & txtSolicitud.Text & "', Resultado='" & txtResultado.Text & "' where Id=1"
+                If cmd1.ExecuteNonQuery Then
+                    MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios PRO")
+                End If
+                cnn1.Close()
+            Else
+                rd1.Close()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Insert into DatosProsepago(Terminal,Clave,Solicitud,Resultado) values('" & txtTerminal.Text & "','" & txtClave.Text & "','" & txtSolicitud.Text & "', '" & txtResultado.Text & "')"
+                If cmd1.ExecuteNonQuery Then
+                    MsgBox("Datos registrados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios PRO")
+                End If
+                cnn1.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
