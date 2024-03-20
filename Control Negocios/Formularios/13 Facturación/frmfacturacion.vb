@@ -6723,18 +6723,7 @@ puerta2:
                 txtISR.Text = FormatNumber(0, 2)
                 Text_TOTAL.Text = FormatNumber(CDec(TextBox1.Text) + CDec(Text_IVA.Text) + CDec(txt_impuestos.Text) - CDec(Text_Descuento.Text) - CDec(Text_IVARET.Text), 2)
 
-                Dim sumatoriavar265 As Decimal = 0
-                Dim sumatoriavar30 As Decimal = 0
-                Dim sumatoriavar53 As Decimal = 0
-                Dim sumatoriavar50 As Decimal = 0
-                Dim sumatoriavar160 As Decimal = 0
-                Dim sumatoriavar304 As Decimal = 0
-                Dim sumatoriavar25 As Decimal = 0
-                Dim sumatoriavar9 As Decimal = 0
-                Dim sumatoriavar8 As Decimal = 0
-                Dim sumatoriavar7 As Decimal = 0
-                Dim sumatoriavar6 As Decimal = 0
-                Dim sumatoriavar3 As Decimal = 0
+
 
                 If CDec(txt_impuestos.Text) > 0 Then
                     For xd = 0 To contadorMatriz
@@ -6951,7 +6940,7 @@ puerta_FacturaG:
                                                             End If
                                                         Next
                                                     End If
-                                                    cnn.Close()
+                                                    cnn2.Close()
                                                 End If
                                             End With
 
@@ -7019,15 +7008,10 @@ puerta_FacturaG:
                                             '    My.Application.DoEvents()
                                             'End If
 
-                                            If dame_IdClienteRS(Cmb_RazonS.Text) > 0 Then
-                                                var_cliente = dame_IdClienteRS(Cmb_RazonS.Text)
-                                            Else
-                                                var_cliente = 0
-                                            End If
 
                                             var1 = CDec(var1) + 1
                                             txt_partida.Text = CDec(txt_partida.Text) + 1
-                                            Text_FormaPago.Focus()
+
                                         End If
                                     Else
                                         If dr(6).ToString <> "0" Then
@@ -7068,7 +7052,7 @@ puerta_FacturaG:
 
                                                         Next
                                                     End If
-                                                    cnn.Close()
+                                                    cnn2.Close()
                                                 End If
                                             End With
 
@@ -7110,16 +7094,22 @@ puerta_FacturaG:
                                                 Dim totaliva As Double = 0
                                                 If varIEPS > 0 Then
                                                     total = FormatNumber(CDec(dr(3).ToString) * CDec(dr("Precio").ToString), 2)
-                                                    opeieps = FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr("Precio").ToString / 1.16, 6)), 6)
+                                                    opeieps = FormatNumber(CDec(CDec(dr("Precio").ToString) * CDec(dr(3).ToString)) / 1.16, 6)
                                                     nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 6)
                                                     totaliva = FormatNumber(total - CDec(opeieps * 0.16) - nuevoieps, 6)
                                                     total = FormatNumber(CDec(totaliva), 6)
+
+                                                    Dim nuevopresio As Double = 0
+                                                    nuevopresio = CDec(FormatNumber(total / dr(3).ToString, 6)) * dr(3).ToString
+                                                    nuevoieps = FormatNumber(CDec(FormatNumber(nuevopresio, 6)) * CDec(varIEPS), 6)
+
                                                 Else
                                                     total = FormatNumber(CDec(dr(3).ToString) * CDec(dr("Precio").ToString), 2)
-                                                    opeieps = FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr("Precio").ToString / 1.16, 6)), 6)
+                                                    opeieps = FormatNumber(CDec(CDec(dr("Precio").ToString) * CDec(dr(3).ToString)) / 1.16, 6)
                                                     nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 6)
                                                     totaliva = FormatNumber(total - CDec(opeieps) - nuevoieps, 6)
                                                     total = FormatNumber(total - CDec(totaliva), 6)
+
                                                 End If
 
                                                 If chkAumentarISR.Checked = True Then
@@ -7182,15 +7172,10 @@ puerta_FacturaG:
 
                                             'End If
 
-                                            If dame_IdClienteRS(Cmb_RazonS.Text) > 0 Then
-                                                var_cliente = dame_IdClienteRS(Cmb_RazonS.Text)
-                                            Else
-                                                var_cliente = 0
-                                            End If
 
                                             var1 = CDec(var1) + 1
                                             txt_partida.Text = CDec(txt_partida.Text) + 1
-                                            Text_FormaPago.Focus()
+
                                         End If
                                     End If
                                 Next
@@ -7211,6 +7196,20 @@ puerta:
                 Dim sumaSubT As Decimal = 0
                 Dim sumDesc As Decimal = 0
                 Dim varisr2 As Double = 0
+
+                Dim sumatoriavar265 As Decimal = 0
+                Dim sumatoriavar30 As Decimal = 0
+                Dim sumatoriavar53 As Decimal = 0
+                Dim sumatoriavar50 As Decimal = 0
+                Dim sumatoriavar160 As Decimal = 0
+                Dim sumatoriavar304 As Decimal = 0
+                Dim sumatoriavar25 As Decimal = 0
+                Dim sumatoriavar9 As Decimal = 0
+                Dim sumatoriavar8 As Decimal = 0
+                Dim sumatoriavar7 As Decimal = 0
+                Dim sumatoriavar6 As Decimal = 0
+                Dim sumatoriavar3 As Decimal = 0
+
                 For x = 0 To grid_prods.Rows.Count - 1
                     If Convert.ToDouble(grid_prods.Rows(x).Cells("Column4").Value) > 0 Then
                         sumaSubT += Convert.ToDouble(grid_prods.Rows(x).Cells("Total").Value)
@@ -7228,11 +7227,45 @@ puerta:
                     Else
                         vart = vart + Convert.ToDouble(grid_prods.Rows(x).Cells("Column2").Value) + Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value) 'vart = vart + Convert.ToDouble(grid_prods.Rows(x).Cells("Total").Value) + Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value)
                     End If
-                    sumaIeps += Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value)
+
+                    If CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value)) > 0 Then
+                        Select Case grid_prods.Rows(x).Cells("Ieps_Porcentaje").Value
+                            Case "0.265000"
+                                sumatoriavar265 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.300000"
+                                sumatoriavar30 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.530000"
+                                sumatoriavar53 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.500000"
+                                sumatoriavar50 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "1.600000"
+                                sumatoriavar160 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.304000"
+                                sumatoriavar304 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.250000"
+                                sumatoriavar25 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.090000"
+                                sumatoriavar9 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.080000"
+                                sumatoriavar8 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.070000"
+                                sumatoriavar7 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.060000"
+                                sumatoriavar6 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                            Case "0.030000"
+                                sumatoriavar3 += CDec(Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value))
+                        End Select
+                    End If
+
+                    'sumaIeps += Convert.ToDouble(grid_prods.Rows(x).Cells("Column7").Value)
                     sumaIvaRet += Convert.ToDouble(grid_prods.Rows(x).Cells("Column6").Value)
 
                     varisr2 = varisr2 + FormatNumber(CDec(CDec(grid_prods.Rows(x).Cells(5).Value.ToString) - CDec(grid_prods.Rows(x).Cells(9).Value.ToString)) * CDec(IIf(grid_prods.Rows(x).Cells(15).Value.ToString = "", "0", grid_prods.Rows(x).Cells(15).Value.ToString)), 6)
                 Next
+
+                sumaIeps = CDec(FormatNumber(sumatoriavar3, 2)) + CDec(FormatNumber(sumatoriavar6, 2)) + CDec(FormatNumber(sumatoriavar7, 2)) + CDec(FormatNumber(sumatoriavar8, 2)) + CDec(FormatNumber(sumatoriavar9, 2)) + CDec(FormatNumber(sumatoriavar25, 2)) + CDec(FormatNumber(sumatoriavar304, 2)) + CDec(FormatNumber(sumatoriavar160, 2)) + CDec(FormatNumber(sumatoriavar50, 2)) + CDec(FormatNumber(sumatoriavar53, 2)) + CDec(FormatNumber(sumatoriavar30, 2)) + CDec(FormatNumber(sumatoriavar265, 2))
+
+
                 Text_SubTotal.Text = FormatNumber(sumaSubT, 2)
                 Text_Descuento.Text = FormatNumber(sumDesc, 2)
                 vart1 = FormatNumber(vart1 * 0.16, 2)

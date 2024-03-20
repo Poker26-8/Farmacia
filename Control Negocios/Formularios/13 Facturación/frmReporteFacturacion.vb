@@ -4,10 +4,12 @@ Imports Org.BouncyCastle.Cms
 
 Public Class frmReporteFacturacion
     Private Sub cbo_DropDown(sender As Object, e As EventArgs) Handles cbo.DropDown
-        Dim inicio As String = ""
-        Dim final As String = ""
+        Dim inicio As Date = Nothing
+        Dim final As Date = Nothing
         inicio = Format(mc1.SelectionStart.ToShortDateString)
         final = Format(mc2.SelectionStart.ToShortDateString)
+        inicio = Format(inicio, "yyyy-MM-dd")
+        final = Format(final, "yyyy-MM-dd")
         cbo.Items.Clear()
         If optVentas.Checked = True Then
             cbo.Items.Add("TODAS")
@@ -18,7 +20,7 @@ Public Class frmReporteFacturacion
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select distinct nom_nombre_cliente from Facturas where nom_nombre_cliente<>'' and Fecha >='" & inicio & " 00:00:00 ' and Fecha <= '" & final & " 23:59:59' order by nom_nombre_cliente"
+            cmd1.CommandText = "Select distinct nom_nombre_cliente from Facturas where nom_nombre_cliente<>'' and Fecha >= '" & Format(inicio, "yyyy-MM-dd") & "' and Fecha <= '" & Format(final, "yyyy-MM-dd") & "' order by nom_nombre_cliente"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cbo.Items.Add(rd1(0).ToString)

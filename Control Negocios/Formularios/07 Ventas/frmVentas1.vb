@@ -6375,11 +6375,11 @@ doorcita:
                     Else
                         If TotalIVAPrint = 0 Then
                             IVA_Vent = 0
+                            SubTotal = FormatNumber(txtPagar.Text, 4)
                         Else
                             IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+                            SubTotal = FormatNumber(TotalIVAPrint, 4)
                         End If
-
-                        SubTotal = FormatNumber(TotalIVAPrint, 4)
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
                         Descuento = FormatNumber(txtdescuento2.Text, 4)
                         MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)

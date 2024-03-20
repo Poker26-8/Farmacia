@@ -4671,6 +4671,7 @@ puertaXD1:
         Dim nuevoIEPS06 As Double = 0
         Dim nuevoIEPS03 As Double = 0
         Dim nuevoIEPS_SinIVA As Double = 0
+        Dim nuevoIEPS_ConIVA As Double = 0
 
         Dim basenuevoIEPS265 As Double = 0
         Dim basenuevoIEPS3 As Double = 0
@@ -5666,6 +5667,36 @@ puertaXD1:
                                     arreg2(ieps_val) = frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString
                                     ieps_val = ieps_val + 1
                                 End If
+
+                                Select Case frmfacturacion.grid_prods.Rows(i).Cells("Ieps_Porcentaje").Value
+                                    Case "0.265000"
+                                        nuevoIEPS265 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.300000"
+                                        nuevoIEPS3 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.530000"
+                                        nuevoIEPS53 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.500000"
+                                        nuevoIEPS5 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "1.600000"
+                                        nuevoIEPS1600 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.304000"
+                                        nuevoIEPS304 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.250000"
+                                        nuevoIEPS25 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.090000"
+                                        nuevoIEPS09 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.080000"
+                                        nuevoIEPS8 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.070000"
+                                        nuevoIEPS07 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.060000"
+                                        nuevoIEPS06 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    Case "0.030000"
+                                        nuevoIEPS03 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                End Select
+
+                                'nuevoIEPS_ConIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6))
+
                                 .WriteAttributeString("Importe", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6), ",", ""))
                                 .WriteAttributeString("TipoFactor", frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString)
                                 .WriteAttributeString("TasaOCuota", FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6))
@@ -6206,7 +6237,34 @@ puertaXD1:
                                         ieps_val = ieps_val + 1
                                     End If
 
-                                    nuevoIEPS_SinIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2))
+                                    Select Case frmfacturacion.grid_prods.Rows(i).Cells("Ieps_Porcentaje").Value
+                                        Case "0.265000"
+                                            nuevoIEPS265 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.300000"
+                                            nuevoIEPS3 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.530000"
+                                            nuevoIEPS53 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.500000"
+                                            nuevoIEPS5 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "1.600000"
+                                            nuevoIEPS1600 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.304000"
+                                            nuevoIEPS304 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.250000"
+                                            nuevoIEPS25 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.090000"
+                                            nuevoIEPS09 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.080000"
+                                            nuevoIEPS8 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.070000"
+                                            nuevoIEPS07 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.060000"
+                                            nuevoIEPS06 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                        Case "0.030000"
+                                            nuevoIEPS03 += CDec(FormatNumber(Convert.ToDouble(frmfacturacion.grid_prods.Rows(i).Cells("Column7").Value), 6))
+                                    End Select
+
+                                    'nuevoIEPS_SinIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2))
 
                                     .WriteAttributeString("Importe", Replace(CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2)), ",", ""))
                                     .WriteAttributeString("TipoFactor", frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString)
@@ -6594,7 +6652,10 @@ puertaXD1:
 
             .WriteEndElement()
 
-            actuieps = nuevoIEPS265 + nuevoIEPS3 + nuevoIEPS53 + nuevoIEPS5 + nuevoIEPS1600 + nuevoIEPS304 + nuevoIEPS25 + nuevoIEPS09 + nuevoIEPS8 + nuevoIEPS07 + nuevoIEPS06 + nuevoIEPS03 + nuevoIEPS_SinIVA
+            actuieps = CDec(FormatNumber(nuevoIEPS265, 2)) + CDec(FormatNumber(nuevoIEPS3, 2)) + CDec(FormatNumber(nuevoIEPS53, 2)) + CDec(FormatNumber(nuevoIEPS5, 2)) + CDec(FormatNumber(nuevoIEPS1600, 2)) + CDec(FormatNumber(nuevoIEPS304, 2)) + CDec(FormatNumber(nuevoIEPS25, 2)) + CDec(FormatNumber(nuevoIEPS09, 2)) + CDec(FormatNumber(nuevoIEPS8, 2)) + CDec(FormatNumber(nuevoIEPS07, 2)) + CDec(FormatNumber(nuevoIEPS06, 2)) + CDec(FormatNumber(nuevoIEPS03, 2)) + nuevoIEPS_SinIVA + nuevoIEPS_ConIVA
+
+
+            'actuieps = nuevoIEPS265 + nuevoIEPS3 + nuevoIEPS53 + nuevoIEPS5 + nuevoIEPS1600 + nuevoIEPS304 + nuevoIEPS25 + nuevoIEPS09 + nuevoIEPS8 + nuevoIEPS07 + nuevoIEPS06 + nuevoIEPS03 + nuevoIEPS_SinIVA + nuevoIEPS_ConIVA
 
             '===================================== INICIA IMPUESTOS
 
