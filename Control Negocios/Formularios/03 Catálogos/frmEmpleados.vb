@@ -153,6 +153,7 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub txtAlias_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtAlias.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtId.Text = "" Then
                 Try
@@ -190,7 +191,7 @@ Public Class frmEmpleados
                 End Try
             End If
             btnGuardar.Focus.Equals(True)
-            End If
+        End If
     End Sub
 
     Private Sub txtCalle_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtCalle.KeyPress

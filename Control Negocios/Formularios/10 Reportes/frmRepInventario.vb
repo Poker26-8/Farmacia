@@ -5,6 +5,9 @@ Public Class frmRepInventario
     Dim Libreria As Boolean = False
     Dim Partes As Boolean = False
 
+    Dim restaurante As Integer = 0
+    Dim copeo As Integer = 0
+
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btncardex.Click
         frmCardex.Show()
     End Sub
@@ -234,6 +237,32 @@ Public Class frmRepInventario
                 End If
             Else
                 Libreria = False
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Restaurante'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    restaurante = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    If rd1(0).ToString = "1" Then
+                        copeo = 1
+                    Else
+                        copeo = 0
+                    End If
+
+                End If
             End If
             rd1.Close()
 
@@ -814,6 +843,7 @@ Public Class frmRepInventario
                     Dim pcompra As Double = IIf(rd1("PrecioCompra").ToString = "", 0, rd1("PrecioCompra").ToString)
                     Dim pventa As Double = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
                     Dim n_parte As String = IIf(rd1("N_Serie").ToString() = "", "", rd1("N_Serie").ToString())
+                    Dim copas As Double = IIf(rd1("Copas").ToString() = 0, 1, rd1("Copas").ToString())
 
                     Dim vcompra As Double = pcompra * existe
                     Dim vventa As Double = pventa * existe
@@ -825,7 +855,37 @@ Public Class frmRepInventario
                         If (Partes) Then
                             grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                         Else
-                            grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            If restaurante = 1 And copeo = 1 Then
+                                Dim existe_temp As Double = existe
+                                Dim nueva_existe As Double = 0
+                                If copas > 1 Then
+
+                                    Dim posicion As Integer = 0
+                                    Dim entero As String = ""
+                                    Dim decimaaal As String = ""
+
+                                    Dim decimaal_db As Double = 0
+
+                                    posicion = InStr(CStr(existe), ".")
+                                    If posicion = 0 Then
+                                        nueva_existe = existe
+                                    Else
+                                        entero = Mid(CStr(existe), 1, posicion - 1)
+                                        decimaaal = "0" & Mid(CStr(existe), posicion, 200)
+
+                                        decimaal_db = FormatNumber(CDbl(decimaaal) * copas, 0)
+                                        nueva_existe = entero & "." & decimaal_db
+                                    End If
+
+                                Else
+                                    nueva_existe = existe
+                                End If
+
+
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            Else
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            End If
                         End If
                     End If
                     ValCompra = ValCompra + vcompra
@@ -941,6 +1001,7 @@ Public Class frmRepInventario
                     Dim exitencia As Double = existe / mutiplo
                     Dim pcompra As Double = IIf(rd1("PrecioCompra").ToString = "", 0, rd1("PrecioCompra").ToString)
                     Dim pventa As Double = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+                    Dim copas As Double = IIf(rd1("Copas").ToString() = 0, 1, rd1("Copas").ToString())
 
                     Dim vcompra As Double = pcompra * existe
                     Dim vventa As Double = pventa * existe
@@ -948,7 +1009,35 @@ Public Class frmRepInventario
                     If (Libreria) Then
 
                     Else
-                        grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                        If restaurante = 1 And copeo = 1 Then
+                            Dim existe_temp As Double = existe
+                            Dim nueva_existe As Double = 0
+                            If copas > 1 Then
+
+                                Dim posicion As Integer = 0
+                                Dim entero As String = ""
+                                Dim decimaaal As String = ""
+
+                                Dim decimaal_db As Double = 0
+
+                                posicion = InStr(CStr(existe), ".")
+                                If posicion = 0 Then
+                                    nueva_existe = existe
+                                Else
+                                    entero = Mid(CStr(existe), 1, posicion - 1)
+                                    decimaaal = "0" & Mid(CStr(existe), posicion, 200)
+
+                                    decimaal_db = FormatNumber(CDbl(decimaaal) * copas, 0)
+                                    nueva_existe = entero & "." & decimaal_db
+                                End If
+                            Else
+                                nueva_existe = existe
+                            End If
+
+                            grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                        Else
+                            grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                        End If
                     End If
                     ValCompra = ValCompra + vcompra
                     ValVenta = ValVenta + vventa

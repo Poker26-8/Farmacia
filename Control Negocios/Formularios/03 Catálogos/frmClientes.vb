@@ -861,7 +861,7 @@ Public Class frmClientes
                     If cnn1.State = 0 Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "', " & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & ninterior & "','" & nexterior & "',0,0,0)"
+                    cmd1.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor,RegFis) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "', " & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & ninterior & "','" & nexterior & "',0,0,0,'" & regfis & "')"
                     cmd1.ExecuteNonQuery()
                 Else
                     conteo += 1

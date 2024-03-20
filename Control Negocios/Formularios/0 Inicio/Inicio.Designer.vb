@@ -152,7 +152,6 @@ Partial Class Inicio
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnpollo = New System.Windows.Forms.Button()
         Me.btnHoteleria = New System.Windows.Forms.Button()
@@ -162,15 +161,15 @@ Partial Class Inicio
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
-        Me.btnSincronizador = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnPagarComanda = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnSincronizador = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -1171,19 +1170,6 @@ Partial Class Inicio
         '
         Me.Timer1.Interval = 1
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(417, 343)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox1.Size = New System.Drawing.Size(403, 142)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
@@ -1199,7 +1185,7 @@ Partial Class Inicio
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 114)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(90, 714)
+        Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
         '
         'btnpollo
@@ -1221,8 +1207,8 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.BorderSize = 0
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHoteleria.Image = CType(resources.GetObject("btnHoteleria.Image"), System.Drawing.Image)
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 522)
+        Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 432)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1281,7 +1267,7 @@ Partial Class Inicio
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(0, 690)
+        Me.Button6.Location = New System.Drawing.Point(0, 682)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(90, 24)
         Me.Button6.TabIndex = 9
@@ -1315,37 +1301,12 @@ Partial Class Inicio
         Me.Button12.UseVisualStyleBackColor = True
         Me.Button12.Visible = False
         '
-        'btnSincronizador
-        '
-        Me.btnSincronizador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSincronizador.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
-        Me.btnSincronizador.Location = New System.Drawing.Point(1139, 774)
-        Me.btnSincronizador.Name = "btnSincronizador"
-        Me.btnSincronizador.Size = New System.Drawing.Size(43, 42)
-        Me.btnSincronizador.TabIndex = 8
-        Me.btnSincronizador.UseVisualStyleBackColor = False
-        Me.btnSincronizador.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1139, 726)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(43, 42)
-        Me.Button3.TabIndex = 9
-        Me.Button3.UseVisualStyleBackColor = False
-        '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1033, 728)
+        Me.Label1.Location = New System.Drawing.Point(1033, 720)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 38)
         Me.Label1.TabIndex = 10
@@ -1358,7 +1319,7 @@ Partial Class Inicio
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1008, 786)
+        Me.Label2.Location = New System.Drawing.Point(1008, 778)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(123, 19)
         Me.Label2.TabIndex = 11
@@ -1366,25 +1327,49 @@ Partial Class Inicio
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Visible = False
         '
-        'btnPagarComanda
+        'Button3
         '
-        Me.btnPagarComanda.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPagarComanda.FlatAppearance.BorderSize = 0
-        Me.btnPagarComanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnPagarComanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagarComanda.Image = CType(resources.GetObject("btnPagarComanda.Image"), System.Drawing.Image)
-        Me.btnPagarComanda.Location = New System.Drawing.Point(0, 180)
-        Me.btnPagarComanda.Name = "btnPagarComanda"
-        Me.btnPagarComanda.Size = New System.Drawing.Size(90, 90)
-        Me.btnPagarComanda.TabIndex = 185
-        Me.btnPagarComanda.UseVisualStyleBackColor = True
-        Me.btnPagarComanda.Visible = False
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.White
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.Location = New System.Drawing.Point(1139, 718)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(43, 42)
+        Me.Button3.TabIndex = 9
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'btnSincronizador
+        '
+        Me.btnSincronizador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSincronizador.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
+        Me.btnSincronizador.Location = New System.Drawing.Point(1139, 766)
+        Me.btnSincronizador.Name = "btnSincronizador"
+        Me.btnSincronizador.Size = New System.Drawing.Size(43, 42)
+        Me.btnSincronizador.TabIndex = 8
+        Me.btnSincronizador.UseVisualStyleBackColor = False
+        Me.btnSincronizador.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(417, 339)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox1.Size = New System.Drawing.Size(403, 142)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
         '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1194, 828)
+        Me.ClientSize = New System.Drawing.Size(1194, 820)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button3)
@@ -1403,8 +1388,8 @@ Partial Class Inicio
         Me.Panel1.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

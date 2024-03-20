@@ -179,7 +179,7 @@
     </Reference>
     <Reference Include="WhatsAppDLL">
       <HintPath>..\..\..\..\..\..\DLL\WhatsAppDLL.dll</HintPath>
-      <HintPath>..\..\..\Recursos\EnviarMensajeWA\WhatsAppDLL.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive\Documentos\Proyectos\EnviarMensajeWA\WhatsAppDLL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -2439,10 +2439,15 @@
     <None Include="Resources\DEVO1Recurso 781.png" />
     <Content Include="Resources\entrega1Recurso 82.png" />
     <None Include="Resources\entrega1Recurso 821.png" />
+    <Content Include="Resources\hotel.png" />
+    <None Include="Resources\hotel1.png" />
+    <None Include="Resources\hotelRecurso 1.png" />
     <Content Include="Resources\monedero1Recurso 79.png" />
     <None Include="Resources\monedero1Recurso 791.png" />
     <Content Include="Resources\pagoservicos1Recurso 88.png" />
     <None Include="Resources\pagoservicos1Recurso 881.png" />
+    <None Include="Resources\pedidoRecurso 2.png" />
+    <None Include="Resources\pedidoRecurso 89.png" />
     <Content Include="Resources\recargas1Recurso 86.png" />
     <None Include="Resources\recargas1Recurso 861.png" />
     <Content Include="Resources\recargas2Recurso 87.png" />

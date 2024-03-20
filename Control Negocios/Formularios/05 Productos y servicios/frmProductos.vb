@@ -1365,7 +1365,7 @@ Public Class frmProductos
         End Try
 
         If grdcaptura.Rows.Count > 0 Then
-            Sube_Provee()
+            Sube_Lotes()
         End If
     End Sub
 
@@ -1455,6 +1455,45 @@ Public Class frmProductos
             barsube.Value = 0
         Catch ex As Exception
 
+        End Try
+    End Sub
+
+    Private Sub Sube_Lotes()
+        Try
+            Dim codigo, lote As String
+            Dim caducidad As Date
+            Dim cantidad As Double
+            Dim conteo As Integer = 0
+
+            barsube.Value = 0
+            barsube.Maximum = grdcaptura.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            For jiji As Integer = 0 To grdcaptura.Rows.Count - 1
+                codigo = UCase(NulCad(grdcaptura.Rows(jiji).Cells(0).Value.ToString()))
+                lote = NulCad(grdcaptura.Rows(jiji).Cells(1).Value.ToString())
+                caducidad = NulCad(grdcaptura.Rows(jiji).Cells(2).Value.ToString())
+                cantidad = NulVa(grdcaptura.Rows(jiji).Cells(3).Value.ToString())
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codigo & "','" & lote & "','" & Format(caducidad, "yyyy-MM-dd") & "'," & cantidad & ")"
+                cmd1.ExecuteNonQuery()
+
+                conteo += 1
+                barsube.Value = conteo
+                My.Application.DoEvents()
+            Next
+            cnn1.Close()
+            MsgBox(conteo & " lotes fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            grdcaptura.DataSource = Nothing
+            grdcaptura.Dispose()
+            grdcaptura.Rows.Clear()
+            barsube.Value = 0
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
         End Try
     End Sub
 
