@@ -6373,7 +6373,12 @@ doorcita:
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
-                        IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+                        If TotalIVAPrint = 0 Then
+                            IVA_Vent = 0
+                        Else
+                            IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+                        End If
+
                         SubTotal = FormatNumber(TotalIVAPrint, 4)
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
                         Descuento = FormatNumber(txtdescuento2.Text, 4)
