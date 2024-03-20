@@ -28,6 +28,7 @@ Partial Class frmMesas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btntemporales = New System.Windows.Forms.Button()
         Me.btncambiar = New System.Windows.Forms.Button()
         Me.btnjuntar = New System.Windows.Forms.Button()
         Me.btnagregar = New System.Windows.Forms.Button()
@@ -60,7 +61,6 @@ Partial Class frmMesas
         Me.lbltotalmesa = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.pmesas = New System.Windows.Forms.Panel()
-        Me.btntemporales = New System.Windows.Forms.Button()
         Me.psuperior.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,6 +130,23 @@ Partial Class frmMesas
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(655, 104)
         Me.Panel5.TabIndex = 3
+        '
+        'btntemporales
+        '
+        Me.btntemporales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btntemporales.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btntemporales.FlatAppearance.BorderSize = 0
+        Me.btntemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btntemporales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btntemporales.ForeColor = System.Drawing.Color.Black
+        Me.btntemporales.Image = CType(resources.GetObject("btntemporales.Image"), System.Drawing.Image)
+        Me.btntemporales.Location = New System.Drawing.Point(1, 0)
+        Me.btntemporales.Name = "btntemporales"
+        Me.btntemporales.Size = New System.Drawing.Size(100, 104)
+        Me.btntemporales.TabIndex = 22
+        Me.btntemporales.Text = "Temporales"
+        Me.btntemporales.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btntemporales.UseVisualStyleBackColor = False
         '
         'btncambiar
         '
@@ -557,23 +574,6 @@ Partial Class frmMesas
         Me.pmesas.Size = New System.Drawing.Size(1180, 640)
         Me.pmesas.TabIndex = 3
         '
-        'btntemporales
-        '
-        Me.btntemporales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btntemporales.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btntemporales.FlatAppearance.BorderSize = 0
-        Me.btntemporales.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btntemporales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btntemporales.ForeColor = System.Drawing.Color.Black
-        Me.btntemporales.Image = CType(resources.GetObject("btntemporales.Image"), System.Drawing.Image)
-        Me.btntemporales.Location = New System.Drawing.Point(1, 0)
-        Me.btntemporales.Name = "btntemporales"
-        Me.btntemporales.Size = New System.Drawing.Size(100, 104)
-        Me.btntemporales.TabIndex = 22
-        Me.btntemporales.Text = "Temporales"
-        Me.btntemporales.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btntemporales.UseVisualStyleBackColor = False
-        '
         'frmMesas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -585,7 +585,6 @@ Partial Class frmMesas
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMesas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Mesas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.psuperior.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)

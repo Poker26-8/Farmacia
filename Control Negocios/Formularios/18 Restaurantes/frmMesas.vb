@@ -30,6 +30,8 @@ Public Class frmMesas
 
     Private Sub frmMesas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
+        Me.Text = "Mesas mapeables" & Strings.Space(55) & "COMANDERO"
         TRAERLUGAR()
 
         cnn1.Close() : cnn1.Open()
@@ -605,6 +607,8 @@ Public Class frmMesas
 
                         If rd1(1).ToString Then
                             KeyOP(foco)
+                            TRAERLUGAR()
+                            primerBoton()
                         Else
                             MsgBox("El usuario no esta activo contacte a su administrador", vbInformation + vbOKOnly, titulomensajes)
                             rd1.Close()

@@ -24,7 +24,7 @@ Partial Class frmAgregarProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarProducto))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblpromo = New System.Windows.Forms.Label()
@@ -42,6 +42,15 @@ Partial Class frmAgregarProducto
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.pPreferencias = New System.Windows.Forms.TabPage()
@@ -114,15 +123,6 @@ Partial Class frmAgregarProducto
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -353,8 +353,8 @@ Partial Class frmAgregarProducto
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
@@ -366,6 +366,82 @@ Partial Class frmAgregarProducto
         Me.grdCaptura.RowHeadersWidth = 62
         Me.grdCaptura.Size = New System.Drawing.Size(336, 319)
         Me.grdCaptura.TabIndex = 2
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Cod"
+        Me.Column1.MinimumWidth = 8
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        Me.Column1.Width = 60
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Desc."
+        Me.Column2.MinimumWidth = 8
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 150
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Cant."
+        Me.Column3.MinimumWidth = 8
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 57
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column4.HeaderText = "P.U."
+        Me.Column4.MinimumWidth = 8
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 53
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Importe"
+        Me.Column5.MinimumWidth = 8
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 67
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Com"
+        Me.Column6.MinimumWidth = 8
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 150
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "PEP"
+        Me.Column7.MinimumWidth = 8
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 150
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Tiempos"
+        Me.Column8.MinimumWidth = 8
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 150
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.MinimumWidth = 8
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 150
         '
         'Panel8
         '
@@ -397,7 +473,7 @@ Partial Class frmAgregarProducto
         Me.pPreferencias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pPreferencias.Location = New System.Drawing.Point(4, 25)
         Me.pPreferencias.Name = "pPreferencias"
-        Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3)
         Me.pPreferencias.Size = New System.Drawing.Size(328, 234)
         Me.pPreferencias.TabIndex = 0
         Me.pPreferencias.Text = "   Preferencias   "
@@ -407,7 +483,7 @@ Partial Class frmAgregarProducto
         Me.pExtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pExtras.Location = New System.Drawing.Point(4, 25)
         Me.pExtras.Name = "pExtras"
-        Me.pExtras.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pExtras.Padding = New System.Windows.Forms.Padding(3)
         Me.pExtras.Size = New System.Drawing.Size(328, 234)
         Me.pExtras.TabIndex = 1
         Me.pExtras.Text = "      Extras      "
@@ -417,7 +493,7 @@ Partial Class frmAgregarProducto
         Me.pPromociones.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pPromociones.Location = New System.Drawing.Point(4, 25)
         Me.pPromociones.Name = "pPromociones"
-        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3)
         Me.pPromociones.Size = New System.Drawing.Size(328, 234)
         Me.pPromociones.TabIndex = 2
         Me.pPromociones.Text = "Promociones"
@@ -473,11 +549,11 @@ Partial Class frmAgregarProducto
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnSalir)
+        Me.Panel2.Controls.Add(Me.btnOcasional)
         Me.Panel2.Controls.Add(Me.btnnuevo)
         Me.Panel2.Controls.Add(Me.btntiempo3)
         Me.Panel2.Controls.Add(Me.btntiempo2)
         Me.Panel2.Controls.Add(Me.btntiempo1)
-        Me.Panel2.Controls.Add(Me.btnOcasional)
         Me.Panel2.Controls.Add(Me.btnRepertir)
         Me.Panel2.Controls.Add(Me.btnordenar)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -493,9 +569,9 @@ Partial Class frmAgregarProducto
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(627, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(774, 0)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(86, 87)
+        Me.btnSalir.Size = New System.Drawing.Size(93, 87)
         Me.btnSalir.TabIndex = 28
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -508,7 +584,7 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(546, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(564, 0)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(81, 87)
         Me.btnnuevo.TabIndex = 25
@@ -521,7 +597,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(473, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(491, 0)
         Me.btntiempo3.Name = "btntiempo3"
         Me.btntiempo3.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo3.TabIndex = 24
@@ -533,7 +609,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(400, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(418, 0)
         Me.btntiempo2.Name = "btntiempo2"
         Me.btntiempo2.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo2.TabIndex = 23
@@ -547,7 +623,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btntiempo1.Location = New System.Drawing.Point(333, 0)
         Me.btntiempo1.Name = "btntiempo1"
-        Me.btntiempo1.Size = New System.Drawing.Size(67, 87)
+        Me.btntiempo1.Size = New System.Drawing.Size(85, 87)
         Me.btntiempo1.TabIndex = 22
         Me.btntiempo1.Text = "Primer tiempo"
         Me.btntiempo1.UseVisualStyleBackColor = False
@@ -555,13 +631,14 @@ Partial Class frmAgregarProducto
         'btnOcasional
         '
         Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOcasional.Image = CType(resources.GetObject("btnOcasional.Image"), System.Drawing.Image)
-        Me.btnOcasional.Location = New System.Drawing.Point(333, 0)
+        Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnOcasional.Location = New System.Drawing.Point(645, 0)
         Me.btnOcasional.Name = "btnOcasional"
-        Me.btnOcasional.Size = New System.Drawing.Size(532, 87)
+        Me.btnOcasional.Size = New System.Drawing.Size(129, 87)
         Me.btnOcasional.TabIndex = 27
         Me.btnOcasional.Text = "Producto ocasional"
         Me.btnOcasional.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1232,82 +1309,6 @@ Partial Class frmAgregarProducto
         'PComanda58
         '
         '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Cod"
-        Me.Column1.MinimumWidth = 8
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 60
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Desc."
-        Me.Column2.MinimumWidth = 8
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 150
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Cant."
-        Me.Column3.MinimumWidth = 8
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 57
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column4.HeaderText = "P.U."
-        Me.Column4.MinimumWidth = 8
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 53
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Importe"
-        Me.Column5.MinimumWidth = 8
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 67
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Com"
-        Me.Column6.MinimumWidth = 8
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 150
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "PEP"
-        Me.Column7.MinimumWidth = 8
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 150
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Tiempos"
-        Me.Column8.MinimumWidth = 8
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 150
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.MinimumWidth = 8
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 150
-        '
         'frmAgregarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1323,7 +1324,6 @@ Partial Class frmAgregarProducto
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAgregarProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Agregar Productos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)

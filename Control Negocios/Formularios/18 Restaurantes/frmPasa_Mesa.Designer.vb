@@ -33,9 +33,9 @@ Partial Class frmPasa_Mesa
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(24, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(156, 38)
+        Me.Label1.Size = New System.Drawing.Size(152, 38)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Ingresa tu contraseña" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ingresar a mesas"
+        Me.Label1.Text = "Ingresa tu contraseña" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ingresar"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtclave

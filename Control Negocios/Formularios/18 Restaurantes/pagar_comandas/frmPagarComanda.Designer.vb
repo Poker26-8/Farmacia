@@ -37,7 +37,7 @@ Partial Class frmPagarComanda
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.pCliente = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cbocliente = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.txtContra = New System.Windows.Forms.TextBox()
@@ -90,14 +90,6 @@ Partial Class frmPagarComanda
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pCentro = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -114,6 +106,35 @@ Partial Class frmPagarComanda
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
+        Me.PDevolucion80 = New System.Drawing.Printing.PrintDocument()
+        Me.PDevolucion58 = New System.Drawing.Printing.PrintDocument()
+        Me.PPrecuenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.PPrecuenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.grdPagos = New System.Windows.Forms.DataGridView()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.cboforma = New System.Windows.Forms.ComboBox()
+        Me.cboBanco = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.txtreferencia = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.txtmonto = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.txtComentario = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.btnagregarpago = New System.Windows.Forms.Button()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.psuperior.SuspendLayout()
         Me.pdatos.SuspendLayout()
@@ -125,6 +146,7 @@ Partial Class frmPagarComanda
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel11.SuspendLayout()
@@ -132,6 +154,7 @@ Partial Class frmPagarComanda
         Me.pCentro.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
+        CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -140,7 +163,7 @@ Partial Class frmPagarComanda
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(901, 37)
+        Me.Panel1.Size = New System.Drawing.Size(973, 37)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -149,7 +172,7 @@ Partial Class frmPagarComanda
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(901, 37)
+        Me.Label1.Size = New System.Drawing.Size(973, 37)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Consulta y Cobro de comandas"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -162,7 +185,7 @@ Partial Class frmPagarComanda
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.psuperior.Location = New System.Drawing.Point(0, 37)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(901, 116)
+        Me.psuperior.Size = New System.Drawing.Size(973, 116)
         Me.psuperior.TabIndex = 0
         '
         'pdatos
@@ -176,7 +199,7 @@ Partial Class frmPagarComanda
         Me.pdatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pdatos.Location = New System.Drawing.Point(373, 0)
         Me.pdatos.Name = "pdatos"
-        Me.pdatos.Size = New System.Drawing.Size(250, 116)
+        Me.pdatos.Size = New System.Drawing.Size(322, 116)
         Me.pdatos.TabIndex = 4
         '
         'cboComensal
@@ -187,7 +210,7 @@ Partial Class frmPagarComanda
         Me.cboComensal.FormattingEnabled = True
         Me.cboComensal.Location = New System.Drawing.Point(89, 75)
         Me.cboComensal.Name = "cboComensal"
-        Me.cboComensal.Size = New System.Drawing.Size(148, 26)
+        Me.cboComensal.Size = New System.Drawing.Size(220, 26)
         Me.cboComensal.TabIndex = 6
         '
         'cboComanda
@@ -198,7 +221,7 @@ Partial Class frmPagarComanda
         Me.cboComanda.FormattingEnabled = True
         Me.cboComanda.Location = New System.Drawing.Point(89, 43)
         Me.cboComanda.Name = "cboComanda"
-        Me.cboComanda.Size = New System.Drawing.Size(148, 26)
+        Me.cboComanda.Size = New System.Drawing.Size(220, 26)
         Me.cboComanda.TabIndex = 5
         '
         'cboMesa
@@ -209,7 +232,7 @@ Partial Class frmPagarComanda
         Me.cboMesa.FormattingEnabled = True
         Me.cboMesa.Location = New System.Drawing.Point(89, 11)
         Me.cboMesa.Name = "cboMesa"
-        Me.cboMesa.Size = New System.Drawing.Size(148, 26)
+        Me.cboMesa.Size = New System.Drawing.Size(220, 26)
         Me.cboMesa.TabIndex = 4
         '
         'Label15
@@ -255,7 +278,7 @@ Partial Class frmPagarComanda
         '
         'pCliente
         '
-        Me.pCliente.Controls.Add(Me.ComboBox2)
+        Me.pCliente.Controls.Add(Me.cbocliente)
         Me.pCliente.Controls.Add(Me.Label19)
         Me.pCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pCliente.Location = New System.Drawing.Point(0, 44)
@@ -263,14 +286,14 @@ Partial Class frmPagarComanda
         Me.pCliente.Size = New System.Drawing.Size(373, 33)
         Me.pCliente.TabIndex = 9
         '
-        'ComboBox2
+        'cbocliente
         '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(70, 6)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(284, 21)
-        Me.ComboBox2.TabIndex = 6
+        Me.cbocliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbocliente.FormattingEnabled = True
+        Me.cbocliente.Location = New System.Drawing.Point(70, 6)
+        Me.cbocliente.Name = "cbocliente"
+        Me.cbocliente.Size = New System.Drawing.Size(284, 21)
+        Me.cbocliente.TabIndex = 6
         '
         'Label19
         '
@@ -395,7 +418,7 @@ Partial Class frmPagarComanda
         Me.Panel7.Controls.Add(Me.lblFolio)
         Me.Panel7.Controls.Add(Me.lblMesero)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(623, 0)
+        Me.Panel7.Location = New System.Drawing.Point(695, 0)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(278, 116)
         Me.Panel7.TabIndex = 6
@@ -503,7 +526,7 @@ Partial Class frmPagarComanda
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Controls.Add(Me.btnCerrar)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(819, 153)
+        Me.Panel3.Location = New System.Drawing.Point(891, 153)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(82, 690)
         Me.Panel3.TabIndex = 1
@@ -625,17 +648,29 @@ Partial Class frmPagarComanda
         Me.Panel4.Controls.Add(Me.Panel2)
         Me.Panel4.Controls.Add(Me.Panel5)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(0, 674)
+        Me.Panel4.Location = New System.Drawing.Point(0, 665)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(819, 169)
+        Me.Panel4.Size = New System.Drawing.Size(891, 178)
         Me.Panel4.TabIndex = 2
         '
         'Panel6
         '
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel6.Controls.Add(Me.btnagregarpago)
+        Me.Panel6.Controls.Add(Me.txtComentario)
+        Me.Panel6.Controls.Add(Me.Label31)
+        Me.Panel6.Controls.Add(Me.txtmonto)
+        Me.Panel6.Controls.Add(Me.Label30)
+        Me.Panel6.Controls.Add(Me.Label29)
+        Me.Panel6.Controls.Add(Me.txtreferencia)
+        Me.Panel6.Controls.Add(Me.cboBanco)
+        Me.Panel6.Controls.Add(Me.Label28)
+        Me.Panel6.Controls.Add(Me.cboforma)
+        Me.Panel6.Controls.Add(Me.Label27)
+        Me.Panel6.Controls.Add(Me.grdPagos)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(287, 169)
+        Me.Panel6.Size = New System.Drawing.Size(398, 178)
         Me.Panel6.TabIndex = 18
         '
         'Panel2
@@ -650,9 +685,10 @@ Partial Class frmPagarComanda
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.txtEfectivo)
-        Me.Panel2.Location = New System.Drawing.Point(293, 0)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(398, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(211, 169)
+        Me.Panel2.Size = New System.Drawing.Size(181, 178)
         Me.Panel2.TabIndex = 17
         '
         'Label7
@@ -671,9 +707,9 @@ Partial Class frmPagarComanda
         Me.txtResta.Enabled = False
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
-        Me.txtResta.Location = New System.Drawing.Point(86, 132)
+        Me.txtResta.Location = New System.Drawing.Point(80, 144)
         Me.txtResta.Name = "txtResta"
-        Me.txtResta.Size = New System.Drawing.Size(123, 29)
+        Me.txtResta.Size = New System.Drawing.Size(95, 29)
         Me.txtResta.TabIndex = 16
         Me.txtResta.Text = "0.00"
         Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -683,9 +719,9 @@ Partial Class frmPagarComanda
         Me.txtPropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.txtPropina.Enabled = False
         Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPropina.Location = New System.Drawing.Point(86, 3)
+        Me.txtPropina.Location = New System.Drawing.Point(80, 4)
         Me.txtPropina.Name = "txtPropina"
-        Me.txtPropina.Size = New System.Drawing.Size(123, 29)
+        Me.txtPropina.Size = New System.Drawing.Size(95, 29)
         Me.txtPropina.TabIndex = 8
         Me.txtPropina.Text = "0.00"
         Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -693,7 +729,7 @@ Partial Class frmPagarComanda
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(3, 132)
+        Me.Label11.Location = New System.Drawing.Point(3, 144)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(77, 29)
         Me.Label11.TabIndex = 15
@@ -703,7 +739,7 @@ Partial Class frmPagarComanda
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(3, 36)
+        Me.Label8.Location = New System.Drawing.Point(3, 39)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(77, 29)
         Me.Label8.TabIndex = 9
@@ -716,9 +752,9 @@ Partial Class frmPagarComanda
         Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.Green
-        Me.txtCambio.Location = New System.Drawing.Point(86, 100)
+        Me.txtCambio.Location = New System.Drawing.Point(80, 109)
         Me.txtCambio.Name = "txtCambio"
-        Me.txtCambio.Size = New System.Drawing.Size(123, 29)
+        Me.txtCambio.Size = New System.Drawing.Size(95, 29)
         Me.txtCambio.TabIndex = 14
         Me.txtCambio.Text = "0.00"
         Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -728,9 +764,9 @@ Partial Class frmPagarComanda
         Me.txtPagos.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.txtPagos.Enabled = False
         Me.txtPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPagos.Location = New System.Drawing.Point(86, 36)
+        Me.txtPagos.Location = New System.Drawing.Point(80, 39)
         Me.txtPagos.Name = "txtPagos"
-        Me.txtPagos.Size = New System.Drawing.Size(123, 29)
+        Me.txtPagos.Size = New System.Drawing.Size(95, 29)
         Me.txtPagos.TabIndex = 10
         Me.txtPagos.Text = "0.00"
         Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -738,7 +774,7 @@ Partial Class frmPagarComanda
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(3, 100)
+        Me.Label10.Location = New System.Drawing.Point(3, 109)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(77, 29)
         Me.Label10.TabIndex = 13
@@ -748,7 +784,7 @@ Partial Class frmPagarComanda
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(3, 68)
+        Me.Label9.Location = New System.Drawing.Point(3, 74)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(77, 29)
         Me.Label9.TabIndex = 11
@@ -760,9 +796,9 @@ Partial Class frmPagarComanda
         Me.txtEfectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEfectivo.ForeColor = System.Drawing.Color.Blue
-        Me.txtEfectivo.Location = New System.Drawing.Point(86, 68)
+        Me.txtEfectivo.Location = New System.Drawing.Point(80, 74)
         Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(123, 29)
+        Me.txtEfectivo.Size = New System.Drawing.Size(95, 29)
         Me.txtEfectivo.TabIndex = 12
         Me.txtEfectivo.Text = "0.00"
         Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -775,16 +811,16 @@ Partial Class frmPagarComanda
         Me.Panel5.Controls.Add(Me.lblSubtotal)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel5.Location = New System.Drawing.Point(507, 0)
+        Me.Panel5.Location = New System.Drawing.Point(579, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(312, 169)
+        Me.Panel5.Size = New System.Drawing.Size(312, 178)
         Me.Panel5.TabIndex = 7
         '
         'Panel11
         '
         Me.Panel11.Controls.Add(Me.PictureBox1)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel11.Location = New System.Drawing.Point(0, 100)
+        Me.Panel11.Location = New System.Drawing.Point(0, 109)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(312, 69)
         Me.Panel11.TabIndex = 7
@@ -849,7 +885,7 @@ Partial Class frmPagarComanda
         Me.pCentro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pCentro.Location = New System.Drawing.Point(0, 153)
         Me.pCentro.Name = "pCentro"
-        Me.pCentro.Size = New System.Drawing.Size(819, 521)
+        Me.pCentro.Size = New System.Drawing.Size(891, 512)
         Me.pCentro.TabIndex = 3
         '
         'grdCaptura
@@ -872,32 +908,377 @@ Partial Class frmPagarComanda
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(819, 461)
+        Me.grdCaptura.Size = New System.Drawing.Size(891, 452)
         Me.grdCaptura.TabIndex = 1
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.TextBox7)
+        Me.Panel9.Controls.Add(Me.TextBox6)
+        Me.Panel9.Controls.Add(Me.TextBox5)
+        Me.Panel9.Controls.Add(Me.TextBox4)
+        Me.Panel9.Controls.Add(Me.TextBox3)
+        Me.Panel9.Controls.Add(Me.TextBox2)
+        Me.Panel9.Controls.Add(Me.TextBox1)
+        Me.Panel9.Controls.Add(Me.Label26)
+        Me.Panel9.Controls.Add(Me.Label25)
+        Me.Panel9.Controls.Add(Me.Label24)
+        Me.Panel9.Controls.Add(Me.Label23)
+        Me.Panel9.Controls.Add(Me.Label22)
+        Me.Panel9.Controls.Add(Me.Label21)
+        Me.Panel9.Controls.Add(Me.Label20)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel9.Location = New System.Drawing.Point(0, 0)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(891, 60)
+        Me.Panel9.TabIndex = 0
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox7.Location = New System.Drawing.Point(807, 27)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(81, 26)
+        Me.TextBox7.TabIndex = 19
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox6.Location = New System.Drawing.Point(725, 27)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(81, 26)
+        Me.TextBox6.TabIndex = 18
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(648, 27)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(76, 26)
+        Me.TextBox5.TabIndex = 17
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(566, 27)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(81, 26)
+        Me.TextBox4.TabIndex = 16
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(496, 27)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(69, 26)
+        Me.TextBox3.TabIndex = 15
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(89, 27)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(406, 26)
+        Me.TextBox2.TabIndex = 14
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(5, 27)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(87, 26)
+        Me.TextBox1.TabIndex = 13
+        '
+        'Label26
+        '
+        Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(807, 3)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(81, 21)
+        Me.Label26.TabIndex = 12
+        Me.Label26.Text = "Comensal"
+        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label25
+        '
+        Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(725, 3)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(81, 21)
+        Me.Label25.TabIndex = 11
+        Me.Label25.Text = "Total"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label24
+        '
+        Me.Label24.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label24.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(648, 3)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(76, 21)
+        Me.Label24.TabIndex = 10
+        Me.Label24.Text = "Precio"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label23
+        '
+        Me.Label23.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(566, 3)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(81, 21)
+        Me.Label23.TabIndex = 9
+        Me.Label23.Text = "Cantidad"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label22
+        '
+        Me.Label22.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(496, 3)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(69, 21)
+        Me.Label22.TabIndex = 8
+        Me.Label22.Text = "Und"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label21
+        '
+        Me.Label21.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(89, 3)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(406, 21)
+        Me.Label21.TabIndex = 7
+        Me.Label21.Text = "Descripción"
+        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(5, 2)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(87, 22)
+        Me.Label20.TabIndex = 6
+        Me.Label20.Text = "Codigo"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TFecha
+        '
+        '
+        'PDevolucion80
+        '
+        '
+        'PDevolucion58
+        '
+        '
+        'PPrecuenta80
+        '
+        '
+        'PPrecuenta58
+        '
+        '
+        'grdPagos
+        '
+        Me.grdPagos.AllowUserToAddRows = False
+        Me.grdPagos.AllowUserToDeleteRows = False
+        Me.grdPagos.BackgroundColor = System.Drawing.Color.White
+        Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13})
+        Me.grdPagos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grdPagos.Location = New System.Drawing.Point(0, 109)
+        Me.grdPagos.Name = "grdPagos"
+        Me.grdPagos.ReadOnly = True
+        Me.grdPagos.RowHeadersVisible = False
+        Me.grdPagos.Size = New System.Drawing.Size(398, 69)
+        Me.grdPagos.TabIndex = 0
+        '
+        'Label27
+        '
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(5, 9)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(84, 21)
+        Me.Label27.TabIndex = 1
+        Me.Label27.Text = "Tipo Pago:"
+        '
+        'cboforma
+        '
+        Me.cboforma.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.cboforma.FormattingEnabled = True
+        Me.cboforma.Location = New System.Drawing.Point(89, 9)
+        Me.cboforma.Name = "cboforma"
+        Me.cboforma.Size = New System.Drawing.Size(116, 21)
+        Me.cboforma.TabIndex = 2
+        '
+        'cboBanco
+        '
+        Me.cboBanco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.cboBanco.FormattingEnabled = True
+        Me.cboBanco.Location = New System.Drawing.Point(270, 8)
+        Me.cboBanco.Name = "cboBanco"
+        Me.cboBanco.Size = New System.Drawing.Size(121, 21)
+        Me.cboBanco.TabIndex = 5
+        '
+        'Label28
+        '
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(208, 8)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(53, 21)
+        Me.Label28.TabIndex = 4
+        Me.Label28.Text = "Banco:"
+        '
+        'txtreferencia
+        '
+        Me.txtreferencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.txtreferencia.Location = New System.Drawing.Point(89, 33)
+        Me.txtreferencia.Name = "txtreferencia"
+        Me.txtreferencia.Size = New System.Drawing.Size(116, 20)
+        Me.txtreferencia.TabIndex = 7
+        '
+        'Label29
+        '
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(3, 33)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(84, 19)
+        Me.Label29.TabIndex = 6
+        Me.Label29.Text = "Referencia:"
+        '
+        'txtmonto
+        '
+        Me.txtmonto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.txtmonto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtmonto.Location = New System.Drawing.Point(270, 33)
+        Me.txtmonto.Name = "txtmonto"
+        Me.txtmonto.Size = New System.Drawing.Size(121, 21)
+        Me.txtmonto.TabIndex = 9
+        Me.txtmonto.Text = "0.00"
+        Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label30
+        '
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(208, 33)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(58, 19)
+        Me.Label30.TabIndex = 8
+        Me.Label30.Text = "Monto:"
+        '
+        'txtComentario
+        '
+        Me.txtComentario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtComentario.Location = New System.Drawing.Point(89, 57)
+        Me.txtComentario.Name = "txtComentario"
+        Me.txtComentario.Size = New System.Drawing.Size(302, 22)
+        Me.txtComentario.TabIndex = 18
+        '
+        'Label31
+        '
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(5, 57)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(81, 20)
+        Me.Label31.TabIndex = 17
+        Me.Label31.Text = "Comentario:"
+        '
+        'btnagregarpago
+        '
+        Me.btnagregarpago.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnagregarpago.FlatAppearance.BorderSize = 0
+        Me.btnagregarpago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnagregarpago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnagregarpago.Location = New System.Drawing.Point(226, 80)
+        Me.btnagregarpago.Name = "btnagregarpago"
+        Me.btnagregarpago.Size = New System.Drawing.Size(165, 28)
+        Me.btnagregarpago.TabIndex = 19
+        Me.btnagregarpago.Text = "Agregar Pago"
+        Me.btnagregarpago.UseVisualStyleBackColor = False
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.HeaderText = "Pago"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 57
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.HeaderText = "Banco"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 63
+        '
+        'Column11
+        '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column11.HeaderText = "Ref"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 49
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column12.HeaderText = "Monto"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Width = 62
+        '
+        'Column13
+        '
+        Me.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column13.HeaderText = "Comen"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        Me.Column13.Width = 65
         '
         'Column1
         '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Width = 90
         '
         'Column2
         '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column2.HeaderText = "Nombre"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        Me.Column2.Width = 96
         '
         'Column3
         '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 91
         '
         'Column4
         '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -932,184 +1313,12 @@ Partial Class frmPagarComanda
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         '
-        'Panel9
-        '
-        Me.Panel9.Controls.Add(Me.TextBox7)
-        Me.Panel9.Controls.Add(Me.TextBox6)
-        Me.Panel9.Controls.Add(Me.TextBox5)
-        Me.Panel9.Controls.Add(Me.TextBox4)
-        Me.Panel9.Controls.Add(Me.TextBox3)
-        Me.Panel9.Controls.Add(Me.TextBox2)
-        Me.Panel9.Controls.Add(Me.TextBox1)
-        Me.Panel9.Controls.Add(Me.Label26)
-        Me.Panel9.Controls.Add(Me.Label25)
-        Me.Panel9.Controls.Add(Me.Label24)
-        Me.Panel9.Controls.Add(Me.Label23)
-        Me.Panel9.Controls.Add(Me.Label22)
-        Me.Panel9.Controls.Add(Me.Label21)
-        Me.Panel9.Controls.Add(Me.Label20)
-        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel9.Location = New System.Drawing.Point(0, 0)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(819, 60)
-        Me.Panel9.TabIndex = 0
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(735, 27)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(81, 26)
-        Me.TextBox7.TabIndex = 19
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(653, 27)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(81, 26)
-        Me.TextBox6.TabIndex = 18
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(576, 27)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(76, 26)
-        Me.TextBox5.TabIndex = 17
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(494, 27)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(81, 26)
-        Me.TextBox4.TabIndex = 16
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(424, 27)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(69, 26)
-        Me.TextBox3.TabIndex = 15
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(89, 27)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(334, 26)
-        Me.TextBox2.TabIndex = 14
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(5, 27)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(87, 26)
-        Me.TextBox1.TabIndex = 13
-        '
-        'Label26
-        '
-        Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(735, 3)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(81, 21)
-        Me.Label26.TabIndex = 12
-        Me.Label26.Text = "Comensal"
-        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label25
-        '
-        Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(653, 3)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(81, 21)
-        Me.Label25.TabIndex = 11
-        Me.Label25.Text = "Total"
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label24
-        '
-        Me.Label24.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label24.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(576, 3)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(76, 21)
-        Me.Label24.TabIndex = 10
-        Me.Label24.Text = "Precio"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label23
-        '
-        Me.Label23.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(494, 3)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(81, 21)
-        Me.Label23.TabIndex = 9
-        Me.Label23.Text = "Cantidad"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label22
-        '
-        Me.Label22.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(424, 3)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(69, 21)
-        Me.Label22.TabIndex = 8
-        Me.Label22.Text = "Und"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label21
-        '
-        Me.Label21.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(89, 3)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(334, 21)
-        Me.Label21.TabIndex = 7
-        Me.Label21.Text = "Descripción"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label20
-        '
-        Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(5, 2)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(87, 22)
-        Me.Label20.TabIndex = 6
-        Me.Label20.Text = "Codigo"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TFecha
-        '
-        '
         'frmPagarComanda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(901, 843)
+        Me.ClientSize = New System.Drawing.Size(973, 843)
         Me.Controls.Add(Me.pCentro)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
@@ -1131,6 +1340,8 @@ Partial Class frmPagarComanda
         Me.GroupBox1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel5.ResumeLayout(False)
@@ -1140,6 +1351,7 @@ Partial Class frmPagarComanda
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
+        CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1199,7 +1411,7 @@ Partial Class frmPagarComanda
     Friend WithEvents cboCambioM As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents pCliente As Panel
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cbocliente As ComboBox
     Friend WithEvents Label19 As Label
     Friend WithEvents pCentro As Panel
     Friend WithEvents Panel9 As Panel
@@ -1225,6 +1437,27 @@ Partial Class frmPagarComanda
     Friend WithEvents Panel11 As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnLimpiar As Button
+    Friend WithEvents PDevolucion80 As Printing.PrintDocument
+    Friend WithEvents PDevolucion58 As Printing.PrintDocument
+    Friend WithEvents PPrecuenta80 As Printing.PrintDocument
+    Friend WithEvents PPrecuenta58 As Printing.PrintDocument
+    Friend WithEvents grdPagos As DataGridView
+    Friend WithEvents Label27 As Label
+    Friend WithEvents cboforma As ComboBox
+    Friend WithEvents cboBanco As ComboBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents txtreferencia As TextBox
+    Friend WithEvents txtmonto As TextBox
+    Friend WithEvents Label30 As Label
+    Friend WithEvents txtComentario As TextBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents btnagregarpago As Button
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn

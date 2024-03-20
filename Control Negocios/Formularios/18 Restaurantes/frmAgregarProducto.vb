@@ -64,6 +64,9 @@ Public Class frmAgregarProducto
 
     Private Sub frmAgregarProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Me.Text = "Agregar Productos" & Strings.Space(55) & "COMANDERO"
+
+
         If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
             pProductos.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
             pProductos.BackgroundImageLayout = ImageLayout.Stretch
