@@ -6951,7 +6951,7 @@ puerta_FacturaG:
                                                             End If
                                                         Next
                                                     End If
-                                                    cnn.Close()
+                                                    cnn2.Close()
                                                 End If
                                             End With
 
@@ -7068,7 +7068,7 @@ puerta_FacturaG:
 
                                                         Next
                                                     End If
-                                                    cnn.Close()
+                                                    cnn2.Close()
                                                 End If
                                             End With
 

@@ -4671,6 +4671,7 @@ puertaXD1:
         Dim nuevoIEPS06 As Double = 0
         Dim nuevoIEPS03 As Double = 0
         Dim nuevoIEPS_SinIVA As Double = 0
+        Dim nuevoIEPS_ConIVA As Double = 0
 
         Dim basenuevoIEPS265 As Double = 0
         Dim basenuevoIEPS3 As Double = 0
@@ -5666,6 +5667,9 @@ puertaXD1:
                                     arreg2(ieps_val) = frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString
                                     ieps_val = ieps_val + 1
                                 End If
+
+                                nuevoIEPS_ConIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6))
+
                                 .WriteAttributeString("Importe", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6), ",", ""))
                                 .WriteAttributeString("TipoFactor", frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString)
                                 .WriteAttributeString("TasaOCuota", FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6))
@@ -6594,7 +6598,7 @@ puertaXD1:
 
             .WriteEndElement()
 
-            actuieps = nuevoIEPS265 + nuevoIEPS3 + nuevoIEPS53 + nuevoIEPS5 + nuevoIEPS1600 + nuevoIEPS304 + nuevoIEPS25 + nuevoIEPS09 + nuevoIEPS8 + nuevoIEPS07 + nuevoIEPS06 + nuevoIEPS03 + nuevoIEPS_SinIVA
+            actuieps = nuevoIEPS265 + nuevoIEPS3 + nuevoIEPS53 + nuevoIEPS5 + nuevoIEPS1600 + nuevoIEPS304 + nuevoIEPS25 + nuevoIEPS09 + nuevoIEPS8 + nuevoIEPS07 + nuevoIEPS06 + nuevoIEPS03 + nuevoIEPS_SinIVA + nuevoIEPS_ConIVA
 
             '===================================== INICIA IMPUESTOS
 
