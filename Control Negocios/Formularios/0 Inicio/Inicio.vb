@@ -374,7 +374,7 @@ Public Class Inicio
                     If restaurante = 1 Then
                         Button12.Visible = True
                         Button13.Visible = True
-                        btnPagarComanda.Visible = True
+                        ' btnPagarComanda.Visible = True
                         btnvtatouch.Visible = True
                         CORTEMESERO.Visible = True
                         pMod_Produccion.Visible = True
@@ -382,7 +382,7 @@ Public Class Inicio
                     Else
                         Button12.Visible = False
                         Button13.Visible = False
-                        btnPagarComanda.Visible = False
+                        'btnPagarComanda.Visible = False
                         btnvtatouch.Visible = False
                         CORTEMESERO.Visible = False
                     End If

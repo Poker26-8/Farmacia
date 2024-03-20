@@ -1085,7 +1085,7 @@ Public Class frmAgregarProducto
 
                                 banderaproducto = 1
                             Else
-                                grdCaptura.Rows(q).Cells(2).Value = FormatNumber(respuesta, 2)
+                                'grdCaptura.Rows(q).Cells(2).Value = FormatNumber(respuesta, 2)
                             End If
                         Next q
                     End If

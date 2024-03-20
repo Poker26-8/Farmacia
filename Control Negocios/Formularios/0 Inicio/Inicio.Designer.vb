@@ -1179,7 +1179,7 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button13)
-        Me.Panel2.Controls.Add(Me.btnPagarComanda)
+        '        Me.Panel2.Controls.Add(Me.btnPagarComanda)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
