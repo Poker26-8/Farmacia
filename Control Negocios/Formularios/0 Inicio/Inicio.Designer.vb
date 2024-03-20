@@ -157,15 +157,16 @@ Partial Class Inicio
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
-        Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
+        Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1179,7 +1180,7 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button13)
-        '        Me.Panel2.Controls.Add(Me.btnPagarComanda)
+        Me.Panel2.Controls.Add(Me.btnPagarComa)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
@@ -1208,7 +1209,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 432)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 522)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1246,20 +1247,6 @@ Partial Class Inicio
         Me.btnTelefonia.UseVisualStyleBackColor = False
         Me.btnTelefonia.Visible = False
         '
-        'btnvtatouch
-        '
-        Me.btnvtatouch.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnvtatouch.FlatAppearance.BorderSize = 0
-        Me.btnvtatouch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnvtatouch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnvtatouch.Image = CType(resources.GetObject("btnvtatouch.Image"), System.Drawing.Image)
-        Me.btnvtatouch.Location = New System.Drawing.Point(0, 90)
-        Me.btnvtatouch.Name = "btnvtatouch"
-        Me.btnvtatouch.Size = New System.Drawing.Size(90, 90)
-        Me.btnvtatouch.TabIndex = 11
-        Me.btnvtatouch.UseVisualStyleBackColor = True
-        Me.btnvtatouch.Visible = False
-        '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.PapayaWhip
@@ -1286,6 +1273,20 @@ Partial Class Inicio
         Me.Button13.TabIndex = 8
         Me.Button13.UseVisualStyleBackColor = True
         Me.Button13.Visible = False
+        '
+        'btnvtatouch
+        '
+        Me.btnvtatouch.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnvtatouch.FlatAppearance.BorderSize = 0
+        Me.btnvtatouch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnvtatouch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnvtatouch.Image = CType(resources.GetObject("btnvtatouch.Image"), System.Drawing.Image)
+        Me.btnvtatouch.Location = New System.Drawing.Point(0, 90)
+        Me.btnvtatouch.Name = "btnvtatouch"
+        Me.btnvtatouch.Size = New System.Drawing.Size(90, 90)
+        Me.btnvtatouch.TabIndex = 11
+        Me.btnvtatouch.UseVisualStyleBackColor = True
+        Me.btnvtatouch.Visible = False
         '
         'Button12
         '
@@ -1364,6 +1365,19 @@ Partial Class Inicio
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
+        '
+        'btnPagarComa
+        '
+        Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPagarComa.FlatAppearance.BorderSize = 0
+        Me.btnPagarComa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPagarComa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagarComa.Image = CType(resources.GetObject("btnPagarComa.Image"), System.Drawing.Image)
+        Me.btnPagarComa.Location = New System.Drawing.Point(0, 180)
+        Me.btnPagarComa.Name = "btnPagarComa"
+        Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComa.TabIndex = 185
+        Me.btnPagarComa.UseVisualStyleBackColor = True
         '
         'Inicio
         '
@@ -1537,4 +1551,5 @@ Partial Class Inicio
     Friend WithEvents CORTEMESERO As ToolStripMenuItem
     Friend WithEvents CorteDeCajaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnPagarComanda As Button
+    Friend WithEvents btnPagarComa As Button
 End Class

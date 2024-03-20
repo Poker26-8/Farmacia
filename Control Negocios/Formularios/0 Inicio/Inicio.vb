@@ -374,7 +374,7 @@ Public Class Inicio
                     If restaurante = 1 Then
                         Button12.Visible = True
                         Button13.Visible = True
-                        ' btnPagarComanda.Visible = True
+                        btnPagarComa.Visible = True
                         btnvtatouch.Visible = True
                         CORTEMESERO.Visible = True
                         pMod_Produccion.Visible = True
@@ -382,7 +382,7 @@ Public Class Inicio
                     Else
                         Button12.Visible = False
                         Button13.Visible = False
-                        'btnPagarComanda.Visible = False
+                        btnPagarComa.Visible = False
                         btnvtatouch.Visible = False
                         CORTEMESERO.Visible = False
                     End If
@@ -2784,11 +2784,9 @@ Public Class Inicio
         frmCorte2.BringToFront()
     End Sub
 
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
 
-    End Sub
 
-    Private Sub btnPagarComanda_Click(sender As Object, e As EventArgs) Handles btnPagarComanda.Click
+    Private Sub btnPagarComa_Click(sender As Object, e As EventArgs) Handles btnPagarComa.Click
         frmPagarComanda.Show()
         frmPagarComanda.BringToFront()
     End Sub
