@@ -685,11 +685,11 @@ Public Class frmMesas
 
                                     VarComen = rd1("CUsuario").ToString
 
-                                    cnn2.Close() : cnn2.Open()
-                                    cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = ""
-                                    cmd2.ExecuteNonQuery()
-                                    cnn2.Close()
+                                    'cnn2.Close() : cnn2.Open()
+                                    'cmd2 = cnn2.CreateCommand
+                                    'cmd2.CommandText = ""
+                                    'cmd2.ExecuteNonQuery()
+                                    'cnn2.Close()
 
                                     If VarArea = "ADMINISTRACION" Then
                                         frmAgregarProducto.Show()

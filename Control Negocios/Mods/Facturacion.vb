@@ -6565,18 +6565,22 @@ puertaXD1:
 
                         Else
                             'si no tiene nada (IVA = 0)
-                            '.WriteStartElement("cfdi:Impuestos")
-                            '.WriteStartElement("cfdi:Traslados")
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6), ",", ""))
-                            valorbaseivacero = valorbaseivacero + FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6)
-                            '.WriteEndElement() ' fin Traslado
-                            '.WriteEndElement() ' fin Traslados
-                            '.WriteEndElement() ' fin impuestos
+
+                            .WriteStartElement("cfdi:Impuestos")
+                            .WriteStartElement("cfdi:Traslados")
+                            .WriteStartElement("cfdi:Traslado")
+                            .WriteAttributeString("Importe", "0.00")
+                            .WriteAttributeString("TipoFactor", "Tasa")
+                            .WriteAttributeString("TasaOCuota", "0.000000")
+                            .WriteAttributeString("Impuesto", "002")
+                            .WriteAttributeString("Base", Replace(FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6), ",", ""))
+                            valorbaseivacero = valorbaseivacero + FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString)) - CDec(frmfacturacion.grid_prods.Rows(i).Cells(9).Value.ToString), 6)
+                            .WriteEndElement() ' fin Traslado
+                            .WriteEndElement() ' fin Traslados
+                            .WriteEndElement() ' fin impuestos
+
+                            'valorbaseivacero = valorbaseivacero + FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6)
+
                         End If
                     End If
 
@@ -6622,13 +6626,15 @@ puertaXD1:
                 If frmfacturacion.grid_prods.RowCount > 1 Then
                     For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                         If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                            '.WriteEndElement()
+                            If valorbaseivacero > 0 Then
+                                .WriteStartElement("cfdi:Traslado")
+                                .WriteAttributeString("Impuesto", "002")
+                                .WriteAttributeString("TipoFactor", "Tasa")
+                                .WriteAttributeString("TasaOCuota", "0.000000")
+                                .WriteAttributeString("Importe", "0.00")
+                                .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                .WriteEndElement()
+                            End If
                             Exit For
                         End If
                     Next
@@ -6717,13 +6723,15 @@ puertaXD1:
                 If frmfacturacion.grid_prods.RowCount > 1 Then
                     For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                         If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                            '.WriteEndElement()
+                            If valorbaseivacero > 0 Then
+                                .WriteStartElement("cfdi:Traslado")
+                                .WriteAttributeString("Impuesto", "002")
+                                .WriteAttributeString("TipoFactor", "Tasa")
+                                .WriteAttributeString("TasaOCuota", "0.000000")
+                                .WriteAttributeString("Importe", "0.00")
+                                .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                .WriteEndElement()
+                            End If
                             Exit For
                         End If
                     Next
@@ -6758,13 +6766,15 @@ puertaXD1:
                 If frmfacturacion.grid_prods.RowCount > 1 Then
                     For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                         If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                            '.WriteEndElement()
+                            If valorbaseivacero > 0 Then
+                                .WriteStartElement("cfdi:Traslado")
+                                .WriteAttributeString("Impuesto", "002")
+                                .WriteAttributeString("TipoFactor", "Tasa")
+                                .WriteAttributeString("TasaOCuota", "0.000000")
+                                .WriteAttributeString("Importe", "0.00")
+                                .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                .WriteEndElement()
+                            End If
                             Exit For
                         End If
                     Next
@@ -6793,13 +6803,15 @@ puertaXD1:
                         If frmfacturacion.grid_prods.RowCount > 1 Then
                             For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                                 If CDec(frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString) = 0 Then
-                                    '.WriteStartElement("cfdi:Traslado")
-                                    '.WriteAttributeString("Impuesto", "002")
-                                    '.WriteAttributeString("TipoFactor", "Tasa")
-                                    '.WriteAttributeString("TasaOCuota", "0.000000")
-                                    '.WriteAttributeString("Importe", "0.00")
-                                    '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                                    '.WriteEndElement()
+                                    If valorbaseivacero > 0 Then
+                                        .WriteStartElement("cfdi:Traslado")
+                                        .WriteAttributeString("Impuesto", "002")
+                                        .WriteAttributeString("TipoFactor", "Tasa")
+                                        .WriteAttributeString("TasaOCuota", "0.000000")
+                                        .WriteAttributeString("Importe", "0.00")
+                                        .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                        .WriteEndElement()
+                                    End If
                                     Exit For
                                 End If
                             Next
@@ -7042,13 +7054,15 @@ puertaXD1:
                             If frmfacturacion.grid_prods.RowCount > 1 Then
                                 For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                                     If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                                        '.WriteStartElement("cfdi:Traslado")
-                                        '.WriteAttributeString("Impuesto", "002")
-                                        '.WriteAttributeString("TipoFactor", "Tasa")
-                                        '.WriteAttributeString("TasaOCuota", "0.000000")
-                                        '.WriteAttributeString("Importe", "0.00")
-                                        '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                                        '.WriteEndElement()
+                                        If valorbaseivacero > 0 Then
+                                            .WriteStartElement("cfdi:Traslado")
+                                            .WriteAttributeString("Impuesto", "002")
+                                            .WriteAttributeString("TipoFactor", "Tasa")
+                                            .WriteAttributeString("TasaOCuota", "0.000000")
+                                            .WriteAttributeString("Importe", "0.00")
+                                            .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                            .WriteEndElement()
+                                        End If
                                         Exit For
                                     End If
                                 Next
@@ -7059,13 +7073,15 @@ puertaXD1:
                             If frmfacturacion.grid_prods.RowCount > 1 Then
                                 For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                                     If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                                        '.WriteStartElement("cfdi:Traslado")
-                                        '.WriteAttributeString("Impuesto", "002")
-                                        '.WriteAttributeString("TipoFactor", "Tasa")
-                                        '.WriteAttributeString("TasaOCuota", "0.000000")
-                                        '.WriteAttributeString("Importe", "0.00")
-                                        '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                                        '.WriteEndElement()
+                                        If valorbaseivacero > 0 Then
+                                            .WriteStartElement("cfdi:Traslado")
+                                            .WriteAttributeString("Impuesto", "002")
+                                            .WriteAttributeString("TipoFactor", "Tasa")
+                                            .WriteAttributeString("TasaOCuota", "0.000000")
+                                            .WriteAttributeString("Importe", "0.00")
+                                            .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                            .WriteEndElement()
+                                        End If
                                         Exit For
                                     End If
                                 Next
@@ -7122,13 +7138,15 @@ puertaXD1:
                     If frmfacturacion.grid_prods.RowCount > 1 Then
                         For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                             If CDec(frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString) = 0 Then
-                                '.WriteStartElement("cfdi:Traslado")
-                                '.WriteAttributeString("Impuesto", "002")
-                                '.WriteAttributeString("TipoFactor", "Tasa")
-                                '.WriteAttributeString("TasaOCuota", "0.000000")
-                                '.WriteAttributeString("Importe", "0.00")
-                                '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                                '.WriteEndElement()
+                                If valorbaseivacero > 0 Then
+                                    .WriteStartElement("cfdi:Traslado")
+                                    .WriteAttributeString("Impuesto", "002")
+                                    .WriteAttributeString("TipoFactor", "Tasa")
+                                    .WriteAttributeString("TasaOCuota", "0.000000")
+                                    .WriteAttributeString("Importe", "0.00")
+                                    .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                    .WriteEndElement()
+                                End If
                                 Exit For
                             End If
                         Next
@@ -7213,13 +7231,15 @@ puertaXD1:
                 If frmfacturacion.grid_prods.RowCount > 1 Then
                     For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                         If CDec(frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString) = 0 Then
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                            '.WriteEndElement()
+                            If valorbaseivacero > 0 Then
+                                .WriteStartElement("cfdi:Traslado")
+                                .WriteAttributeString("Impuesto", "002")
+                                .WriteAttributeString("TipoFactor", "Tasa")
+                                .WriteAttributeString("TasaOCuota", "0.000000")
+                                .WriteAttributeString("Importe", "0.00")
+                                .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                .WriteEndElement()
+                            End If
                             Exit For
                         End If
                     Next
@@ -7271,23 +7291,27 @@ puertaXD1:
 
                     For i = 0 To frmfacturacion.grid_prods.RowCount - 1
                         If frmfacturacion.grid_prods.Rows(i).Cells(8).Value.ToString = "0" Then
-                            '.WriteStartElement("cfdi:Traslado")
-                            '.WriteAttributeString("Impuesto", "002")
-                            '.WriteAttributeString("TipoFactor", "Tasa")
-                            '.WriteAttributeString("TasaOCuota", "0.000000")
-                            '.WriteAttributeString("Importe", "0.00")
-                            '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                            '.WriteEndElement()
+                            If valorbaseivacero > 0 Then
+                                .WriteStartElement("cfdi:Traslado")
+                                .WriteAttributeString("Impuesto", "002")
+                                .WriteAttributeString("TipoFactor", "Tasa")
+                                .WriteAttributeString("TasaOCuota", "0.000000")
+                                .WriteAttributeString("Importe", "0.00")
+                                .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                .WriteEndElement()
+                            End If
                             Exit For
                         Else
                             If frmfacturacion.grid_prods.Rows(i).Cells(5).Value.ToString = frmfacturacion.grid_prods.Rows(i).Cells(7).Value.ToString Then
-                                '.WriteStartElement("cfdi:Traslado")
-                                '.WriteAttributeString("Impuesto", "002")
-                                '.WriteAttributeString("TipoFactor", "Tasa")
-                                '.WriteAttributeString("TasaOCuota", "0.000000")
-                                '.WriteAttributeString("Importe", "0.00")
-                                '.WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
-                                '.WriteEndElement()
+                                If valorbaseivacero > 0 Then
+                                    .WriteStartElement("cfdi:Traslado")
+                                    .WriteAttributeString("Impuesto", "002")
+                                    .WriteAttributeString("TipoFactor", "Tasa")
+                                    .WriteAttributeString("TasaOCuota", "0.000000")
+                                    .WriteAttributeString("Importe", "0.00")
+                                    .WriteAttributeString("Base", Replace(FormatNumber(CDbl(valorbaseivacero), 2), ",", ""))
+                                    .WriteEndElement()
+                                End If
                                 Exit For
                             End If
                         End If

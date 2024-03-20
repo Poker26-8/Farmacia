@@ -1281,6 +1281,9 @@ Partial Class frmAgregarProducto
         'TFolio
         '
         '
+        'TFecha
+        '
+        '
         'PComanda80
         '
         '

@@ -26,6 +26,7 @@ Partial Class frmMenuHabitaciones
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnprecios = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button2
@@ -35,7 +36,7 @@ Partial Class frmMenuHabitaciones
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(184, 12)
+        Me.Button2.Location = New System.Drawing.Point(310, 12)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(155, 64)
         Me.Button2.TabIndex = 7
@@ -45,12 +46,13 @@ Partial Class frmMenuHabitaciones
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(345, 12)
+        Me.Button1.Location = New System.Drawing.Point(471, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(84, 64)
         Me.Button1.TabIndex = 6
@@ -73,12 +75,28 @@ Partial Class frmMenuHabitaciones
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
         '
+        'btnprecios
+        '
+        Me.btnprecios.BackColor = System.Drawing.Color.White
+        Me.btnprecios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnprecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnprecios.Image = CType(resources.GetObject("btnprecios.Image"), System.Drawing.Image)
+        Me.btnprecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnprecios.Location = New System.Drawing.Point(184, 12)
+        Me.btnprecios.Name = "btnprecios"
+        Me.btnprecios.Size = New System.Drawing.Size(120, 64)
+        Me.btnprecios.TabIndex = 8
+        Me.btnprecios.Text = "Precios"
+        Me.btnprecios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnprecios.UseVisualStyleBackColor = False
+        '
         'frmMenuHabitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(438, 84)
+        Me.ClientSize = New System.Drawing.Size(560, 84)
+        Me.Controls.Add(Me.btnprecios)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button3)
@@ -93,4 +111,5 @@ Partial Class frmMenuHabitaciones
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents btnprecios As Button
 End Class

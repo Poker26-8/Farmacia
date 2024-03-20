@@ -758,6 +758,11 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                            'detallehotelprecios
+                            .runSp(cnnprueba, vartabladetallehotelprecios, sinfo)
+                            .runSp(cnnprueba, varKeydetallehotelprecios, sinfo)
+                            .runSp(cnnprueba, varAutodetallehotelprecios, sinfo)
+
                             'promos
                             .runSp(cnnprueba, vartablapromos, sinfo)
                             .runSp(cnnprueba, varKeypromos, sinfo)

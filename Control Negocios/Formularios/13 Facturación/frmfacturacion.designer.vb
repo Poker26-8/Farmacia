@@ -4025,7 +4025,7 @@ Partial Class frmfacturacion
         Me.Label101.Location = New System.Drawing.Point(0, 0)
         Me.Label101.Name = "Label101"
         Me.Label101.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label101.Size = New System.Drawing.Size(1216, 31)
+        Me.Label101.Size = New System.Drawing.Size(1234, 31)
         Me.Label101.TabIndex = 93
         Me.Label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -4081,6 +4081,7 @@ Partial Class frmfacturacion
         'frmfacturacion
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1216, 729)
         Me.Controls.Add(Me.lblfolioventa)

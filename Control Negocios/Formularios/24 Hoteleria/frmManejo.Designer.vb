@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmManejo
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,8 @@ Partial Class frmManejo
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmManejo))
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.pUbicaciones = New System.Windows.Forms.Panel()
@@ -32,11 +31,12 @@ Partial Class frmManejo
         Me.btnCambiarH = New System.Windows.Forms.Button()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.btnServicio = New System.Windows.Forms.Button()
-        Me.btnHabitacion = New System.Windows.Forms.Button()
+        Me.btnHabitaciony = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.pcontra = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.lblidusuario = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -65,8 +65,6 @@ Partial Class frmManejo
         Me.txtHabitacion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.pHab = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Tterminar = New System.Windows.Forms.Timer(Me.components)
         Me.psuperior.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.piclogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +121,7 @@ Partial Class frmManejo
         Me.pBotones.Controls.Add(Me.btnCambiarH)
         Me.pBotones.Controls.Add(Me.btnPagar)
         Me.pBotones.Controls.Add(Me.btnServicio)
-        Me.pBotones.Controls.Add(Me.btnHabitacion)
+        Me.pBotones.Controls.Add(Me.btnHabitaciony)
         Me.pBotones.Controls.Add(Me.btnSalir)
         Me.pBotones.Controls.Add(Me.btnLimpiar)
         Me.pBotones.Dock = System.Windows.Forms.DockStyle.Right
@@ -180,19 +178,19 @@ Partial Class frmManejo
         Me.btnServicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnServicio.UseVisualStyleBackColor = False
         '
-        'btnHabitacion
+        'btnHabitaciony
         '
-        Me.btnHabitacion.BackColor = System.Drawing.Color.White
-        Me.btnHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnHabitacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHabitacion.Image = CType(resources.GetObject("btnHabitacion.Image"), System.Drawing.Image)
-        Me.btnHabitacion.Location = New System.Drawing.Point(6, 12)
-        Me.btnHabitacion.Name = "btnHabitacion"
-        Me.btnHabitacion.Size = New System.Drawing.Size(97, 80)
-        Me.btnHabitacion.TabIndex = 1
-        Me.btnHabitacion.Text = "Habitaciones"
-        Me.btnHabitacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnHabitacion.UseVisualStyleBackColor = False
+        Me.btnHabitaciony.BackColor = System.Drawing.Color.White
+        Me.btnHabitaciony.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnHabitaciony.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHabitaciony.Image = CType(resources.GetObject("btnHabitaciony.Image"), System.Drawing.Image)
+        Me.btnHabitaciony.Location = New System.Drawing.Point(6, 12)
+        Me.btnHabitaciony.Name = "btnHabitaciony"
+        Me.btnHabitaciony.Size = New System.Drawing.Size(97, 80)
+        Me.btnHabitaciony.TabIndex = 1
+        Me.btnHabitaciony.Text = "Habitaciones"
+        Me.btnHabitaciony.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnHabitaciony.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
@@ -270,6 +268,18 @@ Partial Class frmManejo
         Me.pcontra.Name = "pcontra"
         Me.pcontra.Size = New System.Drawing.Size(193, 726)
         Me.pcontra.TabIndex = 3
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Violet
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.Location = New System.Drawing.Point(6, 383)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(91, 20)
+        Me.Label10.TabIndex = 122
+        Me.Label10.Text = "Finalizada"
         '
         'lblidusuario
         '
@@ -588,21 +598,6 @@ Partial Class frmManejo
         Me.pHab.Size = New System.Drawing.Size(988, 726)
         Me.pHab.TabIndex = 4
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Violet
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(6, 383)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(91, 20)
-        Me.Label10.TabIndex = 122
-        Me.Label10.Text = "Finalizada"
-        '
-        'Tterminar
-        '
-        '
         'frmManejo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -662,7 +657,7 @@ Partial Class frmManejo
     Friend WithEvents btnCambiarH As Button
     Friend WithEvents btnPagar As Button
     Friend WithEvents btnServicio As Button
-    Friend WithEvents btnHabitacion As Button
+    Friend WithEvents btnHabitaciony As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents Panel3 As Panel
@@ -670,5 +665,4 @@ Partial Class frmManejo
     Friend WithEvents pHab As Panel
     Friend WithEvents pUbicaciones As Panel
     Friend WithEvents Label10 As Label
-    Friend WithEvents Tterminar As Timer
 End Class

@@ -16,8 +16,6 @@ Public Class frmManejo
 
         TRAERUBICACION()
 
-        Tterminar.Start()
-
         Dim nLogo As String = ""
 
         Try
@@ -604,8 +602,102 @@ Public Class frmManejo
 
                             If estado = "Desocupada" Then
                                 btnHabitacionn.BackColor = Color.FromArgb(77, 201, 125)
+
                             ElseIf estado = "Ocupada" Then
                                 btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                Try
+                                    cnn1.Close() : cnn1.Open()
+                                    cnn2.Close() : cnn2.Open()
+
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "Select * FROM AsigPC WHERE Nombre='" & btnHabitacionn.Text & "'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+
+                                            Dim mesa As String = rd1("Nombre").ToString
+                                            Dim horasas As Double = 0
+                                            cmd2 = cnn2.CreateCommand
+                                            cmd2.CommandText = "SELECT Horas FROM detallehotel WHERE Habitacion='" & mesa & "'"
+                                            rd2 = cmd2.ExecuteReader
+                                            If rd2.HasRows Then
+                                                If rd2.Read Then
+                                                    horasas = rd2(0).ToString
+                                                End If
+                                            End If
+                                            rd2.Close()
+
+                                            Dim tiempouso As Double = 0
+
+
+                                            Dim fechaentradan As Date = Nothing
+                                            Dim fechaentrada As String = ""
+
+                                            Dim fechasalida As String = ""
+
+
+                                            fechaentradan = rd1("HorEnt").ToString
+                                            fechaentrada = Format(fechaentradan, "yyyy/MM/dd HH:mm")
+
+                                            fechasalida = Format(Date.Now, "yyyy/MM/dd HH:mm")
+
+                                            vardias = DateDiff(DateInterval.Day, CDate(fechaentradan), CDate(fechasalida))
+                                            varHoras = DateDiff(DateInterval.Hour, CDate(fechaentradan), CDate(fechasalida))
+                                            VarMinutos = DateDiff(DateInterval.Minute, CDate(fechaentradan), CDate(fechasalida))
+
+                                            varhora = VarMinutos / 60
+                                            tiempouso = FormatNumber(varHoras, 2)
+
+                                            Dim tiempo As Double = tiempouso
+                                            Dim horas As Double = horasas
+
+                                            If horas = "24" Then
+
+                                                Dim timpo As Date = Nothing
+                                                Dim timpon As String = ""
+                                                timpo = fechasalida
+                                                timpon = Format(timpo, "HH:mm")
+
+                                                If timpon >= "12:00" Then
+
+                                                    btnHabitacionn.BackColor = Color.Violet
+
+                                                    '        If VarMinutos > 1140 Then
+
+                                                    '            btnHabitacionn.BackColor = Color.Violet
+                                                    '        Else
+                                                    '            btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                    '        End If
+
+                                                ElseIf timpon < "12:00" Then
+                                                    btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                End If
+
+                                            Else
+                                                    If tiempo >= horas Then
+                                                    btnHabitacionn.BackColor = Color.Violet
+                                                Else
+                                                    btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                End If
+                                            End If
+
+
+
+
+
+
+
+                                        End If
+                                    End If
+                                    rd1.Close()
+                                    cnn1.Close()
+                                    cnn2.Close()
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.ToString)
+                                End Try
+
+
+
 
                                 Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\ocupada.png"
                                 If File.Exists(ruta) Then
@@ -648,6 +740,9 @@ Public Class frmManejo
                             Else
                                 btnHabitacionn.BackColor = Color.FromArgb(77, 201, 125)
                             End If
+
+                            '____________________________________________
+
                         End If
                     End If
                     rd4.Close()
@@ -661,6 +756,10 @@ Public Class frmManejo
             Loop
             rd3.Close()
             cnn3.Close()
+
+
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -679,8 +778,6 @@ Public Class frmManejo
             Dim cliente As String = ""
             Dim tiempo As Integer = 0
             Dim estadohabitaciona As String = ""
-
-
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -768,14 +865,11 @@ Public Class frmManejo
                                                 frmDetalleH.dtpEntrada.Value = entrada
                                                 frmDetalleH.dtpSalida.Value = salida
 
-
-
                                             End If
                                         End If
                                         rd2.Close()
 
                                         If estado = "Desocupada" Then
-
                                             frmDetalleH.lblEstado.Text = estado
                                             frmDetalleH.lblEstado.BackColor = Color.FromArgb(84, 204, 96)
                                             frmDetalleH.lblEstado.ForeColor = Color.White
@@ -835,7 +929,7 @@ Public Class frmManejo
 
     End Sub
 
-    Private Sub btnHabitacion_Click(sender As Object, e As EventArgs) Handles btnHabitacion.Click
+    Private Sub btnHabitacion_Click(sender As Object, e As EventArgs) Handles btnHabitaciony.Click
         frmHabitaciones.Show()
     End Sub
 
@@ -1174,50 +1268,6 @@ Public Class frmManejo
 
     End Sub
 
-    Private Sub Tterminar_Tick(sender As Object, e As EventArgs) Handles Tterminar.Tick
-        Tterminar.Stop()
-
-        Finalizadas
-
-        Tterminar.Start()
-    End Sub
-    Public Sub Finalizadas()
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * FROM AsigPC"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-
-                    Dim mesa As String = rd1("Nombre").ToString
-
-                    Dim fechaentrada As Date = Nothing
-                    Dim fechaentradan As String = ""
-
-                    Dim fechafinal As Date = Nothing
-                    Dim fechafinaln As String = ""
-
-                    fechaentrada = rd1("HorEnt").ToString
-                    fechaentradan = Format(fechaentrada, "yyyy/MM/dd HH:mm")
-
-                    fechafinal = Date.Now
-                    fechafinaln = Format(fechafinaln, "yyyy/MM/dd HH:mm")
 
 
-                    vardias = DateDiff(DateInterval.Day, CDate(fechaentradan), CDate(fechafinaln))
-                    varHoras = DateDiff(DateInterval.Hour, CDate(fechaentradan), CDate(fechafinaln))
-                    VarMinutos = DateDiff(DateInterval.Minute, CDate(fechaentradan), CDate(fechafinaln))
-
-                    MsgBox(mesa)
-                    MsgBox(fechaentradan)
-                    MsgBox(fechafinaln)
-                End If
-            Loop
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-
-        End Try
-    End Sub
 End Class

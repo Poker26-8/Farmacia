@@ -327,7 +327,7 @@ Public Class frmPagarH
                 End If
                 rd1.Close()
                 cnn1.Close()
-
+                btnCobrar.Focus.Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -643,6 +643,10 @@ Public Class frmPagarH
             MsgBox("Debe cerrar la cuenta!.", vbInformation + vbOKOnly, titulohotelriaa)
             Exit Sub
         End If
+
+        If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : Exit Sub
+
+
 
         If grdpago.Rows.Count > 0 Then
             For dekua As Integer = 0 To grdpago.Rows.Count - 1
@@ -1354,11 +1358,12 @@ Public Class frmPagarH
         cnn1.Close()
 
         Me.Close()
-        frmManejo.Show()
+
         frmManejo.pUbicaciones.Controls.Clear()
         frmManejo.pHab.Controls.Clear()
         frmManejo.TRAERUBICACION()
-
+        frmManejo.primerBoton()
+        frmManejo.Show()
     End Sub
 
     Private Sub PVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PVenta80.PrintPage

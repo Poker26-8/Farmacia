@@ -381,12 +381,6 @@
     <Compile Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\18 Restaurantes\frmCopeo.Designer.vb">
-      <DependentUpon>frmCopeo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\18 Restaurantes\frmCopeo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmcortemesero.Designer.vb">
       <DependentUpon>frmcortemesero.vb</DependentUpon>
     </Compile>
@@ -423,6 +417,12 @@
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesero.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.Designer.vb">
+      <DependentUpon>frmPagarComanda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.Designer.vb">
       <DependentUpon>frmTeTemp.vb</DependentUpon>
     </Compile>
@@ -439,6 +439,12 @@
       <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmPrecioH.Designer.vb">
+      <DependentUpon>frmPrecioH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmPrecioH.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\26 Escuelas\frmAlumnos.designer.vb">
@@ -1717,9 +1723,6 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.resx">
       <DependentUpon>frmRepCopeo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\18 Restaurantes\frmCopeo.resx">
-      <DependentUpon>frmCopeo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmcortemesero.resx">
       <DependentUpon>frmcortemesero.vb</DependentUpon>
     </EmbeddedResource>
@@ -1738,6 +1741,9 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmMesero.resx">
       <DependentUpon>frmMesero.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.resx">
+      <DependentUpon>frmPagarComanda.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTeTemp.resx">
       <DependentUpon>frmTeTemp.vb</DependentUpon>
     </EmbeddedResource>
@@ -1746,6 +1752,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularNuvHab.resx">
       <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\24 Hoteleria\frmPrecioH.resx">
+      <DependentUpon>frmPrecioH.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\26 Escuelas\frmAlumnos.resx">
       <DependentUpon>frmAlumnos.vb</DependentUpon>

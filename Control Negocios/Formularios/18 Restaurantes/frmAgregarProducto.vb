@@ -42,6 +42,7 @@ Public Class frmAgregarProducto
     Dim tresxdos As Integer = 0
     Dim existencia As Double = 0
     Dim departamento As String = ""
+    Dim GRUPO As String = ""
 
     Dim min As Double = 0
     Dim PU As Double = 0
@@ -211,7 +212,7 @@ Public Class frmAgregarProducto
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' ORDER BY Grupo asc"
+            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Grupo<>'PROMOCIONES' ORDER BY Grupo asc"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -227,7 +228,7 @@ Public Class frmAgregarProducto
             End If
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Departamento<>'INGREDIENTES' AND Departamento<>'SERVICIOS' AND Grupo<>'EXTRAS' order by Grupo asc"
+            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Departamento<>'INGREDIENTES' AND Departamento<>'SERVICIOS' AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' order by Grupo asc"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1412,7 +1413,7 @@ Public Class frmAgregarProducto
             pteclado.Show()
             gteclas.Enabled = True
             txtRespuesta.Focus.Equals(True)
-            txtRespuesta.Text = cantidadPromo
+            txtRespuesta.Text = ""
             gdato.Text = "Cantidad"
             CodigoProducto = CodigoProducto
             banderaPROMOCION = 1
@@ -1440,7 +1441,7 @@ Public Class frmAgregarProducto
                     doxuno = rd1("E1").ToString
                     tresxdos = rd1("E2").ToString
                     existencia = rd1("Existencia").ToString
-
+                    GRUPO = rd1("Grupo").ToString
                 End If
             End If
             rd1.Close()
@@ -1451,11 +1452,18 @@ Public Class frmAgregarProducto
 
             PU = (PU)
             Importe = cantidad * PU
-            If Importe <> 0 Then
+
+            If GRUPO = "PROMOCIONES" Then
                 UpGridCaptura()
             Else
-                MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                If Importe <> 0 Then
+                    UpGridCaptura()
+                Else
+                    MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                End If
+
             End If
+
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -1474,9 +1482,21 @@ Public Class frmAgregarProducto
         If rd2.HasRows Then
             If rd2.Read Then
                 If PEDI = False Then
-                    MyPrecio = rd2("PrecioVentaIVA").ToString
+
+                    If rd2("Grupo").ToString = "PROMOCIONES" Then
+                        MyPrecio = 0
+                    Else
+                        MyPrecio = rd2("PrecioVentaIVA").ToString
+                    End If
+
                 ElseIf PEDI = True Then
-                    MyPrecio = rd2("PecioVentaMinIVA").ToString
+
+                    If rd2("Grupo").ToString = "PROMOCIONES" Then
+                        MyPrecio = 0
+                    Else
+                        MyPrecio = rd2("PecioVentaMinIVA").ToString
+                    End If
+
                 End If
                 PU = FormatNumber(MyPrecio, 2)
             End If
@@ -2601,6 +2621,14 @@ Public Class frmAgregarProducto
     End Sub
 
     Private Sub btnRepertir_Click(sender As Object, e As EventArgs) Handles btnRepertir.Click
+
+    End Sub
+
+    Private Sub TFecha_Tick(sender As Object, e As EventArgs) Handles TFecha.Tick
+
+        TFecha.Stop()
+        lblFecha.Text = Format(Date.Now, "yyyy/MM/dd")
+        TFecha.Start()
 
     End Sub
 

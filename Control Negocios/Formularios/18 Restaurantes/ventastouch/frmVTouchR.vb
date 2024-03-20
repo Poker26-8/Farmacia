@@ -24,6 +24,7 @@ Public Class frmVTouchR
     Public cantidad As Double = 0
     Dim precio As Double = 0
     Dim importe As Double = 0
+    Dim grupo As String = ""
 
     Dim dia As Integer = 0
     Dim TestStr As String = ""
@@ -63,13 +64,7 @@ Public Class frmVTouchR
 
     Friend WithEvents btnDepto, btnGrupo, btnProd, btnPrefe, btnExtra, btnPromo As System.Windows.Forms.Button
 
-    Private Sub btnCantidad_Click(sender As Object, e As EventArgs) Handles btnCantidad.Click
-        If grdCaptura.Rows.Count > 0 Then
 
-            PTeclado.Visible = True
-
-        End If
-    End Sub
 
     Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
         TFolio.Stop()
@@ -242,6 +237,7 @@ nopaso:
                     MyMultiplo = rd1("Multiplo").ToString
                     dosxuno = rd1("E1").ToString
                     tresxdos = rd1("E2").ToString
+                    grupo = rd1("Grupo").ToString
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
@@ -488,11 +484,17 @@ nopaso:
 
             importe = cantidad * precio
 
-            If importe <> 0 Then
+            If grupo = "PROMOCIONES" Then
                 UpGridCaptura()
             Else
-                MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                If importe <> 0 Then
+                    UpGridCaptura()
+                Else
+                    MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                End If
             End If
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -514,9 +516,21 @@ nopaso:
             If rd2.HasRows Then
                 If rd2.Read Then
                     If PEDI = False Then
-                        MyPrecio = rd2("PrecioVentaIVA").ToString
+
+                        If rd2("Grupo").ToString = "PROMOCIONES" Then
+                            MyPrecio = 0
+                        Else
+                            MyPrecio = rd2("PrecioVentaIVA").ToString
+                        End If
+
+
                     ElseIf PEDI = True Then
-                        MyPrecio = rd2("PrecioVentaIVA").ToString
+                        If rd2("Grupo").ToString = "PROMOCIONES" Then
+                            MyPrecio = 0
+                        Else
+                            MyPrecio = rd2("PrecioVentaIVA").ToString
+                        End If
+
                     End If
                     precio = FormatNumber(MyPrecio, 2)
                 End If
@@ -970,7 +984,7 @@ respuesta, "")
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT DISTINCT Grupo FROM Productos WHERE Departamento='" & depto & "' AND Grupo<>'EXTRAS' ORDER BY Grupo asc"
+            cmd2.CommandText = "SELECT DISTINCT Grupo FROM Productos WHERE Departamento='" & depto & "' AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' ORDER BY Grupo asc"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -986,7 +1000,7 @@ respuesta, "")
             End If
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "'AND Grupo<>'EXTRAS' order by Grupo asc"
+            cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "'AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' order by Grupo asc"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -2177,7 +2191,7 @@ respuesta, "")
             PTeclado.Show()
             pletras.Enabled = True
             txtRespuesta.Focus.Equals(True)
-            txtRespuesta.Text = cantidadPromo
+            txtRespuesta.Text = ""
             pCampo.Text = "Cantidad"
             CodigoProducto = CodigoProducto
             banderaPROMOCION = 1

@@ -66,7 +66,6 @@ Partial Class frmVTouchR
         Me.lblFechaPago = New System.Windows.Forms.Label()
         Me.btnOcacional = New System.Windows.Forms.Button()
         Me.btnCortesia = New System.Windows.Forms.Button()
-        Me.btnCantidad = New System.Windows.Forms.Button()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.pdepa = New System.Windows.Forms.Panel()
         Me.PGrupo = New System.Windows.Forms.Panel()
@@ -468,7 +467,6 @@ Partial Class frmVTouchR
         Me.TableLayoutPanel1.Controls.Add(Me.lblFechaPago, 4, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.btnOcacional, 5, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnCortesia, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnCantidad, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.txtUsuario, 5, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
@@ -687,20 +685,6 @@ Partial Class frmVTouchR
         Me.btnCortesia.TabIndex = 16
         Me.btnCortesia.Text = "Cortesia"
         Me.btnCortesia.UseVisualStyleBackColor = False
-        '
-        'btnCantidad
-        '
-        Me.btnCantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnCantidad.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCantidad.Location = New System.Drawing.Point(444, 3)
-        Me.btnCantidad.Name = "btnCantidad"
-        Me.TableLayoutPanel1.SetRowSpan(Me.btnCantidad, 2)
-        Me.btnCantidad.Size = New System.Drawing.Size(148, 59)
-        Me.btnCantidad.TabIndex = 17
-        Me.btnCantidad.Text = "Cantidad"
-        Me.btnCantidad.UseVisualStyleBackColor = False
         '
         'txtUsuario
         '
@@ -1629,7 +1613,6 @@ Partial Class frmVTouchR
     Friend WithEvents lblFechaPago As Label
     Friend WithEvents btnOcacional As Button
     Friend WithEvents btnCortesia As Button
-    Friend WithEvents btnCantidad As Button
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn

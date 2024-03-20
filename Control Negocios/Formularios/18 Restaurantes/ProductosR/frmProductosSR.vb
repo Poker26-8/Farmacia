@@ -60,6 +60,7 @@ Public Class frmProductosSR
                 grdpromociones.Rows.Clear()
                 grdextras.Rows.Clear()
                 grdpreferencia.Rows.Clear()
+                grdpromociones.Rows.Clear()
                 txtcantidadpromo.Text = "0"
 
                 cmd1 = cnn1.CreateCommand
@@ -438,7 +439,7 @@ Public Class frmProductosSR
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM promociones WHERE Codigo='" & codigopromo & "' AND Descx='" & descpromo & "' AND Codigo='" & cboCodCorto.Text & "'"
+                    cmd1.CommandText = "SELECT * FROM promociones WHERE Codigo='" & codigopromo & "' AND Descx='" & descpromo & "' AND CodigoAlpha='" & cboCodCorto.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

@@ -447,14 +447,14 @@ Partial Class frmPagarH
         '
         Me.btnCobrar.BackColor = System.Drawing.Color.White
         Me.btnCobrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCobrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCobrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCobrar.Image = CType(resources.GetObject("btnCobrar.Image"), System.Drawing.Image)
+        Me.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCobrar.Location = New System.Drawing.Point(7, 277)
         Me.btnCobrar.Name = "btnCobrar"
         Me.btnCobrar.Size = New System.Drawing.Size(214, 57)
         Me.btnCobrar.TabIndex = 5
         Me.btnCobrar.Text = "Pagar"
-        Me.btnCobrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCobrar.UseVisualStyleBackColor = False
         '
         'txtContra
@@ -802,7 +802,7 @@ Partial Class frmPagarH
         Me.txtmonto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtmonto.Location = New System.Drawing.Point(708, 8)
         Me.txtmonto.Name = "txtmonto"
-        Me.txtmonto.Size = New System.Drawing.Size(144, 25)
+        Me.txtmonto.Size = New System.Drawing.Size(157, 25)
         Me.txtmonto.TabIndex = 240
         Me.txtmonto.Text = "0.00"
         Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -824,7 +824,7 @@ Partial Class frmPagarH
         Me.txtnumref.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtnumref.Location = New System.Drawing.Point(494, 8)
         Me.txtnumref.Name = "txtnumref"
-        Me.txtnumref.Size = New System.Drawing.Size(157, 25)
+        Me.txtnumref.Size = New System.Drawing.Size(133, 25)
         Me.txtnumref.TabIndex = 238
         '
         'txtComentarioPago

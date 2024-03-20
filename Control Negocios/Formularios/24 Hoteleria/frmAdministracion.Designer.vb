@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAdministracion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAdministracion
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdministracion))
         Me.btnLimpiar = New System.Windows.Forms.Button()
@@ -37,23 +37,9 @@ Partial Class frmAdministracion
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cbCambioH = New System.Windows.Forms.CheckBox()
         Me.cbDesbloqueo = New System.Windows.Forms.CheckBox()
-        Me.pPrecios = New System.Windows.Forms.Panel()
-        Me.grdPrecios = New System.Windows.Forms.DataGridView()
-        Me.btng = New System.Windows.Forms.Button()
-        Me.txtPrecio = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtHoras = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtnombre = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cbPrecios = New System.Windows.Forms.CheckBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.pPrecios.SuspendLayout()
-        CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -107,10 +93,13 @@ Partial Class frmAdministracion
         'txtContra
         '
         Me.txtContra.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtContra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContra.Location = New System.Drawing.Point(401, 28)
         Me.txtContra.Name = "txtContra"
-        Me.txtContra.Size = New System.Drawing.Size(108, 20)
+        Me.txtContra.Size = New System.Drawing.Size(108, 22)
         Me.txtContra.TabIndex = 95
+        Me.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtContra.UseSystemPasswordChar = True
         '
         'Label2
         '
@@ -184,6 +173,7 @@ Partial Class frmAdministracion
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.cbPrecios)
         Me.Panel1.Controls.Add(Me.cbCambioH)
         Me.Panel1.Controls.Add(Me.cbDesbloqueo)
         Me.Panel1.Location = New System.Drawing.Point(12, 125)
@@ -213,141 +203,23 @@ Partial Class frmAdministracion
         Me.cbDesbloqueo.Text = "Desbloqueo de habitación"
         Me.cbDesbloqueo.UseVisualStyleBackColor = True
         '
-        'pPrecios
+        'cbPrecios
         '
-        Me.pPrecios.Controls.Add(Me.txtnombre)
-        Me.pPrecios.Controls.Add(Me.Label6)
-        Me.pPrecios.Controls.Add(Me.grdPrecios)
-        Me.pPrecios.Controls.Add(Me.btng)
-        Me.pPrecios.Controls.Add(Me.txtPrecio)
-        Me.pPrecios.Controls.Add(Me.Label5)
-        Me.pPrecios.Controls.Add(Me.txtHoras)
-        Me.pPrecios.Controls.Add(Me.Label4)
-        Me.pPrecios.Controls.Add(Me.Label3)
-        Me.pPrecios.Location = New System.Drawing.Point(14, 209)
-        Me.pPrecios.Name = "pPrecios"
-        Me.pPrecios.Size = New System.Drawing.Size(497, 246)
-        Me.pPrecios.TabIndex = 240
-        '
-        'grdPrecios
-        '
-        Me.grdPrecios.AllowUserToAddRows = False
-        Me.grdPrecios.AllowUserToDeleteRows = False
-        Me.grdPrecios.BackgroundColor = System.Drawing.Color.White
-        Me.grdPrecios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdPrecios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column1, Me.Column2})
-        Me.grdPrecios.Location = New System.Drawing.Point(8, 85)
-        Me.grdPrecios.Name = "grdPrecios"
-        Me.grdPrecios.ReadOnly = True
-        Me.grdPrecios.RowHeadersVisible = False
-        Me.grdPrecios.Size = New System.Drawing.Size(381, 150)
-        Me.grdPrecios.TabIndex = 6
-        '
-        'btng
-        '
-        Me.btng.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btng.Location = New System.Drawing.Point(395, 59)
-        Me.btng.Name = "btng"
-        Me.btng.Size = New System.Drawing.Size(88, 23)
-        Me.btng.TabIndex = 5
-        Me.btng.Text = "Guardar"
-        Me.btng.UseVisualStyleBackColor = True
-        '
-        'txtPrecio
-        '
-        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecio.Location = New System.Drawing.Point(293, 60)
-        Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.Size = New System.Drawing.Size(96, 22)
-        Me.txtPrecio.TabIndex = 4
-        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(304, 38)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 18)
-        Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Precio"
-        '
-        'txtHoras
-        '
-        Me.txtHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHoras.Location = New System.Drawing.Point(203, 60)
-        Me.txtHoras.Name = "txtHoras"
-        Me.txtHoras.Size = New System.Drawing.Size(84, 22)
-        Me.txtHoras.TabIndex = 2
-        Me.txtHoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(220, 38)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 18)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Horas"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(179, 10)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(140, 18)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Precios Por Hora"
-        '
-        'txtnombre
-        '
-        Me.txtnombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnombre.Location = New System.Drawing.Point(8, 60)
-        Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(189, 22)
-        Me.txtnombre.TabIndex = 8
-        Me.txtnombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(59, 38)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(98, 18)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Descripción"
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Descripción"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 215
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Horas"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 80
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Precio"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 80
+        Me.cbPrecios.AutoSize = True
+        Me.cbPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPrecios.Location = New System.Drawing.Point(6, 55)
+        Me.cbPrecios.Name = "cbPrecios"
+        Me.cbPrecios.Size = New System.Drawing.Size(72, 20)
+        Me.cbPrecios.TabIndex = 2
+        Me.cbPrecios.Text = "Precios"
+        Me.cbPrecios.UseVisualStyleBackColor = True
         '
         'frmAdministracion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(514, 462)
-        Me.Controls.Add(Me.pPrecios)
+        Me.ClientSize = New System.Drawing.Size(514, 215)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label57)
@@ -361,9 +233,6 @@ Partial Class frmAdministracion
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.pPrecios.ResumeLayout(False)
-        Me.pPrecios.PerformLayout()
-        CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -382,17 +251,5 @@ Partial Class frmAdministracion
     Friend WithEvents Panel1 As Panel
     Friend WithEvents cbCambioH As CheckBox
     Friend WithEvents cbDesbloqueo As CheckBox
-    Friend WithEvents pPrecios As Panel
-    Friend WithEvents txtPrecio As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txtHoras As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents grdPrecios As DataGridView
-    Friend WithEvents btng As Button
-    Friend WithEvents txtnombre As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents cbPrecios As CheckBox
 End Class

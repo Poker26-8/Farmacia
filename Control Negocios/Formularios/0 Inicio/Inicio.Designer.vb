@@ -166,6 +166,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnPagarComanda = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1175,7 +1176,7 @@ Partial Class Inicio
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(417, 293)
+        Me.PictureBox1.Location = New System.Drawing.Point(417, 343)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
         Me.PictureBox1.Size = New System.Drawing.Size(403, 142)
@@ -1190,14 +1191,15 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
-        Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button13)
+        Me.Panel2.Controls.Add(Me.btnPagarComanda)
+        Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 114)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(90, 614)
+        Me.Panel2.Size = New System.Drawing.Size(90, 714)
         Me.Panel2.TabIndex = 5
         '
         'btnpollo
@@ -1207,7 +1209,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 522)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 612)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1220,7 +1222,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = CType(resources.GetObject("btnHoteleria.Image"), System.Drawing.Image)
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 432)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 522)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1234,7 +1236,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 342)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 432)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 90)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1250,7 +1252,7 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 270)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 360)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
@@ -1265,7 +1267,7 @@ Partial Class Inicio
         Me.btnvtatouch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnvtatouch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnvtatouch.Image = CType(resources.GetObject("btnvtatouch.Image"), System.Drawing.Image)
-        Me.btnvtatouch.Location = New System.Drawing.Point(0, 180)
+        Me.btnvtatouch.Location = New System.Drawing.Point(0, 90)
         Me.btnvtatouch.Name = "btnvtatouch"
         Me.btnvtatouch.Size = New System.Drawing.Size(90, 90)
         Me.btnvtatouch.TabIndex = 11
@@ -1279,7 +1281,7 @@ Partial Class Inicio
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(0, 590)
+        Me.Button6.Location = New System.Drawing.Point(0, 690)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(90, 24)
         Me.Button6.TabIndex = 9
@@ -1292,7 +1294,7 @@ Partial Class Inicio
         Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
-        Me.Button13.Location = New System.Drawing.Point(0, 90)
+        Me.Button13.Location = New System.Drawing.Point(0, 270)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(90, 90)
         Me.Button13.TabIndex = 8
@@ -1319,7 +1321,7 @@ Partial Class Inicio
         Me.btnSincronizador.BackColor = System.Drawing.Color.LightSkyBlue
         Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
-        Me.btnSincronizador.Location = New System.Drawing.Point(1139, 674)
+        Me.btnSincronizador.Location = New System.Drawing.Point(1139, 774)
         Me.btnSincronizador.Name = "btnSincronizador"
         Me.btnSincronizador.Size = New System.Drawing.Size(43, 42)
         Me.btnSincronizador.TabIndex = 8
@@ -1332,7 +1334,7 @@ Partial Class Inicio
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1139, 626)
+        Me.Button3.Location = New System.Drawing.Point(1139, 726)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(43, 42)
         Me.Button3.TabIndex = 9
@@ -1343,7 +1345,7 @@ Partial Class Inicio
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1033, 628)
+        Me.Label1.Location = New System.Drawing.Point(1033, 728)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 38)
         Me.Label1.TabIndex = 10
@@ -1356,7 +1358,7 @@ Partial Class Inicio
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1008, 686)
+        Me.Label2.Location = New System.Drawing.Point(1008, 786)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(123, 19)
         Me.Label2.TabIndex = 11
@@ -1364,11 +1366,25 @@ Partial Class Inicio
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Visible = False
         '
+        'btnPagarComanda
+        '
+        Me.btnPagarComanda.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPagarComanda.FlatAppearance.BorderSize = 0
+        Me.btnPagarComanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPagarComanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagarComanda.Image = CType(resources.GetObject("btnPagarComanda.Image"), System.Drawing.Image)
+        Me.btnPagarComanda.Location = New System.Drawing.Point(0, 180)
+        Me.btnPagarComanda.Name = "btnPagarComanda"
+        Me.btnPagarComanda.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComanda.TabIndex = 185
+        Me.btnPagarComanda.UseVisualStyleBackColor = True
+        Me.btnPagarComanda.Visible = False
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1194, 728)
+        Me.ClientSize = New System.Drawing.Size(1194, 828)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button3)
@@ -1535,4 +1551,5 @@ Partial Class Inicio
     Friend WithEvents ReporteDeAuditoriaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CORTEMESERO As ToolStripMenuItem
     Friend WithEvents CorteDeCajaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnPagarComanda As Button
 End Class

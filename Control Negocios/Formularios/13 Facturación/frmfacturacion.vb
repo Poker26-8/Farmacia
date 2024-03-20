@@ -6753,29 +6753,29 @@ puerta2:
 
                         For xd1 = 0 To maxcontador + 1
                             Select Case ArreIeps(xd, xd1)
-                                Case "0.265000"
+                                Case "0.265"
                                     var265(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.300000"
+                                Case "0.3"
                                     var3(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.530000"
+                                Case "0.53"
                                     var53(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.500000"
+                                Case "0.5"
                                     var5(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "1.600000"
+                                Case "1.6"
                                     var1600(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.304000"
+                                Case "0.304"
                                     var304(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.250000"
+                                Case "0.25"
                                     var25(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.090000"
+                                Case "0.09"
                                     var09(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.080000"
+                                Case "0.08"
                                     var08(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.070000"
+                                Case "0.07"
                                     var07(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.060000"
+                                Case "0.06"
                                     var06(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.030000"
+                                Case "0.03"
                                     var03(xd) += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
                             End Select
                         Next
@@ -6817,29 +6817,29 @@ puerta2:
                     For xd = 0 To contadorMatriz
                         For xd1 = 0 To maxcontador + 1
                             Select Case ArreIeps(xd, xd1)
-                                Case "0.265000"
+                                Case "0.265"
                                     Bvar265 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.300000"
+                                Case "0.3"
                                     Bvar3 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.530000"
+                                Case "0.53"
                                     Bvar53 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.500000"
+                                Case "0.5"
                                     Bvar5 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "1.600000"
+                                Case "1.6"
                                     Bvar1600 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.304000"
+                                Case "0.304"
                                     Bvar304 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.250000"
+                                Case "0.25"
                                     Bvar25 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.090000"
+                                Case "0.09"
                                     Bvar09 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.080000"
+                                Case "0.08"
                                     Bvar08 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.070000"
+                                Case "0.07"
                                     Bvar07 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.060000"
+                                Case "0.06"
                                     Bvar06 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
-                                Case "0.030000"
+                                Case "0.03"
                                     Bvar03 += FormatNumber(CDec(ArreIepsBase(xd, xd1)), 6)
                             End Select
                         Next
