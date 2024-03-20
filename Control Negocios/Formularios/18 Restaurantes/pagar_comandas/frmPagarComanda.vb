@@ -708,4 +708,5 @@
         precioeliminar = grdCaptura.CurrentRow.Cells(4).Value.ToString
         comandaeliminar = grdCaptura.CurrentRow.Cells(7).Value.ToString
     End Sub
+
 End Class

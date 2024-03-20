@@ -23,8 +23,8 @@ Partial Class frmPagarComanda
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarComanda))
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.psuperior = New System.Windows.Forms.Panel()
@@ -36,17 +36,17 @@ Partial Class frmPagarComanda
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.pCliente = New System.Windows.Forms.Panel()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.txtContra = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.pCliente = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.pCambioMesa = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCancM = New System.Windows.Forms.Button()
+        Me.btnAceptarM = New System.Windows.Forms.Button()
         Me.cboCambioM = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -60,6 +60,7 @@ Partial Class frmPagarComanda
         Me.lblFolio = New System.Windows.Forms.Label()
         Me.lblMesero = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnCambio = New System.Windows.Forms.Button()
         Me.btnCortesia = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -89,6 +90,14 @@ Partial Class frmPagarComanda
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pCentro = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -105,21 +114,12 @@ Partial Class frmPagarComanda
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.psuperior.SuspendLayout()
         Me.pdatos.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        Me.Panel8.SuspendLayout()
         Me.pCliente.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.pCambioMesa.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -253,6 +253,35 @@ Partial Class frmPagarComanda
         Me.Panel10.Size = New System.Drawing.Size(373, 116)
         Me.Panel10.TabIndex = 10
         '
+        'pCliente
+        '
+        Me.pCliente.Controls.Add(Me.ComboBox2)
+        Me.pCliente.Controls.Add(Me.Label19)
+        Me.pCliente.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pCliente.Location = New System.Drawing.Point(0, 44)
+        Me.pCliente.Name = "pCliente"
+        Me.pCliente.Size = New System.Drawing.Size(373, 33)
+        Me.pCliente.TabIndex = 9
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(70, 6)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(284, 21)
+        Me.ComboBox2.TabIndex = 6
+        '
+        'Label19
+        '
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(5, 6)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(61, 21)
+        Me.Label19.TabIndex = 5
+        Me.Label19.Text = "Cliente"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Panel8
         '
         Me.Panel8.Controls.Add(Me.txtContra)
@@ -302,39 +331,10 @@ Partial Class frmPagarComanda
         Me.Label16.TabIndex = 7
         Me.Label16.Text = "Usuario:"
         '
-        'pCliente
-        '
-        Me.pCliente.Controls.Add(Me.ComboBox2)
-        Me.pCliente.Controls.Add(Me.Label19)
-        Me.pCliente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pCliente.Location = New System.Drawing.Point(0, 44)
-        Me.pCliente.Name = "pCliente"
-        Me.pCliente.Size = New System.Drawing.Size(373, 33)
-        Me.pCliente.TabIndex = 9
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(70, 6)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(284, 21)
-        Me.ComboBox2.TabIndex = 6
-        '
-        'Label19
-        '
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(5, 6)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(61, 21)
-        Me.Label19.TabIndex = 5
-        Me.Label19.Text = "Cliente"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'pCambioMesa
         '
-        Me.pCambioMesa.Controls.Add(Me.Button3)
-        Me.pCambioMesa.Controls.Add(Me.Button2)
+        Me.pCambioMesa.Controls.Add(Me.btnCancM)
+        Me.pCambioMesa.Controls.Add(Me.btnAceptarM)
         Me.pCambioMesa.Controls.Add(Me.cboCambioM)
         Me.pCambioMesa.Controls.Add(Me.Label17)
         Me.pCambioMesa.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -344,31 +344,29 @@ Partial Class frmPagarComanda
         Me.pCambioMesa.TabIndex = 8
         Me.pCambioMesa.Visible = False
         '
-        'Button3
+        'btnCancM
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button3.Enabled = False
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(279, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 27)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "Cancelar"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnCancM.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnCancM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancM.Location = New System.Drawing.Point(279, 6)
+        Me.btnCancM.Name = "btnCancM"
+        Me.btnCancM.Size = New System.Drawing.Size(75, 27)
+        Me.btnCancM.TabIndex = 8
+        Me.btnCancM.Text = "Cancelar"
+        Me.btnCancM.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnAceptarM
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button2.Enabled = False
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(193, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 27)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Aceptar"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnAceptarM.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAceptarM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAceptarM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptarM.Location = New System.Drawing.Point(193, 6)
+        Me.btnAceptarM.Name = "btnAceptarM"
+        Me.btnAceptarM.Size = New System.Drawing.Size(80, 27)
+        Me.btnAceptarM.TabIndex = 7
+        Me.btnAceptarM.Text = "Aceptar"
+        Me.btnAceptarM.UseVisualStyleBackColor = False
         '
         'cboCambioM
         '
@@ -509,6 +507,21 @@ Partial Class frmPagarComanda
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(82, 690)
         Me.Panel3.TabIndex = 1
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 407)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(75, 77)
+        Me.btnLimpiar.TabIndex = 6
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'btnCambio
         '
@@ -844,14 +857,14 @@ Partial Class frmPagarComanda
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
@@ -861,6 +874,63 @@ Partial Class frmPagarComanda
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(819, 461)
         Me.grdCaptura.TabIndex = 1
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Unidad"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 91
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Cantidad"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Precio"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 84
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Total"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 74
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column7.HeaderText = "Comensal"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 113
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Comanda"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
         '
         'Panel9
         '
@@ -1034,78 +1104,6 @@ Partial Class frmPagarComanda
         'TFecha
         '
         '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(3, 407)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(75, 77)
-        Me.btnLimpiar.TabIndex = 6
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiar.UseVisualStyleBackColor = False
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Nombre"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Unidad"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 91
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Cantidad"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Precio"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 84
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "Total"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 74
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column7.HeaderText = "Comensal"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 113
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Comanda"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
         'frmPagarComanda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1124,9 +1122,9 @@ Partial Class frmPagarComanda
         Me.psuperior.ResumeLayout(False)
         Me.pdatos.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
+        Me.pCliente.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        Me.pCliente.ResumeLayout(False)
         Me.pCambioMesa.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
@@ -1196,8 +1194,8 @@ Partial Class frmPagarComanda
     Friend WithEvents lblUsuario As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents btnCambio As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnCancM As Button
+    Friend WithEvents btnAceptarM As Button
     Friend WithEvents cboCambioM As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents pCliente As Panel
