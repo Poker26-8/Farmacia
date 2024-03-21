@@ -3742,6 +3742,7 @@ Door:
     End Sub
 
     Private Sub PComanda80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PComanda80.PrintPage
+
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
         Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)

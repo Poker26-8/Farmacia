@@ -31,24 +31,24 @@ Public Class frmConfigs
             cnn1.Close()
         End Try
 
-        Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-                txtTerminal.Text = rd1(1).ToString
-                txtClave.Text = rd1(2).ToString
-                txtSolicitud.Text = rd1(3).ToString
-                txtResultado.Text = rd1(4).ToString
-            End If
-            rd1.Close()
-            cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        'Try
+        '    cnn1.Close()
+        '    cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "Select * from DatosProsepago"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.Read Then
+        '        txtTerminal.Text = rd1(1).ToString
+        '        txtClave.Text = rd1(2).ToString
+        '        txtSolicitud.Text = rd1(3).ToString
+        '        txtResultado.Text = rd1(4).ToString
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
 
         Try
             Dim tipo_logo As String = ""

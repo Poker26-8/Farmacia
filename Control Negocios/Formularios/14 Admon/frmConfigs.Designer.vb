@@ -331,17 +331,17 @@ Partial Class frmConfigs
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label87 = New System.Windows.Forms.Label()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.txtTerminal = New System.Windows.Forms.TextBox()
-        Me.txtSolicitud = New System.Windows.Forms.TextBox()
-        Me.txtResultado = New System.Windows.Forms.TextBox()
-        Me.txtClave = New System.Windows.Forms.TextBox()
-        Me.btnGPago = New System.Windows.Forms.Button()
         Me.btnCancela = New System.Windows.Forms.Button()
+        Me.btnGPago = New System.Windows.Forms.Button()
+        Me.txtClave = New System.Windows.Forms.TextBox()
+        Me.txtResultado = New System.Windows.Forms.TextBox()
+        Me.txtSolicitud = New System.Windows.Forms.TextBox()
+        Me.txtTerminal = New System.Windows.Forms.TextBox()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -2115,10 +2115,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2557,10 +2557,10 @@ Partial Class frmConfigs
         Me.tabFormatos.Controls.Add(Me.GroupBox16)
         Me.tabFormatos.Controls.Add(Me.GroupBox19)
         Me.tabFormatos.Controls.Add(Me.GroupBox18)
-        Me.tabFormatos.Location = New System.Drawing.Point(4, 64)
+        Me.tabFormatos.Location = New System.Drawing.Point(4, 84)
         Me.tabFormatos.Name = "tabFormatos"
         Me.tabFormatos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabFormatos.Size = New System.Drawing.Size(478, 457)
+        Me.tabFormatos.Size = New System.Drawing.Size(478, 437)
         Me.tabFormatos.TabIndex = 1
         Me.tabFormatos.Text = "Configurar formatos"
         Me.tabFormatos.UseVisualStyleBackColor = True
@@ -3764,83 +3764,17 @@ Partial Class frmConfigs
         Me.TabPage3.Text = "Configuración de Prosepago"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'Label84
+        'btnCancela
         '
-        Me.Label84.AutoSize = True
-        Me.Label84.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label84.Location = New System.Drawing.Point(123, 20)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(227, 21)
-        Me.Label84.TabIndex = 0
-        Me.Label84.Text = "Configuración de Prosepago"
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label85.Location = New System.Drawing.Point(8, 82)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(154, 21)
-        Me.Label85.TabIndex = 1
-        Me.Label85.Text = "Número de terminal:"
-        '
-        'Label86
-        '
-        Me.Label86.AutoSize = True
-        Me.Label86.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label86.Location = New System.Drawing.Point(111, 140)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(51, 21)
-        Me.Label86.TabIndex = 2
-        Me.Label86.Text = "Clave:"
-        '
-        'Label87
-        '
-        Me.Label87.AutoSize = True
-        Me.Label87.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(37, 196)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(125, 21)
-        Me.Label87.TabIndex = 3
-        Me.Label87.Text = "URL de solicitud:"
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label88.Location = New System.Drawing.Point(30, 257)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(132, 21)
-        Me.Label88.TabIndex = 4
-        Me.Label88.Text = "URL de resultado:"
-        '
-        'txtTerminal
-        '
-        Me.txtTerminal.Location = New System.Drawing.Point(179, 80)
-        Me.txtTerminal.Name = "txtTerminal"
-        Me.txtTerminal.Size = New System.Drawing.Size(275, 23)
-        Me.txtTerminal.TabIndex = 5
-        '
-        'txtSolicitud
-        '
-        Me.txtSolicitud.Location = New System.Drawing.Point(179, 194)
-        Me.txtSolicitud.Name = "txtSolicitud"
-        Me.txtSolicitud.Size = New System.Drawing.Size(275, 23)
-        Me.txtSolicitud.TabIndex = 6
-        '
-        'txtResultado
-        '
-        Me.txtResultado.Location = New System.Drawing.Point(179, 259)
-        Me.txtResultado.Name = "txtResultado"
-        Me.txtResultado.Size = New System.Drawing.Size(275, 23)
-        Me.txtResultado.TabIndex = 7
-        '
-        'txtClave
-        '
-        Me.txtClave.Location = New System.Drawing.Point(179, 140)
-        Me.txtClave.Name = "txtClave"
-        Me.txtClave.Size = New System.Drawing.Size(275, 23)
-        Me.txtClave.TabIndex = 8
+        Me.btnCancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnCancela.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancela.Location = New System.Drawing.Point(248, 306)
+        Me.btnCancela.Name = "btnCancela"
+        Me.btnCancela.Size = New System.Drawing.Size(90, 29)
+        Me.btnCancela.TabIndex = 10
+        Me.btnCancela.Text = "Cancelar"
+        Me.btnCancela.UseVisualStyleBackColor = False
+        Me.btnCancela.Visible = False
         '
         'btnGPago
         '
@@ -3852,17 +3786,94 @@ Partial Class frmConfigs
         Me.btnGPago.TabIndex = 9
         Me.btnGPago.Text = "Guardar"
         Me.btnGPago.UseVisualStyleBackColor = False
+        Me.btnGPago.Visible = False
         '
-        'btnCancela
+        'txtClave
         '
-        Me.btnCancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnCancela.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCancela.Location = New System.Drawing.Point(248, 306)
-        Me.btnCancela.Name = "btnCancela"
-        Me.btnCancela.Size = New System.Drawing.Size(90, 29)
-        Me.btnCancela.TabIndex = 10
-        Me.btnCancela.Text = "Cancelar"
-        Me.btnCancela.UseVisualStyleBackColor = False
+        Me.txtClave.Location = New System.Drawing.Point(179, 140)
+        Me.txtClave.Name = "txtClave"
+        Me.txtClave.Size = New System.Drawing.Size(275, 23)
+        Me.txtClave.TabIndex = 8
+        Me.txtClave.Visible = False
+        '
+        'txtResultado
+        '
+        Me.txtResultado.Location = New System.Drawing.Point(179, 259)
+        Me.txtResultado.Name = "txtResultado"
+        Me.txtResultado.Size = New System.Drawing.Size(275, 23)
+        Me.txtResultado.TabIndex = 7
+        Me.txtResultado.Visible = False
+        '
+        'txtSolicitud
+        '
+        Me.txtSolicitud.Location = New System.Drawing.Point(179, 194)
+        Me.txtSolicitud.Name = "txtSolicitud"
+        Me.txtSolicitud.Size = New System.Drawing.Size(275, 23)
+        Me.txtSolicitud.TabIndex = 6
+        Me.txtSolicitud.Visible = False
+        '
+        'txtTerminal
+        '
+        Me.txtTerminal.Location = New System.Drawing.Point(179, 80)
+        Me.txtTerminal.Name = "txtTerminal"
+        Me.txtTerminal.Size = New System.Drawing.Size(275, 23)
+        Me.txtTerminal.TabIndex = 5
+        Me.txtTerminal.Visible = False
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label88.Location = New System.Drawing.Point(30, 257)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(132, 21)
+        Me.Label88.TabIndex = 4
+        Me.Label88.Text = "URL de resultado:"
+        Me.Label88.Visible = False
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(37, 196)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(125, 21)
+        Me.Label87.TabIndex = 3
+        Me.Label87.Text = "URL de solicitud:"
+        Me.Label87.Visible = False
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(111, 140)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(51, 21)
+        Me.Label86.TabIndex = 2
+        Me.Label86.Text = "Clave:"
+        Me.Label86.Visible = False
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(8, 82)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(154, 21)
+        Me.Label85.TabIndex = 1
+        Me.Label85.Text = "Número de terminal:"
+        Me.Label85.Visible = False
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(123, 20)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(227, 21)
+        Me.Label84.TabIndex = 0
+        Me.Label84.Text = "Configuración de Prosepago"
+        Me.Label84.Visible = False
         '
         'frmConfigs
         '

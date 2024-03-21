@@ -1,4 +1,6 @@
-﻿Public Class frmPagarComanda
+﻿
+
+Public Class frmPagarComanda
 
     Dim totalventa As Double = 0
     Dim myope As Double = 0
@@ -103,6 +105,7 @@
                 rd1.Close()
                 cnn1.Close()
 
+                btnCerrar.Focus.Equals(True)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -866,7 +869,6 @@
         End Try
 
     End Sub
-
     Private Sub PDevolucion58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PDevolucion58.PrintPage
 
         Try
@@ -1287,8 +1289,15 @@
             cnn2.Close()
 
             Dim mypago As Double = 0
+            Dim SLD1 As Double = 0
+            Dim SLD As Double = 0
 
             mypago = CDec(txtEfectivo.Text) + CDec(txtPagos.Text) - CDec(txtCambio.Text) - CDec(txtefecporcentaje.Text)
+            SLD1 = CDbl(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDbl(IIf(txtPagos.Text = 0, 0, txtPagos.Text))
+
+            If CDbl(SLD1) >= CDbl(lbltotalventa.Text) Then
+                SLD = 0
+            End If
 
             If mypago < CDec(lbltotalventa.Text) Then
                 MsgBox("Debe cerrar la cuenta", vbInformation + vbOKOnly, titulorestaurante)
@@ -1405,6 +1414,15 @@
 
             Dim idcliente As Integer = 0
             Dim nombre As String = ""
+            Dim status As String = ""
+
+            Dim idmonedero As Integer = 0
+            Dim saldomonedero As Double = 0
+            Dim porcentajemonedero As Double = 0
+            Dim foliomonedero As String = ""
+            Dim pagarmonedero As Double = 0
+
+            Dim saldomonnuevo As Double = 0
 
             If cbocliente.Text = "" Then
 
@@ -1424,7 +1442,11 @@
                 nombre = cbocliente.Text
             End If
 
-
+            If mypago < lbltotalventa.Text Then
+                status = "RESTA"
+            Else
+                status = "PAGADO"
+            End If
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -1432,11 +1454,114 @@
             cmd3.ExecuteNonQuery()
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales) VALUES(" & idcliente & ",'" & nombre & "',''," & FormatNumber(subtotalventa, 2) & "," & FormatNumber(totaliva, 2) & "," & Format(totalventa, 2) & ")"
+            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Propina,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoCance,Status,Comisionista,Facturado,Concepto,N_Traslado,Corte,CorteU,MontoSinDesc,Cargado,FEntrega,Entrega,Comentario,CantidadE,FolMonedero,CodFactura,IP,Formato,TComensales,MntoCortesia,Franquicia) VALUES(" & idcliente & ",'" & nombre & "',''," & FormatNumber(subtotalventa, 2) & "," & FormatNumber(totaliva, 2) & "," & FormatNumber(totalventa, 2) & "," & FormatNumber(propinaventa, 2) & "," & FormatNumber(descuentoventa, 2) & ",0," & mypago & "," & FormatNumber(restaventa, 2) & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0,'" & status & "','" & totalcomisiones & "',0,'',0,0,0," & FormatNumber(totalventa, 2) & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "',0,'',0,'','" & lic & "','" & dameIP2() & "','TICKET','',0,1)"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 
 
+
+            If grdPagos.Rows.Count > 0 Then
+                For forace = 0 To grdPagos.Rows.Count - 1
+
+                    Dim formapago As String = grdPagos.Rows(forace).Cells(0).Value.ToString
+                    Dim banco As String = grdPagos.Rows(forace).Cells(1).Value.ToString
+                    Dim referencia As String = grdPagos.Rows(forace).Cells(2).Value.ToString
+                    Dim monto As Double = grdPagos.Rows(forace).Cells(3).Value.ToString
+                    Dim coment As String = grdPagos.Rows(forace).Cells(4).Value.ToString
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Comentario) VALUES('" & formapago & "','" & banco & "','" & referencia & "','Venta'," & monto & ",0," & monto & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "','" & coment & "')"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
+
+                    If CDbl(monto) > 0 Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO abonoi      (NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargado,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & lblFolio.Text & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & mypago & "," & SLD & ",'" & formapago & "'," & monto & ",'" & banco & "','" & referencia & "','" & lblUsuario.Text & "','" & coment & "'," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+                    End If
+
+                    If formapago = "MONEDERO" Then
+
+                        foliomonedero = grdPagos.Rows(forace).Cells(2).Value.ToString
+                        pagarmonedero = grdPagos.Rows(forace).Cells(3).Value.ToString
+
+                        If foliomonedero <> "" Then
+
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "SELECT * FROM Monedero WHERE Barras='" & foliomonedero & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    idmonedero = rd2("Id").ToString
+                                    saldomonedero = rd2("Saldo").ToString
+                                    porcentajemonedero = rd2("Porcentaje").ToString
+                                End If
+                            End If
+                            rd2.Close()
+                            cnn2.Close()
+
+                            saldomonnuevo = CDec(CDec(lbltotalventa.Text) - CDec(pagarmonedero)) * CDec(porcentajemonedero / 100)
+                            Dim conversaldo As String = ""
+                            conversaldo = ""
+                            For i = 1 To Len(saldomonnuevo)
+                                If Mid(saldomonnuevo, i, 1) = "." Then
+                                    Exit For
+                                End If
+                                conversaldo = saldomonnuevo
+                            Next i
+                            saldomonnuevo = conversaldo
+                        End If
+
+                        If CDec(monto) > 0 Then
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "UPDATE Monedero SET Saldo=Saldo-" & CDec(monto) & ",Cargado='0' WHERE Id=" & idmonedero & ""
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
+                        End If
+
+                    End If
+                Next
+            End If
+
+            If pagarmonedero > 0 Then
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "UPDATE Monedero SET Saldo=Saldo + " & CDec(saldomonnuevo) & ", Cargado='0' WHERE Id=" & idmonedero & ""
+                cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "UPDATE Monedero SET Cargado='0' WHERE Folio='" & foliomonedero & "'"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+
+            Dim kreaper As Integer = 0
+            Dim codigog As String = ""
+            Dim descripciong As String = ""
+            Dim unidadg As String = ""
+            Dim cantidadg As Double = 0
+            Dim preciog As Double = 0
+            Dim totalg As Double = 0
+            Dim comensalg As String = ""
+
+            Do While kreaper <> grdCaptura.Rows.Count
+
+                codigog = grdCaptura.Rows(kreaper).Cells(0).Value.ToString
+                descripciong = grdCaptura.Rows(kreaper).Cells(1).Value.ToString
+                unidadg = grdCaptura.Rows(kreaper).Cells(2).Value.ToString
+                cantidadg = grdCaptura.Rows(kreaper).Cells(3).Value.ToString
+                preciog = grdCaptura.Rows(kreaper).Cells(4).Value.ToString
+                totalg = grdCaptura.Rows(kreaper).Cells(5).Value.ToString
+                comensalg = grdCaptura.Rows(kreaper).Cells(6).Value.ToString
+
+
+            Loop
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -1444,5 +1569,170 @@
             cnn2.Close()
         End Try
 
+    End Sub
+
+    Private Sub btnagregarpago_Click(sender As Object, e As EventArgs) Handles btnagregarpago.Click
+
+
+        Dim tipo As String = cboforma.Text
+        Dim banco As String = cboBanco.Text
+        Dim referencia As String = txtreferencia.Text
+        Dim monto As Double = txtmonto.Text
+        Dim comen As String = txtComentario.Text
+
+        Dim totalpagos As Double = 0
+        If tipo = "MONEDERO" Then
+        Else
+
+            If tipo = "" Then
+                MsgBox("Debe seleccionar una forma de pago", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+
+            If banco = "" Then
+                MsgBox("Debe seleccionar una banco", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+
+            If referencia = "" Then
+                MsgBox("Debe ingresar una refrencia", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+
+            If monto = 0 Then
+                MsgBox("Debe ingresar un monto", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+
+        End If
+
+        grdPagos.Rows.Add(tipo, banco, referencia, monto, comen)
+        totalpagos = txtPagos.Text + monto
+        txtPagos.Text = FormatNumber(totalpagos, 2)
+        limpiarforma()
+    End Sub
+
+    Public Sub limpiarforma()
+        cboforma.Text = ""
+        cboBanco.Text = ""
+        txtreferencia.Text = ""
+        txtmonto.Text = "0.00"
+        txtComentario.Text = ""
+
+    End Sub
+
+    Private Sub grdPagos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdPagos.CellDoubleClick
+
+        Dim index As Integer = grdPagos.CurrentRow.Index
+
+        Dim importe = grdPagos.Rows(index).Cells(3).Value.ToString
+
+        grdPagos.Rows.Remove(grdPagos.Rows(index))
+        txtPagos.Text = txtPagos.Text - CDec(importe)
+        txtPagos.Text = FormatNumber(txtPagos.Text, 2)
+
+    End Sub
+
+    Private Sub cboforma_DropDown(sender As Object, e As EventArgs) Handles cboforma.DropDown
+        Try
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT FormaPago FROM formaspago WHERE FormaPago<>'' ORDER BY FormaPago"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboforma.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboBanco_DropDown(sender As Object, e As EventArgs) Handles cboBanco.DropDown
+        Try
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Banco FROM bancos WHERE Banco<>'' ORDER BY Banco"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboBanco.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub txtPagos_TextChanged(sender As Object, e As EventArgs) Handles txtPagos.TextChanged
+
+        Dim Resta As Double = 0
+
+        Try
+            Resta = CDec(IIf(txtPagos.Text = "", "0", txtPagos.Text)) - CDec(IIf(lbltotalventa.Text = "", "0", lbltotalventa.Text))
+
+            Resta = FormatNumber(Resta, 2)
+            myope = CDec(IIf(lbltotalventa.Text = "", "0", lbltotalventa.Text)) - (CDec(IIf(txtPagos.Text = "", "0", txtPagos.Text)) + CDec(IIf(txtEfectivo.Text = "", "0", txtEfectivo.Text)))
+
+            If myope < 0 Then
+                Resta = -myope
+                txtResta.Text = "0.00"
+            Else
+                txtResta.Text = myope
+                Resta = "0.00"
+            End If
+            Resta = FormatNumber(Resta, 2)
+            txtResta.Text = FormatNumber(txtResta.Text, 2)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub cboforma_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboforma.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboBanco.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboBanco_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBanco.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtreferencia.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtreferencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtreferencia.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtmonto.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtmonto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtmonto.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtmonto.Text) Then
+                txtComentario.Focus.Equals(True)
+            Else
+                txtmonto.Text = "0.00"
+            End If
+        End If
+    End Sub
+
+    Private Sub txtComentario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComentario.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnagregarpago.Focus.Equals(True)
+        End If
     End Sub
 End Class

@@ -563,7 +563,7 @@ Public Class frmPagar
         txtmonto.Text = "0.00"
         cboCuenta.Text = ""
         txtRecepcion.Text = ""
-
+        txtComentario.Text = ""
     End Sub
 
     Private Sub grdPagos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdPagos.CellDoubleClick
@@ -1095,10 +1095,6 @@ Public Class frmPagar
                         cnn3.Close()
                     End If
                 End If
-
-
-
-
             Next
         End If
 
