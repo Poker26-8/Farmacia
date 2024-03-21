@@ -64,6 +64,7 @@ Public Class frmPagarComanda
                             If rd3.Read Then
                                 lblUsuario.Text = rd3(0).ToString
                                 txtContra.Text = rd3(1).ToString
+                                idempleado = id_usu_log
                             End If
                         End If
                         rd3.Close()
@@ -1502,7 +1503,7 @@ Public Class frmPagarComanda
             cmd3.ExecuteNonQuery()
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Propina,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoCance,Status,Comisionista,Facturado,Concepto,N_Traslado,Corte,CorteU,MontoSinDesc,Cargado,FEntrega,Entrega,Comentario,CantidadE,FolMonedero,CodFactura,IP,Formato,TComensales,MntoCortesia,Franquicia) VALUES(" & idcliente & ",'" & nombre & "',''," & FormatNumber(subtotalventa, 2) & "," & FormatNumber(totaliva, 2) & "," & FormatNumber(totalventa, 2) & "," & FormatNumber(propinaventa, 2) & "," & FormatNumber(descuentoventa, 2) & ",0," & mypago & "," & FormatNumber(restaventa, 2) & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0,'" & status & "','" & totalcomisiones & "',0,'',0,0,0," & FormatNumber(totalventa, 2) & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "',0,'',0,'','" & lic & "','" & dameIP2() & "','TICKET','',0,1)"
+            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Propina,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoCance,Status,Comisionista,Facturado,Concepto,N_Traslado,Corte,CorteU,MontoSinDesc,Cargado,FEntrega,Entrega,Comentario,CantidadE,FolMonedero,CodFactura,IP,Formato,TComensales,MntoCortesia,Franquicia) VALUES(" & idcliente & ",'" & nombre & "',''," & subtotalventa & "," & totaliva & "," & totalventa & "," & propinaventa & "," & descuentoventa & ",0," & mypago & "," & restaventa & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0,'" & status & "','" & totalcomisiones & "',0,'',0,0,0," & totalventa & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "',0,'',0,'','" & lic & "','" & dameIP2() & "','TICKET','',0,1)"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 

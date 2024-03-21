@@ -225,6 +225,12 @@
     <Compile Include="Formularios\0 Inicio\frmSoporte.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\01 Formularios de función\frmPurgarDatos.Designer.vb">
+      <DependentUpon>frmPurgarDatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\01 Formularios de función\frmPurgarDatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\01 Formularios de función\frmsubeclientes.Designer.vb">
       <DependentUpon>frmsubeclientes.vb</DependentUpon>
     </Compile>
@@ -1643,6 +1649,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\frmSoporte.resx">
       <DependentUpon>frmSoporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\01 Formularios de función\frmPurgarDatos.resx">
+      <DependentUpon>frmPurgarDatos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\01 Formularios de función\frmsubeclientes.resx">
       <DependentUpon>frmsubeclientes.vb</DependentUpon>
