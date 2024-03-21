@@ -6268,7 +6268,7 @@ puertaXD1:
 
                                     'nuevoIEPS_SinIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2))
 
-                                    .WriteAttributeString("Importe", Replace(CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2)), ",", ""))
+                                    .WriteAttributeString("Importe", Replace(CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6)), ",", ""))
                                     .WriteAttributeString("TipoFactor", frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString)
                                     .WriteAttributeString("TasaOCuota", FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6))
                                     ieps_porcentaje = FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6)
