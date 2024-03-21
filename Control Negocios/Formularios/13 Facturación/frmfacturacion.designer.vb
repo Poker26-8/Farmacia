@@ -282,28 +282,6 @@ Partial Class frmfacturacion
         Me.lbl_proceso = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.grid_prods = New System.Windows.Forms.DataGridView()
-        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UndVEnta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.isr = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ieps_Porcentaje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iepsTasaCuota = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.iva_ret_porcent = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FactGlobal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FactGlobalIEPS = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBoxCLIENTE = New System.Windows.Forms.GroupBox()
         Me.txt_nombrec = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -390,6 +368,28 @@ Partial Class frmfacturacion
         Me.EditarDescripcionLargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.lblfolioventa = New System.Windows.Forms.Label()
+        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UndVEnta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.isr = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ieps_Porcentaje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iepsTasaCuota = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iva_ret_porcent = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FactGlobal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FactGlobalIEPS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox20.SuspendLayout()
         Me.gbLE.SuspendLayout()
@@ -3090,147 +3090,6 @@ Partial Class frmfacturacion
         Me.grid_prods.Size = New System.Drawing.Size(1186, 182)
         Me.grid_prods.TabIndex = 23
         '
-        'Codigo
-        '
-        Me.Codigo.HeaderText = "Codigo"
-        Me.Codigo.Name = "Codigo"
-        Me.Codigo.ReadOnly = True
-        Me.Codigo.Visible = False
-        '
-        'Descripcion
-        '
-        Me.Descripcion.HeaderText = "Descripción"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Descripcion.Width = 250
-        '
-        'UndVEnta
-        '
-        Me.UndVEnta.HeaderText = "U. Venta"
-        Me.UndVEnta.Name = "UndVEnta"
-        Me.UndVEnta.ReadOnly = True
-        '
-        'Cantidad
-        '
-        Me.Cantidad.HeaderText = "Cantidad"
-        Me.Cantidad.Name = "Cantidad"
-        Me.Cantidad.ReadOnly = True
-        Me.Cantidad.Width = 70
-        '
-        'Precio
-        '
-        Me.Precio.HeaderText = "Precio/U"
-        Me.Precio.Name = "Precio"
-        Me.Precio.ReadOnly = True
-        '
-        'Total
-        '
-        Me.Total.HeaderText = "Total"
-        Me.Total.Name = "Total"
-        Me.Total.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Precio/U iva"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Total C/Iva"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Pocentaje IVA"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Descuento"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "IVA Retenido"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Visible = False
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "IEPS"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Desc_larga"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Partida"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
-        Me.Column8.Width = 60
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Prod SAT"
-        Me.Column9.Name = "Column9"
-        '
-        'isr
-        '
-        Me.isr.HeaderText = "isr"
-        Me.isr.Name = "isr"
-        Me.isr.Visible = False
-        '
-        'Ieps_Porcentaje
-        '
-        Me.Ieps_Porcentaje.HeaderText = "Ieps_Porcentaje"
-        Me.Ieps_Porcentaje.Name = "Ieps_Porcentaje"
-        Me.Ieps_Porcentaje.Visible = False
-        '
-        'iepsTasaCuota
-        '
-        Me.iepsTasaCuota.HeaderText = "iepsTasaCuota"
-        Me.iepsTasaCuota.Name = "iepsTasaCuota"
-        Me.iepsTasaCuota.Visible = False
-        '
-        'iva_ret_porcent
-        '
-        Me.iva_ret_porcent.HeaderText = "iva_ret_porcent"
-        Me.iva_ret_porcent.Name = "iva_ret_porcent"
-        Me.iva_ret_porcent.Visible = False
-        '
-        'FactGlobal
-        '
-        Me.FactGlobal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.FactGlobal.HeaderText = "FactGlobal"
-        Me.FactGlobal.Name = "FactGlobal"
-        Me.FactGlobal.Visible = False
-        '
-        'FactGlobalIEPS
-        '
-        Me.FactGlobalIEPS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.FactGlobalIEPS.HeaderText = "FactGlobalIEPS"
-        Me.FactGlobalIEPS.Name = "FactGlobalIEPS"
-        Me.FactGlobalIEPS.Visible = False
-        '
-        'Column16
-        '
-        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column16.HeaderText = "BaseIepsReal"
-        Me.Column16.Name = "Column16"
-        Me.Column16.Visible = False
-        '
         'GroupBoxCLIENTE
         '
         Me.GroupBoxCLIENTE.Controls.Add(Me.txt_nombrec)
@@ -3597,7 +3456,7 @@ Partial Class frmfacturacion
         Me.chkAumentarISR.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAumentarISR.Location = New System.Drawing.Point(1116, 308)
         Me.chkAumentarISR.Name = "chkAumentarISR"
-        Me.chkAumentarISR.Size = New System.Drawing.Size(87, 20)
+        Me.chkAumentarISR.Size = New System.Drawing.Size(88, 20)
         Me.chkAumentarISR.TabIndex = 91
         Me.chkAumentarISR.Text = "ISR 1.25%"
         Me.chkAumentarISR.UseVisualStyleBackColor = True
@@ -4078,6 +3937,149 @@ Partial Class frmfacturacion
         Me.lblfolioventa.TabIndex = 96
         Me.lblfolioventa.Visible = False
         '
+        'Codigo
+        '
+        Me.Codigo.HeaderText = "Codigo"
+        Me.Codigo.Name = "Codigo"
+        Me.Codigo.ReadOnly = True
+        Me.Codigo.Visible = False
+        '
+        'Descripcion
+        '
+        Me.Descripcion.HeaderText = "Descripción"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Descripcion.Width = 250
+        '
+        'UndVEnta
+        '
+        Me.UndVEnta.HeaderText = "U. Venta"
+        Me.UndVEnta.Name = "UndVEnta"
+        Me.UndVEnta.ReadOnly = True
+        '
+        'Cantidad
+        '
+        Me.Cantidad.HeaderText = "Cantidad"
+        Me.Cantidad.Name = "Cantidad"
+        Me.Cantidad.ReadOnly = True
+        Me.Cantidad.Width = 70
+        '
+        'Precio
+        '
+        Me.Precio.HeaderText = "Precio/U"
+        Me.Precio.Name = "Precio"
+        Me.Precio.ReadOnly = True
+        '
+        'Total
+        '
+        Me.Total.HeaderText = "Total"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Precio/U iva"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Total C/Iva"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Pocentaje IVA"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Descuento"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "IVA Retenido"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Visible = False
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "IEPS"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Desc_larga"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Partida"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
+        Me.Column8.Width = 60
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Prod SAT"
+        Me.Column9.Name = "Column9"
+        '
+        'isr
+        '
+        Me.isr.HeaderText = "isr"
+        Me.isr.Name = "isr"
+        Me.isr.Visible = False
+        '
+        'Ieps_Porcentaje
+        '
+        Me.Ieps_Porcentaje.HeaderText = "Ieps_Porcentaje"
+        Me.Ieps_Porcentaje.Name = "Ieps_Porcentaje"
+        Me.Ieps_Porcentaje.Visible = False
+        '
+        'iepsTasaCuota
+        '
+        Me.iepsTasaCuota.HeaderText = "iepsTasaCuota"
+        Me.iepsTasaCuota.Name = "iepsTasaCuota"
+        Me.iepsTasaCuota.Visible = False
+        '
+        'iva_ret_porcent
+        '
+        Me.iva_ret_porcent.HeaderText = "iva_ret_porcent"
+        Me.iva_ret_porcent.Name = "iva_ret_porcent"
+        Me.iva_ret_porcent.Visible = False
+        '
+        'FactGlobal
+        '
+        Me.FactGlobal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.FactGlobal.HeaderText = "FactGlobal"
+        Me.FactGlobal.Name = "FactGlobal"
+        Me.FactGlobal.Visible = False
+        Me.FactGlobal.Width = 88
+        '
+        'FactGlobalIEPS
+        '
+        Me.FactGlobalIEPS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.FactGlobalIEPS.HeaderText = "FactGlobalIEPS"
+        Me.FactGlobalIEPS.Name = "FactGlobalIEPS"
+        Me.FactGlobalIEPS.Visible = False
+        Me.FactGlobalIEPS.Width = 110
+        '
+        'Column16
+        '
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column16.HeaderText = "BaseIepsReal"
+        Me.Column16.Name = "Column16"
+        Me.Column16.Width = 99
+        '
         'frmfacturacion
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -4446,28 +4448,6 @@ Partial Class frmfacturacion
     Friend WithEvents lbl_proceso As Label
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents grid_prods As DataGridView
-    Friend WithEvents Codigo As DataGridViewTextBoxColumn
-    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents UndVEnta As DataGridViewTextBoxColumn
-    Friend WithEvents Cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents Precio As DataGridViewTextBoxColumn
-    Friend WithEvents Total As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents isr As DataGridViewTextBoxColumn
-    Friend WithEvents Ieps_Porcentaje As DataGridViewTextBoxColumn
-    Friend WithEvents iepsTasaCuota As DataGridViewTextBoxColumn
-    Friend WithEvents iva_ret_porcent As DataGridViewTextBoxColumn
-    Friend WithEvents FactGlobal As DataGridViewTextBoxColumn
-    Friend WithEvents FactGlobalIEPS As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBoxCLIENTE As GroupBox
     Friend WithEvents txt_nombrec As TextBox
     Friend WithEvents Label19 As Label
@@ -4555,4 +4535,26 @@ Partial Class frmfacturacion
     Friend WithEvents txt_prodsat As TextBox
     Friend WithEvents Button14 As Button
     Friend WithEvents lblfolioventa As Label
+    Friend WithEvents Codigo As DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents UndVEnta As DataGridViewTextBoxColumn
+    Friend WithEvents Cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents Precio As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents isr As DataGridViewTextBoxColumn
+    Friend WithEvents Ieps_Porcentaje As DataGridViewTextBoxColumn
+    Friend WithEvents iepsTasaCuota As DataGridViewTextBoxColumn
+    Friend WithEvents iva_ret_porcent As DataGridViewTextBoxColumn
+    Friend WithEvents FactGlobal As DataGridViewTextBoxColumn
+    Friend WithEvents FactGlobalIEPS As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
 End Class
