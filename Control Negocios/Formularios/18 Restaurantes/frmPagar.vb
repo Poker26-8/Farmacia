@@ -1297,6 +1297,7 @@ Door:
                         cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
                         cmd4.ExecuteNonQuery()
                         cnn4.Close()
+
                     End If
                 End If
             End If
@@ -1464,7 +1465,7 @@ Door:
         Me.Close()
 
         frmMesas.Close()
-            frmMesas.Show()
+        frmMesas.Show()
 
 
 
