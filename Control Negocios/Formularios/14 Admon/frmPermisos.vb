@@ -439,6 +439,9 @@
         cat_Cli.Checked = MyVal
         cat_Pro.Checked = MyVal
         cat_Mon.Checked = MyVal
+        cat_Formas.Checked = MyVal
+        cat_Bancos.Checked = MyVal
+        cat_cuentas.Checked = MyVal
     End Sub
 
     Private Sub lblasistencia_Click(sender As System.Object, e As System.EventArgs) Handles lblasistencia.Click
@@ -492,6 +495,10 @@
         Dim MyVal As Boolean = False
         If ing_Emp.Checked = True Then MyVal = False Else MyVal = True
         ing_Emp.Checked = MyVal
+        egr_Emp.Checked = MyVal
+        egr_Nom.Checked = MyVal
+        egr_Tra.Checked = MyVal
+        egr_Gas.Checked = MyVal
     End Sub
 
     Private Sub lblegresos_Click(sender As System.Object, e As System.EventArgs)

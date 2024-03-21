@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports MySql.Data.MySqlClient
 
 Public Class frmTraspEntrada
     Dim renglon As Integer = 0
@@ -35,18 +36,57 @@ Public Class frmTraspEntrada
     Private Sub cbo_DropDown(sender As System.Object, e As System.EventArgs) Handles cbo.DropDown
         cbo.Items.Clear()
         Try
-            cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Nombre from Traslados where Concepto='ENTRADA'"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cbo.Items.Add(
-                    rd1(0).ToString
-                    )
-            Loop
-            rd1.Close() : cnn1.Close()
+            Dim sincro As Integer = 0
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Sincronizador'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    sincro = rd2(0).ToString
+
+                End If
+            End If
+            rd2.Close()
+
+
+            If sincro = 0 Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select distinct Nombre from Traslados where Concepto='ENTRADA'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbo.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close() : cnn1.Close()
+
+            Else
+                Dim cnn As MySqlConnection = New MySqlConnection
+                Dim sSQL As String = "SELECT Distinct nombre FROM sucursales order by Nombre"
+                Dim dt1 As New DataTable
+                Dim dr As DataRow
+                Dim sinfo As String = ""
+                Dim oData As New ToolKitSQL.myssql
+                With oData
+                    If .dbOpen(cnn, sTargetdSincro, sinfo) Then
+                        If .getDt(cnn, dt1, sSQL, "etres") Then
+                            For Each dr In dt1.Rows
+                                cbo.Items.Add(dr("nombre").ToString)
+                            Next
+                        End If
+                        cnn.Close()
+                    End If
+                End With
+
+            End If
+
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -418,7 +458,7 @@ Public Class frmTraspEntrada
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into TrasladosDet(Id,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,Folio,CostVR) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "','ENTRADA','" & depto & "','" & grupo & "'," & lblfolio.Text & ",'')"
+                    "insert into TrasladosDet(Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,Fecha,Concepto,Depto,Grupo,CostVR) values(" & MYFOLIO & ",'" & codigo & "','" & nombre & "','" & unidad & "'," & cantidad & "," & precio & "," & total & "," & existe & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd HH:mm:ss") & "','ENTRADA','" & depto & "','" & grupo & "','')"
                 cmd1.ExecuteNonQuery()
 
                 Dim MyExiste As Double = 0

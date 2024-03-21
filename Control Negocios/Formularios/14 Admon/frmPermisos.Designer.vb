@@ -26,6 +26,9 @@ Partial Class frmPermisos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblcatalogos = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cat_cuentas = New System.Windows.Forms.CheckBox()
+        Me.cat_Formas = New System.Windows.Forms.CheckBox()
+        Me.cat_Bancos = New System.Windows.Forms.CheckBox()
         Me.cat_Mon = New System.Windows.Forms.CheckBox()
         Me.cat_Pro = New System.Windows.Forms.CheckBox()
         Me.cat_Cli = New System.Windows.Forms.CheckBox()
@@ -141,9 +144,6 @@ Partial Class frmPermisos
         Me.txt1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cat_Bancos = New System.Windows.Forms.CheckBox()
-        Me.cat_Formas = New System.Windows.Forms.CheckBox()
-        Me.cat_cuentas = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -201,6 +201,36 @@ Partial Class frmPermisos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(152, 147)
         Me.Panel1.TabIndex = 45
+        '
+        'cat_cuentas
+        '
+        Me.cat_cuentas.AutoSize = True
+        Me.cat_cuentas.Location = New System.Drawing.Point(3, 123)
+        Me.cat_cuentas.Name = "cat_cuentas"
+        Me.cat_cuentas.Size = New System.Drawing.Size(120, 17)
+        Me.cat_cuentas.TabIndex = 6
+        Me.cat_cuentas.Text = "Cuentas bancarias"
+        Me.cat_cuentas.UseVisualStyleBackColor = True
+        '
+        'cat_Formas
+        '
+        Me.cat_Formas.AutoSize = True
+        Me.cat_Formas.Location = New System.Drawing.Point(3, 82)
+        Me.cat_Formas.Name = "cat_Formas"
+        Me.cat_Formas.Size = New System.Drawing.Size(109, 17)
+        Me.cat_Formas.TabIndex = 5
+        Me.cat_Formas.Text = "Formas de pago"
+        Me.cat_Formas.UseVisualStyleBackColor = True
+        '
+        'cat_Bancos
+        '
+        Me.cat_Bancos.AutoSize = True
+        Me.cat_Bancos.Location = New System.Drawing.Point(3, 102)
+        Me.cat_Bancos.Name = "cat_Bancos"
+        Me.cat_Bancos.Size = New System.Drawing.Size(62, 17)
+        Me.cat_Bancos.TabIndex = 4
+        Me.cat_Bancos.Text = "Bancos"
+        Me.cat_Bancos.UseVisualStyleBackColor = True
         '
         'cat_Mon
         '
@@ -1354,7 +1384,7 @@ Partial Class frmPermisos
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Location = New System.Drawing.Point(137, 200)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(373, 225)
+        Me.GroupBox3.Size = New System.Drawing.Size(372, 220)
         Me.GroupBox3.TabIndex = 231
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Recuperacion de contraseñas"
@@ -1461,36 +1491,6 @@ Partial Class frmPermisos
         Me.Label3.Size = New System.Drawing.Size(67, 15)
         Me.Label3.TabIndex = 48
         Me.Label3.Text = "Pregunta 1:"
-        '
-        'cat_Bancos
-        '
-        Me.cat_Bancos.AutoSize = True
-        Me.cat_Bancos.Location = New System.Drawing.Point(3, 102)
-        Me.cat_Bancos.Name = "cat_Bancos"
-        Me.cat_Bancos.Size = New System.Drawing.Size(62, 17)
-        Me.cat_Bancos.TabIndex = 4
-        Me.cat_Bancos.Text = "Bancos"
-        Me.cat_Bancos.UseVisualStyleBackColor = True
-        '
-        'cat_Formas
-        '
-        Me.cat_Formas.AutoSize = True
-        Me.cat_Formas.Location = New System.Drawing.Point(3, 82)
-        Me.cat_Formas.Name = "cat_Formas"
-        Me.cat_Formas.Size = New System.Drawing.Size(109, 17)
-        Me.cat_Formas.TabIndex = 5
-        Me.cat_Formas.Text = "Formas de pago"
-        Me.cat_Formas.UseVisualStyleBackColor = True
-        '
-        'cat_cuentas
-        '
-        Me.cat_cuentas.AutoSize = True
-        Me.cat_cuentas.Location = New System.Drawing.Point(3, 123)
-        Me.cat_cuentas.Name = "cat_cuentas"
-        Me.cat_cuentas.Size = New System.Drawing.Size(120, 17)
-        Me.cat_cuentas.TabIndex = 6
-        Me.cat_cuentas.Text = "Cuentas bancarias"
-        Me.cat_cuentas.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '

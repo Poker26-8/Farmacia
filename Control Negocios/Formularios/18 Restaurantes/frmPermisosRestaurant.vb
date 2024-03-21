@@ -208,10 +208,18 @@
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            id_empleado = rd1("IdEmpleado").ToString
-                            lblusuario.Text = rd1("Alias").ToString
+                            If rd1("Area").ToString = "ADMINISTRACIÓN" Or rd1("Area").ToString = "OPERACIÓN" Then
+                                id_empleado = rd1("IdEmpleado").ToString
+                                lblusuario.Text = rd1("Alias").ToString
+                            Else
+                                MsgBox("Solo los administradores pueden modificar los permisos", vbInformation + vbOKOnly, titulorestaurante)
+                                txtcontra.Text = ""
+                                txtcontra.Focus.Equals(True)
+                                Exit Sub
+                            End If
+
                         End If
-                    End If
+                        End If
                     rd1.Close()
 
                     cmd1 = cnn1.CreateCommand

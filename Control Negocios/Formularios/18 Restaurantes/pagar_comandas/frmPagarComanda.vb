@@ -40,6 +40,48 @@ Public Class frmPagarComanda
     Private Sub frmPagarComanda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TFecha.Start()
         TFolio.Start()
+
+
+        TraerUsuario()
+    End Sub
+
+    Public Sub TraerUsuario()
+
+        Try
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    If rd2(0).ToString = 1 Then
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.HasRows Then
+                            If rd3.Read Then
+                                lblUsuario.Text = rd3(0).ToString
+                                txtContra.Text = rd3(1).ToString
+                            End If
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+                    Else
+                        lblUsuario.Text = ""
+                        txtContra.Text = ""
+                    End If
+
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+
     End Sub
 
     Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
@@ -90,7 +132,7 @@ Public Class frmPagarComanda
                     If rd1.Read Then
 
                         If rd1(2).ToString = "MESERO" Or rd1(3).ToString = "MESERO" Then
-                            MsgBox("ES MESERO")
+                            MsgBox("No puede realizar ninguna de estas operaciones", vbInformation + vbOKOnly, titulorestaurante)
                             lblUsuario.Text = ""
                             txtContra.Text = ""
                             txtContra.Focus.Equals(True)
@@ -100,7 +142,7 @@ Public Class frmPagarComanda
                             idempleado = rd1(0).ToString
                             aleas = rd1(1).ToString
                             lblUsuario.Text = aleas
-
+                            usuarioingresado = lblUsuario.Text
 
                         End If
                     End If
@@ -498,6 +540,9 @@ Public Class frmPagarComanda
         cboMesa.Text = ""
         grdCaptura.Rows.Clear()
         pCambioMesa.Visible = False
+
+        TraerUsuario()
+
         cboMesa.Focused.Equals(True)
     End Sub
 
@@ -3664,4 +3709,6 @@ Door:
         End Try
 
     End Sub
+
+
 End Class

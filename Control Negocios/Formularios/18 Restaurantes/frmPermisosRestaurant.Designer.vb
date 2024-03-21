@@ -250,6 +250,7 @@ Partial Class frmPermisosRestaurant
         Me.txttolerancia.Name = "txttolerancia"
         Me.txttolerancia.Size = New System.Drawing.Size(71, 22)
         Me.txttolerancia.TabIndex = 0
+        Me.txttolerancia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox19
         '
@@ -379,7 +380,7 @@ Partial Class frmPermisosRestaurant
         '
         Me.cbmesas.AutoSize = True
         Me.cbmesas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbmesas.Location = New System.Drawing.Point(3, 234)
+        Me.cbmesas.Location = New System.Drawing.Point(3, 169)
         Me.cbmesas.Name = "cbmesas"
         Me.cbmesas.Size = New System.Drawing.Size(67, 20)
         Me.cbmesas.TabIndex = 239
@@ -411,7 +412,7 @@ Partial Class frmPermisosRestaurant
         'chkSinComensal
         '
         Me.chkSinComensal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkSinComensal.Location = New System.Drawing.Point(3, 191)
+        Me.chkSinComensal.Location = New System.Drawing.Point(3, 215)
         Me.chkSinComensal.Name = "chkSinComensal"
         Me.chkSinComensal.Size = New System.Drawing.Size(147, 49)
         Me.chkSinComensal.TabIndex = 236
@@ -422,7 +423,7 @@ Partial Class frmPermisosRestaurant
         '
         Me.cbSeparadas.AutoSize = True
         Me.cbSeparadas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbSeparadas.Location = New System.Drawing.Point(3, 171)
+        Me.cbSeparadas.Location = New System.Drawing.Point(3, 198)
         Me.cbSeparadas.Name = "cbSeparadas"
         Me.cbSeparadas.Size = New System.Drawing.Size(146, 20)
         Me.cbSeparadas.TabIndex = 0
