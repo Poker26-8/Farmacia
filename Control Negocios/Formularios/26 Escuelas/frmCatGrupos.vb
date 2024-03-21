@@ -113,17 +113,13 @@
                     MsgBox("El grupo ya existe.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
 
                     txtId.Text = rd2("Id").ToString()
-                    dtpInicio.Text = rd2("Inicio").ToString()
-                    dtpTermino.Text = rd2("Termino").ToString()
-                    txtcupo.Text = rd2("Cupo").ToString()
                     My.Application.DoEvents()
-
 
                     If MsgBox("¿Deseas actualizar los datos del grupo?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                         'Actualiza datos del grupo
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "update Grupos set Nombre='" & cbogrupo.Text & "', Inicio='" & Inicio & "', Termino='" & Termino & "', Cupo=" & txtcupo.Text & " where Id=" & txtId.Text
+                            "update Grupos set Nombre='" & cbogrupo.Text & "', Inicio='" & Inicio & "', Termino='" & Termino & "', Cupo=" & txtcupo.Text & " where Id=" & rd2("Id").ToString()
                         If cmd1.ExecuteNonQuery Then
                             MsgBox("Datos de grupo actualizados.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         End If
