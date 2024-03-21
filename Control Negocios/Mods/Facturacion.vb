@@ -6024,8 +6024,10 @@ puertaXD1:
                                 End If
 
                             Else
-                                '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
-                                .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+
+                                '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+                                .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
+
                             End If
                             .WriteEndElement() ' fin Traslado
                             .WriteEndElement() ' fin Traslados
@@ -6266,7 +6268,7 @@ puertaXD1:
 
                                     'nuevoIEPS_SinIVA += CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2))
 
-                                    .WriteAttributeString("Importe", Replace(CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 2)), ",", ""))
+                                    .WriteAttributeString("Importe", Replace(CDec(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(11).Value.ToString, 6)), ",", ""))
                                     .WriteAttributeString("TipoFactor", frmfacturacion.grid_prods.Rows(i).Cells(17).Value.ToString)
                                     .WriteAttributeString("TasaOCuota", FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6))
                                     ieps_porcentaje = FormatNumber(CDec(frmfacturacion.grid_prods.Rows(i).Cells(16).Value.ToString), 6)
@@ -6588,8 +6590,10 @@ puertaXD1:
                                         End If
                                     End If
                                 Else
-                                    '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
-                                    .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+
+                                    '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+                                    .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
+
                                 End If
                                 .WriteEndElement() ' fin Traslado
                                 .WriteEndElement() ' fin Traslados

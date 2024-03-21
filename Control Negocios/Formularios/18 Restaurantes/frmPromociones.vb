@@ -691,22 +691,23 @@
 
     Private Sub cboCodigo_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodigo.SelectedValueChanged
         Try
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Nombre,UVenta FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    cboNombre.Text = rd2("Nombre").ToString
-                    txtUnidad.Text = rd2("UVenta").ToString
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "SELECT * FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    cboNombre.Text = rd3("Nombre").ToString()
+                    txtUnidad.Text = rd3("UVenta").ToString()
                 End If
             End If
-            rd2.Close()
-            cnn2.Close()
-
+            rd3.Close()
+            cnn3.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn2.Close()
+            cnn3.Close()
         End Try
     End Sub
 
@@ -776,49 +777,5 @@
             MessageBox.Show(ex.ToString)
             cnn3.Close()
         End Try
-    End Sub
-
-    Private Sub Label17_Click(sender As Object, e As EventArgs) Handles Label17.Click
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
-
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
-
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
-
-    End Sub
-
-    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
-
-    End Sub
-
-    Private Sub Label22_Click(sender As Object, e As EventArgs) Handles Label22.Click
-
-    End Sub
-
-    Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click
-
     End Sub
 End Class

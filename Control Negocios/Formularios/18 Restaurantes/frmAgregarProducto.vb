@@ -1467,7 +1467,6 @@ Public Class frmAgregarProducto
 
             End If
 
-
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
