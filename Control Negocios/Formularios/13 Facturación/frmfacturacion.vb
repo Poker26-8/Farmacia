@@ -7061,10 +7061,20 @@ puerta_FacturaG:
                                             Dim nuevoieps As Double = 0
 
                                             If varIva = "0" Then
+                                                Dim totaliva As Double = 0
+
                                                 total = FormatNumber(CDec(dr(3).ToString) * CDec(dr("Precio").ToString), 2)
                                                 opeieps = FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr("Precio").ToString / 1, 6)), 6)
-                                                nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 2)
-                                                total = FormatNumber(total - CDec(FormatNumber(CDec(opeieps) * 0, 6)) - nuevoieps, 6)
+                                                'nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 2)
+                                                nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 6)
+                                                'total = FormatNumber(total - CDec(FormatNumber(CDec(opeieps) * 0, 6)) - nuevoieps, 6)
+                                                totaliva = FormatNumber(total - CDec(opeieps * 0) - nuevoieps, 6)
+                                                total = FormatNumber(CDec(totaliva), 6)
+
+                                                Dim nuevopresio As Double = 0
+                                                nuevopresio = CDec(FormatNumber(total / dr(3).ToString, 6)) * dr(3).ToString
+                                                nuevoieps = FormatNumber(CDec(FormatNumber(nuevopresio, 6)) * CDec(varIEPS), 6)
+
 
                                                 If chkAumentarISR.Checked = True Then
                                                     Dim varopeisr As Double = 1.25 / 100
@@ -7076,17 +7086,19 @@ puerta_FacturaG:
                                                     total = nuevototal
                                                     Dim nuevototaliva As Double = FormatNumber(total, 6)
 
+
                                                     If varIEPS <> "0" Then
                                                         Dim newmontoiepsisr As Double = 0
-                                                        newmontoiepsisr = FormatNumber(total * varIEPS, 2)
+                                                        newmontoiepsisr = FormatNumber(total * varIEPS, 6)
 
-                                                        grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber((nuevototaliva + newmontoiepsisr) / dr(3).ToString, 6), FormatNumber(CDec(nuevototaliva) + CDec(newmontoiepsisr), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(newmontoiepsisr, 2), varDescLarg, CStr(txt_partida.Text), varClaveProd, varopeisr, varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
+                                                        grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber((nuevototaliva + newmontoiepsisr) / dr(3).ToString, 6), FormatNumber(CDec(nuevototaliva) + CDec(newmontoiepsisr), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(newmontoiepsisr, 6), varDescLarg, CStr(txt_partida.Text), varClaveProd, varopeisr, varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
                                                     Else
-                                                        grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber(nuevototaliva / dr(3).ToString, 6), FormatNumber(CDec(nuevototaliva), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(nuevoieps, 2), varDescLarg, CStr(txt_partida.Text), varClaveProd, varopeisr, varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
+                                                        grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber(nuevototaliva / dr(3).ToString, 6), FormatNumber(CDec(nuevototaliva), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(nuevoieps, 6), varDescLarg, CStr(txt_partida.Text), varClaveProd, varopeisr, varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
                                                     End If
 
                                                 Else
-                                                    grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber(dr("Precio").ToString, 6), FormatNumber(CDec(dr("Precio").ToString) * CDec(dr(3).ToString), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(nuevoieps, 2), varDescLarg, CStr(txt_partida.Text), varClaveProd, "0", varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
+                                                    grid_prods.Rows.Insert(var1, dr(0).ToString, dr(1).ToString, varUniMed, dr(3).ToString, FormatNumber(total / dr(3).ToString, 6), FormatNumber(total, 6), FormatNumber(dr("Precio").ToString, 6), FormatNumber(CDec(dr("Precio").ToString) * CDec(dr(3).ToString), 6), varIva, varDscto, FormatNumber(FormatNumber(CDec(dr(3).ToString) * CDec(FormatNumber(dr(4).ToString, 6)), 6) * varIvaReten, 6), FormatNumber(nuevoieps, 6), varDescLarg, CStr(txt_partida.Text), varClaveProd, "0", varIEPS, IIf(varIEPS = "0", "", "Tasa"), varIvaReten, "", "", "")
+
                                                 End If
 
                                             Else
@@ -7103,12 +7115,14 @@ puerta_FacturaG:
                                                     nuevopresio = CDec(FormatNumber(total / dr(3).ToString, 6)) * dr(3).ToString
                                                     nuevoieps = FormatNumber(CDec(FormatNumber(nuevopresio, 6)) * CDec(varIEPS), 6)
 
+
                                                 Else
                                                     total = FormatNumber(CDec(dr(3).ToString) * CDec(dr("Precio").ToString), 2)
                                                     opeieps = FormatNumber(CDec(CDec(dr("Precio").ToString) * CDec(dr(3).ToString)) / 1.16, 6)
                                                     nuevoieps = FormatNumber(CDec(FormatNumber(opeieps / (CDec(1 + varIEPS)), 6)) * CDec(varIEPS), 6)
                                                     totaliva = FormatNumber(total - CDec(opeieps) - nuevoieps, 6)
                                                     total = FormatNumber(total - CDec(totaliva), 6)
+
 
                                                 End If
 

@@ -6024,8 +6024,10 @@ puertaXD1:
                                 End If
 
                             Else
-                                '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
-                                .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+
+                                '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+                                .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
+
                             End If
                             .WriteEndElement() ' fin Traslado
                             .WriteEndElement() ' fin Traslados
@@ -6588,8 +6590,10 @@ puertaXD1:
                                         End If
                                     End If
                                 Else
-                                    '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
-                                    .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+
+                                    '.WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(21).Value.ToString, 6), ",", ""))
+                                    .WriteAttributeString("Base", Replace(FormatNumber(frmfacturacion.grid_prods.Rows(i).Cells(4).Value.ToString * CDbl(frmfacturacion.grid_prods.Rows(i).Cells(3).Value.ToString), 6), ",", ""))
+
                                 End If
                                 .WriteEndElement() ' fin Traslado
                                 .WriteEndElement() ' fin Traslados
