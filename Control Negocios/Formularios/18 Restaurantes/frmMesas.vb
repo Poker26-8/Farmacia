@@ -16,9 +16,8 @@ Public Class frmMesas
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
-        If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("¿Deseas cerrar esta ventana?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             frmMesas.ActiveForm.Close()
-
         End If
 
     End Sub
