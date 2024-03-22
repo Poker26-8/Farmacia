@@ -1369,25 +1369,33 @@
 
 
     'Devoluciones
-    Public vartabladevoluciones As String = "CREATE TABLE IF NOT EXISTS `devoluciones` (
-                                          `Id` int(11) NOT NULL,
-                                          `Folio` int(11) NOT NULL DEFAULT '0',
-                                          `Codigo` varchar(50) NOT NULL DEFAULT '',
-                                          `Nombre` varchar(255) NOT NULL DEFAULT '',
-                                          `Cantidad` float NOT NULL DEFAULT '0',
-                                          `UVenta` varchar(50) NOT NULL DEFAULT '',
-                                          `CostoVUE` float NOT NULL DEFAULT '0',
-                                          `Precio` float NOT NULL DEFAULT '0',
-                                          `Total` float NOT NULL DEFAULT '0',
-                                          `PrecioSinIVA` float NOT NULL DEFAULT '0',
-                                          `TotalSinIVA` float NOT NULL DEFAULT '0',
-                                          `Fecha` datetime NOT NULL,
-                                          `Facturado` varchar(150) NOT NULL DEFAULT '',
-                                          `Depto` varchar(100) NOT NULL DEFAULT '',
-                                          `Grupo` varchar(100) NOT NULL DEFAULT '',
-                                          `Cargado` int(1) NOT NULL DEFAULT '0',
-                                          `FolioReporte` int(11) NOT NULL DEFAULT '0'
-                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    Public vartabladevoluciones As String = "CREATE TABLE `devoluciones` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Folio` int(11) NOT NULL DEFAULT '0',
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(255) NOT NULL DEFAULT '',
+                                                  `Cantidad` float NOT NULL DEFAULT '0',
+                                                  `UVenta` varchar(50) NOT NULL DEFAULT '',
+                                                  `CostVR` float NOT NULL DEFAULT '0',
+                                                  `CostVP` float NOT NULL DEFAULT '0',
+                                                  `CostoVUE` float NOT NULL DEFAULT '0',
+                                                  `Precio` float NOT NULL DEFAULT '0',
+                                                  `Total` float NOT NULL DEFAULT '0',
+                                                  `PrecioSinIVA` float NOT NULL DEFAULT '0',
+                                                  `TotalSinIVA` float NOT NULL DEFAULT '0',
+                                                  `Fecha` datetime NOT NULL,
+                                                  `Comisionista` varchar(50) NOT NULL DEFAULT '',
+                                                  `Facturado` varchar(150) NOT NULL DEFAULT '',
+                                                  `Depto` varchar(100) NOT NULL DEFAULT '',
+                                                  `Grupo` varchar(100) NOT NULL DEFAULT '',
+                                                  `ImporteEfec` float NOT NULL DEFAULT '0',
+                                                  `NMESA` varchar(80) NOT NULL DEFAULT '',
+                                                  `CUsuario` varchar(50) NOT NULL DEFAULT '',
+                                                  `Hr` time NOT NULL,
+                                                  `TipoMov` varchar(80) NOT NULL DEFAULT '',
+                                                  `Cargado` int(1) NOT NULL DEFAULT '0',
+                                                  `FolioReporte` int(11) NOT NULL DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
 

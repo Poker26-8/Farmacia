@@ -5,6 +5,7 @@ Public Class frmMesas
 
     Friend WithEvents btnArea As System.Windows.Forms.Button
     Friend WithEvents btnMesa As System.Windows.Forms.Button
+    Friend WithEvents btnMesaNM As System.Windows.Forms.Button
 
     Dim down As Boolean = False
     Dim inicial, final As New Point
@@ -13,7 +14,12 @@ Public Class frmMesas
     Dim idempleado As Integer = 0
 
     Public montomapeo As Double = 0
+    Public mapearmesas As Integer = 0
 
+    Dim simesaspropianm As Integer = 0
+    Dim simesaspropusuarionm As Integer = 0
+
+    Dim nombreubicacion As String = ""
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
@@ -32,7 +38,7 @@ Public Class frmMesas
 
 
         Me.Text = "Mesas mapeables" & Strings.Space(55) & "COMANDERO"
-        TRAERLUGAR()
+
 
         cnn1.Close() : cnn1.Open()
         cnn2.Close() : cnn2.Open()
@@ -64,16 +70,42 @@ Public Class frmMesas
             End If
         End If
         rd1.Close()
-        cnn1.Close()
         cnn2.Close()
 
-        If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-            pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-            pmesas.BackgroundImageLayout = ImageLayout.Stretch
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Mapeo'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                mapearmesas = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
 
+        If mapearmesas = 1 Then
+            TRAERLUGAR()
+            primerBoton()
+
+            pmesas.Visible = True
+            pmesaNM.Visible = False
+
+            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                pmesas.BackgroundImageLayout = ImageLayout.Stretch
+
+            End If
+        Else
+            pmesaNM.Visible = True
+            pmesas.Visible = False
+            CrearBD_MesaNM()
+
+            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+            End If
         End If
 
-        primerBoton()
 
     End Sub
 
@@ -158,6 +190,7 @@ Public Class frmMesas
     Private Sub btnArea_Click(sender As Object, e As EventArgs)
         pmesas.Controls.Clear()
         Dim mesa As Button = CType(sender, Button)
+        nombreubicacion = btnArea.Text
         Crea_Mesas(mesa.Text)
         Dim valor As String = ""
         valor = mesa.Text
@@ -173,7 +206,8 @@ Public Class frmMesas
                 End If
             End If
         Next
-        Me.Text = mesa.Text
+        Me.Text = Strings.Space(160) & "COMANDERA" & Strings.Space(55) & mesa.Text
+
     End Sub
 
     Public Sub Crea_Mesas(ByVal ubicacion As String)
@@ -245,7 +279,7 @@ Public Class frmMesas
                 If simesaspropusuario = 1 Then
                     cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa  WHERE Ubicacion='" & ubicacion & "' order by Orden"
                 Else
-                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='"& ubicacion &"' order by Orden"
+                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                 End If
             Else
                 cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa WHERE Ubicacion='" & ubicacion & "' ORDER BY Orden"
@@ -333,6 +367,7 @@ Public Class frmMesas
                         btnMesa.Width = 100
                         btnMesa.Height = 100
                     End If
+
                     If tipo = "4" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 4.png"
                         If File.Exists(ruta) Then
@@ -345,6 +380,7 @@ Public Class frmMesas
                             btnMesa.Height = 100
                         End If
                     End If
+
                     If tipo = "6" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 6.png"
                         If File.Exists(ruta) Then
@@ -357,6 +393,7 @@ Public Class frmMesas
                             btnMesa.Height = 100
                         End If
                     End If
+
                     If tipo = "8" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 8.png"
                         If File.Exists(ruta) Then
@@ -369,6 +406,7 @@ Public Class frmMesas
                             btnMesa.Height = 100
                         End If
                     End If
+
                     If tipo = "10" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 10.png"
                         If File.Exists(ruta) Then
@@ -381,6 +419,7 @@ Public Class frmMesas
                             btnMesa.Height = 100
                         End If
                     End If
+
                     If tipo = "B" Then
                         Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\BILLAR.png"
                         If File.Exists(ruta) Then
@@ -393,6 +432,7 @@ Public Class frmMesas
                             btnMesa.Height = 100
                         End If
                     End If
+
                     btnMesa.BackgroundImageLayout = ImageLayout.Zoom
 
                     pmesas.Controls.Add(btnMesa)
@@ -409,6 +449,296 @@ Public Class frmMesas
             MessageBox.Show(ex.ToString)
         End Try
 
+    End Sub
+
+    Private Function ObtenerTotalMesas() As Integer
+        ' Aquí implementa la lógica para obtener el total de mesas
+        Dim totalmesa2 As Double = 0
+
+        cnn3.Close() : cnn3.Open()
+        cmd3 = cnn3.CreateCommand
+        cmd3.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
+        rd3 = cmd3.ExecuteReader
+        If rd3.HasRows Then
+            If rd3.Read Then
+                If rd3("NotasCred").ToString = 1 Then
+                    simesaspropianm = 1
+                Else
+                    simesaspropianm = 0
+                End If
+            Else
+                simesaspropianm = 0
+            End If
+        End If
+        rd3.Close()
+
+        If simesaspropianm = 1 Then
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
+            rd3 = cmd3.ExecuteReader
+            If rd3.Read Then
+                If rd3.HasRows Then
+                    If rd3(0).ToString = "ADMINISTRACION" Or rd3(0).ToString = "CAJERO" Then
+                        simesaspropusuarionm = 1
+                    Else
+                        simesaspropusuarionm = 0
+                    End If
+                End If
+            End If
+            rd3.Close()
+        End If
+
+        If simesaspropianm = 1 Then
+            If simesaspropusuarionm = 1 Then
+                cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
+            Else
+                cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
+            End If
+        Else
+            cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
+        End If
+        rd3 = cmd3.ExecuteReader
+        If rd3.Read Then
+            totalmesa2 = rd3(0).ToString
+        End If
+        rd3.Close()
+        cnn3.Close()
+
+        Return totalmesa2
+    End Function
+    Public Sub CrearBD_MesaNM()
+
+        Dim tables As Integer = 0
+        Dim tipo As String = ""
+        Dim id_mesero As Integer = 0
+        Dim mesa As Integer = 1
+        Dim messa As New List(Of String)()
+
+        Try
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    If rd2("NotasCred").ToString = 1 Then
+                        simesaspropianm = 1
+                    Else
+                        simesaspropianm = 0
+                    End If
+                Else
+                    simesaspropianm = 0
+                End If
+            End If
+            rd2.Close()
+
+            If simesaspropianm = 1 Then
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
+                rd2 = cmd2.ExecuteReader
+                If rd2.Read Then
+                    If rd2.HasRows Then
+                        If rd2(0).ToString = "ADMINISTRACION" Or rd2(0).ToString = "CAJERO" Then
+                            simesaspropusuarionm = 1
+                        Else
+                            simesaspropusuarionm = 0
+                        End If
+                    End If
+                End If
+                rd2.Close()
+            End If
+
+            cmd2 = cnn2.CreateCommand
+            If simesaspropianm = 1 Then
+                If simesaspropusuarionm = 1 Then
+                    cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa order by Orden"
+                Else
+                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                End If
+            Else
+                cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa ORDER BY Orden"
+            End If
+            rd2 = cmd2.ExecuteReader
+            Do While rd2.Read
+                If rd2.HasRows Then
+                    tipo = rd2("Tipo").ToString
+                    id_mesero = IIf(rd2("IdEmpleado").ToString = "", 0, rd2("IdEmpleado").ToString)
+
+                    If rd2("TempNom").ToString = "" Then
+                        messa.Add(rd2.GetString("Nombre_mesa"))
+                    Else
+                        messa.Add(rd2.GetString("TempNom"))
+
+                    End If
+                End If
+            Loop
+            rd2.Close()
+
+            Dim totalMesas As Double = ObtenerTotalMesas()
+
+            If totalMesas = 0 Then Exit Sub
+            Dim cuantosColumnas As Integer = Math.Ceiling(Math.Sqrt(totalMesas)) ' Calculamos el número de columnas necesarias
+            Dim cuantosFilas As Integer = Math.Ceiling(totalMesas / cuantosColumnas) ' Calculamos el número de filas necesarias
+
+            ' Tamaño fijo de los botones
+            Dim btnWidth As Integer = 250 ' Ancho fijo del botón
+            Dim btnHeight As Integer = 100 ' Alto fijo del botón
+
+            ' Espacio entre botones
+            Dim espacioHorizontal As Integer = 5
+            Dim espacioVertical As Integer = 5
+
+            pmesaNM.Controls.Clear() ' Limpiamos los controles existentes en el panel
+
+            For fila As Integer = 0 To cuantosFilas - 1
+                For columna As Integer = 0 To cuantosColumnas - 1
+                    If mesa > totalMesas Then Exit For ' Si ya hemos agregado todas las mesas, salimos del bucle
+
+                    ' Obtener el nombre de la mesa correspondiente
+                    Dim nombreMesa As String = messa(mesa - 1)
+
+                    btnMesaNM = New Button
+                    btnMesaNM.Text = nombreMesa
+                    btnMesaNM.Width = btnWidth
+                    btnMesaNM.Height = btnHeight
+                    btnMesaNM.FlatStyle = FlatStyle.Flat
+                    btnMesaNM.FlatAppearance.BorderSize = 0
+                    btnMesaNM.Name = "btnMesa(" & nombreMesa & ")"
+                    btnMesaNM.TextAlign = ContentAlignment.BottomCenter
+
+
+
+                    If id_mesero <> 0 Then
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "SELECT Color FROM Usuarios WHERE IdEmpleado=" & id_mesero
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.HasRows Then
+                            If rd3.Read Then
+                                'Dim col As String = rd3(0).ToString
+                                'btnMesa.BackColor = Color.FromArgb(col)
+                                btnMesaNM.BackColor = Color.FromArgb(255, 255, 128)
+                            End If
+
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+                    Else
+                        btnMesaNM.BackColor = Color.FromArgb(255, 255, 128)
+                    End If
+
+                    Dim pn As Integer = 0
+
+                    cnn9.Close() : cnn9.Open()
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "select NMESA from Comandas where NMESA='" & Trim(btnMesaNM.Text) & "' and Status='RESTA'"
+                    rd9 = cmd9.ExecuteReader
+                    If rd9.HasRows Then
+                        If rd9.Read Then
+                            pn = 1
+
+                            If pn <> 0 Then
+                                btnMesaNM.BackColor = Color.FromArgb(255, 128, 0)
+                            Else
+                                btnMesaNM.BackColor = Color.FromArgb(255, 255, 128)
+                            End If
+
+                        End If
+                    Else
+                        ' btnMesa2.BackColor = Color.FromArgb(255, 128, 0)
+                    End If
+                    rd9.Close()
+                    cnn9.Close()
+
+                    If tipo = "2" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 2.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 2.png")
+
+                        End If
+                    End If
+
+                    If tipo = "4" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 4.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 4.png")
+                        End If
+                    End If
+
+                    If tipo = "6" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 6.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 6.png")
+                        End If
+                    End If
+
+                    If tipo = "8" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 8.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 8.png")
+                        End If
+                    End If
+
+                    If tipo = "10" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 10.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\MESA 10.png")
+                        End If
+                    End If
+
+                    If tipo = "B" Then
+                        Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\BILLAR.png"
+                        If File.Exists(ruta) Then
+                            btnMesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\BILLAR.png")
+                        End If
+                    End If
+                    btnMesaNM.BackgroundImageLayout = ImageLayout.Zoom
+
+                    ' Posicionar el botón dentro del panel
+                    btnMesaNM.Left = columna * (btnMesaNM.Width + espacioHorizontal)
+                    btnMesaNM.Top = fila * (btnMesaNM.Height + espacioVertical)
+
+                    AddHandler btnMesaNM.Click, AddressOf btnMesa_Click
+                    pmesaNM.Controls.Add(btnMesaNM)
+                    mesa += 1
+
+
+                Next
+            Next
+            cnn2.Close()
+
+            ' Calcular el tamaño mínimo para habilitar el scroll si es necesario
+            Dim panelWidth As Integer = (cuantosColumnas * (btnWidth + espacioHorizontal)) + SystemInformation.VerticalScrollBarWidth
+            Dim panelHeight As Integer = (cuantosFilas * (btnHeight + espacioVertical))
+            pmesaNM.AutoScrollMinSize = New Size(panelWidth, panelHeight)
+
+            ' Ajustar el tamaño de la fuente de los botones cuando se crea el diseño inicial
+            AjustarTamañoFuenteBotones()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub AjustarTamañoFuenteBotones()
+        ' Calcular el tamaño de la fuente en función del tamaño del formulario
+        Dim factorReduccion As Double = 24 * (pmesas.Width / 800) ' Ajusta 24 según el tamaño base del formulario (800x600)
+
+        ' Limitar el tamaño de la fuente mínimo y máximo
+        If factorReduccion < 8 Then
+            factorReduccion = 8
+        ElseIf factorReduccion > 24 Then
+            factorReduccion = 24
+        End If
+
+        ' Iterar a través de los controles del panel y ajustar el tamaño de la fuente de los botones
+        For Each control As Control In pmesas.Controls
+            If TypeOf control Is Button Then
+                Dim boton As Button = CType(control, Button)
+                boton.Font = New Font(boton.Font.FontFamily, CType(factorReduccion, Single))
+            End If
+        Next
     End Sub
 
     Private Sub btnMesa_Click(sender As Object, e As EventArgs)
@@ -495,7 +825,7 @@ Public Class frmMesas
                 btnconsulta.Enabled = False
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & mesa & "' AND  Ubicacion='" & Me.Text & "'"
+                cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & mesa & "' AND  Ubicacion='" & nombreubicacion & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -581,7 +911,7 @@ Public Class frmMesas
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "UPDATE Mesa SET X=" & x & ", Y=" & y & " WHERE Nombre_mesa='" & NOMBREMESA & "' AND Ubicacion='" & Me.Text & "'"
+            cmd1.CommandText = "UPDATE Mesa SET X=" & x & ", Y=" & y & " WHERE Nombre_mesa='" & NOMBREMESA & "' AND Ubicacion='" & nombreubicacion & "'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         Catch ex As Exception
@@ -607,8 +937,14 @@ Public Class frmMesas
 
                         If rd1(1).ToString Then
                             KeyOP(foco)
-                            TRAERLUGAR()
-                            primerBoton()
+
+                            If mapearmesas = 1 Then
+                                TRAERLUGAR()
+                                primerBoton()
+                            Else
+                                CrearBD_MesaNM()
+                            End If
+
                         Else
                             MsgBox("El usuario no esta activo contacte a su administrador", vbInformation + vbOKOnly, titulomensajes)
                             rd1.Close()
@@ -848,7 +1184,13 @@ Public Class frmMesas
         txtMesa.Text = ""
         parea.Controls.Clear()
         pmesas.Controls.Clear()
-        TRAERLUGAR()
+
+        If mapearmesas = 1 Then
+            TRAERLUGAR()
+        Else
+            CrearBD_MesaNM()
+        End If
+
         lbltotalmesa.Text = ""
         montomapeo = 0
 
@@ -1106,9 +1448,26 @@ Public Class frmMesas
     End Sub
 
     Private Sub btntemporales_Click(sender As Object, e As EventArgs) Handles btntemporales.Click
-        frmTeTemp.mesatemp = 1
-        frmTeTemp.Show()
-        frmTeTemp.BringToFront()
+
+        If lblusuario.Text <> "" Then
+            frmTeTemp.mesatemp = 1
+            frmTeTemp.Show()
+            frmTeTemp.BringToFront()
+        Else
+            MsgBox("Ingresa una contraseña para continuar", vbInformation + vbOKOnly, titulorestaurante)
+            Exit Sub
+        End If
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmNuevo.Show()
+        frmNuevo.BringToFront()
+    End Sub
+
+    Private Sub frmMesas_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        CrearBD_MesaNM()
+        AjustarTamañoFuenteBotones()
     End Sub
 
     Public Function CutCad(VAL As String) As String

@@ -167,7 +167,7 @@ Partial Class frmPagarComanda
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(973, 37)
+        Me.Panel1.Size = New System.Drawing.Size(973, 31)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -176,7 +176,7 @@ Partial Class frmPagarComanda
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(973, 37)
+        Me.Label1.Size = New System.Drawing.Size(973, 31)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Consulta y Cobro de comandas"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -187,9 +187,9 @@ Partial Class frmPagarComanda
         Me.psuperior.Controls.Add(Me.Panel10)
         Me.psuperior.Controls.Add(Me.Panel7)
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
-        Me.psuperior.Location = New System.Drawing.Point(0, 37)
+        Me.psuperior.Location = New System.Drawing.Point(0, 31)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(973, 116)
+        Me.psuperior.Size = New System.Drawing.Size(973, 104)
         Me.psuperior.TabIndex = 0
         '
         'pdatos
@@ -203,7 +203,7 @@ Partial Class frmPagarComanda
         Me.pdatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pdatos.Location = New System.Drawing.Point(373, 0)
         Me.pdatos.Name = "pdatos"
-        Me.pdatos.Size = New System.Drawing.Size(322, 116)
+        Me.pdatos.Size = New System.Drawing.Size(322, 104)
         Me.pdatos.TabIndex = 4
         '
         'cboComensal
@@ -277,7 +277,7 @@ Partial Class frmPagarComanda
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel10.Location = New System.Drawing.Point(0, 0)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(373, 116)
+        Me.Panel10.Size = New System.Drawing.Size(373, 104)
         Me.Panel10.TabIndex = 10
         '
         'pCliente
@@ -285,9 +285,9 @@ Partial Class frmPagarComanda
         Me.pCliente.Controls.Add(Me.cbocliente)
         Me.pCliente.Controls.Add(Me.Label19)
         Me.pCliente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pCliente.Location = New System.Drawing.Point(0, 44)
+        Me.pCliente.Location = New System.Drawing.Point(0, 37)
         Me.pCliente.Name = "pCliente"
-        Me.pCliente.Size = New System.Drawing.Size(373, 33)
+        Me.pCliente.Size = New System.Drawing.Size(373, 28)
         Me.pCliente.TabIndex = 9
         '
         'cbocliente
@@ -318,7 +318,7 @@ Partial Class frmPagarComanda
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel8.Location = New System.Drawing.Point(0, 0)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(373, 44)
+        Me.Panel8.Size = New System.Drawing.Size(373, 37)
         Me.Panel8.TabIndex = 7
         '
         'txtContra
@@ -365,7 +365,7 @@ Partial Class frmPagarComanda
         Me.pCambioMesa.Controls.Add(Me.cboCambioM)
         Me.pCambioMesa.Controls.Add(Me.Label17)
         Me.pCambioMesa.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pCambioMesa.Location = New System.Drawing.Point(0, 77)
+        Me.pCambioMesa.Location = New System.Drawing.Point(0, 65)
         Me.pCambioMesa.Name = "pCambioMesa"
         Me.pCambioMesa.Size = New System.Drawing.Size(373, 39)
         Me.pCambioMesa.TabIndex = 8
@@ -424,7 +424,7 @@ Partial Class frmPagarComanda
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel7.Location = New System.Drawing.Point(695, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(278, 116)
+        Me.Panel7.Size = New System.Drawing.Size(278, 104)
         Me.Panel7.TabIndex = 6
         '
         'Label4
@@ -444,7 +444,7 @@ Partial Class frmPagarComanda
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtPorcentaje)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 64)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 58)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(263, 46)
         Me.GroupBox1.TabIndex = 5
@@ -530,9 +530,9 @@ Partial Class frmPagarComanda
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Controls.Add(Me.btnCerrar)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(891, 153)
+        Me.Panel3.Location = New System.Drawing.Point(891, 135)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(82, 690)
+        Me.Panel3.Size = New System.Drawing.Size(82, 554)
         Me.Panel3.TabIndex = 1
         '
         'btnLimpiar
@@ -542,7 +542,7 @@ Partial Class frmPagarComanda
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(3, 407)
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 392)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 77)
         Me.btnLimpiar.TabIndex = 6
@@ -573,7 +573,7 @@ Partial Class frmPagarComanda
         Me.btnCortesia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCortesia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCortesia.Image = CType(resources.GetObject("btnCortesia.Image"), System.Drawing.Image)
-        Me.btnCortesia.Location = New System.Drawing.Point(3, 86)
+        Me.btnCortesia.Location = New System.Drawing.Point(3, 82)
         Me.btnCortesia.Name = "btnCortesia"
         Me.btnCortesia.Size = New System.Drawing.Size(75, 77)
         Me.btnCortesia.TabIndex = 4
@@ -589,7 +589,7 @@ Partial Class frmPagarComanda
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(3, 252)
+        Me.btnCancelar.Location = New System.Drawing.Point(3, 242)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 77)
         Me.btnCancelar.TabIndex = 3
@@ -604,7 +604,7 @@ Partial Class frmPagarComanda
         Me.btnPrecuenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
-        Me.btnPrecuenta.Location = New System.Drawing.Point(3, 335)
+        Me.btnPrecuenta.Location = New System.Drawing.Point(3, 323)
         Me.btnPrecuenta.Name = "btnPrecuenta"
         Me.btnPrecuenta.Size = New System.Drawing.Size(75, 66)
         Me.btnPrecuenta.TabIndex = 2
@@ -619,7 +619,7 @@ Partial Class frmPagarComanda
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(3, 490)
+        Me.btnSalir.Location = New System.Drawing.Point(3, 474)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 77)
         Me.btnSalir.TabIndex = 1
@@ -635,7 +635,7 @@ Partial Class frmPagarComanda
         Me.btnCerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.Image = CType(resources.GetObject("btnCerrar.Image"), System.Drawing.Image)
         Me.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCerrar.Location = New System.Drawing.Point(3, 169)
+        Me.btnCerrar.Location = New System.Drawing.Point(3, 162)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(75, 77)
         Me.btnCerrar.TabIndex = 0
@@ -652,9 +652,9 @@ Partial Class frmPagarComanda
         Me.Panel4.Controls.Add(Me.Panel2)
         Me.Panel4.Controls.Add(Me.Panel5)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(0, 665)
+        Me.Panel4.Location = New System.Drawing.Point(0, 508)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(891, 178)
+        Me.Panel4.Size = New System.Drawing.Size(891, 181)
         Me.Panel4.TabIndex = 2
         '
         'Panel6
@@ -674,7 +674,7 @@ Partial Class frmPagarComanda
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(398, 178)
+        Me.Panel6.Size = New System.Drawing.Size(398, 181)
         Me.Panel6.TabIndex = 18
         '
         'btnagregarpago
@@ -788,11 +788,11 @@ Partial Class frmPagarComanda
         Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13})
         Me.grdPagos.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grdPagos.Location = New System.Drawing.Point(0, 109)
+        Me.grdPagos.Location = New System.Drawing.Point(0, 110)
         Me.grdPagos.Name = "grdPagos"
         Me.grdPagos.ReadOnly = True
         Me.grdPagos.RowHeadersVisible = False
-        Me.grdPagos.Size = New System.Drawing.Size(398, 69)
+        Me.grdPagos.Size = New System.Drawing.Size(398, 71)
         Me.grdPagos.TabIndex = 0
         '
         'Column9
@@ -850,7 +850,7 @@ Partial Class frmPagarComanda
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(398, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(181, 178)
+        Me.Panel2.Size = New System.Drawing.Size(181, 181)
         Me.Panel2.TabIndex = 17
         '
         'Label7
@@ -975,14 +975,14 @@ Partial Class frmPagarComanda
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel5.Location = New System.Drawing.Point(579, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(312, 178)
+        Me.Panel5.Size = New System.Drawing.Size(312, 181)
         Me.Panel5.TabIndex = 7
         '
         'Panel11
         '
         Me.Panel11.Controls.Add(Me.PictureBox1)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel11.Location = New System.Drawing.Point(0, 109)
+        Me.Panel11.Location = New System.Drawing.Point(0, 112)
         Me.Panel11.Name = "Panel11"
         Me.Panel11.Size = New System.Drawing.Size(312, 69)
         Me.Panel11.TabIndex = 7
@@ -1045,9 +1045,9 @@ Partial Class frmPagarComanda
         Me.pCentro.Controls.Add(Me.grdCaptura)
         Me.pCentro.Controls.Add(Me.Panel9)
         Me.pCentro.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pCentro.Location = New System.Drawing.Point(0, 153)
+        Me.pCentro.Location = New System.Drawing.Point(0, 135)
         Me.pCentro.Name = "pCentro"
-        Me.pCentro.Size = New System.Drawing.Size(891, 512)
+        Me.pCentro.Size = New System.Drawing.Size(891, 373)
         Me.pCentro.TabIndex = 3
         '
         'grdCaptura
@@ -1066,11 +1066,11 @@ Partial Class frmPagarComanda
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 60)
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 54)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(891, 452)
+        Me.grdCaptura.Size = New System.Drawing.Size(891, 319)
         Me.grdCaptura.TabIndex = 1
         '
         'Column1
@@ -1152,7 +1152,7 @@ Partial Class frmPagarComanda
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel9.Location = New System.Drawing.Point(0, 0)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(891, 60)
+        Me.Panel9.Size = New System.Drawing.Size(891, 54)
         Me.Panel9.TabIndex = 0
         '
         'TextBox7
@@ -1334,7 +1334,7 @@ Partial Class frmPagarComanda
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(973, 843)
+        Me.ClientSize = New System.Drawing.Size(973, 689)
         Me.Controls.Add(Me.pCentro)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)

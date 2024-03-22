@@ -66,6 +66,9 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnclose = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.rbM = New System.Windows.Forms.RadioButton()
+        Me.rbNM = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
@@ -73,6 +76,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -554,12 +558,49 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnclose.UseVisualStyleBackColor = False
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.rbNM)
+        Me.GroupBox2.Controls.Add(Me.rbM)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(191, 366)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(273, 54)
+        Me.GroupBox2.TabIndex = 247
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Mesas"
+        '
+        'rbM
+        '
+        Me.rbM.AutoSize = True
+        Me.rbM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbM.Location = New System.Drawing.Point(13, 23)
+        Me.rbM.Name = "rbM"
+        Me.rbM.Size = New System.Drawing.Size(94, 20)
+        Me.rbM.TabIndex = 0
+        Me.rbM.TabStop = True
+        Me.rbM.Text = "Mapeables"
+        Me.rbM.UseVisualStyleBackColor = True
+        '
+        'rbNM
+        '
+        Me.rbNM.AutoSize = True
+        Me.rbNM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbNM.Location = New System.Drawing.Point(142, 23)
+        Me.rbNM.Name = "rbNM"
+        Me.rbNM.Size = New System.Drawing.Size(115, 20)
+        Me.rbNM.TabIndex = 1
+        Me.rbNM.TabStop = True
+        Me.rbNM.Text = "No Mapeables"
+        Me.rbNM.UseVisualStyleBackColor = True
+        '
         'frmPermisosRestaurant
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(639, 435)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -587,6 +628,8 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -634,4 +677,7 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents cbmesas As CheckBox
     Friend WithEvents cbMesasPropias As CheckBox
     Friend WithEvents cbCopas As CheckBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents rbNM As RadioButton
+    Friend WithEvents rbM As RadioButton
 End Class

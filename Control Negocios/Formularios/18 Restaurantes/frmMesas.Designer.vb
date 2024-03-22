@@ -58,15 +58,19 @@ Partial Class frmMesas
         Me.txtNComensales = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.lbltotalmesa = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.pmesas = New System.Windows.Forms.Panel()
+        Me.pcentral = New System.Windows.Forms.Panel()
+        Me.pmesaNM = New System.Windows.Forms.Panel()
         Me.psuperior.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.pcentral.SuspendLayout()
         Me.SuspendLayout()
         '
         'psuperior
@@ -536,6 +540,7 @@ Partial Class frmMesas
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(227, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.Button1)
         Me.Panel6.Controls.Add(Me.lbltotalmesa)
         Me.Panel6.Controls.Add(Me.lblfolio)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -543,6 +548,15 @@ Partial Class frmMesas
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(192, 234)
         Me.Panel6.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(64, 74)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 39
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'lbltotalmesa
         '
@@ -569,17 +583,37 @@ Partial Class frmMesas
         '
         Me.pmesas.BackColor = System.Drawing.Color.White
         Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pmesas.Location = New System.Drawing.Point(0, 104)
+        Me.pmesas.Location = New System.Drawing.Point(0, 0)
         Me.pmesas.Name = "pmesas"
         Me.pmesas.Size = New System.Drawing.Size(1180, 640)
         Me.pmesas.TabIndex = 3
+        '
+        'pcentral
+        '
+        Me.pcentral.BackColor = System.Drawing.Color.White
+        Me.pcentral.Controls.Add(Me.pmesas)
+        Me.pcentral.Controls.Add(Me.pmesaNM)
+        Me.pcentral.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pcentral.Location = New System.Drawing.Point(0, 104)
+        Me.pcentral.Name = "pcentral"
+        Me.pcentral.Size = New System.Drawing.Size(1180, 640)
+        Me.pcentral.TabIndex = 0
+        '
+        'pmesaNM
+        '
+        Me.pmesaNM.BackColor = System.Drawing.Color.White
+        Me.pmesaNM.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pmesaNM.Location = New System.Drawing.Point(0, 0)
+        Me.pmesaNM.Name = "pmesaNM"
+        Me.pmesaNM.Size = New System.Drawing.Size(1180, 640)
+        Me.pmesaNM.TabIndex = 4
         '
         'frmMesas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1372, 744)
-        Me.Controls.Add(Me.pmesas)
+        Me.Controls.Add(Me.pcentral)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.psuperior)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -593,6 +627,7 @@ Partial Class frmMesas
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        Me.pcentral.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -635,4 +670,7 @@ Partial Class frmMesas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btntemporales As Button
+    Friend WithEvents pcentral As Panel
+    Friend WithEvents pmesaNM As Panel
+    Friend WithEvents Button1 As Button
 End Class

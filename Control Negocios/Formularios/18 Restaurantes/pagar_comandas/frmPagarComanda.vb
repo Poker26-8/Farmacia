@@ -2008,8 +2008,8 @@ Door:
 
                     If TamImpre = "58" Then
                         For naruto As Integer = 1 To copias
-                            ' PVentaMapeo58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                            'PVentaMapeo58.Print()
+                            PPVenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                            PPVenta58.Print()
                         Next
                     End If
 
@@ -2024,8 +2024,8 @@ Door:
 
                 If TamImpre = "58" Then
                     For naruto As Integer = 1 To copias
-                        'PVentaMapeo58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                        'PVentaMapeo58.Print()
+                        PPVenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        PPVenta58.Print()
                     Next
                 End If
 

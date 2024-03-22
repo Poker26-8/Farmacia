@@ -104,6 +104,19 @@
                 End If
             End If
             rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Mapeo'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    If rd2(0).ToString = 1 Then
+                        rbM.Checked = True
+                    Else
+                        rbNM.Checked = True
+                    End If
+                End If
+            End If
             cnn2.Close()
 
         Catch ex As Exception
@@ -163,6 +176,7 @@
                     If rd1("CortesiaM").ToString = True Then cbCortesia.Checked = True Else cbCortesia.Checked = False
                     If rd1("JuntarM").ToString = True Then cbJuntar.Checked = True Else cbJuntar.Checked = False
                     If rd1("CobrarM").ToString = True Then cbCobrar.Checked = True Else cbCobrar.Checked = False
+                    If rd1("Mesas").ToString = True Then cbmesas.Checked = True Else cbmesas.Checked = False
                 End If
             Else
                 cbPrecuentas.Checked = False
@@ -261,6 +275,7 @@
         cbCortesia.Checked = False
         cbJuntar.Checked = False
         cbCobrar.Checked = False
+        cbmesas.Checked = False
         cbSeparadas.Checked = False
         chkSinComensal.Checked = False
         cbCopas.Checked = False
@@ -424,7 +439,7 @@
             End If
             rd1.Close()
             cnn1.Close()
-
+            MsgBox("Tolerancia agregada corectamente", vbInformation + vbOKOnly, titulorestaurante)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -632,6 +647,71 @@
     End Sub
 
 
+    Public Sub CambiodeMesa()
+        Try
+            If (rbM.Checked) Then
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Facturas FROM formatos WHERE Facturas='Mapeo'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE formatos SET Facturas='Mapeo',NotasCred='1',NumPart=0 WHERE Facturas='Mapeo'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO formatos(Facturas,NotasCred,NumPart) VALUES('Mapeo','1',0)"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+                rd1.Close()
+                cnn1.Close()
 
+            End If
 
+            If (rbNM.Checked) Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Facturas FROM formatos WHERE Facturas='Mapeo'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE formatos SET Facturas='Mapeo',NotasCred='0',NumPart=0 WHERE Facturas='Mapeo'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO formatos(Facturas,NotasCred,NumPart) VALUES('Mapeo','0',0)"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub rbM_Click(sender As Object, e As EventArgs) Handles rbM.Click
+        CambiodeMesa()
+    End Sub
+
+    Private Sub rbNM_Click(sender As Object, e As EventArgs) Handles rbNM.Click
+        CambiodeMesa()
+    End Sub
 End Class
