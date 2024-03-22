@@ -733,7 +733,8 @@
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "UPDATE productos SET E1=" & IIf(cbPromocion2x1.Checked, 1, 0) & ",E2=" & IIf(cbPromocion3.Checked, 1, 0) & " WHERE Codigo='" & cboCodigo.Text & "' AND Nombre='" & cboNombre.Text & "'"
+            cmd3.CommandText =
+                "UPDATE productos SET E1=" & IIf(cbPromocion2x1.Checked, 1, 0) & ",E2=" & IIf(cbPromocion3.Checked, 1, 0) & " WHERE Codigo='" & cboCodigo.Text & "' AND Nombre='" & cboNombre.Text & "'"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 

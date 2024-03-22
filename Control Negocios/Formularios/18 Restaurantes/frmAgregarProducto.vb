@@ -1506,117 +1506,11 @@ Public Class frmAgregarProducto
         rd2.Close() : cnn2.Close()
     End Sub
 
-    Private Function Promo_Hoy(ByVal codigo As String, ByVal dia As Integer, ByVal hora As String, ByVal tipo As String) As Boolean
-        Try
-            cnn2.Close() : cnn2.Open()
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                ""
-
-
-            cnn2.Close()
-            Return True
-
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn2.Close()
-            Return False
-        End Try
-    End Function
-
     Public Sub UpGridCaptura()
         Dim TotalVenta As Double = 0
         Dim esta As String = ""
-        Dim dia_hoy As Integer = Date.Now.DayOfWeek
 
-        'COMENTARIO DE DÍAS'
-        '0 -> Domingo       '4 -> Jueves
-        '1 -> Lunes         '5 -> Viernes
-        '2 -> Martes        '6 -> Sábado
-        '3 -> Miércoles
-
-
-
-        '2x1
-        If doxuno = 1 Then
-            With grdCaptura.Rows
-                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, lblpromo.Text, 0)
-                For t As Integer = 0 To grdCaptura.Rows.Count - 1
-                    If banderaPromo = 0 Then
-                        lblpromo.Text = grdCaptura.Rows(t).Cells(4).Value.ToString
-                    Else
-                        banderaPromo = 0
-                    End If
-                    TotalVenta = TotalVenta + CDbl(grdCaptura.Rows(t).Cells(3).Value.ToString)
-                    lblTotalVenta.Text = FormatNumber(TotalVenta, 2)
-                Next
-            End With
-
-            With Me.grdCaptura
-                For Ii As Integer = 0 To grdCaptura.Rows.Count - 1
-                    If banderaPromo = 0 Then
-                        lblpromo.Text = grdCaptura.Rows(Ii).Cells(4).Value.ToString
-                    Else
-                        lblpromo.Text = 0
-                    End If
-
-                    grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, cantidad, FormatNumber(0, 2), FormatNumber(0, 2), 1, lblpromo.Text, 0)
-                Next
-            End With
-            Exit Sub
-        End If
-
-        '3x1
-        If tresxdos = 1 Then
-            With grdCaptura.Rows
-                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1)
-                For q As Integer = 0 To grdCaptura.Rows.Count - 1
-                    If banderaPromo = 0 Then
-                        lblpromo.Text = grdCaptura.Rows(q).Cells(4).Value.ToString
-                    Else
-                        banderaPromo = 0
-                    End If
-                Next
-            End With
-
-            With Me.grdCaptura
-                grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1)
-                My.Application.DoEvents()
-
-                For q As Integer = 0 To grdCaptura.Rows.Count - 1
-
-                    If banderaPromo = 0 Then
-                        lblpromo.Text = grdCaptura.Rows(q).Cells(4).Value.ToString
-                    Else
-                        banderaPromo = 0
-                    End If
-                Next
-
-            End With
-
-            For q As Integer = 0 To grdCaptura.Rows.Count - 1
-
-                TotalVenta = TotalVenta + CDbl(grdCaptura.Rows(q).Cells(3).Value.ToString)
-                lblTotalVenta.Text = FormatNumber(TotalVenta, 2)
-            Next
-
-            With Me.grdCaptura
-                grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, 1, FormatNumber(0, 2), FormatNumber(0, 2), 1, lblpromo.Text)
-                For q As Integer = 0 To grdCaptura.Rows.Count - 1
-
-
-                    If banderaPromo = 0 Then
-                        lblpromo.Text = grdCaptura.Rows(q).Cells(4).Value.ToString
-                    Else
-                        lblpromo.Text = 0
-                    End If
-
-                Next
-            End With
-            Exit Sub
-
-        End If
+        Dim hora_dia As String = Format(Date.Now, "HH:mm:ss")
 
         cnn1.Close() : cnn1.Open()
 
@@ -1661,6 +1555,53 @@ Public Class frmAgregarProducto
             End With
         Else
             With Me.grdCaptura
+
+                cnn2.Close() : cnn2.Open()
+
+                Dim inicio1, fin1, inicio2, fin2 As String
+                Dim hora_i1, hora_f1, hora_i2, hora_f2 As String
+
+                Dim dia As Integer = Date.Now.DayOfWeek
+
+                If doxuno = 1 Then
+                    'Domingo
+                    If dia = 0 Then
+                        inicio1 = "HInicioD"
+                        fin1 = "HFinD"
+                        inicio2 = "HInicioD2"
+                        fin2 = "HFinD2"
+                    End If
+
+                    cnn2.Close() : cnn2.Open()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                        "select * from Promos where Codigo='" & CodigoProducto & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            hora_i1 = rd2(inicio1).ToString()
+                            hora_f1 = rd2(fin1).ToString()
+                            hora_i2 = rd2(inicio2).ToString()
+                            hora_f2 = rd2(fin2).ToString()
+                        End If
+                    End If
+                    rd2.Close() : cnn2.Close()
+
+                    'Primera validación
+
+
+
+
+                    'Segunda validación
+
+
+                End If
+
+
+                cnn2.Close()
+
+
                 Dim banderaentraa As Integer = 0
                 banderaentraa = 0
                 For qq As Integer = 0 To grdCaptura.Rows.Count - 1
