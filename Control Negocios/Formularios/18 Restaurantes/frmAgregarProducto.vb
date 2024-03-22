@@ -62,6 +62,75 @@ Public Class frmAgregarProducto
 
     Friend WithEvents btnDepto, btnGrupo, btnProd, btnPrefe, btnExtra, btnPromo As System.Windows.Forms.Button
 
+    Private Sub Actualiza_Promos()
+        Dim dia_hoy As Integer = Date.Now.DayOfWeek
+        Dim dia_tex As String = ""
+
+        If dia_hoy = 0 Then dia_tex = "Domingo"
+        If dia_hoy = 1 Then dia_tex = "Lunes"
+        If dia_hoy = 2 Then dia_tex = "Martes"
+        If dia_hoy = 3 Then dia_tex = "Miercoles"
+        If dia_hoy = 4 Then dia_tex = "Jueves"
+        If dia_hoy = 5 Then dia_tex = "Viernes"
+        If dia_hoy = 6 Then dia_tex = "Sabado"
+
+        'COMENTARIO DE DÍAS'
+        '0 -> Domingo       '4 -> Jueves
+        '1 -> Lunes         '5 -> Viernes
+        '2 -> Martes        '6 -> Sábado
+        '3 -> Miércoles
+
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "update Productos set E1=0, E2=0"
+            cmd3.ExecuteNonQuery()
+
+            cnn4.Close() : cnn4.Open()
+
+            'Primero 2x1
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E1=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+
+            'Primero 3x2
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "2=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E2=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+            cnn3.Close()
+
+            cnn4.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn3.Close()
+        End Try
+    End Sub
     Private Sub frmAgregarProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.Text = "Agregar Productos" & Strings.Space(55) & "COMANDERO"
@@ -101,6 +170,7 @@ Public Class frmAgregarProducto
             cnn1.Close()
         End Try
 
+        Actualiza_Promos()
     End Sub
 
 
@@ -1554,53 +1624,420 @@ Public Class frmAgregarProducto
                 End If
             End With
         Else
-            With Me.grdCaptura
+            Dim inicio1, fin1, inicio2, fin2 As String
+            Dim hora_i1, hora_f1, hora_i2, hora_f2 As String
+
+            Dim dia As Integer = Date.Now.DayOfWeek
+
+            '2x1
+            If doxuno = 1 Then
+                'Domingo
+                If dia = 0 Then
+                    inicio1 = "HInicioD"
+                    fin1 = "HFinD"
+                    inicio2 = "HInicioD2"
+                    fin2 = "HFinD2"
+                End If
+
+                'Lunes
+                If dia = 1 Then
+                    inicio1 = "HInicioL"
+                    fin1 = "HFinL"
+                    inicio2 = "HInicioL2"
+                    fin2 = "HFinL2"
+                End If
+
+                'Martes
+                If dia = 2 Then
+                    inicio1 = "HInicioM"
+                    fin1 = "HFinM"
+                    inicio2 = "HInicioM2"
+                    fin2 = "HFinM2"
+                End If
+
+                'Miercoles
+                If dia = 3 Then
+                    inicio1 = "HInicioMi"
+                    fin1 = "HFinMi"
+                    inicio2 = "HInicioMi2"
+                    fin2 = "HFinMi2"
+                End If
+
+                'Jueves
+                If dia = 4 Then
+                    inicio1 = "HInicioJ"
+                    fin1 = "HFinJ"
+                    inicio2 = "HInicioJ2"
+                    fin2 = "HFinJ2"
+                End If
+
+                'Viernes
+                If dia = 5 Then
+                    inicio1 = "HInicioV"
+                    fin1 = "HFinV"
+                    inicio2 = "HInicioV2"
+                    fin2 = "HFinV2"
+                End If
+
+                'Sabado
+                If dia = 6 Then
+                    inicio1 = "HInicioS"
+                    fin1 = "HFinS"
+                    inicio2 = "HInicioS2"
+                    fin2 = "HFinS2"
+                End If
 
                 cnn2.Close() : cnn2.Open()
 
-                Dim inicio1, fin1, inicio2, fin2 As String
-                Dim hora_i1, hora_f1, hora_i2, hora_f2 As String
-
-                Dim dia As Integer = Date.Now.DayOfWeek
-
-                If doxuno = 1 Then
-                    'Domingo
-                    If dia = 0 Then
-                        inicio1 = "HInicioD"
-                        fin1 = "HFinD"
-                        inicio2 = "HInicioD2"
-                        fin2 = "HFinD2"
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select * from Promos where Codigo='" & CodigoProducto & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        hora_i1 = rd2(inicio1).ToString()
+                        hora_f1 = rd2(fin1).ToString()
+                        hora_i2 = rd2(inicio2).ToString()
+                        hora_f2 = rd2(fin2).ToString()
                     End If
+                End If
+                rd2.Close() : cnn2.Close()
 
-                    cnn2.Close() : cnn2.Open()
+                'COMENTARIO'
+                'Mayor que - >
+                'Menor que - <
 
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
-                        "select * from Promos where Codigo='" & CodigoProducto & "'"
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            hora_i1 = rd2(inicio1).ToString()
-                            hora_f1 = rd2(fin1).ToString()
-                            hora_i2 = rd2(inicio2).ToString()
-                            hora_f2 = rd2(fin2).ToString()
+                'Primera validación
+                If CDate(hora_dia) > CDate(hora_i1) And CDate(hora_dia) < CDate(hora_f1) Then
+                    Dim canti As Double = 0
+
+                    'Pasa porque es el día y la hora
+                    '(1) - Primero cuenta los que ya están
+                    For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                            canti = canti + grdCaptura.Rows(p1).Cells(5).Value()
                         End If
+                    Next
+
+                    If canti = 0 Then
+                        grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+                        Exit Sub
+                    Else
+                        Dim cantidad_final As Double = canti + cantidad
+                        Dim division As Double = 0
+                        Dim cantidad_valor As Double = 0
+
+                        division = FormatNumber(cantidad_final / 2.1, 0)
+                        cantidad_valor = cantidad_final - division
+
+                        Dim total_importe As Double = 0
+                        total_importe = PU * cantidad_valor
+
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = CDec(FormatNumber(total_importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+
+                            End If
+                        Next
+
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
                     End If
-                    rd2.Close() : cnn2.Close()
-
-                    'Primera validación
-
-
-
-
-                    'Segunda validación
-
-
                 End If
 
+                'Segunda validación
+                If CDate(hora_dia) > CDate(hora_i2) And CDate(hora_dia) < CDate(hora_f2) Then
+                    Dim canti As Double = 0
 
-                cnn2.Close()
+                    'Pasa porque es el día y la hora
+                    '(1) - Primero cuenta los que ya están
+                    For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                            canti = canti + grdCaptura.Rows(p1).Cells(2).Value()
+                        End If
+                    Next
 
+                    If canti = 0 Then
+                        grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+                        Exit Sub
+                    Else
+                        Dim cantidad_final As Double = canti + cantidad
+                        Dim division As Double = 0
+                        Dim cantidad_valor As Double = 0
+
+                        division = FormatNumber(cantidad_final / 2.1, 0)
+                        cantidad_valor = cantidad_final - division
+
+                        Dim total_importe As Double = 0
+                        total_importe = PU * cantidad_valor
+
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = CDec(FormatNumber(total_importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+
+                            End If
+                        Next
+
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
+                    End If
+                End If
+            End If
+
+            '3x2
+            If tresxdos = 1 Then
+                'Domingo
+                If dia = 0 Then
+                    inicio1 = "HInicioD3"
+                    fin1 = "HFinD3"
+                    inicio2 = "HInicioD33"
+                    fin2 = "HFinD33"
+                End If
+
+                'Lunes
+                If dia = 1 Then
+                    inicio1 = "HInicioL3"
+                    fin1 = "HFinL3"
+                    inicio2 = "HInicioL33"
+                    fin2 = "HFinL33"
+                End If
+
+                'Martes
+                If dia = 2 Then
+                    inicio1 = "HInicioM3"
+                    fin1 = "HFinM3"
+                    inicio2 = "HInicioM33"
+                    fin2 = "HFinM33"
+                End If
+
+                'Miercoles
+                If dia = 3 Then
+                    inicio1 = "HInicioMi3"
+                    fin1 = "HFinMi3"
+                    inicio2 = "HInicioMi33"
+                    fin2 = "HFinMi33"
+                End If
+
+                'Jueves
+                If dia = 4 Then
+                    inicio1 = "HInicioJ3"
+                    fin1 = "HFinJ3"
+                    inicio2 = "HInicioJ33"
+                    fin2 = "HFinJ33"
+                End If
+
+                'Viernes
+                If dia = 5 Then
+                    inicio1 = "HInicioV3"
+                    fin1 = "HFinV3"
+                    inicio2 = "HInicioV33"
+                    fin2 = "HFinV33"
+                End If
+
+                'Sabado
+                If dia = 6 Then
+                    inicio1 = "HInicioS3"
+                    fin1 = "HFinS3"
+                    inicio2 = "HInicioS33"
+                    fin2 = "HFinS33"
+                End If
+
+                cnn2.Close() : cnn2.Open()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select * from Promos where Codigo='" & CodigoProducto & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        hora_i1 = rd2(inicio1).ToString()
+                        hora_f1 = rd2(fin1).ToString()
+                        hora_i2 = rd2(inicio2).ToString()
+                        hora_f2 = rd2(fin2).ToString()
+                    End If
+                End If
+                rd2.Close() : cnn2.Close()
+
+                'COMENTARIO'
+                'Mayor que - >
+                'Menor que - <
+
+                'Primera validación
+                If CDate(hora_dia) > CDate(hora_i1) And CDate(hora_dia) < CDate(hora_f1) Then
+                    Dim canti As Double = 0
+
+                    'Pasa porque es el día y la hora
+                    '(1) - Primero cuenta los que ya están
+                    For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                            canti = canti + grdCaptura.Rows(p1).Cells(2).Value()
+                        End If
+                    Next
+
+                    If canti = 0 Then
+                        grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+                        Exit Sub
+                    ElseIf canti = 1 Then
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = grdCaptura.Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+                            End If
+                        Next
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
+                    ElseIf canti > 1 Then
+                        Dim cantidad_final As Double = canti + cantidad
+                        Dim division As Double = 0
+                        Dim cantidad_valor As Double = 0
+
+                        division = FormatNumber(cantidad_final / 3.3, 0)
+                        cantidad_valor = cantidad_final - division
+
+                        Dim total_importe As Double = 0
+                        total_importe = PU * cantidad_valor
+
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = CDec(FormatNumber(total_importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+                            End If
+                        Next
+
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
+                    End If
+                End If
+
+                'Segunda validación
+                If CDate(hora_dia) > CDate(hora_i1) And CDate(hora_dia) < CDate(hora_f1) Then
+                    Dim canti As Double = 0
+
+                    'Pasa porque es el día y la hora
+                    '(1) - Primero cuenta los que ya están
+                    For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                            canti = canti + grdCaptura.Rows(p1).Cells(2).Value()
+                        End If
+                    Next
+
+                    If canti = 0 Then
+                        grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+                        Exit Sub
+                    ElseIf canti = 1 Then
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = grdCaptura.Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+                            End If
+                        Next
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
+                    ElseIf canti > 1 Then
+                        Dim cantidad_final As Double = canti + cantidad
+                        Dim division As Double = 0
+                        Dim cantidad_valor As Double = 0
+
+                        division = FormatNumber(cantidad_final / 3.3, 0)
+                        cantidad_valor = cantidad_final - division
+
+                        Dim total_importe As Double = 0
+                        total_importe = PU * cantidad_valor
+
+                        For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+                            If grdCaptura.Rows(qq).Cells(0).Value = CodigoProducto Then
+                                grdCaptura.Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                                grdCaptura.Rows(qq).Cells(2).Value = grdCaptura.Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                                grdCaptura.Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                                grdCaptura.Rows(qq).Cells(4).Value = CDec(FormatNumber(total_importe, 2))
+                                grdCaptura.Rows(qq).Cells(5).Value = cantidad2
+                                grdCaptura.Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+                            End If
+                        Next
+
+                        For p1 As Integer = 0 To grdCaptura.Rows.Count - 1
+                            Dim total As Double = 0
+                            If grdCaptura.Rows(p1).Cells(0).Value.ToString() = CodigoProducto Then
+                                total = total + grdCaptura.Rows(p1).Cells(4).Value()
+                            End If
+                            lblTotalVenta.Text = FormatNumber(total, 2)
+                        Next
+                        Exit Sub
+                    End If
+                End If
+            End If
+
+            With Me.grdCaptura
 
                 Dim banderaentraa As Integer = 0
                 banderaentraa = 0
@@ -1628,8 +2065,6 @@ Public Class frmAgregarProducto
                 End If
             End With
         End If
-        cnn1.Close()
-
     End Sub
 
     Private Sub Tiempos(ByVal min As Integer)
