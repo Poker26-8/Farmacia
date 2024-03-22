@@ -28,6 +28,7 @@ Partial Class frmModulos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button13 = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
@@ -112,6 +113,7 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button13)
         Me.Panel2.Controls.Add(Me.Label19)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Controls.Add(Me.Button11)
@@ -153,6 +155,20 @@ Partial Class frmModulos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1224, 357)
         Me.Panel2.TabIndex = 4
+        '
+        'Button13
+        '
+        Me.Button13.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button13.BackColor = System.Drawing.Color.LawnGreen
+        Me.Button13.FlatAppearance.BorderSize = 0
+        Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button13.Location = New System.Drawing.Point(1175, 299)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(37, 46)
+        Me.Button13.TabIndex = 203
+        Me.Button13.UseVisualStyleBackColor = False
+        Me.Button13.Visible = False
         '
         'Label19
         '
@@ -630,4 +646,5 @@ Partial Class frmModulos
     Friend WithEvents Label18 As Label
     Friend WithEvents Button12 As Button
     Friend WithEvents Label19 As Label
+    Friend WithEvents Button13 As Button
 End Class

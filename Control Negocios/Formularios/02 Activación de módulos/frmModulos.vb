@@ -190,4 +190,10 @@
         frmAct_Mensajeria.BringToFront()
         Me.Close()
     End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        frmPurgarDatos.Show()
+        frmPurgarDatos.BringToFront()
+        Me.Close()
+    End Sub
 End Class
