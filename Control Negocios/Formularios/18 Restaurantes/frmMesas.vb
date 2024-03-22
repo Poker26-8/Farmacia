@@ -22,11 +22,11 @@ Public Class frmMesas
     Dim nombreubicacion As String = ""
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
-        If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-            frmMesas.ActiveForm.Close()
+        'If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        '    frmMesas.ActiveForm.Close()
 
-        End If
-
+        'End If
+        Me.Close()
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
@@ -93,8 +93,8 @@ Public Class frmMesas
             If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
                 pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
                 pmesas.BackgroundImageLayout = ImageLayout.Stretch
-
             End If
+
         Else
             pmesaNM.Visible = True
             pmesas.Visible = False
@@ -582,7 +582,7 @@ Public Class frmMesas
             Dim cuantosFilas As Integer = Math.Ceiling(totalMesas / cuantosColumnas) ' Calculamos el número de filas necesarias
 
             ' Tamaño fijo de los botones
-            Dim btnWidth As Integer = 250 ' Ancho fijo del botón
+            Dim btnWidth As Integer = 140 ' Ancho fijo del botón
             Dim btnHeight As Integer = 100 ' Alto fijo del botón
 
             ' Espacio entre botones
