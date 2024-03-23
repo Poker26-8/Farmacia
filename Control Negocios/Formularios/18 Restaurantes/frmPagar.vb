@@ -1609,6 +1609,7 @@ Door:
             rd1.Close()
             cnn1.Close()
 
+
             If tamimpre = "80" Then
                 Precuenta80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                 Precuenta80.Print()
@@ -1619,7 +1620,6 @@ Door:
                 Precuenta58.Print()
             End If
 
-            Me.Close()
         End If
 
     End Sub

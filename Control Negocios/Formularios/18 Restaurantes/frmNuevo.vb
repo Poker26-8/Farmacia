@@ -10,7 +10,6 @@
 
         grdCaptura.Columns.Add(btnaccion)
 
-
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText = "select distinct nombre_mesa from mesa"
@@ -24,16 +23,13 @@
         rd1.Close()
         cnn1.Close()
 
-
-
-
     End Sub
 
     Private Sub grdCaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdCaptura.CellPainting
-        btnaccion.Text = "delete"
+        e.Paint(e.CellBounds, DataGridViewPaintParts.All)
+
+
     End Sub
-
-
 
     Public Sub Mesa()
         Try
@@ -172,5 +168,11 @@
         Next
     End Sub
 
-
+    Private Sub grdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellClick
+        ' Manejar el evento de clic de la celda del botón
+        If e.ColumnIndex = grdCaptura.Columns("Eliminar").Index AndAlso e.RowIndex >= 0 Then
+            MessageBox.Show("Haz clic en el botón en la fila " & (e.RowIndex + 1).ToString())
+            ' Aquí puedes realizar las acciones que desees al hacer clic en el botón
+        End If
+    End Sub
 End Class

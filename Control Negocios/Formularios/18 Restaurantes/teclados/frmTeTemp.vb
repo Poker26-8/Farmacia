@@ -240,7 +240,7 @@
                 Else
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & txtNombre.Text & "',1,'Desocupada',0,0," & orden & ",''," & idmesero & ",'" & frmMesas.lblusuario.Text & "','TEMPORALES',0,0,'2',1)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & txtNombre.Text & "',1,'Desocupada',0,0," & orden & ",''," & idmesero & ",'" & frmMesas.lblusuario.Text & "','TEMPORALES',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand

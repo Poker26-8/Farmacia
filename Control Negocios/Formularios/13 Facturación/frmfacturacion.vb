@@ -7104,6 +7104,7 @@ puerta_FacturaG:
                                             Else
 
                                                 Dim totaliva As Double = 0
+                                                'varIEPS = 0
                                                 If varIEPS > 0 Then
                                                     total = FormatNumber(CDec(dr(3).ToString) * CDec(dr("Precio").ToString), 2)
                                                     opeieps = FormatNumber(CDec(CDec(dr("Precio").ToString) * CDec(dr(3).ToString)) / 1.16, 6)
