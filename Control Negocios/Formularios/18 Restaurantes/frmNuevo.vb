@@ -1,10 +1,36 @@
 ﻿Public Class frmNuevo
 
     Friend WithEvents btnMesa As System.Windows.Forms.Button
-
+    Dim btnaccion = New DataGridViewButtonColumn()
     Private Sub frmNuevo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mesa()
 
+
+        btnaccion.Name = "Eliminar"
+
+        grdCaptura.Columns.Add(btnaccion)
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select distinct nombre_mesa from mesa"
+        rd1 = cmd1.ExecuteReader
+        Do While rd1.Read
+            If rd1.HasRows Then
+
+                grdCaptura.Rows.Add(rd1(0).ToString)
+            End If
+        Loop
+        rd1.Close()
+        cnn1.Close()
+
+
+
+
+    End Sub
+
+    Private Sub grdCaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdCaptura.CellPainting
+        btnaccion.Text = "delete"
     End Sub
 
 
@@ -145,4 +171,6 @@
             End If
         Next
     End Sub
+
+
 End Class

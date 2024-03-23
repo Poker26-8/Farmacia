@@ -25,6 +25,10 @@ Partial Class frmNuevo
         Me.pmesas = New System.Windows.Forms.Panel()
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel1.SuspendLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pmesas
@@ -33,7 +37,7 @@ Partial Class frmNuevo
         Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pmesas.Location = New System.Drawing.Point(0, 100)
         Me.pmesas.Name = "pmesas"
-        Me.pmesas.Size = New System.Drawing.Size(730, 540)
+        Me.pmesas.Size = New System.Drawing.Size(447, 540)
         Me.pmesas.TabIndex = 0
         '
         'psuperior
@@ -46,11 +50,30 @@ Partial Class frmNuevo
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.grdCaptura)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(730, 100)
+        Me.Panel1.Location = New System.Drawing.Point(447, 100)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(200, 540)
+        Me.Panel1.Size = New System.Drawing.Size(483, 540)
         Me.Panel1.TabIndex = 1
+        '
+        'grdCaptura
+        '
+        Me.grdCaptura.AllowUserToAddRows = False
+        Me.grdCaptura.AllowUserToDeleteRows = False
+        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
+        Me.grdCaptura.Location = New System.Drawing.Point(6, 15)
+        Me.grdCaptura.Name = "grdCaptura"
+        Me.grdCaptura.ReadOnly = True
+        Me.grdCaptura.Size = New System.Drawing.Size(465, 305)
+        Me.grdCaptura.TabIndex = 0
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "nombre"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         '
         'frmNuevo
         '
@@ -64,6 +87,8 @@ Partial Class frmNuevo
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmNuevo"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -71,4 +96,6 @@ Partial Class frmNuevo
     Friend WithEvents pmesas As Panel
     Friend WithEvents psuperior As Panel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents grdCaptura As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
 End Class
