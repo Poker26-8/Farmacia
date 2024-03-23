@@ -94,6 +94,76 @@ Public Class Inicio
         frmPrecios.BringToFront()
     End Sub
 
+    Private Sub Actualiza_Promos()
+        Dim dia_hoy As Integer = Date.Now.DayOfWeek
+        Dim dia_tex As String = ""
+
+        If dia_hoy = 0 Then dia_tex = "Domingo"
+        If dia_hoy = 1 Then dia_tex = "Lunes"
+        If dia_hoy = 2 Then dia_tex = "Martes"
+        If dia_hoy = 3 Then dia_tex = "Miercoles"
+        If dia_hoy = 4 Then dia_tex = "Jueves"
+        If dia_hoy = 5 Then dia_tex = "Viernes"
+        If dia_hoy = 6 Then dia_tex = "Sabado"
+
+        'COMENTARIO DE DÍAS'
+        '0 -> Domingo       '4 -> Jueves
+        '1 -> Lunes         '5 -> Viernes
+        '2 -> Martes        '6 -> Sábado
+        '3 -> Miércoles
+
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "update Productos set E1=0, E2=0"
+            cmd3.ExecuteNonQuery()
+
+            cnn4.Close() : cnn4.Open()
+
+            'Primero 2x1
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E1=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+
+            'Primero 3x2
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "2=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E2=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+            cnn3.Close()
+
+            cnn4.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn3.Close()
+        End Try
+    End Sub
+
     Private Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         PrimeraConfig = ""
         Login.Hide()
@@ -546,6 +616,8 @@ Public Class Inicio
 
         VieneDe_Compras = ""
         VieneDe_Folios = ""
+
+        Actualiza_Promos()
     End Sub
 
     Public Sub verif()
