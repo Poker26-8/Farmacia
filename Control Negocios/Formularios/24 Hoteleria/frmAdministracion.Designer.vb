@@ -35,11 +35,20 @@ Partial Class frmAdministracion
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cbPrecios = New System.Windows.Forms.CheckBox()
         Me.cbCambioH = New System.Windows.Forms.CheckBox()
         Me.cbDesbloqueo = New System.Windows.Forms.CheckBox()
-        Me.cbPrecios = New System.Windows.Forms.CheckBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txttole = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPrecioAumento = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnLimpiar
@@ -48,7 +57,7 @@ Partial Class frmAdministracion
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(274, 125)
+        Me.btnLimpiar.Location = New System.Drawing.Point(284, 216)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 78)
         Me.btnLimpiar.TabIndex = 239
@@ -67,7 +76,7 @@ Partial Class frmAdministracion
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 31)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(514, 88)
+        Me.Panel2.Size = New System.Drawing.Size(526, 88)
         Me.Panel2.TabIndex = 235
         '
         'lblidu
@@ -84,9 +93,9 @@ Partial Class frmAdministracion
         Me.lblusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblusuario.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.lblusuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblusuario.Location = New System.Drawing.Point(401, 51)
+        Me.lblusuario.Location = New System.Drawing.Point(406, 51)
         Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(108, 25)
+        Me.lblusuario.Size = New System.Drawing.Size(115, 25)
         Me.lblusuario.TabIndex = 96
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -94,9 +103,9 @@ Partial Class frmAdministracion
         '
         Me.txtContra.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtContra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContra.Location = New System.Drawing.Point(401, 28)
+        Me.txtContra.Location = New System.Drawing.Point(406, 28)
         Me.txtContra.Name = "txtContra"
-        Me.txtContra.Size = New System.Drawing.Size(108, 22)
+        Me.txtContra.Size = New System.Drawing.Size(115, 22)
         Me.txtContra.TabIndex = 95
         Me.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtContra.UseSystemPasswordChar = True
@@ -106,7 +115,7 @@ Partial Class frmAdministracion
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(398, 9)
+        Me.Label2.Location = New System.Drawing.Point(410, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(111, 16)
         Me.Label2.TabIndex = 94
@@ -139,7 +148,7 @@ Partial Class frmAdministracion
         Me.Label57.Location = New System.Drawing.Point(0, 0)
         Me.Label57.Name = "Label57"
         Me.Label57.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label57.Size = New System.Drawing.Size(514, 31)
+        Me.Label57.Size = New System.Drawing.Size(526, 31)
         Me.Label57.TabIndex = 238
         Me.Label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -149,7 +158,7 @@ Partial Class frmAdministracion
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(355, 125)
+        Me.btnGuardar.Location = New System.Drawing.Point(365, 216)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 78)
         Me.btnGuardar.TabIndex = 237
@@ -163,7 +172,7 @@ Partial Class frmAdministracion
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(436, 125)
+        Me.btnSalir.Location = New System.Drawing.Point(446, 216)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 78)
         Me.btnSalir.TabIndex = 236
@@ -180,6 +189,17 @@ Partial Class frmAdministracion
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(208, 78)
         Me.Panel1.TabIndex = 234
+        '
+        'cbPrecios
+        '
+        Me.cbPrecios.AutoSize = True
+        Me.cbPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPrecios.Location = New System.Drawing.Point(6, 55)
+        Me.cbPrecios.Name = "cbPrecios"
+        Me.cbPrecios.Size = New System.Drawing.Size(72, 20)
+        Me.cbPrecios.TabIndex = 2
+        Me.cbPrecios.Text = "Precios"
+        Me.cbPrecios.UseVisualStyleBackColor = True
         '
         'cbCambioH
         '
@@ -203,23 +223,97 @@ Partial Class frmAdministracion
         Me.cbDesbloqueo.Text = "Desbloqueo de habitación"
         Me.cbDesbloqueo.UseVisualStyleBackColor = True
         '
-        'cbPrecios
+        'Panel3
         '
-        Me.cbPrecios.AutoSize = True
-        Me.cbPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPrecios.Location = New System.Drawing.Point(6, 55)
-        Me.cbPrecios.Name = "cbPrecios"
-        Me.cbPrecios.Size = New System.Drawing.Size(72, 20)
-        Me.cbPrecios.TabIndex = 2
-        Me.cbPrecios.Text = "Precios"
-        Me.cbPrecios.UseVisualStyleBackColor = True
+        Me.Panel3.Controls.Add(Me.txtPrecioAumento)
+        Me.Panel3.Controls.Add(Me.Label13)
+        Me.Panel3.Controls.Add(Me.dtpinicio)
+        Me.Panel3.Controls.Add(Me.Label8)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.txttole)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Location = New System.Drawing.Point(226, 125)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(300, 85)
+        Me.Panel3.TabIndex = 240
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(89, 5)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(68, 18)
+        Me.Label3.TabIndex = 215
+        Me.Label3.Text = "Minutos"
+        '
+        'txttole
+        '
+        Me.txttole.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttole.Location = New System.Drawing.Point(6, 25)
+        Me.txttole.Name = "txttole"
+        Me.txttole.Size = New System.Drawing.Size(151, 22)
+        Me.txttole.TabIndex = 214
+        Me.txttole.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 5)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(87, 18)
+        Me.Label4.TabIndex = 213
+        Me.Label4.Text = "Tolerancia"
+        '
+        'dtpinicio
+        '
+        Me.dtpinicio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtpinicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpinicio.Location = New System.Drawing.Point(163, 25)
+        Me.dtpinicio.Name = "dtpinicio"
+        Me.dtpinicio.ShowUpDown = True
+        Me.dtpinicio.Size = New System.Drawing.Size(132, 22)
+        Me.dtpinicio.TabIndex = 217
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(161, 5)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(136, 18)
+        Me.Label8.TabIndex = 216
+        Me.Label8.Text = "Salida hospedaje"
+        '
+        'txtPrecioAumento
+        '
+        Me.txtPrecioAumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecioAumento.Location = New System.Drawing.Point(209, 53)
+        Me.txtPrecioAumento.Name = "txtPrecioAumento"
+        Me.txtPrecioAumento.Size = New System.Drawing.Size(86, 22)
+        Me.txtPrecioAumento.TabIndex = 223
+        Me.txtPrecioAumento.Text = "0.00"
+        Me.txtPrecioAumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(31, 55)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(172, 18)
+        Me.Label13.TabIndex = 222
+        Me.Label13.Text = "Precio Dia/Hospedaje"
         '
         'frmAdministracion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(514, 215)
+        Me.ClientSize = New System.Drawing.Size(526, 299)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label57)
@@ -233,6 +327,8 @@ Partial Class frmAdministracion
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -252,4 +348,12 @@ Partial Class frmAdministracion
     Friend WithEvents cbCambioH As CheckBox
     Friend WithEvents cbDesbloqueo As CheckBox
     Friend WithEvents cbPrecios As CheckBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txttole As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents dtpinicio As DateTimePicker
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtPrecioAumento As TextBox
+    Friend WithEvents Label13 As Label
 End Class

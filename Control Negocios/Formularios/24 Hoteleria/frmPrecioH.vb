@@ -6,16 +6,6 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txttole.Text = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Nombre,Horas,Precio FROM detallehotelprecios"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -29,7 +19,6 @@
                 End If
             Loop
             rd1.Close()
-            cnn1.Close()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -76,22 +65,6 @@
     Private Sub btnG_Click(sender As Object, e As EventArgs) Handles btnG.Click
         Try
             cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE formatos set NotasCred='" & txttole.Text & "' WHERE Facturas='ToleHabi' "
-                    cmd2.ExecuteNonQuery()
-                    cnn2.Close()
-
-                End If
-            End If
-            rd1.Close()
-
             For luffy As Integer = 0 To grdPrecios.Rows.Count - 1
 
                 Dim nombre As String = grdPrecios.Rows(luffy).Cells(0).Value.ToString
@@ -131,7 +104,7 @@
         End Try
     End Sub
 
-    Private Sub txttole_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttole.KeyPress
+    Private Sub txttole_KeyPress(sender As Object, e As KeyPressEventArgs)
         If AscW(e.KeyChar) = Keys.Enter Then
             btnG.Focus.Equals(True)
         End If
@@ -152,4 +125,6 @@
         grdPrecios.Rows.Remove(grdPrecios.CurrentRow)
 
     End Sub
+
+
 End Class

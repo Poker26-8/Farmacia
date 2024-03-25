@@ -63,8 +63,55 @@
 
             If lblusuario.Text = "" Then MsgBox("Debe de ingresar la contraseña de administrador para continuar", vbInformation + vbOKOnly, titulohotelriaa) : txtContra.Focus.Equals(True) : Exit Sub
 
-
             cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE formatos set NotasCred='" & txttole.Text & "' WHERE Facturas='ToleHabi' "
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='PrecioDia'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE formatos SET NotasCred='" & txtPrecioAumento.Text & "',NumPart='0' WHERE Facturas='PrecioDia'"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='SalidaHab'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    Dim tiempo As DateTime = dtpinicio.Value
+                    Dim tiemponuevo As String = Format(tiempo, "HH:mm")
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE formatos SET NotasCred='" & tiemponuevo & "',NumPart='0' WHERE Facturas='SalidaHab'"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+            End If
+            rd1.Close()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT * FROM permisos WHERE IdEmpleado='" & lblidu.Text & "'"
             rd1 = cmd1.ExecuteReader
@@ -155,5 +202,44 @@
         cbCambioH.Checked = False
     End Sub
 
+    Private Sub frmAdministracion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
 
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txttole.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='PrecioDia'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtPrecioAumento.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='SalidaHab'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    dtpinicio.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

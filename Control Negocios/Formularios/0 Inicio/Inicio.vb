@@ -184,7 +184,8 @@ Public Class Inicio
         SFormatos("MesasPropias", "")
         SFormatos("Copa", "")
         SFormatos("ToleHabi", "")
-
+        SFormatos("SalidaHab", "")
+        SFormatos("PrecioDia", "")
         'Licencia()
         Try
             cnn1.Close()

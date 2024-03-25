@@ -3090,6 +3090,7 @@ kaka:
             leePeso()
             My.Application.DoEvents()
         End If
+
         If AscW(e.KeyChar) = Keys.Enter And (cbocodigo.Text = "" And cbodesc.Text = "") Then
             If btndevo.Text = "GUARDAR DEVOLUCIÓN" Then
                 btndevo.Focus().Equals(True)
@@ -3593,15 +3594,15 @@ kaka:
                             If btndevo.Text <> "GUARDAR DEVOLUCIÓN" Then
                                 Dim Existe As Double = rd1("Existencia").ToString()
                                 Dim TExiste As Double = Existe - CDbl(txtcantidad.Text)
-                                If Me.Text = "Ventas(1)" Then
-                                    If Text < 0 Then
+                                If Me.Text = "Ventas (1)" Then
+                                    If txtexistencia.Text <= 0 Then
                                         MsgBox("No está permitido vender sin existencias.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                         txtcantidad.Focus().Equals(True)
                                         rd1.Close() : cnn1.Close()
                                         Exit Sub
                                     End If
                                 End If
-                            End If
+                                End If
                         End If
                     End If
                 End If

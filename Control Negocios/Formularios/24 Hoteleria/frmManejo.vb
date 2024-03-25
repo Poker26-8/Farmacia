@@ -134,6 +134,8 @@ Public Class frmManejo
 
     Public Sub crear_Habitacion(ByVal ubicacion As String)
 
+        Dim salidahab As String = ""
+        Dim tolehab As Double = 0
         Dim habita As Integer = 1
         Dim estado As String = ""
         Dim cuantos As UInteger = Math.Truncate(pHab.Height / 100)
@@ -607,6 +609,26 @@ Public Class frmManejo
                                 btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
                                 Try
                                     cnn1.Close() : cnn1.Open()
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='SalidaHab'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            salidahab = rd1(0).ToString
+                                        End If
+                                    End If
+                                    rd1.Close()
+
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            tolehab = rd1(0).ToString
+                                        End If
+                                    End If
+                                    rd1.Close()
+
                                     cnn2.Close() : cnn2.Open()
 
                                     cmd1 = cnn1.CreateCommand
@@ -651,30 +673,57 @@ Public Class frmManejo
                                             Dim tiempo As Double = tiempouso
                                             Dim horas As Double = horasas
 
+                                            Dim fechasalidahab As DateTime = fechaentradan.AddHours(horas)
+                                            Dim nuevafechasalida As String = ""
+
+                                            If tolehab > 0 Then
+                                                Dim fechacontolerancia As DateTime = fechasalidahab.AddMinutes(tolehab)
+
+                                                nuevafechasalida = Format(fechacontolerancia, "yyyy/MM/dd HH:mm")
+                                            Else
+
+                                                nuevafechasalida = Format(fechasalidahab, "yyyy/MM/dd HH:mm")
+                                            End If
+
                                             If horas = "24" Then
 
-                                                Dim timpo As Date = Nothing
-                                                Dim timpon As String = ""
-                                                timpo = fechasalida
-                                                timpon = Format(timpo, "HH:mm")
+                                                If salidahab <> "" Then
+                                                    Dim fechasaldia As DateTime = fechaentradan.AddHours(horas)
+                                                    Dim fechasaldiac As String = Format(fechasaldia, "yyyy/MM/dd")
+                                                    Dim fechaslaidanueva As String = fechasaldiac & " " & salidahab
 
-                                                If timpon >= "12:00" Then
+                                                    ' MsgBox(fechaslaidanueva)
+                                                    'MsgBox(fechasalida)
 
-                                                    btnHabitacionn.BackColor = Color.Violet
+                                                    Dim fechasalida2 As DateTime = DateTime.ParseExact(fechaslaidanueva, "yyyy/MM/dd HH:mm", System.Globalization.CultureInfo.InvariantCulture)
+                                                    Dim fechaentrada2 As DateTime = DateTime.ParseExact(fechasalida, "yyyy/MM/dd HH:mm", System.Globalization.CultureInfo.InvariantCulture)
 
-                                                    '        If VarMinutos > 1140 Then
+                                                    If fechaentrada2 > fechasalida2 Then
 
-                                                    '            btnHabitacionn.BackColor = Color.Violet
-                                                    '        Else
-                                                    '            btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
-                                                    '        End If
+                                                        'Dim timpo As Date = Nothing
+                                                        'Dim timpon As String = ""
+                                                        'timpo = fechasalida
+                                                        'timpon = Format(timpo, "HH:mm")
 
-                                                ElseIf timpon < "12:00" Then
-                                                    btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                        'If timpon >= salidahab Then
+                                                        btnHabitacionn.BackColor = Color.Violet
+                                                        'Else
+                                                        '    btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                        'End If
+                                                    Else
+                                                        btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
+                                                    End If
+
                                                 End If
 
+
+
+
+
+
+
                                             Else
-                                                    If tiempo >= horas Then
+                                                    If fechasalida >= nuevafechasalida Then
                                                     btnHabitacionn.BackColor = Color.Violet
                                                 Else
                                                     btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)

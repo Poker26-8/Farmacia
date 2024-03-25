@@ -9,9 +9,43 @@
     Dim timpon As String = ""
     Private Sub frmCalcularNuvHab_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
+        Dim ToleHab As String = ""
+        Dim salidahotel As DateTime = Nothing
+        Dim salidahotel2 As String = ""
+        Dim precioaumento As Double = 0
         Try
             cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='SalidaHab'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    salidahotel = rd2(0).ToString
+                    salidahotel2 = Format(salidahotel, "HH:mm")
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='PrecioDia'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    precioaumento = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    ToleHab = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT Horas,Precio FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
             rd2 = cmd2.ExecuteReader
@@ -45,26 +79,44 @@
                     Dim horas As Double = lblHoras.Text
 
 
+                    Dim fechasalida As DateTime = fechaentrada.AddHours(horas)
+
+                    If ToleHab > 0 Then
+                        Dim fechatolerancia As DateTime = fechasalida.AddMinutes(ToleHab)
+                        lblsalida.Text = Format(fechatolerancia, "yyyy/MM/dd HH:mm")
+                    Else
+                        lblsalida.Text = Format(fechasalida, "yyyy/MM/dd HH:mm")
+                    End If
+
                     If horas = "24" Then
 
+                        If salidahotel2 <> "" Then
+                            lblsalida.Text = ""
+                            Dim fechasalidadia As DateTime = fechaentrada.AddHours(horas)
+                            Dim fechasalidactole As DateTime = salidahotel.AddMinutes(ToleHab)
+                            Dim TIEMPOSALIDA As String = Format(fechasalidactole, "HH:mm")
+                            Dim fechasalidadia2 As String = Format(fechasalidadia, "yyyy/MM/dd")
+                            lblsalida.Text = fechasalidadia2 & " " & TIEMPOSALIDA
 
-                        'If VarMinutos > 1140 Then
+                            Dim fechSalida As DateTime = DateTime.ParseExact(lblsalida.Text, "yyyy/MM/dd HH:mm", System.Globalization.CultureInfo.InvariantCulture)
+                            Dim fechEntrada As DateTime = DateTime.ParseExact(lblHorFin.Text, "yyyy/MM/dd HH:mm", System.Globalization.CultureInfo.InvariantCulture)
 
-                        '    timpo = lblHorFin.Text
-                        '    timpon = Format(timpo, "HH:mm")
+                            If fechEntrada > fechSalida Then
+                                MsgBox("se acabo el tiempó")
+                                lblPagar.Text = CDbl(lblPrecio.Text) + CDbl(precioaumento)
+                            Else
+                                lblPagar.Text = CDbl(lblPrecio.Text)
+                            End If
 
-                        '    If timpon >= "12:00" Then
-                        '        MsgBox("Tiene que entregar la habitación el huesped")
-                        '    End If
-
-                        'End If
-                        lblPagar.Text = CDbl(lblPrecio.Text)
+                        End If
 
                     Else
-                        lblPagar.Text = CDbl(lblPrecio.Text)
-
-                        If tiempo >= horas Then
+                        If lblHorFin.Text >= lblsalida.Text Then
                             MsgBox("El tiempo de renta de la habitación termino.", vbInformation + vbOKOnly, titulohotelriaa)
+                            lblPagar.Text = CDbl(lblPrecio.Text)
+                            lblPagar.Text = lblPagar.Text + CDbl(precioaumento)
+                        Else
+                            lblPagar.Text = CDbl(lblPrecio.Text)
                         End If
                     End If
 
@@ -88,6 +140,11 @@
     Private Sub btnDesocupar_Click(sender As Object, e As EventArgs) Handles btnDesocupar.Click
 
         Try
+
+            If MsgBox("¿Se desocupara la habitación, Esta en lo corerecto?", vbInformation + vbYesNo) = vbNo Then
+                Exit Sub
+            End If
+
 
             Dim totalpagar As Double = 0
             totalpagar = FormatNumber(lblPagar.Text, 2)
@@ -114,12 +171,10 @@
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
-
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText = "UPDATE comandas SET Cantidad=" & lblHoras.Text & ",Precio=" & lblPrecio.Text & ",Total=" & totalpagar & ",PrecioSinIVA=" & precioh & ",TotalSinIVA=" & totalpagar & ",Hr='',EntregaT='' WHERE Nmesa='" & lblpc.Text & "' AND Comentario='Renta de Habitacion'"
                     cmd3.ExecuteNonQuery()
-
 
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText = "DELETE FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
