@@ -11,10 +11,38 @@ Public Class frmPagarH
         Timer1.Start()
         TFecha.Start()
         Dim total As Double = 0
-
+        Dim tomacontra As Integer = 0
 
         Try
             cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    tomacontra = rd2(0).ToString
+
+                    If tomacontra = 1 Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                lblAtendio.Text = rd1(0).ToString
+                                txtContra.Text = rd1(1).ToString
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+                    Else
+                        txtContra.Text = ""
+                        lblAtendio.Text = ""
+                    End If
+                End If
+            End If
+            rd2.Close()
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT * FROM comandas WHERE NMESA='" & lblHabitacion.Text & "'"
             rd2 = cmd2.ExecuteReader
@@ -1157,8 +1185,8 @@ Public Class frmPagarH
                 If rd2.Read Then
                     unidadp = rd2("UVenta").ToString
                     ivap = rd2("IVA").ToString
-                    MyPrecioSin = IIf(preciop = 0, 0, preciop) / (1 * ivap)
-                    MyTotalSin = IIf(totalp = 0, 0, totalp) / (1 * ivap)
+                    MyPrecioSin = IIf(preciop = 0, 0, preciop) / (1 + ivap)
+                    MyTotalSin = IIf(totalp = 0, 0, totalp) / (1 + ivap)
 
                     If rd2("Departamento").ToString = "SERVICIOS" Then
                         MyCostVUE = 0
