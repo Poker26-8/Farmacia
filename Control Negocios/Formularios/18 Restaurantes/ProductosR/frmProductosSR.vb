@@ -1279,7 +1279,7 @@ nopasowey:
         Dim provpri As String = ""
         Dim proveme As String = ""
         'es la ruta de impresion
-        Dim gprint As String = "" 'gprint
+        Dim gprint As String = ""
         Dim ucompra As String = ""
         Dim uventa As String = ""
         Dim ventamin As String = ""
@@ -1300,6 +1300,7 @@ nopasowey:
         Dim PrecioMin As Double = 0 'PecioVentaMinIVA
         Dim IVA As Double = 0
         Dim existencias As Double = 0
+        Dim porcentage As Double = 0
         Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
         Dim porcMay As Double = 0 'PorMay
         Dim porcMM As Double = 0 'PorMM
@@ -1317,6 +1318,7 @@ nopasowey:
         Dim cantEsp2 As Double = 0 'cantEsp2
         Dim cantLst As Double = 0 'cantLta
         Dim cantLst2 As Double = 0 'cantLta2
+        Dim prevol As String = ""
         Dim idmoneda As Integer = 1
         Dim promocion As Double = 0
         Dim descuento As Double = 0
@@ -1336,8 +1338,7 @@ nopasowey:
         Dim numpromo As Integer = 0
         Dim modo_almacen As Double = 0
         Dim f44 As Double = 0
-        Dim militros As Double = 0
-        Dim copas As Double = 0
+        Dim isr As Double = 0
 
         Dim cuantos As Double = 0
 
@@ -1355,7 +1356,6 @@ nopasowey:
                     provpri = rd1("ProvPri").ToString
                     proveme = rd1("ProvEme").ToString
                     gprint = rd1("ProvRes").ToString
-                    ' provres = 0
                     ucompra = rd1("UCompra").ToString
                     uventa = rd1("UVenta").ToString
                     ventamin = rd1("VentaMin").ToString
@@ -1366,8 +1366,72 @@ nopasowey:
                     ubicacion = rd1("Ubicacion").ToString
                     minim = rd1("Min").ToString
                     maxi = rd1("Max").ToString
+                    comision = IIf(rd1("Comision").ToString = "", 0, rd1("Comision").ToString)
+                    precioCompra = IIf(rd1("PrecioCompra").ToString = "", 0, rd1("PrecioCompra").ToString)
+                    precioVenta = IIf(rd1("PrecioVenta").ToString = "", 0, rd1("PrecioVenta").ToString)
+                    precioVentaIVA = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+                    precioDomicilio = IIf(rd1("PecioVentaMinIVA").ToString = "", 0, rd1("PecioVentaMinIVA").ToString)
+                    precioDomicilioIVA = 0
+                    porcMin = IIf(rd1("PorcentageMin").ToString = "", 0, rd1("PorcentageMin").ToString)
+                    PrecioMin = 0
+                    IVA = IIf(rd1("IVA").ToString = "", 0, rd1("IVA").ToString)
+                    existencias = IIf(rd1("Existencia").ToString = "", 0, rd1("Existencia").ToString)
+                    porcentage = IIf(rd1("Porcentage").ToString = "", 0, rd1("Porcentage").ToString)
+                    'fecha
+                    porcMay = IIf(rd1("PorMay").ToString = "", 0, rd1("PorMay").ToString)
+                    porcMM = IIf(rd1("PorMM").ToString = "", 0, rd1("PorMM").ToString)
+                    porcEsp = IIf(rd1("PorEsp").ToString = "", 0, rd1("PorEsp").ToString)
+                    preMay = IIf(rd1("PreMay").ToString = "", 0, rd1("PreMay").ToString)
+                    PreMM = IIf(rd1("PreMM").ToString = "", 0, rd1("PreMM").ToString)
+                    PreEsp = IIf(rd1("PreEsp").ToString = "", 0, rd1("PreEsp").ToString)
+                    cantMin = IIf(rd1("CantMin").ToString = "", 0, rd1("CantMin").ToString)
+                    cantMin2 = IIf(rd1("CantMin2").ToString = "", 0, rd1("CantMin2").ToString)
+                    cantMay = IIf(rd1("CantMay").ToString = "", 0, rd1("CantMay").ToString)
+                    cantMay2 = IIf(rd1("CantMay2").ToString = "", 0, rd1("CantMay2").ToString)
+                    cantMM = IIf(rd1("CantMM").ToString = "", 0, rd1("CantMM").ToString)
+                    cantMM2 = IIf(rd1("CantMM2").ToString = "", 0, rd1("CantMM2").ToString)
+                    cantEsp = IIf(rd1("CantEsp").ToString = "", 0, rd1("CantEsp").ToString)
+                    cantEsp2 = IIf(rd1("CantEsp2").ToString = "", 0, rd1("CantEsp2").ToString)
+                    cantLst = IIf(rd1("CantLta").ToString = "", 0, rd1("CantLta").ToString)
+                    cantLst2 = IIf(rd1("CantLta2").ToString = "", 0, rd1("CantLta2").ToString)
+                    prevol = IIf(rd1("pres_vol").ToString = "", 0, rd1("pres_vol").ToString)
+                    idmoneda = 1
+                    promocion = 0
+                    descuento = 0
+                    afectaexis = 0
+                    percentIvaRet = 0
+                    almacen3 = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+                    ieps = IIf(rd1("IIEPS").ToString = "", 0, rd1("IIEPS").ToString)
+                    invfinal = 0
+                    isr = 0
+                    invInicialCosto = 0
+                    invFinalCosto = 0
+                    clavesat = rd1("ClaveSat").ToString
+                    unidadsat = rd1("ClaveUnidadSat").ToString
+                    statuspromo = IIf(rd1("Status_Promocion").ToString = "", 0, rd1("Status_Promocion").ToString)
+                    porcentajePromo = rd1("Porcentaje_Promo").ToString
+                    e1 = IIf(rd1("E1").ToString = "", 0, rd1("E1").ToString)
+                    e2 = IIf(rd1("E2").ToString = "", 0, rd1("E2").ToString)
+                    f44 = IIf(rd1("F44").ToString = "", 0, rd1("F44").ToString)
+
+                    If IVA > 0 Then
+                        precioDomicilioIVA = CDbl(precioDomicilio) * CDbl(1 + IVA)
+                    Else
+                        precioDomicilioIVA = 0
+                    End If
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,provEme,ProvRes,UCompra,UVenta,Uminima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PrecioDomicilio,PrecioDomicilioIVA,PorcMin,PreMin,IVA,Existencia,Porcentaje,Fecha,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,pres_vol,id_tbMoneda,Promocion,Descto,Afecta_exis,PercentIVAret,Almacen3,IIEPS,InvInicial,ISR,InvFinal,InvInicialCosto,InvFinalCosto,ClaveSat,UnidadSat,Cargado,CargadoInv,Status_Promocion,Porcentaje_Promo,Fecha_Inicial,Fecha_Final,E1,E2,F44) VALUES('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & provpri & "','" & proveme & "',0,'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & minim & "," & maxi & "," & comision & "," & precioCompra & "," & precioVenta & "," & precioVentaIVA & "," & precioDomicilio & "," & precioDomicilioIVA & "," & porcMin & "," & PrecioMin & "," & IVA & "," & existencias & "," & porcentage & ",'" & fecha & "'," & porcMay & "," & porcMM & "," & porcEsp & "," & preMay & "," & PreMM & "," & PreEsp & "," & cantMin & "," & cantMin2 & "," & cantMay & "," & cantMay2 & "," & cantMM & "," & cantMM2 & "," & cantEsp & "," & cantEsp2 & "," & cantLst & "," & cantLst2 & "," & prevol & "," & idmoneda & "," & promocion & "," & descuento & "," & afectaexis & "," & percentIvaRet & "," & almacen3 & "," & ieps & ",0," & isr & "," & invfinal & "," & invInicialCosto & "," & invFinalCosto & ",'" & clavesat & "','" & unidadsat & "',0,0," & statuspromo & "," & porcentajePromo & ",'" & fecha & "','" & fecha & "'," & e1 & "," & e2 & "," & f44 & ")"
+                    If cmd2.ExecuteNonQuery() Then
+                        cuantos = cuantos + 1
+                    Else
+
+                        MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
+                    End If
 
                 Loop
+                cnn2.Close()
                 rd1.Close()
                 MsgBox("Se insertaron " & cuantos & " productos")
                 cnn1.Close()
