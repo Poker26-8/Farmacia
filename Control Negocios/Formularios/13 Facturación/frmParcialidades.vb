@@ -176,7 +176,7 @@ Public Class frmParcialidades
                     txtCliRfc.Text = rd("nom_rfc_cliente").ToString
                     txtUUID.Text = rd("nom_folio_sat_uuid").ToString
                     txtMoneda.Text = "MXN" 'rd("Moneda").ToString
-                    txtTotalFact.Text = rd("nom_total_pagado").ToString
+                    txtTotalFact.Text = FormatNumber(rd("nom_total_pagado").ToString, 2)
                     txtCliRegFis.Text = rd("regfis_cliente").ToString
                     id_cliente = rd("nom_id_cliente").ToString
                 Loop
@@ -194,8 +194,8 @@ Public Class frmParcialidades
             rd1.Close()
 
             conexion.Close()
-            txtSaldoAnt.Text = CDec(txtTotalFact.Text) - CDec(txtPagosReal.Text)
-            txtRestante.Text = CDec(txtSaldoAnt.Text) - CDec(txtTotalPagos.Text)
+            txtSaldoAnt.Text = FormatNumber(CDec(txtTotalFact.Text) - CDec(txtPagosReal.Text), 2)
+            txtRestante.Text = FormatNumber(CDec(txtSaldoAnt.Text) - CDec(txtTotalPagos.Text), 2)
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -2166,7 +2166,7 @@ door:
                     txtCliRfc.Text = rd("nom_rfc_cliente").ToString
                     txtUUID.Text = rd("nom_folio_sat_uuid").ToString
                     txtMoneda.Text = "MXN" 'rd("Moneda").ToString
-                    txtTotalFact.Text = rd("nom_total_pagado").ToString
+                    txtTotalFact.Text = FormatNumber(rd("nom_total_pagado").ToString, 2)
                     txtCliRegFis.Text = rd("regfis_cliente").ToString
                     id_cliente = rd("nom_id_cliente").ToString
                 Loop
@@ -4050,5 +4050,9 @@ door:
         pdfDoc.Close()
 
         Process.Start("C:\2022\demo3.pdf")
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
     End Sub
 End Class
