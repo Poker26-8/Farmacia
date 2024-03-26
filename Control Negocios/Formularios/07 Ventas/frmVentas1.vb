@@ -651,6 +651,8 @@ Public Class frmVentas1
                 grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
             End If
 
+            grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
+
 kak:
 
             If Alerta_Min = True Then
