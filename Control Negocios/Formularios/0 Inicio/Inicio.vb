@@ -531,7 +531,6 @@ Public Class Inicio
             End If
             rd1.Close()
 
-
             Dim migracion As Boolean = False
 
             cmd1 = cnn1.CreateCommand
@@ -677,6 +676,7 @@ Public Class Inicio
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
+
         Try
             cnn1.Close()
             cnn1.Open()
@@ -893,38 +893,44 @@ Public Class Inicio
         End Try
 
         ''permisosm
-        'Try
-        '    cnn1.Close() : cnn1.Open()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "SELECT Mesas FROM permisosm"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.Read Then
-        '    End If
-        '    rd1.Close() : cnn1.Close()
-        'Catch ex As Exception
-        '    rd1.Close()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "ALTER TABLE permisosm add column Mesas INT(1) default '0'"
-        '    cmd1.ExecuteNonQuery()
-        '    cnn1.Close()
-        'End Try
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Mesas FROM permisosm"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE permisosm add column Mesas INT(1) default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
 
-        'Try
-        '    cnn1.Close() : cnn1.Open()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "SELECT Copas FROM permisosm"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.Read Then
-        '    End If
-        '    rd1.Close() : cnn1.Close()
-        'Catch ex As Exception
-        '    rd1.Close()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "ALTER TABLE permisosm add column Copas INT(1) default '0'"
-        '    cmd1.ExecuteNonQuery()
-        '    cnn1.Close()
-        'End Try
+        'productos
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Mililitros,Copas FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
+            cmd1.ExecuteNonQuery()
 
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'usuarios
         Try
             cnn1.Close()
             cnn1.Open()

@@ -27,8 +27,6 @@
 
         Dim ESTADO As String = ""
 
-
-
         If cboRegistro.Text = "HOSPEDAR" Then
             ESTADO = "Ocupada"
         ElseIf cboRegistro.Text = "RESERVACION" Then
@@ -40,6 +38,8 @@
         ElseIf cboRegistro.Text = "VENTILACION" Then
             ESTADO = "Ventilacion"
         End If
+
+        If txtHoras.Text = "" Then MsgBox("Debe de ingresar la cantidad de horas", vbInformation + vbOKOnly, titulohotelriaa) : txtHoras.Focus.Equals(True) : Exit Sub
 
         If lblusuario.Text = "" Then MsgBox("Ingrese la contraseña de usuario", vbInformation + vbOKOnly, titulohotelriaa) : txtcontra.Focus.Equals(True) : Exit Sub
 
@@ -433,6 +433,7 @@
 
     Private Sub dtpSalida_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpSalida.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
+
             cbodescripcion.Focus.Equals(True)
         End If
     End Sub
@@ -466,6 +467,10 @@
             Else
                 cbocodigo.Focus.Equals(True)
             End If
+
+            Dim varhoras As Double = 0
+            varhoras = DateDiff(DateInterval.Hour, CDate(dtpEntrada.Text), CDate(dtpSalida.Text))
+            txtHoras.Text = varhoras
 
         End If
     End Sub

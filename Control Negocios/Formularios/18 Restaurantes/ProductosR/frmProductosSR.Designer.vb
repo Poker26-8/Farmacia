@@ -89,6 +89,7 @@ Partial Class frmProductosSR
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdsql = New System.Windows.Forms.DataGridView()
+        Me.btnMigrar = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
@@ -133,7 +134,7 @@ Partial Class frmProductosSR
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(707, 460)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(568, 546)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(77, 23)
         Me.txtrutaimagen.TabIndex = 232
@@ -839,12 +840,28 @@ Partial Class frmProductosSR
         Me.grdsql.Size = New System.Drawing.Size(493, 184)
         Me.grdsql.TabIndex = 227
         '
+        'btnMigrar
+        '
+        Me.btnMigrar.FlatAppearance.BorderSize = 0
+        Me.btnMigrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMigrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMigrar.Image = CType(resources.GetObject("btnMigrar.Image"), System.Drawing.Image)
+        Me.btnMigrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnMigrar.Location = New System.Drawing.Point(778, 457)
+        Me.btnMigrar.Name = "btnMigrar"
+        Me.btnMigrar.Size = New System.Drawing.Size(65, 67)
+        Me.btnMigrar.TabIndex = 234
+        Me.btnMigrar.Text = "Migrar"
+        Me.btnMigrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnMigrar.UseVisualStyleBackColor = False
+        '
         'frmProductosSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(856, 581)
+        Me.Controls.Add(Me.btnMigrar)
         Me.Controls.Add(Me.TabControl2)
         Me.Controls.Add(Me.txtrutaimagen)
         Me.Controls.Add(Me.Label16)
@@ -979,4 +996,5 @@ Partial Class frmProductosSR
     Friend WithEvents grdsql As DataGridView
     Friend WithEvents txtrutaimagen As TextBox
     Friend WithEvents BTNpORMOCIONES As Button
+    Friend WithEvents btnMigrar As Button
 End Class

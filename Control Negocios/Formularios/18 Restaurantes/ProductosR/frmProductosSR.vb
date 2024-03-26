@@ -1,4 +1,5 @@
 ﻿
+Imports System.Data.OleDb
 Imports System.IO
 Public Class frmProductosSR
 
@@ -1261,5 +1262,122 @@ nopasowey:
     Private Sub BTNpORMOCIONES_Click(sender As Object, e As EventArgs) Handles BTNpORMOCIONES.Click
         frmPromociones.Show()
         frmPromociones.BringToFront()
+    End Sub
+
+    Private Sub btnMigrar_Click(sender As Object, e As EventArgs) Handles btnMigrar.Click
+
+        btnMigrar.Enabled = False
+        My.Application.DoEvents()
+        Dim cnn1 As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\BaseExportar\DLALIM1.mdb;;Persist Security Info=True;Jet OLEDB:Database Password=jipl22")
+        Dim cmd1 As OleDbCommand = New OleDbCommand
+        Dim rd1 As OleDbDataReader
+
+        Dim codigo As String = ""
+        Dim barras As String = ""
+        Dim nombre As String = ""
+        Dim nombrelargo As String = ""
+        Dim provpri As String = ""
+        Dim proveme As String = ""
+        'es la ruta de impresion
+        Dim gprint As String = "" 'gprint
+        Dim ucompra As String = ""
+        Dim uventa As String = ""
+        Dim ventamin As String = ""
+        Dim mcd As Double = 0
+        Dim multiplo As Double = 0
+        Dim departamento As String = ""
+        Dim grupo As String = ""
+        Dim ubicacion As String = ""
+        Dim minim As Double = 0
+        Dim maxi As Double = 0
+        Dim comision As Double = 0 'comision
+        Dim precioCompra As Double = 0
+        Dim precioVenta As Double = 0
+        Dim precioVentaIVA As Double = 0
+        Dim precioDomicilio As Double = 0 'es igual al precioventaiva
+        Dim precioDomicilioIVA As Double = 0
+        Dim porcMin As Double = 0   'PorcentageMin
+        Dim PrecioMin As Double = 0 'PecioVentaMinIVA
+        Dim IVA As Double = 0
+        Dim existencias As Double = 0
+        Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
+        Dim porcMay As Double = 0 'PorMay
+        Dim porcMM As Double = 0 'PorMM
+        Dim porcEsp As Double = 0 'PorEsp
+        Dim preMay As Double = 0 'PreMay
+        Dim PreMM As Double = 0 'PreMM
+        Dim PreEsp As Double = 0 'PreEsp
+        Dim cantMin As Double = 0 'CantMin
+        Dim cantMin2 As Double = 0 'CantMin2
+        Dim cantMay As Double = 0 'cantmay
+        Dim cantMay2 As Double = 0 'cantMay2
+        Dim cantMM As Double = 0 'cantMM
+        Dim cantMM2 As Double = 0 'cantMM2
+        Dim cantEsp As Double = 0 'cantEsp
+        Dim cantEsp2 As Double = 0 'cantEsp2
+        Dim cantLst As Double = 0 'cantLta
+        Dim cantLst2 As Double = 0 'cantLta2
+        Dim idmoneda As Integer = 1
+        Dim promocion As Double = 0
+        Dim descuento As Double = 0
+        Dim afectaexis As Double = 0
+        Dim percentIvaRet As Double = 0
+        Dim almacen3 As Double = 0 'almacen3
+        Dim ieps As Double = 0
+        Dim invfinal As Double = 0
+        Dim invInicialCosto As Double = 0
+        Dim invFinalCosto As Double = 0
+        Dim clavesat As String = "" 'ClaveSat
+        Dim unidadsat As String = "" 'ClaveUnidadSat
+        Dim statuspromo As String = ""
+        Dim porcentajePromo As Double = 0
+        Dim e1 As Double = 0
+        Dim e2 As Double = 0
+        Dim numpromo As Integer = 0
+        Dim modo_almacen As Double = 0
+        Dim f44 As Double = 0
+        Dim militros As Double = 0
+        Dim copas As Double = 0
+
+        Dim cuantos As Double = 0
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM Productos ORDER BY Codigo"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                Do While rd1.Read
+                    codigo = rd1("Codigo").ToString
+                    barras = rd1("CodBarra").ToString
+                    nombre = rd1("Nombre").ToString
+                    nombrelargo = rd1("Nombre").ToString
+                    provpri = rd1("ProvPri").ToString
+                    proveme = rd1("ProvEme").ToString
+                    gprint = rd1("ProvRes").ToString
+                    ' provres = 0
+                    ucompra = rd1("UCompra").ToString
+                    uventa = rd1("UVenta").ToString
+                    ventamin = rd1("VentaMin").ToString
+                    mcd = rd1("MCD").ToString
+                    multiplo = rd1("Multiplo").ToString
+                    departamento = rd1("Departamento").ToString
+                    grupo = rd1("Grupo").ToString
+                    ubicacion = rd1("Ubicacion").ToString
+                    minim = rd1("Min").ToString
+                    maxi = rd1("Max").ToString
+
+                Loop
+                rd1.Close()
+                MsgBox("Se insertaron " & cuantos & " productos")
+                cnn1.Close()
+            End If
+            My.Application.DoEvents()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+        My.Application.DoEvents()
+        Button1.Enabled = True
     End Sub
 End Class
