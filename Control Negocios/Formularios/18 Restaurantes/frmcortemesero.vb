@@ -49,6 +49,19 @@ Public Class frmcortemesero
 
         Try
 
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM comanda1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    MsgBox("Hay mesas con consumo favor de terminar la venta, para realizar la operación", vbInformation + vbOKOnly, titulorestaurante)
+                    Exit Sub
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
             Dim TAMIMPRE As Integer = 0
             Dim tipopapel As String = ""
             Dim impresora As String = ""
