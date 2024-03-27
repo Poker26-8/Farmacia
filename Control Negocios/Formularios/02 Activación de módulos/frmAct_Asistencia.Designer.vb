@@ -119,6 +119,7 @@ Partial Class frmAct_Asistencia
         Me.Label5.Size = New System.Drawing.Size(113, 19)
         Me.Label5.TabIndex = 13
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'btnDesactivar
         '

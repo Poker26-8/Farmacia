@@ -55,6 +55,7 @@ Partial Class frmAct_Zapaterias
         Me.Label5.Size = New System.Drawing.Size(113, 19)
         Me.Label5.TabIndex = 19
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'Button1
         '

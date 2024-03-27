@@ -79,6 +79,7 @@ Partial Class frmAct_Mensajeria
         Me.Label5.Size = New System.Drawing.Size(114, 19)
         Me.Label5.TabIndex = 17
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'Label4
         '

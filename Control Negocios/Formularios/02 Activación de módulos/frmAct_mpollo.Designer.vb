@@ -77,6 +77,7 @@ Partial Class frmAct_mpollo
         Me.Label5.Size = New System.Drawing.Size(153, 19)
         Me.Label5.TabIndex = 27
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'Button1
         '

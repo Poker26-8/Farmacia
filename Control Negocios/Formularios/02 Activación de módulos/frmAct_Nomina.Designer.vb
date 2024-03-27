@@ -55,6 +55,7 @@ Partial Class frmAct_Nomina
         Me.Label5.Size = New System.Drawing.Size(153, 19)
         Me.Label5.TabIndex = 28
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'Button1
         '

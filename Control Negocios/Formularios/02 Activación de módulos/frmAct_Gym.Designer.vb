@@ -38,11 +38,12 @@ Partial Class frmAct_Gym
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(180, 230)
+        Me.Label5.Location = New System.Drawing.Point(339, 211)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(153, 19)
         Me.Label5.TabIndex = 34
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label5.Visible = False
         '
         'Button1
         '
