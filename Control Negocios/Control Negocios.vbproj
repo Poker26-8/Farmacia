@@ -1611,6 +1611,24 @@
     <Compile Include="Formularios\27 Mensajes\frmConfiM.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer.Designer.vb">
+      <DependentUpon>frmAsignarChofer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer2.Designer.vb">
+      <DependentUpon>frmAsignarChofer2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmVehP.Designer.vb">
+      <DependentUpon>frmVehP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmVehP.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -2363,6 +2381,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\27 Mensajes\frmConfiM.resx">
       <DependentUpon>frmConfiM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\28 Pedidos\frmAsignarChofer.resx">
+      <DependentUpon>frmAsignarChofer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\28 Pedidos\frmAsignarChofer2.resx">
+      <DependentUpon>frmAsignarChofer2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\28 Pedidos\frmVehP.resx">
+      <DependentUpon>frmVehP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

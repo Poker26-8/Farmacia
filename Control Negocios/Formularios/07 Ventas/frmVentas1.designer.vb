@@ -1862,9 +1862,9 @@ Partial Class frmVentas1
         Me.Panel1.Controls.Add(Me.lblDevolucion)
         Me.Panel1.Controls.Add(Me.lblTotalDevo)
         Me.Panel1.Controls.Add(Me.btnGeneraSaldo)
-        Me.Panel1.Location = New System.Drawing.Point(365, 278)
+        Me.Panel1.Location = New System.Drawing.Point(361, 278)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(237, 89)
+        Me.Panel1.Size = New System.Drawing.Size(241, 89)
         Me.Panel1.TabIndex = 235
         Me.Panel1.Visible = False
         '
@@ -1874,7 +1874,7 @@ Partial Class frmVentas1
         Me.btnRetiroCaja.BackColor = System.Drawing.Color.White
         Me.btnRetiroCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRetiroCaja.Font = New System.Drawing.Font("Bahnschrift", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRetiroCaja.Location = New System.Drawing.Point(121, 9)
+        Me.btnRetiroCaja.Location = New System.Drawing.Point(123, 9)
         Me.btnRetiroCaja.Name = "btnRetiroCaja"
         Me.btnRetiroCaja.Size = New System.Drawing.Size(108, 71)
         Me.btnRetiroCaja.TabIndex = 6
@@ -1923,7 +1923,7 @@ Partial Class frmVentas1
         Me.btnGeneraSaldo.BackColor = System.Drawing.Color.White
         Me.btnGeneraSaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGeneraSaldo.Font = New System.Drawing.Font("Bahnschrift", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGeneraSaldo.Location = New System.Drawing.Point(7, 9)
+        Me.btnGeneraSaldo.Location = New System.Drawing.Point(9, 9)
         Me.btnGeneraSaldo.Name = "btnGeneraSaldo"
         Me.btnGeneraSaldo.Size = New System.Drawing.Size(108, 71)
         Me.btnGeneraSaldo.TabIndex = 1
