@@ -1374,7 +1374,7 @@ Public Class frmParcialidades
         Col2.Border = 0
         Col2.Colspan = 4
         Table3.AddCell(Col2)
-        Col7 = New PdfPCell(New Phrase("MONTO TOTAL PAGADO: $" & varmonto, FontB8))
+        Col7 = New PdfPCell(New Phrase("MONTO TOTAL PAGADO: $" & FormatNumber(varmonto, 2), FontB8))
         Col7.Border = 0
         Col7.Colspan = 3
         Col7.HorizontalAlignment = 2
@@ -1466,7 +1466,7 @@ Public Class frmParcialidades
                         Col3 = New PdfPCell(New Phrase("MONTO:", FontB8))
                         Col3.Border = 0
                         Table4.AddCell(Col3)
-                        Col4 = New PdfPCell(New Phrase(varmonto, Font8))
+                        Col4 = New PdfPCell(New Phrase(FormatNumber(varmonto, 2), Font8))
                         Col4.Border = 0
                         Table4.AddCell(Col4)
 
@@ -1586,7 +1586,7 @@ Public Class frmParcialidades
                         Col1.Colspan = 2
                         Table41.AddCell(Col1)
                         Table41.AddCell(CVacio)
-                        Col3 = New PdfPCell(New Phrase("IMPORTE DE SALDO ANTERIOR: " & dr("ImpSaldoAnt").ToString, FontB8))
+                        Col3 = New PdfPCell(New Phrase("IMPORTE DE SALDO ANTERIOR: " & FormatNumber(dr("ImpSaldoAnt").ToString, 2), FontB8))
                         Col3.Border = 0
                         Col3.Colspan = 2
                         Table41.AddCell(Col3)
@@ -1598,7 +1598,7 @@ Public Class frmParcialidades
                         Col1.Colspan = 2
                         Table41.AddCell(Col1)
                         Table41.AddCell(CVacio)
-                        Col3 = New PdfPCell(New Phrase("IMPORTE PAGADO: " & dr("ImpPagado").ToString, FontB8))
+                        Col3 = New PdfPCell(New Phrase("IMPORTE PAGADO: " & FormatNumber(dr("ImpPagado").ToString, 2), FontB8))
                         Col3.Border = 0
                         Col3.Colspan = 2
                         Table41.AddCell(Col3)
@@ -1610,7 +1610,7 @@ Public Class frmParcialidades
                         Col1.Colspan = 2
                         Table41.AddCell(Col1)
                         Table41.AddCell(CVacio)
-                        Col3 = New PdfPCell(New Phrase("IMPORTE DE SALDO INSOLUTO: " & dr("ImpSaldoIns").ToString, FontB8))
+                        Col3 = New PdfPCell(New Phrase("IMPORTE DE SALDO INSOLUTO: " & FormatNumber(dr("ImpSaldoIns").ToString, 2), FontB8))
                         Col3.Border = 0
                         Col3.Colspan = 2
                         Table41.AddCell(Col3)
@@ -3509,7 +3509,7 @@ door:
         Col2.Border = 0
         Col2.Colspan = 4
         Table3.AddCell(Col2)
-        Col7 = New PdfPCell(New Phrase("MONTO TOTAL PAGADO: $" & varmonto, FontB8))
+        Col7 = New PdfPCell(New Phrase("MONTO TOTAL PAGADO: $" & FormatNumber(varmonto, 2), FontB8))
         Col7.Border = 0
         Col7.Colspan = 3
         Col7.HorizontalAlignment = 2
@@ -3600,7 +3600,7 @@ door:
                         Col3 = New PdfPCell(New Phrase("MONTO:", FontB8))
                         Col3.Border = 0
                         Table4.AddCell(Col3)
-                        Col4 = New PdfPCell(New Phrase(varmonto, Font8))
+                        Col4 = New PdfPCell(New Phrase(FormatNumber(varmonto, 2), Font8))
                         Col4.Border = 0
                         Table4.AddCell(Col4)
 
