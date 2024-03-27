@@ -31,8 +31,7 @@
                 btnNuevo.PerformClick()
                 Exit Sub
             Else
-                MsgBox("Faltan datos para agregar otro tipo de moneda, revisa la informacion para continuar", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
-                Exit Sub
+
             End If
 
 
