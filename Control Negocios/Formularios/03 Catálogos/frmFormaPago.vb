@@ -159,7 +159,7 @@
                 cmd1.CommandText = "SELECT * FROM Formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
-                    If rd1.Read Then
+                    If rd1.Read Then Then
                         cmd3 = cnn3.CreateCommand
                         cmd3.CommandText = "DELETE FROM formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
                         If cmd3.ExecuteNonQuery Then
