@@ -31,8 +31,7 @@
                 btnNuevo.PerformClick()
                 Exit Sub
             Else
-                MsgBox("Faltan datos para agregar otro tipo de moneda, revisa la informacion para continuar", vbOKOnly + vbCritical, "Delsscom Control Negocios PRO")
-                Exit Sub
+
             End If
 
 
@@ -134,7 +133,7 @@
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Try
-            If cboFormaPago.Text = "" Then Exit Sub
+
             If cboFormaPago.Text = "TARJETA" Or cboFormaPago.Text = "TRANSFERENCIA" Or cboFormaPago.Text = "SALDO FAVOR" Then MsgBox("El concepto de pago " & cboFormaPago.Text & " no puede ser eliminado ya que forma parte del catálogo indispensable de formas de pago en el sistema.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
 
             cnn3.Close() : cnn3.Open()
@@ -150,6 +149,24 @@
                         MsgBox("Forma de pago eliminada correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
                     cnn3.Close()
+                End If
+            End If
+
+            If cboMoneda.Text <> "" Then
+                cnn3.Close() : cnn3.Open()
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM Formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "DELETE FROM formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
+                        If cmd3.ExecuteNonQuery Then
+                            MsgBox("Forma de pago eliminada correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
+                        End If
+                        cnn3.Close()
+                    End If
                 End If
             End If
             btnNuevo.PerformClick()
