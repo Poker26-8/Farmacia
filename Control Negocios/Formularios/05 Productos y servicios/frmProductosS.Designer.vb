@@ -71,6 +71,7 @@ Partial Class frmProductosS
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cboComanda = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.cbPrecios = New System.Windows.Forms.CheckBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -640,11 +641,22 @@ Partial Class frmProductosS
         Me.Label10.Text = "Imprimir orden de entrega en:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'cbPrecios
+        '
+        Me.cbPrecios.AutoSize = True
+        Me.cbPrecios.Location = New System.Drawing.Point(11, 216)
+        Me.cbPrecios.Name = "cbPrecios"
+        Me.cbPrecios.Size = New System.Drawing.Size(156, 19)
+        Me.cbPrecios.TabIndex = 243
+        Me.cbPrecios.Text = "Más Precios y cod barras"
+        Me.cbPrecios.UseVisualStyleBackColor = True
+        '
         'frmProductosS
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(744, 345)
+        Me.Controls.Add(Me.cbPrecios)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.cboComanda)
         Me.Controls.Add(Me.Label10)
@@ -750,4 +762,5 @@ Partial Class frmProductosS
     Friend WithEvents cboComanda As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents cbPrecios As CheckBox
 End Class

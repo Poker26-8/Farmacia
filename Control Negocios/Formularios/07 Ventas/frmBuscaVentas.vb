@@ -190,6 +190,15 @@
             frmVentas2_Descuentos.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
             frmVentas2_Descuentos.cbocodigo.Focus().Equals(True)
         End If
+
+        If Vienna = "Ventas Series" Then
+            frmVentas_Series.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
+            frmVentas_Series.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
+            frmVentas_Series.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
+            frmVentas_Series.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
+            frmVentas_Series.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
+            frmVentas_Series.cbocodigo.Focus().Equals(True)
+        End If
         'If Vienna = "Ventas3" Then
         '    frmVentas3.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
         '    frmVentas3.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString

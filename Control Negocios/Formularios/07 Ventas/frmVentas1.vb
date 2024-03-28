@@ -6048,6 +6048,9 @@ doorcita:
         End Try
 
         'Cálculo de Subtotal e IVA
+        Dim ivaporproducto As Double = 0
+        Dim ivaporproda As Double = 0
+
         Try
             txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
@@ -6061,20 +6064,24 @@ doorcita:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
+                            If rd1(0).ToString > 0 Then
+                                ' MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
 
-                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
 
-                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                                ivaporproducto = CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) / (1 + rd1(0).ToString)
+                                ivaporproda = CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) - CDbl(ivaporproducto)
 
+                                TotalIVAPrint = TotalIVAPrint + CDbl(ivaporproda)
+                                ' TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
                             End If
+
                         End If
                     End If
                     rd1.Close()
                 End If
             Next
             TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
-            MySubtotal = FormatNumber(MySubtotal, 4)
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -6405,7 +6412,14 @@ doorcita:
                     Efectivo = txtefectivo.Text
                     MyMonto = Efectivo + CDbl(txtMontoP.Text) + CDbl(txtafavor.Text)
                     Resta = FormatNumber(txtResta.Text, 2)
-                    MySubtotal = FormatNumber(MySubtotal, 2)
+
+                    If TotalIVAPrint > 0 Then
+                        IVA_Vent = FormatNumber(TotalIVAPrint, 4)
+                    Else
+                        IVA_Vent = 0
+                    End If
+
+                    SubTotal = FormatNumber(CDbl(txtPagar.Text) - CDbl(IVA_Vent), 4)
 
                     If MyMonto > CDbl(txtPagar.Text) Then
                         ACUenta2 = FormatNumber(CDbl(txtPagar.Text), 2)
@@ -6423,8 +6437,7 @@ doorcita:
                         MyStatus = "RESTA"
                     End If
 
-                    IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - TotalIVAPrint, 4)
-                    SubTotal = FormatNumber(TotalIVAPrint, 4)
+
                     Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
                     Descuento = FormatNumber(txtdescuento2.Text, 4)
                     MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)

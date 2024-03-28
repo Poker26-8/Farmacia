@@ -85,7 +85,7 @@ Public Class frmVentas_refa
                 PictureBox2.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & log)
                 PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
                 PictureBox2.Dock = DockStyle.Fill
-                Panel5.Controls.Add(PictureBox2)
+                pInfirior.Controls.Add(PictureBox2)
             End If
 
         End If

@@ -854,7 +854,7 @@ Partial Class frmPrecios
         '
         Me.txtcontraseña.BackColor = System.Drawing.Color.White
         Me.txtcontraseña.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontraseña.Location = New System.Drawing.Point(484, 36)
+        Me.txtcontraseña.Location = New System.Drawing.Point(522, 34)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtcontraseña.Size = New System.Drawing.Size(97, 23)
@@ -915,7 +915,7 @@ Partial Class frmPrecios
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
         Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(389, 36)
+        Me.lblusuario.Location = New System.Drawing.Point(424, 35)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(92, 23)
         Me.lblusuario.TabIndex = 226

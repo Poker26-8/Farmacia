@@ -1081,4 +1081,22 @@ Public Class frmProductosS
         My.Application.DoEvents()
         Button1.Enabled = True
     End Sub
+
+    Private Sub cbPrecios_CheckedChanged(sender As Object, e As EventArgs) Handles cbPrecios.CheckedChanged
+        If (cbPrecios.Checked) Then
+            frmPreciosBarras.txtCodigo.Text = cboCodigo.Text
+            frmPreciosBarras.txtNombre.Text = cboNombre.Text
+            frmPreciosBarras.txtIva.Text = cboIVA.Text
+            frmPreciosBarras.txtbarras.Focus.Equals(True)
+            frmPreciosBarras.Show()
+            frmPreciosBarras.BringToFront()
+        Else
+
+            frmPreciosBarras.txtCodigo.Text = ""
+            frmPreciosBarras.txtNombre.Text = ""
+            frmPreciosBarras.txtIva.Text = ""
+            frmPreciosBarras.btnNuevo.PerformClick()
+            frmPreciosBarras.Close()
+        End If
+    End Sub
 End Class
