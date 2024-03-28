@@ -104,6 +104,76 @@ Public Class frmVTouchR
         TFecha.Start()
     End Sub
 
+    Private Sub Actualiza_Promos()
+        Dim dia_hoy As Integer = Date.Now.DayOfWeek
+        Dim dia_tex As String = ""
+
+        If dia_hoy = 0 Then dia_tex = "Domingo"
+        If dia_hoy = 1 Then dia_tex = "Lunes"
+        If dia_hoy = 2 Then dia_tex = "Martes"
+        If dia_hoy = 3 Then dia_tex = "Miercoles"
+        If dia_hoy = 4 Then dia_tex = "Jueves"
+        If dia_hoy = 5 Then dia_tex = "Viernes"
+        If dia_hoy = 6 Then dia_tex = "Sabado"
+
+        'COMENTARIO DE DÍAS'
+        '0 -> Domingo       '4 -> Jueves
+        '1 -> Lunes         '5 -> Viernes
+        '2 -> Martes        '6 -> Sábado
+        '3 -> Miércoles
+
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "update Productos set E1=0, E2=0"
+            cmd3.ExecuteNonQuery()
+
+            cnn4.Close() : cnn4.Open()
+
+            'Primero 2x1
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E1=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+
+            'Primero 3x2
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select * from Promos where " & dia_tex & "2=1"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    Dim codigo As String = rd3("Codigo").ToString()
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText =
+                        "update Productos set E2=1 where Codigo='" & codigo & "'"
+                    cmd4.ExecuteNonQuery()
+                End If
+            Loop
+            rd3.Close()
+            cnn3.Close()
+
+            cnn4.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn3.Close()
+        End Try
+    End Sub
+
     Private Sub frmVTouchR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TFecha.Start()
         TFolio.Start()
@@ -132,6 +202,7 @@ Public Class frmVTouchR
                 pproductos.BackgroundImageLayout = ImageLayout.Stretch
             End If
 
+            Actualiza_Promos()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -153,6 +224,7 @@ Public Class frmVTouchR
         pExtras.Controls.Clear()
         pPreferencia.Controls.Clear()
         pPromociones.Controls.Clear()
+        Actualiza_Promos()
     End Sub
 
     Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
