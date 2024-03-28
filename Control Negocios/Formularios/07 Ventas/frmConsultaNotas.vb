@@ -108,6 +108,15 @@ Public Class frmConsultaNotas
                     cmd1.CommandText = "select Folio from CotPed where Tipo='COTIZACION' order by Folio"
                 End If
             End If
+
+            If (optPedidos.Checked) Then
+                If cbonombre.Text <> "" Then
+                    cmd1.CommandText = "SELECT Folio FROM CotPed WHERE Cliente='" & cbonombre.Text & "' AND Tipo='PEDIDO' ORDER BY Folio"
+                Else
+                    cmd1.CommandText = "SELECT Folio FROM CotPed WHERE Tipo='PEDIDO' ORDER BY Folio"
+                End If
+            End If
+
             If (optdevos.Checked) Then
                 cmd1.CommandText = "select distinct Folio from Devoluciones where Facturado='DEVOLUCION' order by Folio"
             End If
@@ -159,6 +168,7 @@ Public Class frmConsultaNotas
                 If (optpagadas.Checked) Then cmd1.CommandText = "select * from Ventas where Folio=" & MYFOLIO
                 If (optanceladas.Checked) Then cmd1.CommandText = "select * from Ventas where Folio= " & MYFOLIO
                 If (optcotiz.Checked) Then cmd1.CommandText = "select * from CotPed where Folio=" & MYFOLIO
+                If (optPedidos.Checked) Then cmd1.CommandText = "SELECT * FROM cotped WHERE Folio=" & MYFOLIO
                 If (optdevos.Checked) Then cmd1.CommandText = "select * from Ventas where Folio=" & MYFOLIO
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
@@ -176,10 +186,8 @@ Public Class frmConsultaNotas
                         If VarCliente = 0 Then lblNumCliente.Text = "MOSTRADOR"
                         If VarCliente <> 0 Then lblNumCliente.Text = VarCliente
 
-                        If (optcotiz.Checked) Then
+                        If (optcotiz.Checked) Or (optPedidos.Checked) Then
                             txtsubtotal.Text = FormatNumber(rd1("Totales").ToString(), 2)
-
-
                             cbonombre.Text = rd1("Cliente").ToString()
                             txtdescuento.Text = FormatNumber(IIf(rd1("Descuento").ToString() = "", 0, rd1("Descuento").ToString()), 2)
                             ' txtfecha.Text = FormatDateTime(rd1("Fecha").ToString(), DateFormat.ShortDate)
@@ -195,63 +203,67 @@ Public Class frmConsultaNotas
                             lblfechaventa.Text = FormatDateTime(rd1("FVenta").ToString(), DateFormat.ShortDate)
                             lblhoraventa.Text = FormatDateTime(rd1("HVenta").ToString(), DateFormat.LongTime)
                         End If
-                        If Not (optcotiz.Checked) And Not (optdevos.Checked) Then
+
+
+
+                        If Not (optcotiz.Checked) And Not (optdevos.Checked) And Not (optPedidos.Checked) Then
                             If CDbl(rd1("Devolucion").ToString()) > 0 Then
                                 txtdescuento.Text = FormatNumber(CDbl(txtdescuento.Text) + CDbl(rd1("Devolucion").ToString()), 2)
                             End If
                         End If
                         txtdireccion.Text = rd1("Direccion").ToString()
-                        txtvendedor.Text = rd1("Usuario").ToString()
-                        txtacuenta.Text = FormatNumber(IIf(rd1("ACuenta").ToString() = "", 0, rd1("ACuenta").ToString()), 2)
-                        txtresta.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
-                        txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()), 2)
-                        If (optcobrar.Checked) Then
-                            txtrestaabono.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
-                        End If
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        If (optpagadas.Checked) Or (optnotas.Checked) Or (optcobrar.Checked) Or (optanceladas.Checked) Then cmd2.CommandText = "select * from VentasDetalle where Folio=" & MYFOLIO
+                            txtvendedor.Text = rd1("Usuario").ToString()
+                            txtacuenta.Text = FormatNumber(IIf(rd1("ACuenta").ToString() = "", 0, rd1("ACuenta").ToString()), 2)
+                            txtresta.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
+                            txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()), 2)
+                            If (optcobrar.Checked) Then
+                                txtrestaabono.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
+                            End If
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            If (optpagadas.Checked) Or (optnotas.Checked) Or (optcobrar.Checked) Or (optanceladas.Checked) Then cmd2.CommandText = "select * from VentasDetalle where Folio=" & MYFOLIO
                         If (optcotiz.Checked) Then cmd2.CommandText = "select * from CotPedDet where Folio=" & MYFOLIO
+                        If (optPedidos.Checked) Then cmd2.CommandText = "SELECT * FROM CotPedDet WHERE Folio=" & MYFOLIO
                         If (optdevos.Checked) Then cmd2.CommandText = "select * from Devoluciones where Folio=" & MYFOLIO
-                        rd2 = cmd2.ExecuteReader
-                        Do While rd2.Read
-                            If rd2.HasRows Then
-                                codigo = rd2("Codigo").ToString()
-                                nombre = rd2("Nombre").ToString()
-                                If (optdevos.Checked) Then
-                                    unidad = rd2("UVenta").ToString()
-                                    comentario = ""
-                                    descue = 0
-                                Else
-                                    If (optpagadas.Checked) Or (optnotas.Checked) Or (optcobrar.Checked) Or (optanceladas.Checked) Or (optcotiz.Checked) Then
+                            rd2 = cmd2.ExecuteReader
+                            Do While rd2.Read
+                                If rd2.HasRows Then
+                                    codigo = rd2("Codigo").ToString()
+                                    nombre = rd2("Nombre").ToString()
+                                    If (optdevos.Checked) Then
+                                        unidad = rd2("UVenta").ToString()
+                                        comentario = ""
+                                        descue = 0
+                                    Else
+                                    If (optpagadas.Checked) Or (optnotas.Checked) Or (optcobrar.Checked) Or (optanceladas.Checked) Or (optcotiz.Checked) Or (optPedidos.Checked) Then
                                         descue = rd2("Descuento").ToString()
                                         unidad = rd2("Unidad").ToString()
                                     Else
                                         unidad = rd2("Unidad").ToString()
-                                        comentario = rd2("CostVR").ToString()
-                                        descue = 0
+                                            comentario = rd2("CostVR").ToString()
+                                            descue = 0
+                                        End If
+                                    End If
+                                    cantidad = rd2("Cantidad").ToString()
+                                    precio = rd2("Precio").ToString()
+                                    total = rd2("Total").ToString()
+
+                                    grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0")
+                                    If comentario <> "" Then
+                                        grdcaptura.Rows.Add("", comentario, "", "", "", "")
                                     End If
                                 End If
-                                cantidad = rd2("Cantidad").ToString()
-                                precio = rd2("Precio").ToString()
-                                total = rd2("Total").ToString()
-
-                                grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0")
-                                If comentario <> "" Then
-                                    grdcaptura.Rows.Add("", comentario, "", "", "", "")
+                            Loop
+                            rd2.Close() : cnn2.Close()
+                            For t As Integer = 0 To grdcaptura.Rows.Count - 1
+                                If CStr(grdcaptura.Rows(t).Cells(0).Value.ToString) = "" Then
+                                    grdcaptura.Rows(t).DefaultCellStyle.ForeColor = Color.DarkOrange
+                                    grdcaptura.Rows(t).DefaultCellStyle.SelectionBackColor = Color.Pink
+                                    grdcaptura.Rows(t).DefaultCellStyle.SelectionForeColor = Color.Black
                                 End If
-                            End If
-                        Loop
-                        rd2.Close() : cnn2.Close()
-                        For t As Integer = 0 To grdcaptura.Rows.Count - 1
-                            If CStr(grdcaptura.Rows(t).Cells(0).Value.ToString) = "" Then
-                                grdcaptura.Rows(t).DefaultCellStyle.ForeColor = Color.DarkOrange
-                                grdcaptura.Rows(t).DefaultCellStyle.SelectionBackColor = Color.Pink
-                                grdcaptura.Rows(t).DefaultCellStyle.SelectionForeColor = Color.Black
-                            End If
-                        Next
+                            Next
+                        End If
                     End If
-                End If
                 rd1.Close()
                 cnn1.Close()
                 cnn2.Close()
@@ -388,6 +400,8 @@ Public Class frmConsultaNotas
             If (optpagadas.Checked) Then cmd1.CommandText = "select distinct Cliente from Ventas where Status='PAGADO' AND Cliente<>''"
             If (optanceladas.Checked) Then cmd1.CommandText = "select distinct Cliente from Ventas where Status='CANCELADA' AND Cliente<>''"
             If (optcotiz.Checked) Then cmd1.CommandText = "select distinct Cliente from CotPed where Tipo='COTIZACION' AND Cliente<>''"
+            If (optPedidos.Checked) Then cmd1.CommandText = "SELECT DISTINCT Cliente FROM cotped WHERE Tipo='PEDIDO' AND Cliente<>''"
+
             If (optdevos.Checked) Then rd1.Close() : cnn1.Close() : Exit Sub
 
             rd1 = cmd1.ExecuteReader
@@ -740,7 +754,7 @@ Public Class frmConsultaNotas
                 .cboNombre.Text = cbonombre.Text
                 .cboNombre_KeyPress(.cboNombre, New KeyPressEventArgs(ChrW(Keys.Enter)))
                 .txtdireccion.Text = txtdireccion.Text
-
+                .lblpedido.Text = cbofolio.Text
                 cnn1.Close() : cnn1.Open()
                 For degm As Integer = 0 To grdcaptura.Rows.Count - 1
                     .grdcaptura.Rows.Add()
@@ -6514,6 +6528,42 @@ doorcita:
                 txtrestaabono.Text = "0.00"
                 txtcambio.Text = FormatNumber(Math.Abs(resta), 2)
             End If
+        End If
+    End Sub
+
+    Private Sub optPedidos_CheckedChanged(sender As Object, e As EventArgs) Handles optPedidos.CheckedChanged
+        If (optPedidos.Checked) Then
+
+            grdAbonos.Rows.Clear()
+            Borra()
+            cbonombre.Items.Clear()
+            cbonombre.Text = ""
+
+            cbofolio.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT DISTINCT Cliente FROM CotPed"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbonombre.Items.Add(rd1(0).ToString())
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+
+            btnCopia.Visible = True
+            btnAbono.Visible = False
+            btnCancela.Visible = False
+            btnVentas.Visible = True
+            lblNumCliente.Text = "MOSTRADOR"
+            boxpagos.Enabled = False
+            txtefectivo.Enabled = False
+            txtefectivo.Text = "0.00"
         End If
     End Sub
 End Class

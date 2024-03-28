@@ -23,18 +23,18 @@ Partial Class frmConsultaNotas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaNotas))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.optdevos = New System.Windows.Forms.RadioButton()
         Me.optcotiz = New System.Windows.Forms.RadioButton()
@@ -169,6 +169,7 @@ Partial Class frmConsultaNotas
         Me.lblfechaventa = New System.Windows.Forms.Label()
         Me.lblhoraventa = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
+        Me.optPedidos = New System.Windows.Forms.RadioButton()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -272,8 +273,8 @@ Partial Class frmConsultaNotas
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle12
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -303,8 +304,8 @@ Partial Class frmConsultaNotas
         '
         'Column3
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle13
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -312,8 +313,8 @@ Partial Class frmConsultaNotas
         '
         'Column4
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle14
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -321,8 +322,8 @@ Partial Class frmConsultaNotas
         '
         'Column5
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -330,8 +331,8 @@ Partial Class frmConsultaNotas
         '
         'Total
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle16
         Me.Total.HeaderText = "Total"
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
@@ -349,7 +350,7 @@ Partial Class frmConsultaNotas
         Me.cbofolio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbofolio.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofolio.FormattingEnabled = True
-        Me.cbofolio.Location = New System.Drawing.Point(798, 11)
+        Me.cbofolio.Location = New System.Drawing.Point(875, 9)
         Me.cbofolio.Name = "cbofolio"
         Me.cbofolio.Size = New System.Drawing.Size(162, 25)
         Me.cbofolio.TabIndex = 7
@@ -358,7 +359,7 @@ Partial Class frmConsultaNotas
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(726, 14)
+        Me.Label28.Location = New System.Drawing.Point(803, 12)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(41, 19)
         Me.Label28.TabIndex = 6
@@ -368,7 +369,7 @@ Partial Class frmConsultaNotas
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(726, 42)
+        Me.Label10.Location = New System.Drawing.Point(803, 40)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(71, 19)
         Me.Label10.TabIndex = 5
@@ -379,7 +380,7 @@ Partial Class frmConsultaNotas
         Me.txtvendedor.BackColor = System.Drawing.Color.White
         Me.txtvendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtvendedor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvendedor.Location = New System.Drawing.Point(798, 39)
+        Me.txtvendedor.Location = New System.Drawing.Point(875, 37)
         Me.txtvendedor.Name = "txtvendedor"
         Me.txtvendedor.ReadOnly = True
         Me.txtvendedor.Size = New System.Drawing.Size(162, 25)
@@ -389,7 +390,7 @@ Partial Class frmConsultaNotas
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(276, 40)
+        Me.Label3.Location = New System.Drawing.Point(353, 38)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 19)
         Me.Label3.TabIndex = 3
@@ -399,7 +400,7 @@ Partial Class frmConsultaNotas
         '
         Me.txtdireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtdireccion.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdireccion.Location = New System.Drawing.Point(357, 40)
+        Me.txtdireccion.Location = New System.Drawing.Point(434, 38)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(363, 53)
         Me.txtdireccion.TabIndex = 2
@@ -409,7 +410,7 @@ Partial Class frmConsultaNotas
         '
         Me.cbonombre.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonombre.FormattingEnabled = True
-        Me.cbonombre.Location = New System.Drawing.Point(357, 9)
+        Me.cbonombre.Location = New System.Drawing.Point(434, 7)
         Me.cbonombre.Name = "cbonombre"
         Me.cbonombre.Size = New System.Drawing.Size(363, 25)
         Me.cbonombre.TabIndex = 1
@@ -418,7 +419,7 @@ Partial Class frmConsultaNotas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(276, 12)
+        Me.Label2.Location = New System.Drawing.Point(353, 10)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 19)
         Me.Label2.TabIndex = 0
@@ -453,7 +454,7 @@ Partial Class frmConsultaNotas
         Me.btnCopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCopia.Location = New System.Drawing.Point(840, 68)
+        Me.btnCopia.Location = New System.Drawing.Point(917, 66)
         Me.btnCopia.Name = "btnCopia"
         Me.btnCopia.Size = New System.Drawing.Size(120, 25)
         Me.btnCopia.TabIndex = 124
@@ -546,7 +547,7 @@ Partial Class frmConsultaNotas
         Me.btnVentas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVentas.Image = CType(resources.GetObject("btnVentas.Image"), System.Drawing.Image)
         Me.btnVentas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnVentas.Location = New System.Drawing.Point(85, 12)
+        Me.btnVentas.Location = New System.Drawing.Point(8, 9)
         Me.btnVentas.Name = "btnVentas"
         Me.btnVentas.Size = New System.Drawing.Size(71, 81)
         Me.btnVentas.TabIndex = 123
@@ -561,7 +562,7 @@ Partial Class frmConsultaNotas
         Me.btnCancela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnCancela.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancela.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancela.Location = New System.Drawing.Point(162, 12)
+        Me.btnCancela.Location = New System.Drawing.Point(85, 8)
         Me.btnCancela.Name = "btnCancela"
         Me.btnCancela.Size = New System.Drawing.Size(71, 81)
         Me.btnCancela.TabIndex = 125
@@ -880,8 +881,8 @@ Partial Class frmConsultaNotas
         '
         'Column10
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column10.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle17
         Me.Column10.HeaderText = "Monto"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
@@ -1229,8 +1230,8 @@ Partial Class frmConsultaNotas
         '
         Me.grdAbonos.AllowUserToAddRows = False
         Me.grdAbonos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdAbonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdAbonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle18
         Me.grdAbonos.BackgroundColor = System.Drawing.Color.White
         Me.grdAbonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdAbonos.ColumnHeadersVisible = False
@@ -1245,18 +1246,18 @@ Partial Class frmConsultaNotas
         '
         'Column15
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        Me.Column15.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black
+        Me.Column15.DefaultCellStyle = DataGridViewCellStyle19
         Me.Column15.HeaderText = "Fecha"
         Me.Column15.Name = "Column15"
         Me.Column15.ReadOnly = True
         '
         'Column16
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        Me.Column16.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
+        Me.Column16.DefaultCellStyle = DataGridViewCellStyle20
         Me.Column16.HeaderText = "Hora"
         Me.Column16.Name = "Column16"
         Me.Column16.ReadOnly = True
@@ -1264,9 +1265,9 @@ Partial Class frmConsultaNotas
         '
         'Column17
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Column17.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Column17.DefaultCellStyle = DataGridViewCellStyle21
         Me.Column17.HeaderText = "Abono"
         Me.Column17.Name = "Column17"
         Me.Column17.ReadOnly = True
@@ -1274,8 +1275,8 @@ Partial Class frmConsultaNotas
         '
         'Column18
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.Column18.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.Column18.DefaultCellStyle = DataGridViewCellStyle22
         Me.Column18.HeaderText = "Forma de pago"
         Me.Column18.Name = "Column18"
         Me.Column18.ReadOnly = True
@@ -1356,7 +1357,7 @@ Partial Class frmConsultaNotas
         Me.Button2.Enabled = False
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(721, 67)
+        Me.Button2.Location = New System.Drawing.Point(798, 65)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(113, 25)
         Me.Button2.TabIndex = 125
@@ -1368,9 +1369,9 @@ Partial Class frmConsultaNotas
         Me.Panel4.Controls.Add(Me.btnCancela)
         Me.Panel4.Controls.Add(Me.btnVentas)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(967, 0)
+        Me.Panel4.Location = New System.Drawing.Point(1043, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(241, 104)
+        Me.Panel4.Size = New System.Drawing.Size(165, 104)
         Me.Panel4.TabIndex = 1
         '
         'Panel3
@@ -1379,12 +1380,13 @@ Partial Class frmConsultaNotas
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(270, 104)
+        Me.Panel3.Size = New System.Drawing.Size(347, 104)
         Me.Panel3.TabIndex = 0
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.optPedidos)
         Me.Panel5.Controls.Add(Me.optdevos)
         Me.Panel5.Controls.Add(Me.optnotas)
         Me.Panel5.Controls.Add(Me.optcotiz)
@@ -1393,7 +1395,7 @@ Partial Class frmConsultaNotas
         Me.Panel5.Controls.Add(Me.optpagadas)
         Me.Panel5.Location = New System.Drawing.Point(9, 8)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(253, 84)
+        Me.Panel5.Size = New System.Drawing.Size(335, 84)
         Me.Panel5.TabIndex = 0
         '
         'Label43
@@ -1577,6 +1579,18 @@ Partial Class frmConsultaNotas
         Me.Label39.TabIndex = 261
         Me.Label39.Text = "Hora de venta:"
         Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'optPedidos
+        '
+        Me.optPedidos.AutoSize = True
+        Me.optPedidos.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optPedidos.Location = New System.Drawing.Point(252, 8)
+        Me.optPedidos.Name = "optPedidos"
+        Me.optPedidos.Size = New System.Drawing.Size(68, 19)
+        Me.optPedidos.TabIndex = 7
+        Me.optPedidos.TabStop = True
+        Me.optPedidos.Text = "Pedidos"
+        Me.optPedidos.UseVisualStyleBackColor = True
         '
         'frmConsultaNotas
         '
@@ -1776,4 +1790,5 @@ Partial Class frmConsultaNotas
     Friend WithEvents lblfechaventa As Label
     Friend WithEvents lblhoraventa As Label
     Friend WithEvents Label39 As Label
+    Friend WithEvents optPedidos As RadioButton
 End Class

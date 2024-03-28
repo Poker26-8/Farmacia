@@ -1623,6 +1623,12 @@
     <Compile Include="Formularios\28 Pedidos\frmAsignarChofer2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmPedidosCli.Designer.vb">
+      <DependentUpon>frmPedidosCli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\frmPedidosCli.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\28 Pedidos\frmVehP.Designer.vb">
       <DependentUpon>frmVehP.vb</DependentUpon>
     </Compile>
@@ -2387,6 +2393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\28 Pedidos\frmAsignarChofer2.resx">
       <DependentUpon>frmAsignarChofer2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\28 Pedidos\frmPedidosCli.resx">
+      <DependentUpon>frmPedidosCli.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\28 Pedidos\frmVehP.resx">
       <DependentUpon>frmVehP.vb</DependentUpon>
