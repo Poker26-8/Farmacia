@@ -363,12 +363,6 @@
     <Compile Include="Formularios\02 Activación de módulos\frmModulos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Precios\frmPreciosBarras.Designer.vb">
-      <DependentUpon>frmPreciosBarras.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Precios\frmPreciosBarras.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\06 Compras\Series\frmComprasSeries.Designer.vb">
       <DependentUpon>frmComprasSeries.vb</DependentUpon>
     </Compile>
@@ -1761,9 +1755,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\05 Productos y servicios\Precios\frmPreciosBarras.resx">
-      <DependentUpon>frmPreciosBarras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Series\frmComprasSeries.resx">
       <DependentUpon>frmComprasSeries.vb</DependentUpon>

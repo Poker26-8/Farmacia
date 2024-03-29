@@ -16,10 +16,27 @@ Public Class frmProductos
                 cmd1.CommandText =
                     "select * from Productos where Codigo='" & cboCodigo.Text & "'"
             End If
+
             If vemos = "BARRAS" Then
                 cmd1.CommandText =
                     "select * from Productos where CodBarra='" & txtbarras.Text & "'"
             End If
+
+            If vemos = "BARRAS1" Then
+                cmd1.CommandText =
+                    "select * from Productos where CodBarra1='" & txtBarras1.Text & "'"
+            End If
+
+            If vemos = "BARRAS2" Then
+                cmd1.CommandText =
+                    "select * from Productos where CodBarra2='" & txtBarras2.Text & "'"
+            End If
+
+            If vemos = "BARRAS3" Then
+                cmd1.CommandText =
+                    "select * from Productos where CodBarra3='" & txtBarras3.Text & "'"
+            End If
+
             If vemos = "NOMBRE" Then
                 cmd1.CommandText =
                     "select * from Productos where Nombre='" & cboNombre.Text & "'"
@@ -31,6 +48,9 @@ Public Class frmProductos
                     cboCodigo.Text = rd1("Codigo").ToString
                     cboNombre.Text = rd1("Nombre").ToString
                     txtbarras.Text = rd1("CodBarra").ToString
+                    txtBarras1.Text = rd1("CodBarra1").ToString
+                    txtBarras2.Text = rd1("CodBarra2").ToString
+                    txtBarras3.Text = rd1("CodBarra3").ToString
                     txtNombreL.Text = rd1("NombreLargo").ToString
                     cboIVA.Text = rd1("IVA").ToString
                     txtMaxima.Text = rd1("UCompra").ToString
@@ -295,7 +315,7 @@ Public Class frmProductos
                 If txtbarras.Text = "" Then cboCodigo.Focus().Equals(True) : Exit Sub
                 TraeDatos("BARRAS")
             End If
-            cboCodigo.Focus().Equals(True)
+            txtBarras1.Focus().Equals(True)
         End If
     End Sub
 
@@ -334,6 +354,9 @@ Public Class frmProductos
                     If rd1.Read Then
                         cboCodigo.Text = rd1("Codigo").ToString
                         If Not rd1("CodBarra").ToString = "" Then txtbarras.Text = rd1("CodBarra").ToString
+                        If Not rd1("CodBarra1").ToString = "" Then txtBarras1.Text = rd1("CodBarra1").ToString
+                        If Not rd1("CodBarra2").ToString = "" Then txtBarras2.Text = rd1("CodBarra2").ToString
+                        If Not rd1("CodBarra3").ToString = "" Then txtBarras3.Text = rd1("CodBarra3").ToString
                         cboProvP.Text = rd1("ProvPri").ToString
                         cboProvE.Text = rd1("ProvEme").ToString
                         chkKIT.Checked = rd1("ProvRes").ToString
@@ -799,6 +822,9 @@ Public Class frmProductos
 
     Private Sub btnNuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnNuevo.Click
         txtbarras.Text = ""
+        txtBarras1.Text = ""
+        txtBarras2.Text = ""
+        txtBarras3.Text = ""
         cboCodigo.Items.Clear()
         cboCodigo.Text = ""
         cboNombre.Items.Clear()
@@ -937,7 +963,7 @@ Public Class frmProductos
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "update Productos set CodBarra='" & txtbarras.Text & "', Nombre='" & cboNombre.Text & "', NombreLargo='" & txtNombreL.Text & "', ProvPri='" & cboProvP.Text & "', ProvEme='" & cboProvE.Text & "', ProvRes=" & IIf(chkKIT.Checked, 1, 0) & ", UCompra='" & txtMaxima.Text & "', UVenta='" & txtActual.Text & "', UMinima='" & txtMinima.Text & "', MCD=" & mcd & ", Multiplo=" & multiplo & ", Departamento='" & cboDepto.Text & "', Grupo='" & cboGrupo.Text & "', Ubicacion='" & cboubicacion.Text & "', Min=" & minimo & ", Max=" & maximo & ", Comision=" & comision & ", IVA=" & cboIVA.Text & ", id_tbMoneda=" & cboMoneda.Tag & ", PercentIVAret=" & retIVA & ", IIEPS=" & ieps & ", Cargado=0, Unico=" & IIf(chkUnico.Checked = True, 1, 0) & ",GPrint='" & cboComanda.Text & "' where Codigo='" & cboCodigo.Text & "'"
+                        "update Productos set CodBarra='" & txtbarras.Text & "',CodBarra1='" & txtBarras1.Text & "',CodBarra2='" & txtBarras2.Text & "',CodBarra3='" & txtBarras3.Text & "', Nombre='" & cboNombre.Text & "', NombreLargo='" & txtNombreL.Text & "', ProvPri='" & cboProvP.Text & "', ProvEme='" & cboProvE.Text & "', ProvRes=" & IIf(chkKIT.Checked, 1, 0) & ", UCompra='" & txtMaxima.Text & "', UVenta='" & txtActual.Text & "', UMinima='" & txtMinima.Text & "', MCD=" & mcd & ", Multiplo=" & multiplo & ", Departamento='" & cboDepto.Text & "', Grupo='" & cboGrupo.Text & "', Ubicacion='" & cboubicacion.Text & "', Min=" & minimo & ", Max=" & maximo & ", Comision=" & comision & ", IVA=" & cboIVA.Text & ", id_tbMoneda=" & cboMoneda.Tag & ", PercentIVAret=" & retIVA & ", IIEPS=" & ieps & ", Cargado=0, Unico=" & IIf(chkUnico.Checked = True, 1, 0) & ",GPrint='" & cboComanda.Text & "' where Codigo='" & cboCodigo.Text & "'"
                     If cmd2.ExecuteNonQuery Then
                         If (picImagen.Image Is Nothing) Then
                         Else
@@ -959,7 +985,7 @@ Public Class frmProductos
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,PercentIVAret,Almacen3,IIEPS,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & cboNombre.Text & "','" & txtNombreL.Text & "','" & cboProvP.Text & "','" & cboProvE.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtMaxima.Text & "','" & txtActual.Text & "','" & txtMinima.Text & "'," & mcd & "," & multiplo & ",'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "'," & minimo & "," & maximo & "," & comision & ",0,0,0," & cboIVA.Text & ",0,'" & fecha & "',0," & cboMoneda.Tag & ",0,0," & retIVA & ",0," & ieps & ",'" & txtCodigoSAT.Text & "','" & txtClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "')"
+                    "insert into Productos(Codigo,,CodBarra,CodBarra1,CodBarra2,CodBarra3,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,PercentIVAret,Almacen3,IIEPS,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,GPrint) values('" & cboCodigo.Text & "','" & txtbarras.Text & "','" & txtBarras1.Text & "','" & txtBarras2.Text & "','" & txtBarras3.Text & "','" & cboNombre.Text & "','" & txtNombreL.Text & "','" & cboProvP.Text & "','" & cboProvE.Text & "'," & IIf(chkKIT.Checked, 1, 0) & ",'" & txtMaxima.Text & "','" & txtActual.Text & "','" & txtMinima.Text & "'," & mcd & "," & multiplo & ",'" & cboDepto.Text & "','" & cboGrupo.Text & "','" & cboubicacion.Text & "'," & minimo & "," & maximo & "," & comision & ",0,0,0," & cboIVA.Text & ",0,'" & fecha & "',0," & cboMoneda.Tag & ",0,0," & retIVA & ",0," & ieps & ",'" & txtCodigoSAT.Text & "','" & txtClaveSAT.Text & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0," & IIf(chkUnico.Checked = True, 1, 0) & ",'" & cboComanda.Text & "')"
                 If cmd2.ExecuteNonQuery Then
 
                     If (picImagen.Image Is Nothing) Then
@@ -1586,5 +1612,45 @@ Public Class frmProductos
             MessageBox.Show(ex.ToString())
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub txtBarras1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras1.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If cboCodigo.Text = "" Then
+                If txtBarras1.Text = "" Then cboCodigo.Focus().Equals(True) : Exit Sub
+                TraeDatos("BARRAS1")
+            End If
+            txtBarras2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtBarras2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras2.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If cboCodigo.Text = "" Then
+                If txtBarras2.Text = "" Then cboCodigo.Focus().Equals(True) : Exit Sub
+                TraeDatos("BARRAS2")
+            End If
+            txtBarras3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtBarras3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras3.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If cboCodigo.Text = "" Then
+                If txtBarras3.Text = "" Then cboCodigo.Focus().Equals(True) : Exit Sub
+                TraeDatos("BARRAS3")
+            End If
+            cboCodigo.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub lblInfo_Click(sender As Object, e As EventArgs) Handles lblInfo.Click
+        If lblInfo.Text = ">> Más Información" Then
+            lblInfo.Text = "v Menos información"
+            Me.Size = New Size(754, 815)
+        Else
+            lblInfo.Text = ">> Más Información"
+            Me.Size = New Size(754, 579)
+        End If
     End Sub
 End Class

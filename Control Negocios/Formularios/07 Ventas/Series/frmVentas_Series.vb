@@ -10657,7 +10657,7 @@ ecomoda:
                 End If
                 cnn1.Close()
 
-                If MsgBox("¿Deseas guardar los datos de esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+                If MsgBox("¿Deseas guardar los datos de este pedido?", vbInformation + vbOKCancel, titulocentral) = vbCancel Then cnn1.Close() : Exit Sub
 
                 cnn1.Close() : cnn1.Open()
 
@@ -10710,13 +10710,13 @@ ecomoda:
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO cotped(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,FPago,PorcentajeDesc,MontoSinDesc,IP,Descto) VALUES(" & IdCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','','" & cboimpresion.Text & "'," & MyDescuento & ",''," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "','0')"
+                cmd1.CommandText = "INSERT INTO pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,FPago,PorcentajeDesc,MontoSinDesc,IP,Descto) VALUES(" & IdCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','','" & cboimpresion.Text & "'," & MyDescuento & ",''," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "','0')"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "select MAX(Folio) from CotPed where Tipo='PEDIDO' and IP='" & dameIP2() & "'"
+                cmd2.CommandText = "select MAX(Folio) from pedidosven where Tipo='PEDIDO' and IP='" & dameIP2() & "'"
                 rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -10783,7 +10783,7 @@ rayos:
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO cotpeddet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo,Comisionista,Descuento,Descto,Porc_Descuento) VALUES(" & MYFOLIO & ",'" & MyCodigo & "','" & MyNombre & "'," & MyCantidad & ",'" & MYUnidad & "'," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & PrecioSinIVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepa & "','" & MyGrupo & "','0','PEDIDO','',0,0,0)"
+                    cmd2.CommandText = "INSERT INTO pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo,Comisionista,Descuento,Descto,Porc_Descuento) VALUES(" & MYFOLIO & ",'" & MyCodigo & "','" & MyNombre & "'," & MyCantidad & ",'" & MYUnidad & "'," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & PrecioSinIVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepa & "','" & MyGrupo & "','0','PEDIDO','',0,0,0)"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
@@ -11096,7 +11096,7 @@ doorcita:
             '[°]. Datos del negocio
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT IVA,Subtotal FROM cotped WHERE Folio=" & MYFOLIO
+            cmd1.CommandText = "SELECT IVA,Subtotal FROM pedidosven WHERE Folio=" & MYFOLIO
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -11347,7 +11347,7 @@ doorcita:
             '[°]. Datos del negocio
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT IVA,Subtotal FROM cotped WHERE Folio=" & MYFOLIO
+            cmd1.CommandText = "SELECT IVA,Subtotal FROM pedidosven WHERE Folio=" & MYFOLIO
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

@@ -89,9 +89,32 @@ Partial Class frmProductos
         Me.cboubicacion = New System.Windows.Forms.ComboBox()
         Me.cboComanda = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
+        Me.txtBarras1 = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtBarras2 = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.txtBarras3 = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.lblInfo = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'cboCodigo
@@ -99,7 +122,7 @@ Partial Class frmProductos
         Me.cboCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboCodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCodigo.FormattingEnabled = True
-        Me.cboCodigo.Location = New System.Drawing.Point(8, 91)
+        Me.cboCodigo.Location = New System.Drawing.Point(7, 178)
         Me.cboCodigo.Name = "cboCodigo"
         Me.cboCodigo.Size = New System.Drawing.Size(85, 23)
         Me.cboCodigo.TabIndex = 77
@@ -110,7 +133,7 @@ Partial Class frmProductos
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(8, 67)
+        Me.Label3.Location = New System.Drawing.Point(7, 154)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 21)
         Me.Label3.TabIndex = 76
@@ -146,7 +169,7 @@ Partial Class frmProductos
         Me.cboNombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboNombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboNombre.FormattingEnabled = True
-        Me.cboNombre.Location = New System.Drawing.Point(96, 91)
+        Me.cboNombre.Location = New System.Drawing.Point(95, 178)
         Me.cboNombre.Name = "cboNombre"
         Me.cboNombre.Size = New System.Drawing.Size(422, 23)
         Me.cboNombre.TabIndex = 94
@@ -157,7 +180,7 @@ Partial Class frmProductos
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(96, 67)
+        Me.Label2.Location = New System.Drawing.Point(95, 154)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(423, 21)
         Me.Label2.TabIndex = 93
@@ -170,7 +193,7 @@ Partial Class frmProductos
         Me.cboIVA.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboIVA.FormattingEnabled = True
         Me.cboIVA.Items.AddRange(New Object() {"0", "0.16"})
-        Me.cboIVA.Location = New System.Drawing.Point(8, 215)
+        Me.cboIVA.Location = New System.Drawing.Point(7, 302)
         Me.cboIVA.Name = "cboIVA"
         Me.cboIVA.Size = New System.Drawing.Size(78, 23)
         Me.cboIVA.TabIndex = 96
@@ -181,7 +204,7 @@ Partial Class frmProductos
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(8, 167)
+        Me.Label4.Location = New System.Drawing.Point(7, 254)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(78, 21)
         Me.Label4.TabIndex = 95
@@ -193,7 +216,7 @@ Partial Class frmProductos
         Me.cboProvP.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboProvP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboProvP.FormattingEnabled = True
-        Me.cboProvP.Location = New System.Drawing.Point(525, 65)
+        Me.cboProvP.Location = New System.Drawing.Point(525, 71)
         Me.cboProvP.Name = "cboProvP"
         Me.cboProvP.Size = New System.Drawing.Size(208, 23)
         Me.cboProvP.TabIndex = 98
@@ -206,7 +229,7 @@ Partial Class frmProductos
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(525, 41)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(208, 21)
+        Me.Label5.Size = New System.Drawing.Size(208, 23)
         Me.Label5.TabIndex = 97
         Me.Label5.Text = "Proveedor"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -216,7 +239,7 @@ Partial Class frmProductos
         Me.cboProvE.BackColor = System.Drawing.Color.White
         Me.cboProvE.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboProvE.FormattingEnabled = True
-        Me.cboProvE.Location = New System.Drawing.Point(525, 91)
+        Me.cboProvE.Location = New System.Drawing.Point(525, 100)
         Me.cboProvE.Name = "cboProvE"
         Me.cboProvE.Size = New System.Drawing.Size(208, 23)
         Me.cboProvE.TabIndex = 99
@@ -226,7 +249,7 @@ Partial Class frmProductos
         Me.txtMaxima.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtMaxima.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMaxima.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMaxima.Location = New System.Drawing.Point(89, 215)
+        Me.txtMaxima.Location = New System.Drawing.Point(88, 302)
         Me.txtMaxima.Name = "txtMaxima"
         Me.txtMaxima.Size = New System.Drawing.Size(93, 23)
         Me.txtMaxima.TabIndex = 100
@@ -238,7 +261,7 @@ Partial Class frmProductos
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(89, 191)
+        Me.Label6.Location = New System.Drawing.Point(88, 278)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 21)
         Me.Label6.TabIndex = 101
@@ -253,7 +276,7 @@ Partial Class frmProductos
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(89, 167)
+        Me.Label7.Location = New System.Drawing.Point(88, 254)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(285, 21)
         Me.Label7.TabIndex = 103
@@ -265,7 +288,7 @@ Partial Class frmProductos
         Me.txtActual.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtActual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtActual.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtActual.Location = New System.Drawing.Point(185, 215)
+        Me.txtActual.Location = New System.Drawing.Point(184, 302)
         Me.txtActual.Name = "txtActual"
         Me.txtActual.Size = New System.Drawing.Size(93, 23)
         Me.txtActual.TabIndex = 102
@@ -277,7 +300,7 @@ Partial Class frmProductos
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(281, 191)
+        Me.Label8.Location = New System.Drawing.Point(280, 278)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 21)
         Me.Label8.TabIndex = 105
@@ -291,7 +314,7 @@ Partial Class frmProductos
         Me.txtMinima.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtMinima.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMinima.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinima.Location = New System.Drawing.Point(281, 215)
+        Me.txtMinima.Location = New System.Drawing.Point(280, 302)
         Me.txtMinima.Name = "txtMinima"
         Me.txtMinima.Size = New System.Drawing.Size(93, 23)
         Me.txtMinima.TabIndex = 104
@@ -302,7 +325,7 @@ Partial Class frmProductos
         Me.cboDepto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboDepto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepto.FormattingEnabled = True
-        Me.cboDepto.Location = New System.Drawing.Point(525, 141)
+        Me.cboDepto.Location = New System.Drawing.Point(524, 152)
         Me.cboDepto.Name = "cboDepto"
         Me.cboDepto.Size = New System.Drawing.Size(208, 23)
         Me.cboDepto.TabIndex = 107
@@ -313,7 +336,7 @@ Partial Class frmProductos
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(525, 117)
+        Me.Label9.Location = New System.Drawing.Point(525, 128)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(208, 21)
         Me.Label9.TabIndex = 106
@@ -326,7 +349,7 @@ Partial Class frmProductos
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(8, 117)
+        Me.Label10.Location = New System.Drawing.Point(7, 204)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(510, 21)
         Me.Label10.TabIndex = 109
@@ -338,7 +361,7 @@ Partial Class frmProductos
         Me.txtNombreL.BackColor = System.Drawing.Color.White
         Me.txtNombreL.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreL.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombreL.Location = New System.Drawing.Point(8, 141)
+        Me.txtNombreL.Location = New System.Drawing.Point(7, 228)
         Me.txtNombreL.Name = "txtNombreL"
         Me.txtNombreL.Size = New System.Drawing.Size(510, 23)
         Me.txtNombreL.TabIndex = 108
@@ -348,7 +371,7 @@ Partial Class frmProductos
         Me.cboGrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboGrupo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGrupo.FormattingEnabled = True
-        Me.cboGrupo.Location = New System.Drawing.Point(525, 191)
+        Me.cboGrupo.Location = New System.Drawing.Point(524, 202)
         Me.cboGrupo.Name = "cboGrupo"
         Me.cboGrupo.Size = New System.Drawing.Size(208, 23)
         Me.cboGrupo.TabIndex = 111
@@ -359,7 +382,7 @@ Partial Class frmProductos
         Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(525, 167)
+        Me.Label11.Location = New System.Drawing.Point(524, 178)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(185, 21)
         Me.Label11.TabIndex = 110
@@ -372,7 +395,7 @@ Partial Class frmProductos
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(713, 167)
+        Me.Label12.Location = New System.Drawing.Point(712, 178)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(20, 21)
         Me.Label12.TabIndex = 112
@@ -386,7 +409,7 @@ Partial Class frmProductos
         Me.lblexistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblexistencia.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblexistencia.ForeColor = System.Drawing.Color.White
-        Me.lblexistencia.Location = New System.Drawing.Point(525, 217)
+        Me.lblexistencia.Location = New System.Drawing.Point(524, 228)
         Me.lblexistencia.Name = "lblexistencia"
         Me.lblexistencia.Size = New System.Drawing.Size(208, 21)
         Me.lblexistencia.TabIndex = 116
@@ -398,7 +421,7 @@ Partial Class frmProductos
         Me.txtMinimo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtMinimo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMinimo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMinimo.Location = New System.Drawing.Point(380, 192)
+        Me.txtMinimo.Location = New System.Drawing.Point(379, 279)
         Me.txtMinimo.Name = "txtMinimo"
         Me.txtMinimo.Size = New System.Drawing.Size(139, 22)
         Me.txtMinimo.TabIndex = 118
@@ -411,7 +434,7 @@ Partial Class frmProductos
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.White
-        Me.Label15.Location = New System.Drawing.Point(380, 167)
+        Me.Label15.Location = New System.Drawing.Point(379, 254)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(138, 22)
         Me.Label15.TabIndex = 117
@@ -424,7 +447,7 @@ Partial Class frmProductos
         Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(380, 266)
+        Me.Label16.Location = New System.Drawing.Point(379, 353)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(138, 21)
         Me.Label16.TabIndex = 119
@@ -436,7 +459,7 @@ Partial Class frmProductos
         Me.txtMaximo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtMaximo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMaximo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMaximo.Location = New System.Drawing.Point(379, 241)
+        Me.txtMaximo.Location = New System.Drawing.Point(378, 328)
         Me.txtMaximo.Name = "txtMaximo"
         Me.txtMaximo.Size = New System.Drawing.Size(140, 22)
         Me.txtMaximo.TabIndex = 121
@@ -449,7 +472,7 @@ Partial Class frmProductos
         Me.Label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label17.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(380, 217)
+        Me.Label17.Location = New System.Drawing.Point(379, 304)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(138, 22)
         Me.Label17.TabIndex = 120
@@ -461,7 +484,7 @@ Partial Class frmProductos
         Me.txtComi.BackColor = System.Drawing.Color.White
         Me.txtComi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtComi.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComi.Location = New System.Drawing.Point(380, 292)
+        Me.txtComi.Location = New System.Drawing.Point(379, 379)
         Me.txtComi.Name = "txtComi"
         Me.txtComi.Size = New System.Drawing.Size(139, 23)
         Me.txtComi.TabIndex = 122
@@ -471,7 +494,7 @@ Partial Class frmProductos
         'chkKIT
         '
         Me.chkKIT.AutoSize = True
-        Me.chkKIT.Location = New System.Drawing.Point(593, 375)
+        Me.chkKIT.Location = New System.Drawing.Point(592, 386)
         Me.chkKIT.Name = "chkKIT"
         Me.chkKIT.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkKIT.Size = New System.Drawing.Size(140, 19)
@@ -481,11 +504,10 @@ Partial Class frmProductos
         '
         'txtCodigoSAT
         '
-        Me.txtCodigoSAT.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtCodigoSAT.BackColor = System.Drawing.Color.White
         Me.txtCodigoSAT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCodigoSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigoSAT.Location = New System.Drawing.Point(125, 351)
+        Me.txtCodigoSAT.Location = New System.Drawing.Point(125, 436)
         Me.txtCodigoSAT.Name = "txtCodigoSAT"
         Me.txtCodigoSAT.Size = New System.Drawing.Size(170, 23)
         Me.txtCodigoSAT.TabIndex = 125
@@ -493,12 +515,11 @@ Partial Class frmProductos
         '
         'Label13
         '
-        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label13.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(8, 351)
+        Me.Label13.Location = New System.Drawing.Point(8, 436)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(114, 23)
         Me.Label13.TabIndex = 124
@@ -507,11 +528,10 @@ Partial Class frmProductos
         '
         'txtClaveSAT
         '
-        Me.txtClaveSAT.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtClaveSAT.BackColor = System.Drawing.Color.White
         Me.txtClaveSAT.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtClaveSAT.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClaveSAT.Location = New System.Drawing.Point(415, 351)
+        Me.txtClaveSAT.Location = New System.Drawing.Point(415, 436)
         Me.txtClaveSAT.Name = "txtClaveSAT"
         Me.txtClaveSAT.Size = New System.Drawing.Size(170, 23)
         Me.txtClaveSAT.TabIndex = 127
@@ -519,12 +539,11 @@ Partial Class frmProductos
         '
         'Label18
         '
-        Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label18.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.White
-        Me.Label18.Location = New System.Drawing.Point(298, 351)
+        Me.Label18.Location = New System.Drawing.Point(298, 436)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(114, 23)
         Me.Label18.TabIndex = 126
@@ -538,7 +557,7 @@ Partial Class frmProductos
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(459, 400)
+        Me.btnGuardar.Location = New System.Drawing.Point(459, 466)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 137
@@ -553,7 +572,7 @@ Partial Class frmProductos
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(525, 400)
+        Me.btnNuevo.Location = New System.Drawing.Point(525, 466)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 136
@@ -569,7 +588,7 @@ Partial Class frmProductos
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(393, 400)
+        Me.btnEliminar.Location = New System.Drawing.Point(393, 466)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 135
@@ -585,7 +604,7 @@ Partial Class frmProductos
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Location = New System.Drawing.Point(8, 400)
+        Me.btnImportar.Location = New System.Drawing.Point(8, 466)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(62, 49)
         Me.btnImportar.TabIndex = 138
@@ -602,7 +621,7 @@ Partial Class frmProductos
         Me.btnImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImagen.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImagen.Location = New System.Drawing.Point(327, 400)
+        Me.btnImagen.Location = New System.Drawing.Point(327, 466)
         Me.btnImagen.Name = "btnImagen"
         Me.btnImagen.Size = New System.Drawing.Size(60, 63)
         Me.btnImagen.TabIndex = 139
@@ -613,7 +632,7 @@ Partial Class frmProductos
         'picImagen
         '
         Me.picImagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.picImagen.Location = New System.Drawing.Point(257, 400)
+        Me.picImagen.Location = New System.Drawing.Point(257, 466)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(64, 63)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -623,7 +642,7 @@ Partial Class frmProductos
         'barsube
         '
         Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(8, 449)
+        Me.barsube.Location = New System.Drawing.Point(8, 515)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 141
@@ -634,7 +653,7 @@ Partial Class frmProductos
         Me.Label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(185, 191)
+        Me.Label19.Location = New System.Drawing.Point(184, 278)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(93, 21)
         Me.Label19.TabIndex = 177
@@ -652,7 +671,7 @@ Partial Class frmProductos
         Me.Label14.Location = New System.Drawing.Point(0, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(737, 31)
+        Me.Label14.Size = New System.Drawing.Size(738, 31)
         Me.Label14.TabIndex = 176
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -662,7 +681,7 @@ Partial Class frmProductos
         Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label20.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(8, 191)
+        Me.Label20.Location = New System.Drawing.Point(7, 278)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(78, 21)
         Me.Label20.TabIndex = 178
@@ -677,7 +696,7 @@ Partial Class frmProductos
         Me.Panel1.Controls.Add(Me.txtmcd)
         Me.Panel1.Controls.Add(Me.lblConv1)
         Me.Panel1.Controls.Add(Me.Label21)
-        Me.Panel1.Location = New System.Drawing.Point(8, 241)
+        Me.Panel1.Location = New System.Drawing.Point(7, 328)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(366, 73)
         Me.Panel1.TabIndex = 179
@@ -746,7 +765,7 @@ Partial Class frmProductos
         Me.cboMoneda.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboMoneda.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMoneda.FormattingEnabled = True
-        Me.cboMoneda.Location = New System.Drawing.Point(525, 241)
+        Me.cboMoneda.Location = New System.Drawing.Point(524, 252)
         Me.cboMoneda.Name = "cboMoneda"
         Me.cboMoneda.Size = New System.Drawing.Size(208, 23)
         Me.cboMoneda.TabIndex = 180
@@ -756,7 +775,7 @@ Partial Class frmProductos
         Me.txtIEPS.BackColor = System.Drawing.Color.White
         Me.txtIEPS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtIEPS.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIEPS.Location = New System.Drawing.Point(646, 318)
+        Me.txtIEPS.Location = New System.Drawing.Point(645, 329)
         Me.txtIEPS.Name = "txtIEPS"
         Me.txtIEPS.Size = New System.Drawing.Size(87, 22)
         Me.txtIEPS.TabIndex = 184
@@ -769,7 +788,7 @@ Partial Class frmProductos
         Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label24.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(525, 318)
+        Me.Label24.Location = New System.Drawing.Point(524, 329)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(118, 22)
         Me.Label24.TabIndex = 183
@@ -781,7 +800,7 @@ Partial Class frmProductos
         Me.txtRetIVA.BackColor = System.Drawing.Color.White
         Me.txtRetIVA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRetIVA.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRetIVA.Location = New System.Drawing.Point(646, 293)
+        Me.txtRetIVA.Location = New System.Drawing.Point(645, 304)
         Me.txtRetIVA.Name = "txtRetIVA"
         Me.txtRetIVA.Size = New System.Drawing.Size(87, 22)
         Me.txtRetIVA.TabIndex = 182
@@ -794,7 +813,7 @@ Partial Class frmProductos
         Me.Label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label25.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(525, 293)
+        Me.Label25.Location = New System.Drawing.Point(524, 304)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(118, 22)
         Me.Label25.TabIndex = 181
@@ -807,10 +826,10 @@ Partial Class frmProductos
         Me.grdcaptura.AllowUserToDeleteRows = False
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdcaptura.Location = New System.Drawing.Point(8, 528)
+        Me.grdcaptura.Location = New System.Drawing.Point(809, 45)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
-        Me.grdcaptura.Size = New System.Drawing.Size(577, 144)
+        Me.grdcaptura.Size = New System.Drawing.Size(203, 144)
         Me.grdcaptura.TabIndex = 227
         '
         'txtrutaimagen
@@ -819,7 +838,7 @@ Partial Class frmProductos
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(76, 440)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(76, 506)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(175, 23)
         Me.txtrutaimagen.TabIndex = 232
@@ -827,7 +846,7 @@ Partial Class frmProductos
         'chkUnico
         '
         Me.chkUnico.AutoSize = True
-        Me.chkUnico.Location = New System.Drawing.Point(625, 343)
+        Me.chkUnico.Location = New System.Drawing.Point(624, 354)
         Me.chkUnico.Name = "chkUnico"
         Me.chkUnico.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkUnico.Size = New System.Drawing.Size(108, 19)
@@ -841,7 +860,7 @@ Partial Class frmProductos
         Me.Label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label22.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(525, 267)
+        Me.Label22.Location = New System.Drawing.Point(524, 278)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(68, 23)
         Me.Label22.TabIndex = 234
@@ -853,7 +872,7 @@ Partial Class frmProductos
         Me.cboubicacion.BackColor = System.Drawing.Color.White
         Me.cboubicacion.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboubicacion.FormattingEnabled = True
-        Me.cboubicacion.Location = New System.Drawing.Point(596, 267)
+        Me.cboubicacion.Location = New System.Drawing.Point(595, 278)
         Me.cboubicacion.Name = "cboubicacion"
         Me.cboubicacion.Size = New System.Drawing.Size(137, 23)
         Me.cboubicacion.TabIndex = 235
@@ -863,7 +882,7 @@ Partial Class frmProductos
         Me.cboComanda.BackColor = System.Drawing.Color.White
         Me.cboComanda.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboComanda.FormattingEnabled = True
-        Me.cboComanda.Location = New System.Drawing.Point(195, 320)
+        Me.cboComanda.Location = New System.Drawing.Point(194, 407)
         Me.cboComanda.Name = "cboComanda"
         Me.cboComanda.Size = New System.Drawing.Size(179, 23)
         Me.cboComanda.TabIndex = 243
@@ -874,18 +893,297 @@ Partial Class frmProductos
         Me.Label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label23.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.White
-        Me.Label23.Location = New System.Drawing.Point(8, 318)
+        Me.Label23.Location = New System.Drawing.Point(7, 405)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(184, 23)
         Me.Label23.TabIndex = 242
         Me.Label23.Text = "Imprimir orden de entrega en:"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'txtBarras1
+        '
+        Me.txtBarras1.BackColor = System.Drawing.Color.White
+        Me.txtBarras1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtBarras1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBarras1.Location = New System.Drawing.Point(125, 70)
+        Me.txtBarras1.Name = "txtBarras1"
+        Me.txtBarras1.Size = New System.Drawing.Size(393, 23)
+        Me.txtBarras1.TabIndex = 245
+        Me.txtBarras1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label26
+        '
+        Me.Label26.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label26.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.White
+        Me.Label26.Location = New System.Drawing.Point(8, 70)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(114, 23)
+        Me.Label26.TabIndex = 244
+        Me.Label26.Text = "Código de barras"
+        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtBarras2
+        '
+        Me.txtBarras2.BackColor = System.Drawing.Color.White
+        Me.txtBarras2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtBarras2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBarras2.Location = New System.Drawing.Point(125, 99)
+        Me.txtBarras2.Name = "txtBarras2"
+        Me.txtBarras2.Size = New System.Drawing.Size(393, 23)
+        Me.txtBarras2.TabIndex = 247
+        Me.txtBarras2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label27.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(8, 99)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(114, 23)
+        Me.Label27.TabIndex = 246
+        Me.Label27.Text = "Código de barras"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtBarras3
+        '
+        Me.txtBarras3.BackColor = System.Drawing.Color.White
+        Me.txtBarras3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtBarras3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBarras3.Location = New System.Drawing.Point(125, 128)
+        Me.txtBarras3.Name = "txtBarras3"
+        Me.txtBarras3.Size = New System.Drawing.Size(393, 23)
+        Me.txtBarras3.TabIndex = 249
+        Me.txtBarras3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label28.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.White
+        Me.Label28.Location = New System.Drawing.Point(7, 128)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(114, 23)
+        Me.Label28.TabIndex = 248
+        Me.Label28.Text = "Código de barras"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblInfo
+        '
+        Me.lblInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblInfo.AutoSize = True
+        Me.lblInfo.Location = New System.Drawing.Point(616, 514)
+        Me.lblInfo.Name = "lblInfo"
+        Me.lblInfo.Size = New System.Drawing.Size(116, 15)
+        Me.lblInfo.TabIndex = 250
+        Me.lblInfo.Text = ">> Más Información"
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.TextBox8)
+        Me.Panel2.Controls.Add(Me.Label29)
+        Me.Panel2.Controls.Add(Me.TextBox5)
+        Me.Panel2.Controls.Add(Me.Label30)
+        Me.Panel2.Controls.Add(Me.TextBox6)
+        Me.Panel2.Controls.Add(Me.Label31)
+        Me.Panel2.Controls.Add(Me.TextBox3)
+        Me.Panel2.Controls.Add(Me.Label32)
+        Me.Panel2.Controls.Add(Me.TextBox4)
+        Me.Panel2.Controls.Add(Me.Label33)
+        Me.Panel2.Controls.Add(Me.TextBox2)
+        Me.Panel2.Controls.Add(Me.Label34)
+        Me.Panel2.Controls.Add(Me.TextBox1)
+        Me.Panel2.Controls.Add(Me.Label35)
+        Me.Panel2.Location = New System.Drawing.Point(4, 542)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(735, 152)
+        Me.Panel2.TabIndex = 251
+        '
+        'TextBox8
+        '
+        Me.TextBox8.BackColor = System.Drawing.Color.White
+        Me.TextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(133, 118)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(241, 23)
+        Me.TextBox8.TabIndex = 262
+        Me.TextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(16, 118)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(114, 23)
+        Me.Label29.TabIndex = 261
+        Me.Label29.Text = "Código de barras"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox5
+        '
+        Me.TextBox5.BackColor = System.Drawing.Color.White
+        Me.TextBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(500, 85)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(223, 23)
+        Me.TextBox5.TabIndex = 260
+        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label30
+        '
+        Me.Label30.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label30.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.White
+        Me.Label30.Location = New System.Drawing.Point(380, 85)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(114, 23)
+        Me.Label30.TabIndex = 259
+        Me.Label30.Text = "Código de barras"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox6
+        '
+        Me.TextBox6.BackColor = System.Drawing.Color.White
+        Me.TextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox6.Location = New System.Drawing.Point(133, 85)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(241, 23)
+        Me.TextBox6.TabIndex = 258
+        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label31
+        '
+        Me.Label31.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label31.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.White
+        Me.Label31.Location = New System.Drawing.Point(16, 85)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(114, 23)
+        Me.Label31.TabIndex = 257
+        Me.Label31.Text = "Código de barras"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.White
+        Me.TextBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(500, 48)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(223, 23)
+        Me.TextBox3.TabIndex = 256
+        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label32
+        '
+        Me.Label32.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label32.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.White
+        Me.Label32.Location = New System.Drawing.Point(380, 48)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(114, 23)
+        Me.Label32.TabIndex = 255
+        Me.Label32.Text = "Código de barras"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox4
+        '
+        Me.TextBox4.BackColor = System.Drawing.Color.White
+        Me.TextBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(133, 48)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(241, 23)
+        Me.TextBox4.TabIndex = 254
+        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label33
+        '
+        Me.Label33.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label33.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.White
+        Me.Label33.Location = New System.Drawing.Point(16, 48)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(114, 23)
+        Me.Label33.TabIndex = 253
+        Me.Label33.Text = "Código de barras"
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(500, 14)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(223, 23)
+        Me.TextBox2.TabIndex = 252
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label34
+        '
+        Me.Label34.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label34.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.White
+        Me.Label34.Location = New System.Drawing.Point(380, 14)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(114, 23)
+        Me.Label34.TabIndex = 251
+        Me.Label34.Text = "Código de barras"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.White
+        Me.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(133, 14)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(241, 23)
+        Me.TextBox1.TabIndex = 250
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label35
+        '
+        Me.Label35.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label35.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.White
+        Me.Label35.Location = New System.Drawing.Point(16, 14)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(114, 23)
+        Me.Label35.TabIndex = 249
+        Me.Label35.Text = "Código de barras"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmProductos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(737, 475)
+        Me.ClientSize = New System.Drawing.Size(738, 541)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.lblInfo)
+        Me.Controls.Add(Me.txtBarras3)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.txtBarras2)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.txtBarras1)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.cboComanda)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.cboubicacion)
@@ -957,6 +1255,8 @@ Partial Class frmProductos
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1026,4 +1326,26 @@ Partial Class frmProductos
     Friend WithEvents cboubicacion As ComboBox
     Friend WithEvents cboComanda As ComboBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents txtBarras1 As TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents txtBarras2 As TextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents txtBarras3 As TextBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents lblInfo As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label30 As Label
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label35 As Label
 End Class

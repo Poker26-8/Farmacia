@@ -2516,29 +2516,31 @@ Door:
                         Else
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "DELETE FROM Comanda1"
+                            cmd3.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
                             cmd3.ExecuteNonQuery()
                             cnn3.Close()
                         End If
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT NMESA FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+                        cmd2.CommandText = "SELECT Nombre FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
 
-                                cnn3.Close() : cnn3.Open()
-                                cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "DELETE FROM Mesa WHERE Nombre_Mesa='" & lblmesa.Text & "' AND Temporal=1"
-                                cmd3.ExecuteNonQuery()
 
-                                cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblmesa.Text & "' AND Temporal=1"
-                                cmd3.ExecuteNonQuery()
-                                cnn3.Close()
 
                             End If
+                        Else
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "DELETE FROM Mesa WHERE Nombre_Mesa='" & lblmesa.Text & "' AND Temporal=1"
+                            cmd3.ExecuteNonQuery()
+
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblmesa.Text & "' AND Temporal=1"
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
                         End If
                         rd2.Close()
                         cnn2.Close()

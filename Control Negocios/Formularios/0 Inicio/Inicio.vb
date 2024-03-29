@@ -913,7 +913,7 @@ Public Class Inicio
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Mililitros,Copas FROM productos"
+            cmd1.CommandText = "SELECT Mililitros,Copas,CodBarra1,CodBarra2,CodBarra3 FROM productos"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
             End If
@@ -926,6 +926,18 @@ Public Class Inicio
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try

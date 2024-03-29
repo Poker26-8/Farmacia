@@ -1,5 +1,58 @@
 ﻿Module CrearBD
 
+    'pedidosvendet
+    Public vartablapedidosvendet As String = "CREATE TABLE `pedidosvendet` (
+                                                                      `id` int(11) NOT NULL,
+                                                                      `Folio` int(11) DEFAULT '0',
+                                                                      `Codigo` varchar(50) DEFAULT '',
+                                                                      `Nombre` varchar(255) DEFAULT '',
+                                                                      `Unidad` varchar(50) DEFAULT '',
+                                                                      `Cantidad` float DEFAULT '0',
+                                                                      `CostoV` float DEFAULT '0',
+                                                                      `Precio` float DEFAULT '0',
+                                                                      `Total` float DEFAULT '0',
+                                                                      `PrecioSIVA` float DEFAULT '0',
+                                                                      `TotalSIVA` float DEFAULT '0',
+                                                                      `Fecha` datetime DEFAULT NULL,
+                                                                      `Usuario` varchar(50) DEFAULT '',
+                                                                      `Depto` varchar(100) DEFAULT '',
+                                                                      `Grupo` varchar(100) DEFAULT '',
+                                                                      `CostVR` text,
+                                                                      `Tipo` varchar(50) DEFAULT '',
+                                                                      `Comisionista` varchar(100) DEFAULT '',
+                                                                      `Descuento` float DEFAULT '0',
+                                                                      `Descto` float DEFAULT '0',
+                                                                      `Porc_Descuento` float DEFAULT '0'
+                                                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                                                                    "
+    'pedidosven
+    Public vartablapedidosven As String = "CREATE TABLE `pedidosven` (
+                                                      `Folio` int(11) NOT NULL,
+                                                      `IdCliente` int(11) DEFAULT '0',
+                                                      `Cliente` varchar(255) DEFAULT '',
+                                                      `Direccion` varchar(255) NOT NULL DEFAULT '',
+                                                      `Subtotal` float NOT NULL DEFAULT '0',
+                                                      `IVA` float NOT NULL DEFAULT '0',
+                                                      `Totales` float NOT NULL DEFAULT '0',
+                                                      `ACuenta` float NOT NULL DEFAULT '0',
+                                                      `Resta` float NOT NULL DEFAULT '0',
+                                                      `Usuario` varchar(50) NOT NULL DEFAULT '',
+                                                      `Fecha` date NOT NULL,
+                                                      `Hora` time NOT NULL,
+                                                      `Status` varchar(50) NOT NULL DEFAULT '',
+                                                      `Tipo` varchar(50) NOT NULL DEFAULT '',
+                                                      `Comentario` text NOT NULL,
+                                                      `Formato` varchar(100) NOT NULL DEFAULT '',
+                                                      `CargadoAndroid` int(11) NOT NULL DEFAULT '0',
+                                                      `FolioAndroid` varchar(50) NOT NULL DEFAULT '',
+                                                      `Descuento` float NOT NULL DEFAULT '0',
+                                                      `FPago` date NOT NULL,
+                                                      `PorcentajeDesc` float NOT NULL DEFAULT '0',
+                                                      `MontoSinDesc` float NOT NULL DEFAULT '0',
+                                                      `IP` varchar(250) NOT NULL DEFAULT '',
+                                                      `Descto` float NOT NULL DEFAULT '0'
+                                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                                                    "
 
     'promos
     Public vartablapromos As String = "CREATE TABLE `promos` (
@@ -5683,6 +5736,9 @@
                                               `Id` int(11) NOT NULL,
                                               `Codigo` varchar(50) NOT NULL DEFAULT '',
                                               `CodBarra` varchar(100) NOT NULL DEFAULT '',
+                                              `CodBarra1` varchar(100) NOT NULL DEFAULT '',
+                                              `CodBarra2` varchar(100) NOT NULL DEFAULT '',
+                                              `CodBarra3` varchar(100) NOT NULL DEFAULT '',
                                               `Nombre` varchar(250) NOT NULL DEFAULT '',
                                               `NombreLargo` varchar(250) NOT NULL DEFAULT '',
                                               `ProvPri` varchar(250) NOT NULL DEFAULT '',
@@ -6434,6 +6490,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeypedidosvendet As String = "ALTER TABLE `pedidosvendet` ADD PRIMARY KEY (`Id`);"
+    Public VarKeypedidosven As String = "ALTER TABLE `pedidosven` ADD PRIMARY KEY (`Folio`);"
     Public VarKeydetallehotelprecios As String = "ALTER TABLE `detallehotelprecios` ADD PRIMARY KEY (`Id`);"
     Public varKeypromos As String = "ALTER TABLE `promos` ADD PRIMARY KEY (`Id`);"
     Public varKeyclienteeliminado As String = "ALTER TABLE `clienteeliminado` ADD PRIMARY KEY (`Id`);"
@@ -6583,6 +6641,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutopedidosvendet As String = "ALTER TABLE `pedidosvendet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutopedidosven As String = "ALTER TABLE `pedidosven` MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodetallehotelprecios As String = "ALTER TABLE `detallehotelprecios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopromos As String = "ALTER TABLE `promos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoclienteeliminado As String = "ALTER TABLE `clienteeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
