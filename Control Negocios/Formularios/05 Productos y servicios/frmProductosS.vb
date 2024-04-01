@@ -761,6 +761,7 @@ Public Class frmProductosS
                 Else
                     conteo += 1
                     barsube.Value = conteo
+
                     Continue For
                 End If
                 conteo += 1
