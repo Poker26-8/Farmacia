@@ -338,7 +338,7 @@
 
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "UPDATE Comandas SET Cantidad=" & txtHoras.Text & ",Precio=" & txtPrecioHora.Text & ",Total=" & totalpagar & ",PrecioSinIVA=" & txtPrecioHora.Text & ",TotalSinIVA=" & totalpagar & ",Hr='',EntregaT='',Status='PAGADO'  WHERE NMESA='" & lblpc.Text & "' AND Comentario='Renta de Mesa' AND Total=0 AND Precio=0"
+            cmd3.CommandText = "UPDATE Comandas SET Cantidad=" & txtHoras.Text & ",Precio=" & txtPrecioHora.Text & ",Total=" & totalpagar & ",PrecioSinIVA=" & txtPrecioHora.Text & ",TotalSinIVA=" & totalpagar & ",Hr='',EntregaT='' WHERE NMESA='" & lblpc.Text & "' AND Comentario='Renta de Mesa' AND Total=0 AND Precio=0"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 
