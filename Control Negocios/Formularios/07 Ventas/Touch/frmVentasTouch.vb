@@ -1792,17 +1792,19 @@ Door:
                 Exit Sub
             End If
             cnn1.Close()
+            If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
+                If Tamaño = "80" Then
+                    pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pVenta80.Print()
+                End If
+                If Tamaño = "58" Then
+                    pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pVenta58.Print()
+                End If
+            End If
 
 
-            If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
-            If Tamaño = "80" Then
-                pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                pVenta80.Print()
-            End If
-            If Tamaño = "58" Then
-                pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                pVenta58.Print()
-            End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString.ToString())
             cnn1.Close()
