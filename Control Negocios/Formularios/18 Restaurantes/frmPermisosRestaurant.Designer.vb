@@ -68,7 +68,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.rbNM = New System.Windows.Forms.RadioButton()
         Me.rbM = New System.Windows.Forms.RadioButton()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkCuartos = New System.Windows.Forms.CheckBox()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
         Me.GroupBox20.SuspendLayout()
@@ -242,7 +242,7 @@ Partial Class frmPermisosRestaurant
         '
         'GroupBox19
         '
-        Me.GroupBox19.Controls.Add(Me.CheckBox1)
+        Me.GroupBox19.Controls.Add(Me.chkCuartos)
         Me.GroupBox19.Controls.Add(Me.Label5)
         Me.GroupBox19.Controls.Add(Me.rbminuto)
         Me.GroupBox19.Controls.Add(Me.rbhora)
@@ -582,16 +582,16 @@ Partial Class frmPermisosRestaurant
         Me.rbM.Text = "Mapeables"
         Me.rbM.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'chkCuartos
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(11, 93)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(187, 20)
-        Me.CheckBox1.TabIndex = 238
-        Me.CheckBox1.Text = "Cobrar por cuartos de hora"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkCuartos.AutoSize = True
+        Me.chkCuartos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkCuartos.Location = New System.Drawing.Point(11, 93)
+        Me.chkCuartos.Name = "chkCuartos"
+        Me.chkCuartos.Size = New System.Drawing.Size(187, 20)
+        Me.chkCuartos.TabIndex = 238
+        Me.chkCuartos.Text = "Cobrar por cuartos de hora"
+        Me.chkCuartos.UseVisualStyleBackColor = True
         '
         'frmPermisosRestaurant
         '
@@ -686,5 +686,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents rbNM As RadioButton
     Friend WithEvents rbM As RadioButton
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chkCuartos As CheckBox
 End Class
