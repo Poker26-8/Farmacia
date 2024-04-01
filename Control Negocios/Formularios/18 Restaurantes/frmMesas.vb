@@ -748,6 +748,9 @@ Public Class frmMesas
         lbltotalmesa.Text = "0.00"
 
         Dim totalcomanda As Double = 0
+
+        Dim total_billar As Double = 0
+
         Dim totalc As Double = 0
 
         If tables.BackColor <> Color.White Then
@@ -761,6 +764,18 @@ Public Class frmMesas
                         totalc = rd1(0).ToString
 
                         totalcomanda = CDbl(totalcomanda) + totalc
+                    End If
+                Loop
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Total FROM Comandas WHERE Nmesa='" & tables.Text & "' and Codigo='xc3'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        total_billar = rd1(0).ToString()
+                    Else
+                        total_billar = 0
                     End If
                 Loop
                 rd1.Close()
@@ -852,7 +867,9 @@ Public Class frmMesas
                 If rd1.HasRows Then
                     If rd1.Read Then
                         If rd1(0).ToString = 1 Then
-                            If totalcomanda = 0 Then
+                            If total_billar = 0 Then
+                                btncobro.Enabled = False
+
                                 frmAsigna.lblpc.Text = mesa
                                 foco = "B"
                                 If lblusuario.Text <> "" Then
