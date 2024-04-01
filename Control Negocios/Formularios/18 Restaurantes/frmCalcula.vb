@@ -70,6 +70,33 @@
                                 txtTiempoUso.Text = FormatNumber(VarMinutos, 2)
                                 txtHoras.Text = FormatNumber(varHoras, 2)
 
+                                Dim varope1 As Double = CDec(varHoras * 60)
+                                Dim varopeminutos As Double = VarMinutos - varope1
+
+                                varopeminutos = CDec(varopeminutos / 15)
+
+                                Dim bandera As Integer = 0
+                                Dim vartemporal As String = ""
+                                For ii = 1 To Len(varopeminutos)
+                                    If bandera = 1 Then
+                                        If CDec(Mid(varopeminutos, ii, 2)) > 0 Then
+                                            varopeminutos = CDec(vartemporal) + 1
+                                        Else
+                                            varopeminutos = CDec(vartemporal)
+                                        End If
+                                        Exit For
+                                    End If
+
+                                    If "." = CStr(Mid(varopeminutos, ii, 1)) Then
+                                        bandera = 1
+                                    Else
+                                        vartemporal = vartemporal & Mid(varopeminutos, ii, 1)
+                                    End If
+
+                                Next
+
+
+
                                 If CDec(txtTiempoUso.Text) <= CDec(ToleBillar) Then
 
                                     cmd3 = cnn3.CreateCommand
@@ -104,9 +131,11 @@
                                         If rd3.HasRows Then
                                             If rd3.Read Then
                                                 txtPrecioHora.Text = FormatNumber(rd3("Precio").ToString, 2)
-                                                txtTotalPag.Text = rd3("Precio").ToString * txtTiempoUso.Text
-                                                txtTotalPag.Text = txtTotalPag.Text / 60
-                                                txtTotalPag.Text = FormatNumber(txtTotalPag.Text, 2)
+
+                                                txtTotalPag.Text = FormatNumber(CDec(txtPrecioHora.Text) + CDec(varopeminutos) * CDec(CDec(txtPrecioHora.Text * 15 / 60)))
+                                                'txtTotalPag.Text = rd3("Precio").ToString * txtTiempoUso.Text
+                                                'txtTotalPag.Text = txtTotalPag.Text / 60
+                                                'txtTotalPag.Text = FormatNumber(txtTotalPag.Text, 2)
                                             End If
                                         End If
                                         rd3.Close()
