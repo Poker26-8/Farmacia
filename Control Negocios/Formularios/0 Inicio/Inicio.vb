@@ -920,26 +920,26 @@ Public Class Inicio
             rd1.Close() : cnn1.Close()
         Catch ex As Exception
             rd1.Close()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
+            'cmd1.ExecuteNonQuery()
+            'cnn1.Close()
         End Try
 
         'usuarios

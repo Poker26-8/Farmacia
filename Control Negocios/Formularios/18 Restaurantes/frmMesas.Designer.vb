@@ -557,6 +557,7 @@ Partial Class frmMesas
         Me.Button1.TabIndex = 39
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'lbltotalmesa
         '

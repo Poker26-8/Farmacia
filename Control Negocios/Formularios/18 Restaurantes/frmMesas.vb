@@ -206,7 +206,7 @@ Public Class frmMesas
                 End If
             End If
         Next
-        Me.Text = Strings.Space(160) & "COMANDERA" & Strings.Space(55) & mesa.Text
+        Me.Text = mesa.Text
 
     End Sub
 
