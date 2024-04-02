@@ -335,7 +335,7 @@ Public Class Inicio
                     End If
 
                 End If
-            End If
+                End If
             rd1.Close()
             cnn1.Close()
 
@@ -929,13 +929,14 @@ Public Class Inicio
             'cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
             'cmd1.ExecuteNonQuery()
 
-            'cmd1 = cnn1.CreateCommand
-            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
-            'cmd1.ExecuteNonQuery()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
 
-            'cmd1 = cnn1.CreateCommand
-            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
-            'cmd1.ExecuteNonQuery()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
@@ -1017,6 +1018,12 @@ Public Class Inicio
             cmd1.CommandText = "ALTER TABLE productos add column CantLst4 float default '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+
         End Try
 
         'usuarios
@@ -1710,7 +1717,7 @@ Public Class Inicio
 
 
         frmRepInventario.Show()
-        frmRepInventario.BringToFront()
+            frmRepInventario.BringToFront()
 
 
 

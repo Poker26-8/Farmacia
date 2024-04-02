@@ -556,6 +556,7 @@ Partial Class frmManejo
         Me.txtpass.Size = New System.Drawing.Size(180, 22)
         Me.txtpass.TabIndex = 88
         Me.txtpass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtpass.UseSystemPasswordChar = True
         '
         'Label3
         '

@@ -2087,15 +2087,18 @@ Public Class frmAgregarProducto
         FolioVenta = Trim(lblFolio.Text)
         MyFolio = Val(FolioVenta)
 
-        Dim MySubtotal As Double = 0
-        MySubtotal = 0
-
+        Dim IVAPRODUCTO As Double = 0
+        Dim iva As Double = 0
+        Dim totaliva As Double = 0
 
 
         For n As Integer = 0 To grdCaptura.Rows.Count - 1
             If grdCaptura.Rows(n).Cells(0).Value <> "" Then
+
                 Prods = Split(grdCaptura.Rows(n).Cells(0).Value.ToString, vbCrLf)
                 CodigoProducto = Prods(0)
+                Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
+
                 If CodigoProducto <> "WXYZ" Then
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
@@ -2103,10 +2106,13 @@ Public Class frmAgregarProducto
                     rd1 = cmd1.ExecuteReader
                     If rd1.Read Then
                         If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
-                            If CDec(grdCaptura.Rows(n).Cells(3).Value.ToString) > 0 Then
-                                MySubtotal = MySubtotal + (CDec(grdCaptura.Rows(n).Cells(3).Value.ToString)) / (1 + rd1("IVA").ToString)
-                                MySubtotal = FormatNumber(MySubtotal, 2)
+
+                            If rd1(0).ToString > 0 Then
+                                IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
+                                iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
+                                totaliva = totaliva + CDbl(iva)
                             End If
+
                         End If
                     End If
                     rd1.Close()
@@ -2114,6 +2120,7 @@ Public Class frmAgregarProducto
                 End If
             End If
         Next n
+        totaliva = FormatNumber(totaliva, 2)
 
         If grdCaptura.Rows.Count < 1 Then
             Exit Sub
@@ -2123,15 +2130,16 @@ Public Class frmAgregarProducto
             Exit Sub
         End If
 
-        Dim SLDOCUENTA As Double = 0
-        Dim TOTALADEUDA As Double = 0
+        Dim mysubtotal As Double = 0
+        Dim mytotalventa As Double = 0
 
-        Dim MyAcuenta As Double = 0
-        Dim MyEfectivo As Double = 0
+        mytotalventa = lblTotalVenta.Text
+        mysubtotal = CDbl(mytotalventa) - CDbl(totaliva)
+
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "INSERT INTO Comanda1(Folio,Nombre,TComensales,IdCliente,Direccion,Usuario,FVenta,FPago,FCancelado,Status,Comisionista) VALUES('" & MyFolio & "','" & lblmesa.Text & "'," & CInt(lblNcomensales.Text) & ",'','','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','','','','')"
+        cmd1.CommandText = "INSERT INTO Comanda1(Folio,Nombre,Subtotal,IVA,Totales,Resta,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES('" & MyFolio & "','" & lblmesa.Text & "'," & mysubtotal & "," & totaliva & "," & mytotalventa & "," & mytotalventa & "," & CInt(lblNcomensales.Text) & ",'','','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','','','','')"
         cmd1.ExecuteNonQuery()
         cnn1.Close()
 

@@ -17,9 +17,36 @@ Public Class frmManejo
         TRAERUBICACION()
 
         Dim nLogo As String = ""
-
+        Dim contrainicio As Integer = 0
         Try
             cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    contrainicio = rd1(0).ToString
+
+                    If contrainicio = 1 Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                txtpass.Text = rd2(0).ToString
+                                lblusuario.Text = rd2(1).ToString
+                            End If
+                        End If
+                        rd2.Close()
+
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn2.Close()
+
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "select NotasCred from Formatos where Facturas='LogoG'"
             rd1 = cmd1.ExecuteReader

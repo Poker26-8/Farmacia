@@ -248,7 +248,7 @@ Public Class frmPedidosCli
                 End With
 
                 With .Columns(3)
-                    .HeaderText = "Subtotal"
+                    .HeaderText = "Precio"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -257,7 +257,7 @@ Public Class frmPedidosCli
                 End With
 
                 With .Columns(4)
-                    .HeaderText = "IVA"
+                    .HeaderText = "Cantidad"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -302,15 +302,6 @@ Public Class frmPedidosCli
                 End With
 
                 With .Columns(9)
-                    .HeaderText = "Hora"
-                    .Width = 60
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-
-                With .Columns(10)
                     .HeaderText = "Status"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -319,8 +310,17 @@ Public Class frmPedidosCli
                     .Resizable = DataGridViewTriState.False
                 End With
 
+                With .Columns(10)
+                    .HeaderText = "Chofer"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
                 With .Columns(11)
-                    .HeaderText = "Usuario"
+                    .HeaderText = "Vehiculo"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -335,14 +335,18 @@ Public Class frmPedidosCli
         Try
             If (rbPendientes.Checked) Then
 
+                Dim fecha As Date = Nothing
+                Dim fecham As String = ""
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "SELECT * FROM pedidosasignados WHERE Status='ASIGNADO'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
+                        fecha = rd1("FechaAsignacion").ToString
+                        fecham = Format(fecha, "yyyy-MM-dd HH:mm:ss")
 
-                        grdCaptura.Rows.Add()
+                        grdCaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd1("Direccion").ToString, rd1("Precio").ToString, rd1("Cantidad").ToString, rd1("Total").ToString, rd1("ACuenta").ToString, rd1("Resta").ToString, fecham, rd1("Status").ToString, rd1("Chofer").ToString, rd1("Vehiculo").ToString)
                     End If
                 Loop
                 rd1.Close()
@@ -386,7 +390,7 @@ Public Class frmPedidosCli
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO pedidosasignados(Folio,IdCliente,Cliente,Direccion,Codigo,Nombre,Cantidad,Precio,Total,FechaAsiganacion,Chofer,Vehiculo,Status) VALUES(" & folio & "," & idcliente & ",'" & cboCliente.Text & "','" & direcicon & "','" & CODIGO & "','" & nombre & "'," & cantida & "," & precio & "," & total & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboChofer.Text & "','" & cboVehiculo.Text & "','ASIGNADO')"
+                    cmd2.CommandText = "INSERT INTO pedidosasignados(Folio,IdCliente,Cliente,Direccion,Codigo,Nombre,Cantidad,Precio,Total,FechaAsignacion,Chofer,Vehiculo,Status) VALUES(" & folio & "," & idcliente & ",'" & cboCliente.Text & "','" & direcicon & "','" & CODIGO & "','" & nombre & "'," & cantida & "," & precio & "," & total & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboChofer.Text & "','" & cboVehiculo.Text & "','ASIGNADO')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 Next

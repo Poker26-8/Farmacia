@@ -21,6 +21,12 @@ Public Class frmServicioCuarto
     Dim comanda As String = ""
     Dim Hab() As String
     Friend WithEvents btnDeptoH, btnGrupoH, btnProdH As System.Windows.Forms.Button
+
+    Dim seleccionarcodigo As String = ""
+    Dim seleccionanombre As String = ""
+    Dim banderacantidad As Integer = 0
+    Dim banderaprecio As Integer = 0
+
     Private Sub frmServicioCuarto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         TFecha.Start()
@@ -954,7 +960,7 @@ nopaso:
             Y += 15
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT IDC,Codigo,Nombre,Cantidad,Comensal,Comentario FROM comandas  WHERE GPrint='" & comanda & "' and Id=" & lblfolio.Text & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
+            cmd1.CommandText = "SELECT IDC,Codigo,Nombre,Cantidad,Comensal,Comentario FROM comandas  WHERE GPrint='" & comanda & "' and Id=" & lblfolio.Text & " AND Nmesa='" & lblHabitacion.Text & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1101,7 +1107,7 @@ nopaso:
             Y += 15
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT IDC,Codigo,Nombre,Cantidad,Comensal,Comentario FROM comandas  WHERE GPrint='" & comanda & "' and Id=" & lblfolio.Text & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
+            cmd1.CommandText = "SELECT IDC,Codigo,Nombre,Cantidad,Comensal,Comentario FROM comandas  WHERE GPrint='" & comanda & "' and Id=" & lblfolio.Text & " AND Nmesa='" & lblHabitacion.Text & "'  group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1149,6 +1155,44 @@ nopaso:
 
     End Sub
 
+    Private Sub btnCantidad_Click(sender As Object, e As EventArgs) Handles btnCantidad.Click
+        PTeclado.Show()
+        PTeclado.BringToFront()
+    End Sub
+
+    Private Sub grdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellClick
+
+        Dim celda As DataGridViewCellEventArgs = e
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        If celda.ColumnIndex = 2 Then
+            PTeclado.Show()
+            txtRespuesta.Focus.Equals(True)
+            txtRespuesta.Text = ""
+            gdato.Text = "Cantidad"
+
+            seleccionarcodigo = grdCaptura.Rows(index).Cells(0).Value.ToString
+            seleccionanombre = grdCaptura.Rows(index).Cells(1).Value.ToString
+
+            banderacantidad = 1
+        End If
+
+        If celda.ColumnIndex = 3 Then
+            PTeclado.Show()
+            txtRespuesta.Focus.Equals(True)
+            txtRespuesta.Text = ""
+            gdato.Text = "Cambiar Precio"
+
+            seleccionarcodigo = grdCaptura.Rows(index).Cells(0).Value.ToString
+            seleccionanombre = grdCaptura.Rows(index).Cells(1).Value.ToString
+
+            banderaprecio = 1
+        End If
+    End Sub
+
+    Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+        PTeclado.Visible = False
+    End Sub
     Public Sub UpGridCaptura()
 
         Dim TotalVenta As Double = 0
@@ -1174,7 +1218,6 @@ nopaso:
         End Try
 
     End Sub
-
     Public Sub EnviarProductoC()
 
         Dim foliocomanda As Integer = 0
@@ -1278,7 +1321,8 @@ nopaso:
                 If rd1.HasRows Then
                     If rd1.Read Then
                         ivahot = rd1("IVA").ToString
-                        preciosinivahot = IIf(preciohot = 0, 0, preciohot) / (1 * ivahot)
+
+                        preciosinivahot = IIf(preciohot = 0, 0, preciohot) / (1 + ivahot)
                         totalsinivahot = IIf(totalhot = 0, 0, totalhot) / (1 + ivahot)
                         preciosinivahot = FormatNumber(preciosinivahot, 2)
 
@@ -1441,5 +1485,156 @@ nopaso:
         lblfolio.Text = foliocomanda
         Me.Close()
         frmManejo.Show()
+    End Sub
+
+    Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn7.Text
+    End Sub
+    Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn8.Text
+    End Sub
+
+    Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn5.Text
+    End Sub
+
+    Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn6.Text
+    End Sub
+
+    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn1.Text
+    End Sub
+
+    Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn2.Text
+    End Sub
+
+    Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn3.Text
+    End Sub
+
+    Private Sub btnborrar_Click(sender As Object, e As EventArgs) Handles btnborrar.Click
+        txtRespuesta.Text = CutCad(txtRespuesta.Text)
+    End Sub
+
+    Public Function CutCad(VAL As String) As String
+        If Len(VAL) > 0 Then
+            CutCad = Strings.Left(VAL, Len(VAL) - 1)
+        Else
+            CutCad = ""
+        End If
+    End Function
+
+    Private Sub btnpunto_Click(sender As Object, e As EventArgs) Handles btnpunto.Click
+        txtRespuesta.Text = txtRespuesta.Text + btnpunto.Text
+    End Sub
+
+    Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn0.Text
+    End Sub
+
+    Private Sub txtRespuesta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRespuesta.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtRespuesta.Text) Then
+
+                Dim totaldeventa As Double = 0
+                Dim totalnuevo As Double = 0
+                Dim banderaproducto As Integer = 0
+
+                With Me.grdCaptura
+                    If gdato.Text = "Cantidad" Then
+                        If banderacantidad = 1 Then
+                            For q As Integer = 0 To grdCaptura.Rows.Count - 1
+                                lblTotalPagar.Text = "0.00"
+                                If grdCaptura.Rows(q).Cells(0).Value = seleccionarcodigo Then
+                                    grdCaptura.Rows(q).Cells(1).Value = seleccionanombre
+                                    grdCaptura.Rows(q).Cells(2).Value = FormatNumber(txtRespuesta.Text, 2)
+                                    grdCaptura.Rows(q).Cells(3).Value = grdCaptura.Rows(q).Cells(3).Value.ToString
+                                    totalnuevo = txtRespuesta.Text * grdCaptura.Rows(q).Cells(3).Value.ToString
+                                    grdCaptura.Rows(q).Cells(4).Value = FormatNumber(totalnuevo, 2)
+
+                                    lblTotalPagar.Text = lblTotalPagar.Text + totalnuevo
+                                    lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                    banderaproducto = 1
+                                End If
+                            Next
+                        End If
+                    End If
+
+
+                    If gdato.Text = "Cambiar Precio" Then
+                        Dim idempleado As Integer = 0
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "SELECT IdEmpleado FROM usuarios WHERE Alias='" & lblAtendio.Text & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.HasRows Then
+                            If rd3.Read Then
+                                idempleado = rd3(0).ToString
+
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "SELECT Prod_pre FROM permisos WHERE IdEmpleado=" & idempleado & ""
+                                rd2 = cmd2.ExecuteReader
+                                If rd2.HasRows Then
+                                    If rd2.Read Then
+                                        If rd2(0).ToString = 1 Then
+                                            If banderaprecio = 1 Then
+                                                For q As Integer = 0 To grdCaptura.Rows.Count - 1
+                                                    lblTotalPagar.Text = "0.00"
+                                                    If grdCaptura.Rows(q).Cells(0).Value = seleccionarcodigo Then
+                                                        grdCaptura.Rows(q).Cells(1).Value = seleccionanombre
+                                                        grdCaptura.Rows(q).Cells(2).Value = grdCaptura.Rows(q).Cells(2).Value
+                                                        grdCaptura.Rows(q).Cells(3).Value = txtRespuesta.Text
+                                                        totalnuevo = grdCaptura.Rows(q).Cells(2).Value * txtRespuesta.Text
+                                                        grdCaptura.Rows(q).Cells(4).Value = FormatNumber(totalnuevo, 2)
+
+                                                        lblTotalPagar.Text = lblTotalPagar.Text + totalnuevo
+                                                        lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
+
+                                                        banderaproducto = 1
+                                                    End If
+                                                Next
+                                            End If
+                                        Else
+                                            MsgBox("El usuario no tiene permisos para asignar los precios", vbInformation + vbOKOnly, titulohotelriaa)
+                                            txtRespuesta.Text = ""
+                                            txtRespuesta.Focus.Equals(True)
+                                            Exit Sub
+                                        End If
+                                    End If
+                                Else
+                                    MsgBox("El usuario no tiene permisos para asignar los precios", vbInformation + vbOKOnly, titulohotelriaa)
+                                    Exit Sub
+                                End If
+                                rd2.Close()
+                                cnn2.Close()
+                            End If
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+                    End If
+                End With
+                banderacantidad = 0
+                banderaprecio = 0
+                txtRespuesta.Text = ""
+                PTeclado.Visible = False
+            End If
+        End If
+    End Sub
+
+    Private Sub btnaceptar_Click(sender As Object, e As EventArgs) Handles btnaceptar.Click
+        txtRespuesta_KeyPress(txtRespuesta, New KeyPressEventArgs(ControlChars.Cr))
+    End Sub
+    Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn9.Text
+    End Sub
+
+    Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
+        txtRespuesta.Text = txtRespuesta.Text + btn4.Text
     End Sub
 End Class
