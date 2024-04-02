@@ -99,25 +99,25 @@ Partial Class frmPrecios
         Me.TxtPMI2 = New System.Windows.Forms.TextBox()
         Me.TxtUtiM2 = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TxtCantMay3 = New System.Windows.Forms.TextBox()
+        Me.txtCantMay4 = New System.Windows.Forms.TextBox()
+        Me.TxtPreMay2 = New System.Windows.Forms.TextBox()
+        Me.TxtPorMay2 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.TxtCantMM4 = New System.Windows.Forms.TextBox()
+        Me.TxtCantMM3 = New System.Windows.Forms.TextBox()
+        Me.TxtPreMM2 = New System.Windows.Forms.TextBox()
+        Me.TxtPorMM2 = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.TxtCantEsp4 = New System.Windows.Forms.TextBox()
+        Me.TxtCantEsp3 = New System.Windows.Forms.TextBox()
+        Me.TxtPreEsp2 = New System.Windows.Forms.TextBox()
+        Me.TxtPorEsp2 = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.TxtCantLta4 = New System.Windows.Forms.TextBox()
+        Me.TxtCantLta3 = New System.Windows.Forms.TextBox()
+        Me.TxtPreLta2 = New System.Windows.Forms.TextBox()
+        Me.TxtPorLta2 = New System.Windows.Forms.TextBox()
         Me.GpbPromociones.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -1033,53 +1033,53 @@ Partial Class frmPrecios
         Me.Label29.Text = "Mayoreo 2"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox5
+        'TxtCantMay3
         '
-        Me.TextBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(504, 246)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox5.TabIndex = 237
-        Me.TextBox5.Text = "0"
-        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantMay3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantMay3.Enabled = False
+        Me.TxtCantMay3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantMay3.Location = New System.Drawing.Point(504, 246)
+        Me.TxtCantMay3.Name = "TxtCantMay3"
+        Me.TxtCantMay3.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantMay3.TabIndex = 237
+        Me.TxtCantMay3.Text = "0"
+        Me.TxtCantMay3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox6
+        'txtCantMay4
         '
-        Me.TextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox6.Enabled = False
-        Me.TextBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(563, 246)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox6.TabIndex = 236
-        Me.TextBox6.Text = "0"
-        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtCantMay4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCantMay4.Enabled = False
+        Me.txtCantMay4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCantMay4.Location = New System.Drawing.Point(563, 246)
+        Me.txtCantMay4.Name = "txtCantMay4"
+        Me.txtCantMay4.Size = New System.Drawing.Size(56, 23)
+        Me.txtCantMay4.TabIndex = 236
+        Me.txtCantMay4.Text = "0"
+        Me.txtCantMay4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox7
+        'TxtPreMay2
         '
-        Me.TextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox7.Enabled = False
-        Me.TextBox7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(408, 246)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(93, 23)
-        Me.TextBox7.TabIndex = 235
-        Me.TextBox7.Text = "0.00"
-        Me.TextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPreMay2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPreMay2.Enabled = False
+        Me.TxtPreMay2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPreMay2.Location = New System.Drawing.Point(408, 246)
+        Me.TxtPreMay2.Name = "TxtPreMay2"
+        Me.TxtPreMay2.Size = New System.Drawing.Size(93, 23)
+        Me.TxtPreMay2.TabIndex = 235
+        Me.TxtPreMay2.Text = "0.00"
+        Me.TxtPreMay2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox8
+        'TxtPorMay2
         '
-        Me.TextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox8.Enabled = False
-        Me.TextBox8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(330, 246)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(75, 23)
-        Me.TextBox8.TabIndex = 234
-        Me.TextBox8.Text = "0"
-        Me.TextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPorMay2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPorMay2.Enabled = False
+        Me.TxtPorMay2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPorMay2.Location = New System.Drawing.Point(330, 246)
+        Me.TxtPorMay2.Name = "TxtPorMay2"
+        Me.TxtPorMay2.Size = New System.Drawing.Size(75, 23)
+        Me.TxtPorMay2.TabIndex = 234
+        Me.TxtPorMay2.Text = "0"
+        Me.TxtPorMay2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label30
         '
@@ -1093,52 +1093,52 @@ Partial Class frmPrecios
         Me.Label30.Text = "Medio Mayoreo 2"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox9
+        'TxtCantMM4
         '
-        Me.TextBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox9.Enabled = False
-        Me.TextBox9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(563, 304)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox9.TabIndex = 242
-        Me.TextBox9.Text = "0"
-        Me.TextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantMM4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantMM4.Enabled = False
+        Me.TxtCantMM4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantMM4.Location = New System.Drawing.Point(563, 304)
+        Me.TxtCantMM4.Name = "TxtCantMM4"
+        Me.TxtCantMM4.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantMM4.TabIndex = 242
+        Me.TxtCantMM4.Text = "0"
+        Me.TxtCantMM4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox10
+        'TxtCantMM3
         '
-        Me.TextBox10.Enabled = False
-        Me.TextBox10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(504, 304)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox10.TabIndex = 241
-        Me.TextBox10.Text = "0"
-        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantMM3.Enabled = False
+        Me.TxtCantMM3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantMM3.Location = New System.Drawing.Point(504, 304)
+        Me.TxtCantMM3.Name = "TxtCantMM3"
+        Me.TxtCantMM3.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantMM3.TabIndex = 241
+        Me.TxtCantMM3.Text = "0"
+        Me.TxtCantMM3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox11
+        'TxtPreMM2
         '
-        Me.TextBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox11.Enabled = False
-        Me.TextBox11.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(408, 304)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(93, 23)
-        Me.TextBox11.TabIndex = 240
-        Me.TextBox11.Text = "0.00"
-        Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPreMM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPreMM2.Enabled = False
+        Me.TxtPreMM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPreMM2.Location = New System.Drawing.Point(408, 304)
+        Me.TxtPreMM2.Name = "TxtPreMM2"
+        Me.TxtPreMM2.Size = New System.Drawing.Size(93, 23)
+        Me.TxtPreMM2.TabIndex = 240
+        Me.TxtPreMM2.Text = "0.00"
+        Me.TxtPreMM2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox12
+        'TxtPorMM2
         '
-        Me.TextBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox12.Enabled = False
-        Me.TextBox12.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(330, 304)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(75, 23)
-        Me.TextBox12.TabIndex = 239
-        Me.TextBox12.Text = "0"
-        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPorMM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPorMM2.Enabled = False
+        Me.TxtPorMM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPorMM2.Location = New System.Drawing.Point(330, 304)
+        Me.TxtPorMM2.Name = "TxtPorMM2"
+        Me.TxtPorMM2.Size = New System.Drawing.Size(75, 23)
+        Me.TxtPorMM2.TabIndex = 239
+        Me.TxtPorMM2.Text = "0"
+        Me.TxtPorMM2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label31
         '
@@ -1152,53 +1152,53 @@ Partial Class frmPrecios
         Me.Label31.Text = "Especial/Kits 2"
         Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox13
+        'TxtCantEsp4
         '
-        Me.TextBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox13.Enabled = False
-        Me.TextBox13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(563, 362)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox13.TabIndex = 247
-        Me.TextBox13.Text = "0"
-        Me.TextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantEsp4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantEsp4.Enabled = False
+        Me.TxtCantEsp4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantEsp4.Location = New System.Drawing.Point(563, 362)
+        Me.TxtCantEsp4.Name = "TxtCantEsp4"
+        Me.TxtCantEsp4.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantEsp4.TabIndex = 247
+        Me.TxtCantEsp4.Text = "0"
+        Me.TxtCantEsp4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox14
+        'TxtCantEsp3
         '
-        Me.TextBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox14.Enabled = False
-        Me.TextBox14.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox14.Location = New System.Drawing.Point(504, 362)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox14.TabIndex = 246
-        Me.TextBox14.Text = "0"
-        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantEsp3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantEsp3.Enabled = False
+        Me.TxtCantEsp3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantEsp3.Location = New System.Drawing.Point(504, 362)
+        Me.TxtCantEsp3.Name = "TxtCantEsp3"
+        Me.TxtCantEsp3.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantEsp3.TabIndex = 246
+        Me.TxtCantEsp3.Text = "0"
+        Me.TxtCantEsp3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox15
+        'TxtPreEsp2
         '
-        Me.TextBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox15.Enabled = False
-        Me.TextBox15.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox15.Location = New System.Drawing.Point(408, 362)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(93, 23)
-        Me.TextBox15.TabIndex = 245
-        Me.TextBox15.Text = "0.00"
-        Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPreEsp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPreEsp2.Enabled = False
+        Me.TxtPreEsp2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPreEsp2.Location = New System.Drawing.Point(408, 362)
+        Me.TxtPreEsp2.Name = "TxtPreEsp2"
+        Me.TxtPreEsp2.Size = New System.Drawing.Size(93, 23)
+        Me.TxtPreEsp2.TabIndex = 245
+        Me.TxtPreEsp2.Text = "0.00"
+        Me.TxtPreEsp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox16
+        'TxtPorEsp2
         '
-        Me.TextBox16.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox16.Enabled = False
-        Me.TextBox16.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox16.Location = New System.Drawing.Point(330, 362)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(75, 23)
-        Me.TextBox16.TabIndex = 244
-        Me.TextBox16.Text = "0"
-        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPorEsp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPorEsp2.Enabled = False
+        Me.TxtPorEsp2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPorEsp2.Location = New System.Drawing.Point(330, 362)
+        Me.TxtPorEsp2.Name = "TxtPorEsp2"
+        Me.TxtPorEsp2.Size = New System.Drawing.Size(75, 23)
+        Me.TxtPorEsp2.TabIndex = 244
+        Me.TxtPorEsp2.Text = "0"
+        Me.TxtPorEsp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label32
         '
@@ -1212,53 +1212,53 @@ Partial Class frmPrecios
         Me.Label32.Text = "Lista 2"
         Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox17
+        'TxtCantLta4
         '
-        Me.TextBox17.BackColor = System.Drawing.Color.White
-        Me.TextBox17.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox17.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox17.Location = New System.Drawing.Point(563, 420)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox17.TabIndex = 252
-        Me.TextBox17.Text = "0"
-        Me.TextBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantLta4.BackColor = System.Drawing.Color.White
+        Me.TxtCantLta4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantLta4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantLta4.Location = New System.Drawing.Point(563, 420)
+        Me.TxtCantLta4.Name = "TxtCantLta4"
+        Me.TxtCantLta4.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantLta4.TabIndex = 252
+        Me.TxtCantLta4.Text = "0"
+        Me.TxtCantLta4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox18
+        'TxtCantLta3
         '
-        Me.TextBox18.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox18.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox18.Location = New System.Drawing.Point(504, 420)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.Size = New System.Drawing.Size(56, 23)
-        Me.TextBox18.TabIndex = 251
-        Me.TextBox18.Text = "0"
-        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCantLta3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtCantLta3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCantLta3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCantLta3.Location = New System.Drawing.Point(504, 420)
+        Me.TxtCantLta3.Name = "TxtCantLta3"
+        Me.TxtCantLta3.Size = New System.Drawing.Size(56, 23)
+        Me.TxtCantLta3.TabIndex = 251
+        Me.TxtCantLta3.Text = "0"
+        Me.TxtCantLta3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox19
+        'TxtPreLta2
         '
-        Me.TextBox19.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox19.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox19.Location = New System.Drawing.Point(408, 420)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.Size = New System.Drawing.Size(93, 23)
-        Me.TextBox19.TabIndex = 250
-        Me.TextBox19.Text = "0.00"
-        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPreLta2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtPreLta2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPreLta2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPreLta2.Location = New System.Drawing.Point(408, 420)
+        Me.TxtPreLta2.Name = "TxtPreLta2"
+        Me.TxtPreLta2.Size = New System.Drawing.Size(93, 23)
+        Me.TxtPreLta2.TabIndex = 250
+        Me.TxtPreLta2.Text = "0.00"
+        Me.TxtPreLta2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox20
+        'TxtPorLta2
         '
-        Me.TextBox20.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox20.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox20.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox20.Location = New System.Drawing.Point(330, 420)
-        Me.TextBox20.Name = "TextBox20"
-        Me.TextBox20.Size = New System.Drawing.Size(75, 23)
-        Me.TextBox20.TabIndex = 249
-        Me.TextBox20.Text = "0"
-        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtPorLta2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TxtPorLta2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtPorLta2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPorLta2.Location = New System.Drawing.Point(330, 420)
+        Me.TxtPorLta2.Name = "TxtPorLta2"
+        Me.TxtPorLta2.Size = New System.Drawing.Size(75, 23)
+        Me.TxtPorLta2.TabIndex = 249
+        Me.TxtPorLta2.Text = "0"
+        Me.TxtPorLta2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmPrecios
         '
@@ -1266,25 +1266,25 @@ Partial Class frmPrecios
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(629, 559)
         Me.Controls.Add(Me.Label32)
-        Me.Controls.Add(Me.TextBox17)
-        Me.Controls.Add(Me.TextBox18)
-        Me.Controls.Add(Me.TextBox19)
-        Me.Controls.Add(Me.TextBox20)
+        Me.Controls.Add(Me.TxtCantLta4)
+        Me.Controls.Add(Me.TxtCantLta3)
+        Me.Controls.Add(Me.TxtPreLta2)
+        Me.Controls.Add(Me.TxtPorLta2)
         Me.Controls.Add(Me.Label31)
-        Me.Controls.Add(Me.TextBox13)
-        Me.Controls.Add(Me.TextBox14)
-        Me.Controls.Add(Me.TextBox15)
-        Me.Controls.Add(Me.TextBox16)
+        Me.Controls.Add(Me.TxtCantEsp4)
+        Me.Controls.Add(Me.TxtCantEsp3)
+        Me.Controls.Add(Me.TxtPreEsp2)
+        Me.Controls.Add(Me.TxtPorEsp2)
         Me.Controls.Add(Me.Label30)
-        Me.Controls.Add(Me.TextBox9)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.TextBox11)
-        Me.Controls.Add(Me.TextBox12)
+        Me.Controls.Add(Me.TxtCantMM4)
+        Me.Controls.Add(Me.TxtCantMM3)
+        Me.Controls.Add(Me.TxtPreMM2)
+        Me.Controls.Add(Me.TxtPorMM2)
         Me.Controls.Add(Me.Label29)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.TxtCantMay3)
+        Me.Controls.Add(Me.txtCantMay4)
+        Me.Controls.Add(Me.TxtPreMay2)
+        Me.Controls.Add(Me.TxtPorMay2)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.txtCantMin4)
         Me.Controls.Add(Me.TxtCantMin3)
@@ -1440,23 +1440,23 @@ Partial Class frmPrecios
     Friend WithEvents TxtPMI2 As TextBox
     Friend WithEvents TxtUtiM2 As TextBox
     Friend WithEvents Label29 As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents TxtCantMay3 As TextBox
+    Friend WithEvents txtCantMay4 As TextBox
+    Friend WithEvents TxtPreMay2 As TextBox
+    Friend WithEvents TxtPorMay2 As TextBox
     Friend WithEvents Label30 As Label
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents TxtCantMM4 As TextBox
+    Friend WithEvents TxtCantMM3 As TextBox
+    Friend WithEvents TxtPreMM2 As TextBox
+    Friend WithEvents TxtPorMM2 As TextBox
     Friend WithEvents Label31 As Label
-    Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents TextBox14 As TextBox
-    Friend WithEvents TextBox15 As TextBox
-    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents TxtCantEsp4 As TextBox
+    Friend WithEvents TxtCantEsp3 As TextBox
+    Friend WithEvents TxtPreEsp2 As TextBox
+    Friend WithEvents TxtPorEsp2 As TextBox
     Friend WithEvents Label32 As Label
-    Friend WithEvents TextBox17 As TextBox
-    Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents TextBox19 As TextBox
-    Friend WithEvents TextBox20 As TextBox
+    Friend WithEvents TxtCantLta4 As TextBox
+    Friend WithEvents TxtCantLta3 As TextBox
+    Friend WithEvents TxtPreLta2 As TextBox
+    Friend WithEvents TxtPorLta2 As TextBox
 End Class

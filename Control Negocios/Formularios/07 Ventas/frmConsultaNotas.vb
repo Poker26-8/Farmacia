@@ -95,12 +95,15 @@ Public Class frmConsultaNotas
                     cmd1.CommandText = "select Folio from Ventas where Status='RESTA' order by Folio"
                 End If
             End If
+
             If (optpagadas.Checked) Then
                 cmd1.CommandText = "select Folio from Ventas where Status='PAGADO' order by Folio"
             End If
+
             If (optanceladas.Checked) Then
                 cmd1.CommandText = "select Folio from Ventas where Status='CANCELADA' order by Folio"
             End If
+
             If (optcotiz.Checked) Then
                 If cbonombre.Text <> "" Then
                     cmd1.CommandText = "select Folio from CotPed where Cliente='" & cbonombre.Text & "' and Tipo='COTIZACION' order by Folio"
@@ -111,9 +114,9 @@ Public Class frmConsultaNotas
 
             If (optPedidos.Checked) Then
                 If cbonombre.Text <> "" Then
-                    cmd1.CommandText = "SELECT Folio FROM CotPed WHERE Cliente='" & cbonombre.Text & "' AND Tipo='PEDIDO' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT Folio FROM pedidosven WHERE Cliente='" & cbonombre.Text & "' AND Tipo='PEDIDO' ORDER BY Folio"
                 Else
-                    cmd1.CommandText = "SELECT Folio FROM CotPed WHERE Tipo='PEDIDO' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT Folio FROM pedidosven WHERE Tipo='PEDIDO' ORDER BY Folio"
                 End If
             End If
 
@@ -168,7 +171,7 @@ Public Class frmConsultaNotas
                 If (optpagadas.Checked) Then cmd1.CommandText = "select * from Ventas where Folio=" & MYFOLIO
                 If (optanceladas.Checked) Then cmd1.CommandText = "select * from Ventas where Folio= " & MYFOLIO
                 If (optcotiz.Checked) Then cmd1.CommandText = "select * from CotPed where Folio=" & MYFOLIO
-                If (optPedidos.Checked) Then cmd1.CommandText = "SELECT * FROM cotped WHERE Folio=" & MYFOLIO
+                If (optPedidos.Checked) Then cmd1.CommandText = "SELECT * FROM pedidosven WHERE Folio=" & MYFOLIO
                 If (optdevos.Checked) Then cmd1.CommandText = "select * from Ventas where Folio=" & MYFOLIO
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
@@ -223,7 +226,7 @@ Public Class frmConsultaNotas
                             cmd2 = cnn2.CreateCommand
                             If (optpagadas.Checked) Or (optnotas.Checked) Or (optcobrar.Checked) Or (optanceladas.Checked) Then cmd2.CommandText = "select * from VentasDetalle where Folio=" & MYFOLIO
                         If (optcotiz.Checked) Then cmd2.CommandText = "select * from CotPedDet where Folio=" & MYFOLIO
-                        If (optPedidos.Checked) Then cmd2.CommandText = "SELECT * FROM CotPedDet WHERE Folio=" & MYFOLIO
+                        If (optPedidos.Checked) Then cmd2.CommandText = "SELECT * FROM pedidosvendet WHERE Folio=" & MYFOLIO
                         If (optdevos.Checked) Then cmd2.CommandText = "select * from Devoluciones where Folio=" & MYFOLIO
                             rd2 = cmd2.ExecuteReader
                             Do While rd2.Read
@@ -754,7 +757,7 @@ Public Class frmConsultaNotas
                 .cboNombre.Text = cbonombre.Text
                 .cboNombre_KeyPress(.cboNombre, New KeyPressEventArgs(ChrW(Keys.Enter)))
                 .txtdireccion.Text = txtdireccion.Text
-                .lblpedido.Text = cbofolio.Text
+
                 cnn1.Close() : cnn1.Open()
                 For degm As Integer = 0 To grdcaptura.Rows.Count - 1
                     .grdcaptura.Rows.Add()
@@ -835,7 +838,17 @@ Public Class frmConsultaNotas
                 .txtdescuento1.Text = FormatNumber(((CDbl(txtdescuento.Text) * 100) / CDbl(txtsubtotal.Text)), 2)
                 .txtPagar.Text = FormatNumber(txttotal.Text, 2)
                 .txtResta.Text = FormatNumber(txttotal.Text)
-                .txtcotped.Text = cbofolio.Text
+
+                .txtcotped.Text = ""
+                If (optcotiz.Checked) Then
+                    .txtcotped.Text = cbofolio.Text
+                End If
+
+                .lblpedido.Text = ""
+                If (optPedidos.Checked) Then
+                    .lblpedido.Text = cbofolio.Text
+                End If
+
             End With
         End If
 

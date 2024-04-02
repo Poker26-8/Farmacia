@@ -4698,6 +4698,7 @@ kaka:
     Private Sub btnnuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnnuevo.Click
         Timer1.Stop()
         Me.Text = "Ventas (1)"
+        lblpedido.Text = ""
         cbodesc.Focus.Equals(True)
         txtvalor.Text = "0.00"
         txtequivale.Text = "0.00"
@@ -6385,7 +6386,7 @@ doorcita:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & ")"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & lblpedido.Text & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
@@ -6403,7 +6404,7 @@ doorcita:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & ")"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & lblpedido.Text & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
@@ -6445,7 +6446,7 @@ doorcita:
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & ")"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & lblpedido.Text & ")"
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
             End Select
@@ -7012,6 +7013,7 @@ Door:
                             "update LoteCaducidad set Cantidad=0 where Id=" & idLote
                         cmd1.ExecuteNonQuery()
                     End If
+
                 End If
             Next
             cnn1.Close()
@@ -7288,6 +7290,16 @@ Door:
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                 "delete from CotPedDet where Folio=" & txtcotped.Text
+            cmd1.ExecuteNonQuery()
+        End If
+
+        If lblpedido.Text <> "" Then
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "DELETE FROM pedidosven WHERE Folio='" & lblpedido.Text & "'"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "DELETE FROM pedidosvendet WHERE Folio='" & lblpedido.Text & "'"
             cmd1.ExecuteNonQuery()
         End If
 

@@ -32,10 +32,20 @@
                     TxtPMI.Text = FormatNumber(TxtPMI.Text, 4)
                     A1 = 0
 
+                    If (TxtUtiM2.Text = "" Or TxtUtiM2.Text = "." Or Trim(TxtUtiM2.Text) = "" Or TxtUtiM2.Text = "0" Or CDec(TxtUtiM2.Text) = 0) Then TxtPMI2.Text = "0.00" : Exit Sub
+                    TxtPMI2.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtUtiM2.Text = "", "0", TxtUtiM2.Text)) / 100) + 1)
+                    TxtPMI2.Text = FormatNumber(TxtPMI2.Text, 4)
+                    A1 = 0
+
                 Case 2
                     If (TxtPorMay.Text = "" Or TxtPorMay.Text = "." Or Trim(TxtPorMay.Text) = "" Or TxtPorMay.Text = "0" Or CDec(TxtPorMay.Text) = 0) Then TxtPreMay.Text = "0.00" : Exit Sub
                     TxtPreMay.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorMay.Text = "", "0", TxtPorMay.Text)) / 100) + 1)
                     TxtPreMay.Text = FormatNumber(TxtPreMay.Text, 4)
+                    A2 = 0
+
+                    If (TxtPorMay2.Text = "" Or TxtPorMay2.Text = "." Or Trim(TxtPorMay2.Text) = "" Or TxtPorMay2.Text = "0" Or CDec(TxtPorMay2.Text) = 0) Then TxtPreMay2.Text = "0.00" : Exit Sub
+                    TxtPreMay2.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorMay2.Text = "", "0", TxtPorMay2.Text)) / 100) + 1)
+                    TxtPreMay2.Text = FormatNumber(TxtPreMay2.Text, 4)
                     A2 = 0
 
                 Case 3
@@ -44,16 +54,31 @@
                     TxtPreMM.Text = FormatNumber(TxtPreMM.Text, 4)
                     A3 = 0
 
+                    If (TxtPorMM2.Text = "" Or TxtPorMM2.Text = "." Or Trim(TxtPorMM2.Text) = "" Or TxtPorMM2.Text = "0" Or CDec(TxtPorMM2.Text) = 0) Then TxtPreMM2.Text = "0.00" : Exit Sub
+                    TxtPreMM2.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorMM2.Text = "", "0", TxtPorMM2.Text)) / 100) + 1)
+                    TxtPreMM2.Text = FormatNumber(TxtPreMM2.Text, 4)
+                    A3 = 0
+
                 Case 4
                     If (TxtPorEsp.Text = "" Or TxtPorEsp.Text = "." Or Trim(TxtPorEsp.Text) = "" Or TxtPorEsp.Text = "0" Or CDec(TxtPorEsp.Text) = 0) Then TxtPreEsp.Text = "0.00" : Exit Sub
                     TxtPreEsp.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorEsp.Text = "", "0", TxtPorEsp.Text)) / 100) + 1)
                     TxtPreEsp.Text = FormatNumber(TxtPreEsp.Text, 4)
                     A4 = 0
 
+                    If (TxtPorEsp2.Text = "" Or TxtPorEsp2.Text = "." Or Trim(TxtPorEsp2.Text) = "" Or TxtPorEsp2.Text = "0" Or CDec(TxtPorEsp2.Text) = 0) Then TxtPreEsp2.Text = "0.00" : Exit Sub
+                    TxtPreEsp2.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorEsp2.Text = "", "0", TxtPorEsp2.Text)) / 100) + 1)
+                    TxtPreEsp2.Text = FormatNumber(TxtPreEsp2.Text, 4)
+                    A4 = 0
+
                 Case 5
                     If (TxtPorLta.Text = "" Or TxtPorLta.Text = "." Or Trim(TxtPorLta.Text) = "" Or TxtPorLta.Text = "0" Or CDec(TxtPorLta.Text) = 0) Then TxtPreLta.Text = "0.00" : Exit Sub
                     TxtPreLta.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorLta.Text = "", "0", TxtPorLta.Text)) / 100) + 1)
                     TxtPreLta.Text = FormatNumber(TxtPreLta.Text, 4)
+                    A5 = 0
+
+                    If (TxtPorLta2.Text = "" Or TxtPorLta2.Text = "." Or Trim(TxtPorLta2.Text) = "" Or TxtPorLta2.Text = "0" Or CDec(TxtPorLta2.Text) = 0) Then TxtPreLta2.Text = "0.00" : Exit Sub
+                    TxtPreLta2.Text = CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text)) * ((CDec(IIf(TxtPorLta2.Text = "", "0", TxtPorLta2.Text)) / 100) + 1)
+                    TxtPreLta2.Text = FormatNumber(TxtPreLta2.Text, 4)
                     A5 = 0
             End Select
         Catch ex As Exception
@@ -77,6 +102,17 @@
                     End If
                     B1 = 0
 
+                    If (TxtPMI2.Text = "" Or TxtPMI2.Text = "." Or Trim(TxtPMI2.Text) = "" Or TxtPMI2.Text = "0" Or CDec(TxtPMI2.Text) = 0) Then TxtUtiM2.Text = "0" : Exit Sub
+                    If TxtPMI2.Text = "" Or TxtPMI2.Text = "." Or TxtPMI2.Text = "0.00" Or CDec(TxtPMI2.Text) = 0 Then
+                        TxtPMI2.Text = "0.00"
+                    Else
+                        If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
+                            TxtUtiM2.Text = ((CDec(IIf(TxtPMI2.Text = "", "0", TxtPMI2.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
+                            TxtUtiM2.Text = FormatNumber(TxtUtiM2.Text, 2)
+                        End If
+                    End If
+                    B1 = 0
+
                 Case 2
                     If (TxtPreMay.Text = "" Or TxtPreMay.Text = "." Or Trim(TxtPreMay.Text) = "" Or TxtPreMay.Text = "0" Or CDec(TxtPreMay.Text) = 0) Then TxtPorMay.Text = "0" : Exit Sub
                     If TxtPreMay.Text = "" Or TxtPreMay.Text = "." Or TxtPreMay.Text = "0.00" Or CDec(TxtPreMay.Text) = 0 Then
@@ -85,6 +121,17 @@
                         If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
                             TxtPorMay.Text = ((CDec(IIf(TxtPreMay.Text = "", "0", TxtPreMay.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
                             TxtPorMay.Text = FormatNumber(TxtPorMay.Text, 2)
+                        End If
+                    End If
+                    B2 = 0
+
+                    If (TxtPreMay2.Text = "" Or TxtPreMay2.Text = "." Or Trim(TxtPreMay2.Text) = "" Or TxtPreMay2.Text = "0" Or CDec(TxtPreMay2.Text) = 0) Then TxtPorMay2.Text = "0" : Exit Sub
+                    If TxtPreMay2.Text = "" Or TxtPreMay2.Text = "." Or TxtPreMay2.Text = "0.00" Or CDec(TxtPreMay2.Text) = 0 Then
+                        TxtPreMay2.Text = "0.00"
+                    Else
+                        If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
+                            TxtPorMay2.Text = ((CDec(IIf(TxtPreMay2.Text = "", "0", TxtPreMay2.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
+                            TxtPorMay2.Text = FormatNumber(TxtPorMay2.Text, 2)
                         End If
                     End If
                     B2 = 0
@@ -101,6 +148,17 @@
                     End If
                     B3 = 0
 
+                    If (TxtPreMM2.Text = "" Or TxtPreMM2.Text = "." Or Trim(TxtPreMM2.Text) = "" Or TxtPreMM2.Text = "0" Or CDec(TxtPreMM2.Text) = 0) Then TxtPorMM2.Text = "0" : Exit Sub
+                    If TxtPreMM2.Text = "" Or TxtPreMM2.Text = "." Or TxtPreMM2.Text = "0.00" Or CDec(TxtPreMM2.Text) = 0 Then
+                        TxtPreMM2.Text = "0.00"
+                    Else
+                        If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
+                            TxtPorMM2.Text = ((CDec(IIf(TxtPreMM2.Text = "", "0", TxtPreMM2.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
+                            TxtPorMM2.Text = FormatNumber(TxtPorMM2.Text, 2)
+                        End If
+                    End If
+                    B3 = 0
+
                 Case 4
                     If (TxtPreEsp.Text = "" Or TxtPreEsp.Text = "." Or Trim(TxtPreEsp.Text) = "" Or TxtPreEsp.Text = "0" Or CDec(TxtPreEsp.Text) = 0) Then TxtPorEsp.Text = "0" : Exit Sub
                     If TxtPreEsp.Text = "" Or TxtPreEsp.Text = "." Or TxtPreEsp.Text = "0.00" Or CDec(TxtPreEsp.Text) = 0 Then
@@ -109,6 +167,17 @@
                         If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
                             TxtPorEsp.Text = ((CDec(IIf(TxtPreEsp.Text = "", "0", TxtPreEsp.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
                             TxtPorEsp.Text = FormatNumber(TxtPorEsp.Text, 2)
+                        End If
+                    End If
+                    B4 = 0
+
+                    If (TxtPreEsp2.Text = "" Or TxtPreEsp2.Text = "." Or Trim(TxtPreEsp2.Text) = "" Or TxtPreEsp2.Text = "0" Or CDec(TxtPreEsp2.Text) = 0) Then TxtPorEsp2.Text = "0" : Exit Sub
+                    If TxtPreEsp2.Text = "" Or TxtPreEsp2.Text = "." Or TxtPreEsp2.Text = "0.00" Or CDec(TxtPreEsp2.Text) = 0 Then
+                        TxtPreEsp2.Text = "0.00"
+                    Else
+                        If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
+                            TxtPorEsp2.Text = ((CDec(IIf(TxtPreEsp2.Text = "", "0", TxtPreEsp2.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
+                            TxtPorEsp2.Text = FormatNumber(TxtPorEsp2.Text, 2)
                         End If
                     End If
                     B4 = 0
@@ -124,6 +193,18 @@
                         End If
                     End If
                     B5 = 0
+
+                    If (TxtPreLta2.Text = "" Or TxtPreLta2.Text = "." Or Trim(TxtPreLta2.Text) = "" Or TxtPreLta2.Text = "0" Or CDec(TxtPreLta2.Text) = 0) Then TxtPorLta2.Text = "0" : Exit Sub
+                    If TxtPreLta2.Text = "" Or TxtPreLta2.Text = "." Or TxtPreLta2.Text = "0.00" Or CDec(TxtPreLta2.Text) = 0 Then
+                        TxtPreLta2.Text = "0.00"
+                    Else
+                        If CboDescripcion.Text <> "" And cboCodigo.Text <> "" Then
+                            TxtPorLta2.Text = ((CDec(IIf(TxtPreLta2.Text = "", "0", TxtPreLta2.Text)) / CDec(IIf(TxtPCI.Text = "", "0", TxtPCI.Text))) - 1) * 100
+                            TxtPorLta2.Text = FormatNumber(TxtPorLta2.Text, 2)
+                        End If
+                    End If
+                    B5 = 0
+
 
             End Select
         Catch ex As Exception
@@ -266,40 +347,78 @@
 
     Private Sub ActivarP()
         TxtUtiM.Enabled = True
+        TxtUtiM2.Enabled = True
         TxtPMI.Enabled = True
+        TxtPMI2.Enabled = True
         TxtCantMin.Enabled = True
         txtCantMin2.Enabled = True
+        TxtCantMin3.Enabled = True
+        txtCantMin4.Enabled = True
+
         TxtPorMay.Enabled = True
+        TxtPorMay2.Enabled = True
         TxtPreMay.Enabled = True
+        TxtPreMay2.Enabled = True
         TxtCantMay.Enabled = True
         txtCantMay2.Enabled = True
+        TxtCantMay3.Enabled = True
+        txtCantMay4.Enabled = True
+
         TxtPorMM.Enabled = True
+        TxtPorMM2.Enabled = True
         TxtPreMM.Enabled = True
+        TxtPreMM2.Enabled = True
         TxtCantMM.Enabled = True
         TxtCantMM2.Enabled = True
+        TxtCantMM3.Enabled = True
+        TxtCantMM4.Enabled = True
+
         TxtPorEsp.Enabled = True
+        TxtPorEsp2.Enabled = True
         TxtPreEsp.Enabled = True
+        TxtPreEsp2.Enabled = True
         TxtCantEsp.Enabled = True
         TxtCantEsp2.Enabled = True
+        TxtCantEsp3.Enabled = True
+        TxtCantEsp4.Enabled = True
     End Sub
 
     Private Sub DesactivarP()
         TxtUtiM.Enabled = False
+        TxtUtiM2.Enabled = False
         TxtPMI.Enabled = False
+        TxtPMI2.Enabled = False
         TxtCantMin.Enabled = False
         txtCantMin2.Enabled = False
+        TxtCantMin3.Enabled = False
+        txtCantMin4.Enabled = False
+
         TxtPorMay.Enabled = False
+        TxtPorMay2.Enabled = False
         TxtPreMay.Enabled = False
+        TxtPreMay2.Enabled = False
         TxtCantMay.Enabled = False
         txtCantMay2.Enabled = False
+        TxtCantMay3.Enabled = False
+        txtCantMay4.Enabled = False
+
         TxtPorMM.Enabled = False
+        TxtPorMM2.Enabled = False
         TxtPreMM.Enabled = False
+        TxtPreMM2.Enabled = False
         TxtCantMM.Enabled = False
         TxtCantMM2.Enabled = False
+        TxtCantMM3.Enabled = False
+        TxtCantMM4.Enabled = False
+
         TxtPorEsp.Enabled = False
+        TxtPorEsp2.Enabled = False
+        TxtPreEsp.Enabled = False
         TxtPreEsp.Enabled = False
         TxtCantEsp.Enabled = False
         TxtCantEsp2.Enabled = False
+        TxtCantEsp3.Enabled = False
+        TxtCantEsp4.Enabled = False
     End Sub
 
     Private Sub CboDescripcion_DropDown(sender As Object, e As System.EventArgs) Handles CboDescripcion.DropDown
@@ -521,32 +640,64 @@
                     TxtMonedaIva.Text = FormatNumber(CDec(TxtPCI.Text) / CDec(IIf(LblValor.Text = "0.00", "1", LblValor.Text)), 2)
 
                     TxtUtiM.Text = IIf(rd4("PorcMin").ToString = "", "0", FormatNumber(rd4("PorcMin").ToString, 2))
+                    TxtUtiM2.Text = IIf(rd4("PorcMin2").ToString = "", "0", FormatNumber(rd4("PorcMin2").ToString, 2))
+
                     TxtPorMay.Text = IIf(rd4("PorcMay").ToString = "", "0", FormatNumber(rd4("PorcMay").ToString, 2))
+                    TxtPorMay2.Text = IIf(rd4("PorcMay2").ToString = "", "0", FormatNumber(rd4("PorcMay2").ToString, 2))
+
                     TxtPorMM.Text = IIf(rd4("PorcMM").ToString = "", "0", FormatNumber(rd4("PorcMM").ToString, 2))
+                    TxtPorMM2.Text = IIf(rd4("PorcMM2").ToString = "", "0", FormatNumber(rd4("PorcMM2").ToString, 2))
+
                     TxtPorEsp.Text = IIf(rd4("PorcEsp").ToString = "", "0", FormatNumber(rd4("PorcEsp").ToString, 2))
+                    TxtPorEsp2.Text = IIf(rd4("PorcEsp2").ToString = "", "0", FormatNumber(rd4("PorcEsp2").ToString, 2))
+
                     TxtPorLta.Text = IIf(rd4("Porcentaje").ToString = "", "0", FormatNumber(rd4("Porcentaje").ToString, 2))
+                    TxtPorLta2.Text = IIf(rd4("Porcentaje2").ToString = "", "0", FormatNumber(rd4("Porcentaje2").ToString, 2))
+
                     TxtPMI.Text = IIf(rd4("PreMin").ToString = "", "0.00", FormatNumber(rd4("PreMin").ToString, 2))
+                    TxtPMI2.Text = IIf(rd4("PreMin2").ToString = "", "0.00", FormatNumber(rd4("PreMin2").ToString, 2))
+
                     TxtPreMay.Text = IIf(rd4("PreMay").ToString = "", "0.00", FormatNumber(rd4("PreMay").ToString, 2))
+                    TxtPreMay2.Text = IIf(rd4("PreMay2").ToString = "", "0.00", FormatNumber(rd4("PreMay2").ToString, 2))
+
                     TxtPreMM.Text = IIf(rd4("PreMM").ToString = "", "0.00", FormatNumber(rd4("PreMM").ToString, 2))
+                    TxtPreMM2.Text = IIf(rd4("PreMM2").ToString = "", "0.00", FormatNumber(rd4("PreMM2").ToString, 2))
+
                     TxtPreEsp.Text = IIf(rd4("PreEsp").ToString = "", "0.00", FormatNumber(rd4("PreEsp").ToString, 2))
+                    TxtPreEsp2.Text = IIf(rd4("PreEsp2").ToString = "", "0.00", FormatNumber(rd4("PreEsp2").ToString, 2))
 
                     If CDec(rd4("PrecioVentaIVA").ToString) > 0 Then
                         TxtPreLta.Text = CDec(IIf(rd4("PrecioVentaIVA").ToString = "", "0", rd4("PrecioVentaIVA").ToString)) * CDec(LblValor.Text)
+                        TxtPreLta2.Text = CDec(IIf(rd4("PrecioVentaIVA").ToString = "", "0", rd4("PrecioVentaIVA").ToString)) * CDec(LblValor.Text)
                         TxtMonedaIva.Text = FormatNumber(CDec(TxtPCI.Text) / CDec(IIf(LblValor.Text = "0.00", "1", LblValor.Text)), 2)
                     Else
                         TxtPreLta.Text = "0.00"
                     End If
                     TxtCantMin.Text = IIf(rd4("CantMin1").ToString = "", "0", rd4("CantMin1").ToString)
-                    TxtCantMay.Text = IIf(rd4("CantMay1").ToString = "", "0", rd4("CantMay1").ToString)
-                    TxtCantMM.Text = IIf(rd4("CantMM1").ToString = "", "0", rd4("CantMM1").ToString)
-                    TxtCantEsp.Text = IIf(rd4("CantEsp1").ToString = "", "0", rd4("CantEsp1").ToString)
-                    TxtCantLta.Text = IIf(rd4("CantLst1").ToString = "", "0", rd4("CantLst1").ToString)
-
                     txtCantMin2.Text = IIf(rd4("CantMin2").ToString = "", "0", rd4("CantMin2").ToString)
+                    TxtCantMin3.Text = IIf(rd4("CantMin3").ToString = "", "0", rd4("CantMin3").ToString)
+                    txtCantMin4.Text = IIf(rd4("CantMin4").ToString = "", "0", rd4("CantMin4").ToString)
+
+                    TxtCantMay.Text = IIf(rd4("CantMay1").ToString = "", "0", rd4("CantMay1").ToString)
                     txtCantMay2.Text = IIf(rd4("CantMay2").ToString = "", "0", rd4("CantMay2").ToString)
+                    TxtCantMay3.Text = IIf(rd4("CantMay3").ToString = "", "0", rd4("CantMay3").ToString)
+                    txtCantMay4.Text = IIf(rd4("CantMay4").ToString = "", "0", rd4("CantMay4").ToString)
+
+                    TxtCantMM.Text = IIf(rd4("CantMM1").ToString = "", "0", rd4("CantMM1").ToString)
                     TxtCantMM2.Text = IIf(rd4("CantMM2").ToString = "", "0", rd4("CantMM2").ToString)
+                    TxtCantMM3.Text = IIf(rd4("CantMM3").ToString = "", "0", rd4("CantMM3").ToString)
+                    TxtCantMM4.Text = IIf(rd4("CantMM4").ToString = "", "0", rd4("CantMM4").ToString)
+
+                    TxtCantEsp.Text = IIf(rd4("CantEsp1").ToString = "", "0", rd4("CantEsp1").ToString)
                     TxtCantEsp2.Text = IIf(rd4("CantEsp2").ToString = "", "0", rd4("CantEsp2").ToString)
+                    TxtCantEsp3.Text = IIf(rd4("CantEsp3").ToString = "", "0", rd4("CantEsp3").ToString)
+                    TxtCantEsp4.Text = IIf(rd4("CantEsp4").ToString = "", "0", rd4("CantEsp4").ToString)
+
+                    TxtCantLta.Text = IIf(rd4("CantLst1").ToString = "", "0", rd4("CantLst1").ToString)
                     TxtCantLta2.Text = IIf(rd4("CantLst2").ToString = "", "0", rd4("CantLst2").ToString)
+                    TxtCantLta3.Text = IIf(rd4("CantLst3").ToString = "", "0", rd4("CantLst3").ToString)
+                    TxtCantLta4.Text = IIf(rd4("CantLst4").ToString = "", "0", rd4("CantLst4").ToString)
+
                     txtmonedero.Text = rd4("Promo_Monedero").ToString()
                     ChkTodos.Checked = rd4("pres_vol").ToString
                     'dtpFechaI.Value = rd4("Fecha_Inicial").ToString
@@ -1465,25 +1616,52 @@
         TxtUnidad.Text = ""
         TxtPCI.Text = "0.00"
         TxtUtiM.Text = "0"
+        TxtUtiM2.Text = "0"
         TxtPMI.Text = "0.00"
-        TxtPorMay.Text = "0"
-        TxtPreMay.Text = "0.00"
-        TxtPorMM.Text = "0"
-        TxtPreMM.Text = "0.00"
-        TxtPorEsp.Text = "0"
-        TxtPreEsp.Text = "0.00"
-        TxtPorLta.Text = "0"
-        TxtPreLta.Text = "0.00"
+        TxtPMI2.Text = "0.00"
         TxtCantMin.Text = "0"
-        TxtCantMay.Text = "0"
-        TxtCantMM.Text = "0"
-        TxtCantEsp.Text = "0"
-        TxtCantLta.Text = "0"
         txtCantMin2.Text = "0"
+        TxtCantMin3.Text = "0"
+        txtCantMin4.Text = "0"
+
+        TxtPorMay.Text = "0"
+        TxtPorMay2.Text = "0"
+        TxtPreMay.Text = "0.00"
+        TxtPreMay2.Text = "0.00"
+        TxtCantMay.Text = "0"
         txtCantMay2.Text = "0"
+        TxtCantMay3.Text = "0"
+        txtCantMay4.Text = "0"
+
+        TxtPorMM.Text = "0"
+        TxtPorMM2.Text = "0"
+        TxtPreMM.Text = "0.00"
+        TxtPreMM2.Text = "0.00"
+        TxtCantMM.Text = "0"
         TxtCantMM2.Text = "0"
+        TxtCantMM3.Text = "0"
+        TxtCantMM4.Text = "0"
+
+
+        TxtPorEsp.Text = "0"
+        TxtPorEsp2.Text = "0"
+        TxtPreEsp.Text = "0.00"
+        TxtPreEsp2.Text = "0.00"
+        TxtCantEsp.Text = "0"
         TxtCantEsp2.Text = "0"
+        TxtCantEsp3.Text = "0"
+        TxtCantEsp4.Text = "0"
+
+
+        TxtPorLta.Text = "0"
+        TxtPorLta2.Text = "0"
+        TxtPreLta.Text = "0.00"
+        TxtPreLta2.Text = "0.00"
+        TxtCantLta.Text = "0"
         TxtCantLta2.Text = "0"
+        TxtCantLta3.Text = "0"
+        TxtCantLta4.Text = "0"
+
         ChkTodos.Checked = False
         ChkPromocion.Checked = False
         Call DesactivarP()
@@ -1509,17 +1687,36 @@
         Try
             Dim pmin As Double = TxtPMI.Text
             Dim pmay As Double = TxtPreMay.Text
+            Dim pmay2 As Double = TxtPreMay2.Text
+
             Dim pmme As Double = TxtPreMM.Text
+            Dim pmme2 As Double = TxtPreMM2.Text
+
             Dim pesp As Double = TxtPreEsp.Text
+            Dim pesp2 As Double = TxtPreEsp2.Text
+
             Dim plis As Double = TxtPreLta.Text
             Dim pvi As Double = CDbl(TxtPMI.Text) / CDbl(LblValor.Text)
+            Dim pvi2 As Double = CDbl(TxtPMI2.Text) / CDbl(LblValor.Text)
+
             Dim pven As Double = CDbl(TxtPreLta.Text) / CDbl(LblValor.Text)
+            Dim pven2 As Double = CDbl(TxtPreLta2.Text) / CDbl(LblValor.Text)
 
             Dim uti_min As Double = TxtUtiM.Text
+            Dim uti_min2 As Double = TxtUtiM2.Text
+
             Dim uti_may As Double = TxtPorMay.Text
+            Dim uti_may2 As Double = TxtPorMay2.Text
+
             Dim uti_mm As Double = TxtPorMM.Text
+            Dim uti_mm2 As Double = TxtPorMM2.Text
+
+            'porcentaje especial
             Dim uti_esp As Double = TxtPorEsp.Text
+            Dim uti_esp2 As Double = TxtPorEsp2.Text
+
             Dim uti_lta As Double = TxtPorLta.Text
+            Dim uti_lta2 As Double = TxtPorLta2.Text
 
             Dim fecha As String = Format(Date.Now, "yyyy-MM-dd HH:mm:ss")
 
@@ -1589,12 +1786,12 @@
                         If (ChkPromocion.Checked) Then
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ", PorcMay=" & uti_may & ", PorcMM=" & uti_mm & ", PorcEsp=" & uti_esp & ", Porcentaje=" & uti_lta & ", PreMin=" & pvi & ", PreMay=" & pmay & ", PreMM=" & pmme & ", PreEsp=" & pesp & ", PrecioVenta=" & pven & ", PrecioVentaIVA=" & pven & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Porcentaje_Promo=" & TxtPromoPercent.Text & ", Status_Promocion=1, Fecha_Inicial='" & Format(dtpFechaI.Value, "yyyy-MM-dd") & "', Fecha_Final='" & Format(dtpFechaF.Value, "yyyy-MM-dd") & "', Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
+                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Porcentaje_Promo=" & TxtPromoPercent.Text & ", Status_Promocion=1, Fecha_Inicial='" & Format(dtpFechaI.Value, "yyyy-MM-dd") & "', Fecha_Final='" & Format(dtpFechaF.Value, "yyyy-MM-dd") & "', Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
                             cmd2.ExecuteNonQuery()
                         Else
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ", PorcMay=" & uti_may & ", PorcMM=" & uti_mm & ", PorcEsp=" & uti_esp & ", Porcentaje=" & uti_lta & ", PreMin=" & pvi & ", PreMay=" & pmay & ", PreMM=" & pmme & ", PreEsp=" & pesp & ", PrecioVenta=" & pven & ", PrecioVentaIVA=" & pven & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Status_Promocion=0, Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
+                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min2 & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Status_Promocion=0, Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
                             cmd2.ExecuteNonQuery()
                         End If
 
@@ -1701,6 +1898,540 @@
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
             End Try
+        End If
+    End Sub
+
+    Private Sub TxtUtiM2_Click(sender As Object, e As EventArgs) Handles TxtUtiM2.Click
+        TxtUtiM2.SelectionStart = 0
+        TxtUtiM2.SelectionLength = Len(TxtUtiM2.Text)
+    End Sub
+
+    Private Sub TxtUtiM2_GotFocus(sender As Object, e As EventArgs) Handles TxtUtiM2.GotFocus
+        TxtUtiM2.SelectionStart = 0
+        TxtUtiM2.SelectionLength = Len(TxtUtiM2.Text)
+    End Sub
+
+    Private Sub TxtUtiM2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtUtiM2.KeyPress
+        If Not IsNumeric(TxtUtiM2.Text) Then TxtUtiM2.Text = "" : Exit Sub
+        A1 = 1
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If TxtUtiM2.Text = "" Or TxtPCI.Text = "" Then Exit Sub
+            Call C1(A1)
+            A1 = 0
+            TxtPMI2.Text = FormatNumber(TxtPMI2.Text)
+            TxtPMI2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtUtiM2_TextChanged(sender As Object, e As EventArgs) Handles TxtUtiM2.TextChanged
+        If Not IsNumeric(TxtUtiM2.Text) Then TxtUtiM2.Text = "" : Exit Sub
+        If Trim(TxtUtiM2.Text) = "" Then Exit Sub
+        Call C1(A1)
+    End Sub
+
+    Private Sub TxtPMI2_Click(sender As Object, e As EventArgs) Handles TxtPMI2.Click
+        TxtPMI2.SelectionStart = 0
+        TxtPMI2.SelectionLength = Len(TxtPMI2.Text)
+    End Sub
+
+    Private Sub TxtPMI2_GotFocus(sender As Object, e As EventArgs) Handles TxtPMI2.GotFocus
+        TxtPMI2.SelectionStart = 0
+        TxtPMI2.SelectionLength = Len(TxtPMI2.Text)
+    End Sub
+
+    Private Sub TxtPMI2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPMI2.KeyPress
+        If Not IsNumeric(TxtPMI2.Text) Then TxtPMI2.Text = "" : Exit Sub
+        B1 = 1
+        If TxtPCI.Text = "0" Or TxtPCI.Text = "0.00" Or CDec(TxtPCI.Text) = 0 Then
+            MsgBox("El precio de compra con IVA no puede ser cero.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            TxtPCI.Focus().Equals(True)
+            Exit Sub
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Trim(TxtPMI2.Text) = "" Then Exit Sub
+            Call T1(B1)
+            B5 = 0
+            TxtPMI2.Text = FormatNumber(TxtPMI2.Text, 2)
+            TxtCantMin3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPMI2_TextChanged(sender As Object, e As EventArgs) Handles TxtPMI2.TextChanged
+        If Not IsNumeric(TxtPMI2.Text) Then TxtPMI2.Text = "" : Exit Sub
+        If Trim(TxtPMI2.Text) = "" Then Exit Sub
+        Call T1(B1)
+    End Sub
+
+    Private Sub TxtCantMin3_Click(sender As Object, e As EventArgs) Handles TxtCantMin3.Click
+        TxtCantMin3.SelectionStart = 0
+        TxtCantMin3.SelectionLength = Len(TxtCantMin3.Text)
+    End Sub
+
+    Private Sub TxtCantMin3_GotFocus(sender As Object, e As EventArgs) Handles TxtCantMin3.GotFocus
+        TxtCantMin3.SelectionStart = 0
+        TxtCantMin3.SelectionLength = Len(TxtCantMin3.Text)
+    End Sub
+
+    Private Sub TxtCantMin3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantMin3.KeyPress
+        If Not IsNumeric(TxtCantMin3.Text) Then TxtCantMin3.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCantMin4.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantMin3_LostFocus(sender As Object, e As EventArgs) Handles TxtCantMin3.LostFocus
+        If TxtCantMin3.Text = "" Then
+            TxtCantMin3.Text = "0"
+        End If
+    End Sub
+
+    Private Sub txtCantMin4_Click(sender As Object, e As EventArgs) Handles txtCantMin4.Click
+        txtCantMin4.SelectionStart = 0
+        txtCantMin4.SelectionLength = Len(txtCantMin4.Text)
+    End Sub
+
+    Private Sub txtCantMin4_GotFocus(sender As Object, e As EventArgs) Handles txtCantMin4.GotFocus
+        txtCantMin4.SelectionStart = 0
+        txtCantMin4.SelectionLength = Len(txtCantMin4.Text)
+    End Sub
+
+    Private Sub txtCantMin4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantMin4.KeyPress
+        If Not IsNumeric(txtCantMin4.Text) Then txtCantMin4.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtPorMay.Focus().Equals(True)
+        End If
+    End Sub
+    Private Sub txtCantMin4_LostFocus(sender As Object, e As EventArgs) Handles txtCantMin4.LostFocus
+        If txtCantMin4.Text = "" Then
+            txtCantMin4.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtPorMay2_Click(sender As Object, e As EventArgs) Handles TxtPorMay2.Click
+        TxtPorMay2.SelectionStart = 0
+        TxtPorMay2.SelectionLength = Len(TxtPorMay2.Text)
+    End Sub
+
+    Private Sub TxtPorMay2_GotFocus(sender As Object, e As EventArgs) Handles TxtPorMay2.GotFocus
+        TxtPorMay2.SelectionStart = 0
+        TxtPorMay2.SelectionLength = Len(TxtPorMay2.Text)
+    End Sub
+
+    Private Sub TxtPorMay2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPorMay2.KeyPress
+        If Not IsNumeric(TxtPorMay2.Text) Then TxtPorMay2.Text = "" : Exit Sub
+        A2 = 2
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If TxtPorMay2.Text = "" Or TxtPCI.Text = "" Then Exit Sub
+            Call C1(A2)
+            A2 = 0
+            TxtPorMay2.Text = FormatNumber(TxtPorMay2.Text, 2)
+            TxtPreMay2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPorMay2_TextChanged(sender As Object, e As EventArgs) Handles TxtPorMay2.TextChanged
+        If Not IsNumeric(TxtPorMay2.Text) Then TxtPorMay2.Text = "" : Exit Sub
+        If Trim(TxtPorMay2.Text) = "" Then Exit Sub
+        Call C1(A2)
+    End Sub
+
+    Private Sub TxtPreMay2_Click(sender As Object, e As EventArgs) Handles TxtPreMay2.Click
+        TxtPreMay2.SelectionStart = 0
+        TxtPreMay2.SelectionLength = Len(TxtPreMay2.Text)
+    End Sub
+
+    Private Sub TxtPreMay2_GotFocus(sender As Object, e As EventArgs) Handles TxtPreMay2.GotFocus
+        TxtPreMay2.SelectionStart = 0
+        TxtPreMay2.SelectionLength = Len(TxtPreMay2.Text)
+    End Sub
+
+    Private Sub TxtPreMay2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPreMay2.KeyPress
+        If Not IsNumeric(TxtPreMay2.Text) Then TxtPreMay2.Text = "" : Exit Sub
+        B2 = 2
+        If TxtPCI.Text = "0" Or TxtPCI.Text = "0.00" Or CDec(TxtPCI.Text) = 0 Then
+            MsgBox("El precio de compra con IVA no puede ser cero.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            TxtPCI.Focus().Equals(True)
+            Exit Sub
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Trim(TxtPreMay2.Text) = "" Then Exit Sub
+            Call T1(B2)
+            TxtPreMay2.Text = FormatNumber(TxtPreMay2.Text, 2)
+            TxtCantMay3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPreMay2_TextChanged(sender As Object, e As EventArgs) Handles TxtPreMay2.TextChanged
+        If Not IsNumeric(TxtPreMay2.Text) Then TxtPreMay2.Text = "" : Exit Sub
+        If Trim(TxtPreMay2.Text) = "" Then Exit Sub
+        Call T1(B2)
+    End Sub
+
+    Private Sub TxtCantMay3_Click(sender As Object, e As EventArgs) Handles TxtCantMay3.Click
+        TxtCantMay3.SelectionStart = 0
+        TxtCantMay3.SelectionLength = Len(TxtCantMay3.Text)
+    End Sub
+
+    Private Sub TxtCantMay3_GotFocus(sender As Object, e As EventArgs) Handles TxtCantMay3.GotFocus
+        TxtCantMay3.SelectionStart = 0
+        TxtCantMay3.SelectionLength = Len(TxtCantMay3.Text)
+    End Sub
+
+    Private Sub TxtCantMay3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantMay3.KeyPress
+        If Not IsNumeric(TxtCantMay3.Text) Then TxtCantMay3.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCantMay4.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantMay3_LostFocus(sender As Object, e As EventArgs) Handles TxtCantMay3.LostFocus
+        If TxtCantMay3.Text = "" Then
+            TxtCantMay3.Text = "0"
+        End If
+    End Sub
+
+    Private Sub txtCantMay4_Click(sender As Object, e As EventArgs) Handles txtCantMay4.Click
+        txtCantMay4.SelectionStart = 0
+        txtCantMay4.SelectionLength = Len(txtCantMay4.Text)
+    End Sub
+
+    Private Sub txtCantMay4_GotFocus(sender As Object, e As EventArgs) Handles txtCantMay4.GotFocus
+        txtCantMay4.SelectionStart = 0
+        txtCantMay4.SelectionLength = Len(txtCantMay4.Text)
+    End Sub
+
+    Private Sub txtCantMay4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantMay4.KeyPress
+        If Not IsNumeric(txtCantMay4.Text) Then txtCantMay4.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtPorMM.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtCantMay4_LostFocus(sender As Object, e As EventArgs) Handles txtCantMay4.LostFocus
+        If txtCantMay4.Text = "" Then
+            txtCantMay4.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtPorMM2_Click(sender As Object, e As EventArgs) Handles TxtPorMM2.Click
+        TxtPorMM2.SelectionStart = 0
+        TxtPorMM2.SelectionLength = Len(TxtPorMM2.Text)
+    End Sub
+
+    Private Sub TxtPorMM2_GotFocus(sender As Object, e As EventArgs) Handles TxtPorMM2.GotFocus
+        TxtPorMM2.SelectionStart = 0
+        TxtPorMM2.SelectionLength = Len(TxtPorMM2.Text)
+    End Sub
+
+    Private Sub TxtPorMM2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPorMM2.KeyPress
+        If Not IsNumeric(TxtPorMM2.Text) Then TxtPorMM2.Text = "" : Exit Sub
+        A3 = 3
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If TxtPorMM2.Text = "" Or TxtPCI.Text = "" Then Exit Sub
+            Call C1(A3)
+            A3 = 0
+            TxtPorMM2.Text = FormatNumber(TxtPorMM2.Text, 2)
+            TxtPreMM2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPorMM2_TextChanged(sender As Object, e As EventArgs) Handles TxtPorMM2.TextChanged
+        If Not IsNumeric(TxtPorMM2.Text) Then TxtPorMM2.Text = "" : Exit Sub
+        If Trim(TxtPorMM2.Text) = "" Then Exit Sub
+        Call C1(A3)
+    End Sub
+
+    Private Sub TxtPreMM2_Click(sender As Object, e As EventArgs) Handles TxtPreMM2.Click
+        TxtPreMM2.SelectionStart = 0
+        TxtPreMM2.SelectionLength = Len(TxtPreMM2.Text)
+    End Sub
+
+    Private Sub TxtPreMM2_GotFocus(sender As Object, e As EventArgs) Handles TxtPreMM2.GotFocus
+        TxtPreMM2.SelectionStart = 0
+        TxtPreMM2.SelectionLength = Len(TxtPreMM2.Text)
+    End Sub
+
+    Private Sub TxtPreMM2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPreMM2.KeyPress
+        If Not IsNumeric(TxtPreMM2.Text) Then TxtPreMM2.Text = "" : Exit Sub
+        B3 = 3
+        If TxtPCI.Text = "0" Or TxtPCI.Text = "0.00" Or CDec(TxtPCI.Text) = 0 Then
+            MsgBox("El precio de compra con IVA no puede ser cero.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            TxtPCI.Focus().Equals(True)
+            Exit Sub
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Trim(TxtPreMM2.Text) = "" Then Exit Sub
+            Call T1(B3)
+            TxtPreMM2.Text = FormatNumber(TxtPreMM2.Text, 2)
+            TxtCantMM3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPreMM2_TextChanged(sender As Object, e As EventArgs) Handles TxtPreMM2.TextChanged
+        If Not IsNumeric(TxtPreMM2.Text) Then TxtPreMM2.Text = "" : Exit Sub
+        If Trim(TxtPreMM2.Text) = "" Then Exit Sub
+        Call T1(B3)
+    End Sub
+
+    Private Sub TxtCantMM3_Click(sender As Object, e As EventArgs) Handles TxtCantMM3.Click
+        TxtCantMM3.SelectionStart = 0
+        TxtCantMM3.SelectionLength = Len(TxtCantMM3.Text)
+    End Sub
+
+    Private Sub TxtCantMM3_GotFocus(sender As Object, e As EventArgs) Handles TxtCantMM3.GotFocus
+        TxtCantMM3.SelectionStart = 0
+        TxtCantMM3.SelectionLength = Len(TxtCantMM3.Text)
+    End Sub
+
+    Private Sub TxtCantMM3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantMM3.KeyPress
+        If Not IsNumeric(TxtCantMM3.Text) Then TxtCantMM3.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtCantMM4.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantMM3_LostFocus(sender As Object, e As EventArgs) Handles TxtCantMM3.LostFocus
+        If TxtCantMM3.Text = "" Then
+            TxtCantMM3.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtCantMM4_Click(sender As Object, e As EventArgs) Handles TxtCantMM4.Click
+        TxtCantMM4.SelectionStart = 0
+        TxtCantMM4.SelectionLength = Len(TxtCantMM4.Text)
+    End Sub
+
+    Private Sub TxtCantMM4_GotFocus(sender As Object, e As EventArgs) Handles TxtCantMM4.GotFocus
+        TxtCantMM4.SelectionStart = 0
+        TxtCantMM4.SelectionLength = Len(TxtCantMM4.Text)
+    End Sub
+
+    Private Sub TxtCantMM4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantMM4.KeyPress
+        If Not IsNumeric(TxtCantMM4.Text) Then TxtCantMM4.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtPorEsp.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantMM4_LostFocus(sender As Object, e As EventArgs) Handles TxtCantMM4.LostFocus
+        If TxtCantMM4.Text = "" Then
+            TxtCantMM4.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtPorEsp2_Click(sender As Object, e As EventArgs) Handles TxtPorEsp2.Click
+        TxtPorEsp2.SelectionStart = 0
+        TxtPorEsp2.SelectionLength = Len(TxtPorEsp2.Text)
+    End Sub
+
+    Private Sub TxtPorEsp2_GotFocus(sender As Object, e As EventArgs) Handles TxtPorEsp2.GotFocus
+        TxtPorEsp2.SelectionStart = 0
+        TxtPorEsp2.SelectionLength = Len(TxtPorEsp2.Text)
+    End Sub
+
+    Private Sub TxtPorEsp2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPorEsp2.KeyPress
+        If Not IsNumeric(TxtPorEsp2.Text) Then TxtPorEsp2.Text = "" : Exit Sub
+        A4 = 4
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If TxtPorEsp2.Text = "" Or TxtPCI.Text = "" Then Exit Sub
+            Call C1(A4)
+            A4 = 0
+            TxtPorEsp2.Text = FormatNumber(TxtPorEsp2.Text, 2)
+            TxtPreEsp2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPorEsp2_TextChanged(sender As Object, e As EventArgs) Handles TxtPorEsp2.TextChanged
+        If Not IsNumeric(TxtPorEsp2.Text) Then TxtPorEsp2.Text = "" : Exit Sub
+        If Trim(TxtPorEsp2.Text) Then Exit Sub
+        Call C1(A4)
+    End Sub
+
+    Private Sub TxtPreEsp2_Click(sender As Object, e As EventArgs) Handles TxtPreEsp2.Click
+        TxtPreEsp2.SelectionStart = 0
+        TxtPreEsp2.SelectionLength = Len(TxtPreEsp2.Text)
+    End Sub
+
+    Private Sub TxtPreEsp2_GotFocus(sender As Object, e As EventArgs) Handles TxtPreEsp2.GotFocus
+        TxtPreEsp2.SelectionStart = 0
+        TxtPreEsp2.SelectionLength = Len(TxtPreEsp2.Text)
+    End Sub
+
+    Private Sub TxtPreEsp2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPreEsp2.KeyPress
+        If Not IsNumeric(TxtPreEsp2.Text) Then TxtPreEsp2.Text = "" : Exit Sub
+        B4 = 4
+        If TxtPCI.Text = "0" Or TxtPCI.Text = "0.00" Or CDec(TxtPCI.Text) = 0 Then
+            MsgBox("El precio de compra con IVA no puede ser cero.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            TxtPCI.Focus().Equals(True)
+            Exit Sub
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Trim(TxtPreEsp2.Text) = "" Then Exit Sub
+            Call T1(B4)
+            B4 = 0
+            TxtPreEsp2.Text = FormatNumber(TxtPreEsp2.Text, 2)
+            TxtCantEsp3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPreEsp2_LostFocus(sender As Object, e As EventArgs) Handles TxtPreEsp2.LostFocus
+        If Not IsNumeric(TxtPreEsp2.Text) Then TxtPreEsp2.Text = "" : Exit Sub
+        If Trim(TxtPreEsp2.Text) Then Exit Sub
+        Call T1(B4)
+    End Sub
+
+    Private Sub TxtCantEsp3_Click(sender As Object, e As EventArgs) Handles TxtCantEsp3.Click
+        TxtCantEsp3.SelectionStart = 0
+        TxtCantEsp3.SelectionLength = Len(TxtCantEsp3.Text)
+    End Sub
+
+    Private Sub TxtCantEsp3_GotFocus(sender As Object, e As EventArgs) Handles TxtCantEsp3.GotFocus
+        TxtCantEsp3.SelectionStart = 0
+        TxtCantEsp3.SelectionLength = Len(TxtCantEsp3.Text)
+    End Sub
+
+    Private Sub TxtCantEsp3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantEsp3.KeyPress
+        If Not IsNumeric(TxtCantEsp3.Text) Then TxtCantEsp3.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtCantEsp4.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantEsp3_LostFocus(sender As Object, e As EventArgs) Handles TxtCantEsp3.LostFocus
+        If TxtCantEsp3.Text = "" Then
+            TxtCantEsp3.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtCantEsp4_Click(sender As Object, e As EventArgs) Handles TxtCantEsp4.Click
+        TxtCantEsp4.SelectionStart = 0
+        TxtCantEsp4.SelectionLength = Len(TxtCantEsp4.Text)
+    End Sub
+
+    Private Sub TxtCantEsp4_GotFocus(sender As Object, e As EventArgs) Handles TxtCantEsp4.GotFocus
+        TxtCantEsp4.SelectionStart = 0
+        TxtCantEsp4.SelectionLength = Len(TxtCantEsp4.Text)
+    End Sub
+
+    Private Sub TxtCantEsp4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantEsp4.KeyPress
+        If Not IsNumeric(TxtCantEsp4.Text) Then TxtCantEsp4.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtPorLta.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantEsp4_LostFocus(sender As Object, e As EventArgs) Handles TxtCantEsp4.LostFocus
+        If TxtCantEsp4.Text = "" Then
+            TxtCantEsp4.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtPorLta2_Click(sender As Object, e As EventArgs) Handles TxtPorLta2.Click
+        TxtPorLta2.SelectionStart = 0
+        TxtPorLta2.SelectionLength = Len(TxtPorLta2.Text)
+    End Sub
+
+    Private Sub TxtPorLta2_GotFocus(sender As Object, e As EventArgs) Handles TxtPorLta2.GotFocus
+        TxtPorLta2.SelectionStart = 0
+        TxtPorLta2.SelectionLength = Len(TxtPorLta2.Text)
+    End Sub
+
+    Private Sub TxtPorLta2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPorLta2.KeyPress
+        If Not IsNumeric(TxtPorLta2.Text) Then TxtPorLta2.Text = "" : Exit Sub
+        A5 = 5
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If TxtPorLta2.Text = "" Or TxtPCI.Text = "" Then Exit Sub
+            Call C1(A5)
+            A5 = 0
+            TxtPorLta2.Text = FormatNumber(TxtPorLta2.Text, 2)
+            TxtPreLta2.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPorLta2_TextChanged(sender As Object, e As EventArgs) Handles TxtPorLta2.TextChanged
+        If Not IsNumeric(TxtPorLta2.Text) Then TxtPorLta2.Text = "" : Exit Sub
+        If Trim(TxtPorLta2.Text) = "" Then Exit Sub
+        Call C1(A5)
+    End Sub
+
+    Private Sub TxtPreLta2_Click(sender As Object, e As EventArgs) Handles TxtPreLta2.Click
+        TxtPreLta2.SelectionStart = 0
+        TxtPreLta2.SelectionLength = Len(TxtPreLta2.Text)
+    End Sub
+
+    Private Sub TxtPreLta2_GotFocus(sender As Object, e As EventArgs) Handles TxtPreLta2.GotFocus
+        TxtPreLta2.SelectionStart = 0
+        TxtPreLta2.SelectionLength = Len(TxtPreLta2.Text)
+    End Sub
+
+    Private Sub TxtPreLta2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtPreLta2.KeyPress
+        If Not IsNumeric(TxtPreLta2.Text) Then TxtPreLta2.Text = "" : Exit Sub
+        B5 = 5
+        If TxtPCI.Text = "0" Then
+            If TxtPCI.Text = "0.00" Or TxtPCI.Text = "0" Or CDec(TxtPCI.Text) = 0 Then
+                MsgBox("El precio de compra con IVA no puede ser cero.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                TxtPCI.Focus().Equals(True)
+                Exit Sub
+            End If
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Trim(TxtPreLta2.Text) = "" Then Exit Sub
+            Call T1(B5)
+            B5 = 0
+            TxtPreLta2.Text = FormatNumber(TxtPreLta2.Text, 2)
+            TxtCantLta3.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtPreLta2_TextChanged(sender As Object, e As EventArgs) Handles TxtPreLta2.TextChanged
+        If Not IsNumeric(TxtPreLta2.Text) Then TxtPreLta2.Text = "" : Exit Sub
+        If Trim(TxtPreLta2.Text) = "" Then Exit Sub
+        Call T1(B5)
+    End Sub
+
+    Private Sub TxtCantLta3_Click(sender As Object, e As EventArgs) Handles TxtCantLta3.Click
+        TxtCantLta3.SelectionStart = 0
+        TxtCantLta3.SelectionLength = Len(TxtCantLta3.Text)
+    End Sub
+
+    Private Sub TxtCantLta3_GotFocus(sender As Object, e As EventArgs) Handles TxtCantLta3.GotFocus
+        TxtCantLta3.SelectionStart = 0
+        TxtCantLta3.SelectionLength = Len(TxtCantLta3.Text)
+    End Sub
+
+    Private Sub TxtCantLta3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantLta3.KeyPress
+        If Not IsNumeric(TxtCantLta3.Text) Then TxtCantLta3.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            TxtCantLta4.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantLta3_LostFocus(sender As Object, e As EventArgs) Handles TxtCantLta3.LostFocus
+        If TxtCantLta3.Text = "" Then
+            TxtCantLta3.Text = "0"
+        End If
+    End Sub
+
+    Private Sub TxtCantLta4_Click(sender As Object, e As EventArgs) Handles TxtCantLta4.Click
+        TxtCantLta4.SelectionStart = 0
+        TxtCantLta4.SelectionLength = Len(TxtCantLta4.Text)
+    End Sub
+
+    Private Sub TxtCantLta4_GotFocus(sender As Object, e As EventArgs) Handles TxtCantLta4.GotFocus
+        TxtCantLta4.SelectionStart = 0
+        TxtCantLta4.SelectionLength = Len(TxtCantLta4.Text)
+    End Sub
+
+    Private Sub TxtCantLta4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCantLta4.KeyPress
+        If Not IsNumeric(TxtCantLta4.Text) Then TxtCantLta4.Text = "" : Exit Sub
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnGuardar.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TxtCantLta4_LostFocus(sender As Object, e As EventArgs) Handles TxtCantLta4.LostFocus
+        If TxtCantLta4.Text = "" Then
+            TxtCantLta4.Text = "0"
         End If
     End Sub
 End Class

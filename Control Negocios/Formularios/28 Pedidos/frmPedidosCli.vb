@@ -10,7 +10,7 @@ Public Class frmPedidosCli
             cboCliente.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Cliente FROM cotped WHERE Cliente<>'' ORDER BY Cliente"
+            cmd5.CommandText = "SELECT DISTINCT Cliente FROM pedidosven WHERE Cliente<>'' ORDER BY Cliente"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -33,9 +33,9 @@ Public Class frmPedidosCli
             cmd5 = cnn5.CreateCommand
 
             If cboCliente.Text = "" Then
-                cmd5.CommandText = "SELECT DISTINCT Folio FROM cotped WHERE Folio<>'' ORDER BY Folio"
+                cmd5.CommandText = "SELECT DISTINCT Folio FROM pedidosven WHERE Folio<>'' ORDER BY Folio"
             Else
-                cmd5.CommandText = "SELECT DISTINCT Folio FROM cotped WHERE Cliente='" & cboCliente.Text & "' ORDER BY Folio"
+                cmd5.CommandText = "SELECT DISTINCT Folio FROM pedidosven WHERE Cliente='" & cboCliente.Text & "' ORDER BY Folio"
             End If
 
             rd5 = cmd5.ExecuteReader
@@ -161,7 +161,7 @@ Public Class frmPedidosCli
             If cboCliente.Text = "" Then
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM cotped WHERE Folio='" & cboPedido.Text & "'"
+                cmd1.CommandText = "SELECT * FROM pedidosven WHERE Folio='" & cboPedido.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -174,7 +174,7 @@ Public Class frmPedidosCli
             End If
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM cotpeddet WHERE Folio='" & cboPedido.Text & "'"
+            cmd1.CommandText = "SELECT * FROM pedidosvendet WHERE Folio='" & cboPedido.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
