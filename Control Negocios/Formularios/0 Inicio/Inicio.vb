@@ -186,6 +186,7 @@ Public Class Inicio
         SFormatos("ToleHabi", "")
         SFormatos("SalidaHab", "")
         SFormatos("PrecioDia", "")
+        SFormatos("Cuartos", "")
         'Licencia()
         Try
             cnn1.Close()
@@ -334,7 +335,7 @@ Public Class Inicio
                     End If
 
                 End If
-                End If
+            End If
             rd1.Close()
             cnn1.Close()
 
@@ -920,21 +921,21 @@ Public Class Inicio
             rd1.Close() : cnn1.Close()
         Catch ex As Exception
             rd1.Close()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+            'cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+            'cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
@@ -1709,7 +1710,7 @@ Public Class Inicio
 
 
         frmRepInventario.Show()
-            frmRepInventario.BringToFront()
+        frmRepInventario.BringToFront()
 
 
 

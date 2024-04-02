@@ -206,7 +206,7 @@ Public Class frmMesas
                 End If
             End If
         Next
-        Me.Text = Strings.Space(160) & "COMANDERA" & Strings.Space(55) & mesa.Text
+        Me.Text = mesa.Text
 
     End Sub
 
@@ -746,11 +746,15 @@ Public Class frmMesas
         Dim tables As Button = CType(sender, Button)
         foco = "USU"
         lbltotalmesa.Text = "0.00"
+
+        Dim totalcomanda As Double = 0
+
+        Dim total_billar As Double = 0
+
+        Dim totalc As Double = 0
+
         If tables.BackColor <> Color.White Then
             Try
-                Dim totalcomanda As Double = 0
-                Dim totalc As Double = 0
-
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "SELECT Total FROM Comandas WHERE Nmesa='" & tables.Text & "'"
@@ -764,6 +768,18 @@ Public Class frmMesas
                 Loop
                 rd1.Close()
 
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Total FROM Comandas WHERE Nmesa='" & tables.Text & "' and Codigo='xc3'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        total_billar = rd1(0).ToString()
+                    Else
+                        total_billar = 0
+                    End If
+                Loop
+                rd1.Close()
+
                 lbltotalmesa.Text = FormatNumber(totalcomanda, 2)
 
 
@@ -773,7 +789,6 @@ Public Class frmMesas
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-
                         'lblusuario.Text = rd1("CUsuario").ToString
                         'txtNComensales.Text = IIf(rd1("Total_comensales").ToString = "", 1, rd1("Total_comensales").ToString)
 
@@ -803,6 +818,7 @@ Public Class frmMesas
 
             txtMesa.Text = tables.Text
             Dim mesa As String = txtMesa.Text
+
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
@@ -851,43 +867,45 @@ Public Class frmMesas
                 If rd1.HasRows Then
                     If rd1.Read Then
                         If rd1(0).ToString = 1 Then
-                            frmAsigna.lblpc.Text = mesa
-                            foco = "B"
-                            If lblusuario.Text <> "" Then
-                                Try
-                                    cnn2.Close() : cnn2.Open()
-                                    cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & tables.Text & "'"
-                                    rd2 = cmd2.ExecuteReader
-                                    If rd2.HasRows Then
-                                        If rd2.Read Then
-                                            If MsgBox("¿Deseas consultar el tiempo de la mesa?", vbInformation + vbOKCancel, titulomensajes) = vbCancel Then Exit Sub
+                            If total_billar = 0 Then
+                                btncobro.Enabled = False
 
-                                            frmCalcula.lblpc.Text = tables.Text
-                                            frmCalcula.Show()
+                                frmAsigna.lblpc.Text = mesa
+                                foco = "B"
+                                If lblusuario.Text <> "" Then
+                                    Try
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & tables.Text & "'"
+                                        rd2 = cmd2.ExecuteReader
+                                        If rd2.HasRows Then
+                                            If rd2.Read Then
+                                                If MsgBox("¿Deseas consultar el tiempo de la mesa?", vbInformation + vbOKCancel, titulomensajes) = vbCancel Then Exit Sub
+
+                                                frmCalcula.lblpc.Text = tables.Text
+                                                frmCalcula.Show()
+                                            End If
+                                        Else
+                                            frmAsigna.Show()
+                                            frmAsigna.BringToFront()
                                         End If
-                                    Else
-                                        frmAsigna.Show()
-                                        frmAsigna.BringToFront()
-                                    End If
-                                    rd2.Close()
-                                    cnn2.Close()
-                                Catch ex As Exception
-                                    MessageBox.Show(ex.ToString)
-                                    cnn2.Close()
-                                End Try
+                                        rd2.Close()
+                                        cnn2.Close()
+                                    Catch ex As Exception
+                                        MessageBox.Show(ex.ToString)
+                                        cnn2.Close()
+                                    End Try
+                                End If
                             End If
                         End If
                     End If
                 End If
                 rd1.Close()
                 cnn1.Close()
-
             Catch ex As Exception
-                MessageBox.Show(ex.ToString)
+                MessageBox.Show(ex.ToString())
                 cnn1.Close()
             End Try
-
         End If
 
     End Sub

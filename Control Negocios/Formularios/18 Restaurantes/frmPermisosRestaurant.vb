@@ -60,6 +60,26 @@
             End If
             rd2.Close()
 
+            Dim cuartos As Integer = 0
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Cuartos'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cuartos = rd2(0).ToString
+
+                    If cuartos = 1 Then
+                        chkCuartos.Checked = True
+                    Else
+                        chkCuartos.Checked = False
+                    End If
+
+                End If
+            End If
+            rd2.Close()
+
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
             rd2 = cmd2.ExecuteReader
@@ -713,5 +733,25 @@
 
     Private Sub rbNM_Click(sender As Object, e As EventArgs) Handles rbNM.Click
         CambiodeMesa()
+    End Sub
+
+    Private Sub chkCuartos_CheckedChanged(sender As Object, e As EventArgs) Handles chkCuartos.CheckedChanged
+        Try
+            If (chkCuartos.Checked) Then
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='0' WHERE Facturas='Cuartos'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            Else
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='0',NumPart='0' WHERE Facturas='Cuartos'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
