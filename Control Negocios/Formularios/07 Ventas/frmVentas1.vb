@@ -568,31 +568,6 @@ Public Class frmVentas1
             MessageBox.Show(ex.ToString)
             cnn3.Close()
         End Try
-
-        'Código de barras 4
-        Try
-            cnn3.Close() : cnn3.Open()
-
-            cmd3 = cnn3.CreateCommand
-            If cbocodigo.Text = "" Then
-                cmd3.CommandText =
-                    "select * from Productos where CodBarra3='" & cbodesc.Text & "'"
-            Else
-                cmd3.CommandText =
-                    "select * from Productos where CodBarra3='" & cbocodigo.Text & "'"
-            End If
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    cbocodigo.Text = rd3("Codigo").ToString
-                    Anti = rd3("Grupo").ToString
-                End If
-            End If
-            rd3.Close() : cnn3.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn3.Close()
-        End Try
     End Sub
 
     Private Sub UpGrid()
