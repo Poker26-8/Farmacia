@@ -207,6 +207,7 @@ Partial Class frmCompras
         Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column15, Me.Column16})
         Me.grdcaptura.ContextMenuStrip = Me.ContextMenuStrip1
         Me.grdcaptura.GridColor = System.Drawing.Color.White
@@ -1610,7 +1611,7 @@ Partial Class frmCompras
         Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(849, 495)
+        Me.btnPagar.Location = New System.Drawing.Point(922, 495)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(61, 69)
         Me.btnPagar.TabIndex = 228

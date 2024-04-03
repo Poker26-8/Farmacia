@@ -751,6 +751,7 @@ Public Class frmProductosS
                 proveedor = Trim(Replace(proveedor, "'", "''"))
                 depto = Trim(Replace(depto, "'", "''"))
                 grupo = Trim(Replace(grupo, "'", "''"))
+
                 If (Comprueba(codigo, nombre, barras, proveedor)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
