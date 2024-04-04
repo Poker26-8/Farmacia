@@ -426,8 +426,8 @@ Public Class Inicio
                         MsgBox("Por favor configura el método de costeo de tu inventario antes de comenzar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         PrimeraConfig = "1"
                         frmConfigs.Show()
-                        frmConfigs.TabPage1.Focus().Equals(True)
-                        frmConfigs.TabPage1.Select()
+                        frmConfigs.tabFuncionalidades1.Focus().Equals(True)
+                        frmConfigs.tabFuncionalidades1.Select()
                         frmConfigs.TopMost = True
                     End If
                 End If
@@ -3016,5 +3016,10 @@ Public Class Inicio
     Private Sub btnPagarComa_Click(sender As Object, e As EventArgs) Handles btnPagarComa.Click
         frmPagarComanda.Show()
         frmPagarComanda.BringToFront()
+    End Sub
+
+    Private Sub ReporteDeVentaDeAntibióticosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeVentaDeAntibióticosToolStripMenuItem.Click
+        frmcofepris.Show()
+        frmcofepris.BringToFront()
     End Sub
 End Class

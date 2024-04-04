@@ -239,7 +239,6 @@ Partial Class frmVentas1
         Me.cboNombre = New System.Windows.Forms.ComboBox()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.chkBuscaCliente = New System.Windows.Forms.CheckBox()
-        Me.txtMonedero = New System.Windows.Forms.TextBox()
         Me.lblmonedero = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -252,6 +251,7 @@ Partial Class frmVentas1
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido80 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido58 = New System.Drawing.Printing.PrintDocument()
+        Me.lblmonedero_saldo = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -2475,6 +2475,7 @@ Partial Class frmVentas1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.lblmonedero_saldo)
         Me.GroupBox3.Controls.Add(Me.txtObservaciones)
         Me.GroupBox3.Controls.Add(Me.Label47)
         Me.GroupBox3.Controls.Add(Me.Panel2)
@@ -2486,7 +2487,6 @@ Partial Class frmVentas1
         Me.GroupBox3.Controls.Add(Me.cboNombre)
         Me.GroupBox3.Controls.Add(Me.Label36)
         Me.GroupBox3.Controls.Add(Me.chkBuscaCliente)
-        Me.GroupBox3.Controls.Add(Me.txtMonedero)
         Me.GroupBox3.Controls.Add(Me.lblmonedero)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(8, 2)
@@ -2626,16 +2626,6 @@ Partial Class frmVentas1
         Me.chkBuscaCliente.TabIndex = 211
         Me.chkBuscaCliente.UseVisualStyleBackColor = True
         '
-        'txtMonedero
-        '
-        Me.txtMonedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtMonedero.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMonedero.Location = New System.Drawing.Point(382, 131)
-        Me.txtMonedero.Name = "txtMonedero"
-        Me.txtMonedero.Size = New System.Drawing.Size(182, 23)
-        Me.txtMonedero.TabIndex = 198
-        Me.txtMonedero.Visible = False
-        '
         'lblmonedero
         '
         Me.lblmonedero.AutoSize = True
@@ -2644,9 +2634,9 @@ Partial Class frmVentas1
         Me.lblmonedero.ForeColor = System.Drawing.Color.Black
         Me.lblmonedero.Location = New System.Drawing.Point(301, 134)
         Me.lblmonedero.Name = "lblmonedero"
-        Me.lblmonedero.Size = New System.Drawing.Size(75, 17)
+        Me.lblmonedero.Size = New System.Drawing.Size(113, 17)
         Me.lblmonedero.TabIndex = 195
-        Me.lblmonedero.Text = "Monedero:"
+        Me.lblmonedero.Text = "Saldo monedero:"
         Me.lblmonedero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblmonedero.Visible = False
         '
@@ -2737,6 +2727,17 @@ Partial Class frmVentas1
         '
         'PPedido58
         '
+        '
+        'lblmonedero_saldo
+        '
+        Me.lblmonedero_saldo.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblmonedero_saldo.Location = New System.Drawing.Point(463, 133)
+        Me.lblmonedero_saldo.Name = "lblmonedero_saldo"
+        Me.lblmonedero_saldo.Size = New System.Drawing.Size(101, 19)
+        Me.lblmonedero_saldo.TabIndex = 233
+        Me.lblmonedero_saldo.Text = "0.00"
+        Me.lblmonedero_saldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblmonedero_saldo.Visible = False
         '
         'frmVentas1
         '
@@ -2885,7 +2886,6 @@ Partial Class frmVentas1
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents cboNombre As System.Windows.Forms.ComboBox
     Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents txtMonedero As System.Windows.Forms.TextBox
     Friend WithEvents lblmonedero As System.Windows.Forms.Label
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents pDer_Arriba As System.Windows.Forms.Panel
@@ -3003,4 +3003,5 @@ Partial Class frmVentas1
     Friend WithEvents PPedido80 As Printing.PrintDocument
     Friend WithEvents PPedido58 As Printing.PrintDocument
     Friend WithEvents lblpedido As Label
+    Friend WithEvents lblmonedero_saldo As Label
 End Class

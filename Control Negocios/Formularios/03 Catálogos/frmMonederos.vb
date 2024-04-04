@@ -72,11 +72,12 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select Id from Clientes where Nombre='" & cboCliente.Text & "'"
+                     "select * from Clientes where Nombre='" & cboCliente.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-                        txtidcliente.Text = rd1(0).ToString
+                        txtidcliente.Text = rd1("Id").ToString()
+                        txtTelefono.Text = rd1("Telefono").ToString()
                     End If
                 End If
                 rd1.Close() : cnn1.Close()
@@ -94,11 +95,12 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select Id from Clientes where Nombre='" & cboCliente.Text & "'"
+                 "select * from Clientes where Nombre='" & cboCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    txtidcliente.Text = rd1(0).ToString
+                    txtidcliente.Text = rd1("Id").ToString()
+                    txtTelefono.Text = rd1("Telefono").ToString()
                 End If
             End If
             rd1.Close() : cnn1.Close()
@@ -235,6 +237,11 @@
                 query = "insert into Monedero(Folio, IdCliente, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "'," & txtidcliente.Text & ",'" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "update Clientes set Telefono='" & txtTelefono.Text & "' where Id=" & txtidcliente.Text
+            cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =

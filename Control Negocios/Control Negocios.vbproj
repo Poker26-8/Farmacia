@@ -387,6 +387,12 @@
     <Compile Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\frmcofepris.Designer.vb">
+      <DependentUpon>frmcofepris.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmcofepris.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.Designer.vb">
       <DependentUpon>frmRepCopeo.vb</DependentUpon>
     </Compile>
@@ -1773,6 +1779,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.resx">
       <DependentUpon>frmRepAuditoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmcofepris.resx">
+      <DependentUpon>frmcofepris.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.resx">
       <DependentUpon>frmRepCopeo.vb</DependentUpon>
