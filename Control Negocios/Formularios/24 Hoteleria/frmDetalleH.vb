@@ -4,7 +4,21 @@
     Dim minutosTiempoH As Double = 0
     Dim cfolio As Integer = 0
     Private Sub frmDetalleH_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbodescripcion.Focused.Equals(True)
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Horas,PrecioH,PreDia FROM habitacion WHERE N_Habitacion='" & lblhabitacion.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    grdPrecios.Rows.Add(rd1(0).ToString, rd1(1).ToString, rd1(2).ToString)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -15,6 +29,8 @@
             dtpSalida.Value = Date.Now
             txttelefono.Text = ""
             lblidcliented.Text = ""
+            lblPrecio.Text = ""
+            lblHoras.Text = ""
         End If
     End Sub
 
@@ -39,11 +55,13 @@
             ESTADO = "Ventilacion"
         End If
 
-        If txtHoras.Text = "" Then MsgBox("Debe de ingresar la cantidad de horas", vbInformation + vbOKOnly, titulohotelriaa) : txtHoras.Focus.Equals(True) : Exit Sub
+
 
         If lblusuario.Text = "" Then MsgBox("Ingrese la contraseña de usuario", vbInformation + vbOKOnly, titulohotelriaa) : txtcontra.Focus.Equals(True) : Exit Sub
 
         If ESTADO = "Ocupada" Then
+
+            If lblHoras.Text = "" Then MsgBox("Debe de ingresar la cantidad de horas", vbInformation + vbOKOnly, titulohotelriaa) : lblHoras.Focus.Equals(True) : Exit Sub
 
             Try
 
@@ -105,14 +123,7 @@
                 cnn1.Close()
 
                 cnn1.Close() : cnn1.Open()
-                For bj As Integer = 0 To grdCaptura.Rows.Count - 1
-
-                    Dim codigo As String = grdCaptura.Rows(bj).Cells(0).Value.ToString
-                    Dim nombre As String = grdCaptura.Rows(bj).Cells(1).Value.ToString
-                    Dim cantidad As Double = grdCaptura.Rows(bj).Cells(2).Value.ToString
-                    Dim precio As Double = grdCaptura.Rows(bj).Cells(3).Value.ToString
-                    Dim total As Double = grdCaptura.Rows(bj).Cells(4).Value.ToString
-                    cmd1 = cnn1.CreateCommand
+                cmd1 = cnn1.CreateCommand
                     cmd1.CommandText = "SELECT * FROM detallehotel WHERE Habitacion='" & lblhabitacion.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
@@ -120,25 +131,24 @@
                         End If
                     Else
 
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Horas,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & txtHoras.Text & "," & precio & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy/MM/dd HH:mm:ss") & "','" & Format(dtpSalida.Value, "yyyy/MM/dd") & "','" & lblCaracteristicas.Text & "')"
-                        cmd2.ExecuteNonQuery()
-                        cnn2.Close()
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO detallehotel(Habitacion,Tipo,Estado,Horas,Precio,Cliente,Telefono,FEntrada,FSalida,Caracteristicas) VALUES('" & lblhabitacion.Text & "','" & lbltipo.Text & "','" & ESTADO & "'," & lblHoras.Text & "," & lblPrecio.Text & ",'" & cbocliente.Text & "','" & txttelefono.Text & "','" & Format(dtpEntrada.Value, "yyyy/MM/dd HH:mm:ss") & "','" & Format(dtpSalida.Value, "yyyy/MM/dd") & "','" & lblCaracteristicas.Text & "')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
 
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVP,CostVUE,Descuento,Precio,Total,PrecioSinIva,TotalSinIVA,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','" & codigo & "','" & nombre & "'," & cantidad & ",'SER','0','0','" & precio & "',0," & precio & "," & total & "," & precio & "," & total & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','xc3','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
-                        cmd2.ExecuteNonQuery()
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVP,CostVUE,Descuento,Precio,Total,PrecioSinIva,TotalSinIVA,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','Tiempo Habitacion',1,'SER',0,0,0,0," & lblPrecio.Text & "," & lblPrecio.Text & "," & lblPrecio.Text & "," & lblPrecio.Text & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                    cmd2.ExecuteNonQuery()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVP,CostVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','" & codigo & "','" & nombre & "'," & cantidad & ",'SER',0,'0'," & precio & "," & precio & "," & total & "," & precio & "," & total & ",0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','xc3 ','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
-                        cmd2.ExecuteNonQuery()
+                    cmd2.CommandText = "INSERT INTO rep_comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVP,CostVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & cfolio & ",'" & lblhabitacion.Text & "','xc3','Tiempo Habitacion',1,'SER',0,'0',0,0,0,0,0,0,'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','xc3 ','','" & lblusuario.Text & "',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                    cmd2.ExecuteNonQuery()
                         cnn2.Close()
 
                     End If
-                    rd1.Close()
-                Next
+                rd1.Close()
                 cnn1.Close()
 
                 cnn2.Close() : cnn2.Open()
@@ -148,15 +158,25 @@
                 cnn2.Close()
 
                 MsgBox("La habitacion " & lblhabitacion.Text & " fue asignada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
+
+                frmPagarH.lblHabitacion.Text = lblhabitacion.Text
+                frmPagarH.txtTotal.Text = lblPrecio.Text
+                frmPagarH.lblAtendio.Text = lblusuario.Text
+                frmPagarH.lblNumCliente.Text = lblidcliented.Text
+                frmPagarH.lblCliente.Text = cbocliente.Text
+                frmPagarH.focoh = 1
+                frmPagarH.Show()
+
                 btnLimpiar.PerformClick()
                 Me.Close()
-                frmManejo.Show()
-                frmManejo.pUbicaciones.Controls.Clear()
-                frmManejo.TRAERUBICACION()
+
+
+                'frmManejo.Show()
+                'frmManejo.pUbicaciones.Controls.Clear()
+                'frmManejo.TRAERUBICACION()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
-
             End Try
 
         End If
@@ -433,315 +453,28 @@
 
     Private Sub dtpSalida_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpSalida.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-
-            cbodescripcion.Focus.Equals(True)
+            btnGuardar.Focus.Equals(True)
         End If
     End Sub
 
-    Private Sub cbodescripcion_DropDown(sender As Object, e As EventArgs) Handles cbodescripcion.DropDown
-        Try
-            cbodescripcion.Items.Clear()
-            cnn5.Close() : cnn5.Open()
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Nombre FROM productos WHERE Nombre<>'' ORDER BY Nombre"
-            rd5 = cmd5.ExecuteReader
-            Do While rd5.Read
-                If rd5.HasRows Then
-                    cbodescripcion.Items.Add(rd5(0).ToString)
-                End If
-            Loop
-            rd5.Close()
-            cnn5.Close()
+    Private Sub grdPrecios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdPrecios.CellClick
 
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn5.Close()
-        End Try
-    End Sub
-
-    Private Sub cbodescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbodescripcion.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
-
-            If cbodescripcion.Text = "" Then
-                btnGuardar.Focus.Equals(True)
-            Else
-                cbocodigo.Focus.Equals(True)
-            End If
-
-            Dim varhoras As Double = 0
-            varhoras = DateDiff(DateInterval.Hour, CDate(dtpEntrada.Text), CDate(dtpSalida.Text))
-            txtHoras.Text = varhoras
-
+        Dim celda As DataGridViewCellEventArgs = e
+        Dim index As Integer = grdPrecios.CurrentRow.Index
+        Dim preciosel As Double = 0
+        Dim hrs As Integer = 0
+        If celda.ColumnIndex = 1 Then
+            hrs = grdPrecios.Rows(index).Cells(0).Value.ToString
+            preciosel = grdPrecios.Rows(index).Cells(1).Value.ToString
+            lblPrecio.Text = preciosel
+            lblHoras.Text = hrs
         End If
-    End Sub
 
-    Private Sub cbodescripcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbodescripcion.SelectedValueChanged
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Codigo FROM productos WHERE Nombre='" & cbodescripcion.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    cbocodigo.Text = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
-    End Sub
-
-    Private Sub cbocodigo_DropDown(sender As Object, e As EventArgs) Handles cbocodigo.DropDown
-        Try
-            cbocodigo.Items.Clear()
-            cnn5.Close() : cnn5.Open()
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Codigo FROM productos WHERE Codigo<>'' ORDER BY Codigo"
-            rd5 = cmd5.ExecuteReader
-            Do While rd5.Read
-                If rd5.HasRows Then
-                    cbocodigo.Items.Add(rd5(0).ToString)
-                End If
-            Loop
-            rd5.Close()
-            cnn5.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn5.Close()
-        End Try
-    End Sub
-
-    Private Sub cbocodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbocodigo.KeyPress
-        Try
-            If AscW(e.KeyChar) = Keys.Enter Then
-
-                Dim TiCambio As Double = 0
-
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cbocodigo.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        txtprecio.Text = rd1("PrecioVentaIVA").ToString
-                        txtprecio.Text = FormatNumber(txtprecio.Text, 2)
-
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT tipo_cambio FROM tb_moneda,Productos WHERE Codigo='" & cbocodigo.Text & "' AND Productos.id_tbMoneda=tb_moneda.id"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            If rd2.Read Then
-                                TiCambio = rd2(0).ToString
-                                If TiCambio = 0 Then TiCambio = 1
-                            End If
-                        Else
-
-                            TiCambio = 1
-                        End If
-                        rd2.Close()
-                        cnn2.Close()
-
-                    End If
-                Else
-                    MsgBox("El código no se encuentra en la base de datos.", vbInformation + vbOKOnly, titulohotelriaa)
-                    rd1.Close()
-                    cnn1.Close()
-                    cbocodigo.Focus().Equals(True)
-                    Exit Sub
-                End If
-                rd1.Close()
-                cnn1.Close()
-                txtCantidad.Focus.Equals(True)
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
-    End Sub
-
-    Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
-        Try
-
-            Dim chec As Boolean = False
-
-            e.KeyChar = UCase(e.KeyChar)
-            If AscW(e.KeyChar) = Keys.Enter Then
-
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select VSE from Ticket"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        chec = rd1(0).ToString()
-                    End If
-                End If
-                rd1.Close()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
-                        Else
-                            If chec = True Then
-
-                            End If
-                        End If
-                    End If
-                End If
-                rd1.Close()
-                cnn1.Close()
-                Call UpGrid()
-
-                cbocodigo.Text = ""
-                cbodescripcion.Text = ""
-                txtCantidad.Text = "1"
-                txtprecio.Text = "0.00"
-                txtTotal.Text = "0.00"
-                cbodescripcion.Focused.Equals(True)
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
-
-
-    End Sub
-
-    Private Sub UpGrid()
-
-        Try
-            Dim Acumula As Boolean = False
-            Dim Val_Punto As Integer = 0
-            Dim Mid_precio As String = ""
-            Dim codigo As String = cbocodigo.Text
-            Dim nombre As String = cbodescripcion.Text
-            Dim unidad As String = "N/A" 'txtunidad.Text
-            Dim cantid As Double = IIf(txtCantidad.Text = "", "0", txtCantidad.Text)
-            Dim precio As Double = 0
-
-            Val_Punto = InStr(1, txtprecio.Text, ".")
-            If Val_Punto = 0 Then
-                precio = FormatNumber(txtprecio.Text, 4)
-            Else
-                Mid_precio = Mid(txtprecio.Text, Val_Punto, 40)
-                If Len(Mid_precio) = 2 Then
-                    precio = FormatNumber(txtprecio.Text, 4)
-                ElseIf Len(Mid_precio) > 2 Then
-                    precio = FormatNumber(txtprecio.Text, 4)
-                End If
-            End If
-
-            Dim existencia As Double = 0
-            If unidad <> "N/A" Then
-                existencia = existencia 'txtexistencia.Text
-            Else
-                existencia = 0
-            End If
-
-            Dim total As Double = txtTotal.Text
-            Dim PU As Double = CDbl(txtTotal.Text) / (1 + IvaDSC(cbocodigo.Text))
-            Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(cbocodigo.Text)))
-            Dim ieps As Double = ProdsIEPS(cbocodigo.Text)
-
-            Dim desucentoiva As Double = 0
-            Dim total1 As Double = 0
-            Dim monedero As Double = 0
-            Dim minimo As Double = 0
-            cnn3.Close() : cnn3.Open()
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT IVA,Promo_Monedero,Min FROM Productos WHERE Codigo='" & cbocodigo.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    monedero = rd3(1).ToString()
-                    minimo = rd3(2).ToString()
-                    If CDbl(rd3(0).ToString) = 0.16 Then
-                        desucentoiva = FormatNumber(CDbl(txtTotal.Text) / 1.16, 4)
-                        total1 = FormatNumber(CDbl(txtTotal.Text) / 1.16, 4)
-                    Else
-                        desucentoiva = FormatNumber(txtTotal.Text, 4)
-                        total1 = 0
-                    End If
-                End If
-            Else
-                desucentoiva = FormatNumber(txtTotal.Text, 4)
-                total1 = 0
-            End If
-            rd3.Close()
-            cnn3.Close()
-
-            Dim acumulaxd As Integer = 0
-            cnn1.Close()
-            cnn1.Open()
-            cmd1.CommandText = "Select NotasCred from Formatos where Facturas='Acumula'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-                acumulaxd = rd1(0).ToString
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-            If acumulaxd = 1 Then
-                For dx As Integer = 0 To grdCaptura.Rows.Count - 1
-                    If codigo = grdCaptura.Rows(dx).Cells(0).Value.ToString Then
-                        grdCaptura.Rows(dx).Cells(3).Value = cantid + CDec(grdCaptura.Rows(dx).Cells(3).Value)
-                        grdCaptura.Rows(dx).Cells(4).Value = FormatNumber(total + CDec(grdCaptura.Rows(dx).Cells(4).Value), 4)
-                        GoTo kak
-                    End If
-                Next
-                grdCaptura.Rows.Add(codigo, nombre, cantid, FormatNumber(precio, 4), FormatNumber(total, 5), existencia, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
-            Else
-                grdCaptura.Rows.Add(codigo, nombre, cantid, FormatNumber(precio, 4), FormatNumber(total, 4), existencia, FormatNumber(IvaIeps, 4), FormatNumber(ieps, 4), desucentoiva, total1, monedero)
-            End If
-kak:
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-
-        End Try
-
-    End Sub
-
-    Public Function IvaDSC(ByVal cod As String) As Double
-        Try
-            cnn3.Close() : cnn3.Open()
-
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT IVA FROM Productos WHERE Codigo='" & cod & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    IvaDSC = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString))
-                End If
-            Else
-                IvaDSC = 0
-            End If
-            rd3.Close()
-            cnn3.Close()
-            Return IvaDSC
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn3.Close()
-        End Try
-    End Function
-
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
-            If IsNumeric(txtCantidad.Text) Then
-
-                txtTotal.Text = CDbl(txtCantidad.Text) * CDbl(txtprecio.Text)
-                txtTotal.Text = FormatNumber(txtTotal.Text, 4)
-                txtprecio.Focus.Equals(True)
-            End If
+        If celda.ColumnIndex = 2 Then
+            preciosel = grdPrecios.Rows(index).Cells(2).Value.ToString
+            lblPrecio.Text = preciosel
+            lblHoras.Text = "24"
         End If
+
     End Sub
 End Class

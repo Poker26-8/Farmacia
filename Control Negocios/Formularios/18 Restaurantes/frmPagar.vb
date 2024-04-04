@@ -4216,4 +4216,9 @@ Door:
                 txtPropina.Focus.Equals(True)
         End Select
     End Sub
+
+    Private Sub btnDividir_Click(sender As Object, e As EventArgs) Handles btnDividir.Click
+        frmDividirCuenta.mesa = lblmesa.Text
+        frmDividirCuenta.Show()
+    End Sub
 End Class

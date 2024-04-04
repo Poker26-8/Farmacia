@@ -56,6 +56,7 @@
                         Else
 
                             If rd1("Mesas").ToString() = 1 Then
+                                frmAgregarMesa.IDUSU = id_usu
                                 frmAgregarMesa.Show()
                                 frmAgregarMesa.BringToFront()
                                 Me.Close()

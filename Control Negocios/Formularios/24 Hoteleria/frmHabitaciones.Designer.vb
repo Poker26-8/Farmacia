@@ -32,6 +32,12 @@ Partial Class frmHabitaciones
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtHoras = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPreDia = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtPrecioH = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.cboUbicacion = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -64,7 +70,7 @@ Partial Class frmHabitaciones
         Me.Panel3.Controls.Add(Me.btnGuardar)
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 125)
+        Me.Panel3.Location = New System.Drawing.Point(0, 153)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(597, 97)
         Me.Panel3.TabIndex = 5
@@ -76,6 +82,7 @@ Partial Class frmHabitaciones
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(84, 14)
         Me.barsube.TabIndex = 221
+        Me.barsube.Visible = False
         '
         'Label5
         '
@@ -84,6 +91,7 @@ Partial Class frmHabitaciones
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(84, 16)
         Me.Label5.TabIndex = 4
+        Me.Label5.Visible = False
         '
         'btnImportar
         '
@@ -98,6 +106,7 @@ Partial Class frmHabitaciones
         Me.btnImportar.Text = "Importar"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnImportar.UseVisualStyleBackColor = True
+        Me.btnImportar.Visible = False
         '
         'btnLimpiar
         '
@@ -143,6 +152,12 @@ Partial Class frmHabitaciones
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.txtHoras)
+        Me.Panel4.Controls.Add(Me.Label8)
+        Me.Panel4.Controls.Add(Me.txtPreDia)
+        Me.Panel4.Controls.Add(Me.Label7)
+        Me.Panel4.Controls.Add(Me.txtPrecioH)
+        Me.Panel4.Controls.Add(Me.Label4)
         Me.Panel4.Controls.Add(Me.DataGridView1)
         Me.Panel4.Controls.Add(Me.cboUbicacion)
         Me.Panel4.Controls.Add(Me.Label6)
@@ -155,8 +170,67 @@ Partial Class frmHabitaciones
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(597, 222)
+        Me.Panel4.Size = New System.Drawing.Size(597, 250)
         Me.Panel4.TabIndex = 4
+        '
+        'txtHoras
+        '
+        Me.txtHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtHoras.Location = New System.Drawing.Point(68, 126)
+        Me.txtHoras.Name = "txtHoras"
+        Me.txtHoras.Size = New System.Drawing.Size(103, 22)
+        Me.txtHoras.TabIndex = 233
+        Me.txtHoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(3, 126)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(59, 18)
+        Me.Label8.TabIndex = 232
+        Me.Label8.Text = "Horas:"
+        '
+        'txtPreDia
+        '
+        Me.txtPreDia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPreDia.Location = New System.Drawing.Point(487, 126)
+        Me.txtPreDia.Name = "txtPreDia"
+        Me.txtPreDia.Size = New System.Drawing.Size(101, 22)
+        Me.txtPreDia.TabIndex = 231
+        Me.txtPreDia.Text = "0.00"
+        Me.txtPreDia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(365, 126)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(116, 18)
+        Me.Label7.TabIndex = 230
+        Me.Label7.Text = "Precio Noche:"
+        '
+        'txtPrecioH
+        '
+        Me.txtPrecioH.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecioH.Location = New System.Drawing.Point(240, 126)
+        Me.txtPrecioH.Name = "txtPrecioH"
+        Me.txtPrecioH.Size = New System.Drawing.Size(105, 22)
+        Me.txtPrecioH.TabIndex = 229
+        Me.txtPrecioH.Text = "0.00"
+        Me.txtPrecioH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(177, 126)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(62, 18)
+        Me.Label4.TabIndex = 228
+        Me.Label4.Text = "Precio:"
         '
         'DataGridView1
         '
@@ -251,7 +325,7 @@ Partial Class frmHabitaciones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(597, 222)
+        Me.ClientSize = New System.Drawing.Size(597, 250)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel4)
@@ -285,4 +359,10 @@ Partial Class frmHabitaciones
     Friend WithEvents Label1 As Label
     Friend WithEvents cbonumero As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents txtPreDia As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtPrecioH As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtHoras As TextBox
+    Friend WithEvents Label8 As Label
 End Class

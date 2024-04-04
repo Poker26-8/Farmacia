@@ -452,9 +452,11 @@
                                               `Ubicacion` varchar(255) DEFAULT '',
                                               `Tipo` varchar(255) DEFAULT '',
                                               `Estado` varchar(100) DEFAULT '',
-                                              `Precio` float DEFAULT '0',
                                               `Caracteristicas` varchar(255) DEFAULT '',
-                                              `Tiempo` int(11) DEFAULT '0'
+                                              `Tiempo` int(11) DEFAULT '0',
+                                              `Horas` int(11) DEFAULT '0',
+                                              `PrecioH` float DEFAULT '0',
+                                              `PreDia` float DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'detallehotelprecios
     Public vartabladetallehotelprecios As String = "CREATE TABLE `detallehotelprecios` (
@@ -470,12 +472,14 @@
                                               `Habitacion` varchar(80) DEFAULT '',
                                               `Tipo` varchar(80) DEFAULT '',
                                               `Estado` varchar(80) DEFAULT '',
+                                              `Horas` float DEFAULT '0',
                                               `Precio` float DEFAULT '0',
                                               `Cliente` varchar(255) DEFAULT '',
                                               `Telefono` varchar(12) DEFAULT '',
-                                              `FEntrada` date DEFAULT NULL,
+                                              `FEntrada` datetime DEFAULT NULL,
                                               `FSalida` date DEFAULT NULL,
-                                              `Caracteristicas` varchar(255) DEFAULT ''
+                                              `Caracteristicas` varchar(255) DEFAULT '',
+                                              `Status` varchar(255) DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'control-servicios-det
@@ -1134,6 +1138,7 @@
                                           `CostVR` float DEFAULT '0',
                                           `CostVP` float DEFAULT '0',
                                           `CostVUE` float DEFAULT '0',
+                                          `Descuento` float DEFAULT '0',
                                           `Precio` float DEFAULT '0',
                                           `Total` float DEFAULT '0',
                                           `PrecioSinIVA` float DEFAULT '0',
@@ -1658,7 +1663,22 @@
                                                 ('68','LinkAuto', '0', 0),
                                                 ('69','ActuClientesNube', '0', 0),
                                                 ('70','Pollos', '0', 0),
-                                                ('71','ToleHabi', '0', 0);"
+                                                ('71','ToleHabi', '0', 0),
+                                                ('72','Pto-Bascula', '0', 0),
+                                                ('73','TBascula', '0', 0),
+                                                ('74','Bascula', 'SBascula', 0),
+                                                ('75','Prefijo', '0', 0),
+                                                ('76','Codigo', '0', 0),
+                                                ('77','Peso', '0', 0),
+                                                ('78','Taller', '0', 0),
+                                                ('79','MesasPropias', '0', 0),
+                                                ('80','Copa', '0', 0),
+                                                ('81','IMG_PDF', '0', 0),
+                                                ('82','SinNumCoemensal', '0', 0),
+                                                ('83','Mapeo', '0', 0),
+                                                ('84','SalidaHab', '0', 0),
+                                                ('85','PrecioDia', '0', 0),
+                                                ('86','Cuartos', '0', 0);"
 
 
 
@@ -2454,11 +2474,12 @@
                                               `Rep_Auditoria` int(1) NOT NULL DEFAULT '0',
                                               `cat_Formas` int(1) NOT NULL DEFAULT '0',
                                               `cat_Bancos` int(1) NOT NULL DEFAULT '0',
-                                              `cat_Cuentas` int(1) NOT NULL DEFAULT '0'
+                                              `cat_Cuentas` int(1) NOT NULL DEFAULT '0',
+                                              `PreciosHab` int(1) NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
-    Public varinsertapermisos As String = "INSERT INTO `permisos` (`Id`, `IdEmpleado`, `Cat_Emp`, `Cat_Cli`, `Cat_Prov`, `Cat_Mone`, `Asis_Hora`, `Asis_Hue`, `Asis_Asis`, `Asis_Rep`, `Prod_Prod`, `Prod_Serv`, `Prod_Pre`, `Prod_Prom`, `Prod_Kits`, `Comp_Ped`, `Comp_CPed`, `Comp_Com`, `Comp_CCom`, `Comp_NCred`, `Comp_CtPag`, `Comp_Abon`, `Comp_Anti`, `Vent_Most`, `Vent_Touch`, `Vent_NVen`, `Vent_Coti`, `Vent_Pedi`, `Vent_Devo`, `Vent_CFol`, `Vent_Abo`, `Vent_Canc`, `Vent_EPrec`, `Ing_CEmp`, `Egr_PEmp`, `Egr_Nom`, `Egr_Tran`, `Egr_Otro`, `Rep_Vent`, `Rep_VentG`, `Rep_Comp`, `Rep_CCob`, `Rep_CPag`, `Rep_Ent`, `Rep_Sal`, `Rep_Inv`, `Rep_Aju`, `List_Pre`, `List_Pro`, `List_Fal`, `Fact_Fact`, `Fact_Rep`, `Ad_Perm`, `Ad_Conf`, `Ad_Util`, `Ad_Cort`,`Ad_Cli`,`ReimprimirApp`,`CobAboRem`,`Rep_Servicios`,`Rep_CamPrecio`,`Rep_EstResultado`,`Rep_Auditoria`,`cat_Formas`,`cat_Bancos`,`cat_Cuentas`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,0,1,1,1,1,1,1);"
+    Public varinsertapermisos As String = "INSERT INTO `permisos` (`Id`, `IdEmpleado`, `Cat_Emp`, `Cat_Cli`, `Cat_Prov`, `Cat_Mone`, `Asis_Hora`, `Asis_Hue`, `Asis_Asis`, `Asis_Rep`, `Prod_Prod`, `Prod_Serv`, `Prod_Pre`, `Prod_Prom`, `Prod_Kits`, `Comp_Ped`, `Comp_CPed`, `Comp_Com`, `Comp_CCom`, `Comp_NCred`, `Comp_CtPag`, `Comp_Abon`, `Comp_Anti`, `Vent_Most`, `Vent_Touch`, `Vent_NVen`, `Vent_Coti`, `Vent_Pedi`, `Vent_Devo`, `Vent_CFol`, `Vent_Abo`, `Vent_Canc`, `Vent_EPrec`, `Ing_CEmp`, `Egr_PEmp`, `Egr_Nom`, `Egr_Tran`, `Egr_Otro`, `Rep_Vent`, `Rep_VentG`, `Rep_Comp`, `Rep_CCob`, `Rep_CPag`, `Rep_Ent`, `Rep_Sal`, `Rep_Inv`, `Rep_Aju`, `List_Pre`, `List_Pro`, `List_Fal`, `Fact_Fact`, `Fact_Rep`, `Ad_Perm`, `Ad_Conf`, `Ad_Util`, `Ad_Cort`,`Ad_Cli`,`ReimprimirApp`,`CobAboRem`,`Rep_Servicios`,`Rep_CamPrecio`,`Rep_EstResultado`,`Rep_Auditoria`,`cat_Formas`,`cat_Bancos`,`cat_Cuentas`,`PreciosHab`) VALUES
+(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,1);"
 
 
 
@@ -6550,7 +6571,7 @@
     Public varKeyalumnos As String = "ALTER TABLE `alumnos` ADD PRIMARY KEY (`Id`);"
     Public varKeyfechacobros As String = "ALTER TABLE `fechacobros` ADD PRIMARY KEY (`Id`);"
     Public varKeygrupos As String = "ALTER TABLE `grupos` ADD PRIMARY KEY (`Id`);"
-    Public varKeymesasempleados As String = "ALTER TABLE `mesasxempleados` ADD PRIMARY KEY (`Id`);"
+    Public varKeymesasempleados As String = "ALTER TABLE `mesasxempleados` ADD PRIMARY KEY (`IdMesa`);"
     Public varKeycomandas1 As String = "ALTER TABLE `comanda1` ADD PRIMARY KEY (`Id`);"
     Public varKeycomandas As String = "ALTER TABLE `comandas` ADD PRIMARY KEY (`IDC`);"
     Public varKeycuentasbancarias As String = "ALTER TABLE `cuentasbancarias` ADD PRIMARY KEY (`Id`);"
@@ -6701,7 +6722,7 @@
     Public varAutoalumnos As String = "ALTER TABLE `alumnos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutofechacobros As String = "ALTER TABLE `fechacobros` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutogrupos As String = "ALTER TABLE `grupos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
-    Public varAutomesasempleados As String = "ALTER TABLE `mesasxempleados` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutomesasempleados As String = "ALTER TABLE `mesasxempleados` MODIFY `IdMesa` int(11) NOT NULL AUTO_INCREMENT;"
 
     Public varAutocomandas1 As String = "ALTER TABLE `comanda1` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutocomandas As String = "ALTER TABLE `comandas` MODIFY `IDC` int(11) NOT NULL AUTO_INCREMENT;"

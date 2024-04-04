@@ -1,16 +1,13 @@
 ﻿Public Class frmAgregarMesa
+
+    Public IDUSU As Integer = 0
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         Try
 
             Dim TEMPORAL As Integer = 0
             Dim TIEMPO As Integer = 0
-
-            If cktemporal.Checked = True Then
-                TEMPORAL = 1
-            Else
-                TEMPORAL = 0
-            End If
+            Dim ORDEN As Integer = 0
 
             If cbTiempo.Checked = True Then
                 TIEMPO = 1
@@ -18,66 +15,24 @@
                 TIEMPO = 0
             End If
 
-            If (cktemporal.Checked) Then
-
-                Dim idempleado As Integer = 0
-
-                cnn1.Close() : cnn1.Open()
-                cnn2.Close() : cnn2.Open()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT IdEmpleado FROM usuarios WHERE Alias='" & cbomesero.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        idempleado = rd1(0).ToString
-                    End If
-                End If
-                rd1.Close()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & cbomesa.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE Mesa SET Temporal=" & TEMPORAL & ",Contabiliza=" & TIEMPO & ", Precio=" & txtprecio.Text & ", Ubicacion='" & cboubicacion.Text & "',Tipo='" & cbopara.Text & "',IdEmpleado=" & idempleado & ",Mesero='" & cbomesero.Text & "' WHERE Nombre_mesa='" & cbomesa.Text & "'"
-                        cmd2.ExecuteNonQuery()
-
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE mesasxempleados SET IdEmpleado=" & idempleado & " WHERE Mesa='" & cbomesa.Text & "'"
-                        If cmd2.ExecuteNonQuery() Then
-                            MsgBox("Mesa actualizada correctamente", vbInformation + vbOKOnly, titulomensajes)
-                            cnn2.Close()
-                        End If
-
-
-
-                    End If
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT MAX(Orden) FROM mesa"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    ORDEN = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + 1
                 Else
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO Mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo) VALUES('" & cbomesa.Text & "'," & TEMPORAL & ",'Desocupada'," & TIEMPO & "," & txtprecio.Text & "," & IIf(txtOrden.Text = "", "0", txtOrden.Text) & ",''," & idempleado & ",'" & cbomesero.Text & "','" & cboubicacion.Text & "',0,0,'" & cbopara.Text & "')"
-                    cmd2.ExecuteNonQuery()
-
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal) VALUES('" & cbomesa.Text & "'," & idempleado & ",'',1)"
-                    If cmd2.ExecuteNonQuery() Then
-                        MsgBox("Mesa agregada correctamente", vbInformation + vbOKOnly, titulorestaurante)
-                        cnn2.Close()
-                    End If
-
-
+                    ORDEN = "1"
                 End If
-                    rd1.Close()
-                cnn1.Close()
-
             Else
 
-                cnn1.Close() : cnn1.Open()
-                cnn2.Close() : cnn2.Open()
+                ORDEN = "1"
+            End If
+            rd2.Close()
 
-                cmd1 = cnn1.CreateCommand
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & cbomesa.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
@@ -86,7 +41,7 @@
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText = "UPDATE Mesa SET Temporal=" & TEMPORAL & ",Contabiliza=" & TIEMPO & ", Precio=" & txtprecio.Text & ", Ubicacion='" & cboubicacion.Text & "',Tipo='" & cbopara.Text & "' WHERE Nombre_mesa='" & cbomesa.Text & "'"
                         If cmd2.ExecuteNonQuery() Then
-                            MsgBox("Mesa actualizada correctamente", vbInformation + vbOKOnly, titulomensajes)
+                            MsgBox("Mesa actualizada correctamente", vbInformation + vbOKOnly, titulorestaurante)
                         End If
                         cnn2.Close()
 
@@ -94,17 +49,18 @@
                 Else
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO Mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo) VALUES('" & cbomesa.Text & "'," & TEMPORAL & ",'Desocupada'," & TIEMPO & "," & txtprecio.Text & "," & IIf(txtOrden.Text = "", "0", txtOrden.Text) & ",'',0,'','" & cboubicacion.Text & "',0,0,'" & cbopara.Text & "')"
+                    cmd2.CommandText = "INSERT INTO Mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo) VALUES('" & cbomesa.Text & "'," & TEMPORAL & ",'Desocupada'," & TIEMPO & "," & txtprecio.Text & "," & ORDEN & ",'',0,'','" & cboubicacion.Text & "',0,0,'" & cbopara.Text & "')"
+                    cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal) VALUES('" & cbomesa.Text & "'," & IDUSU & ",'',0)"
                     If cmd2.ExecuteNonQuery() Then
-                        MsgBox("Mesa agregada correctamente", vbInformation + vbOKOnly, titulomensajes)
+                        MsgBox("Mesa agregada correctamente", vbInformation + vbOKOnly, titulorestaurante)
                     End If
                     cnn2.Close()
                 End If
                 rd1.Close()
                 cnn1.Close()
-
-            End If
-
 
 
             btnLimpiar.PerformClick()
@@ -114,7 +70,7 @@
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
-
+            cnn2.Close()
         End Try
 
     End Sub
@@ -141,12 +97,6 @@
 
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtOrden.Focus.Equals(True)
-        End If
-    End Sub
-
-    Private Sub txtOrden_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtOrden.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
             btnGuardar.Focus.Equals(True)
         End If
     End Sub
@@ -157,10 +107,7 @@
         cboubicacion.Text = ""
         cbopara.Text = ""
         txtprecio.Text = ""
-        txtOrden.Text = ""
         cbTiempo.Checked = False
-        cktemporal.Checked = False
-        lblmesero.Text = ""
 
     End Sub
 
@@ -249,7 +196,6 @@
         Try
 
             Dim tiempo As Integer = 0
-            Dim temporal As Integer = 0
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -262,14 +208,8 @@
                     txtprecio.Text = rd1("Precio").ToString
                     txtOrden.Text = rd1("Orden").ToString
 
-                    temporal = rd1("Temporal").ToString
                     tiempo = rd1("Contabiliza").ToString
 
-                    If temporal = 1 Then
-                        cktemporal.Checked = True
-                    Else
-                        cktemporal.Checked = False
-                    End If
                     If tiempo = 1 Then
                         cbTiempo.Checked = True
                     Else
@@ -287,32 +227,4 @@
         End Try
     End Sub
 
-    Private Sub cktemporal_CheckedChanged(sender As Object, e As EventArgs) Handles cktemporal.CheckedChanged
-        If (cktemporal.Checked) Then
-            Me.Size = New Size(354, 373)
-        Else
-            Me.Size = New Size(354, 330)
-        End If
-    End Sub
-
-    Private Sub cbomesero_DropDown(sender As Object, e As EventArgs) Handles cbomesero.DropDown
-        Try
-            cbomesero.Items.Clear()
-
-            cnn5.Close() : cnn5.Open()
-            cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Alias FROM Usuarios WHERE Alias<>'' AND Puesto='MESERO' order by Alias"
-            rd5 = cmd5.ExecuteReader
-            Do While rd5.Read
-                If rd5.HasRows Then
-                    cbomesero.Items.Add(rd5(0).ToString)
-                End If
-            Loop
-            rd5.Close()
-            cnn5.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn5.Close()
-        End Try
-    End Sub
 End Class

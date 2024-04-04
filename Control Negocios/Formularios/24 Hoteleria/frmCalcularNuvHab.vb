@@ -47,12 +47,13 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Horas,Precio FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
+            cmd2.CommandText = "SELECT Horas,Precio FROM detallehotel WHERE Habitacion='" & lblpc.Text & "' AND Status='PAGADO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
                     lblHoras.Text = rd2(0).ToString
                     lblPrecio.Text = rd2(1).ToString
+                    lblAnticipo.Text = rd2(1).ToString
                 End If
             End If
             rd2.Close()
@@ -103,9 +104,9 @@
 
                             If fechEntrada > fechSalida Then
                                 MsgBox("se acabo el tiempó")
-                                lblPagar.Text = CDbl(lblPrecio.Text) + CDbl(precioaumento)
+                                lblPagar.Text = CDbl(precioaumento) - CDbl(lblAnticipo.Text)
                             Else
-                                lblPagar.Text = CDbl(lblPrecio.Text)
+                                lblPagar.Text = CDbl(lblPrecio.Text) - CDbl(lblAnticipo.Text)
                             End If
 
                         End If
@@ -114,9 +115,10 @@
                         If lblHorFin.Text >= lblsalida.Text Then
                             MsgBox("El tiempo de renta de la habitación termino.", vbInformation + vbOKOnly, titulohotelriaa)
                             lblPagar.Text = CDbl(lblPrecio.Text)
-                            lblPagar.Text = lblPagar.Text + CDbl(precioaumento)
+                            ' lblPagar.Text = lblPagar.Text + CDbl(precioaumento)
+                            lblPagar.Text = CDbl(precioaumento) - CDbl(lblAnticipo.Text)
                         Else
-                            lblPagar.Text = CDbl(lblPrecio.Text)
+                            lblPagar.Text = CDbl(lblPrecio.Text) - CDbl(lblAnticipo.Text)
                         End If
                     End If
 
@@ -178,6 +180,10 @@
 
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText = "DELETE FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+                    cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
 

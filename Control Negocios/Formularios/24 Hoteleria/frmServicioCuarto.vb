@@ -721,7 +721,6 @@ Public Class frmServicioCuarto
         grdCaptura.Rows.Remove(grdCaptura.CurrentRow)
 
     End Sub
-
     Private Sub TFecha_Tick(sender As Object, e As EventArgs) Handles TFecha.Tick
 
         TFecha.Stop()
@@ -771,7 +770,12 @@ Public Class frmServicioCuarto
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+            If txtBarras.Text = "" Then
+                cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+            Else
+                cmd2.CommandText = "SELECT * FROM Productos WHERE CodBarra='" & codigo & "'"
+            End If
+
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -802,6 +806,7 @@ Public Class frmServicioCuarto
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         lblTotalPagar.Text = "0.00"
         grdCaptura.Rows.Clear()
+        txtBarras.Text = ""
     End Sub
 
     Private Sub btnProd_Click(sender As Object, e As EventArgs)
@@ -819,7 +824,13 @@ nopaso:
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Codigo & "'"
+
+            If txtBarras.Text = "" Then
+                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Codigo & "'"
+            Else
+                cmd1.CommandText = "SELECT * FROM Productos WHERE CodBarra='" & Codigo & "'"
+            End If
+
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1630,6 +1641,15 @@ nopaso:
     Private Sub btnaceptar_Click(sender As Object, e As EventArgs) Handles btnaceptar.Click
         txtRespuesta_KeyPress(txtRespuesta, New KeyPressEventArgs(ControlChars.Cr))
     End Sub
+
+    Private Sub txtBarras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            ObtenerProducto(txtBarras.Text)
+            txtBarras.Text = ""
+            txtBarras.Focus.Equals(True)
+        End If
+    End Sub
+
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         txtRespuesta.Text = txtRespuesta.Text + btn9.Text
     End Sub

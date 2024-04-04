@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAgregarMesa
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,14 @@ Partial Class frmAgregarMesa
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarMesa))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblmesero = New System.Windows.Forms.Label()
         Me.cbTiempo = New System.Windows.Forms.CheckBox()
         Me.txtprecio = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cktemporal = New System.Windows.Forms.CheckBox()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
@@ -40,13 +38,7 @@ Partial Class frmAgregarMesa
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtOrden = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.pmesero = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cbomesero = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
-        Me.pmesero.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -70,21 +62,11 @@ Partial Class frmAgregarMesa
         Me.Label4.Text = "Agregar Mesa"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblmesero
-        '
-        Me.lblmesero.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblmesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesero.Location = New System.Drawing.Point(229, 186)
-        Me.lblmesero.Name = "lblmesero"
-        Me.lblmesero.Size = New System.Drawing.Size(104, 21)
-        Me.lblmesero.TabIndex = 18
-        Me.lblmesero.Visible = False
-        '
         'cbTiempo
         '
         Me.cbTiempo.AutoSize = True
         Me.cbTiempo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbTiempo.Location = New System.Drawing.Point(136, 186)
+        Me.cbTiempo.Location = New System.Drawing.Point(249, 159)
         Me.cbTiempo.Name = "cbTiempo"
         Me.cbTiempo.Size = New System.Drawing.Size(77, 22)
         Me.cbTiempo.TabIndex = 32
@@ -109,17 +91,6 @@ Partial Class frmAgregarMesa
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Precio:"
         '
-        'cktemporal
-        '
-        Me.cktemporal.AutoSize = True
-        Me.cktemporal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cktemporal.Location = New System.Drawing.Point(15, 186)
-        Me.cktemporal.Name = "cktemporal"
-        Me.cktemporal.Size = New System.Drawing.Size(90, 22)
-        Me.cktemporal.TabIndex = 29
-        Me.cktemporal.Text = "Temporal"
-        Me.cktemporal.UseVisualStyleBackColor = True
-        '
         'btnLimpiar
         '
         Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -128,7 +99,7 @@ Partial Class frmAgregarMesa
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(18, 214)
+        Me.btnLimpiar.Location = New System.Drawing.Point(18, 187)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 68)
         Me.btnLimpiar.TabIndex = 28
@@ -144,7 +115,7 @@ Partial Class frmAgregarMesa
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(97, 214)
+        Me.btnGuardar.Location = New System.Drawing.Point(97, 187)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 68)
         Me.btnGuardar.TabIndex = 27
@@ -160,7 +131,7 @@ Partial Class frmAgregarMesa
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(176, 214)
+        Me.btnEliminar.Location = New System.Drawing.Point(176, 187)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 68)
         Me.btnEliminar.TabIndex = 26
@@ -176,7 +147,7 @@ Partial Class frmAgregarMesa
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(255, 214)
+        Me.btnSalir.Location = New System.Drawing.Point(255, 187)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 68)
         Me.btnSalir.TabIndex = 25
@@ -236,64 +207,15 @@ Partial Class frmAgregarMesa
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Nombre:"
         '
-        'txtOrden
-        '
-        Me.txtOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOrden.Location = New System.Drawing.Point(274, 159)
-        Me.txtOrden.Name = "txtOrden"
-        Me.txtOrden.Size = New System.Drawing.Size(56, 21)
-        Me.txtOrden.TabIndex = 34
-        '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(207, 160)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 21)
-        Me.Label6.TabIndex = 33
-        Me.Label6.Text = "Orden:"
-        '
-        'pmesero
-        '
-        Me.pmesero.Controls.Add(Me.cbomesero)
-        Me.pmesero.Controls.Add(Me.Label7)
-        Me.pmesero.Location = New System.Drawing.Point(15, 288)
-        Me.pmesero.Name = "pmesero"
-        Me.pmesero.Size = New System.Drawing.Size(318, 39)
-        Me.pmesero.TabIndex = 35
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(8, 10)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(68, 20)
-        Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Mesero"
-        '
-        'cbomesero
-        '
-        Me.cbomesero.FormattingEnabled = True
-        Me.cbomesero.Location = New System.Drawing.Point(81, 9)
-        Me.cbomesero.Name = "cbomesero"
-        Me.cbomesero.Size = New System.Drawing.Size(121, 21)
-        Me.cbomesero.TabIndex = 1
-        '
         'frmAgregarMesa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(338, 291)
-        Me.Controls.Add(Me.pmesero)
-        Me.Controls.Add(Me.txtOrden)
-        Me.Controls.Add(Me.lblmesero)
-        Me.Controls.Add(Me.Label6)
+        Me.ClientSize = New System.Drawing.Size(338, 265)
         Me.Controls.Add(Me.cbTiempo)
         Me.Controls.Add(Me.txtprecio)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.cktemporal)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnEliminar)
@@ -310,8 +232,6 @@ Partial Class frmAgregarMesa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Agregar Mesas"
         Me.Panel1.ResumeLayout(False)
-        Me.pmesero.ResumeLayout(False)
-        Me.pmesero.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -319,11 +239,9 @@ Partial Class frmAgregarMesa
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label4 As Label
-    Friend WithEvents lblmesero As Label
     Friend WithEvents cbTiempo As CheckBox
     Friend WithEvents txtprecio As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents cktemporal As CheckBox
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnEliminar As Button
@@ -336,7 +254,4 @@ Partial Class frmAgregarMesa
     Friend WithEvents Label1 As Label
     Friend WithEvents txtOrden As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents pmesero As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents cbomesero As ComboBox
 End Class

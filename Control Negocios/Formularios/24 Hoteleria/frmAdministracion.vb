@@ -249,6 +249,8 @@
             End If
             rd1.Close()
             cnn1.Close()
+
+            MsgBox("Datos almacenados correctamente", vbInformation + vbOKOnly, titulohotelriaa)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()

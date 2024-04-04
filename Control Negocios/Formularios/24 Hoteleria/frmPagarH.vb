@@ -674,8 +674,6 @@ Public Class frmPagarH
 
         If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : Exit Sub
 
-
-
         If grdpago.Rows.Count > 0 Then
             For dekua As Integer = 0 To grdpago.Rows.Count - 1
                 tipopago = grdpago.Rows(dekua).Cells(0).Value.ToString
@@ -1283,32 +1281,55 @@ Public Class frmPagarH
             cnn1.Close()
         End If
 
-
         cnn2.Close() : cnn2.Open()
         cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblHabitacion.Text & "'"
-        cmd2.ExecuteNonQuery()
+        cmd2.CommandText = "SELECT * FROM detallehotel WHERE Habitacion='" & lblHabitacion.Text & "'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
 
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "DELETE FROM asigpc WHERE Nombre='" & lblHabitacion.Text & "'"
-        cmd2.ExecuteNonQuery()
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "UPDATE detallehotel SET Status='PAGADO' WHERE Habitacion='" & lblHabitacion.Text & "'"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
 
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "UPDATE Rep_Comandas SET Status='PAGADA' WHERE NMESA='" & lblHabitacion.Text & "' AND Status<>'CANCELADA'"
-        cmd2.ExecuteNonQuery()
+            End If
+        Else
 
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblHabitacion.Text & "'"
-        cmd2.ExecuteNonQuery()
+            cnn2.Close() : cnn2.Open()
+            'cmd2 = cnn2.CreateCommand
+            'cmd2.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblHabitacion.Text & "'"
+            'cmd2.ExecuteNonQuery()
 
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "DELETE FROM comandas WHERE Nmesa='" & lblHabitacion.Text & "'"
-        cmd2.ExecuteNonQuery()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "DELETE FROM asigpc WHERE Nombre='" & lblHabitacion.Text & "'"
+            cmd2.ExecuteNonQuery()
 
-        cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "UPDATE habitacion SET Estado='Desocupada' WHERE N_Habitacion='" & lblHabitacion.Text & "'"
-        cmd2.ExecuteNonQuery()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "UPDATE Rep_Comandas SET Status='PAGADA' WHERE NMESA='" & lblHabitacion.Text & "' AND Status<>'CANCELADA'"
+            cmd2.ExecuteNonQuery()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblHabitacion.Text & "'"
+            cmd2.ExecuteNonQuery()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "DELETE FROM comandas WHERE Nmesa='" & lblHabitacion.Text & "'"
+            cmd2.ExecuteNonQuery()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "UPDATE habitacion SET Estado='Desocupada' WHERE N_Habitacion='" & lblHabitacion.Text & "'"
+            cmd2.ExecuteNonQuery()
+            cnn2.Close()
+
+
+        End If
+        rd2.Close()
         cnn2.Close()
+
+
+
 
         'imprimir ticket
 

@@ -911,120 +911,120 @@ Public Class Inicio
         End Try
 
         'productos
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Mililitros,Copas,CodBarra1,CodBarra2,CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4 FROM productos"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-            End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            rd1.Close()
-            'cmd1 = cnn1.CreateCommand
-            'cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
-            'cmd1.ExecuteNonQuery()
+        'Try
+        '    cnn1.Close() : cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "SELECT Mililitros,Copas,CodBarra1,CodBarra2,CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4 FROM productos"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.Read Then
+        '    End If
+        '    rd1.Close() : cnn1.Close()
+        'Catch ex As Exception
+        '    rd1.Close()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            'cmd1 = cnn1.CreateCommand
-            'cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
-            'cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+        '    cmd1.ExecuteNonQuery()
 
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PrecioVenta2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PrecioVenta2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PorcMin2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PorcMin2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PreMin2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PreMin2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PorcMay2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PorcMay2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PorcMM2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PorcMM2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PorcEsp2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PorcEsp2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PreMay2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PreMay2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PreMM2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PreMM2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column PreEsp2 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column PreEsp2 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMin3 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMin3 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMin4 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMin4 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMay3 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMay3 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMay4 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMay4 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMM3 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMM3 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantMM4 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantMM4 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantEsp3 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantEsp3 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantEsp4 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantEsp4 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantLst3 float default '0'"
-            cmd1.ExecuteNonQuery()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantLst3 float default '0'"
+        '    cmd1.ExecuteNonQuery()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CantLst4 float default '0'"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CantLst4 float default '0'"
+        '    cmd1.ExecuteNonQuery()
+        '    cnn1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "ALTER TABLE productos add column CodBarra3 varchar(50) default ''"
+        '    cmd1.ExecuteNonQuery()
+        '    cnn1.Close()
 
-        End Try
+        'End Try
 
         'usuarios
         Try

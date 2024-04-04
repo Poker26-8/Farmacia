@@ -21,7 +21,7 @@
     Private Sub cboTipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTipo.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnGuardar.Focus.Equals(True)
+            txtHoras.Focus.Equals(True)
         End If
     End Sub
 
@@ -62,7 +62,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "' WHERE N_Habitacion='" & cbonumero.Text & "'"
+                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "',Horas=" & txtHoras.Text & ",PrecioH=" & txtPrecioH.Text & ",PreDia=" & txtPreDia.Text & " WHERE N_Habitacion='" & cbonumero.Text & "'"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Habitación " & cbonumero.Text & " actualizada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                     End If
@@ -73,7 +73,7 @@
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1)"
+                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo,Horas,PrecioH,PreDia) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1," & txtHoras.Text & "," & txtPrecioH.Text & "," & txtPreDia.Text & ")"
                 If cmd2.ExecuteNonQuery() Then
                     MsgBox("Habitacion " & cbonumero.Text & " agregada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                 End If
@@ -99,6 +99,9 @@
         cboTipo.Text = ""
         ' txtprecio.Text = ""
         rtbCaracteristicas.Text = ""
+        txtHoras.Text = ""
+        txtPrecioH.Text = "0.00"
+        txtPreDia.Text = "0.00"
     End Sub
 
     Private Sub cbonumero_DropDown(sender As Object, e As EventArgs) Handles cbonumero.DropDown
@@ -135,6 +138,9 @@
                     ' txtprecio.Text = rd1("Precio").ToString
                     rtbCaracteristicas.Text = rd1("Caracteristicas").ToString
 
+                    txtHoras.Text = rd1("Horas").ToString
+                    txtPrecioH.Text = rd1("PrecioH").ToString
+                    txtPreDia.Text = rd1("PreDia").ToString
                 End If
             End If
             rd1.Close()
@@ -306,4 +312,28 @@
             NulVa = cifra
         End If
     End Function
+
+    Private Sub txtHoras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHoras.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtHoras.Text) Then
+                txtPrecioH.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPrecioH_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecioH.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPrecioH.Text) Then
+                txtPreDia.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPreDia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPreDia.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPreDia.Text) Then
+                btnGuardar.Focus.Equals(True)
+            End If
+        End If
+    End Sub
 End Class

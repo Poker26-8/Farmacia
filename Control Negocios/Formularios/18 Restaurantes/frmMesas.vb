@@ -190,7 +190,8 @@ Public Class frmMesas
     Private Sub btnArea_Click(sender As Object, e As EventArgs)
         pmesas.Controls.Clear()
         Dim mesa As Button = CType(sender, Button)
-        nombreubicacion = btnArea.Text
+
+        nombreubicacion = mesa.Text
         Crea_Mesas(mesa.Text)
         Dim valor As String = ""
         valor = mesa.Text
@@ -841,7 +842,7 @@ Public Class frmMesas
                 btnconsulta.Enabled = False
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & mesa & "' AND  Ubicacion='" & nombreubicacion & "'"
+                cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & mesa & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -862,7 +863,7 @@ Public Class frmMesas
                 End If
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Contabiliza FROM Mesa WHERE Nombre_mesa='" & mesa & "' and Ubicacion='" & Me.Text & "'"
+                cmd1.CommandText = "SELECT Contabiliza FROM Mesa WHERE Nombre_mesa='" & mesa & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

@@ -162,6 +162,20 @@ Public Class datos_delsscom
                 With odata
                     If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                        'pedidosvendet
+                        .runSp(cnnprueba, vartablapedidosvendet, sinfo)
+                        .runSp(cnnprueba, VarKeypedidosvendet, sinfo)
+                        .runSp(cnnprueba, varAutopedidosvendet, sinfo)
+
+                        'pedidosven
+                        .runSp(cnnprueba, vartablapedidosven, sinfo)
+                        .runSp(cnnprueba, VarKeypedidosven, sinfo)
+                        .runSp(cnnprueba, varAutopedidosven, sinfo)
+                        'detallehotelprecios
+                        .runSp(cnnprueba, vartabladetallehotelprecios, sinfo)
+                        .runSp(cnnprueba, VarKeydetallehotelprecios, sinfo)
+                        .runSp(cnnprueba, varAutodetallehotelprecios, sinfo)
+
                         'promos
                         .runSp(cnnprueba, vartablapromos, sinfo)
                         .runSp(cnnprueba, varKeypromos, sinfo)
@@ -323,76 +337,76 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyvtaimpresion, sinfo)
                         .runSp(cnnprueba, varAutovtaimpresion, sinfo)
 
-
                         'REP_COMANDAS
                         .runSp(cnnprueba, vartablarepcomandas, sinfo)
                         .runSp(cnnprueba, varKeyrepcomandas, sinfo)
                         .runSp(cnnprueba, varAutorepcomandas, sinfo)
 
+                        'refaccionaria
                         .runSp(cnnprueba, vartablarefaccionaria, sinfo)
                         .runSp(cnnprueba, varKeyrefaccionaria, sinfo)
                         .runSp(cnnprueba, varAutorefaccionaria, sinfo)
 
+                        'vehiculo
                         .runSp(cnnprueba, vartablavehiculo, sinfo)
                         .runSp(cnnprueba, varKeyvehiculo, sinfo)
                         .runSp(cnnprueba, varAutovehiculo, sinfo)
 
+                        'comandasveh
                         .runSp(cnnprueba, vartablacomandasveh, sinfo)
                         .runSp(cnnprueba, varKeycomandasveh, sinfo)
                         .runSp(cnnprueba, varAutocomandasveh, sinfo)
 
+                        'promociones
                         .runSp(cnnprueba, vartablapromociones, sinfo)
                         .runSp(cnnprueba, varKeypromociones, sinfo)
                         .runSp(cnnprueba, varAutopromociones, sinfo)
 
-                        .runSp(cnnprueba, vartablalumnos, sinfo)
-                        .runSp(cnnprueba, varKeyalumnos, sinfo)
-                        .runSp(cnnprueba, varAutoalumnos, sinfo)
+                        'permisosm
+                        .runSp(cnnprueba, vartablapermisosm, sinfo)
+                        If .getDt(cnnprueba, dtprueba9, "SELECT * from permisosm", sinfo) Then
+                        Else
+                            .runSp(cnnprueba, varinsertapermisosm, sinfo)
+                        End If
+                        .runSp(cnnprueba, varKeypermisosm, sinfo)
+                        .runSp(cnnprueba, varAutopermisosm, sinfo)
 
-                        .runSp(cnnprueba, vartablagrupos, sinfo)
-                        .runSp(cnnprueba, varKeygrupos, sinfo)
-                        .runSp(cnnprueba, varAutogrupos, sinfo)
-
+                        'extras
                         .runSp(cnnprueba, vartablaextras, sinfo)
                         .runSp(cnnprueba, varKeyextras, sinfo)
                         .runSp(cnnprueba, varAutoextras, sinfo)
 
+                        'preferencia
                         .runSp(cnnprueba, vartablapreferencias, sinfo)
                         .runSp(cnnprueba, varKeyprefecia, sinfo)
                         .runSp(cnnprueba, varAutopreferencias, sinfo)
 
-                        .runSp(cnnprueba, vartablahisasigpc, sinfo)
-                        .runSp(cnnprueba, varKeyhisasigpc, sinfo)
-                        .runSp(cnnprueba, varAutohisasigpc, sinfo)
-
-                        .runSp(cnnprueba, vartablamesa, sinfo)
-                        .runSp(cnnprueba, varKeymesa, sinfo)
-                        .runSp(cnnprueba, varAutomesa, sinfo)
-
-                        .runSp(cnnprueba, vartablaasigpc, sinfo)
-                        .runSp(cnnprueba, varKeyasigpc, sinfo)
-                        .runSp(cnnprueba, varAutoasigpc, sinfo)
-
-                        .runSp(cnnprueba, vartablacomandas1, sinfo)
-                        .runSp(cnnprueba, varKeycomandas1, sinfo)
-                        .runSp(cnnprueba, varAutocomandas1, sinfo)
-
-                        .runSp(cnnprueba, vartablacomandas, sinfo)
-                        .runSp(cnnprueba, varKeycomandas, sinfo)
-                        .runSp(cnnprueba, varAutocomandas, sinfo)
-
+                        'AbonoE
                         .runSp(cnnprueba, vartablaabonoe, sinfo)
                         .runSp(cnnprueba, varKeyabonoe, sinfo)
                         .runSp(cnnprueba, varAutoabonoe, sinfo)
 
+                        'AbonoI
                         .runSp(cnnprueba, vartablaabonoi, sinfo)
                         .runSp(cnnprueba, varKeyabonoi, sinfo)
                         .runSp(cnnprueba, varAutoabonoi, sinfo)
 
+                        'Acreedores
                         .runSp(cnnprueba, vartablaAcreedores, sinfo)
                         .runSp(cnnprueba, varKeyacreedores, sinfo)
                         .runSp(cnnprueba, varAutoacreedores, sinfo)
 
+                        'Alumnos
+                        .runSp(cnnprueba, vartablalumnos, sinfo)
+                        .runSp(cnnprueba, varKeyalumnos, sinfo)
+                        .runSp(cnnprueba, varAutoalumnos, sinfo)
+
+                        'AsigPC
+                        .runSp(cnnprueba, vartablaasigpc, sinfo)
+                        .runSp(cnnprueba, varKeyasigpc, sinfo)
+                        .runSp(cnnprueba, varAutoasigpc, sinfo)
+
+                        'Asistencia
                         .runSp(cnnprueba, vartablaasistencia, sinfo)
                         .runSp(cnnprueba, varKeyasistencia, sinfo)
                         .runSp(cnnprueba, varAutoasistencia, sinfo)
@@ -401,22 +415,27 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyasistenciagym, sinfo)
                         .runSp(cnnprueba, varAutoasistenciagym, sinfo)
 
+                        'Auditoria
                         .runSp(cnnprueba, vartablaauditoria, sinfo)
                         .runSp(cnnprueba, varKeyauditoria, sinfo)
                         .runSp(cnnprueba, varAutoauditoria, sinfo)
 
+                        'AuxCompras
                         .runSp(cnnprueba, vartablaauxcompras, sinfo)
                         .runSp(cnnprueba, varKeyauxcompras, sinfo)
                         .runSp(cnnprueba, varAutoauxcompras, sinfo)
 
+                        'AuxComprasSeries
                         .runSp(cnnprueba, vartablaauxcomprasseries, sinfo)
                         .runSp(cnnprueba, varKeyauxcomprasseries, sinfo)
                         .runSp(cnnprueba, varAutoauxcomprasseries, sinfo)
 
+                        'AuxPedidos
                         .runSp(cnnprueba, vartablaauxpedidos, sinfo)
                         .runSp(cnnprueba, varKeyauxpedidos, sinfo)
                         .runSp(cnnprueba, varAutoauxpedidos, sinfo)
 
+                        'Bancos
                         .runSp(cnnprueba, vartablabancos, sinfo)
                         Dim dtprueba As New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from bancos", sinfo) Then
@@ -424,87 +443,124 @@ Public Class datos_delsscom
                             .runSp(cnnprueba, varinsertabancos, sinfo)
                         End If
 
+                        'Cardex
                         .runSp(cnnprueba, vartablacardex, sinfo)
                         .runSp(cnnprueba, varKeycardex, sinfo)
                         .runSp(cnnprueba, varAutocardex, sinfo)
 
+                        'CargosAbonos
                         .runSp(cnnprueba, vartablacargosabonos, sinfo)
 
+                        'CartaPorte
                         .runSp(cnnprueba, vartablacartaporte, sinfo)
                         .runSp(cnnprueba, varKeycartaporte, sinfo)
                         .runSp(cnnprueba, varAutocartaporte, sinfo)
 
-                        .runSp(cnnprueba, vartablacuentasbancarias, sinfo)
-                        .runSp(cnnprueba, varKeycuentasbancarias, sinfo)
-                        .runSp(cnnprueba, varAutocuentasbancarias, sinfo)
-
+                        'CartaPorteDet
                         .runSp(cnnprueba, vartablacartaportedet, sinfo)
                         .runSp(cnnprueba, varKeycartaportedet, sinfo)
                         .runSp(cnnprueba, varAutocartaportedet, sinfo)
 
+                        'CartaPorteDeti
                         .runSp(cnnprueba, vartablacartaportedeti, sinfo)
                         .runSp(cnnprueba, varKeycartaportedeti, sinfo)
                         .runSp(cnnprueba, varAutocartaportedeti, sinfo)
 
+                        'CartaPorteI
                         .runSp(cnnprueba, vartablacartaportei, sinfo)
                         .runSp(cnnprueba, varKeycartaportei, sinfo)
                         .runSp(cnnprueba, varAutocartaportei, sinfo)
 
+                        'Clientes
                         .runSp(cnnprueba, vartablaclientes, sinfo)
                         .runSp(cnnprueba, varKeyclientes, sinfo)
                         .runSp(cnnprueba, varAutoclientes, sinfo)
 
+                        'Comanda1
+                        .runSp(cnnprueba, vartablacomandas1, sinfo)
+                        .runSp(cnnprueba, varKeycomandas1, sinfo)
+                        .runSp(cnnprueba, varAutocomandas1, sinfo)
+
+                        'Comandas
+                        .runSp(cnnprueba, vartablacomandas, sinfo)
+                        .runSp(cnnprueba, varKeycomandas, sinfo)
+                        .runSp(cnnprueba, varAutocomandas, sinfo)
+
+                        'Compras
                         .runSp(cnnprueba, vartablacompras, sinfo)
                         .runSp(cnnprueba, varKeycompras, sinfo)
                         .runSp(cnnprueba, varAutocompras, sinfo)
 
+                        'ComprasDet
                         .runSp(cnnprueba, vartablacomprasdet, sinfo)
                         .runSp(cnnprueba, varKeycomprasdet, sinfo)
                         .runSp(cnnprueba, varAutocomprasdet, sinfo)
                         .runSp(cnnprueba, varForKcomprasdet, sinfo)
 
+                        'CorteCaja
                         .runSp(cnnprueba, vartablacortecaja, sinfo)
                         .runSp(cnnprueba, varKeycortecaja, sinfo)
                         .runSp(cnnprueba, varAutocortecaja, sinfo)
 
+                        'CorteUsuario
                         .runSp(cnnprueba, vartablacorteusuario, sinfo)
                         .runSp(cnnprueba, varKeycorteusuario, sinfo)
                         .runSp(cnnprueba, varAutocorteusuario, sinfo)
 
+                        'CotPed
                         .runSp(cnnprueba, vartablacotped, sinfo)
                         .runSp(cnnprueba, varKeycotped, sinfo)
                         .runSp(cnnprueba, varAutocotped, sinfo)
 
+                        'CotPedDet
                         .runSp(cnnprueba, vartablaccotpeddet, sinfo)
                         .runSp(cnnprueba, varKeycotpeddet, sinfo)
                         .runSp(cnnprueba, varAutocotpeddet, sinfo)
 
+                        'CtMedicos
                         .runSp(cnnprueba, vartablactmedicos, sinfo)
                         .runSp(cnnprueba, varKeyctmedicos, sinfo)
                         .runSp(cnnprueba, varAutoctmedicos, sinfo)
 
+                        'CuentasBancarias
+                        .runSp(cnnprueba, vartablacuentasbancarias, sinfo)
+                        .runSp(cnnprueba, varKeycuentasbancarias, sinfo)
+                        .runSp(cnnprueba, varAutocuentasbancarias, sinfo)
+
+                        'DatosNegocio
                         .runSp(cnnprueba, vartabladatosnegocio, sinfo)
                         .runSp(cnnprueba, varKeydatosnegocio, sinfo)
                         .runSp(cnnprueba, varAutodatosnegocio, sinfo)
 
+                        'detalle_factura
                         .runSp(cnnprueba, vartabladdetalle_factura, sinfo)
 
+                        'Deudores
                         .runSp(cnnprueba, vartabladeudores, sinfo)
                         .runSp(cnnprueba, varKeydeudores, sinfo)
                         .runSp(cnnprueba, varAutodeudores, sinfo)
 
+                        'Devoluciones
                         .runSp(cnnprueba, vartabladevoluciones, sinfo)
                         .runSp(cnnprueba, varKeydevoluciones, sinfo)
                         .runSp(cnnprueba, varAutodevoluciones, sinfo)
 
+                        'Entregas
                         .runSp(cnnprueba, vartablaentregas, sinfo)
                         .runSp(cnnprueba, varKeyentregas, sinfo)
                         .runSp(cnnprueba, varAutoentregas, sinfo)
 
+                        'Facturas
                         .runSp(cnnprueba, vartablafacturas, sinfo)
                         .runSp(cnnprueba, varKeyfacturas, sinfo)
                         .runSp(cnnprueba, varAutofacturas, sinfo)
 
+                        'FechaaCobros
+                        .runSp(cnnprueba, vartablafechacobros, sinfo)
+                        .runSp(cnnprueba, varKeyfechacobros, sinfo)
+                        .runSp(cnnprueba, varAutofechacobros, sinfo)
+
+                        'FormaPagoSat
                         .runSp(cnnprueba, vartablaformapagosat, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from formapagosat", sinfo) Then
@@ -514,10 +570,12 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyformapagosat, sinfo)
                         .runSp(cnnprueba, varAutoformapagosat, sinfo)
 
+                        'FormasPago
                         .runSp(cnnprueba, vartablaformaspago, sinfo)
                         .runSp(cnnprueba, varKeyformaspago, sinfo)
                         .runSp(cnnprueba, varAutoformapagos, sinfo)
 
+                        'Formatos
                         .runSp(cnnprueba, vartablaformatos, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from formatos", sinfo) Then
@@ -529,12 +587,21 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyformatos, sinfo)
                         .runSp(cnnprueba, varAutoformatos, sinfo)
 
+                        'Gastos
                         .runSp(cnnprueba, vartablagastos, sinfo)
 
+                        'Grupos
+                        .runSp(cnnprueba, vartablagrupos, sinfo)
+                        .runSp(cnnprueba, varKeygrupos, sinfo)
+                        .runSp(cnnprueba, varAutogrupos, sinfo)
+
+                        'HeResultados
                         .runSp(cnnprueba, vartablaheresultados, sinfo)
 
+                        'Horarios
                         .runSp(cnnprueba, vartablahorarios, sinfo)
 
+                        'ImpuestoSat
                         .runSp(cnnprueba, vartablaimpuestosat, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from impuestosat", sinfo) Then
@@ -544,6 +611,7 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyimpuestosat, sinfo)
                         .runSp(cnnprueba, varAutoimpuestosat, sinfo)
 
+                        'IVA
                         .runSp(cnnprueba, vartablaiva, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from iva", sinfo) Then
@@ -553,14 +621,17 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyiva, sinfo)
                         .runSp(cnnprueba, varAutoiva, sinfo)
 
+
+
+                        'Kits
                         .runSp(cnnprueba, vartablakits, sinfo)
 
-
+                        'loginrecargas
                         .runSp(cnnprueba, vartablaloginrecargas, sinfo)
                         .runSp(cnnprueba, varKeyloginrecargas, sinfo)
                         .runSp(cnnprueba, varAutologinrecargas, sinfo)
 
-
+                        'LoteCaducidad
                         .runSp(cnnprueba, vartablalotecaducidad, sinfo)
                         .runSp(cnnprueba, varKeylotecaducidad, sinfo)
                         .runSp(cnnprueba, varAutolotecaducidad, sinfo)
@@ -569,10 +640,22 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeymembresiasgym, sinfo)
                         .runSp(cnnprueba, varAutomembresiasgym, sinfo)
 
+                        'Merma
                         .runSp(cnnprueba, vartablamerma, sinfo)
                         .runSp(cnnprueba, varKeymerma, sinfo)
                         .runSp(cnnprueba, varAutomerma, sinfo)
 
+                        'Mesa
+                        .runSp(cnnprueba, vartablamesa, sinfo)
+                        .runSp(cnnprueba, varKeymesa, sinfo)
+                        .runSp(cnnprueba, varAutomesa, sinfo)
+
+                        'MesasxEmpleados
+                        .runSp(cnnprueba, vartablamesasempleados, sinfo)
+                        .runSp(cnnprueba, varKeymesasempleados, sinfo)
+                        .runSp(cnnprueba, varAutomesasempleados, sinfo)
+
+                        'MesesSat
                         .runSp(cnnprueba, vartablamesessat, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from mesessat", sinfo) Then
@@ -582,6 +665,7 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeymesessat, sinfo)
                         .runSp(cnnprueba, varAutomesessat, sinfo)
 
+                        'MetodoPagoSat
                         .runSp(cnnprueba, vartablametodopagosat, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from metodopagosat", sinfo) Then
@@ -591,6 +675,7 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeymetodopagosat, sinfo)
                         .runSp(cnnprueba, varAutometodopagosat, sinfo)
 
+                        'MiProd
                         .runSp(cnnprueba, vartablamiprod, sinfo)
 
                         .runSp(cnnprueba, vartablamodentregas, sinfo)
@@ -633,18 +718,22 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varinsertaparametros, sinfo)
                         .runSp(cnnprueba, varKeyparametros, sinfo)
 
+                        'parcialidades
                         .runSp(cnnprueba, vartablaparcialidades, sinfo)
                         .runSp(cnnprueba, varKeyparcialidades, sinfo)
                         .runSp(cnnprueba, varAutoparcialidades, sinfo)
 
+                        'parciaqlidadesdetalle
                         .runSp(cnnprueba, vartablaparcialidadesdetalle, sinfo)
                         .runSp(cnnprueba, varKeyparcialidadesdetalle, sinfo)
                         .runSp(cnnprueba, varAutoparcialidadesdetalle, sinfo)
 
+                        'parcialidadesdetallemulti
                         .runSp(cnnprueba, vartablaparcialidadesdetallemulti, sinfo)
                         .runSp(cnnprueba, varKeyparcialidadesdetallemulti, sinfo)
                         .runSp(cnnprueba, varAutoparcialidadesdetallemulti, sinfo)
 
+                        'parcialidadesmulti
                         .runSp(cnnprueba, vartablaparcialidadesmulti, sinfo)
                         .runSp(cnnprueba, varKeyparcialidadesmulti, sinfo)
                         .runSp(cnnprueba, varAutoparcialidadesmulti, sinfo)
@@ -678,10 +767,6 @@ Public Class datos_delsscom
                         End If
                         .runSp(cnnprueba, varKeypermisos, sinfo)
                         .runSp(cnnprueba, varAutopermisos, sinfo)
-
-                        .runSp(cnnprueba, vartablapermisosm, sinfo)
-                        .runSp(cnnprueba, varKeypermisosm, sinfo)
-                        .runSp(cnnprueba, varAutopermisosm, sinfo)
 
                         .runSp(cnnprueba, vartablaporteclavestcc, sinfo)
                         dtprueba = New DataTable
@@ -740,14 +825,17 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyportematpeligrosos, sinfo)
                         .runSp(cnnprueba, varAutoportematpeligrosos, sinfo)
 
+                        'PorteMercancia
                         .runSp(cnnprueba, vartablaportemercancia, sinfo)
                         .runSp(cnnprueba, varKeyportemercancia, sinfo)
                         .runSp(cnnprueba, varAutoportemercancia, sinfo)
 
+                        'PorteMunicipios
                         .runSp(cnnprueba, vartablaportemunicipios, sinfo)
                         .runSp(cnnprueba, varKeyportemunicipios, sinfo)
                         .runSp(cnnprueba, varAutoportemunicipios, sinfo)
 
+                        'PorteOperador
                         .runSp(cnnprueba, vartablaporteoperador, sinfo)
                         .runSp(cnnprueba, varKeyporteoperador, sinfo)
                         .runSp(cnnprueba, varAutoporteoperador, sinfo)
@@ -823,20 +911,25 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyprocesos_prod, sinfo)
                         .runSp(cnnprueba, varAutoprocesos_prod, sinfo)
 
+                        'Productos
                         .runSp(cnnprueba, vartablaproductos, sinfo)
                         .runSp(cnnprueba, varKeyproductos, sinfo)
                         .runSp(cnnprueba, varAutoproductos, sinfo)
 
+                        'ProMasVen
                         .runSp(cnnprueba, vartablapromasven, sinfo)
 
+                        'Proveedores
                         .runSp(cnnprueba, vartablaproveedores, sinfo)
                         .runSp(cnnprueba, varKeyproveedores, sinfo)
                         .runSp(cnnprueba, varAutoproveedores, sinfo)
 
+                        'Recargas
                         .runSp(cnnprueba, vartablarecargas, sinfo)
                         .runSp(cnnprueba, varKeyrecargas, sinfo)
                         .runSp(cnnprueba, varAutorecargas, sinfo)
 
+                        'RegFis
                         .runSp(cnnprueba, vartablaregimenfiscalsat, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from regimenfiscalsat", sinfo) Then
@@ -886,6 +979,8 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varAutotb_moneda, sinfo)
 
                         .runSp(cnnprueba, vartablaticket, sinfo)
+                        .runSp(cnnprueba, varKeyticket, sinfo)
+                        .runSp(cnnprueba, varAutoticket, sinfo)
                         dtprueba = New DataTable
                         If .getDt(cnnprueba, dtprueba, "select * from ticket", sinfo) Then
                         Else
@@ -967,11 +1062,6 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyventasdetalle, sinfo)
                         .runSp(cnnprueba, varAutoventasdetalle, sinfo)
                         .runSp(cnnprueba, varForKventasdetalle, sinfo)
-
-
-                        .runSp(cnnprueba, vartablavtaimpresion, sinfo)
-                        .runSp(cnnprueba, varKeyvtaimpresion, sinfo)
-                        .runSp(cnnprueba, varAutovtaimpresion, sinfo)
 
                         cnnprueba.Close()
 

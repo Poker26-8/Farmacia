@@ -44,6 +44,8 @@ Partial Class frmCalcularNuvHab
         Me.lblHorIni = New System.Windows.Forms.Label()
         Me.lblsalida = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblAnticipo = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Panel1
@@ -128,7 +130,7 @@ Partial Class frmCalcularNuvHab
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(0, 253)
+        Me.Label6.Location = New System.Drawing.Point(0, 293)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(155, 23)
         Me.Label6.TabIndex = 77
@@ -142,7 +144,7 @@ Partial Class frmCalcularNuvHab
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(270, 290)
+        Me.btnSalir.Location = New System.Drawing.Point(270, 327)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 62)
         Me.btnSalir.TabIndex = 79
@@ -155,7 +157,7 @@ Partial Class frmCalcularNuvHab
         Me.btnDesocupar.BackColor = System.Drawing.Color.White
         Me.btnDesocupar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnDesocupar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesocupar.Location = New System.Drawing.Point(114, 290)
+        Me.btnDesocupar.Location = New System.Drawing.Point(114, 327)
         Me.btnDesocupar.Name = "btnDesocupar"
         Me.btnDesocupar.Size = New System.Drawing.Size(151, 62)
         Me.btnDesocupar.TabIndex = 80
@@ -166,7 +168,7 @@ Partial Class frmCalcularNuvHab
         '
         Me.lblPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPagar.Location = New System.Drawing.Point(161, 251)
+        Me.lblPagar.Location = New System.Drawing.Point(161, 291)
         Me.lblPagar.Name = "lblPagar"
         Me.lblPagar.Size = New System.Drawing.Size(184, 23)
         Me.lblPagar.TabIndex = 81
@@ -249,12 +251,35 @@ Partial Class frmCalcularNuvHab
         Me.Label9.Text = "Hora Salida:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'lblAnticipo
+        '
+        Me.lblAnticipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblAnticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAnticipo.Location = New System.Drawing.Point(161, 256)
+        Me.lblAnticipo.Name = "lblAnticipo"
+        Me.lblAnticipo.Size = New System.Drawing.Size(184, 23)
+        Me.lblAnticipo.TabIndex = 91
+        Me.lblAnticipo.Text = "Label8"
+        Me.lblAnticipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label10
+        '
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(0, 258)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(155, 23)
+        Me.Label10.TabIndex = 90
+        Me.Label10.Text = "Anticipo: $"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmCalcularNuvHab
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(352, 363)
+        Me.ClientSize = New System.Drawing.Size(352, 399)
+        Me.Controls.Add(Me.lblAnticipo)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.lblsalida)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.lblHorIni)
@@ -306,4 +331,6 @@ Partial Class frmCalcularNuvHab
     Friend WithEvents lblHorIni As Label
     Friend WithEvents lblsalida As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents lblAnticipo As Label
+    Friend WithEvents Label10 As Label
 End Class

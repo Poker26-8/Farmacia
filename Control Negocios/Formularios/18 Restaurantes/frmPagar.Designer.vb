@@ -87,6 +87,7 @@ Partial Class frmPagar
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnDividir = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btn1000 = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -146,7 +147,7 @@ Partial Class frmPagar
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(414, 681)
+        Me.Panel1.Size = New System.Drawing.Size(414, 772)
         Me.Panel1.TabIndex = 0
         '
         'lblMesero
@@ -660,7 +661,7 @@ Partial Class frmPagar
         Me.grdcomanda.Name = "grdcomanda"
         Me.grdcomanda.ReadOnly = True
         Me.grdcomanda.RowHeadersVisible = False
-        Me.grdcomanda.Size = New System.Drawing.Size(512, 614)
+        Me.grdcomanda.Size = New System.Drawing.Size(512, 705)
         Me.grdcomanda.TabIndex = 9
         '
         'Column13
@@ -734,6 +735,7 @@ Partial Class frmPagar
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnDividir)
         Me.Panel3.Controls.Add(Me.btnCancelar)
         Me.Panel3.Controls.Add(Me.btn1000)
         Me.Panel3.Controls.Add(Me.Panel6)
@@ -747,8 +749,24 @@ Partial Class frmPagar
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel3.Location = New System.Drawing.Point(926, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(251, 681)
+        Me.Panel3.Size = New System.Drawing.Size(251, 772)
         Me.Panel3.TabIndex = 2
+        '
+        'btnDividir
+        '
+        Me.btnDividir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDividir.FlatAppearance.BorderSize = 0
+        Me.btnDividir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDividir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDividir.Image = CType(resources.GetObject("btnDividir.Image"), System.Drawing.Image)
+        Me.btnDividir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnDividir.Location = New System.Drawing.Point(44, 326)
+        Me.btnDividir.Name = "btnDividir"
+        Me.btnDividir.Size = New System.Drawing.Size(80, 75)
+        Me.btnDividir.TabIndex = 32
+        Me.btnDividir.Text = "DIVIDIR CUENTA"
+        Me.btnDividir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnDividir.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
@@ -762,7 +780,7 @@ Partial Class frmPagar
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(178, 56)
         Me.btnCancelar.TabIndex = 27
-        Me.btnCancelar.Text = "Cancelar Comanda"
+        Me.btnCancelar.Text = "CANCELAR COMANDA"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
@@ -796,7 +814,7 @@ Partial Class frmPagar
         Me.Panel6.Controls.Add(Me.btn9)
         Me.Panel6.Controls.Add(Me.btn8)
         Me.Panel6.Controls.Add(Me.btn7)
-        Me.Panel6.Location = New System.Drawing.Point(8, 330)
+        Me.Panel6.Location = New System.Drawing.Point(6, 407)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(240, 338)
         Me.Panel6.TabIndex = 8
@@ -1077,14 +1095,14 @@ Partial Class frmPagar
         Me.btnPrecuenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnPrecuenta.FlatAppearance.BorderSize = 0
         Me.btnPrecuenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
         Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPrecuenta.Location = New System.Drawing.Point(142, 200)
+        Me.btnPrecuenta.Location = New System.Drawing.Point(130, 200)
         Me.btnPrecuenta.Name = "btnPrecuenta"
-        Me.btnPrecuenta.Size = New System.Drawing.Size(80, 62)
+        Me.btnPrecuenta.Size = New System.Drawing.Size(92, 62)
         Me.btnPrecuenta.TabIndex = 26
-        Me.btnPrecuenta.Text = "Precuenta"
+        Me.btnPrecuenta.Text = "PRECUENTA"
         Me.btnPrecuenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPrecuenta.UseVisualStyleBackColor = False
         '
@@ -1176,7 +1194,7 @@ Partial Class frmPagar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1177, 681)
+        Me.ClientSize = New System.Drawing.Size(1177, 772)
         Me.Controls.Add(Me.grdcomanda)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.Panel1)
@@ -1300,4 +1318,5 @@ Partial Class frmPagar
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents lblMesero As Label
     Friend WithEvents Label23 As Label
+    Friend WithEvents btnDividir As Button
 End Class

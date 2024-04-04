@@ -159,6 +159,7 @@ Partial Class Inicio
         Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
+        Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -166,7 +167,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1267,12 +1267,31 @@ Partial Class Inicio
         Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button13.Location = New System.Drawing.Point(0, 270)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(90, 90)
         Me.Button13.TabIndex = 8
+        Me.Button13.Text = "PERMISOS"
+        Me.Button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button13.UseVisualStyleBackColor = True
         Me.Button13.Visible = False
+        '
+        'btnPagarComa
+        '
+        Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPagarComa.FlatAppearance.BorderSize = 0
+        Me.btnPagarComa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPagarComa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagarComa.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagarComa.Image = CType(resources.GetObject("btnPagarComa.Image"), System.Drawing.Image)
+        Me.btnPagarComa.Location = New System.Drawing.Point(0, 180)
+        Me.btnPagarComa.Name = "btnPagarComa"
+        Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComa.TabIndex = 185
+        Me.btnPagarComa.Text = "PAGAR COMANDA"
+        Me.btnPagarComa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagarComa.UseVisualStyleBackColor = True
         '
         'btnvtatouch
         '
@@ -1280,11 +1299,15 @@ Partial Class Inicio
         Me.btnvtatouch.FlatAppearance.BorderSize = 0
         Me.btnvtatouch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnvtatouch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnvtatouch.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnvtatouch.Image = CType(resources.GetObject("btnvtatouch.Image"), System.Drawing.Image)
+        Me.btnvtatouch.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnvtatouch.Location = New System.Drawing.Point(0, 90)
         Me.btnvtatouch.Name = "btnvtatouch"
         Me.btnvtatouch.Size = New System.Drawing.Size(90, 90)
         Me.btnvtatouch.TabIndex = 11
+        Me.btnvtatouch.Text = "VTA TOUCH"
+        Me.btnvtatouch.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnvtatouch.UseVisualStyleBackColor = True
         Me.btnvtatouch.Visible = False
         '
@@ -1294,11 +1317,15 @@ Partial Class Inicio
         Me.Button12.FlatAppearance.BorderSize = 0
         Me.Button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button12.Location = New System.Drawing.Point(0, 0)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(90, 90)
         Me.Button12.TabIndex = 7
+        Me.Button12.Text = "COMANDERA"
+        Me.Button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button12.UseVisualStyleBackColor = True
         Me.Button12.Visible = False
         '
@@ -1365,19 +1392,6 @@ Partial Class Inicio
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
-        '
-        'btnPagarComa
-        '
-        Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPagarComa.FlatAppearance.BorderSize = 0
-        Me.btnPagarComa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnPagarComa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagarComa.Image = CType(resources.GetObject("btnPagarComa.Image"), System.Drawing.Image)
-        Me.btnPagarComa.Location = New System.Drawing.Point(0, 180)
-        Me.btnPagarComa.Name = "btnPagarComa"
-        Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
-        Me.btnPagarComa.TabIndex = 185
-        Me.btnPagarComa.UseVisualStyleBackColor = True
         '
         'Inicio
         '
