@@ -23,20 +23,23 @@ Partial Class frmPagar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblMesero = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.lblMesero = New System.Windows.Forms.Label()
+        Me.txtPorcentaje = New System.Windows.Forms.TextBox()
         Me.lblfolio = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtpagos = New System.Windows.Forms.TextBox()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtResta = New System.Windows.Forms.TextBox()
         Me.txtCambio = New System.Windows.Forms.TextBox()
-        Me.txtDescuento = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtEfectivo = New System.Windows.Forms.TextBox()
@@ -46,7 +49,6 @@ Partial Class frmPagar
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtSubtotalmapeo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -76,6 +78,16 @@ Partial Class frmPagar
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtSaldoM = New System.Windows.Forms.TextBox()
         Me.grdcomanda = New System.Windows.Forms.DataGridView()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnDividir = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -116,16 +128,6 @@ Partial Class frmPagar
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -139,9 +141,7 @@ Partial Class frmPagar
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.lblMesero)
         Me.Panel1.Controls.Add(Me.Panel7)
-        Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.Panel8)
         Me.Panel1.Controls.Add(Me.txtSaldoM)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
@@ -150,27 +150,21 @@ Partial Class frmPagar
         Me.Panel1.Size = New System.Drawing.Size(414, 772)
         Me.Panel1.TabIndex = 0
         '
-        'lblMesero
-        '
-        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMesero.Location = New System.Drawing.Point(238, 34)
-        Me.lblMesero.Name = "lblMesero"
-        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
-        Me.lblMesero.TabIndex = 34
-        Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Label21)
+        Me.Panel7.Controls.Add(Me.lblMesero)
+        Me.Panel7.Controls.Add(Me.txtPorcentaje)
         Me.Panel7.Controls.Add(Me.lblfolio)
+        Me.Panel7.Controls.Add(Me.Label23)
         Me.Panel7.Controls.Add(Me.Label22)
         Me.Panel7.Controls.Add(Me.Label9)
         Me.Panel7.Controls.Add(Me.txtpagos)
+        Me.Panel7.Controls.Add(Me.txtDescuento)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Controls.Add(Me.Label7)
         Me.Panel7.Controls.Add(Me.txtResta)
         Me.Panel7.Controls.Add(Me.txtCambio)
-        Me.Panel7.Controls.Add(Me.txtDescuento)
         Me.Panel7.Controls.Add(Me.Label6)
         Me.Panel7.Controls.Add(Me.Label5)
         Me.Panel7.Controls.Add(Me.txtEfectivo)
@@ -182,8 +176,38 @@ Partial Class frmPagar
         Me.Panel7.Controls.Add(Me.Label1)
         Me.Panel7.Location = New System.Drawing.Point(12, 12)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(220, 285)
+        Me.Panel7.Size = New System.Drawing.Size(399, 285)
         Me.Panel7.TabIndex = 7
+        '
+        'Label21
+        '
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(186, 202)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(23, 20)
+        Me.Label21.TabIndex = 35
+        Me.Label21.Text = "%"
+        '
+        'lblMesero
+        '
+        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMesero.Location = New System.Drawing.Point(219, 30)
+        Me.lblMesero.Name = "lblMesero"
+        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
+        Me.lblMesero.TabIndex = 34
+        Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtPorcentaje
+        '
+        Me.txtPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
+        Me.txtPorcentaje.Location = New System.Drawing.Point(111, 201)
+        Me.txtPorcentaje.Name = "txtPorcentaje"
+        Me.txtPorcentaje.Size = New System.Drawing.Size(69, 21)
+        Me.txtPorcentaje.TabIndex = 33
+        Me.txtPorcentaje.Text = "0"
+        Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblfolio
         '
@@ -191,9 +215,20 @@ Partial Class frmPagar
         Me.lblfolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.Location = New System.Drawing.Point(12, 28)
         Me.lblfolio.Name = "lblfolio"
-        Me.lblfolio.Size = New System.Drawing.Size(199, 21)
+        Me.lblfolio.Size = New System.Drawing.Size(199, 29)
         Me.lblfolio.TabIndex = 32
         Me.lblfolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(219, 6)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(170, 21)
+        Me.Label23.TabIndex = 33
+        Me.Label23.Text = "Mesero"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label22
         '
@@ -223,10 +258,21 @@ Partial Class frmPagar
         Me.txtpagos.Location = New System.Drawing.Point(111, 175)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
-        Me.txtpagos.Size = New System.Drawing.Size(100, 21)
+        Me.txtpagos.Size = New System.Drawing.Size(178, 21)
         Me.txtpagos.TabIndex = 15
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtDescuento
+        '
+        Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescuento.ForeColor = System.Drawing.Color.Orange
+        Me.txtDescuento.Location = New System.Drawing.Point(215, 201)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.Size = New System.Drawing.Size(74, 21)
+        Me.txtDescuento.TabIndex = 10
+        Me.txtDescuento.Text = "0.00"
+        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
         '
@@ -254,7 +300,7 @@ Partial Class frmPagar
         Me.txtResta.Location = New System.Drawing.Point(111, 256)
         Me.txtResta.Name = "txtResta"
         Me.txtResta.ReadOnly = True
-        Me.txtResta.Size = New System.Drawing.Size(100, 21)
+        Me.txtResta.Size = New System.Drawing.Size(178, 21)
         Me.txtResta.TabIndex = 12
         Me.txtResta.Text = "0.00"
         Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -267,21 +313,10 @@ Partial Class frmPagar
         Me.txtCambio.Location = New System.Drawing.Point(111, 229)
         Me.txtCambio.Name = "txtCambio"
         Me.txtCambio.ReadOnly = True
-        Me.txtCambio.Size = New System.Drawing.Size(100, 21)
+        Me.txtCambio.Size = New System.Drawing.Size(178, 21)
         Me.txtCambio.TabIndex = 11
         Me.txtCambio.Text = "0.00"
         Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtDescuento
-        '
-        Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescuento.ForeColor = System.Drawing.Color.Orange
-        Me.txtDescuento.Location = New System.Drawing.Point(111, 202)
-        Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.Size = New System.Drawing.Size(100, 21)
-        Me.txtDescuento.TabIndex = 10
-        Me.txtDescuento.Text = "0.00"
-        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label6
         '
@@ -307,7 +342,7 @@ Partial Class frmPagar
         Me.txtEfectivo.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txtEfectivo.Location = New System.Drawing.Point(111, 148)
         Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(100, 21)
+        Me.txtEfectivo.Size = New System.Drawing.Size(178, 21)
         Me.txtEfectivo.TabIndex = 7
         Me.txtEfectivo.Text = "0.00"
         Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -326,7 +361,7 @@ Partial Class frmPagar
         Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPropina.Location = New System.Drawing.Point(111, 94)
         Me.txtPropina.Name = "txtPropina"
-        Me.txtPropina.Size = New System.Drawing.Size(100, 21)
+        Me.txtPropina.Size = New System.Drawing.Size(178, 21)
         Me.txtPropina.TabIndex = 5
         Me.txtPropina.Text = "0.00"
         Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -338,7 +373,7 @@ Partial Class frmPagar
         Me.txtTotal.Location = New System.Drawing.Point(111, 121)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
-        Me.txtTotal.Size = New System.Drawing.Size(100, 21)
+        Me.txtTotal.Size = New System.Drawing.Size(178, 21)
         Me.txtTotal.TabIndex = 4
         Me.txtTotal.Text = "0.00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -359,7 +394,7 @@ Partial Class frmPagar
         Me.txtSubtotalmapeo.Location = New System.Drawing.Point(111, 67)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
         Me.txtSubtotalmapeo.ReadOnly = True
-        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(100, 21)
+        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(178, 21)
         Me.txtSubtotalmapeo.TabIndex = 2
         Me.txtSubtotalmapeo.Text = "0.00"
         Me.txtSubtotalmapeo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -372,17 +407,6 @@ Partial Class frmPagar
         Me.Label1.Size = New System.Drawing.Size(75, 21)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Subtotal:"
-        '
-        'Label23
-        '
-        Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(238, 13)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(170, 21)
-        Me.Label23.TabIndex = 33
-        Me.Label23.Text = "Mesero"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Panel8
         '
@@ -641,7 +665,7 @@ Partial Class frmPagar
         '
         'txtSaldoM
         '
-        Me.txtSaldoM.Location = New System.Drawing.Point(324, 270)
+        Me.txtSaldoM.Location = New System.Drawing.Point(324, 660)
         Me.txtSaldoM.Name = "txtSaldoM"
         Me.txtSaldoM.Size = New System.Drawing.Size(76, 20)
         Me.txtSaldoM.TabIndex = 14
@@ -651,8 +675,8 @@ Partial Class frmPagar
         '
         Me.grdcomanda.AllowUserToAddRows = False
         Me.grdcomanda.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grdcomanda.BackgroundColor = System.Drawing.Color.White
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
@@ -663,6 +687,80 @@ Partial Class frmPagar
         Me.grdcomanda.RowHeadersVisible = False
         Me.grdcomanda.Size = New System.Drawing.Size(512, 705)
         Me.grdcomanda.TabIndex = 9
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Comanda"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        Me.Column13.Width = 60
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 65
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Descripcion"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 230
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Unidad"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 50
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Cantidad"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 55
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column7.HeaderText = "Precio"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 62
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Total"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 56
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Comensal"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 78
+        '
+        'Column14
+        '
+        Me.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column14.HeaderText = "Mesero"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        Me.Column14.Width = 67
+        '
+        'Column15
+        '
+        Me.Column15.HeaderText = "Id"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        Me.Column15.Width = 50
         '
         'Panel3
         '
@@ -1121,80 +1219,6 @@ Partial Class frmPagar
         'PVentaMapeo58
         '
         '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Comanda"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        Me.Column13.Width = 60
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 65
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Descripcion"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 230
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Unidad"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 50
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Cantidad"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 55
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column7.HeaderText = "Precio"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 62
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Total"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 56
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "Comensal"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 78
-        '
-        'Column14
-        '
-        Me.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column14.HeaderText = "Mesero"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        Me.Column14.Width = 67
-        '
-        'Column15
-        '
-        Me.Column15.HeaderText = "Id"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        Me.Column15.Width = 50
-        '
         'frmPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1325,4 +1349,6 @@ Partial Class frmPagar
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents txtPorcentaje As TextBox
+    Friend WithEvents Label21 As Label
 End Class

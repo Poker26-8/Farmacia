@@ -2375,7 +2375,7 @@ Public Class frmAgregarProducto
         btnnuevo.PerformClick()
         lblFolio.Text = MyFolio
         Me.Close()
-        frmMesas.Show()
+        frmMesas.Close()
 
 
     End Sub

@@ -234,10 +234,10 @@ kaka:
     Private Sub PRecibo80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PRecibo80.PrintPage
 
         Dim tipografia As String = "Lucida Sans Typewriter"
-        Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
-        Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
-        Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
-        Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_r As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_b As New Font("Lucida Sans Typewriter", 10, FontStyle.Bold)
+        Dim fuente_c As New Font("Lucida Sans Typewriter", 10, FontStyle.Regular)
+        Dim fuente_p As New Font("Lucida Sans Typewriter", 9, FontStyle.Bold)
         Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
@@ -328,8 +328,53 @@ kaka:
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
 
-            e.Graphics.DrawString("VENTAS: " & txtventas_n.Text, fuente_r, Brushes.Black, 1, Y)
-            Y += 15
+            e.Graphics.DrawString("VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtventas_n.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("DEVOLUCIONES SOBRE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtdevos.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("DESCUENTOS SOBRE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtdescu.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("VENTAS NETAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtventas.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("COSTO DE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtcosto.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD BRUTA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad_bruta.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS ADMINISTRATIVOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_ad.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS OPERATIVOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_op.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS DE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_ve.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD ANTES DE IMPUESTOS: ", fuente_p, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad_im.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("IMPUESTOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtimpuestos.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD NETA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad.Text, fuente_c, Brushes.Black, 280, Y, derecha)
+            Y += 20
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn2.Close()
@@ -337,6 +382,151 @@ kaka:
     End Sub
 
     Private Sub PRecibo58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PRecibo58.PrintPage
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_r As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
+        Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+        Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Bold)
+        Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim hoja As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
 
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+
+        Try
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 45, 5, 110, 110)
+                    Y += 130
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 12, 0, 160, 80)
+                    Y += 120
+                End If
+            Else
+                Y = 0
+            End If
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from Ticket"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    'Razón social
+                    If rd2("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd2("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd2("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, sc)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd2("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, sc)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd2("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, sc)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd2("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, sc)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd2("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, sc)
+                        Y += 12
+                    End If
+                    Y += 5
+                End If
+            Else
+                Y += 0
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("ESTADO  DE  RESULTADOS", fuente_b, Brushes.Black, 90, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("Fecha Inicial: " & dtpinicio.Text, fuente_r, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("Fecha Final: " & dtpfinal.Text, fuente_r, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtventas_n.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("DEVOLUCIONES SOBRE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtdevos.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("DESCUENTOS SOBRE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtdescu.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("VENTAS NETAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtventas.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("COSTO DE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtcosto.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD BRUTA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad_bruta.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS ADMINISTRATIVOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_ad.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS OPERATIVOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_op.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("GASTOS DE VENTAS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtgastos_ve.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD ANTES DE IMPUESTOS: ", fuente_p, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad_im.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("IMPUESTOS: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtimpuestos.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("UTILIDAD NETA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtutilidad.Text, fuente_c, Brushes.Black, 180, Y, derecha)
+            Y += 20
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
     End Sub
 End Class

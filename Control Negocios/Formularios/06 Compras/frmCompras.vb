@@ -1269,9 +1269,17 @@ Public Class frmCompras
             If (CDbl(txtprecio.Text) / CDbl(txtvalor.Text)) <> CDbl(lblvalor.Text) Then
                 If MsgBox("El precio de compra va a cambiar en la base de datos." & vbNewLine & "¿Desea que los porcentajes y precios de venta se modifiquen también?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                     CP = 1
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "UPDATE Productos SET PrecioCompra=" & txtprecio.Text & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
                 Else
                     CP = 0
                 End If
+
+
 
                 If txtcantidad.Text = "" Then txtcantidad.Text = "0"
                 If txtcantidad.Text = "0" And cbonombre.Text <> "" Then txtcantidad.Focus().Equals(True) : Exit Sub

@@ -35,10 +35,9 @@ Public Class frmMesas
     End Sub
 
     Private Sub frmMesas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txtUsuario.Focus.Equals(True)
 
         Me.Text = "Mesas mapeables" & Strings.Space(55) & "COMANDERO"
-
 
         cnn1.Close() : cnn1.Open()
         cnn2.Close() : cnn2.Open()
@@ -65,6 +64,9 @@ Public Class frmMesas
                         End If
                     End If
                     rd2.Close()
+                Else
+                    lblusuario.Text = ""
+                    txtUsuario.Text = ""
                 End If
 
             End If
@@ -83,29 +85,31 @@ Public Class frmMesas
         rd1.Close()
         cnn1.Close()
 
-        If mapearmesas = 1 Then
-            TRAERLUGAR()
-            primerBoton()
+        If lblusuario.Text <> "" Then
+            If mapearmesas = 1 Then
+                TRAERLUGAR()
+                primerBoton()
 
-            pmesas.Visible = True
-            pmesaNM.Visible = False
+                pmesas.Visible = True
+                pmesaNM.Visible = False
 
-            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                pmesas.BackgroundImageLayout = ImageLayout.Stretch
-            End If
+                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                    pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                    pmesas.BackgroundImageLayout = ImageLayout.Stretch
+                End If
 
-        Else
-            pmesaNM.Visible = True
-            pmesas.Visible = False
-            CrearBD_MesaNM()
+            Else
+                pmesaNM.Visible = True
+                pmesas.Visible = False
+                CrearBD_MesaNM()
 
-            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+
+                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                    pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                    pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+                End If
             End If
         End If
-
 
     End Sub
 
@@ -212,7 +216,6 @@ Public Class frmMesas
     End Sub
 
     Public Sub Crea_Mesas(ByVal ubicacion As String)
-
         Dim tables As Integer = 0
         Dim tipo As String = ""
         Dim id_mesero As Integer = 0
@@ -479,7 +482,7 @@ Public Class frmMesas
             rd3 = cmd3.ExecuteReader
             If rd3.Read Then
                 If rd3.HasRows Then
-                    If rd3(0).ToString = "ADMINISTRACION" Or rd3(0).ToString = "CAJERO" Then
+                    If rd3(0).ToString = "ADMINISTRACI´´ON" Or rd3(0).ToString = "CAJERO" Then
                         simesaspropusuarionm = 1
                     Else
                         simesaspropusuarionm = 0
@@ -540,7 +543,7 @@ Public Class frmMesas
                 rd2 = cmd2.ExecuteReader
                 If rd2.Read Then
                     If rd2.HasRows Then
-                        If rd2(0).ToString = "ADMINISTRACION" Or rd2(0).ToString = "CAJERO" Then
+                        If rd2(0).ToString = "ADMINISTRACIÓN" Or rd2(0).ToString = "CAJERO" Then
                             simesaspropusuarionm = 1
                         Else
                             simesaspropusuarionm = 0
@@ -552,13 +555,13 @@ Public Class frmMesas
 
             cmd2 = cnn2.CreateCommand
             If simesaspropianm = 1 Then
-                If simesaspropusuarionm = 1 Then
+                If simesaspropusuarionm = 0 Then
                     cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa order by Orden"
                 Else
                     cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
                 End If
             Else
-                cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa ORDER BY Orden"
+                cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa order by Orden"
             End If
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
@@ -960,8 +963,22 @@ Public Class frmMesas
                             If mapearmesas = 1 Then
                                 TRAERLUGAR()
                                 primerBoton()
+
+                                pmesas.Visible = True
+                                pmesaNM.Visible = False
+
+                                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                                    pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                                    pmesas.BackgroundImageLayout = ImageLayout.Stretch
+                                End If
                             Else
+                                pmesaNM.Visible = True
+                                pmesas.Visible = False
                                 CrearBD_MesaNM()
+                                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                                    pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                                    pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+                                End If
                             End If
 
                         Else
@@ -975,6 +992,9 @@ Public Class frmMesas
                         Exit Sub
                     End If
                 Else
+                    lblusuario.Text = ""
+                    txtUsuario.Text = ""
+                    txtMesa.Text = ""
                     Exit Sub
                 End If
                 rd1.Close()

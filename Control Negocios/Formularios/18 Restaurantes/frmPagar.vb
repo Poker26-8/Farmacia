@@ -138,6 +138,7 @@ Public Class frmPagar
     End Sub
 
     Private Sub txtEfectivo_TextChanged(sender As Object, e As EventArgs) Handles txtEfectivo.TextChanged
+
         If Not IsNumeric(txtEfectivo.Text) Then txtEfectivo.Text = "0.00" : Exit Sub
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
@@ -268,6 +269,7 @@ Public Class frmPagar
         txtEfectivo.Text = "0.00"
         txtpagos.Text = "0.00"
         txtDescuento.Text = "0.00"
+        txtPorcentaje.Text = "0"
         txtCambio.Text = "0.00"
         grdPagos.Rows.Clear()
 
@@ -729,7 +731,8 @@ Public Class frmPagar
         cmd1.ExecuteNonQuery()
         cnn1.Close()
 
-        mypago = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtCambio.Text) - CDec(txtDescuento.Text)
+        ' mypago = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtCambio.Text) - CDec(txtDescuento.Text)
+        mypago = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) + CDbl(txtDescuento.Text) - CDec(txtCambio.Text)
 
         If mypago < CDec(txtTotal.Text) Then
             MsgBox("Debe cerrar la cuenta!.", vbInformation + vbOKOnly, titulomensajes)
@@ -799,7 +802,7 @@ Public Class frmPagar
         Dim CODIGO As String = ""
         Dim CANTI As Double = 0
 
-        Cuenta = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtDescuento.Text) - CDec(txtCambio.Text)
+        Cuenta = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) + CDec(txtDescuento.Text) - CDec(txtCambio.Text)
 
         If CDec(txtTotal.Text) <= CDec(Cuenta) Then
             Cuenta = txtTotal.Text
@@ -1070,7 +1073,9 @@ Public Class frmPagar
             SLD = 0
         End If
 
-        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, "0", txtpagos.Text)) + +CDec(IIf(txtPropina.Text = 0, "0", txtPropina.Text)) - (CDec(txtCambio.Text + CDec(txtPropina.Text)))
+        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, "0", txtpagos.Text)) + +CDec(IIf(txtPropina.Text = 0, "0", txtPropina.Text)) + CDbl(IIf(txtDescuento.Text = 0, "0", txtDescuento.Text)) - (CDec(txtCambio.Text + CDec(txtPropina.Text)))
+
+
 
         If Abon < 0 Then Exit Sub : Abon = 0
 
@@ -1116,10 +1121,11 @@ Public Class frmPagar
                         cnn3.Close()
                     End If
                 End If
+
             Next
         End If
 
-        If CDec(MyAcuenta) > 0 Then
+        If CDec(Abon) > 0 Then
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -3912,6 +3918,11 @@ Door:
                 Dim nuevo = monto + "1"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "1"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -3932,6 +3943,11 @@ Door:
                 Dim nuevo = monto + "2"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "2"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -3952,6 +3968,11 @@ Door:
                 Dim nuevo = monto + "3"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "3"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -3972,6 +3993,11 @@ Door:
                 Dim nuevo = monto + "4"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "4"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -3992,6 +4018,11 @@ Door:
                 Dim nuevo = monto + "5"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "5"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4012,6 +4043,11 @@ Door:
                 Dim nuevo = monto + "6"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "6"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4032,6 +4068,11 @@ Door:
                 Dim nuevo = monto + "7"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "7"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4052,6 +4093,11 @@ Door:
                 Dim nuevo = monto + "8"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "8"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4072,6 +4118,11 @@ Door:
                 Dim nuevo = monto + "9"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "9"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4092,6 +4143,11 @@ Door:
                 Dim nuevo = monto + "0"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "0"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4112,6 +4168,11 @@ Door:
                 Dim nuevo = monto + "20"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "20"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4132,6 +4193,11 @@ Door:
                 Dim nuevo = monto + "50"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "50"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4152,6 +4218,11 @@ Door:
                 Dim nuevo = monto + "100"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "100"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4172,6 +4243,11 @@ Door:
                 Dim nuevo = monto + "200"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "200"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4192,6 +4268,11 @@ Door:
                 Dim nuevo = monto + "500"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "500"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4212,11 +4293,42 @@ Door:
                 Dim nuevo = monto + "1000"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "1000"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
         End Select
     End Sub
 
     Private Sub btnDividir_Click(sender As Object, e As EventArgs) Handles btnDividir.Click
         frmDividirCuenta.mesa = lblmesa.Text
         frmDividirCuenta.Show()
+    End Sub
+
+    Private Sub txtPorcentaje_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPorcentaje.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPorcentaje.Text) Then
+
+                Dim saldo As Double = txtTotal.Text
+                Dim porcentaje As Double = (txtPorcentaje.Text / 100)
+                Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
+                txtDescuento.Text = FormatNumber(porcentajetot, 2)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPorcentaje_TextChanged(sender As Object, e As EventArgs) Handles txtPorcentaje.TextChanged
+
+        If Not IsNumeric(txtPorcentaje.Text) Then txtPorcentaje.Text = "0.00" : Exit Sub
+        If Strings.Left(txtPorcentaje.Text, 1) = "," Or Strings.Left(txtPorcentaje.Text, 1) = "." Then Exit Sub
+
+
+    End Sub
+
+    Private Sub txtPorcentaje_Click(sender As Object, e As EventArgs) Handles txtPorcentaje.Click
+        txtPorcentaje.SelectionStart = 0
+        txtPorcentaje.SelectionLength = Len(txtPorcentaje.Text)
+        focomapeo = 29
     End Sub
 End Class

@@ -40,48 +40,46 @@ Public Class frmPagarComanda
     Private Sub frmPagarComanda_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TFecha.Start()
         TFolio.Start()
-
-
         TraerUsuario()
     End Sub
 
     Public Sub TraerUsuario()
 
-        Try
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    If rd2(0).ToString = 1 Then
+        'Try
+        '    cnn2.Close() : cnn2.Open()
+        '    cmd2 = cnn2.CreateCommand
+        '    cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+        '    rd2 = cmd2.ExecuteReader
+        '    If rd2.HasRows Then
+        '        If rd2.Read Then
+        '            If rd2(0).ToString = 1 Then
 
-                        cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
-                        rd3 = cmd3.ExecuteReader
-                        If rd3.HasRows Then
-                            If rd3.Read Then
-                                lblUsuario.Text = rd3(0).ToString
-                                txtContra.Text = rd3(1).ToString
-                                idempleado = id_usu_log
-                            End If
-                        End If
-                        rd3.Close()
-                        cnn3.Close()
-                    Else
-                        lblUsuario.Text = ""
-                        txtContra.Text = ""
-                    End If
+        '                cnn3.Close() : cnn3.Open()
+        '                cmd3 = cnn3.CreateCommand
+        '                cmd3.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
+        '                rd3 = cmd3.ExecuteReader
+        '                If rd3.HasRows Then
+        '                    If rd3.Read Then
+        '                        lblUsuario.Text = rd3(0).ToString
+        '                        txtContra.Text = rd3(1).ToString
+        '                        idempleado = id_usu_log
+        '                    End If
+        '                End If
+        '                rd3.Close()
+        '                cnn3.Close()
+        '            Else
+        '                lblUsuario.Text = ""
+        '                txtContra.Text = ""
+        '            End If
 
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn2.Close()
-        End Try
+        '        End If
+        '    End If
+        '    rd2.Close()
+        '    cnn2.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn2.Close()
+        'End Try
 
     End Sub
 
@@ -1147,6 +1145,8 @@ Public Class frmPagarComanda
 
 
             e.HasMorePages = False
+
+            Me.BringToFront()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
@@ -1248,6 +1248,7 @@ Public Class frmPagarComanda
 
 
             e.HasMorePages = False
+            Me.BringToFront()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
@@ -1411,6 +1412,7 @@ Public Class frmPagarComanda
                 lic = lic & numeros & letras & "-"
             Next
             lic = Strings.Left(lic, lic.Length - 1)
+
 #End Region
 
             Dim totalcomisiones As Double = 0
