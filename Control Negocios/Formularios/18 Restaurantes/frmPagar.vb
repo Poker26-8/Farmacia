@@ -932,6 +932,7 @@ Public Class frmPagar
             cnn2.Close()
         End If
 
+        Dim idc As Integer = 0
         Dim mycodigo As String = ""
         Dim mydescripcion As String = ""
         Dim myunidad As String = ""
@@ -953,7 +954,7 @@ Public Class frmPagar
 
         Do While kreaper <> grdcomanda.Rows.Count
 
-
+            idc = grdcomanda.Rows(kreaper).Cells(0).Value.ToString
             mycodigo = grdcomanda.Rows(kreaper).Cells(1).Value.ToString
             mydescripcion = grdcomanda.Rows(kreaper).Cells(2).Value.ToString
             myunidad = grdcomanda.Rows(kreaper).Cells(3).Value.ToString
@@ -1020,15 +1021,35 @@ Public Class frmPagar
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText = "INSERT INTO VtaImpresion(Folio,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,comensal,Propina) VALUES(" & folio & ",'" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & myprecio & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & txtPropina.Text & ")"
             cmd3.ExecuteNonQuery()
-
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "UPDATE Rep_Comandas SET Status='PAGADO' WHERE NMESA='" & lblmesa.Text & "' AND Status='CANCELADA'"
-            cmd3.ExecuteNonQuery()
-
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "DELETE FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
-            cmd3.ExecuteNonQuery()
             cnn3.Close()
+
+            If cboComensal.Text = "" Then
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "UPDATE Rep_Comandas SET Status='PAGADO' WHERE NMESA='" & lblmesa.Text & "' AND Status<>'CANCELADA' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "'"
+                cmd3.ExecuteNonQuery()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "DELETE FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "' AND IDC=" & idc & ""
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+
+
+            Else
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "UPDATE Rep_Comandas SET Status='PAGADO' WHERE NMESA='" & lblmesa.Text & "' AND Status<>'CANCELADA' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "'"
+                cmd3.ExecuteNonQuery()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "DELETE FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "' AND IDC=" & idc & ""
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            End If
+
+
+
+
 
             kreaper = kreaper + 1
         Loop
@@ -1321,6 +1342,34 @@ Door:
             cnn2.Close()
         End If
 
+        If CDec(txtResta.Text) = 0 Then
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & lblmesa.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM Mesa WHERE Nombre_mesa='" & lblmesa.Text & "' AND Temporal='1'"
+                cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblmesa.Text & "' AND Temporal='1'"
+                cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        End If
+
 #Region "TICKET"
 
         Dim copias As Integer = 0
@@ -1412,62 +1461,12 @@ Door:
 
 #End Region
 
-
-
-        If CDec(txtResta.Text) = 0 Then
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "DELETE FROM Mesa WHERE Nombre_mesa='" & lblmesa.Text & "' AND Temporal='1'"
-                    cmd2.ExecuteNonQuery()
-
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "DELETE FROM Mesa WHERE TempNom='" & lblmesa.Text & "' AND Temporal='1'"
-                    cmd2.ExecuteNonQuery()
-
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblmesa.Text & "' AND Temporal='1'"
-                    cmd2.ExecuteNonQuery()
-                    cnn2.Close()
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-            cnn3.Close() : cnn3.Open()
-            cmd3 = cnn3.CreateCommand
-            'cmd3.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & cboMesa.Text & "' AND Folio=" & CDec(cboComanda.Text) & ""
-            cmd3.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
-            cmd3.ExecuteNonQuery()
-            cnn3.Close()
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "UPDATE Mesa SET TempNom='' WHERE TempNom='" & lblmesa.Text & "'"
-            cmd2.ExecuteNonQuery()
-            cnn2.Close()
-
-        Else
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "UPDATE Mesa SET TempNom='' WHERE TempNom='" & lblmesa.Text & "'"
-            cmd2.ExecuteNonQuery()
-            cnn2.Close()
-        End If
-
         btnlimpiar.PerformClick()
         Me.Close()
 
         frmMesas.Close()
         frmMesas.Show()
-
-
-
+        frmMesas.Show()
     End Sub
 
     Private Sub btnPrecuenta_Click(sender As Object, e As EventArgs) Handles btnPrecuenta.Click

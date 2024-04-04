@@ -17,22 +17,10 @@ Public Class Inicio
     Dim es_matriz As Integer = 0
     Dim dt_Sucursales As New DataTable
     Dim dr_Sucursales As DataRow
-
     Dim codigopro As String = ""
-
     Public CONTRASEÑAA As String = ""
+
     Private Sub Inicio_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-        ''Genera respaldo de base de datos (buscar código)
-        'Dim ruta_respaldo As String = "C:\RControlNegociosPro\CN" & base & "-" & Today.Date.ToString("dd-MM-yyyy") & ".bak"
-        'If File.Exists(ruta_respaldo) Then
-        '    File.Delete(ruta_respaldo)
-        'End If
-        'Dim cierra As New System.Diagnostics.Process
-        'cierra = Process.Start("cmd", "/k" & "sqlcmd -S localhost\SQLEXPRESS -E -Q ""BACKUP DATABASE [CN" & base & "] TO DISK='" & ruta_respaldo & "'""")
-        'My.Application.DoEvents()
-        'System.Threading.Thread.Sleep(2000)
-        'Login.Close()
-        'cierra.Kill()
 
         Try
 

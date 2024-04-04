@@ -52,9 +52,11 @@ Partial Class frmEstResultados
         Me.dtpfinal = New System.Windows.Forms.DateTimePicker()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.PRecibo80 = New System.Drawing.Printing.PrintDocument()
+        Me.PRecibo58 = New System.Drawing.Printing.PrintDocument()
         Me.SuspendLayout()
         '
         'Label1
@@ -346,17 +348,17 @@ Partial Class frmEstResultados
         Me.Label16.TabIndex = 260
         Me.Label16.Text = "Fecha final"
         '
-        'Button1
+        'btnImprimir
         '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(264, 432)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(64, 73)
-        Me.Button1.TabIndex = 261
-        Me.Button1.Text = "Imprimir"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
+        Me.btnImprimir.Location = New System.Drawing.Point(264, 432)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(64, 73)
+        Me.btnImprimir.TabIndex = 261
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -384,6 +386,12 @@ Partial Class frmEstResultados
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'PRecibo80
+        '
+        '
+        'PRecibo58
+        '
+        '
         'frmEstResultados
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -391,7 +399,7 @@ Partial Class frmEstResultados
         Me.ClientSize = New System.Drawing.Size(341, 517)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.dtpfinal)
@@ -460,7 +468,9 @@ Partial Class frmEstResultados
     Friend WithEvents dtpfinal As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnImprimir As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents PRecibo80 As Printing.PrintDocument
+    Friend WithEvents PRecibo58 As Printing.PrintDocument
 End Class

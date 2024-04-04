@@ -778,10 +778,10 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteDeVentaDeAntibióticosToolStripMenuItem})
-        Me.pReportes.Name = "pReportes"
-        Me.pReportes.Size = New System.Drawing.Size(65, 20)
-        Me.pReportes.Text = "Reportes"
+        'Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteDeVentaDeAntibióticosToolStripMenuItem})
+        'Me.pReportes.Name = "pReportes"
+        'Me.pReportes.Size = New System.Drawing.Size(65, 20)
+        'Me.pReportes.Text = "Reportes"
         '
         'pRepVentas
         '
@@ -1184,7 +1184,7 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button13)
-        Me.Panel2.Controls.Add(Me.btnPagarComa)
+        'Me.Panel2.Controls.Add(Me.btnPagarComa)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button12)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
