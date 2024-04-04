@@ -11,6 +11,8 @@ Public Class frmCompras
     Dim alias_compras As String = ""
     Dim tipo_cancelacion As String = ""
 
+    Dim pasa_pago As Boolean = False
+
     Public Structure Pagos
         Shared pc_porpagar As Double = 0
         Shared pc_anticipo As Double = 0
@@ -587,7 +589,7 @@ Public Class frmCompras
             End If
         End If
         If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text <> "" Then txtcantidad.Focus().Equals(True)
-        If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text = "" Then btnPagar.Focus().Equals(True)
+        If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text = "" Then btnguardar.Focus.Equals(True)
     End Sub
 
     Private Sub cboremision_Click(sender As System.Object, e As System.EventArgs) Handles cboremision.Click
@@ -1184,6 +1186,8 @@ Public Class frmCompras
         Panel1.Visible = False
         tipo_cancelacion = ""
 
+        pasa_pago = False
+
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
@@ -1437,6 +1441,8 @@ kaka:
                 "insert into AuxCompras(Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Caducidad,Lote,CP) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & cboproveedor.Text & "','" & txtcodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & CantidadP & "," & PrecioU & "," & TotalP & ",'',''," & CP & ")"
             cmd1.ExecuteNonQuery() : cnn1.Close()
         End If
+
+        pasa_pago = False
     End Sub
 
     Public Sub IVA()
@@ -1872,6 +1878,10 @@ kaka:
             If CDbl(txtresta.Text) < 0 Then MsgBox("El abono a la compra no puede ser mayor al total de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtefectivo.Focus().Equals(True) : Exit Sub
             If CDbl(txtsub1.Text) = 0 Then MsgBox("Falta algún precio o alguna cantidad.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcodigo.Focus().Equals(True) : Exit Sub
             If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Exit Sub
+
+            If pasa_pago = False Then
+                btnPagar.PerformClick()
+            End If
 
             If txtdesc1.Text = "" Then txtdesc1.Text = "0.00"
             If txtdesc2.Text = "" Then txtdesc2.Text = "0.00"
@@ -5081,12 +5091,18 @@ quepasowey:
     End Sub
 
     Private Sub btnPagar_Click(sender As System.Object, e As System.EventArgs) Handles btnPagar.Click
-        txtpc_apagar.Text = FormatNumber(txtapagar.Text, 2)
-        txtpc_anticipo.Text = FormatNumber(txtanticipo.Text, 2)
-        txtpc_resta.Text = FormatNumber(txtresta.Text, 2)
+        If MsgBox("¿Deseas abonar a la compra?", vbInformation + vbOKCancel) = vbOK Then
+            txtpc_apagar.Text = FormatNumber(txtapagar.Text, 2)
+            txtpc_anticipo.Text = FormatNumber(txtanticipo.Text, 2)
+            txtpc_resta.Text = FormatNumber(txtresta.Text, 2)
 
-        panpago_compra.Visible = True
-        txtpc_efectivo.Focus().Equals(True)
+            panpago_compra.Visible = True
+            pasa_pago = True
+            txtpc_efectivo.Focus().Equals(True)
+        Else
+            pasa_pago = True
+            btnguardar.Focus.Equals(True)
+        End If
     End Sub
 
     Private Sub txtpc_efectivo_Click(sender As System.Object, e As System.EventArgs) Handles txtpc_efectivo.Click
@@ -5238,14 +5254,13 @@ quepasowey:
             Exit Sub
         End If
 
-
-
         txtefectivo.Text = FormatNumber(txtpc_efectivo.Text, 2)
         txtpagos.Text = FormatNumber((CDbl(txtpc_tarjeta.Text) + CDbl(txtpc_transfe.Text) + CDbl(txtpc_otro.Text)), 2)
         txtresta.Text = FormatNumber(txtpc_resta.Text, 2)
 
         panpago_compra.Visible = False
-        btnguardar.Focus().Equals(True)
+        pasa_pago = True
+        btnguardar.PerformClick()
     End Sub
 
     Private Sub btnimportarxml_Click(sender As Object, e As EventArgs) Handles btnimportarxml.Click
