@@ -2434,4 +2434,103 @@
             TxtCantLta4.Text = "0"
         End If
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then
+            optmone_depto.Visible = True
+            optmone_grup.Visible = True
+            cbodepto_grupo.Visible = True
+            txtporc_mone.Visible = True
+            lblporc_mone.Visible = True
+            btnmone_guarda.Visible = True
+        Else
+            optmone_depto.Visible = False
+            optmone_grup.Visible = False
+            cbodepto_grupo.Visible = False
+            txtporc_mone.Visible = False
+            lblporc_mone.Visible = False
+            btnmone_guarda.Visible = False
+        End If
+    End Sub
+
+    Private Sub cbodepto_grupo_DropDown(sender As Object, e As EventArgs) Handles cbodepto_grupo.DropDown
+        cbodepto_grupo.Items.Clear()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            If optmone_depto.Checked = True Then
+                cmd1.CommandText =
+                    "select distinct Departamento from Productos order by Departamento"
+            End If
+            If optmone_grup.Checked = True Then
+                cmd1.CommandText =
+                    "select distinct Grupo from Productos order by Grupo"
+            End If
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+                    cbodepto_grupo.Items.Add(rd1(0).ToString())
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbodepto_grupo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbodepto_grupo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtporc_mone.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtporc_mone_Click(sender As Object, e As EventArgs) Handles txtporc_mone.Click
+        txtporc_mone.SelectionStart = 0
+        txtporc_mone.SelectionLength = Len(txtporc_mone.Text)
+    End Sub
+
+    Private Sub txtporc_mone_GotFocus(sender As Object, e As EventArgs) Handles txtporc_mone.GotFocus
+        txtporc_mone.SelectionStart = 0
+        txtporc_mone.SelectionLength = Len(txtporc_mone.Text)
+    End Sub
+
+    Private Sub txtporc_mone_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtporc_mone.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnmone_guarda.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub btnmone_guarda_Click(sender As Object, e As EventArgs) Handles btnmone_guarda.Click
+        If CDbl(txtporc_mone.Text) = 0 Then MsgBox("El porcentaje debe de ser mayor a 0.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtporc_mone.Focus().Equals(True) : Exit Sub
+        If cbodepto_grupo.Text = "" Then MsgBox("Selecciona un " & IIf(optmone_depto.Checked = True, "departamento", "grupo") & " para guardar el ajuste.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbodepto_grupo.Focus.Equals(True) : Exit Sub
+        If MsgBox("¿Deseas asignar el " & txtporc_mone.Text & " porciento de abono por venta en el " & IIf(optmone_depto.Checked = True, "departamento", "grupo") & ": '" & cbodepto_grupo.Text & "'?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
+
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            If optmone_depto.Checked = True Then
+                cmd1.CommandText =
+                    "update Productos set Promo_Monedero=" & txtporc_mone.Text & " where Departamento='" & cbodepto_grupo.Text & "'"
+            End If
+            If optmone_grup.Checked = True Then
+                cmd1.CommandText =
+                    "update Productos swt Promo_Monedero=" & txtporc_mone.Text & " where Grupo='" & cbodepto_grupo.Text & "'"
+            End If
+            If cmd1.ExecuteNonQuery Then
+                MsgBox("Porcentaje de abono a monedero actualizado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                cbodepto_grupo.Text = ""
+                txtporc_mone.Text = "0"
+                cbodepto_grupo.Focus.Equals(True)
+            End If
+
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

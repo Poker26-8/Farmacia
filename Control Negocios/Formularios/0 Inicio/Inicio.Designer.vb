@@ -167,6 +167,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -777,7 +778,7 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteDeVentaDeAntibióticosToolStripMenuItem})
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
@@ -786,14 +787,14 @@ Partial Class Inicio
         '
         Me.pRepVentas.BackColor = System.Drawing.Color.White
         Me.pRepVentas.Name = "pRepVentas"
-        Me.pRepVentas.Size = New System.Drawing.Size(236, 22)
+        Me.pRepVentas.Size = New System.Drawing.Size(244, 22)
         Me.pRepVentas.Text = "Reporte de ventas"
         '
         'pRepVentasG
         '
         Me.pRepVentasG.BackColor = System.Drawing.Color.White
         Me.pRepVentasG.Name = "pRepVentasG"
-        Me.pRepVentasG.Size = New System.Drawing.Size(236, 22)
+        Me.pRepVentasG.Size = New System.Drawing.Size(244, 22)
         Me.pRepVentasG.Text = "Reporte de ventas (gráficas)"
         Me.pRepVentasG.Visible = False
         '
@@ -801,7 +802,7 @@ Partial Class Inicio
         '
         Me.pRepCompras.BackColor = System.Drawing.Color.White
         Me.pRepCompras.Name = "pRepCompras"
-        Me.pRepCompras.Size = New System.Drawing.Size(236, 22)
+        Me.pRepCompras.Size = New System.Drawing.Size(244, 22)
         Me.pRepCompras.Text = "Reporte de compras"
         '
         'pRepCuentas
@@ -809,7 +810,7 @@ Partial Class Inicio
         Me.pRepCuentas.BackColor = System.Drawing.Color.White
         Me.pRepCuentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCobrar, Me.pPagar, Me.AlumnosToolStripMenuItem1})
         Me.pRepCuentas.Name = "pRepCuentas"
-        Me.pRepCuentas.Size = New System.Drawing.Size(236, 22)
+        Me.pRepCuentas.Size = New System.Drawing.Size(244, 22)
         Me.pRepCuentas.Text = "Reporte de cuentas"
         '
         'pCobrar
@@ -838,21 +839,21 @@ Partial Class Inicio
         '
         Me.pRepIngEgr.BackColor = System.Drawing.Color.White
         Me.pRepIngEgr.Name = "pRepIngEgr"
-        Me.pRepIngEgr.Size = New System.Drawing.Size(236, 22)
+        Me.pRepIngEgr.Size = New System.Drawing.Size(244, 22)
         Me.pRepIngEgr.Text = "Reporte de Ingresos"
         '
         'ReporteDeEgresosToolStripMenuItem
         '
         Me.ReporteDeEgresosToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteDeEgresosToolStripMenuItem.Name = "ReporteDeEgresosToolStripMenuItem"
-        Me.ReporteDeEgresosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeEgresosToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.ReporteDeEgresosToolStripMenuItem.Text = "Reporte de Egresos"
         '
         'pRepEgr
         '
         Me.pRepEgr.BackColor = System.Drawing.Color.White
         Me.pRepEgr.Name = "pRepEgr"
-        Me.pRepEgr.Size = New System.Drawing.Size(236, 22)
+        Me.pRepEgr.Size = New System.Drawing.Size(244, 22)
         Me.pRepEgr.Text = "Reportes de salidas"
         Me.pRepEgr.Visible = False
         '
@@ -860,7 +861,7 @@ Partial Class Inicio
         '
         Me.pRepPrecios.BackColor = System.Drawing.Color.White
         Me.pRepPrecios.Name = "pRepPrecios"
-        Me.pRepPrecios.Size = New System.Drawing.Size(236, 22)
+        Me.pRepPrecios.Size = New System.Drawing.Size(244, 22)
         Me.pRepPrecios.Text = "Reporte de cambio de precios"
         '
         'pRepInventario
@@ -868,7 +869,7 @@ Partial Class Inicio
         Me.pRepInventario.BackColor = System.Drawing.Color.White
         Me.pRepInventario.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pInventario, Me.pAjuste})
         Me.pRepInventario.Name = "pRepInventario"
-        Me.pRepInventario.Size = New System.Drawing.Size(236, 22)
+        Me.pRepInventario.Size = New System.Drawing.Size(244, 22)
         Me.pRepInventario.Text = "Reportes de inventario"
         '
         'pInventario
@@ -889,25 +890,28 @@ Partial Class Inicio
         '
         Me.pEstResultados.BackColor = System.Drawing.Color.White
         Me.pEstResultados.Name = "pEstResultados"
-        Me.pEstResultados.Size = New System.Drawing.Size(236, 22)
+        Me.pEstResultados.Size = New System.Drawing.Size(244, 22)
         Me.pEstResultados.Text = "Estado de resultados"
         '
         'ReporteDeControlDeServiciosToolStripMenuItem
         '
+        Me.ReporteDeControlDeServiciosToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Name = "ReporteDeControlDeServiciosToolStripMenuItem"
-        Me.ReporteDeControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.ReporteDeControlDeServiciosToolStripMenuItem.Text = "Reporte de control de servicios"
         '
         'ReporteDeSeries
         '
+        Me.ReporteDeSeries.BackColor = System.Drawing.Color.White
         Me.ReporteDeSeries.Name = "ReporteDeSeries"
-        Me.ReporteDeSeries.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeSeries.Size = New System.Drawing.Size(244, 22)
         Me.ReporteDeSeries.Text = "Reporte de Series"
         '
         'ReporteDeAuditoriaToolStripMenuItem
         '
+        Me.ReporteDeAuditoriaToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteDeAuditoriaToolStripMenuItem.Name = "ReporteDeAuditoriaToolStripMenuItem"
-        Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
         Me.ReporteDeAuditoriaToolStripMenuItem.Text = "Reporte de auditoria"
         '
         'pEgresos
@@ -1277,22 +1281,6 @@ Partial Class Inicio
         Me.Button13.UseVisualStyleBackColor = True
         Me.Button13.Visible = False
         '
-        'btnPagarComa
-        '
-        Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPagarComa.FlatAppearance.BorderSize = 0
-        Me.btnPagarComa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnPagarComa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagarComa.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagarComa.Image = CType(resources.GetObject("btnPagarComa.Image"), System.Drawing.Image)
-        Me.btnPagarComa.Location = New System.Drawing.Point(0, 180)
-        Me.btnPagarComa.Name = "btnPagarComa"
-        Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
-        Me.btnPagarComa.TabIndex = 185
-        Me.btnPagarComa.Text = "PAGAR COMANDA"
-        Me.btnPagarComa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
         'btnvtatouch
         '
         Me.btnvtatouch.Dock = System.Windows.Forms.DockStyle.Top
@@ -1392,6 +1380,19 @@ Partial Class Inicio
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
+        '
+        'btnPagarComa
+        '
+        Me.btnPagarComa.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPagarComa.FlatAppearance.BorderSize = 0
+        Me.btnPagarComa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPagarComa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagarComa.Image = CType(resources.GetObject("btnPagarComa.Image"), System.Drawing.Image)
+        Me.btnPagarComa.Location = New System.Drawing.Point(0, 180)
+        Me.btnPagarComa.Name = "btnPagarComa"
+        Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComa.TabIndex = 185
+        Me.btnPagarComa.UseVisualStyleBackColor = True
         '
         'Inicio
         '
@@ -1566,4 +1567,5 @@ Partial Class Inicio
     Friend WithEvents CorteDeCajaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnPagarComanda As Button
     Friend WithEvents btnPagarComa As Button
+    Friend WithEvents ReporteDeVentaDeAntibióticosToolStripMenuItem As ToolStripMenuItem
 End Class

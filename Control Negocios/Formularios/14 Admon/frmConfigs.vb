@@ -11,6 +11,7 @@ Public Class frmConfigs
     Dim focotamaeti As Integer = 0
     Private Sub frmConfigs_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         SFormatos("IMG_PDF", "")
+        SFormatos("Porc_Mone", "")
 
         Try
             cnn1.Close()
@@ -130,6 +131,22 @@ Public Class frmConfigs
                         cbseries.Checked = True
                     Else
                         cbseries.Checked = False
+                    End If
+                End If
+            End If
+            rd4.Close()
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM formatos WHERE Facturas='Porc_Mone'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    If rd4("NumPart").ToString = 0 Then
+                        optmone_prod.Checked = True
+                    End If
+                    If rd4("NumPart").ToString = 0 Then
+                        optmone_ven.Checked = True
+                        txtporc_venta.Text = rd4("NotasCred").ToString()
                     End If
                 End If
             End If
@@ -3200,5 +3217,68 @@ Public Class frmConfigs
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub optmone_ven_CheckedChanged(sender As Object, e As EventArgs) Handles optmone_ven.CheckedChanged
+        If (optmone_ven.Checked) Then
+            txtporc_venta.Enabled = True
+        Else
+            txtporc_venta.Enabled = False
+        End If
+    End Sub
+
+    Private Sub optmone_prod_CheckedChanged(sender As Object, e As EventArgs) Handles optmone_prod.CheckedChanged
+        If (optmone_prod.Checked) Then
+            txtporc_venta.Enabled = False
+        Else
+            txtporc_venta.Enabled = True
+        End If
+    End Sub
+
+    Private Sub txtporc_venta_Click(sender As Object, e As EventArgs) Handles txtporc_venta.Click
+        txtporc_venta.SelectionStart = 0
+        txtporc_venta.SelectionLength = Len(txtporc_venta.Text)
+    End Sub
+
+    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+        If txtporc_venta.Text = "" Or (CDbl(txtporc_venta.Text) = 0) Then MsgBox("Ingresa un porcentaje válido.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtporc_venta.Focus().Equals(True) : Exit Sub
+        If MsgBox("¿Deseas actualizar el modo de abono por venta a monedero?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                If optmone_prod.Checked = True Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "update Formatos set NumPart=0, NotasCred='' where Facturas='Porc_Mone'"
+                    If cmd1.ExecuteNonQuery Then
+                        MsgBox("Información actualizada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    End If
+                End If
+                If optmone_ven.Checked = True Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "update Formatos set NumPart=1, NotasCred='" & txtporc_venta.Text & "' where Facturas='Porc_Mone'"
+                    If cmd1.ExecuteNonQuery Then
+                        MsgBox("Información actualizada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    End If
+                End If
+
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub txtporc_venta_GotFocus(sender As Object, e As EventArgs) Handles txtporc_venta.GotFocus
+        txtporc_venta.SelectionStart = 0
+        txtporc_venta.SelectionLength = Len(txtporc_venta.Text)
+    End Sub
+
+    Private Sub txtporc_venta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtporc_venta.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Button26.Focus().Equals(True)
+        End If
     End Sub
 End Class

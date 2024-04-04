@@ -281,7 +281,7 @@ Partial Class frmConfigs
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
         Me.cbocotiza = New System.Windows.Forms.ComboBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tabFuncionalidades1 = New System.Windows.Forms.TabPage()
         Me.pauto = New System.Windows.Forms.GroupBox()
         Me.Button27 = New System.Windows.Forms.Button()
         Me.Label80 = New System.Windows.Forms.Label()
@@ -308,6 +308,13 @@ Partial Class frmConfigs
         Me.chkautofacturas = New System.Windows.Forms.CheckBox()
         Me.chkAcumula = New System.Windows.Forms.CheckBox()
         Me.chkMinAlmacen = New System.Windows.Forms.CheckBox()
+        Me.tabFuncionalidades2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox27 = New System.Windows.Forms.GroupBox()
+        Me.txtporc_venta = New System.Windows.Forms.TextBox()
+        Me.Label89 = New System.Windows.Forms.Label()
+        Me.Button26 = New System.Windows.Forms.Button()
+        Me.optmone_ven = New System.Windows.Forms.RadioButton()
+        Me.optmone_prod = New System.Windows.Forms.RadioButton()
         Me.tabMigracion = New System.Windows.Forms.TabPage()
         Me.btnMigrar = New System.Windows.Forms.Button()
         Me.lblProgreso = New System.Windows.Forms.Label()
@@ -387,12 +394,14 @@ Partial Class frmConfigs
         Me.GroupBox19.SuspendLayout()
         Me.GroupBox18.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.tabFuncionalidades1.SuspendLayout()
         Me.pauto.SuspendLayout()
         Me.GroupBox24.SuspendLayout()
         Me.boxCosteo.SuspendLayout()
         Me.GroupBox23.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        Me.tabFuncionalidades2.SuspendLayout()
+        Me.GroupBox27.SuspendLayout()
         Me.tabMigracion.SuspendLayout()
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -422,9 +431,9 @@ Partial Class frmConfigs
         Me.tabCFDI.Controls.Add(Me.GroupBox13)
         Me.tabCFDI.Controls.Add(Me.GroupBox14)
         Me.tabCFDI.Controls.Add(Me.GroupBox15)
-        Me.tabCFDI.Location = New System.Drawing.Point(4, 58)
+        Me.tabCFDI.Location = New System.Drawing.Point(4, 44)
         Me.tabCFDI.Name = "tabCFDI"
-        Me.tabCFDI.Size = New System.Drawing.Size(478, 463)
+        Me.tabCFDI.Size = New System.Drawing.Size(478, 477)
         Me.tabCFDI.TabIndex = 5
         Me.tabCFDI.Text = "Certificado CFDI"
         Me.tabCFDI.UseVisualStyleBackColor = True
@@ -751,9 +760,9 @@ Partial Class frmConfigs
         '
         Me.tabFactura.Controls.Add(Me.Label40)
         Me.tabFactura.Controls.Add(Me.GroupBox10)
-        Me.tabFactura.Location = New System.Drawing.Point(4, 58)
+        Me.tabFactura.Location = New System.Drawing.Point(4, 44)
         Me.tabFactura.Name = "tabFactura"
-        Me.tabFactura.Size = New System.Drawing.Size(478, 463)
+        Me.tabFactura.Size = New System.Drawing.Size(478, 477)
         Me.tabFactura.TabIndex = 3
         Me.tabFactura.Text = "Configuración de factura"
         Me.tabFactura.UseVisualStyleBackColor = True
@@ -1176,9 +1185,9 @@ Partial Class frmConfigs
         Me.tabCorreo.Controls.Add(Me.Button12)
         Me.tabCorreo.Controls.Add(Me.GroupBox12)
         Me.tabCorreo.Controls.Add(Me.GroupBox11)
-        Me.tabCorreo.Location = New System.Drawing.Point(4, 58)
+        Me.tabCorreo.Location = New System.Drawing.Point(4, 44)
         Me.tabCorreo.Name = "tabCorreo"
-        Me.tabCorreo.Size = New System.Drawing.Size(478, 463)
+        Me.tabCorreo.Size = New System.Drawing.Size(478, 477)
         Me.tabCorreo.TabIndex = 6
         Me.tabCorreo.Text = "Configuración de correo"
         Me.tabCorreo.UseVisualStyleBackColor = True
@@ -1479,9 +1488,9 @@ Partial Class frmConfigs
         Me.tabMoneda.Controls.Add(Me.GroupBox8)
         Me.tabMoneda.Controls.Add(Me.GroupBox6)
         Me.tabMoneda.Controls.Add(Me.GroupBox7)
-        Me.tabMoneda.Location = New System.Drawing.Point(4, 58)
+        Me.tabMoneda.Location = New System.Drawing.Point(4, 44)
         Me.tabMoneda.Name = "tabMoneda"
-        Me.tabMoneda.Size = New System.Drawing.Size(478, 463)
+        Me.tabMoneda.Size = New System.Drawing.Size(478, 477)
         Me.tabMoneda.TabIndex = 2
         Me.tabMoneda.Text = "Tipo de moneda"
         Me.tabMoneda.UseVisualStyleBackColor = True
@@ -1891,9 +1900,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 24)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 497)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2115,10 +2124,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 24)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 497)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3198,7 +3207,8 @@ Partial Class frmConfigs
         Me.TabControl1.Controls.Add(Me.tabCorreo)
         Me.TabControl1.Controls.Add(Me.tabFactura)
         Me.TabControl1.Controls.Add(Me.tabCFDI)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.tabFuncionalidades1)
+        Me.TabControl1.Controls.Add(Me.tabFuncionalidades2)
         Me.TabControl1.Controls.Add(Me.tabMigracion)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
@@ -3210,19 +3220,19 @@ Partial Class frmConfigs
         Me.TabControl1.Size = New System.Drawing.Size(486, 525)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPage1
+        'tabFuncionalidades1
         '
-        Me.TabPage1.Controls.Add(Me.pauto)
-        Me.TabPage1.Controls.Add(Me.GroupBox24)
-        Me.TabPage1.Controls.Add(Me.boxCosteo)
-        Me.TabPage1.Controls.Add(Me.GroupBox23)
-        Me.TabPage1.Controls.Add(Me.GroupBox9)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 58)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(478, 463)
-        Me.TabPage1.TabIndex = 7
-        Me.TabPage1.Text = "Funcionalidades"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.tabFuncionalidades1.Controls.Add(Me.pauto)
+        Me.tabFuncionalidades1.Controls.Add(Me.GroupBox24)
+        Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
+        Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
+        Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 64)
+        Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 457)
+        Me.tabFuncionalidades1.TabIndex = 7
+        Me.tabFuncionalidades1.Text = "Funcionalidades 1"
+        Me.tabFuncionalidades1.UseVisualStyleBackColor = True
         '
         'pauto
         '
@@ -3515,6 +3525,84 @@ Partial Class frmConfigs
         Me.chkMinAlmacen.Text = "Enviar alertas cuando se alcance el mínimo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "en almacén"
         Me.chkMinAlmacen.UseVisualStyleBackColor = True
         '
+        'tabFuncionalidades2
+        '
+        Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades2.TabIndex = 11
+        Me.tabFuncionalidades2.Text = " Funcionalidades 2"
+        Me.tabFuncionalidades2.UseVisualStyleBackColor = True
+        '
+        'GroupBox27
+        '
+        Me.GroupBox27.Controls.Add(Me.txtporc_venta)
+        Me.GroupBox27.Controls.Add(Me.Label89)
+        Me.GroupBox27.Controls.Add(Me.Button26)
+        Me.GroupBox27.Controls.Add(Me.optmone_ven)
+        Me.GroupBox27.Controls.Add(Me.optmone_prod)
+        Me.GroupBox27.Location = New System.Drawing.Point(8, 8)
+        Me.GroupBox27.Name = "GroupBox27"
+        Me.GroupBox27.Size = New System.Drawing.Size(211, 113)
+        Me.GroupBox27.TabIndex = 17
+        Me.GroupBox27.TabStop = False
+        Me.GroupBox27.Text = "Abono a monedero electrónico"
+        '
+        'txtporc_venta
+        '
+        Me.txtporc_venta.Enabled = False
+        Me.txtporc_venta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtporc_venta.Location = New System.Drawing.Point(121, 47)
+        Me.txtporc_venta.Name = "txtporc_venta"
+        Me.txtporc_venta.Size = New System.Drawing.Size(62, 23)
+        Me.txtporc_venta.TabIndex = 260
+        Me.txtporc_venta.Text = "0"
+        Me.txtporc_venta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label89
+        '
+        Me.Label89.AutoSize = True
+        Me.Label89.Enabled = False
+        Me.Label89.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label89.Location = New System.Drawing.Point(186, 51)
+        Me.Label89.Name = "Label89"
+        Me.Label89.Size = New System.Drawing.Size(17, 15)
+        Me.Label89.TabIndex = 261
+        Me.Label89.Text = "%"
+        '
+        'Button26
+        '
+        Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button26.Location = New System.Drawing.Point(121, 74)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(82, 29)
+        Me.Button26.TabIndex = 2
+        Me.Button26.Text = "Guardar"
+        Me.Button26.UseVisualStyleBackColor = True
+        '
+        'optmone_ven
+        '
+        Me.optmone_ven.AutoSize = True
+        Me.optmone_ven.Location = New System.Drawing.Point(10, 49)
+        Me.optmone_ven.Name = "optmone_ven"
+        Me.optmone_ven.Size = New System.Drawing.Size(75, 19)
+        Me.optmone_ven.TabIndex = 1
+        Me.optmone_ven.TabStop = True
+        Me.optmone_ven.Text = "Por venta"
+        Me.optmone_ven.UseVisualStyleBackColor = True
+        '
+        'optmone_prod
+        '
+        Me.optmone_prod.AutoSize = True
+        Me.optmone_prod.Location = New System.Drawing.Point(10, 22)
+        Me.optmone_prod.Name = "optmone_prod"
+        Me.optmone_prod.Size = New System.Drawing.Size(95, 19)
+        Me.optmone_prod.TabIndex = 0
+        Me.optmone_prod.TabStop = True
+        Me.optmone_prod.Text = "Por producto"
+        Me.optmone_prod.UseVisualStyleBackColor = True
+        '
         'tabMigracion
         '
         Me.tabMigracion.Controls.Add(Me.btnMigrar)
@@ -3528,9 +3616,9 @@ Partial Class frmConfigs
         Me.tabMigracion.Controls.Add(Me.chkProductos)
         Me.tabMigracion.Controls.Add(Me.Label72)
         Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
+        Me.tabMigracion.Location = New System.Drawing.Point(4, 64)
         Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
+        Me.tabMigracion.Size = New System.Drawing.Size(478, 457)
         Me.tabMigracion.TabIndex = 8
         Me.tabMigracion.Text = "Migración de datos"
         Me.tabMigracion.UseVisualStyleBackColor = True
@@ -3651,10 +3739,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 64)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 457)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3682,7 +3770,7 @@ Partial Class frmConfigs
         Me.Label76.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label76.Location = New System.Drawing.Point(92, 83)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(310, 32)
+        Me.Label76.Size = New System.Drawing.Size(311, 32)
         Me.Label76.TabIndex = 27
         Me.Label76.Text = "Configuración de Accesos"
         '
@@ -3962,7 +4050,7 @@ Partial Class frmConfigs
         Me.GroupBox19.ResumeLayout(False)
         Me.GroupBox18.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
+        Me.tabFuncionalidades1.ResumeLayout(False)
         Me.pauto.ResumeLayout(False)
         Me.pauto.PerformLayout()
         Me.GroupBox24.ResumeLayout(False)
@@ -3972,6 +4060,9 @@ Partial Class frmConfigs
         Me.GroupBox23.ResumeLayout(False)
         Me.GroupBox23.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
+        Me.tabFuncionalidades2.ResumeLayout(False)
+        Me.GroupBox27.ResumeLayout(False)
+        Me.GroupBox27.PerformLayout()
         Me.tabMigracion.ResumeLayout(False)
         Me.tabMigracion.PerformLayout()
         CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4188,7 +4279,7 @@ Partial Class frmConfigs
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents txtPdomicilio As System.Windows.Forms.RichTextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents tabFuncionalidades1 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
     Friend WithEvents chkautofacturas As System.Windows.Forms.CheckBox
     Friend WithEvents chkAcumula As System.Windows.Forms.CheckBox
@@ -4303,4 +4394,11 @@ Partial Class frmConfigs
     Friend WithEvents txtResultado As TextBox
     Friend WithEvents txtSolicitud As TextBox
     Friend WithEvents txtTerminal As TextBox
+    Friend WithEvents tabFuncionalidades2 As TabPage
+    Friend WithEvents GroupBox27 As GroupBox
+    Friend WithEvents Button26 As Button
+    Friend WithEvents optmone_ven As RadioButton
+    Friend WithEvents optmone_prod As RadioButton
+    Friend WithEvents txtporc_venta As TextBox
+    Friend WithEvents Label89 As Label
 End Class
