@@ -167,7 +167,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -778,10 +777,11 @@ Partial Class Inicio
         '
         'pReportes
         '
-        'Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteDeVentaDeAntibióticosToolStripMenuItem})
-        'Me.pReportes.Name = "pReportes"
-        'Me.pReportes.Size = New System.Drawing.Size(65, 20)
-        'Me.pReportes.Text = "Reportes"
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem 'Me.ReporteDeVentaDeAntibióticosToolStripMenuItem
+                                            })
+        Me.pReportes.Name = "pReportes"
+        Me.pReportes.Size = New System.Drawing.Size(65, 20)
+        Me.pReportes.Text = "Reportes"
         '
         'pRepVentas
         '
