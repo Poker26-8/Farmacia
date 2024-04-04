@@ -778,7 +778,8 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteDeVentaDeAntibióticosToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem 'Me.ReporteDeVentaDeAntibióticosToolStripMenuItem
+                                            })
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
