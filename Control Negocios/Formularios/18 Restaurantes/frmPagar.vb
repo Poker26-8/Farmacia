@@ -1321,7 +1321,6 @@ Door:
             cnn2.Close()
         End If
 
-
 #Region "TICKET"
 
         Dim copias As Integer = 0

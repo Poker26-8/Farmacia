@@ -26,29 +26,29 @@ Partial Class frmDividirCuenta
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblmesa = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.grdmesa = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.grdcomensal = New System.Windows.Forms.DataGridView()
-        Me.txtnuevocomensal = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.btncancelar = New System.Windows.Forms.Button()
-        Me.btnguardard = New System.Windows.Forms.Button()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtnuevocomensal = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.grdmesa = New System.Windows.Forms.DataGridView()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btncancelar = New System.Windows.Forms.Button()
+        Me.btnguardard = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        CType(Me.grdmesa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         CType(Me.grdcomensal, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        CType(Me.grdmesa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -81,39 +81,6 @@ Partial Class frmDividirCuenta
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DIVIDIR CUENTA"
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.GroupBox6)
-        Me.Panel2.Location = New System.Drawing.Point(6, 21)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(402, 396)
-        Me.Panel2.TabIndex = 1
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.grdmesa)
-        Me.GroupBox6.Location = New System.Drawing.Point(3, 8)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(392, 385)
-        Me.GroupBox6.TabIndex = 0
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "PRODUCTOS"
-        '
-        'grdmesa
-        '
-        Me.grdmesa.AllowUserToAddRows = False
-        Me.grdmesa.AllowUserToDeleteRows = False
-        Me.grdmesa.BackgroundColor = System.Drawing.Color.White
-        Me.grdmesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdmesa.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column18, Me.Column14, Me.Column15})
-        Me.grdmesa.Location = New System.Drawing.Point(6, 26)
-        Me.grdmesa.Name = "grdmesa"
-        Me.grdmesa.ReadOnly = True
-        Me.grdmesa.RowHeadersVisible = False
-        Me.grdmesa.Size = New System.Drawing.Size(380, 353)
-        Me.grdmesa.TabIndex = 0
         '
         'Panel3
         '
@@ -150,6 +117,27 @@ Partial Class frmDividirCuenta
         Me.grdcomensal.Size = New System.Drawing.Size(341, 277)
         Me.grdcomensal.TabIndex = 2
         '
+        'Column19
+        '
+        Me.Column19.HeaderText = "comanda"
+        Me.Column19.Name = "Column19"
+        Me.Column19.ReadOnly = True
+        Me.Column19.Visible = False
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "Cant"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Width = 44
+        '
+        'Column17
+        '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column17.HeaderText = "Producto"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
         'txtnuevocomensal
         '
         Me.txtnuevocomensal.Location = New System.Drawing.Point(6, 66)
@@ -164,6 +152,60 @@ Partial Class frmDividirCuenta
         Me.Label11.Size = New System.Drawing.Size(344, 43)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Escribe el número de comensal:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ejemp. 1,2,15,26 etc."
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.GroupBox6)
+        Me.Panel2.Location = New System.Drawing.Point(6, 21)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(402, 396)
+        Me.Panel2.TabIndex = 1
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.grdmesa)
+        Me.GroupBox6.Location = New System.Drawing.Point(3, 8)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(392, 385)
+        Me.GroupBox6.TabIndex = 0
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "PRODUCTOS"
+        '
+        'grdmesa
+        '
+        Me.grdmesa.AllowUserToAddRows = False
+        Me.grdmesa.AllowUserToDeleteRows = False
+        Me.grdmesa.BackgroundColor = System.Drawing.Color.White
+        Me.grdmesa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdmesa.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column18, Me.Column14, Me.Column15})
+        Me.grdmesa.Location = New System.Drawing.Point(6, 26)
+        Me.grdmesa.Name = "grdmesa"
+        Me.grdmesa.ReadOnly = True
+        Me.grdmesa.RowHeadersVisible = False
+        Me.grdmesa.Size = New System.Drawing.Size(380, 353)
+        Me.grdmesa.TabIndex = 0
+        '
+        'Column18
+        '
+        Me.Column18.HeaderText = "comanda"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        Me.Column18.Visible = False
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "Cant"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        Me.Column14.Width = 50
+        '
+        'Column15
+        '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column15.HeaderText = "Producto"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
         '
         'btncancelar
         '
@@ -195,48 +237,6 @@ Partial Class frmDividirCuenta
         Me.btnguardard.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnguardard.UseVisualStyleBackColor = False
         '
-        'Column18
-        '
-        Me.Column18.HeaderText = "comanda"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        Me.Column18.Visible = False
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Cant"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        Me.Column14.Width = 50
-        '
-        'Column15
-        '
-        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column15.HeaderText = "Producto"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        '
-        'Column19
-        '
-        Me.Column19.HeaderText = "comanda"
-        Me.Column19.Name = "Column19"
-        Me.Column19.ReadOnly = True
-        Me.Column19.Visible = False
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "Cant"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        Me.Column16.Width = 44
-        '
-        'Column17
-        '
-        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column17.HeaderText = "Producto"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        '
         'frmDividirCuenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -253,13 +253,13 @@ Partial Class frmDividirCuenta
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dividir Cuenta"
         Me.GroupBox1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.GroupBox6.ResumeLayout(False)
-        CType(Me.grdmesa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         CType(Me.grdcomensal, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        CType(Me.grdmesa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
