@@ -78,8 +78,37 @@ Public Class Inicio
     End Sub
 
     Private Sub PreciosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pPrecios.Click
-        frmPrecios.Show()
-        frmPrecios.BringToFront()
+
+
+        Dim res As Integer = 0
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Restaurante'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    res = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+        If res = 1 Then
+            frmPreciosRest.Show()
+            frmPreciosRest.BringToFront()
+        Else
+            frmPrecios.Show()
+            frmPrecios.BringToFront()
+        End If
+
+
     End Sub
 
     Private Sub Actualiza_Promos()

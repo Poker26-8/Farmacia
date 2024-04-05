@@ -1790,27 +1790,6 @@
                             cmd2.ExecuteNonQuery()
                         Else
 
-                            'cnn3.Close() : cnn3.Open()
-                            'cmd3 = cnn3.CreateCommand
-                            'cmd3.CommandText = "SELECT * FROM precios WHERE Codigo='" & cboCodigo.Text & "' AND Nombre='" & CboDescripcion.Text & "'"
-                            'rd3 = cmd3.ExecuteReader
-                            'If rd3.HasRows Then
-                            '    If rd3.Read Then
-
-
-
-
-                            '    End If
-                            'Else
-                            '    cnn4.Close() : cnn4.Open()
-                            '    cmd4 = cnn4.CreateCommand
-                            '    cmd4.CommandText = "INSERT INTO precios(Codigo,Nombre,Precioventa2,PorcMin2,PreMin2,Porcentaje2,PorcMay2,PorcMM2,PorcEsp2,PreMay2) VALUES('" & cboCodigo.Text & "','" & CboDescripcion.Text & "'," & pven2 & "," & uti_min2 & "," & pvi2 & "," & uti_lta2 & "," & uti_may2 & "," & uti_mm2 & "," & uti_esp2 & "," & pmay2 & ")"
-                            '    cmd4.ExecuteNonQuery()
-                            '    cnn4.Close()
-                            'End If
-                            'rd3.Close()
-                            'cnn3.Close()
-
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
                                 "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min2 & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Status_Promocion=0, Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"

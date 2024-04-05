@@ -938,7 +938,7 @@ Partial Class frmProductosDR
         'PCopeo
         '
         Me.PCopeo.Controls.Add(Me.GroupBox1)
-        Me.PCopeo.Location = New System.Drawing.Point(573, 600)
+        Me.PCopeo.Location = New System.Drawing.Point(573, 596)
         Me.PCopeo.Name = "PCopeo"
         Me.PCopeo.Size = New System.Drawing.Size(181, 78)
         Me.PCopeo.TabIndex = 333

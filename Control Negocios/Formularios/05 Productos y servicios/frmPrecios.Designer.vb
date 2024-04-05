@@ -962,7 +962,7 @@ Partial Class frmPrecios
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.GpbPromociones)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 468)
+        Me.Panel1.Location = New System.Drawing.Point(0, 460)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(619, 75)
         Me.Panel1.TabIndex = 227
@@ -1352,7 +1352,7 @@ Partial Class frmPrecios
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(619, 543)
+        Me.ClientSize = New System.Drawing.Size(619, 535)
         Me.Controls.Add(Me.txtporc_mone)
         Me.Controls.Add(Me.cbodepto_grupo)
         Me.Controls.Add(Me.optmone_grup)

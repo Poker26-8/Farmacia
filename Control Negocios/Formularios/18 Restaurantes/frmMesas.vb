@@ -85,8 +85,8 @@ Public Class frmMesas
         rd1.Close()
         cnn1.Close()
 
-        If lblusuario.Text <> "" Then
-            If mapearmesas = 1 Then
+        ' If lblusuario.Text <> "" Then
+        If mapearmesas = 1 Then
                 TRAERLUGAR()
                 primerBoton()
 
@@ -109,7 +109,7 @@ Public Class frmMesas
                     pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
                 End If
             End If
-        End If
+        'End If
 
     End Sub
 
@@ -610,8 +610,6 @@ Public Class frmMesas
                     btnMesaNM.FlatAppearance.BorderSize = 0
                     btnMesaNM.Name = "btnMesa(" & nombreMesa & ")"
                     btnMesaNM.TextAlign = ContentAlignment.BottomCenter
-
-
 
                     If id_mesero <> 0 Then
                         cnn3.Close() : cnn3.Open()

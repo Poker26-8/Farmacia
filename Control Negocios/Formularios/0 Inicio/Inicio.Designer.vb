@@ -91,6 +91,8 @@ Partial Class Inicio
         Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
         Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -110,8 +112,7 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
+
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
