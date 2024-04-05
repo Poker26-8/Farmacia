@@ -2074,7 +2074,15 @@ Public Class frmAgregarProducto
         For zi = 0 To grdCaptura.Rows.Count - 1
             grdCaptura.Rows(zi).Cells(7).Value = min
         Next
-        grdCaptura.Rows.Add("--------------------")
+        If min = 5 Then
+            grdCaptura.Rows.Add("--------------------", "Primer Tiempo")
+        ElseIf min = 10 Then
+            grdCaptura.Rows.Add("--------------------", "Segundo Tiempo")
+        ElseIf min = 15 Then
+            grdCaptura.Rows.Add("--------------------", "Tercer Tiempo")
+        End If
+
+
     End Sub
 
     Public Sub EnviarComanda()
@@ -2100,29 +2108,32 @@ Public Class frmAgregarProducto
                 End If
 
                 Prods = Split(grdCaptura.Rows(n).Cells(0).Value.ToString, vbCrLf)
-                    CodigoProducto = Prods(0)
-                    Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
-
-                    If CodigoProducto <> "WXYZ" Then
-                        cnn1.Close() : cnn1.Open()
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "select IVA from Productos where Codigo='" & CodigoProducto & "'"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.Read Then
-                            If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
-
-                                If rd1(0).ToString > 0 Then
-                                    IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
-                                    iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
-                                    totaliva = totaliva + CDbl(iva)
-                                End If
-
-                            End If
-                        End If
-                        rd1.Close()
-                        cnn1.Close()
-                    End If
+                CodigoProducto = Prods(0)
+                If CodigoProducto = "--------------------" Then
+                    Continue For
                 End If
+                Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
+
+                If CodigoProducto <> "WXYZ" Then
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "select IVA from Productos where Codigo='" & CodigoProducto & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.Read Then
+                        If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
+
+                            If rd1(0).ToString > 0 Then
+                                IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
+                                iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
+                                totaliva = totaliva + CDbl(iva)
+                            End If
+
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                End If
+            End If
         Next n
         totaliva = FormatNumber(totaliva, 2)
 

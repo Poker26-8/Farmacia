@@ -3672,7 +3672,7 @@ Public Class frmVentas1_Descuentos
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         frmPasa_Corte.Show()
     End Sub
-    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs)
         If lblentrega.Visible = False Then
             lblentrega.Visible = True
             Entrega = True

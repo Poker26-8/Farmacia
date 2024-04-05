@@ -8894,9 +8894,11 @@ ecomoda:
                     If montopagon > 0 Then
 
                         e.Graphics.DrawString("Pago con " & formapagon & "", fuente_prods, Brushes.Black, 1, Y)
+                        If Len("Pago con " & formapagon & "") > 26 Then
+                            Y += 13.5
+                        End If
                         e.Graphics.DrawString(simbolo & FormatNumber(montopagon, 2), fuente_prods, Brushes.Black, 280, Y, sf)
                         Y += 13.5
-
                     End If
                 Next
             End If
