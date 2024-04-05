@@ -2202,6 +2202,9 @@ Public Class frmConsultaNotas
                     monto = CDbl(grdpagos.Rows(r).Cells(3).Value.ToString())
 
                     e.Graphics.DrawString("Pago con " & concepto & ":", fuente_prods, Brushes.Black, 1, Y)
+                    If Len("Pago con " & concepto & ":") > 26 Then
+                        Y += 13.5
+                    End If
                     e.Graphics.DrawString(simbolo & FormatNumber(monto, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                     Y += 13.5
                 Next
