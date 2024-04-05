@@ -282,72 +282,72 @@
             End With
         End If
         If Formulario = "Ventas2" Then
-            'With frmVentas2_Descuentos
-            '    cnn1.Close() : cnn1.Open()
-            '    cmd1 = cnn1.CreateCommand
-            '    cmd1.CommandText =
-            '        "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
-            '    rd1 = cmd1.ExecuteReader
-            '    If rd1.HasRows Then
-            '        If rd1.Read Then
-            '            .grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("UVenta").ToString, txtcantid.Text, FormatNumber(CDbl(txtprec.Text) / CDbl(txtcantid.Text), 2), FormatNumber(txtprec.Text, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(txtprec.Text, 2))
-            '        End If
-            '    End If
-            '    rd1.Close() : cnn1.Close()
+            With frmVentas2_Descuentos
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        .grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("UVenta").ToString, txtcantid.Text, FormatNumber(CDbl(txtprec.Text) / CDbl(txtcantid.Text), 2), FormatNumber(txtprec.Text, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(txtprec.Text, 2))
+                    End If
+                End If
+                rd1.Close() : cnn1.Close()
 
-            '    Dim VarSumXD As Double = 0
-            '    For w = 0 To .grdcaptura.Rows.Count - 1
-            '        If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
-            '        Else
-            '            VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
-            '        End If
-            '        .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
-            '    Next
+                Dim VarSumXD As Double = 0
+                For w = 0 To .grdcaptura.Rows.Count - 1
+                    If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
+                    Else
+                        VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                    End If
+                    .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                Next
 
-            '    If CDbl(.txtdescuento1.Text) > 0 Then
-            '        .txtSubTotal.Tag = 1
-            '    End If
-            '    If CDbl(.txtdescuento1.Text) <= 0 Then
-            '        .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
-            '        .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
-            '    End If
+                If CDbl(.txtdescuento1.Text) > 0 Then
+                    .txtSubTotal.Tag = 1
+                End If
+                If CDbl(.txtdescuento1.Text) <= 0 Then
+                    .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
+                    .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
+                End If
 
-            '    Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
-            'End With
+                Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
+            End With
         End If
         If Formulario = "Ventas3" Then
-            'With frmVentas3_Descuentos
-            '    cnn1.Close() : cnn1.Open()
-            '    cmd1 = cnn1.CreateCommand
-            '    cmd1.CommandText =
-            '        "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
-            '    rd1 = cmd1.ExecuteReader
-            '    If rd1.HasRows Then
-            '        If rd1.Read Then
-            '            .grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("UVenta").ToString, txtcantid.Text, FormatNumber(CDbl(txtprec.Text) / CDbl(txtcantid.Text), 2), FormatNumber(txtprec.Text, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(txtprec.Text, 2))
-            '        End If
-            '    End If
-            '    rd1.Close() : cnn1.Close()
+            With frmVentas3_Descuentos
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        .grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("UVenta").ToString, txtcantid.Text, FormatNumber(CDbl(txtprec.Text) / CDbl(txtcantid.Text), 2), FormatNumber(txtprec.Text, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(txtprec.Text, 2))
+                    End If
+                End If
+                rd1.Close() : cnn1.Close()
 
-            '    Dim VarSumXD As Double = 0
-            '    For w = 0 To .grdcaptura.Rows.Count - 1
-            '        If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
-            '        Else
-            '            VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
-            '        End If
-            '        .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
-            '    Next
+                Dim VarSumXD As Double = 0
+                For w = 0 To .grdcaptura.Rows.Count - 1
+                    If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
+                    Else
+                        VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                    End If
+                    .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                Next
 
-            '    If CDbl(.txtdescuento1.Text) > 0 Then
-            '        .txtSubTotal.Tag = 1
-            '    End If
-            '    If CDbl(.txtdescuento1.Text) <= 0 Then
-            '        .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
-            '        .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
-            '    End If
+                If CDbl(.txtdescuento1.Text) > 0 Then
+                    .txtSubTotal.Tag = 1
+                End If
+                If CDbl(.txtdescuento1.Text) <= 0 Then
+                    .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
+                    .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
+                End If
 
-            '    Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
-            'End With
+                Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
+            End With
         End If
     End Sub
 
@@ -415,88 +415,88 @@
             End With
         End If
         If Formulario = "frmVentas2" Then
-            'With frmVentas2_Descuentos
-            '    cnn1.Close() : cnn1.Open()
+            With frmVentas2_Descuentos
+                cnn1.Close() : cnn1.Open()
 
-            '    For pipi As Integer = 0 To grdcaptura.Rows.Count - 1
-            '        cod_prod = grdcaptura.Rows(pipi).Cells(0).Value.ToString()
-            '        cant_prod = grdcaptura.Rows(pipi).Cells(2).Value.ToString()
-            '        pre_prod = grdcaptura.Rows(pipi).Cells(3).Value.ToString()
+                For pipi As Integer = 0 To grdcaptura.Rows.Count - 1
+                    cod_prod = grdcaptura.Rows(pipi).Cells(0).Value.ToString()
+                    cant_prod = grdcaptura.Rows(pipi).Cells(2).Value.ToString()
+                    pre_prod = grdcaptura.Rows(pipi).Cells(3).Value.ToString()
 
-            '        cmd1 = cnn1.CreateCommand
-            '        cmd1.CommandText =
-            '            "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
-            '        rd1 = cmd1.ExecuteReader
-            '        If rd1.HasRows Then
-            '            If rd1.Read Then
-            '                .grdcaptura.Rows.Add(cod_prod, rd1("Nombre").ToString, rd1("UVenta").ToString, cant_prod, pre_prod, FormatNumber(pre_prod * cant_prod, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(pre_prod * cant_prod, 2))
-            '            End If
-            '        End If
-            '        rd1.Close()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            .grdcaptura.Rows.Add(cod_prod, rd1("Nombre").ToString, rd1("UVenta").ToString, cant_prod, pre_prod, FormatNumber(pre_prod * cant_prod, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(pre_prod * cant_prod, 2))
+                        End If
+                    End If
+                    rd1.Close()
 
-            '        Dim VarSumXD As Double = 0
-            '        For w = 0 To .grdcaptura.Rows.Count - 1
-            '            If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
-            '            Else
-            '                VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
-            '            End If
-            '            .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
-            '        Next
+                    Dim VarSumXD As Double = 0
+                    For w = 0 To .grdcaptura.Rows.Count - 1
+                        If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
+                        Else
+                            VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                        End If
+                        .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                    Next
 
-            '        If CDbl(.txtdescuento1.Text) > 0 Then
-            '            .txtSubTotal.Tag = 1
-            '        End If
-            '        If CDbl(.txtdescuento1.Text) <= 0 Then
-            '            .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
-            '            .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
-            '        End If
+                    If CDbl(.txtdescuento1.Text) > 0 Then
+                        .txtSubTotal.Tag = 1
+                    End If
+                    If CDbl(.txtdescuento1.Text) <= 0 Then
+                        .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
+                        .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
+                    End If
 
-            '        Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
-            '    Next
-            '    cnn1.Close()
-            'End With
+                    Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
+                Next
+                cnn1.Close()
+            End With
         End If
         If Formulario = "frmVentas3" Then
-            'With frmVentas3_Descuentos
-            '    cnn1.Close() : cnn1.Open()
+            With frmVentas3_Descuentos
+                cnn1.Close() : cnn1.Open()
 
-            '    For pipi As Integer = 0 To grdcaptura.Rows.Count - 1
-            '        cod_prod = grdcaptura.Rows(pipi).Cells(0).Value.ToString()
-            '        cant_prod = grdcaptura.Rows(pipi).Cells(2).Value.ToString()
-            '        pre_prod = grdcaptura.Rows(pipi).Cells(3).Value.ToString()
+                For pipi As Integer = 0 To grdcaptura.Rows.Count - 1
+                    cod_prod = grdcaptura.Rows(pipi).Cells(0).Value.ToString()
+                    cant_prod = grdcaptura.Rows(pipi).Cells(2).Value.ToString()
+                    pre_prod = grdcaptura.Rows(pipi).Cells(3).Value.ToString()
 
-            '        cmd1 = cnn1.CreateCommand
-            '        cmd1.CommandText =
-            '            "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
-            '        rd1 = cmd1.ExecuteReader
-            '        If rd1.HasRows Then
-            '            If rd1.Read Then
-            '                .grdcaptura.Rows.Add(cod_prod, rd1("Nombre").ToString, rd1("UVenta").ToString, cant_prod, pre_prod, FormatNumber(pre_prod * cant_prod, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(pre_prod * cant_prod, 2))
-            '            End If
-            '        End If
-            '        rd1.Close()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            .grdcaptura.Rows.Add(cod_prod, rd1("Nombre").ToString, rd1("UVenta").ToString, cant_prod, pre_prod, FormatNumber(pre_prod * cant_prod, 2), rd1("Existencia").ToString, "", "", "", "0", "0", "0", FormatNumber(pre_prod * cant_prod, 2))
+                        End If
+                    End If
+                    rd1.Close()
 
-            '        Dim VarSumXD As Double = 0
-            '        For w = 0 To .grdcaptura.Rows.Count - 1
-            '            If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
-            '            Else
-            '                VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
-            '            End If
-            '            .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
-            '        Next
+                    Dim VarSumXD As Double = 0
+                    For w = 0 To .grdcaptura.Rows.Count - 1
+                        If .grdcaptura.Rows(w).Cells(5).Value.ToString = "" Then
+                        Else
+                            VarSumXD = VarSumXD + CDbl(.grdcaptura.Rows(w).Cells(5).Value.ToString)
+                        End If
+                        .txtSubTotal.Text = FormatNumber(VarSumXD, 2)
+                    Next
 
-            '        If CDbl(.txtdescuento1.Text) > 0 Then
-            '            .txtSubTotal.Tag = 1
-            '        End If
-            '        If CDbl(.txtdescuento1.Text) <= 0 Then
-            '            .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
-            '            .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
-            '        End If
+                    If CDbl(.txtdescuento1.Text) > 0 Then
+                        .txtSubTotal.Tag = 1
+                    End If
+                    If CDbl(.txtdescuento1.Text) <= 0 Then
+                        .txtPagar.Text = CDbl(.txtSubTotal.Text) - CDbl(.txtdescuento2.Text)
+                        .txtPagar.Text = FormatNumber(.txtPagar.Text, 2)
+                    End If
 
-            '        Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
-            '    Next
-            '    cnn1.Close()
-            'End With
+                    Call .txtdescuento1_TextChanged(.txtdescuento1, New EventArgs())
+                Next
+                cnn1.Close()
+            End With
         End If
     End Sub
 

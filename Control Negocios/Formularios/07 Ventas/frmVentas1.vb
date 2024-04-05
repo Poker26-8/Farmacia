@@ -3960,22 +3960,22 @@ kaka:
                 Exit Sub
             End If
 
-            'If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
-            '    If MsgBox("Este producto es un " & Anti & ", ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-            '        cbocodigo.Text = ""
-            '        cbodesc.Text = ""
-            '        txtunidad.Text = ""
-            '        txtcantidad.Text = ""
-            '        txtprecio.Text = "0.00"
-            '        txttotal.Text = "0.00"
-            '        txtexistencia.Text = ""
-            '        cboLote.Text = ""
-            '        txtfechacad.Text = ""
-            '        cbodesc.Focus().Equals(True)
-            '        cnn1.Close()
-            '        Exit Sub
-            '    End If
-            'End If
+            If Anti = "ANTIBIOTICO" Or Anti = "CONTROLADO" Then
+                If MsgBox("Este producto es un " & Anti & ", ¿deseas continuar con el proceso?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                    cbocodigo.Text = ""
+                    cbodesc.Text = ""
+                    txtunidad.Text = ""
+                    txtcantidad.Text = ""
+                    txtprecio.Text = "0.00"
+                    txttotal.Text = "0.00"
+                    txtexistencia.Text = ""
+                    cboLote.Text = ""
+                    txtfechacad.Text = ""
+                    cbodesc.Focus().Equals(True)
+                    cnn1.Close()
+                    Exit Sub
+                End If
+            End If
 
             Dim dia As Integer = 0
             Dim decu As String = ""
@@ -4177,8 +4177,6 @@ kaka:
                 totaleliminado = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 4)
                 cantidadeliminada = grdcaptura.Rows(index).Cells(3).Value.ToString
 
-                Elimina_Anti(grdcaptura.Rows(index).Cells(0).Value.ToString())
-
                 If grdcaptura.Rows.Count = 1 Then
                     CODx = grdcaptura.Rows(index).Cells(0).Value.ToString
                     CantDX = grdcaptura.Rows(index).Cells(3).Value.ToString
@@ -4373,14 +4371,6 @@ kaka:
         End If
     End Sub
 
-    Private Sub Elimina_Anti(ByVal codigo As String)
-        For timo As Integer = 0 To grdantis.Rows.Count - 1
-            If grdantis.Rows(timo).Cells(0).Value.ToString() = codigo Then
-                grdantis.Rows.Remove(grdantis.Rows(timo))
-            End If
-        Next
-    End Sub
-
     Private Sub grdcaptura_CellDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
         Dim Tpagar As Single = 0, tmpIva As Single = 0, tmpDsct As Single = 0, tmpSub As Single = 0
         Dim index As Integer = grdcaptura.CurrentRow.Index
@@ -4399,9 +4389,6 @@ kaka:
             End If
 
             cbocodigo.Text = grdcaptura.Rows(index).Cells(0).Value.ToString
-
-            Elimina_Anti(grdcaptura.Rows(index).Cells(0).Value.ToString())
-
             cbodesc.Text = grdcaptura.Rows(index).Cells(1).Value.ToString
             txtunidad.Text = grdcaptura.Rows(index).Cells(2).Value.ToString
             txtcantidad.Text = "" ' grdcaptura.Rows(index).Cells(3).Value.ToString
