@@ -2095,30 +2095,34 @@ Public Class frmAgregarProducto
         For n As Integer = 0 To grdCaptura.Rows.Count - 1
             If grdCaptura.Rows(n).Cells(0).Value <> "" Then
 
-                Prods = Split(grdCaptura.Rows(n).Cells(0).Value.ToString, vbCrLf)
-                CodigoProducto = Prods(0)
-                Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
-
-                If CodigoProducto <> "WXYZ" Then
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "select IVA from Productos where Codigo='" & CodigoProducto & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.Read Then
-                        If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
-
-                            If rd1(0).ToString > 0 Then
-                                IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
-                                iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
-                                totaliva = totaliva + CDbl(iva)
-                            End If
-
-                        End If
-                    End If
-                    rd1.Close()
-                    cnn1.Close()
+                If grdCaptura.Rows(n).Cells(4).Value = "" Then
+                    Continue For
                 End If
-            End If
+
+                Prods = Split(grdCaptura.Rows(n).Cells(0).Value.ToString, vbCrLf)
+                    CodigoProducto = Prods(0)
+                    Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
+
+                    If CodigoProducto <> "WXYZ" Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "select IVA from Productos where Codigo='" & CodigoProducto & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.Read Then
+                            If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
+
+                                If rd1(0).ToString > 0 Then
+                                    IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
+                                    iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
+                                    totaliva = totaliva + CDbl(iva)
+                                End If
+
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+                    End If
+                End If
         Next n
         totaliva = FormatNumber(totaliva, 2)
 
@@ -2690,12 +2694,13 @@ Public Class frmAgregarProducto
             Dim cantidad As Double = 0
             Dim comensall As String = ""
             Dim comentario As String = ""
+            Dim tiempo As String = ""
             Dim idc As Integer = 0
             If SinNumCoemensal = 1 Then
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario from Comandas  where GPrint='" & impre & "' and Id=" & MyFolio & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Comisionista from Comandas  where GPrint='" & impre & "' and Id=" & MyFolio & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Comisionista order by comensal"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2704,6 +2709,8 @@ Public Class frmAgregarProducto
                         cantidad = rd1("Cantidad").ToString
                         comensall = rd1("Comensal").ToString
                         comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionita").ToString
+
                         idc = rd1("IDC").ToString
 
                         e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
@@ -2723,6 +2730,11 @@ Public Class frmAgregarProducto
 
                         If comentario <> "" Then
                             e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                             Y += 15
                         End If
 
@@ -2735,7 +2747,7 @@ Public Class frmAgregarProducto
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint from Comandas where id=" & MyFolio & " and GPrint='" & impre & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint Order By Comensal"
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint,Comisionista from Comandas where id=" & MyFolio & " and GPrint='" & impre & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint,Comisionista Order By Comensal"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2744,6 +2756,7 @@ Public Class frmAgregarProducto
                         cantidad = rd1("Cantidad").ToString
                         comensall = rd1("Comensal").ToString
                         comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionista").ToString
                         idc = rd1("IDC").ToString
 
                         e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
@@ -2766,6 +2779,12 @@ Public Class frmAgregarProducto
                             e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
                             Y += 15
                         End If
+
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
                     End If
                 Loop
                 rd1.Close()
@@ -2789,6 +2808,7 @@ Public Class frmAgregarProducto
     End Sub
 
     Private Sub PComanda58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PComanda58.PrintPage
+        Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_r As New Font("Lucida Sans Typewriter", 6, FontStyle.Regular)
         Dim fuente_b As New Font("Lucida Sans Typewriter", 7, FontStyle.Bold)
         Dim fuente_c As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
@@ -2911,11 +2931,12 @@ Public Class frmAgregarProducto
             Dim comensall As String = ""
             Dim comentario As String = ""
             Dim idc As Integer = 0
+            Dim tiempo As String = ""
             If SinNumCoemensal = 1 Then
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario from Comandas  where GPrint='" & impre & "' and Id=" & MyFolio & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario order by comensal"
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Comisionista from Comandas  where GPrint='" & impre & "' and Id=" & MyFolio & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Comisionista order by comensal"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2925,6 +2946,8 @@ Public Class frmAgregarProducto
                         cantidad = rd1("Cantidad").ToString
                         comensall = rd1("Comensal").ToString
                         comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionista").ToString
+
                         idc = rd1("IDC").ToString
 
                         e.Graphics.DrawString(cantidad, fuente_b, Brushes.Black, 1, Y)
@@ -2948,6 +2971,11 @@ Public Class frmAgregarProducto
                             Y += 13
                         End If
 
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
                     End If
                 Loop
                 rd1.Close()
@@ -2957,7 +2985,7 @@ Public Class frmAgregarProducto
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint from Comandas where id=" & MyFolio & " and GPrint='" & impre & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint Order By Comensal"
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint,Comisionista from Comandas where id=" & MyFolio & " and GPrint='" & impre & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint,Comisionista Order By Comensal"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2966,6 +2994,7 @@ Public Class frmAgregarProducto
                         cantidad = rd1("Cantidad").ToString
                         comensall = rd1("Comensal").ToString
                         comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionista").ToString
                         idc = rd1("IDC").ToString
 
                         e.Graphics.DrawString(cantidad, fuente_b, Brushes.Black, 1, Y)
@@ -2987,6 +3016,12 @@ Public Class frmAgregarProducto
                             e.Graphics.DrawString("NOTA: " & comentario, fuente_b, Brushes.Black, 1, Y)
                             Y += 14
                         End If
+
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
                     End If
                 Loop
                 rd1.Close()

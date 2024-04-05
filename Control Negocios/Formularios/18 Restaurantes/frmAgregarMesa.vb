@@ -206,7 +206,6 @@
                     cboubicacion.Text = rd1("Ubicacion").ToString
                     cbopara.Text = rd1("Tipo").ToString
                     txtprecio.Text = rd1("Precio").ToString
-                    txtOrden.Text = rd1("Orden").ToString
 
                     tiempo = rd1("Contabiliza").ToString
 

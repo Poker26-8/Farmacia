@@ -1068,7 +1068,7 @@ Public Class frmMesas
                                     'cmd2.ExecuteNonQuery()
                                     'cnn2.Close()
 
-                                    If VarArea = "ADMINISTRACION" Then
+                                    If VarArea = "ADMINISTRACIÓN" Then
                                         frmAgregarProducto.Show()
                                         My.Application.DoEvents()
                                         frmAgregarProducto.lblatiende.Text = lblusuario.Text
