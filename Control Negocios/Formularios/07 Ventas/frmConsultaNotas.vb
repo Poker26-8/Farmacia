@@ -2177,6 +2177,12 @@ Public Class frmConsultaNotas
                 Y += 13.5
             End If
 
+            If CDbl(txtdescu.Text) > 0 Then
+                e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescu.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+
             If CDbl(txtefectivo.Text) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
@@ -2188,36 +2194,16 @@ Public Class frmConsultaNotas
                 Y += 13.5
             End If
 
-            Dim tarjeta As Double = 0
-            Dim transfe As Double = 0
-            Dim otro As Double = 0
+            Dim concepto As String = ""
+            Dim monto As Double = 0
             If CDbl(txtpagos.Text) > 0 Then
                 For r As Integer = 0 To grdpagos.Rows.Count - 1
-                    Select Case grdpagos.Rows(r).Cells(0).Value.ToString
-                        Case Is = "TARJETA"
-                            tarjeta = tarjeta + CDbl(grdpagos.Rows(r).Cells(3).Value.ToString())
-                        Case Is = "TRANSFERENCIA"
-                            transfe = transfe + CDbl(grdpagos.Rows(r).Cells(3).Value.ToString())
-                        Case Is = "OTRO"
-                            otro = otro + CDbl(grdpagos.Rows(r).Cells(3).Value.ToString())
-                    End Select
+                    concepto = grdpagos.Rows(r).Cells(0).Value.ToString()
+                    monto = CDbl(grdpagos.Rows(r).Cells(3).Value.ToString())
+                    e.Graphics.DrawString("Pago con " & concepto & ":", fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(monto, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                    Y += 13.5
                 Next
-
-                If tarjeta > 0 Then
-                    e.Graphics.DrawString("Pago con tarjeta(s):", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(tarjeta, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-                    Y += 13.5
-                End If
-                If transfe > 0 Then
-                    e.Graphics.DrawString("Pago con transfe.(s):", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(transfe, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-                    Y += 13.5
-                End If
-                If otro > 0 Then
-                    e.Graphics.DrawString("Otros pagos:", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(otro, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-                    Y += 13.5
-                End If
             End If
             If CDbl(txtresta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)

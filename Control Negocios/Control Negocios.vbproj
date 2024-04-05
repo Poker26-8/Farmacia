@@ -723,18 +723,6 @@
     <Compile Include="Formularios\07 Ventas\frmBuscaVentas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\07 Ventas\Descuentos\frmVentas3_Descuentos.Designer.vb">
-      <DependentUpon>frmVentas3_Descuentos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\07 Ventas\Descuentos\frmVentas3_Descuentos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\07 Ventas\Descuentos\frmVentas2_Descuentos.Designer.vb">
-      <DependentUpon>frmVentas2_Descuentos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\07 Ventas\Descuentos\frmVentas2_Descuentos.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\07 Ventas\Descuentos\frmVentas1_Descuentos.Designer.vb">
       <DependentUpon>frmVentas1_Descuentos.vb</DependentUpon>
     </Compile>
@@ -1951,12 +1939,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmBuscaVentas.resx">
       <DependentUpon>frmBuscaVentas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\07 Ventas\Descuentos\frmVentas3_Descuentos.resx">
-      <DependentUpon>frmVentas3_Descuentos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\07 Ventas\Descuentos\frmVentas2_Descuentos.resx">
-      <DependentUpon>frmVentas2_Descuentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Descuentos\frmVentas1_Descuentos.resx">
       <DependentUpon>frmVentas1_Descuentos.vb</DependentUpon>

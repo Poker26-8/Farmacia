@@ -183,12 +183,12 @@
             frmVentas1.cbocodigo.Focus().Equals(True)
         End If
         If Vienna = "Ventas2" Then
-            frmVentas2_Descuentos.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
-            frmVentas2_Descuentos.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
-            frmVentas2_Descuentos.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
-            frmVentas2_Descuentos.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
-            frmVentas2_Descuentos.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
-            frmVentas2_Descuentos.cbocodigo.Focus().Equals(True)
+            'frmVentas2_Descuentos.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
+            'frmVentas2_Descuentos.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
+            'frmVentas2_Descuentos.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
+            'frmVentas2_Descuentos.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
+            'frmVentas2_Descuentos.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
+            'frmVentas2_Descuentos.cbocodigo.Focus().Equals(True)
         End If
 
         If Vienna = "Ventas Series" Then
