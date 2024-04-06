@@ -945,7 +945,8 @@
                                       `NumPed` varchar(255) NOT NULL DEFAULT '',
                                       `FiguraTransporte` varchar(255) NOT NULL DEFAULT '',
                                       `AseguradoraMedAmb` varchar(255) NOT NULL DEFAULT '',
-                                      `NumPolizaMedAmb` varchar(255) NOT NULL DEFAULT ''
+                                      `NumPolizaMedAmb` varchar(255) NOT NULL DEFAULT '',
+                                      `PesoBrutoVehicular` varchar(100) NOT NULL DEFAULT '0'
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
@@ -1060,7 +1061,8 @@
                                       `NumPed` varchar(255) NOT NULL DEFAULT '',
                                       `FiguraTransporte` varchar(255) NOT NULL DEFAULT '',
                                       `AseguradoraMedAmb` varchar(150) NOT NULL DEFAULT '',
-                                      `NumPolizaMedAmb` varchar(100) NOT NULL DEFAULT ''
+                                      `NumPolizaMedAmb` varchar(100) NOT NULL DEFAULT '',
+                                      `PesoBrutoVehicular` varchar(100) NOT NULL DEFAULT '0'
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

@@ -3392,7 +3392,8 @@ Door:
             End If
             Y += 2
 
-            e.Graphics.DrawString("Lo atendio: " & usuario, fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Mesero: " & lblMesero.Text, fuente_r, Brushes.Black, 5, Y)
+            e.Graphics.DrawString("Cajero: " & lblusuario2.Text, fuente_r, Brushes.Black, 270, Y, derecha)
             Y += 15
 
             If facLinea = 1 Then
@@ -3863,7 +3864,8 @@ Door:
             End If
             Y += 2
 
-            e.Graphics.DrawString("Lo atendio: " & usuario, fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Mesero: " & lblMesero.Text, fuente_r, Brushes.Black, 5, Y)
+            e.Graphics.DrawString("Cajero: " & lblusuario2.Text, fuente_r, Brushes.Black, 180, Y, derecha)
             Y += 15
 
             If facLinea = 1 Then

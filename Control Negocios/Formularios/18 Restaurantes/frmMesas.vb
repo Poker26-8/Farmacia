@@ -943,6 +943,7 @@ Public Class frmMesas
 
     Private Sub txtUsuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUsuario.KeyPress
 
+
         If AscW(e.KeyChar) = Keys.Enter Then
             Try
                 cnn1.Close() : cnn1.Open()
@@ -1068,7 +1069,7 @@ Public Class frmMesas
                                     'cmd2.ExecuteNonQuery()
                                     'cnn2.Close()
 
-                                    If VarArea = "ADMINISTRACIÓN" Then
+                                    If VarArea = "ADMINISTRACIÓN" Or VarComen = lblusuario.Text Then
                                         frmAgregarProducto.Show()
                                         My.Application.DoEvents()
                                         frmAgregarProducto.lblatiende.Text = lblusuario.Text
@@ -1117,7 +1118,7 @@ Public Class frmMesas
                                         cmd2.ExecuteNonQuery()
                                         cnn2.Close()
 
-                                        If VarArea = "ADMINISTRACION" Then
+                                        If VarArea = "ADMINISTRACIÓN" Or VarComen = lblusuario.Text Then
                                             frmAgregarProducto.Show()
                                             My.Application.DoEvents()
                                             frmAgregarProducto.lblatiende.Text = lblusuario.Text
@@ -1133,7 +1134,7 @@ Public Class frmMesas
                                                 frmAgregarProducto.lblNcomensales.Text = txtNComensales.Text
                                                 Me.Close()
                                             Else
-                                                MsgBox("El usuario no es correcto.", vbInformation + vbOKOnly, titulomensajes)
+                                                MsgBox("El usuario no es correcto.", vbInformation + vbOKOnly, titulorestaurante)
                                                 txtUsuario.Text = ""
                                                 txtUsuario.Focus().Equals(True)
                                             End If
@@ -1243,38 +1244,47 @@ Public Class frmMesas
 
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
         txtUsuario.Text = txtUsuario.Text + btn1.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
         txtUsuario.Text = txtUsuario.Text + btn3.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
         txtUsuario.Text = txtUsuario.Text + btn4.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
         txtUsuario.Text = txtUsuario.Text + btn5.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
         txtUsuario.Text = txtUsuario.Text + btn6.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
         txtUsuario.Text = txtUsuario.Text + btn7.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         txtUsuario.Text = txtUsuario.Text + btn8.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         txtUsuario.Text = txtUsuario.Text + btn9.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         txtUsuario.Text = txtUsuario.Text + btn0.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btnborra_Click(sender As Object, e As EventArgs) Handles btnborra.Click
@@ -1283,6 +1293,7 @@ Public Class frmMesas
 
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
         txtUsuario.Text = txtUsuario.Text + btn2.Text
+        txtUsuario.Focus.Equals(True)
     End Sub
 
     Private Sub btnok_Click(sender As Object, e As EventArgs) Handles btnok.Click
