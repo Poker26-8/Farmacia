@@ -755,6 +755,8 @@ Public Class frmMesas
 
         Dim totalc As Double = 0
 
+        frmPagar.Close()
+
         If tables.BackColor <> Color.White Then
             Try
                 cnn1.Close() : cnn1.Open()

@@ -306,9 +306,9 @@ Partial Class frmPrecios
         'LblValor
         '
         Me.LblValor.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblValor.Location = New System.Drawing.Point(525, 433)
+        Me.LblValor.Location = New System.Drawing.Point(529, 464)
         Me.LblValor.Name = "LblValor"
-        Me.LblValor.Size = New System.Drawing.Size(83, 26)
+        Me.LblValor.Size = New System.Drawing.Size(79, 26)
         Me.LblValor.TabIndex = 116
         Me.LblValor.Text = "0.00"
         Me.LblValor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -316,7 +316,7 @@ Partial Class frmPrecios
         'Label21
         '
         Me.Label21.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(475, 433)
+        Me.Label21.Location = New System.Drawing.Point(479, 464)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(47, 26)
         Me.Label21.TabIndex = 115
@@ -326,7 +326,7 @@ Partial Class frmPrecios
         'Label19
         '
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(256, 433)
+        Me.Label19.Location = New System.Drawing.Point(260, 464)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(95, 26)
         Me.Label19.TabIndex = 113
@@ -360,7 +360,7 @@ Partial Class frmPrecios
         Me.TxtCantEsp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantEsp2.Enabled = False
         Me.TxtCantEsp2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantEsp2.Location = New System.Drawing.Point(552, 324)
+        Me.TxtCantEsp2.Location = New System.Drawing.Point(552, 370)
         Me.TxtCantEsp2.Name = "TxtCantEsp2"
         Me.TxtCantEsp2.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantEsp2.TabIndex = 110
@@ -372,7 +372,7 @@ Partial Class frmPrecios
         Me.TxtCantEsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantEsp.Enabled = False
         Me.TxtCantEsp.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantEsp.Location = New System.Drawing.Point(493, 324)
+        Me.TxtCantEsp.Location = New System.Drawing.Point(493, 370)
         Me.TxtCantEsp.Name = "TxtCantEsp"
         Me.TxtCantEsp.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantEsp.TabIndex = 109
@@ -384,7 +384,7 @@ Partial Class frmPrecios
         Me.TxtCantMM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMM2.Enabled = False
         Me.TxtCantMM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMM2.Location = New System.Drawing.Point(552, 272)
+        Me.TxtCantMM2.Location = New System.Drawing.Point(552, 312)
         Me.TxtCantMM2.Name = "TxtCantMM2"
         Me.TxtCantMM2.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMM2.TabIndex = 108
@@ -396,7 +396,7 @@ Partial Class frmPrecios
         Me.txtCantMin2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCantMin2.Enabled = False
         Me.txtCantMin2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantMin2.Location = New System.Drawing.Point(552, 168)
+        Me.txtCantMin2.Location = New System.Drawing.Point(552, 197)
         Me.txtCantMin2.Name = "txtCantMin2"
         Me.txtCantMin2.Size = New System.Drawing.Size(56, 23)
         Me.txtCantMin2.TabIndex = 107
@@ -408,7 +408,7 @@ Partial Class frmPrecios
         Me.TxtCantMay.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMay.Enabled = False
         Me.TxtCantMay.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMay.Location = New System.Drawing.Point(493, 220)
+        Me.TxtCantMay.Location = New System.Drawing.Point(493, 255)
         Me.TxtCantMay.Name = "TxtCantMay"
         Me.TxtCantMay.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMay.TabIndex = 106
@@ -420,7 +420,7 @@ Partial Class frmPrecios
         Me.txtCantMay2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCantMay2.Enabled = False
         Me.txtCantMay2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantMay2.Location = New System.Drawing.Point(552, 220)
+        Me.txtCantMay2.Location = New System.Drawing.Point(552, 255)
         Me.txtCantMay2.Name = "txtCantMay2"
         Me.txtCantMay2.Size = New System.Drawing.Size(56, 23)
         Me.txtCantMay2.TabIndex = 105
@@ -432,7 +432,7 @@ Partial Class frmPrecios
         Me.TxtCantLta2.BackColor = System.Drawing.Color.White
         Me.TxtCantLta2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantLta2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantLta2.Location = New System.Drawing.Point(552, 376)
+        Me.TxtCantLta2.Location = New System.Drawing.Point(552, 428)
         Me.TxtCantLta2.Name = "TxtCantLta2"
         Me.TxtCantLta2.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantLta2.TabIndex = 104
@@ -444,7 +444,7 @@ Partial Class frmPrecios
         Me.TxtCantLta.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtCantLta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantLta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantLta.Location = New System.Drawing.Point(493, 376)
+        Me.TxtCantLta.Location = New System.Drawing.Point(493, 428)
         Me.TxtCantLta.Name = "TxtCantLta"
         Me.TxtCantLta.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantLta.TabIndex = 103
@@ -455,7 +455,7 @@ Partial Class frmPrecios
         '
         Me.TxtCantMM.Enabled = False
         Me.TxtCantMM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMM.Location = New System.Drawing.Point(493, 272)
+        Me.TxtCantMM.Location = New System.Drawing.Point(493, 312)
         Me.TxtCantMM.Name = "TxtCantMM"
         Me.TxtCantMM.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMM.TabIndex = 102
@@ -467,7 +467,7 @@ Partial Class frmPrecios
         Me.TxtCantMin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMin.Enabled = False
         Me.TxtCantMin.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMin.Location = New System.Drawing.Point(493, 168)
+        Me.TxtCantMin.Location = New System.Drawing.Point(493, 197)
         Me.TxtCantMin.Name = "TxtCantMin"
         Me.TxtCantMin.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMin.TabIndex = 101
@@ -479,7 +479,7 @@ Partial Class frmPrecios
         Me.TxtPMI.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPMI.Enabled = False
         Me.TxtPMI.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPMI.Location = New System.Drawing.Point(397, 168)
+        Me.TxtPMI.Location = New System.Drawing.Point(397, 197)
         Me.TxtPMI.Name = "TxtPMI"
         Me.TxtPMI.Size = New System.Drawing.Size(93, 23)
         Me.TxtPMI.TabIndex = 100
@@ -491,7 +491,7 @@ Partial Class frmPrecios
         Me.TxtPreMay.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreMay.Enabled = False
         Me.TxtPreMay.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreMay.Location = New System.Drawing.Point(397, 220)
+        Me.TxtPreMay.Location = New System.Drawing.Point(397, 255)
         Me.TxtPreMay.Name = "TxtPreMay"
         Me.TxtPreMay.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreMay.TabIndex = 99
@@ -503,7 +503,7 @@ Partial Class frmPrecios
         Me.TxtPreMM.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreMM.Enabled = False
         Me.TxtPreMM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreMM.Location = New System.Drawing.Point(397, 272)
+        Me.TxtPreMM.Location = New System.Drawing.Point(397, 312)
         Me.TxtPreMM.Name = "TxtPreMM"
         Me.TxtPreMM.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreMM.TabIndex = 98
@@ -515,7 +515,7 @@ Partial Class frmPrecios
         Me.TxtPreEsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreEsp.Enabled = False
         Me.TxtPreEsp.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreEsp.Location = New System.Drawing.Point(397, 324)
+        Me.TxtPreEsp.Location = New System.Drawing.Point(397, 370)
         Me.TxtPreEsp.Name = "TxtPreEsp"
         Me.TxtPreEsp.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreEsp.TabIndex = 97
@@ -527,7 +527,7 @@ Partial Class frmPrecios
         Me.TxtPreLta.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtPreLta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreLta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreLta.Location = New System.Drawing.Point(397, 376)
+        Me.TxtPreLta.Location = New System.Drawing.Point(397, 428)
         Me.TxtPreLta.Name = "TxtPreLta"
         Me.TxtPreLta.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreLta.TabIndex = 96
@@ -539,7 +539,7 @@ Partial Class frmPrecios
         Me.TxtPorMM.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorMM.Enabled = False
         Me.TxtPorMM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorMM.Location = New System.Drawing.Point(319, 272)
+        Me.TxtPorMM.Location = New System.Drawing.Point(319, 312)
         Me.TxtPorMM.Name = "TxtPorMM"
         Me.TxtPorMM.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorMM.TabIndex = 95
@@ -551,7 +551,7 @@ Partial Class frmPrecios
         Me.TxtPorLta.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtPorLta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorLta.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorLta.Location = New System.Drawing.Point(319, 376)
+        Me.TxtPorLta.Location = New System.Drawing.Point(319, 428)
         Me.TxtPorLta.Name = "TxtPorLta"
         Me.TxtPorLta.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorLta.TabIndex = 94
@@ -563,7 +563,7 @@ Partial Class frmPrecios
         Me.TxtPorEsp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorEsp.Enabled = False
         Me.TxtPorEsp.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorEsp.Location = New System.Drawing.Point(319, 324)
+        Me.TxtPorEsp.Location = New System.Drawing.Point(319, 370)
         Me.TxtPorEsp.Name = "TxtPorEsp"
         Me.TxtPorEsp.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorEsp.TabIndex = 93
@@ -575,7 +575,7 @@ Partial Class frmPrecios
         Me.TxtPorMay.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorMay.Enabled = False
         Me.TxtPorMay.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorMay.Location = New System.Drawing.Point(319, 220)
+        Me.TxtPorMay.Location = New System.Drawing.Point(319, 255)
         Me.TxtPorMay.Name = "TxtPorMay"
         Me.TxtPorMay.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorMay.TabIndex = 92
@@ -587,7 +587,7 @@ Partial Class frmPrecios
         Me.TxtUtiM.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtUtiM.Enabled = False
         Me.TxtUtiM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUtiM.Location = New System.Drawing.Point(319, 168)
+        Me.TxtUtiM.Location = New System.Drawing.Point(319, 197)
         Me.TxtUtiM.Name = "TxtUtiM"
         Me.TxtUtiM.Size = New System.Drawing.Size(75, 23)
         Me.TxtUtiM.TabIndex = 91
@@ -647,11 +647,11 @@ Partial Class frmPrecios
         Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(221, 324)
+        Me.Label14.Location = New System.Drawing.Point(221, 370)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(95, 23)
         Me.Label14.TabIndex = 86
-        Me.Label14.Text = "Especial/Kits"
+        Me.Label14.Text = "Especial/Kits 1"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label13
@@ -659,11 +659,11 @@ Partial Class frmPrecios
         Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(221, 272)
+        Me.Label13.Location = New System.Drawing.Point(221, 312)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(95, 23)
         Me.Label13.TabIndex = 85
-        Me.Label13.Text = "Medio Mayoreo"
+        Me.Label13.Text = "Medio Mayoreo 1"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label12
@@ -671,11 +671,11 @@ Partial Class frmPrecios
         Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(221, 376)
+        Me.Label12.Location = New System.Drawing.Point(221, 428)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(95, 23)
         Me.Label12.TabIndex = 84
-        Me.Label12.Text = "Lista"
+        Me.Label12.Text = "Lista 1"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label11
@@ -683,11 +683,11 @@ Partial Class frmPrecios
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(221, 220)
+        Me.Label11.Location = New System.Drawing.Point(221, 255)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(95, 23)
         Me.Label11.TabIndex = 83
-        Me.Label11.Text = "Mayoreo"
+        Me.Label11.Text = "Mayoreo 1"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label8
@@ -696,11 +696,11 @@ Partial Class frmPrecios
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(221, 168)
+        Me.Label8.Location = New System.Drawing.Point(221, 197)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(95, 23)
         Me.Label8.TabIndex = 82
-        Me.Label8.Text = "Mínimo"
+        Me.Label8.Text = "Mínimo 1"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TxtMonedaIva
@@ -837,7 +837,7 @@ Partial Class frmPrecios
         'LblMoneda
         '
         Me.LblMoneda.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblMoneda.Location = New System.Drawing.Point(360, 433)
+        Me.LblMoneda.Location = New System.Drawing.Point(364, 464)
         Me.LblMoneda.Name = "LblMoneda"
         Me.LblMoneda.Size = New System.Drawing.Size(112, 26)
         Me.LblMoneda.TabIndex = 114
@@ -925,7 +925,7 @@ Partial Class frmPrecios
         '
         Me.txtmonedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtmonedero.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmonedero.Location = New System.Drawing.Point(108, 435)
+        Me.txtmonedero.Location = New System.Drawing.Point(112, 466)
         Me.txtmonedero.Name = "txtmonedero"
         Me.txtmonedero.Size = New System.Drawing.Size(107, 23)
         Me.txtmonedero.TabIndex = 142
@@ -938,7 +938,7 @@ Partial Class frmPrecios
         Me.Label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.ForeColor = System.Drawing.Color.White
-        Me.Label26.Location = New System.Drawing.Point(13, 435)
+        Me.Label26.Location = New System.Drawing.Point(17, 466)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(89, 23)
         Me.Label26.TabIndex = 141
@@ -962,7 +962,7 @@ Partial Class frmPrecios
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.GpbPromociones)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 460)
+        Me.Panel1.Location = New System.Drawing.Point(0, 499)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(619, 75)
         Me.Panel1.TabIndex = 227
@@ -973,7 +973,7 @@ Partial Class frmPrecios
         Me.Label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label28.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(221, 194)
+        Me.Label28.Location = New System.Drawing.Point(221, 168)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(95, 23)
         Me.Label28.TabIndex = 228
@@ -985,7 +985,7 @@ Partial Class frmPrecios
         Me.txtCantMin4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCantMin4.Enabled = False
         Me.txtCantMin4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantMin4.Location = New System.Drawing.Point(552, 194)
+        Me.txtCantMin4.Location = New System.Drawing.Point(552, 168)
         Me.txtCantMin4.Name = "txtCantMin4"
         Me.txtCantMin4.Size = New System.Drawing.Size(56, 23)
         Me.txtCantMin4.TabIndex = 232
@@ -997,7 +997,7 @@ Partial Class frmPrecios
         Me.TxtCantMin3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMin3.Enabled = False
         Me.TxtCantMin3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMin3.Location = New System.Drawing.Point(493, 194)
+        Me.TxtCantMin3.Location = New System.Drawing.Point(493, 168)
         Me.TxtCantMin3.Name = "TxtCantMin3"
         Me.TxtCantMin3.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMin3.TabIndex = 231
@@ -1009,7 +1009,7 @@ Partial Class frmPrecios
         Me.TxtPMI2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPMI2.Enabled = False
         Me.TxtPMI2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPMI2.Location = New System.Drawing.Point(397, 194)
+        Me.TxtPMI2.Location = New System.Drawing.Point(397, 168)
         Me.TxtPMI2.Name = "TxtPMI2"
         Me.TxtPMI2.Size = New System.Drawing.Size(93, 23)
         Me.TxtPMI2.TabIndex = 230
@@ -1021,7 +1021,7 @@ Partial Class frmPrecios
         Me.TxtUtiM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtUtiM2.Enabled = False
         Me.TxtUtiM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUtiM2.Location = New System.Drawing.Point(319, 194)
+        Me.TxtUtiM2.Location = New System.Drawing.Point(319, 168)
         Me.TxtUtiM2.Name = "TxtUtiM2"
         Me.TxtUtiM2.Size = New System.Drawing.Size(75, 23)
         Me.TxtUtiM2.TabIndex = 229
@@ -1033,7 +1033,7 @@ Partial Class frmPrecios
         Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label29.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(221, 246)
+        Me.Label29.Location = New System.Drawing.Point(221, 226)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(95, 23)
         Me.Label29.TabIndex = 233
@@ -1045,7 +1045,7 @@ Partial Class frmPrecios
         Me.TxtCantMay3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMay3.Enabled = False
         Me.TxtCantMay3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMay3.Location = New System.Drawing.Point(493, 246)
+        Me.TxtCantMay3.Location = New System.Drawing.Point(493, 226)
         Me.TxtCantMay3.Name = "TxtCantMay3"
         Me.TxtCantMay3.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMay3.TabIndex = 237
@@ -1057,7 +1057,7 @@ Partial Class frmPrecios
         Me.txtCantMay4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCantMay4.Enabled = False
         Me.txtCantMay4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantMay4.Location = New System.Drawing.Point(552, 246)
+        Me.txtCantMay4.Location = New System.Drawing.Point(552, 226)
         Me.txtCantMay4.Name = "txtCantMay4"
         Me.txtCantMay4.Size = New System.Drawing.Size(56, 23)
         Me.txtCantMay4.TabIndex = 236
@@ -1069,7 +1069,7 @@ Partial Class frmPrecios
         Me.TxtPreMay2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreMay2.Enabled = False
         Me.TxtPreMay2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreMay2.Location = New System.Drawing.Point(397, 246)
+        Me.TxtPreMay2.Location = New System.Drawing.Point(397, 226)
         Me.TxtPreMay2.Name = "TxtPreMay2"
         Me.TxtPreMay2.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreMay2.TabIndex = 235
@@ -1081,7 +1081,7 @@ Partial Class frmPrecios
         Me.TxtPorMay2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorMay2.Enabled = False
         Me.TxtPorMay2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorMay2.Location = New System.Drawing.Point(319, 246)
+        Me.TxtPorMay2.Location = New System.Drawing.Point(319, 226)
         Me.TxtPorMay2.Name = "TxtPorMay2"
         Me.TxtPorMay2.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorMay2.TabIndex = 234
@@ -1093,7 +1093,7 @@ Partial Class frmPrecios
         Me.Label30.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label30.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(221, 298)
+        Me.Label30.Location = New System.Drawing.Point(221, 283)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(95, 23)
         Me.Label30.TabIndex = 238
@@ -1105,7 +1105,7 @@ Partial Class frmPrecios
         Me.TxtCantMM4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantMM4.Enabled = False
         Me.TxtCantMM4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMM4.Location = New System.Drawing.Point(552, 298)
+        Me.TxtCantMM4.Location = New System.Drawing.Point(552, 283)
         Me.TxtCantMM4.Name = "TxtCantMM4"
         Me.TxtCantMM4.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMM4.TabIndex = 242
@@ -1116,7 +1116,7 @@ Partial Class frmPrecios
         '
         Me.TxtCantMM3.Enabled = False
         Me.TxtCantMM3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantMM3.Location = New System.Drawing.Point(493, 298)
+        Me.TxtCantMM3.Location = New System.Drawing.Point(493, 283)
         Me.TxtCantMM3.Name = "TxtCantMM3"
         Me.TxtCantMM3.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantMM3.TabIndex = 241
@@ -1128,7 +1128,7 @@ Partial Class frmPrecios
         Me.TxtPreMM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreMM2.Enabled = False
         Me.TxtPreMM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreMM2.Location = New System.Drawing.Point(397, 298)
+        Me.TxtPreMM2.Location = New System.Drawing.Point(397, 283)
         Me.TxtPreMM2.Name = "TxtPreMM2"
         Me.TxtPreMM2.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreMM2.TabIndex = 240
@@ -1140,7 +1140,7 @@ Partial Class frmPrecios
         Me.TxtPorMM2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorMM2.Enabled = False
         Me.TxtPorMM2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorMM2.Location = New System.Drawing.Point(319, 298)
+        Me.TxtPorMM2.Location = New System.Drawing.Point(319, 283)
         Me.TxtPorMM2.Name = "TxtPorMM2"
         Me.TxtPorMM2.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorMM2.TabIndex = 239
@@ -1152,7 +1152,7 @@ Partial Class frmPrecios
         Me.Label31.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label31.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(221, 350)
+        Me.Label31.Location = New System.Drawing.Point(221, 341)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(95, 23)
         Me.Label31.TabIndex = 243
@@ -1164,7 +1164,7 @@ Partial Class frmPrecios
         Me.TxtCantEsp4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantEsp4.Enabled = False
         Me.TxtCantEsp4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantEsp4.Location = New System.Drawing.Point(552, 350)
+        Me.TxtCantEsp4.Location = New System.Drawing.Point(552, 341)
         Me.TxtCantEsp4.Name = "TxtCantEsp4"
         Me.TxtCantEsp4.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantEsp4.TabIndex = 247
@@ -1176,7 +1176,7 @@ Partial Class frmPrecios
         Me.TxtCantEsp3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantEsp3.Enabled = False
         Me.TxtCantEsp3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantEsp3.Location = New System.Drawing.Point(493, 350)
+        Me.TxtCantEsp3.Location = New System.Drawing.Point(493, 341)
         Me.TxtCantEsp3.Name = "TxtCantEsp3"
         Me.TxtCantEsp3.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantEsp3.TabIndex = 246
@@ -1188,7 +1188,7 @@ Partial Class frmPrecios
         Me.TxtPreEsp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreEsp2.Enabled = False
         Me.TxtPreEsp2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreEsp2.Location = New System.Drawing.Point(397, 350)
+        Me.TxtPreEsp2.Location = New System.Drawing.Point(397, 341)
         Me.TxtPreEsp2.Name = "TxtPreEsp2"
         Me.TxtPreEsp2.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreEsp2.TabIndex = 245
@@ -1200,7 +1200,7 @@ Partial Class frmPrecios
         Me.TxtPorEsp2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorEsp2.Enabled = False
         Me.TxtPorEsp2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorEsp2.Location = New System.Drawing.Point(319, 350)
+        Me.TxtPorEsp2.Location = New System.Drawing.Point(319, 341)
         Me.TxtPorEsp2.Name = "TxtPorEsp2"
         Me.TxtPorEsp2.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorEsp2.TabIndex = 244
@@ -1212,7 +1212,7 @@ Partial Class frmPrecios
         Me.Label32.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label32.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(221, 402)
+        Me.Label32.Location = New System.Drawing.Point(221, 399)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(95, 23)
         Me.Label32.TabIndex = 248
@@ -1224,7 +1224,7 @@ Partial Class frmPrecios
         Me.TxtCantLta4.BackColor = System.Drawing.Color.White
         Me.TxtCantLta4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantLta4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantLta4.Location = New System.Drawing.Point(552, 402)
+        Me.TxtCantLta4.Location = New System.Drawing.Point(552, 399)
         Me.TxtCantLta4.Name = "TxtCantLta4"
         Me.TxtCantLta4.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantLta4.TabIndex = 252
@@ -1236,7 +1236,7 @@ Partial Class frmPrecios
         Me.TxtCantLta3.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtCantLta3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCantLta3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCantLta3.Location = New System.Drawing.Point(493, 402)
+        Me.TxtCantLta3.Location = New System.Drawing.Point(493, 399)
         Me.TxtCantLta3.Name = "TxtCantLta3"
         Me.TxtCantLta3.Size = New System.Drawing.Size(56, 23)
         Me.TxtCantLta3.TabIndex = 251
@@ -1248,7 +1248,7 @@ Partial Class frmPrecios
         Me.TxtPreLta2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtPreLta2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPreLta2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPreLta2.Location = New System.Drawing.Point(397, 402)
+        Me.TxtPreLta2.Location = New System.Drawing.Point(397, 399)
         Me.TxtPreLta2.Name = "TxtPreLta2"
         Me.TxtPreLta2.Size = New System.Drawing.Size(93, 23)
         Me.TxtPreLta2.TabIndex = 250
@@ -1260,7 +1260,7 @@ Partial Class frmPrecios
         Me.TxtPorLta2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TxtPorLta2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtPorLta2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPorLta2.Location = New System.Drawing.Point(319, 402)
+        Me.TxtPorLta2.Location = New System.Drawing.Point(319, 399)
         Me.TxtPorLta2.Name = "TxtPorLta2"
         Me.TxtPorLta2.Size = New System.Drawing.Size(75, 23)
         Me.TxtPorLta2.TabIndex = 249
@@ -1352,7 +1352,7 @@ Partial Class frmPrecios
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(619, 535)
+        Me.ClientSize = New System.Drawing.Size(619, 574)
         Me.Controls.Add(Me.txtporc_mone)
         Me.Controls.Add(Me.cbodepto_grupo)
         Me.Controls.Add(Me.optmone_grup)

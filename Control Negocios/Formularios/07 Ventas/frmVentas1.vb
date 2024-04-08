@@ -1025,6 +1025,19 @@ kak:
                         End If
                     End If
                     rd3.Close()
+
+                Case Is = "Lista 2"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If Moneda > 0 Then
+                                Cambio = CDbl(rd3("PrecioVentaIVA2").ToString) * Moneda
+                            Else
+                                Cambio = CDbl(rd3("PrecioVentaIVA2").ToString)
+                            End If
+                        End If
+                    End If
+                    rd3.Close()
+
                 Case Is = "Minimo"
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1036,6 +1049,19 @@ kak:
                         End If
                     End If
                     rd3.Close()
+
+                Case Is = "Minimo 2"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If Moneda > 0 Then
+                                Cambio = CDbl(rd3("PreMin2").ToString) * Moneda
+                            Else
+                                Cambio = CDbl(rd3("PreMin2").ToString)
+                            End If
+                        End If
+                    End If
+                    rd3.Close()
+
                 Case Is = "Mayoreo"
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1047,6 +1073,19 @@ kak:
                         End If
                     End If
                     rd3.Close()
+
+                Case Is = "Mayoreo 2"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If Moneda > 0 Then
+                                Cambio = CDbl(rd3("PreMay2").ToString) * Moneda
+                            Else
+                                Cambio = CDbl(rd3("PreMay2").ToString)
+                            End If
+                        End If
+                    End If
+                    rd3.Close()
+
                 Case Is = "Medio Mayoreo"
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1058,6 +1097,19 @@ kak:
                         End If
                     End If
                     rd3.Close()
+
+                Case Is = "Medio Mayoreo 2"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If Moneda > 0 Then
+                                Cambio = CDbl(rd3("PreMM2").ToString) * Moneda
+                            Else
+                                Cambio = CDbl(rd3("PreMM2").ToString)
+                            End If
+                        End If
+                    End If
+                    rd3.Close()
+
                 Case Is = "Especial"
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1069,6 +1121,19 @@ kak:
                         End If
                     End If
                     rd3.Close()
+
+                Case Is = "Especial 2"
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            If Moneda > 0 Then
+                                Cambio = CDbl(rd3("PreEsp2").ToString) * Moneda
+                            Else
+                                Cambio = CDbl(rd3("PreEsp2").ToString)
+                            End If
+                        End If
+                    End If
+                    rd3.Close()
+
             End Select
 
             cnn3.Close()
@@ -1892,10 +1957,15 @@ kak:
     Private Sub cbotipo_DropDown(sender As System.Object, e As System.EventArgs) Handles cbotipo.DropDown
         cbotipo.Items.Clear()
         cbotipo.Items.Add("Lista")
+        cbotipo.Items.Add("Lista 2")
         cbotipo.Items.Add("Mayoreo")
+        cbotipo.Items.Add("Mayoreo 2")
         cbotipo.Items.Add("Medio Mayoreo")
+        cbotipo.Items.Add("Medio Mayoreo 2")
         cbotipo.Items.Add("Minimo")
+        cbotipo.Items.Add("Minimo 2")
         cbotipo.Items.Add("Especial")
+        cbotipo.Items.Add("Especial 2")
     End Sub
     Private Sub cboDomi_DropDown_1(sender As System.Object, e As System.EventArgs) Handles cboDomi.DropDown
         cboDomi.Items.Clear()

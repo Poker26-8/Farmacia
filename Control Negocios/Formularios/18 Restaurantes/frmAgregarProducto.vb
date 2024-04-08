@@ -2215,9 +2215,9 @@ Public Class frmAgregarProducto
         For n As Integer = 0 To grdCaptura.Rows.Count - 1
             If grdCaptura.Rows(n).Cells(0).Value <> "" Then
 
-                If grdCaptura.Rows(n).Cells(4).Value = "" Then
-                    Continue For
-                End If
+                'If grdCaptura.Rows(n).Cells(4).Value.ToString = "" Then
+                '    Continue For
+                'End If
 
                 Prods = Split(grdCaptura.Rows(n).Cells(0).Value.ToString, vbCrLf)
                 CodigoProducto = Prods(0)

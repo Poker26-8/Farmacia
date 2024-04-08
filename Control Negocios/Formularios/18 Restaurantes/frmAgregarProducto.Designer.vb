@@ -146,7 +146,7 @@ Partial Class frmAgregarProducto
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(832, 100)
+        Me.Panel1.Size = New System.Drawing.Size(801, 100)
         Me.Panel1.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -178,7 +178,7 @@ Partial Class frmAgregarProducto
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(595, 100)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(564, 100)
         Me.TableLayoutPanel1.TabIndex = 5
         '
         'lblpromo
@@ -187,9 +187,9 @@ Partial Class frmAgregarProducto
         Me.lblpromo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblpromo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblpromo.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblpromo.Location = New System.Drawing.Point(479, 0)
+        Me.lblpromo.Location = New System.Drawing.Point(451, 0)
         Me.lblpromo.Name = "lblpromo"
-        Me.lblpromo.Size = New System.Drawing.Size(113, 20)
+        Me.lblpromo.Size = New System.Drawing.Size(110, 20)
         Me.lblpromo.TabIndex = 10
         Me.lblpromo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -199,9 +199,9 @@ Partial Class frmAgregarProducto
         Me.lblFecha.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFecha.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.ForeColor = System.Drawing.Color.White
-        Me.lblFecha.Location = New System.Drawing.Point(360, 20)
+        Me.lblFecha.Location = New System.Drawing.Point(339, 20)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(113, 30)
+        Me.lblFecha.Size = New System.Drawing.Size(106, 30)
         Me.lblFecha.TabIndex = 9
         Me.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -211,9 +211,9 @@ Partial Class frmAgregarProducto
         Me.lblFolio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFolio.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFolio.ForeColor = System.Drawing.Color.White
-        Me.lblFolio.Location = New System.Drawing.Point(479, 70)
+        Me.lblFolio.Location = New System.Drawing.Point(451, 70)
         Me.lblFolio.Name = "lblFolio"
-        Me.lblFolio.Size = New System.Drawing.Size(113, 30)
+        Me.lblFolio.Size = New System.Drawing.Size(110, 30)
         Me.lblFolio.TabIndex = 8
         Me.lblFolio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -222,9 +222,9 @@ Partial Class frmAgregarProducto
         Me.lblNcomensales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNcomensales.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNcomensales.ForeColor = System.Drawing.Color.White
-        Me.lblNcomensales.Location = New System.Drawing.Point(241, 70)
+        Me.lblNcomensales.Location = New System.Drawing.Point(227, 70)
         Me.lblNcomensales.Name = "lblNcomensales"
-        Me.lblNcomensales.Size = New System.Drawing.Size(113, 30)
+        Me.lblNcomensales.Size = New System.Drawing.Size(106, 30)
         Me.lblNcomensales.TabIndex = 7
         Me.lblNcomensales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -236,7 +236,7 @@ Partial Class frmAgregarProducto
         Me.lblmesa.ForeColor = System.Drawing.Color.White
         Me.lblmesa.Location = New System.Drawing.Point(3, 70)
         Me.lblmesa.Name = "lblmesa"
-        Me.lblmesa.Size = New System.Drawing.Size(113, 30)
+        Me.lblmesa.Size = New System.Drawing.Size(106, 30)
         Me.lblmesa.TabIndex = 6
         Me.lblmesa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -249,7 +249,7 @@ Partial Class frmAgregarProducto
         Me.lblatiende.ForeColor = System.Drawing.Color.White
         Me.lblatiende.Location = New System.Drawing.Point(3, 20)
         Me.lblatiende.Name = "lblatiende"
-        Me.lblatiende.Size = New System.Drawing.Size(232, 30)
+        Me.lblatiende.Size = New System.Drawing.Size(218, 30)
         Me.lblatiende.TabIndex = 5
         Me.lblatiende.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -259,9 +259,9 @@ Partial Class frmAgregarProducto
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(479, 50)
+        Me.Label5.Location = New System.Drawing.Point(451, 50)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(113, 20)
+        Me.Label5.Size = New System.Drawing.Size(110, 20)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Folio:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -272,9 +272,9 @@ Partial Class frmAgregarProducto
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(360, 0)
+        Me.Label4.Location = New System.Drawing.Point(339, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(113, 20)
+        Me.Label4.Size = New System.Drawing.Size(106, 20)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Fecha:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -284,9 +284,9 @@ Partial Class frmAgregarProducto
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(241, 50)
+        Me.Label3.Location = New System.Drawing.Point(227, 50)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(113, 20)
+        Me.Label3.Size = New System.Drawing.Size(106, 20)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Número de comensales:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -299,7 +299,7 @@ Partial Class frmAgregarProducto
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(3, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(113, 20)
+        Me.Label2.Size = New System.Drawing.Size(106, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Mesa:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -312,7 +312,7 @@ Partial Class frmAgregarProducto
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(113, 20)
+        Me.Label1.Size = New System.Drawing.Size(106, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Mesero:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -345,9 +345,9 @@ Partial Class frmAgregarProducto
         Me.Panel3.Controls.Add(Me.Panel8)
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(832, 0)
+        Me.Panel3.Location = New System.Drawing.Point(801, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(383, 714)
+        Me.Panel3.Size = New System.Drawing.Size(414, 714)
         Me.Panel3.TabIndex = 2
         '
         'grdCaptura
@@ -377,7 +377,7 @@ Partial Class frmAgregarProducto
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.RowTemplate.Height = 40
-        Me.grdCaptura.Size = New System.Drawing.Size(383, 351)
+        Me.grdCaptura.Size = New System.Drawing.Size(414, 351)
         Me.grdCaptura.TabIndex = 2
         '
         'Panel8
@@ -387,7 +387,7 @@ Partial Class frmAgregarProducto
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel8.Location = New System.Drawing.Point(0, 451)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(383, 263)
+        Me.Panel8.Size = New System.Drawing.Size(414, 263)
         Me.Panel8.TabIndex = 1
         '
         'TabControl1
@@ -400,7 +400,7 @@ Partial Class frmAgregarProducto
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(383, 263)
+        Me.TabControl1.Size = New System.Drawing.Size(414, 263)
         Me.TabControl1.TabIndex = 0
         Me.TabControl1.Tag = " "
         '
@@ -411,7 +411,7 @@ Partial Class frmAgregarProducto
         Me.pPreferencias.Location = New System.Drawing.Point(4, 25)
         Me.pPreferencias.Name = "pPreferencias"
         Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.pPreferencias.Size = New System.Drawing.Size(375, 234)
+        Me.pPreferencias.Size = New System.Drawing.Size(406, 234)
         Me.pPreferencias.TabIndex = 0
         Me.pPreferencias.Text = "     Preferencias     "
         '
@@ -444,7 +444,7 @@ Partial Class frmAgregarProducto
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel7.Location = New System.Drawing.Point(0, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(383, 100)
+        Me.Panel7.Size = New System.Drawing.Size(414, 100)
         Me.Panel7.TabIndex = 0
         '
         'LBLLETRA
@@ -456,7 +456,7 @@ Partial Class frmAgregarProducto
         Me.LBLLETRA.ForeColor = System.Drawing.Color.Black
         Me.LBLLETRA.Location = New System.Drawing.Point(0, 61)
         Me.LBLLETRA.Name = "LBLLETRA"
-        Me.LBLLETRA.Size = New System.Drawing.Size(383, 39)
+        Me.LBLLETRA.Size = New System.Drawing.Size(414, 39)
         Me.LBLLETRA.TabIndex = 63
         Me.LBLLETRA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -469,7 +469,7 @@ Partial Class frmAgregarProducto
         Me.lblTotalVenta.ForeColor = System.Drawing.Color.Black
         Me.lblTotalVenta.Location = New System.Drawing.Point(0, 30)
         Me.lblTotalVenta.Name = "lblTotalVenta"
-        Me.lblTotalVenta.Size = New System.Drawing.Size(383, 31)
+        Me.lblTotalVenta.Size = New System.Drawing.Size(414, 31)
         Me.lblTotalVenta.TabIndex = 62
         Me.lblTotalVenta.Text = "0.00"
         Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -483,7 +483,7 @@ Partial Class frmAgregarProducto
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(-4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(387, 30)
+        Me.Label6.Size = New System.Drawing.Size(418, 30)
         Me.Label6.TabIndex = 60
         Me.Label6.Text = "VENTA TOTAL"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -502,18 +502,18 @@ Partial Class frmAgregarProducto
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 627)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(832, 87)
+        Me.Panel2.Size = New System.Drawing.Size(801, 87)
         Me.Panel2.TabIndex = 3
         '
         'btnOcasional
         '
         Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOcasional.Image = CType(resources.GetObject("btnOcasional.Image"), System.Drawing.Image)
         Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnOcasional.Location = New System.Drawing.Point(645, 0)
+        Me.btnOcasional.Location = New System.Drawing.Point(615, 0)
         Me.btnOcasional.Name = "btnOcasional"
         Me.btnOcasional.Size = New System.Drawing.Size(94, 87)
         Me.btnOcasional.TabIndex = 27
@@ -528,7 +528,7 @@ Partial Class frmAgregarProducto
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(739, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(708, 0)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(93, 87)
         Me.btnSalir.TabIndex = 28
@@ -543,7 +543,7 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(564, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(534, 0)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(81, 87)
         Me.btnnuevo.TabIndex = 25
@@ -556,7 +556,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(491, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(461, 0)
         Me.btntiempo3.Name = "btntiempo3"
         Me.btntiempo3.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo3.TabIndex = 24
@@ -568,7 +568,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(418, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(388, 0)
         Me.btntiempo2.Name = "btntiempo2"
         Me.btntiempo2.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo2.TabIndex = 23
@@ -580,7 +580,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo1.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo1.Location = New System.Drawing.Point(333, 0)
+        Me.btntiempo1.Location = New System.Drawing.Point(303, 0)
         Me.btntiempo1.Name = "btntiempo1"
         Me.btntiempo1.Size = New System.Drawing.Size(85, 87)
         Me.btntiempo1.TabIndex = 22
@@ -594,9 +594,9 @@ Partial Class frmAgregarProducto
         Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRepertir.Image = CType(resources.GetObject("btnRepertir.Image"), System.Drawing.Image)
-        Me.btnRepertir.Location = New System.Drawing.Point(168, 0)
+        Me.btnRepertir.Location = New System.Drawing.Point(162, 0)
         Me.btnRepertir.Name = "btnRepertir"
-        Me.btnRepertir.Size = New System.Drawing.Size(165, 87)
+        Me.btnRepertir.Size = New System.Drawing.Size(141, 87)
         Me.btnRepertir.TabIndex = 26
         Me.btnRepertir.Text = "Repetir producto"
         Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -611,7 +611,7 @@ Partial Class frmAgregarProducto
         Me.btnordenar.Image = CType(resources.GetObject("btnordenar.Image"), System.Drawing.Image)
         Me.btnordenar.Location = New System.Drawing.Point(0, 0)
         Me.btnordenar.Name = "btnordenar"
-        Me.btnordenar.Size = New System.Drawing.Size(168, 87)
+        Me.btnordenar.Size = New System.Drawing.Size(162, 87)
         Me.btnordenar.TabIndex = 21
         Me.btnordenar.Text = "Enviar a producción"
         Me.btnordenar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -641,7 +641,7 @@ Partial Class frmAgregarProducto
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pProductos.Location = New System.Drawing.Point(237, 100)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(595, 527)
+        Me.pProductos.Size = New System.Drawing.Size(564, 527)
         Me.pProductos.TabIndex = 6
         '
         'pteclado
@@ -1328,12 +1328,11 @@ Partial Class frmAgregarProducto
         '
         'Column9
         '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column9.HeaderText = "Comentario"
         Me.Column9.MinimumWidth = 8
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
-        Me.Column9.Width = 85
         '
         'frmAgregarProducto
         '

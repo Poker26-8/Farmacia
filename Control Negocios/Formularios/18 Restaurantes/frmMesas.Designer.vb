@@ -120,7 +120,7 @@ Partial Class frmMesas
         '
         'Panel5
         '
-        Me.Panel5.BackColor = System.Drawing.Color.Black
+        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Panel5.Controls.Add(Me.btntemporales)
         Me.Panel5.Controls.Add(Me.btncambiar)
         Me.Panel5.Controls.Add(Me.btnjuntar)

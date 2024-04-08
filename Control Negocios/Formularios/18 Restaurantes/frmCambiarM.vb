@@ -31,7 +31,7 @@
 
     Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click
         Try
-
+            If cbomesa.Text = "" Then MsgBox("Necesita seleccionar la mesa de destino", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub : cbomesa.Focus.Equals(True)
             Dim varconta As Integer = 0
 
             cnn1.Close() : cnn1.Open()

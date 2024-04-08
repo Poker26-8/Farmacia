@@ -962,10 +962,26 @@ Public Class Inicio
         End Try
 
         ''productos
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT PrecioVentaIVA2 FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column PrecioVentaIVA2 float default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
         'Try
         '    cnn1.Close() : cnn1.Open()
         '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "SELECT Mililitros,Copas,CodBarra1,CodBarra2,CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4,Porcentaje2 FROM productos"
+        '    cmd1.CommandText = "SELECT Mililitros,Copas FROM productos"
         '    rd1 = cmd1.ExecuteReader
         '    If rd1.Read Then
         '    End If
@@ -979,6 +995,19 @@ Public Class Inicio
         '    cmd1 = cnn1.CreateCommand
         '    cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
         '    cmd1.ExecuteNonQuery()
+        '    cnn1.Close()
+        'End Try
+
+        'Try
+        '    cnn1.Close() : cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "SELECT CodBarra1,CodBarra2,CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4,Porcentaje2 FROM productos"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.Read Then
+        '    End If
+        '    rd1.Close() : cnn1.Close()
+        'Catch ex As Exception
+        '    rd1.Close()
 
         '    cmd1 = cnn1.CreateCommand
         '    cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
@@ -1075,7 +1104,6 @@ Public Class Inicio
         '    cmd1 = cnn1.CreateCommand
         '    cmd1.CommandText = "ALTER TABLE productos add column Porcentaje2 float default '0'"
         '    cmd1.ExecuteNonQuery()
-        '    cnn1.Close()
 
         'End Try
 

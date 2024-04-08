@@ -754,4 +754,171 @@
 
         End Try
     End Sub
+
+    Private Sub cboMesa_DropDown(sender As Object, e As EventArgs) Handles cboMesa.DropDown
+        Try
+            cboMesa.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Nombre_mesa FROM mesa WHERE Nombre_mesa<>'' AND temporal=0 ORDER BY Nombre_mesa"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboMesa.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboMesa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMesa.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboUbicacion.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboUbicacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboUbicacion.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboPara.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboUbicacion_DropDown(sender As Object, e As EventArgs) Handles cboUbicacion.DropDown
+        Try
+            cboUbicacion.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Ubicacion FROM mesa WHERE Ubicacion<>'' ORDER BY Ubicacion"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboUbicacion.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboPara_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboPara.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtPrecio.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPrecio.Text) Then
+                btnGM.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnNM_Click(sender As Object, e As EventArgs) Handles btnNM.Click
+        cboMesa.Text = ""
+        cboUbicacion.Text = ""
+        cboPara.Text = ""
+        txtPrecio.Text = ""
+        cbTiempo.Checked = False
+        cboMesa.Focus.Equals(True)
+    End Sub
+
+    Private Sub cboMesa_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboMesa.SelectedValueChanged
+        Try
+            Dim timepo As Integer = 0
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cboUbicacion.Text = rd1("Ubicacion").ToString
+                    cboPara.Text = rd1("Tipo").ToString
+                    txtPrecio.Text = rd1("precio").ToString
+                    timepo = rd1("Contabiliza").ToString
+
+                    If timepo = 1 Then
+                        cbTiempo.Checked = True
+                    Else
+                        cbTiempo.Checked = False
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub btnGM_Click(sender As Object, e As EventArgs) Handles btnGM.Click
+        Try
+
+            Dim ORDEN As Integer = 0
+            Dim TIEMPO As Integer = 0
+
+            If (cbTiempo.Checked) Then
+                TIEMPO = 1
+            Else
+                TIEMPO = 0
+            End If
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT MAX(Orden) FROM mesa"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    ORDEN = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                Else
+                    ORDEN = "1"
+                End If
+            Else
+                ORDEN = "1"
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE mesa SET Temporal=0, Contabiliza=" & TIEMPO & ",Precio=" & txtPrecio.Text & ",Ubicacion='" & cboUbicacion.Text & "',Tipo=" & cboPara.Text & " WHERE Nombre_mesa='" & cboMesa.Text & "'"
+                    If cmd2.ExecuteNonQuery() Then
+                        MsgBox("Mesa actualizada correctamente", vbInformation + vbOKOnly, titulorestaurante)
+                    End If
+                    cnn2.Close()
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & cboMesa.Text & "',0,'Desocupada'," & TIEMPO & "," & txtPrecio.Text & "," & ORDEN & ",'',0,'','" & cboUbicacion.Text & "',0,0,'" & cboPara.Text & "',0)"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            btnnuevo.PerformClick()
+            frmMesas.btnLimpiar.PerformClick()
+            cboMesa.Focus.Equals(True)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

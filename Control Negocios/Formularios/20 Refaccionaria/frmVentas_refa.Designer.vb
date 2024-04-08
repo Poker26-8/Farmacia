@@ -39,7 +39,10 @@ Partial Class frmVentas_refa
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pTabla = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
         Me.lbldevo = New System.Windows.Forms.Label()
         Me.cbonota = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -55,8 +58,10 @@ Partial Class frmVentas_refa
         Me.lblfecha = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.cboimpresion = New System.Windows.Forms.ComboBox()
-        Me.lblusuario = New System.Windows.Forms.Label()
         Me.pInfirior = New System.Windows.Forms.Panel()
+        Me.pSuperior = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.lblusuario = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -205,14 +210,12 @@ Partial Class frmVentas_refa
         Me.pDevo80 = New System.Drawing.Printing.PrintDocument()
         Me.pDevo58 = New System.Drawing.Printing.PrintDocument()
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pTabla = New System.Windows.Forms.Panel()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.pSuperior = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        Me.pTabla.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pSuperior.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -228,9 +231,6 @@ Partial Class frmVentas_refa
         Me.Panel12.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pTabla.SuspendLayout()
-        Me.pSuperior.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -244,6 +244,15 @@ Partial Class frmVentas_refa
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(375, 840)
         Me.Panel1.TabIndex = 0
+        '
+        'pTabla
+        '
+        Me.pTabla.Controls.Add(Me.TableLayoutPanel1)
+        Me.pTabla.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pTabla.Location = New System.Drawing.Point(0, 130)
+        Me.pTabla.Name = "pTabla"
+        Me.pTabla.Size = New System.Drawing.Size(375, 589)
+        Me.pTabla.TabIndex = 195
         '
         'TableLayoutPanel1
         '
@@ -289,6 +298,42 @@ Partial Class frmVentas_refa
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(375, 589)
         Me.TableLayoutPanel1.TabIndex = 196
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button8.Location = New System.Drawing.Point(141, 276)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(89, 91)
+        Me.Button8.TabIndex = 238
+        Me.Button8.Text = "RECARGAS TELEFONICAS"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button16
+        '
+        Me.Button16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button16.ForeColor = System.Drawing.Color.Black
+        Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
+        Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button16.Location = New System.Drawing.Point(260, 276)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(8)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(89, 91)
+        Me.Button16.TabIndex = 237
+        Me.Button16.Text = "PAGO DE SERVICIOS"
+        Me.Button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button16.UseVisualStyleBackColor = False
         '
         'lbldevo
         '
@@ -506,6 +551,37 @@ Partial Class frmVentas_refa
         Me.cboimpresion.Size = New System.Drawing.Size(232, 21)
         Me.cboimpresion.TabIndex = 194
         '
+        'pInfirior
+        '
+        Me.pInfirior.BackColor = System.Drawing.Color.White
+        Me.pInfirior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pInfirior.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pInfirior.Location = New System.Drawing.Point(0, 130)
+        Me.pInfirior.Name = "pInfirior"
+        Me.pInfirior.Size = New System.Drawing.Size(375, 710)
+        Me.pInfirior.TabIndex = 193
+        '
+        'pSuperior
+        '
+        Me.pSuperior.Controls.Add(Me.PictureBox3)
+        Me.pSuperior.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pSuperior.Location = New System.Drawing.Point(0, 30)
+        Me.pSuperior.Name = "pSuperior"
+        Me.pSuperior.Size = New System.Drawing.Size(375, 100)
+        Me.pSuperior.TabIndex = 0
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(6, 10)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox3.Size = New System.Drawing.Size(357, 87)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 108
+        Me.PictureBox3.TabStop = False
+        '
         'lblusuario
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
@@ -517,16 +593,6 @@ Partial Class frmVentas_refa
         Me.lblusuario.Size = New System.Drawing.Size(375, 30)
         Me.lblusuario.TabIndex = 195
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pInfirior
-        '
-        Me.pInfirior.BackColor = System.Drawing.Color.White
-        Me.pInfirior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pInfirior.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pInfirior.Location = New System.Drawing.Point(0, 130)
-        Me.pInfirior.Name = "pInfirior"
-        Me.pInfirior.Size = New System.Drawing.Size(375, 710)
-        Me.pInfirior.TabIndex = 193
         '
         'Panel2
         '
@@ -785,9 +851,9 @@ Partial Class frmVentas_refa
         Me.btncomentario.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btncomentario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncomentario.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncomentario.Location = New System.Drawing.Point(819, 697)
+        Me.btncomentario.Location = New System.Drawing.Point(823, 647)
         Me.btncomentario.Name = "btncomentario"
-        Me.btncomentario.Size = New System.Drawing.Size(158, 48)
+        Me.btncomentario.Size = New System.Drawing.Size(158, 33)
         Me.btncomentario.TabIndex = 293
         Me.btncomentario.Text = "Comentario"
         Me.btncomentario.UseVisualStyleBackColor = False
@@ -1025,9 +1091,9 @@ Partial Class frmVentas_refa
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(679, 751)
+        Me.btnnuevo.Location = New System.Drawing.Point(819, 764)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(64, 76)
+        Me.btnnuevo.Size = New System.Drawing.Size(88, 73)
         Me.btnnuevo.TabIndex = 278
         Me.btnnuevo.Text = "LIMPIAR"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1041,9 +1107,9 @@ Partial Class frmVentas_refa
         Me.btnventa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnventa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnventa.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnventa.Location = New System.Drawing.Point(913, 751)
+        Me.btnventa.Location = New System.Drawing.Point(913, 682)
         Me.btnventa.Name = "btnventa"
-        Me.btnventa.Size = New System.Drawing.Size(64, 76)
+        Me.btnventa.Size = New System.Drawing.Size(64, 75)
         Me.btnventa.TabIndex = 277
         Me.btnventa.Text = "VENTA"
         Me.btnventa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1057,7 +1123,7 @@ Partial Class frmVentas_refa
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(819, 751)
+        Me.Button3.Location = New System.Drawing.Point(819, 682)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(88, 76)
         Me.Button3.TabIndex = 276
@@ -1073,9 +1139,9 @@ Partial Class frmVentas_refa
         Me.btnpedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpedido.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpedido.Location = New System.Drawing.Point(749, 751)
+        Me.btnpedido.Location = New System.Drawing.Point(912, 764)
         Me.btnpedido.Name = "btnpedido"
-        Me.btnpedido.Size = New System.Drawing.Size(64, 76)
+        Me.btnpedido.Size = New System.Drawing.Size(64, 73)
         Me.btnpedido.TabIndex = 275
         Me.btnpedido.Text = "PEDIDO"
         Me.btnpedido.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1093,7 +1159,7 @@ Partial Class frmVentas_refa
         Me.GroupBox5.Controls.Add(Me.Label31)
         Me.GroupBox5.Controls.Add(Me.txtResta)
         Me.GroupBox5.Controls.Add(Me.Label29)
-        Me.GroupBox5.Location = New System.Drawing.Point(460, 682)
+        Me.GroupBox5.Location = New System.Drawing.Point(601, 682)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(212, 145)
         Me.GroupBox5.TabIndex = 274
@@ -2176,72 +2242,6 @@ Partial Class frmVentas_refa
         'pDevoCarta
         '
         '
-        'pTabla
-        '
-        Me.pTabla.Controls.Add(Me.TableLayoutPanel1)
-        Me.pTabla.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pTabla.Location = New System.Drawing.Point(0, 130)
-        Me.pTabla.Name = "pTabla"
-        Me.pTabla.Size = New System.Drawing.Size(375, 589)
-        Me.pTabla.TabIndex = 195
-        '
-        'Button16
-        '
-        Me.Button16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button16.ForeColor = System.Drawing.Color.Black
-        Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
-        Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button16.Location = New System.Drawing.Point(260, 276)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(89, 91)
-        Me.Button16.TabIndex = 237
-        Me.Button16.Text = "PAGO DE SERVICIOS"
-        Me.Button16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button16.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button8.Location = New System.Drawing.Point(141, 276)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(8)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(89, 91)
-        Me.Button8.TabIndex = 238
-        Me.Button8.Text = "RECARGAS TELEFONICAS"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button8.UseVisualStyleBackColor = False
-        '
-        'pSuperior
-        '
-        Me.pSuperior.Controls.Add(Me.PictureBox3)
-        Me.pSuperior.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pSuperior.Location = New System.Drawing.Point(0, 30)
-        Me.pSuperior.Name = "pSuperior"
-        Me.pSuperior.Size = New System.Drawing.Size(375, 100)
-        Me.pSuperior.TabIndex = 0
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(6, 10)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox3.Size = New System.Drawing.Size(357, 87)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 108
-        Me.PictureBox3.TabStop = False
-        '
         'frmVentas_refa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2256,9 +2256,12 @@ Partial Class frmVentas_refa
         Me.Text = "Ventas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        Me.pTabla.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pSuperior.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel6.ResumeLayout(False)
@@ -2281,9 +2284,6 @@ Partial Class frmVentas_refa
         Me.Panel12.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pTabla.ResumeLayout(False)
-        Me.pSuperior.ResumeLayout(False)
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

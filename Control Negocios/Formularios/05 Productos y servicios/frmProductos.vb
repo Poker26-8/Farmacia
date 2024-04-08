@@ -1050,7 +1050,7 @@ Public Class frmProductos
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "delete from Kits wwhere Codigo='" & cboCodigo.Text & "'"
+                 "delete from Kits where Codigo='" & cboCodigo.Text & "'"
             cmd1.ExecuteNonQuery()
 
             cnn1.Close()

@@ -674,10 +674,15 @@ Public Class frmClientes
     Private Sub cboTipo_DropDown(sender As System.Object, e As System.EventArgs) Handles cboTipo.DropDown
         cboTipo.Items.Clear()
         cboTipo.Items.Add("Lista")
+        cboTipo.Items.Add("Lista 2")
         cboTipo.Items.Add("Mayoreo")
+        cboTipo.Items.Add("Mayoreo 2")
         cboTipo.Items.Add("Medio Mayoreo")
+        cboTipo.Items.Add("Medio Mayoreo 2")
         cboTipo.Items.Add("Minimo")
+        cboTipo.Items.Add("Minimo 2")
         cboTipo.Items.Add("Especial")
+        cboTipo.Items.Add("Especial 2")
     End Sub
 
     Private Sub txtninterior_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtninterior.KeyPress

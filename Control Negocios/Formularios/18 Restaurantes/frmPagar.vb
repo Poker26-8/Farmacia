@@ -901,11 +901,9 @@ Public Class frmPagar
         Dim descuentoventa22 As Double = 0
         descuentoventa22 = txtDescuento.Text
 
-
-
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura) VALUES('','" & lblmesa.Text & "',''," & Subtotales1 & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "')"
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato) VALUES('','" & lblmesa.Text & "',''," & Subtotales1 & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 
@@ -1623,7 +1621,7 @@ Door:
                 Precuenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                 Precuenta58.Print()
             End If
-
+            Me.BringToFront()
         End If
 
     End Sub
