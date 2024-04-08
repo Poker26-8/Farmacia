@@ -172,24 +172,12 @@ Public Class frmVentas1_Descuentos
 
 
     Private Sub txtcontraseña_Click(sender As System.Object, e As System.EventArgs) Handles txtcontraseña.Click
-        If txtcontraseña.Text = "CONTRASEÑA" Then
-            txtcontraseña.Text = ""
-            txtcontraseña.PasswordChar = "*"
-            txtcontraseña.ForeColor = Color.Black
-        Else
-            txtcontraseña.SelectionStart = 0
-            txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
-        End If
+        txtcontraseña.SelectionStart = 0
+        txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
     End Sub
     Private Sub txtcontraseña_GotFocus(sender As Object, e As System.EventArgs) Handles txtcontraseña.GotFocus
-        If txtcontraseña.Text = "CONTRASEÑA" Then
-            txtcontraseña.Text = ""
-            txtcontraseña.PasswordChar = "*"
-            txtcontraseña.ForeColor = Color.Black
-        Else
-            txtcontraseña.SelectionStart = 0
-            txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
-        End If
+        txtcontraseña.SelectionStart = 0
+        txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
     End Sub
     Private Sub txtcontraseña_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcontraseña.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -1512,36 +1500,36 @@ Public Class frmVentas1_Descuentos
         cbodesc.Focus().Equals(True)
         Call cbonota_LostFocus(cbonota, New EventArgs())
     End Sub
-    Private Sub txtMonedero_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtMonedero.KeyPress
-        Dim saldo As Double = 0
-        If AscW(e.KeyChar) = Keys.Enter Then
-            If txtMonedero.Text = "" Then Exit Sub
-            Try
-                cnn1.Close() : cnn1.Open()
+    Private Sub txtMonedero_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs)
+        'Dim saldo As Double = 0
+        'If AscW(e.KeyChar) = Keys.Enter Then
+        '    If txtMonedero.Text = "" Then Exit Sub
+        '    Try
+        '        cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Monedero where Barras='" & txtMonedero.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        saldo = rd1("Saldo").ToString
-                        If saldo > 0 Then
-                            lblmonedero.BackColor = Color.Lime
-                            MsgBox("El cliente cuenta con un saldo de " & FormatNumber(saldo, 2) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        End If
-                    End If
-                Else
-                    lblmonedero.BackColor = Color.White
-                End If
-                rd1.Close()
-                cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-            cbodesc.Focus().Equals(True)
-        End If
+        '        cmd1 = cnn1.CreateCommand
+        '        cmd1.CommandText =
+        '            "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+        '        rd1 = cmd1.ExecuteReader
+        '        If rd1.HasRows Then
+        '            If rd1.Read Then
+        '                saldo = rd1("Saldo").ToString
+        '                If saldo > 0 Then
+        '                    lblmonedero.BackColor = Color.Lime
+        '                    MsgBox("El cliente cuenta con un saldo de " & FormatNumber(saldo, 2) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                End If
+        '            End If
+        '        Else
+        '            lblmonedero.BackColor = Color.White
+        '        End If
+        '        rd1.Close()
+        '        cnn1.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString)
+        '        cnn1.Close()
+        '    End Try
+        '    cbodesc.Focus().Equals(True)
+        'End If
     End Sub
     Private Sub cboimpresion_DropDown(sender As Object, e As EventArgs) Handles cboimpresion.DropDown
         cboimpresion.Items.Clear()
@@ -3260,24 +3248,24 @@ Public Class frmVentas1_Descuentos
         If AscW(e.KeyChar) = Keys.Enter Then
             Dim saldo As Double = 0
             If cbotpago.Text = "MONEDERO" Then
-                Try
-                    cnn1.Close() : cnn1.Open()
+                'Try
+                '    cnn1.Close() : cnn1.Open()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select * from Monedero where Barras='" & txtMonedero.Text & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.HasRows Then
-                            txtsaldo_monedero.Text = FormatNumber(IIf(rd1("Saldo").ToString() = "", 0, rd1("Saldo").ToString()), 2)
-                        End If
-                    End If
-                    rd1.Close()
-                    cnn1.Close()
-                Catch ex As Exception
-                    MessageBox.Show(ex.ToString)
-                    cnn1.Close()
-                End Try
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText =
+                '        "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+                '    rd1 = cmd1.ExecuteReader
+                '    If rd1.HasRows Then
+                '        If rd1.HasRows Then
+                '            txtsaldo_monedero.Text = FormatNumber(IIf(rd1("Saldo").ToString() = "", 0, rd1("Saldo").ToString()), 2)
+                '        End If
+                '    End If
+                '    rd1.Close()
+                '    cnn1.Close()
+                'Catch ex As Exception
+                '    MessageBox.Show(ex.ToString)
+                '    cnn1.Close()
+                'End Try
             End If
             If cbotpago.Text = "TARJETA" Then
                 Try
@@ -3536,7 +3524,6 @@ Public Class frmVentas1_Descuentos
         cbonombretag = ""
         txtdireccion.Text = ""
 
-        txtMonedero.Text = ""
         lblmonedero.BackColor = Color.White
         cboDomi.Text = ""
         cboDomi.Visible = False
@@ -3547,7 +3534,6 @@ Public Class frmVentas1_Descuentos
         txtcredito.Text = "0.00"
         txtcredito.Visible = False
         Label20.Visible = False
-        txtMonedero.ReadOnly = False
         txtafavor.Text = "0.00"
         txtafavor.Visible = False
         Label17.Visible = False
@@ -3673,19 +3659,7 @@ Public Class frmVentas1_Descuentos
         frmPasa_Corte.Show()
     End Sub
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs)
-        If lblentrega.Visible = False Then
-            lblentrega.Visible = True
-            Entrega = True
-            dtpFecha_E.Visible = True
-            dtpFecha_E.Focus().Equals(True)
 
-        Else
-            lblentrega.Visible = False
-            Entrega = False
-            dtpFecha_E.Visible = False
-            btnventa.Focus().Equals(True)
-
-        End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas2_Descuentos.Show()
@@ -4463,29 +4437,29 @@ doorcita:
         End Try
 
         Try
-            If txtMonedero.Text <> "" Then
-                Dim saldo As Double = 0
-                If lblmonedero.BackColor = Color.White Then
-                    Call txtMonedero_KeyPress(txtMonedero, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                End If
-                cnn1.Close() : cnn1.Open()
+            'If txtMonedero.Text <> "" Then
+            '    Dim saldo As Double = 0
+            '    If lblmonedero.BackColor = Color.White Then
+            '        Call txtMonedero_KeyPress(txtMonedero, New KeyPressEventArgs(ChrW(Keys.Enter)))
+            '    End If
+            '    cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Monedero where Barras='" & txtMonedero.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        saldo = rd1("Saldo").ToString
-                    End If
-                Else
-                    MsgBox("No se encuentra un registro de el monedero ingresado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    rd1.Close() : cnn1.Close()
-                    txtMonedero.Focus().Equals(True) : Exit Sub
-                End If
-                rd1.Close()
-                cnn1.Close()
-            End If
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText =
+            '        "select * from Monedero where Barras='" & txtMonedero.Text & "'"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            saldo = rd1("Saldo").ToString
+            '        End If
+            '    Else
+            '        MsgBox("No se encuentra un registro de el monedero ingresado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '        rd1.Close() : cnn1.Close()
+            '        txtMonedero.Focus().Equals(True) : Exit Sub
+            '    End If
+            '    rd1.Close()
+            '    cnn1.Close()
+            'End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -4778,7 +4752,7 @@ doorcita:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txttel.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
@@ -4791,7 +4765,7 @@ doorcita:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txttel.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
@@ -4826,7 +4800,7 @@ doorcita:
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txttel.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "')"
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
             End Select
@@ -4849,10 +4823,10 @@ doorcita:
             rd2.Close()
         Loop
 
-        If txtMonedero.Text <> "" Then
+        If txttel.Text <> "" Then
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "update Ventas set FolMonedero='" & txtMonedero.Text & "' where Folio=" & MYFOLIO
+                "update Ventas set FolMonedero='" & txttel.Text & "' where Folio=" & MYFOLIO
             cmd2.ExecuteNonQuery()
         End If
         cnn2.Close()
@@ -4911,13 +4885,13 @@ doorcita:
 
         'Actualiza [Monedero] / [MovMonedero]
         Try
-            If txtMonedero.Text <> "" Then
+            If txttel.Text <> "" Then
                 Dim sal_monedero As Double = 0
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & txtMonedero.Text & "')"
+                    "select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & txttel.Text & "')"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -4945,12 +4919,12 @@ doorcita:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Monedero set Saldo=" & nvo_saldo & " where Barras='" & txtMonedero.Text & "'"
+                    "update Monedero set Saldo=" & nvo_saldo & " where Barras='" & txttel.Text & "'"
                 cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txtMonedero.Text & "','Venta'," & ope & ",0," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
+                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & ",0," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             End If
