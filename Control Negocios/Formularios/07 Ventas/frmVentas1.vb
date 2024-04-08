@@ -3543,6 +3543,36 @@ kaka:
         If AscW(e.KeyChar) = Keys.Enter And cbodesc.Text = "" Then cbodesc.Focus().Equals(True)
         If AscW(e.KeyChar) = Keys.Enter Then
 
+            Try
+                Dim VSE As Boolean = False
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                "select VSE from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        VSE = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+                If VSE = True Then
+                    If txtcantidad.Text > txtexistencia.Text Then
+                        MsgBox("No puedes vender una cantidad mayor a las existencias", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
+                        txtcantidad.Focus.Equals(True)
+                        Exit Sub
+                    End If
+                End If
+
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
             If Not IsNumeric(txtcantidad.Text) Then txtcantidad.Text = ""
 
             Dim Edita As Boolean = False
@@ -3761,6 +3791,38 @@ kaka:
         Dim editap As Boolean = False
         If Not IsNumeric(txtprecio.Text) Then txtprecio.Text = ""
         If cbocodigo.Text = "" Then MsgBox("Necesitas seleccionar un producto.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbodesc.Focus().Equals(True) : Exit Sub
+
+        Try
+            Dim VSE As Boolean = False
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select VSE from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    VSE = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If VSE = True Then
+                If txtcantidad.Text > txtexistencia.Text Then
+                    MsgBox("No puedes vender una cantidad mayor a las existencias", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
+                    txtcantidad.Focus.Equals(True)
+                    Exit Sub
+                End If
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+
         Try
             cnn1.Close() : cnn1.Open()
 
