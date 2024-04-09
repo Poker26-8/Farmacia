@@ -77,8 +77,12 @@ Public Class frmConsultaR
             cnn2.Close() : cnn2.Open()
             cmd1 = cnn1.CreateCommand
 
-            If cbovehiculo.Text <> "" Or cboservicio.Text <> "" Then
-                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE IdVehiculo=" & lblvehiculo.Text & " AND Servicio='" & cboservicio.Text & "'"
+            If cbovehiculo.Text <> "" Then
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE IdVehiculo=" & lblvehiculo.Text & ""
+            End If
+
+            If cboservicio.Text <> "" Then
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Servicio ='" & cboservicio.Text & "' AND IdVehiculo=" & lblvehiculo.Text & ""
             End If
 
             If cbodatos.Text <> "" Then
@@ -217,6 +221,7 @@ Public Class frmConsultaR
             cbovehiculo.Text = ""
             cboservicio.Text = ""
             cbodatos.Visible = True
+
         End If
     End Sub
 

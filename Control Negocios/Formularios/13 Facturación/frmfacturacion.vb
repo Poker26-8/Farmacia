@@ -6058,6 +6058,7 @@ malo:
         txtNumPermisoSCT.Text = ""
         txtPlaca.Text = ""
         cboConfigV.Text = ""
+        txtPesoBrutoV.Text = ""
         cboPermisoSCT.Text = ""
 
         cboOrigRemitente.Text = ""
@@ -8413,6 +8414,7 @@ malo:
         txtNumPermisoSCT.Text = ""
         txtPlaca.Text = ""
         cboConfigV.Text = ""
+        txtPesoBrutoV.Text = ""
         cboPermisoSCT.Text = ""
 
         cboOrigRemitente.Text = ""

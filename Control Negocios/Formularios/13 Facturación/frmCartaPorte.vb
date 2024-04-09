@@ -1,6 +1,7 @@
 ﻿Imports CrystalDecisions.Shared
 Imports System.IO
 Imports MySql.Data
+
 Public Class frmCartaPorte
 
     Dim varfoliocarta As Integer = 0
@@ -145,7 +146,7 @@ Public Class frmCartaPorte
     Private Sub cbo_rfc_emisor_DropDown(sender As Object, e As EventArgs) Handles cbo_rfc_emisor.DropDown
 
         cbo_rfc_emisor.Items.Clear()
-        Dim cnn As MySqlClient.MySqlConnection=New MySqlClient.MySqlConnection
+        Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
         Dim dt As New DataTable
@@ -216,6 +217,7 @@ Public Class frmCartaPorte
         txtNumPermisoSCT.Text = ""
         txtPlaca.Text = ""
         cboConfigV.Text = ""
+        txtPesoBrutoV.Text = ""
         cboPermisoSCT.Text = ""
         dgProductos.Rows.Clear()
         cboFolio.Text = ""
@@ -1220,7 +1222,7 @@ puerta:
                 If .runSp(cnn, "insert into CartaPorte(FolioCarta, EmiNombre, EmiRFC, EmiCP, EmiRegFis, CliRFC, CliNombre, Inter, OrigNombre, OrigRFC, OrigFechaHora, OrigCP, OrigCalle, OrigNumExt, OrigNumInt, OrigColonia, OrigEdo," &
                                 "OrigMun, TotalDistancia, DesNombre, DesRFC, DesFechaHora, DesCP, DesPais, DesCalle, DesNumExt, DesNumInt, DesCol, DesEdo, DesMun, PermisoSCT, NumPoliza, NumPermisoSCT,Aseguradora, Placa, " &
                                 "Config, ModeloA, OpeRFC, OpeLic, OpeNombre, OpeNumExt, OpeNumInt, OpeMun, OpeEdo, OpeColonia, OpeCP, OpeCalle, TotalMercancias, OrigColoniaT, OrigEdoT, OrigMunT, DesColT, DesEdoT, DesMunT, OpeColoniaT, OpeEdoT, OpeMunT, TotalPesoM, DesLocalidad, " &
-                                " TransDes, TransImporte, TransUniMedSat, TransClaveSat, NumPed, FiguraTrasporte, AseguradoraMedAmb, NumPolizaMedAmb) values(" & foliocarta & ",'" & cbo_emisor.Text & "', '" & cbo_rfc_emisor.Text & "', '" & txtCP.Text &
+                                " TransDes, TransImporte, TransUniMedSat, TransClaveSat, NumPed, FiguraTrasporte, AseguradoraMedAmb, NumPolizaMedAmb, PesoBrutoVehicular) values(" & foliocarta & ",'" & cbo_emisor.Text & "', '" & cbo_rfc_emisor.Text & "', '" & txtCP.Text &
                                 "', '" & txtRegFisEmi.Text & "', '" & cboClienteRFC.Text & "', '" & cboCliente.Text & "', '" & varinter & "', '" & cboOrigRemitente.Text & "', '" & txtOrigRFC.Text & "', '" & varOrigFechaHora & "', '" & txtOrigCP.Text &
                                 "', '" & txtOrigCalle.Text & "', '" & txtOrigNumExt.Text & "', '" & txtOrigNumInt.Text & "', '" & dameclaveColonia() & "', '" & dameclaveEdo() & "'," &
                                 "'" & dameclaveMun() & "', '" & txtDestinioDist.Text & "', '" & cboDesDestinatario.Text & "', '" & txtDesRFC.Text & "', '" & varDesFechaHora & "', '" & txtDestinoCP.Text & "', '" & dameclavePais() & "', '" & txtDestinoCalle.Text &
@@ -1228,7 +1230,7 @@ puerta:
                                 "', '" & txtAseguradora.Text & "', '" & txtPlaca.Text & "', '" & dameclaveConfigV() & "', '" & txtModeloAño.Text & "', '" & txtOpeRFC.Text & "', '" & txtOpeLicencia.Text & "', '" & cboOpeNombre.Text & "', '', '' " &
                                 ", '', '', '', '', '', '" & dgProductos.RowCount & "', '" & cboOrigColonia.Text & "', '" & cboOrigEdo.Text & "', '" & cboOrigMun.Text &
                                 "', '" & cboDestinoColonia.Text & "', '" & cboDestinoEdo.Text & "', '" & cboDestinoMun.Text & "', '', '', '','" & txtTotalPeso.Text & "','" & cboDestinoLoc.Text &
-                                "', '" & Trim(txtTransDesc.Text) & "', '" & Trim(txtTransImporte.Text) & "', '" & Trim(txtTransUniMed.Text) & "', '" & dameClaveSAT(Trim(cboTransClaveSat.Text)) & "','" & numpedimento & "','" & cboTipoFigura.Text & "','" & txtAseguradoraMatPel.Text & "','" & txtNumPolizaMatPel.Text & "')", sinfo) Then
+                                "', '" & Trim(txtTransDesc.Text) & "', '" & Trim(txtTransImporte.Text) & "', '" & Trim(txtTransUniMed.Text) & "', '" & dameClaveSAT(Trim(cboTransClaveSat.Text)) & "','" & numpedimento & "','" & cboTipoFigura.Text & "','" & txtAseguradoraMatPel.Text & "','" & txtNumPolizaMatPel.Text & "','" & txtPesoBrutoV.Text & "')", sinfo) Then
                     varfoliocarta = maxidcarta()
 
                     For i = 0 To dgProductos.RowCount - 1

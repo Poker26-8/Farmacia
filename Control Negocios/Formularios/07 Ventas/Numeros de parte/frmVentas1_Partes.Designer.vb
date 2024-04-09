@@ -158,6 +158,7 @@ Partial Class frmVentas1_Partes
         Me.Label34 = New System.Windows.Forms.Label()
         Me.cboimpresion = New System.Windows.Forms.ComboBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -222,7 +223,6 @@ Partial Class frmVentas1_Partes
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtProdClave = New System.Windows.Forms.TextBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -236,6 +236,7 @@ Partial Class frmVentas1_Partes
         Me.pDer_Arriba.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -245,7 +246,6 @@ Partial Class frmVentas1_Partes
         Me.Panel2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label8
@@ -1550,6 +1550,19 @@ Partial Class frmVentas1_Partes
         Me.Panel5.Size = New System.Drawing.Size(400, 112)
         Me.Panel5.TabIndex = 191
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox3.Size = New System.Drawing.Size(400, 112)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 108
+        Me.PictureBox3.TabStop = False
+        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.Panel6)
@@ -2311,19 +2324,6 @@ Partial Class frmVentas1_Partes
         Me.txtProdClave.Size = New System.Drawing.Size(297, 29)
         Me.txtProdClave.TabIndex = 0
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.PictureBox3.Size = New System.Drawing.Size(400, 112)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 108
-        Me.PictureBox3.TabStop = False
-        '
         'frmVentas1_Partes
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -2355,6 +2355,7 @@ Partial Class frmVentas1_Partes
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Panel5.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel6.ResumeLayout(False)
@@ -2370,7 +2371,6 @@ Partial Class frmVentas1_Partes
         Me.GroupBox3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

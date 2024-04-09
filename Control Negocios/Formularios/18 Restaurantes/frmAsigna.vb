@@ -185,6 +185,22 @@
         End If
 
         Try
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT MAX(Folio) FROM Comanda1"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    CFOLIO = rd2(0).ToString + 1
+                Else
+                    CFOLIO = 1
+                End If
+            Else
+                CFOLIO = 1
+            End If
+            rd2.Close()
+
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "INSERT INTO AsigPC(Nombre,HorEnt,HorSal,Fecha,Ocupada) values('" & lblpc.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & Format(Date.Now, "yyyy-MM-dd") & "',1)"
@@ -195,24 +211,11 @@
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO Comanda1(IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Nombre,TComensales) VALUES(0,'','','','','','','','','" & lblpc.Text & "',0)"
+            cmd1.CommandText = "INSERT INTO Comanda1(Folio,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Nombre,TComensales) VALUES(" & CFOLIO & ",0,'','','','','','','','','" & lblpc.Text & "',0)"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
 
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT MAX(Folio) FROM Comanda1"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    CFOLIO = rd2(0).ToString
-                Else
-                    CFOLIO = 0
-                End If
-            Else
-                CFOLIO = 0
-            End If
-            rd2.Close()
+
 
             If minutosTiempo = 0 Then
                 HrTiempo = Format(Date.Now, "HH:mm:ss")

@@ -62,9 +62,9 @@ Partial Class frmAgregarProducto
         Me.lblTotalVenta = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnOcasional = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
+        Me.btnOcasional = New System.Windows.Forms.Button()
         Me.btntiempo3 = New System.Windows.Forms.Button()
         Me.btntiempo2 = New System.Windows.Forms.Button()
         Me.btntiempo1 = New System.Windows.Forms.Button()
@@ -571,9 +571,9 @@ Partial Class frmAgregarProducto
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.btnOcasional)
         Me.Panel2.Controls.Add(Me.btnSalir)
         Me.Panel2.Controls.Add(Me.btnnuevo)
+        Me.Panel2.Controls.Add(Me.btnOcasional)
         Me.Panel2.Controls.Add(Me.btntiempo3)
         Me.Panel2.Controls.Add(Me.btntiempo2)
         Me.Panel2.Controls.Add(Me.btntiempo1)
@@ -584,22 +584,6 @@ Partial Class frmAgregarProducto
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(801, 87)
         Me.Panel2.TabIndex = 3
-        '
-        'btnOcasional
-        '
-        Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOcasional.Image = CType(resources.GetObject("btnOcasional.Image"), System.Drawing.Image)
-        Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnOcasional.Location = New System.Drawing.Point(615, 0)
-        Me.btnOcasional.Name = "btnOcasional"
-        Me.btnOcasional.Size = New System.Drawing.Size(94, 87)
-        Me.btnOcasional.TabIndex = 27
-        Me.btnOcasional.Text = "Producto ocasional"
-        Me.btnOcasional.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnOcasional.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
@@ -623,7 +607,7 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(534, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(632, 0)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(81, 87)
         Me.btnnuevo.TabIndex = 25
@@ -631,12 +615,28 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = False
         '
+        'btnOcasional
+        '
+        Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOcasional.Image = CType(resources.GetObject("btnOcasional.Image"), System.Drawing.Image)
+        Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnOcasional.Location = New System.Drawing.Point(538, 0)
+        Me.btnOcasional.Name = "btnOcasional"
+        Me.btnOcasional.Size = New System.Drawing.Size(94, 87)
+        Me.btnOcasional.TabIndex = 27
+        Me.btnOcasional.Text = "Producto ocasional"
+        Me.btnOcasional.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnOcasional.UseVisualStyleBackColor = False
+        '
         'btntiempo3
         '
         Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(461, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(465, 0)
         Me.btntiempo3.Name = "btntiempo3"
         Me.btntiempo3.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo3.TabIndex = 24
@@ -648,7 +648,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(388, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(392, 0)
         Me.btntiempo2.Name = "btntiempo2"
         Me.btntiempo2.Size = New System.Drawing.Size(73, 87)
         Me.btntiempo2.TabIndex = 23
@@ -662,7 +662,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btntiempo1.Location = New System.Drawing.Point(303, 0)
         Me.btntiempo1.Name = "btntiempo1"
-        Me.btntiempo1.Size = New System.Drawing.Size(85, 87)
+        Me.btntiempo1.Size = New System.Drawing.Size(89, 87)
         Me.btntiempo1.TabIndex = 22
         Me.btntiempo1.Text = "Primer tiempo"
         Me.btntiempo1.UseVisualStyleBackColor = False

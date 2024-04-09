@@ -215,6 +215,8 @@ Partial Class frmCartaPorte
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.cboFolio = New System.Windows.Forms.ComboBox()
+        Me.txtPesoBrutoV = New System.Windows.Forms.TextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
         Me.GroupBox20.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -262,7 +264,7 @@ Partial Class frmCartaPorte
         Me.GroupBox20.Controls.Add(Me.Label87)
         Me.GroupBox20.Controls.Add(Me.txtUUIDCanelacion)
         Me.GroupBox20.Controls.Add(Me.cboTipoCancelacion)
-        Me.GroupBox20.Location = New System.Drawing.Point(223, 205)
+        Me.GroupBox20.Location = New System.Drawing.Point(288, 84)
         Me.GroupBox20.Name = "GroupBox20"
         Me.GroupBox20.Size = New System.Drawing.Size(367, 149)
         Me.GroupBox20.TabIndex = 99
@@ -337,8 +339,8 @@ Partial Class frmCartaPorte
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.White
-        Me.TabPage1.Controls.Add(Me.GroupBox22)
         Me.TabPage1.Controls.Add(Me.GroupBox20)
+        Me.TabPage1.Controls.Add(Me.GroupBox22)
         Me.TabPage1.Controls.Add(Me.GroupBox13)
         Me.TabPage1.Controls.Add(Me.GroupBox11)
         Me.TabPage1.Controls.Add(Me.GroupBox6)
@@ -598,6 +600,8 @@ Partial Class frmCartaPorte
         'GroupBox6
         '
         Me.GroupBox6.BackColor = System.Drawing.Color.White
+        Me.GroupBox6.Controls.Add(Me.txtPesoBrutoV)
+        Me.GroupBox6.Controls.Add(Me.Label51)
         Me.GroupBox6.Controls.Add(Me.txtPlaca)
         Me.GroupBox6.Controls.Add(Me.cboPermisoSCT)
         Me.GroupBox6.Controls.Add(Me.txtNumPermisoSCT)
@@ -630,9 +634,9 @@ Partial Class frmCartaPorte
         'cboPermisoSCT
         '
         Me.cboPermisoSCT.FormattingEnabled = True
-        Me.cboPermisoSCT.Location = New System.Drawing.Point(85, 75)
+        Me.cboPermisoSCT.Location = New System.Drawing.Point(423, 75)
         Me.cboPermisoSCT.Name = "cboPermisoSCT"
-        Me.cboPermisoSCT.Size = New System.Drawing.Size(768, 23)
+        Me.cboPermisoSCT.Size = New System.Drawing.Size(430, 23)
         Me.cboPermisoSCT.TabIndex = 44
         '
         'txtNumPermisoSCT
@@ -710,7 +714,7 @@ Partial Class frmCartaPorte
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(9, 22)
+        Me.Label38.Location = New System.Drawing.Point(6, 22)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(38, 15)
         Me.Label38.TabIndex = 38
@@ -738,7 +742,7 @@ Partial Class frmCartaPorte
         'Label48
         '
         Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(11, 78)
+        Me.Label48.Location = New System.Drawing.Point(348, 78)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(73, 15)
         Me.Label48.TabIndex = 23
@@ -949,10 +953,10 @@ Partial Class frmCartaPorte
         '
         Me.TabPage2.BackColor = System.Drawing.Color.White
         Me.TabPage2.Controls.Add(Me.GroupBox3)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(889, 416)
+        Me.TabPage2.Size = New System.Drawing.Size(889, 418)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Datos del Origen"
         '
@@ -1200,10 +1204,10 @@ Partial Class frmCartaPorte
         '
         Me.TabPage3.BackColor = System.Drawing.Color.White
         Me.TabPage3.Controls.Add(Me.GroupBox12)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(889, 416)
+        Me.TabPage3.Size = New System.Drawing.Size(889, 418)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Datos del Destino"
         '
@@ -1490,10 +1494,10 @@ Partial Class frmCartaPorte
         Me.TabPage4.BackColor = System.Drawing.Color.White
         Me.TabPage4.Controls.Add(Me.dgProductos)
         Me.TabPage4.Controls.Add(Me.GroupBox1)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(889, 416)
+        Me.TabPage4.Size = New System.Drawing.Size(889, 418)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Datos de la Mercancia"
         '
@@ -1888,10 +1892,10 @@ Partial Class frmCartaPorte
         Me.TabPage5.BackColor = System.Drawing.Color.White
         Me.TabPage5.Controls.Add(Me.GroupBox21)
         Me.TabPage5.Controls.Add(Me.GroupBox7)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(889, 416)
+        Me.TabPage5.Size = New System.Drawing.Size(889, 418)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Datos de la Figura de Transporte y Datos del Remolque o Semiremolque"
         '
@@ -2196,6 +2200,23 @@ Partial Class frmCartaPorte
         Me.cboFolio.Size = New System.Drawing.Size(81, 23)
         Me.cboFolio.TabIndex = 1
         '
+        'txtPesoBrutoV
+        '
+        Me.txtPesoBrutoV.BackColor = System.Drawing.Color.White
+        Me.txtPesoBrutoV.Location = New System.Drawing.Point(225, 75)
+        Me.txtPesoBrutoV.Name = "txtPesoBrutoV"
+        Me.txtPesoBrutoV.Size = New System.Drawing.Size(94, 23)
+        Me.txtPesoBrutoV.TabIndex = 46
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(6, 78)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(215, 15)
+        Me.Label51.TabIndex = 45
+        Me.Label51.Text = "Peso Bruto del Vehiculo en ""Toneladas"":"
+        '
         'frmCartaPorte
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -2446,4 +2467,6 @@ Partial Class frmCartaPorte
     Friend WithEvents cboFolio As ComboBox
     Friend WithEvents cboDestinoLoc As ComboBox
     Friend WithEvents Label36 As Label
+    Friend WithEvents txtPesoBrutoV As TextBox
+    Friend WithEvents Label51 As Label
 End Class

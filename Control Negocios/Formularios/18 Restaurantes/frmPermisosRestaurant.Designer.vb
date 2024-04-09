@@ -217,7 +217,7 @@ Partial Class frmPermisosRestaurant
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Location = New System.Drawing.Point(678, 164)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(78, 71)
+        Me.btnnuevo.Size = New System.Drawing.Size(78, 69)
         Me.btnnuevo.TabIndex = 234
         Me.btnnuevo.Text = "Nuevo"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -564,7 +564,7 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
         Me.btnclose.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnclose.Location = New System.Drawing.Point(762, 239)
+        Me.btnclose.Location = New System.Drawing.Point(762, 238)
         Me.btnclose.Name = "btnclose"
         Me.btnclose.Size = New System.Drawing.Size(80, 71)
         Me.btnclose.TabIndex = 246

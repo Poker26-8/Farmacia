@@ -761,7 +761,7 @@ Public Class frmProRefaccionaria
             'Variables para alojar los datos del archivo de excel
             Dim codigo, barras, nombre, unidad, proveedor, depto, grupo, prod_sat, unidad_sat, n_serie As String
             Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
-            Dim iva, compra, compra_iva, venta_siva, venta_civa, porcentaje As Double
+            Dim iva, compra, compra_iva, venta_siva, venta_civa, porcentaje, existencia, ieps As Double
             Dim conteo As Integer = 0
 
             barsube.Value = 0
@@ -786,14 +786,16 @@ Public Class frmProRefaccionaria
                 grupo = NulCad(DataGridView1.Rows(zef).Cells(9).Value.ToString())
                 prod_sat = NulCad(DataGridView1.Rows(zef).Cells(10).Value.ToString())
                 unidad_sat = NulCad(DataGridView1.Rows(zef).Cells(11).Value.ToString())
-                n_serie = NulCad(DataGridView1.Rows(zef).Cells(12).Value.ToString())
+                existencia = NulVa(DataGridView1.Rows(zef).Cells(12).Value.ToString())
+                ieps = NulVa(DataGridView1.Rows(zef).Cells(13).Value.ToString())
+                n_serie = NulCad(DataGridView1.Rows(zef).Cells(14).Value.ToString())
 
                 If (Comprueba(codigo, nombre, barras, proveedor, n_serie)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,N_Serie) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & ",0," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0,'" & txtn_serie.Text & "')"
+                        "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,N_Serie,Existencia,IIEPS) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & ",0," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0,'" & n_serie & "'," & existencia & "," & ieps & ")"
                     cmd1.ExecuteNonQuery()
                 Else
                     conteo += 1

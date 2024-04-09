@@ -82,6 +82,7 @@ Partial Class frmConsultaR
         Me.cbodatos.Name = "cbodatos"
         Me.cbodatos.Size = New System.Drawing.Size(130, 21)
         Me.cbodatos.TabIndex = 58
+        Me.cbodatos.Visible = False
         '
         'GroupBox1
         '
@@ -197,7 +198,7 @@ Partial Class frmConsultaR
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(831, 8)
+        Me.Button2.Location = New System.Drawing.Point(1002, 6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 68)
         Me.Button2.TabIndex = 27
@@ -213,7 +214,7 @@ Partial Class frmConsultaR
         Me.btnbuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnbuscar.Image = CType(resources.GetObject("btnbuscar.Image"), System.Drawing.Image)
         Me.btnbuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnbuscar.Location = New System.Drawing.Point(993, 8)
+        Me.btnbuscar.Location = New System.Drawing.Point(834, 6)
         Me.btnbuscar.Name = "btnbuscar"
         Me.btnbuscar.Size = New System.Drawing.Size(81, 68)
         Me.btnbuscar.TabIndex = 26
@@ -229,7 +230,7 @@ Partial Class frmConsultaR
         Me.btnlimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
         Me.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnlimpiar.Location = New System.Drawing.Point(912, 8)
+        Me.btnlimpiar.Location = New System.Drawing.Point(921, 6)
         Me.btnlimpiar.Name = "btnlimpiar"
         Me.btnlimpiar.Size = New System.Drawing.Size(75, 68)
         Me.btnlimpiar.TabIndex = 28
@@ -261,23 +262,26 @@ Partial Class frmConsultaR
         '
         'Column11
         '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column11.HeaderText = "N° Parte"
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
+        Me.Column11.Width = 72
         '
         'Column12
         '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column12.HeaderText = "Cod.Barra"
         Me.Column12.Name = "Column12"
         Me.Column12.ReadOnly = True
+        Me.Column12.Width = 79
         '
         'Column10
         '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column10.HeaderText = "Descricpion"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
-        Me.Column10.Width = 88
         '
         'Column1
         '
@@ -316,9 +320,11 @@ Partial Class frmConsultaR
         '
         'Column17
         '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column17.HeaderText = "Observacion"
         Me.Column17.Name = "Column17"
         Me.Column17.ReadOnly = True
+        Me.Column17.Width = 92
         '
         'Column18
         '

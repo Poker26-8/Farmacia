@@ -45,7 +45,7 @@ Partial Class frmProductoOcasional
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(332, 45)
+        Me.Panel1.Size = New System.Drawing.Size(321, 45)
         Me.Panel1.TabIndex = 33
         '
         'Label4
@@ -176,7 +176,7 @@ Partial Class frmProductoOcasional
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(332, 271)
+        Me.ClientSize = New System.Drawing.Size(321, 263)
         Me.Controls.Add(Me.lblcodigo)
         Me.Controls.Add(Me.btnsaliroca)
         Me.Controls.Add(Me.btnlimpiaroca)

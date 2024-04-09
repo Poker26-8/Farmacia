@@ -390,6 +390,8 @@ Partial Class frmfacturacion
         Me.EditarDescripcionLargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.lblfolioventa = New System.Windows.Forms.Label()
+        Me.txtPesoBrutoV = New System.Windows.Forms.TextBox()
+        Me.Label109 = New System.Windows.Forms.Label()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox20.SuspendLayout()
         Me.gbLE.SuspendLayout()
@@ -1658,6 +1660,8 @@ Partial Class frmfacturacion
         'GroupBox10
         '
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.txtPesoBrutoV)
+        Me.GroupBox10.Controls.Add(Me.Label109)
         Me.GroupBox10.Controls.Add(Me.txtPlaca)
         Me.GroupBox10.Controls.Add(Me.cboPermisoSCT)
         Me.GroupBox10.Controls.Add(Me.txtNumPermisoSCT)
@@ -1690,9 +1694,9 @@ Partial Class frmfacturacion
         'cboPermisoSCT
         '
         Me.cboPermisoSCT.FormattingEnabled = True
-        Me.cboPermisoSCT.Location = New System.Drawing.Point(85, 75)
+        Me.cboPermisoSCT.Location = New System.Drawing.Point(401, 75)
         Me.cboPermisoSCT.Name = "cboPermisoSCT"
-        Me.cboPermisoSCT.Size = New System.Drawing.Size(768, 23)
+        Me.cboPermisoSCT.Size = New System.Drawing.Size(452, 23)
         Me.cboPermisoSCT.TabIndex = 44
         '
         'txtNumPermisoSCT
@@ -1706,7 +1710,7 @@ Partial Class frmfacturacion
         'Label50
         '
         Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(11, 50)
+        Me.Label50.Location = New System.Drawing.Point(7, 50)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(106, 15)
         Me.Label50.TabIndex = 42
@@ -1732,7 +1736,7 @@ Partial Class frmfacturacion
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(14, 22)
+        Me.Label42.Location = New System.Drawing.Point(7, 22)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(38, 15)
         Me.Label42.TabIndex = 38
@@ -1794,7 +1798,7 @@ Partial Class frmfacturacion
         'Label48
         '
         Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(11, 78)
+        Me.Label48.Location = New System.Drawing.Point(328, 78)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(73, 15)
         Me.Label48.TabIndex = 23
@@ -4078,12 +4082,30 @@ Partial Class frmfacturacion
         Me.lblfolioventa.TabIndex = 96
         Me.lblfolioventa.Visible = False
         '
+        'txtPesoBrutoV
+        '
+        Me.txtPesoBrutoV.BackColor = System.Drawing.Color.White
+        Me.txtPesoBrutoV.Location = New System.Drawing.Point(226, 75)
+        Me.txtPesoBrutoV.Name = "txtPesoBrutoV"
+        Me.txtPesoBrutoV.Size = New System.Drawing.Size(94, 23)
+        Me.txtPesoBrutoV.TabIndex = 48
+        '
+        'Label109
+        '
+        Me.Label109.AutoSize = True
+        Me.Label109.Location = New System.Drawing.Point(7, 78)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(215, 15)
+        Me.Label109.TabIndex = 47
+        Me.Label109.Text = "Peso Bruto del Vehiculo en ""Toneladas"":"
+        '
         'frmfacturacion
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1216, 729)
+        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.lblfolioventa)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.CheckBox1)
@@ -4092,7 +4114,6 @@ Partial Class frmfacturacion
         Me.Controls.Add(Me.GroupBox20)
         Me.Controls.Add(Me.gbLE)
         Me.Controls.Add(Me.GbUUID)
-        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.btnParcialidades)
@@ -4555,4 +4576,6 @@ Partial Class frmfacturacion
     Friend WithEvents FactGlobal As DataGridViewTextBoxColumn
     Friend WithEvents FactGlobalIEPS As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents txtPesoBrutoV As TextBox
+    Friend WithEvents Label109 As Label
 End Class
