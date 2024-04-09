@@ -85,6 +85,7 @@ Partial Class frmCambiarHab
         '
         Me.Label2.BackColor = System.Drawing.Color.SteelBlue
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(12, 121)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(217, 23)
@@ -96,6 +97,7 @@ Partial Class frmCambiarHab
         '
         Me.Label1.BackColor = System.Drawing.Color.SteelBlue
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(12, 52)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(217, 23)

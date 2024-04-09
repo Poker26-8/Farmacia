@@ -90,6 +90,7 @@ Partial Class frm_consulta_nomina
         Me.cbo_empleado = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbo_empresa = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox7.SuspendLayout()
         CType(Me.grid_otrospagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb1.SuspendLayout()
@@ -107,7 +108,7 @@ Partial Class frm_consulta_nomina
         'GroupBox7
         '
         Me.GroupBox7.Controls.Add(Me.grid_otrospagos)
-        Me.GroupBox7.Location = New System.Drawing.Point(645, 462)
+        Me.GroupBox7.Location = New System.Drawing.Point(654, 508)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(490, 120)
         Me.GroupBox7.TabIndex = 12
@@ -165,7 +166,7 @@ Partial Class frm_consulta_nomina
         Me.gb1.Controls.Add(Me.Label10)
         Me.gb1.Controls.Add(Me.Label9)
         Me.gb1.Controls.Add(Me.Label8)
-        Me.gb1.Location = New System.Drawing.Point(754, 162)
+        Me.gb1.Location = New System.Drawing.Point(763, 208)
         Me.gb1.Name = "gb1"
         Me.gb1.Size = New System.Drawing.Size(379, 187)
         Me.gb1.TabIndex = 13
@@ -277,7 +278,7 @@ Partial Class frm_consulta_nomina
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.grid_deducciones)
-        Me.GroupBox6.Location = New System.Drawing.Point(644, 339)
+        Me.GroupBox6.Location = New System.Drawing.Point(653, 385)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(490, 120)
         Me.GroupBox6.TabIndex = 11
@@ -324,7 +325,7 @@ Partial Class frm_consulta_nomina
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.grid_percepciones)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 339)
+        Me.GroupBox5.Location = New System.Drawing.Point(21, 385)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(630, 243)
         Me.GroupBox5.TabIndex = 10
@@ -393,7 +394,7 @@ Partial Class frm_consulta_nomina
         Me.GroupBox4.Controls.Add(Me.btnSalir)
         Me.GroupBox4.Controls.Add(Me.btnCancela)
         Me.GroupBox4.Controls.Add(Me.btn_consulta)
-        Me.GroupBox4.Location = New System.Drawing.Point(842, 6)
+        Me.GroupBox4.Location = New System.Drawing.Point(851, 52)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(303, 150)
         Me.GroupBox4.TabIndex = 9
@@ -505,7 +506,7 @@ Partial Class frm_consulta_nomina
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.grid_nominas)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 119)
+        Me.GroupBox3.Location = New System.Drawing.Point(21, 165)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(736, 214)
         Me.GroupBox3.TabIndex = 8
@@ -634,7 +635,7 @@ Partial Class frm_consulta_nomina
         Me.GroupBox1.Controls.Add(Me.cbo_empleado)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cbo_empresa)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 6)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 52)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(837, 101)
         Me.GroupBox1.TabIndex = 7
@@ -755,12 +756,22 @@ Partial Class frm_consulta_nomina
         Me.cbo_empresa.Size = New System.Drawing.Size(402, 21)
         Me.cbo_empresa.TabIndex = 0
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1157, 46)
+        Me.Panel1.TabIndex = 14
+        '
         'frm_consulta_nomina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1157, 590)
+        Me.ClientSize = New System.Drawing.Size(1157, 636)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.gb1)
         Me.Controls.Add(Me.GroupBox6)
@@ -859,4 +870,5 @@ Partial Class frm_consulta_nomina
     Friend WithEvents cbo_empleado As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents cbo_empresa As ComboBox
+    Friend WithEvents Panel1 As Panel
 End Class

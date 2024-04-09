@@ -36,6 +36,7 @@ Partial Class frmReciboNominaDetalle
         Me.lblConcepto = New System.Windows.Forms.Label()
         Me.lblCurp = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GBGenerales.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,7 +56,7 @@ Partial Class frmReciboNominaDetalle
         Me.GBGenerales.Controls.Add(Me.lblCurp)
         Me.GBGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GBGenerales.ForeColor = System.Drawing.Color.DarkRed
-        Me.GBGenerales.Location = New System.Drawing.Point(12, 12)
+        Me.GBGenerales.Location = New System.Drawing.Point(12, 41)
         Me.GBGenerales.Name = "GBGenerales"
         Me.GBGenerales.Size = New System.Drawing.Size(811, 105)
         Me.GBGenerales.TabIndex = 52
@@ -188,7 +189,7 @@ Partial Class frmReciboNominaDetalle
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(829, 35)
+        Me.Button1.Location = New System.Drawing.Point(829, 64)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 79)
         Me.Button1.TabIndex = 53
@@ -196,12 +197,22 @@ Partial Class frmReciboNominaDetalle
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(913, 35)
+        Me.Panel1.TabIndex = 54
+        '
         'frmReciboNominaDetalle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(913, 122)
+        Me.ClientSize = New System.Drawing.Size(913, 154)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GBGenerales)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -226,4 +237,5 @@ Partial Class frmReciboNominaDetalle
     Friend WithEvents lblConcepto As Label
     Friend WithEvents lblCurp As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Panel1 As Panel
 End Class

@@ -36,6 +36,8 @@
     Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click
 
         Try
+
+            If cbohabitacion.Text = "" Then MsgBox("Debe seleccionar la habitación de destino", vbInformation + vbOKOnly, titulohotelriaa) : cbohabitacion.Focused.Equals(True) : Exit Sub
             Dim tipo As String = ""
             Dim precio As Double = 0
             Dim caracteristicas As String = ""
