@@ -745,14 +745,21 @@ Public Class frmProductosS
                 depto = Trim(Replace(depto, "'", "''"))
                 grupo = Trim(Replace(grupo, "'", "''"))
 
+
                 If (Comprueba(codigo, nombre, barras, proveedor)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                         "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,N_Serie,GPrint) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",'" & numparte & "','')"
-                    cmd1.ExecuteNonQuery()
+                    If cmd1.ExecuteNonQuery Then
+
+                    Else
+                        MsgBox(codigo, nombre)
+                    End If
+
                 Else
+                    MsgBox(codigo, nombre)
                     conteo += 1
                     barsube.Value = conteo
 
