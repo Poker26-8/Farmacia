@@ -745,9 +745,7 @@ Public Class frmProductosS
                 depto = Trim(Replace(depto, "'", "''"))
                 grupo = Trim(Replace(grupo, "'", "''"))
 
-                If codigo = "451556" Then
-                    MsgBox("12")
-                End If
+
                 If (Comprueba(codigo, nombre, barras, proveedor)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
