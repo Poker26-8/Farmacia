@@ -1498,15 +1498,9 @@ Public Class frmMesas
     End Sub
 
     Private Sub btntemporales_Click(sender As Object, e As EventArgs) Handles btntemporales.Click
+        frmPasa_Mesa.Show()
+        frmPasa_Mesa.BringToFront()
 
-        If lblusuario.Text <> "" Then
-            frmTeTemp.mesatemp = 1
-            frmTeTemp.Show()
-            frmTeTemp.BringToFront()
-        Else
-            MsgBox("Ingresa una contraseña para continuar", vbInformation + vbOKOnly, titulorestaurante)
-            Exit Sub
-        End If
 
     End Sub
 

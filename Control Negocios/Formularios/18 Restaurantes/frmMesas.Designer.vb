@@ -205,6 +205,7 @@ Partial Class frmMesas
         Me.btnagregar.Text = "Agregar mesa"
         Me.btnagregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnagregar.UseVisualStyleBackColor = False
+        Me.btnagregar.Visible = False
         '
         'btncobro
         '

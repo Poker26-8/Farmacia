@@ -21,62 +21,38 @@
             Dim sobrenombre As String = ""
 
             Try
+                cnn1.Close() : cnn1.Open()
 
-                    cnn1.Close() : cnn1.Open()
-
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtclave.Text & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select IdEmpleado,Alias from Usuarios where Clave='" & txtclave.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
                         id_usu = rd1(0).ToString()
                         sobrenombre = rd1("Alias").ToString
                     End If
-                    Else
-                        MsgBox("No se encuentra el registro del empleado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        txtclave.SelectAll()
-                        rd1.Close() : cnn1.Close()
-                        Exit Sub
-                    End If
-                    rd1.Close()
-
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select * from permisosm where IdEmpleado=" & id_usu
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                    If rd1.Read Then
-
-                        If PAGARCOMANDA = 1 Then
-                            frmPagarComanda.usuarioingresado = sobrenombre
-                            frmPagarComanda.Show()
-                            frmPagarComanda.BringToFront()
-                            Me.Close()
-                        Else
-
-                            If rd1("Mesas").ToString() = 1 Then
-                                frmAgregarMesa.IDUSU = id_usu
-                                frmAgregarMesa.Show()
-                                frmAgregarMesa.BringToFront()
-                                Me.Close()
-                            Else
-                                MsgBox("No cuentas con permisos para dar de alta mesas.", vbInformation + vbOKOnly, titulorestaurante)
-                                txtclave.SelectAll()
-                                rd1.Close() : cnn1.Close()
-                                Exit Sub
-                            End If
-
-                        End If
-
-
-                    End If
+                Else
+                    MsgBox("No se encuentra el registro del empleado.", vbInformation + vbOKOnly, titulorestaurante)
+                    txtclave.SelectAll()
+                    rd1.Close() : cnn1.Close()
+                    Exit Sub
                 End If
-                    rd1.Close()
-                    cnn1.Close()
+                rd1.Close()
+                cnn1.Close()
 
-                Catch ex As Exception
-                    MessageBox.Show(ex.ToString())
+                If id_usu <> 0 Then
+                    frmTeTemp.mesatemp = 1
+                    frmTeTemp.Show()
+                    frmTeTemp.BringToFront()
+                    Me.Close()
+                Else
+                    MsgBox("Ingresa una contraseña para continuar", vbInformation + vbOKOnly, titulorestaurante)
+                    Exit Sub
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
                     cnn1.Close()
                 End Try
 
