@@ -1743,8 +1743,11 @@
 
             Try
                 cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT count(VD.folio) FROM ventasdetalle VD INNER JOIN productos P ON VD.Codigo=P.Codigo AND VD.Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "'"
+                'cmd1.CommandText = "SELECT count(VD.folio) FROM ventasdetalle VD INNER JOIN productos P ON VD.Codigo=P.Codigo AND VD.Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "SELECT count(Codigo) FROM ventasdetalle WHERE Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1758,15 +1761,27 @@
 
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM ventasdetalle VD INNER JOIN productos P ON VD.Codigo=P.Codigo WHERE VD.Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND P.ProvPri='" & ComboBox1.Text & "'"
+                cmd1.CommandText = "SELECT DISTINCT VD.CODIGO,VD.NOMBRE,vD.Unidad FROM ventasdetalle VD INNER JOIN productos P ON VD.Codigo=P.Codigo WHERE VD.Fecha between '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND P.ProvPri='" & ComboBox1.Text & "'"
                 rd1 = cmd1.ExecuteReader
-
-                'cmd1.CommandText = "SELECT * FROM ventasdetalle WHERE Depto='" & ComboBox1.Text & "' AND FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' ORDER BY Nombre"
-                'rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
 
-                        grdcaptura.Rows.Add(rd1("Codigo").ToString, rd1("Nombre").ToString, rd1("Unidad").ToString, rd1("Cantidad").ToString)
+                        Dim codigo As String = rd1("Codigo").ToString()
+                        Dim nombre As String = rd1("Nombre").ToString()
+                        Dim unidad As String = rd1("Unidad").ToString()
+                        Dim cantidad As Double = 0
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText =
+                        "select sum(Cantidad) from VentasDetalle where Codigo='" & codigo & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and (Facturado <> 'DEVOLUCION' and Facturado <> 'CANCELADO' and Folio <> 0 )"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                cantidad = rd2(0).ToString()
+                            End If
+                        End If
+                        rd2.Close()
+
+                        grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad)
 
                     End If
                 Loop
