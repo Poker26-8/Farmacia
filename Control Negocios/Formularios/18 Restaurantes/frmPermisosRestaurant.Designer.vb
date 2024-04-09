@@ -200,7 +200,7 @@ Partial Class frmPermisosRestaurant
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.Location = New System.Drawing.Point(527, 162)
+        Me.btnguardar.Location = New System.Drawing.Point(762, 162)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(80, 71)
         Me.btnguardar.TabIndex = 233
@@ -215,7 +215,7 @@ Partial Class frmPermisosRestaurant
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(443, 164)
+        Me.btnnuevo.Location = New System.Drawing.Point(678, 164)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(78, 71)
         Me.btnnuevo.TabIndex = 234
@@ -228,7 +228,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox7.Controls.Add(Me.btnguardartolerancia)
         Me.GroupBox7.Controls.Add(Me.txttolerancia)
         Me.GroupBox7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox7.Location = New System.Drawing.Point(441, 99)
+        Me.GroupBox7.Location = New System.Drawing.Point(676, 99)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(166, 57)
         Me.GroupBox7.TabIndex = 236
@@ -541,7 +541,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(0, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(617, 37)
+        Me.Label6.Size = New System.Drawing.Size(847, 37)
         Me.Label6.TabIndex = 244
         Me.Label6.Text = "Permisos para restaurantes"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -553,7 +553,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(617, 37)
+        Me.Panel3.Size = New System.Drawing.Size(847, 37)
         Me.Panel3.TabIndex = 245
         '
         'btnclose
@@ -564,7 +564,7 @@ Partial Class frmPermisosRestaurant
         Me.btnclose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnclose.Image = CType(resources.GetObject("btnclose.Image"), System.Drawing.Image)
         Me.btnclose.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnclose.Location = New System.Drawing.Point(527, 239)
+        Me.btnclose.Location = New System.Drawing.Point(762, 239)
         Me.btnclose.Name = "btnclose"
         Me.btnclose.Size = New System.Drawing.Size(80, 71)
         Me.btnclose.TabIndex = 246
@@ -623,13 +623,12 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(625, 70)
+        Me.GroupBox3.Location = New System.Drawing.Point(441, 99)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(229, 306)
+        Me.GroupBox3.Size = New System.Drawing.Size(229, 309)
         Me.GroupBox3.TabIndex = 248
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Agregar mesas fijas"
-        Me.GroupBox3.Visible = False
         '
         'btnEM
         '
@@ -712,6 +711,7 @@ Partial Class frmPermisosRestaurant
         '
         'cboPara
         '
+        Me.cboPara.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cboPara.FormattingEnabled = True
         Me.cboPara.Items.AddRange(New Object() {"1", "2", "4", "6", "8", "10", "B"})
         Me.cboPara.Location = New System.Drawing.Point(6, 141)
@@ -721,6 +721,7 @@ Partial Class frmPermisosRestaurant
         '
         'cboUbicacion
         '
+        Me.cboUbicacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cboUbicacion.FormattingEnabled = True
         Me.cboUbicacion.Location = New System.Drawing.Point(6, 93)
         Me.cboUbicacion.Name = "cboUbicacion"
@@ -729,6 +730,7 @@ Partial Class frmPermisosRestaurant
         '
         'cboMesa
         '
+        Me.cboMesa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cboMesa.FormattingEnabled = True
         Me.cboMesa.Location = New System.Drawing.Point(6, 47)
         Me.cboMesa.Name = "cboMesa"
@@ -770,7 +772,7 @@ Partial Class frmPermisosRestaurant
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(617, 421)
+        Me.ClientSize = New System.Drawing.Size(847, 412)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblusuario)

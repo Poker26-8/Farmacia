@@ -864,6 +864,8 @@
 
     Private Sub btnGM_Click(sender As Object, e As EventArgs) Handles btnGM.Click
         Try
+            If cboMesa.Text = "" Then MsgBox("Debe ingresar el nombre de la mesa", vbInformation + vbOKOnly, titulorestaurante) : cboMesa.Focus.Equals(True) : Exit Sub
+            If cboUbicacion.Text = "" Then MsgBox("Debe ingresar la ubiación de la mesa", vbInformation + vbOKOnly, titulorestaurante) : cboUbicacion.Focus.Equals(True) : Exit Sub
 
             Dim ORDEN As Integer = 0
             Dim TIEMPO As Integer = 0
@@ -907,6 +909,12 @@
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & cboMesa.Text & "',0,'Desocupada'," & TIEMPO & "," & txtPrecio.Text & "," & ORDEN & ",'',0,'','" & cboUbicacion.Text & "',0,0,'" & cboPara.Text & "',0)"
                 cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO mesasxempelados(Mesa,IdEmpleado,Grupo,Temporal) VALUES('" & cboMesa.Text & "',0,''.0)"
+                If cmd2.ExecuteNonQuery() Then
+                    MsgBox("Mesa agregada correctamente", vbInformation + vbOKOnly, titulorestaurante)
+                End If
                 cnn2.Close()
             End If
             rd1.Close()
@@ -919,6 +927,39 @@
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
+            cnn2.Close()
         End Try
+    End Sub
+
+    Private Sub btnEM_Click(sender As Object, e As EventArgs) Handles btnEM.Click
+
+        If MsgBox("¿Desea eliminar la mesa seleccionada?", vbInformation + vbYesNo, titulorestaurante) = vbYes Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM Mesa WHERE Nombre_mesa='" & cboMesa.Text & "' AND Ubicacion='" & cboUbicacion.Text & "'"
+                        cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM mesasxempleados WHERE Mesa='" & cboMesa.Text & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+        End If
+
     End Sub
 End Class
