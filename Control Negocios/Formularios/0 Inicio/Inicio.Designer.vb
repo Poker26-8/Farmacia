@@ -91,8 +91,6 @@ Partial Class Inicio
         Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
         Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -112,7 +110,8 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-
+        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
@@ -160,6 +159,7 @@ Partial Class Inicio
         Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
+        Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnPagarComa = New System.Windows.Forms.Button()
@@ -168,7 +168,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1282,6 +1281,22 @@ Partial Class Inicio
         Me.Button13.UseVisualStyleBackColor = True
         Me.Button13.Visible = False
         '
+        'btnPagarComandas
+        '
+        Me.btnPagarComandas.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPagarComandas.FlatAppearance.BorderSize = 0
+        Me.btnPagarComandas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnPagarComandas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagarComandas.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagarComandas.Image = CType(resources.GetObject("btnPagarComandas.Image"), System.Drawing.Image)
+        Me.btnPagarComandas.Location = New System.Drawing.Point(0, 180)
+        Me.btnPagarComandas.Name = "btnPagarComandas"
+        Me.btnPagarComandas.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComandas.TabIndex = 185
+        Me.btnPagarComandas.Text = "PAGAR COAMANDA"
+        Me.btnPagarComandas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagarComandas.UseVisualStyleBackColor = True
+        '
         'btnvtatouch
         '
         Me.btnvtatouch.Dock = System.Windows.Forms.DockStyle.Top
@@ -1394,22 +1409,6 @@ Partial Class Inicio
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
-        '
-        'btnPagarComandas
-        '
-        Me.btnPagarComandas.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPagarComandas.FlatAppearance.BorderSize = 0
-        Me.btnPagarComandas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnPagarComandas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPagarComandas.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagarComandas.Image = CType(resources.GetObject("btnPagarComandas.Image"), System.Drawing.Image)
-        Me.btnPagarComandas.Location = New System.Drawing.Point(0, 180)
-        Me.btnPagarComandas.Name = "btnPagarComandas"
-        Me.btnPagarComandas.Size = New System.Drawing.Size(90, 90)
-        Me.btnPagarComandas.TabIndex = 185
-        Me.btnPagarComandas.Text = "PAGAR COAMANDA"
-        Me.btnPagarComandas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPagarComandas.UseVisualStyleBackColor = True
         '
         'Inicio
         '
