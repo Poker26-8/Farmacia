@@ -1668,6 +1668,14 @@
 
         'Prod mas ven
         If (optmasvendido.Checked) Then
+
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Delete from ProMasVen"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand

@@ -3625,7 +3625,7 @@ Public Class frmVentas1_Descuentos
         lblentrega.Visible = False
         dtpFecha_E.Visible = False
         Entrega = False
-        'Button6.Text = "Programar entrega"
+
 
         DondeVoy = ""
         renglon = 0
@@ -3672,21 +3672,21 @@ Public Class frmVentas1_Descuentos
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         frmPasa_Corte.Show()
     End Sub
-    'Private Sub Button6_Click(sender As System.Object, e As System.EventArgs)
-    '    If lblentrega.Visible = False Then
-    '        lblentrega.Visible = True
-    '        Entrega = True
-    '        dtpFecha_E.Visible = True
-    '        dtpFecha_E.Focus().Equals(True)
-    '        Button6.Text = "Cancelar"
-    '    Else
-    '        lblentrega.Visible = False
-    '        Entrega = False
-    '        dtpFecha_E.Visible = False
-    '        btnventa.Focus().Equals(True)
-    '        Button6.Text = "Programar entrega"
-    '    End If
-    'End Sub
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs)
+        If lblentrega.Visible = False Then
+            lblentrega.Visible = True
+            Entrega = True
+            dtpFecha_E.Visible = True
+            dtpFecha_E.Focus().Equals(True)
+
+        Else
+            lblentrega.Visible = False
+            Entrega = False
+            dtpFecha_E.Visible = False
+            btnventa.Focus().Equals(True)
+
+        End If
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas2_Descuentos.Show()
         frmVentas2_Descuentos.BringToFront()
