@@ -2544,7 +2544,7 @@ respuesta, "")
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "'," & propina & ")"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,Formato) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "'," & propina & ",'TICKET')"
                     cmd1.ExecuteNonQuery()
 
                 Case Is <> "MOSTRADOR"
@@ -2574,7 +2574,7 @@ respuesta, "")
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "')"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Formato) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "','TICKET')"
                     cmd1.ExecuteNonQuery()
 
             End Select
