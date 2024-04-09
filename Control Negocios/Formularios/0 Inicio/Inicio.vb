@@ -892,7 +892,6 @@ Public Class Inicio
             cnn1.Close()
         End Try
 
-
         'mesa
         Try
             cnn1.Close() : cnn1.Open()
@@ -978,30 +977,75 @@ Public Class Inicio
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Mililitros FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Copas FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT CodBarra1 FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra1 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT CodBarra2 FROM productos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE productos add column CodBarra2 varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'Try
         '    cnn1.Close() : cnn1.Open()
         '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "SELECT Mililitros,Copas FROM productos"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.Read Then
-        '    End If
-        '    rd1.Close() : cnn1.Close()
-        'Catch ex As Exception
-        '    rd1.Close()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "ALTER TABLE productos add column Mililitros float default '0'"
-        '    cmd1.ExecuteNonQuery()
-
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "ALTER TABLE productos add column Copas float default '0'"
-        '    cmd1.ExecuteNonQuery()
-        '    cnn1.Close()
-        'End Try
-
-        'Try
-        '    cnn1.Close() : cnn1.Open()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "SELECT CodBarra1,CodBarra2,CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4,Porcentaje2 FROM productos"
+        '    cmd1.CommandText = "SELECT CodBarra3,PrecioVenta2,PorcMin2,PreMin2,PorcMay2,PorcMM2,PorcEsp2,PreMay2,PreMM2,PreEsp2,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4,CantLst3,CantLst4,Porcentaje2 FROM productos"
         '    rd1 = cmd1.ExecuteReader
         '    If rd1.Read Then
         '    End If
