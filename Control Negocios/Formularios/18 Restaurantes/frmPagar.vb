@@ -1433,6 +1433,8 @@ Door:
                 If TamImpre = "80" Then
                     For naruto As Integer = 1 To copias
                         PVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                        PVentaMapeo80.DefaultPageSettings.PaperSize = ps
                         PVentaMapeo80.Print()
                     Next
                 End If
@@ -1449,6 +1451,8 @@ Door:
             If TamImpre = "80" Then
                 For naruto As Integer = 1 To copias
                     PVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                    PVentaMapeo80.DefaultPageSettings.PaperSize = ps
                     PVentaMapeo80.Print()
                 Next
             End If
@@ -1614,11 +1618,16 @@ Door:
 
             If tamimpre = "80" Then
                 Precuenta80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                Precuenta80.DefaultPageSettings.PaperSize = ps
                 Precuenta80.Print()
+
             End If
 
             If tamimpre = "58" Then
                 Precuenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                'Dim ps As New System.Drawing.Printing.PaperSize("Custom", 200, 3100)
+                'Precuenta58.DefaultPageSettings.PaperSize = ps
                 Precuenta58.Print()
             End If
             Me.BringToFront()
@@ -1887,12 +1896,12 @@ Door:
 
                             e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
                             e.Graphics.DrawString(FormatNumber(TOTALCOM, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                            Y += 15
+                            Y += 10
 
                             e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
 
                         End If
-                        Y += 10
+                        Y += 15
                         comen_sal = rd3("Comensal").ToString
                         totalcuenta = totalcuenta + TOTAL
 

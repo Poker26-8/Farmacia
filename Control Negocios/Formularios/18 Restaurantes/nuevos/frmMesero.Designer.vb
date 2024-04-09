@@ -101,6 +101,7 @@ Partial Class frmMesero
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnLimpiar.Location = New System.Drawing.Point(186, 300)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(82, 74)
