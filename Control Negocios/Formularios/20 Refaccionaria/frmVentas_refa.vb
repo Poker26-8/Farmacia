@@ -6323,14 +6323,14 @@ doorcita:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & idCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & SubTotal & "," & Iva_Vent & "," & Total_Ve & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','PEDIDO','" & cboimpresion.Text & "','" & dameIP2() & "')"
+                "insert into pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & idCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & SubTotal & "," & Iva_Vent & "," & Total_Ve & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','PEDIDO','" & cboimpresion.Text & "','" & dameIP2() & "')"
             If cmd1.ExecuteNonQuery Then
             End If
 
             Do Until MyFolio <> 0
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                "select MAX(Folio) from CotPed where Tipo='PEDIDO' and IP='" & dameIP2() & "'"
+                "select MAX(Folio) from pedidosven where Tipo='PEDIDO' and IP='" & dameIP2() & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -6505,14 +6505,14 @@ Door:
                 If grdcaptura.Rows(T).Cells(0).Value.ToString <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                       "insert into CotPedDet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo) values(" & MyFolio & ",'" & mycode & "','" & mydesc & "'," & mycant & ",'" & myunid & "'," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepto & "','" & MyGrupo & "','','PEDIDO')"
+                       "insert into pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo) values(" & MyFolio & ",'" & mycode & "','" & mydesc & "'," & mycant & ",'" & myunid & "'," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepto & "','" & MyGrupo & "','','PEDIDO')"
                     cmd1.ExecuteNonQuery()
                 End If
 
                 If grdcaptura.Rows(T).Cells(0).Value.ToString = "" And grdcaptura.Rows(T).Cells(1).Value.ToString <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "update CotPedDet set CostVR='" & grdcaptura.Rows(T).Cells(1).Value.ToString & "' where CostVR='' and Tipo='PEDIDO' and Codigo='" & mycode & "' and Folio=" & MyFolio
+                        "update pedidosvendet set CostVR='" & grdcaptura.Rows(T).Cells(1).Value.ToString & "' where CostVR='' and Tipo='PEDIDO' and Codigo='" & mycode & "' and Folio=" & MyFolio
                     cmd1.ExecuteNonQuery()
                 End If
             Next
