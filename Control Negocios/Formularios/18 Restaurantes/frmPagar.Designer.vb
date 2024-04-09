@@ -23,7 +23,7 @@ Partial Class frmPagar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -675,8 +675,8 @@ Partial Class frmPagar
         '
         Me.grdcomanda.AllowUserToAddRows = False
         Me.grdcomanda.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcomanda.BackgroundColor = System.Drawing.Color.White
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
@@ -790,7 +790,7 @@ Partial Class frmPagar
         Me.btnDividir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDividir.Image = CType(resources.GetObject("btnDividir.Image"), System.Drawing.Image)
         Me.btnDividir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnDividir.Location = New System.Drawing.Point(44, 326)
+        Me.btnDividir.Location = New System.Drawing.Point(49, 317)
         Me.btnDividir.Name = "btnDividir"
         Me.btnDividir.Size = New System.Drawing.Size(80, 75)
         Me.btnDividir.TabIndex = 32
@@ -806,7 +806,7 @@ Partial Class frmPagar
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(44, 268)
+        Me.btnCancelar.Location = New System.Drawing.Point(49, 259)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(178, 56)
         Me.btnCancelar.TabIndex = 27
@@ -819,7 +819,7 @@ Partial Class frmPagar
         Me.btn1000.BackgroundImage = CType(resources.GetObject("btn1000.BackgroundImage"), System.Drawing.Image)
         Me.btn1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn1000.Location = New System.Drawing.Point(129, 138)
+        Me.btn1000.Location = New System.Drawing.Point(134, 129)
         Me.btn1000.Name = "btn1000"
         Me.btn1000.Size = New System.Drawing.Size(109, 57)
         Me.btn1000.TabIndex = 30
@@ -844,16 +844,17 @@ Partial Class frmPagar
         Me.Panel6.Controls.Add(Me.btn9)
         Me.Panel6.Controls.Add(Me.btn8)
         Me.Panel6.Controls.Add(Me.btn7)
-        Me.Panel6.Location = New System.Drawing.Point(6, 407)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel6.Location = New System.Drawing.Point(0, 398)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(240, 338)
+        Me.Panel6.Size = New System.Drawing.Size(251, 374)
         Me.Panel6.TabIndex = 8
         '
         'lblusuario2
         '
         Me.lblusuario2.BackColor = System.Drawing.Color.Gainsboro
         Me.lblusuario2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblusuario2.Location = New System.Drawing.Point(17, 76)
+        Me.lblusuario2.Location = New System.Drawing.Point(16, 67)
         Me.lblusuario2.Name = "lblusuario2"
         Me.lblusuario2.Size = New System.Drawing.Size(215, 21)
         Me.lblusuario2.TabIndex = 26
@@ -867,9 +868,9 @@ Partial Class frmPagar
         Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(167, 276)
+        Me.btnPagar.Location = New System.Drawing.Point(167, 301)
         Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(65, 48)
+        Me.btnPagar.Size = New System.Drawing.Size(76, 62)
         Me.btnPagar.TabIndex = 0
         Me.btnPagar.Text = "Salir"
         Me.btnPagar.UseVisualStyleBackColor = False
@@ -878,7 +879,7 @@ Partial Class frmPagar
         '
         Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(18, 52)
+        Me.Label20.Location = New System.Drawing.Point(17, 43)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(214, 21)
         Me.Label20.TabIndex = 25
@@ -889,7 +890,7 @@ Partial Class frmPagar
         '
         Me.lblmesa.BackColor = System.Drawing.Color.Gainsboro
         Me.lblmesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesa.Location = New System.Drawing.Point(18, 31)
+        Me.lblmesa.Location = New System.Drawing.Point(17, 22)
         Me.lblmesa.Name = "lblmesa"
         Me.lblmesa.Size = New System.Drawing.Size(214, 21)
         Me.lblmesa.TabIndex = 24
@@ -902,9 +903,9 @@ Partial Class frmPagar
         Me.btn0.FlatAppearance.BorderSize = 0
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn0.Location = New System.Drawing.Point(95, 276)
+        Me.btn0.Location = New System.Drawing.Point(85, 301)
         Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(66, 48)
+        Me.btn0.Size = New System.Drawing.Size(77, 62)
         Me.btn0.TabIndex = 12
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
@@ -913,7 +914,7 @@ Partial Class frmPagar
         '
         Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(18, 9)
+        Me.Label19.Location = New System.Drawing.Point(17, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(214, 21)
         Me.Label19.TabIndex = 23
@@ -927,9 +928,9 @@ Partial Class frmPagar
         Me.btnlimpiar.FlatAppearance.BorderSize = 0
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpiar.Location = New System.Drawing.Point(18, 276)
+        Me.btnlimpiar.Location = New System.Drawing.Point(6, 301)
         Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(71, 48)
+        Me.btnlimpiar.Size = New System.Drawing.Size(74, 61)
         Me.btnlimpiar.TabIndex = 10
         Me.btnlimpiar.Text = "C0"
         Me.btnlimpiar.UseVisualStyleBackColor = False
@@ -941,9 +942,9 @@ Partial Class frmPagar
         Me.btn3.FlatAppearance.BorderSize = 0
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(167, 222)
+        Me.btn3.Location = New System.Drawing.Point(166, 231)
         Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(65, 48)
+        Me.btn3.Size = New System.Drawing.Size(77, 64)
         Me.btn3.TabIndex = 8
         Me.btn3.Text = "3"
         Me.btn3.UseVisualStyleBackColor = False
@@ -955,9 +956,9 @@ Partial Class frmPagar
         Me.btn2.FlatAppearance.BorderSize = 0
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(95, 222)
+        Me.btn2.Location = New System.Drawing.Point(85, 231)
         Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(66, 48)
+        Me.btn2.Size = New System.Drawing.Size(77, 64)
         Me.btn2.TabIndex = 7
         Me.btn2.Text = "2"
         Me.btn2.UseVisualStyleBackColor = False
@@ -969,9 +970,9 @@ Partial Class frmPagar
         Me.btn1.FlatAppearance.BorderSize = 0
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(18, 221)
+        Me.btn1.Location = New System.Drawing.Point(6, 231)
         Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(71, 48)
+        Me.btn1.Size = New System.Drawing.Size(74, 64)
         Me.btn1.TabIndex = 6
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
@@ -983,9 +984,9 @@ Partial Class frmPagar
         Me.btn6.FlatAppearance.BorderSize = 0
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn6.Location = New System.Drawing.Point(167, 166)
+        Me.btn6.Location = New System.Drawing.Point(166, 161)
         Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(65, 48)
+        Me.btn6.Size = New System.Drawing.Size(77, 64)
         Me.btn6.TabIndex = 5
         Me.btn6.Text = "6"
         Me.btn6.UseVisualStyleBackColor = False
@@ -997,9 +998,9 @@ Partial Class frmPagar
         Me.btn5.FlatAppearance.BorderSize = 0
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn5.Location = New System.Drawing.Point(95, 166)
+        Me.btn5.Location = New System.Drawing.Point(85, 161)
         Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(66, 48)
+        Me.btn5.Size = New System.Drawing.Size(77, 64)
         Me.btn5.TabIndex = 4
         Me.btn5.Text = "5"
         Me.btn5.UseVisualStyleBackColor = False
@@ -1011,9 +1012,9 @@ Partial Class frmPagar
         Me.btn4.FlatAppearance.BorderSize = 0
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn4.Location = New System.Drawing.Point(18, 167)
+        Me.btn4.Location = New System.Drawing.Point(6, 161)
         Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(71, 48)
+        Me.btn4.Size = New System.Drawing.Size(74, 64)
         Me.btn4.TabIndex = 3
         Me.btn4.Text = "4"
         Me.btn4.UseVisualStyleBackColor = False
@@ -1025,9 +1026,9 @@ Partial Class frmPagar
         Me.btn9.FlatAppearance.BorderSize = 0
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(167, 108)
+        Me.btn9.Location = New System.Drawing.Point(166, 91)
         Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(65, 48)
+        Me.btn9.Size = New System.Drawing.Size(77, 64)
         Me.btn9.TabIndex = 2
         Me.btn9.Text = "9"
         Me.btn9.UseVisualStyleBackColor = False
@@ -1039,9 +1040,9 @@ Partial Class frmPagar
         Me.btn8.FlatAppearance.BorderSize = 0
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(95, 108)
+        Me.btn8.Location = New System.Drawing.Point(85, 91)
         Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(66, 48)
+        Me.btn8.Size = New System.Drawing.Size(77, 64)
         Me.btn8.TabIndex = 1
         Me.btn8.Text = "8"
         Me.btn8.UseVisualStyleBackColor = False
@@ -1053,9 +1054,9 @@ Partial Class frmPagar
         Me.btn7.FlatAppearance.BorderSize = 0
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn7.Location = New System.Drawing.Point(18, 108)
+        Me.btn7.Location = New System.Drawing.Point(6, 91)
         Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(71, 48)
+        Me.btn7.Size = New System.Drawing.Size(74, 64)
         Me.btn7.TabIndex = 0
         Me.btn7.Text = "7"
         Me.btn7.UseVisualStyleBackColor = False
@@ -1065,7 +1066,7 @@ Partial Class frmPagar
         Me.btn500.BackgroundImage = CType(resources.GetObject("btn500.BackgroundImage"), System.Drawing.Image)
         Me.btn500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn500.Location = New System.Drawing.Point(15, 138)
+        Me.btn500.Location = New System.Drawing.Point(20, 129)
         Me.btn500.Name = "btn500"
         Me.btn500.Size = New System.Drawing.Size(109, 57)
         Me.btn500.TabIndex = 29
@@ -1076,7 +1077,7 @@ Partial Class frmPagar
         Me.btn200.BackgroundImage = CType(resources.GetObject("btn200.BackgroundImage"), System.Drawing.Image)
         Me.btn200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn200.Location = New System.Drawing.Point(129, 75)
+        Me.btn200.Location = New System.Drawing.Point(134, 66)
         Me.btn200.Name = "btn200"
         Me.btn200.Size = New System.Drawing.Size(109, 57)
         Me.btn200.TabIndex = 28
@@ -1087,7 +1088,7 @@ Partial Class frmPagar
         Me.btn100.BackgroundImage = CType(resources.GetObject("btn100.BackgroundImage"), System.Drawing.Image)
         Me.btn100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn100.Location = New System.Drawing.Point(15, 75)
+        Me.btn100.Location = New System.Drawing.Point(20, 66)
         Me.btn100.Name = "btn100"
         Me.btn100.Size = New System.Drawing.Size(109, 57)
         Me.btn100.TabIndex = 25
@@ -1098,7 +1099,7 @@ Partial Class frmPagar
         Me.btn50.BackgroundImage = CType(resources.GetObject("btn50.BackgroundImage"), System.Drawing.Image)
         Me.btn50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn50.Location = New System.Drawing.Point(129, 12)
+        Me.btn50.Location = New System.Drawing.Point(134, 3)
         Me.btn50.Name = "btn50"
         Me.btn50.Size = New System.Drawing.Size(109, 57)
         Me.btn50.TabIndex = 24
@@ -1112,7 +1113,7 @@ Partial Class frmPagar
         Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Image = CType(resources.GetObject("btnIntro.Image"), System.Drawing.Image)
         Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnIntro.Location = New System.Drawing.Point(44, 201)
+        Me.btnIntro.Location = New System.Drawing.Point(49, 192)
         Me.btnIntro.Name = "btnIntro"
         Me.btnIntro.Size = New System.Drawing.Size(80, 62)
         Me.btnIntro.TabIndex = 31
@@ -1128,7 +1129,7 @@ Partial Class frmPagar
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
         Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPrecuenta.Location = New System.Drawing.Point(130, 200)
+        Me.btnPrecuenta.Location = New System.Drawing.Point(135, 191)
         Me.btnPrecuenta.Name = "btnPrecuenta"
         Me.btnPrecuenta.Size = New System.Drawing.Size(92, 62)
         Me.btnPrecuenta.TabIndex = 26
@@ -1141,7 +1142,7 @@ Partial Class frmPagar
         Me.btn20.BackgroundImage = CType(resources.GetObject("btn20.BackgroundImage"), System.Drawing.Image)
         Me.btn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn20.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn20.Location = New System.Drawing.Point(15, 12)
+        Me.btn20.Location = New System.Drawing.Point(20, 3)
         Me.btn20.Name = "btn20"
         Me.btn20.Size = New System.Drawing.Size(109, 57)
         Me.btn20.TabIndex = 23
