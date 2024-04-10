@@ -3563,7 +3563,7 @@ kaka:
                     Dim canti As Double = txtcantidad.Text
                     Dim exi As Double = txtexistencia.Text
                     If canti > exi Then
-                        MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
+                        MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
                         txtcantidad.Focus.Equals(True)
                         Exit Sub
                     End If

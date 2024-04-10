@@ -2755,11 +2755,11 @@ Public Class frmConfigs
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Update loginrecargas set numero='" & txtnumero.Text & "', usuario='" & txtusuario.Text & "', password='" & txtcontra.Text & "' where id=" & lblid.Text & ""
+                cmd1.CommandText = "Update loginrecargas set numero='" & Trim(txtnumero.Text) & "', usuario='" & Trim(txtusuario.Text) & "', password='" & Trim(txtcontra.Text) & "' where id=" & lblid.Text & ""
                 If cmd1.ExecuteNonQuery Then
-                    varnumero = txtnumero.Text
-                    varusuario = txtusuario.Text
-                    varcontra = txtcontra.Text
+                    varnumero = Trim(txtnumero.Text)
+                    varusuario = Trim(txtusuario.Text)
+                    varcontra = Trim(txtcontra.Text)
                     MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom COntrol Negocios Pro")
                     cnn1.Close()
                     Exit Sub
@@ -2777,11 +2777,11 @@ Public Class frmConfigs
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Insert into loginrecargas(numero,usuario,password) values('" & txtnumero.Text & "','" & txtusuario.Text & "','" & txtcontra.Text & "')"
+                cmd1.CommandText = "Insert into loginrecargas(numero,usuario,password) values('" & Trim(txtnumero.Text) & "','" & Trim(txtusuario.Text) & "','" & Trim(txtcontra.Text) & "')"
                 If cmd1.ExecuteNonQuery Then
-                    varnumero = txtnumero.Text
-                    varusuario = txtusuario.Text
-                    varcontra = txtcontra.Text
+                    varnumero = Trim(txtnumero.Text)
+                    varusuario = Trim(txtusuario.Text)
+                    varcontra = Trim(txtcontra.Text)
                     cnn1.Close()
 
                     cnn1.Open()
