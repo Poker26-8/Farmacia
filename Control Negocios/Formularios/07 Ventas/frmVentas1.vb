@@ -14195,11 +14195,5 @@ doorcita:
         End Try
     End Sub
 
-    Private Sub btnGeneraSaldo_Click(sender As Object, e As EventArgs) Handles btnGeneraSaldo.Click
 
-    End Sub
-
-    Private Sub btnRetiroCaja_Click(sender As Object, e As EventArgs) Handles btnRetiroCaja.Click
-
-    End Sub
 End Class
