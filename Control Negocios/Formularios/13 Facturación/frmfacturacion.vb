@@ -2056,7 +2056,7 @@ MALO:
                     lbl_proceso.Text = "Generando XML Base ..."
                     My.Application.DoEvents()
 
-                    If GeneraXML(var_folio, txt_serie.Text, Replace(Text_SubTotal.Text, ",", ""), Replace(Text_Descuento.Text, ",", ""), Text_MotivoDes.Text,
+                    If GeneraXML4(var_folio, txt_serie.Text, Replace(Text_SubTotal.Text, ",", ""), Replace(Text_Descuento.Text, ",", ""), Text_MotivoDes.Text,
                              Replace(Text_TOTAL.Text, ",", ""), metodo_p_ac,
                             "Mexico", estado_e, rfc_e, razon_social,
                             calle_e, no_exterior_e, no_interior_e, colonia_e, municipio_e,
