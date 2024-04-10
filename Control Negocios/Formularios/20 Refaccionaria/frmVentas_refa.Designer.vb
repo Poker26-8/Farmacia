@@ -215,6 +215,8 @@ Partial Class frmVentas_refa
         Me.txtfechacad = New System.Windows.Forms.TextBox()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.txtcant_productos = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.pTabla.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -620,6 +622,8 @@ Partial Class frmVentas_refa
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Label42)
+        Me.Panel2.Controls.Add(Me.txtcant_productos)
         Me.Panel2.Controls.Add(Me.Panel6)
         Me.Panel2.Controls.Add(Me.lblidvehiculo)
         Me.Panel2.Controls.Add(Me.Panel3)
@@ -883,7 +887,7 @@ Partial Class frmVentas_refa
         Me.Button9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button9.Location = New System.Drawing.Point(293, 606)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(138, 27)
+        Me.Button9.Size = New System.Drawing.Size(136, 27)
         Me.Button9.TabIndex = 292
         Me.Button9.Text = "Agregar pago"
         Me.Button9.UseVisualStyleBackColor = True
@@ -925,7 +929,7 @@ Partial Class frmVentas_refa
         DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdpago.RowHeadersDefaultCellStyle = DataGridViewCellStyle17
         Me.grdpago.RowHeadersVisible = False
-        Me.grdpago.Size = New System.Drawing.Size(416, 88)
+        Me.grdpago.Size = New System.Drawing.Size(414, 88)
         Me.grdpago.TabIndex = 291
         '
         'Column15
@@ -1111,10 +1115,11 @@ Partial Class frmVentas_refa
         '
         Me.btnnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnnuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
+        Me.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnnuevo.Location = New System.Drawing.Point(738, 664)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(88, 73)
@@ -2301,6 +2306,30 @@ Partial Class frmVentas_refa
         'pComanda58
         '
         '
+        'Label42
+        '
+        Me.Label42.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label42.AutoSize = True
+        Me.Label42.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label42.Location = New System.Drawing.Point(436, 555)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(77, 19)
+        Me.Label42.TabIndex = 305
+        Me.Label42.Text = "Productos"
+        '
+        'txtcant_productos
+        '
+        Me.txtcant_productos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtcant_productos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtcant_productos.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.txtcant_productos.Location = New System.Drawing.Point(432, 579)
+        Me.txtcant_productos.Name = "txtcant_productos"
+        Me.txtcant_productos.ReadOnly = True
+        Me.txtcant_productos.Size = New System.Drawing.Size(84, 25)
+        Me.txtcant_productos.TabIndex = 304
+        Me.txtcant_productos.Text = "0"
+        Me.txtcant_productos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmVentas_refa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2523,4 +2552,6 @@ Partial Class frmVentas_refa
     Friend WithEvents txtfechacad As TextBox
     Friend WithEvents pComanda80 As Printing.PrintDocument
     Friend WithEvents pComanda58 As Printing.PrintDocument
+    Friend WithEvents Label42 As Label
+    Friend WithEvents txtcant_productos As TextBox
 End Class
