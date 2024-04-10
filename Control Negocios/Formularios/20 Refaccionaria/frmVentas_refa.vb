@@ -24,6 +24,7 @@ Public Class frmVentas_refa
     Dim H_Inicia As String = ""
     Dim H_Final As String = ""
     Dim SalenDevos As Double = 0
+    Dim donde_va As String = ""
 
     Dim printLine As Integer = 0
     Dim Contador As Integer = 0
@@ -127,6 +128,7 @@ Public Class frmVentas_refa
         dtpFecha_P.Value = Date.Now
         MyIdCliente = 0
         TipoDevolucion = 0
+        donde_va = "Descuento Porcentaje"
         modo_caja = DatosRecarga("Modo")
         If modo_caja = "MOSTRADOR" Then
             txtefectivo.ReadOnly = True
@@ -3621,7 +3623,9 @@ Public Class frmVentas_refa
         cbobanco.Text = grdpago.Rows(indexito).Cells(1).Value.ToString()
         txtnumref.Text = grdpago.Rows(indexito).Cells(2).Value.ToString()
         txtmonto.Text = grdpago.Rows(indexito).Cells(3).Value.ToString()
-        '  dtpFecha_P.Value = grdpago.Rows(indexito).Cells(4).Value.ToString()
+        dtpFecha_P.Value = grdpago.Rows(indexito).Cells(4).Value.ToString()
+        txtvalor.Text = grdpago.Rows(indexito).Cells(8).Value.ToString()
+        txtequivale.Text = grdpago.Rows(indexito).Cells(9).Value.ToString()
 
         grdpago.Rows.Remove(grdpago.Rows(indexito))
 
@@ -3638,13 +3642,20 @@ Public Class frmVentas_refa
         Dim tpago As String = cbotpago.Text
         Dim banco As String = cbobanco.Text
         Dim refe As String = txtnumref.Text
-        Dim monto As Double = FormatNumber(txtmonto.Text, 2)
+        Dim monto As Double = 0
+
+        If txtvalor.Text <> "0.00" Then
+            monto = FormatNumber(txtmonto.Text * CDec(txtvalor.Text), 4)
+        Else
+            monto = FormatNumber(txtmonto.Text, 4)
+        End If
+
         Dim fecha As String = Format(dtpFecha_P.Value, "dd/MM/yyyy")
         Dim comentario As String = txtComentarioPago.Text
         Dim cuentar As String = cboCuentaRecepcion.Text
         Dim bancorep As String = cboBancoRecepcion.Text
 
-        grdpago.Rows.Add(tpago, banco, refe, monto, fecha, comentario, cuentar, bancorep)
+        grdpago.Rows.Add(tpago, banco, refe, monto, fecha, comentario, cuentar, bancorep, txtvalor.Text, txtequivale.Text, txtmonto.Text)
         grdpago.Refresh()
 
         Dim pagos As Double = 0
@@ -3666,7 +3677,8 @@ Public Class frmVentas_refa
         txtComentarioPago.Text = ""
         cboCuentaRecepcion.Text = ""
         cboCuentaRecepcion.Text = ""
-
+        txtvalor.Text = "0.00"
+        txtequivale.Text = "0.00"
     End Sub
 
     Private Sub btncomentario_Click(sender As Object, e As EventArgs) Handles btncomentario.Click
@@ -5136,7 +5148,7 @@ doorcita:
                 'Por producto
                 If tipo_mone = 0 Then
                     For denji As Integer = 0 To grdcaptura.Rows.Count - 1
-                        porc_mone = grdcaptura(14, denji).Value
+                        porc_mone = grdcaptura(11, denji).Value
                         precio_prod = grdcaptura(4, denji).Value
                         cantid_prod = grdcaptura(3, denji).Value
 
@@ -12014,6 +12026,19 @@ ecomoda:
                         cboservicio.Text = rd1("Servicio").ToString
                         cbodesc.Text = rd1("Nombre")
                     End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Nombre FROM productos WHERE N_serie='" & txtparte.Text & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.Read Then
+                        If rd2.HasRows Then
+                            cbodesc.Text = rd2("Nombre")
+                        End If
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
                 End If
                 rd1.Close()
                 cnn1.Close()
@@ -12619,5 +12644,124 @@ ecomoda:
             Call cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(Chr(Keys.Enter)))
 
         End If
+    End Sub
+
+    Private Sub txtdescu_TextChanged(sender As Object, e As EventArgs) Handles txtdescu.TextChanged
+        If donde_va = "Descuento Moneda" Then
+            Dim resta As Double = 0
+
+            If txtdescuento1.Enabled = True Then
+                If txtdescu.Text = "" Then
+                    txtdescu.Text = "0"
+                    txtPagar.Text = txtSubTotal.Text
+                    Exit Sub
+                End If
+
+                If CDbl(txtdescu.Text) > 0 Then
+                    If grdpago.Rows.Count > 0 Then grdpago.Rows.Clear() : txtMontoP.Text = "0.00"
+                End If
+
+                Dim CampoDsct As Double = IIf(txtdescu.Text = "", "0", txtdescu.Text)
+                Dim Desc As Double = 0
+
+                Desc = (CampoDsct * 100) / CDbl(txtSubTotal.Text)
+                txtdescuento1.Text = FormatNumber(Desc, 1)
+
+                txtdescuento2.Text = (Desc / 100) * CDbl(txtSubTotal.Text)
+                txtdescuento2.Text = FormatNumber(txtdescuento2.Text, 4)
+                txtPagar.Text = CDbl(txtSubTotal.Text) - ((Desc / 100) * CDbl(txtSubTotal.Text))
+                txtPagar.Text = FormatNumber(txtPagar.Text, 2)
+                txtResta.Text = CDbl(txtSubTotal.Text) - ((Desc / 100) * CDbl(txtSubTotal.Text))
+                txtResta.Text = FormatNumber(txtResta.Text, 2)
+
+                cnn5.Close() : cnn5.Open()
+
+                cmd5 = cnn5.CreateCommand
+                cmd5.CommandText =
+                    "select NotasCred from Formatos where Facturas='Mdescuento'"
+                rd5 = cmd5.ExecuteReader
+                If rd5.HasRows Then
+                    If rd5.Read Then
+                        Desc = rd5(0).ToString
+                        If CDbl(txtdescuento1.Text) = 0 Then
+                            txtdescuento2.Text = "0.00"
+                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text) - (CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)), 2)
+                            CampoDsct = 0
+                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
+                            Exit Sub
+                        End If
+                        If CDbl(txtdescuento1.Text) > Desc Then
+                            MsgBox("No puedes rebasar el descuento máximo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            CampoDsct = 0
+                            txtdescu.Text = "0.00"
+                            txtdescuento2.Text = "0.00"
+                            txtResta.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtMontoP.Text), 2)
+                            txtPagar.Text = FormatNumber(CDbl(txtSubTotal.Text) - CDbl(txtdescuento2.Text), 2)
+                            txtdescu.SelectionStart = 0
+                            txtdescu.SelectionLength = Len(txtdescu.Text)
+                            Exit Sub
+                        End If
+                    End If
+                Else
+                    If CDbl(txtdescuento1.Text) <> 0 Then
+                        MsgBox("Establece un máximo de descuento por venta para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        CampoDsct = 0
+                        txtdescuento1.SelectionStart = 0
+                        txtdescuento1.SelectionLength = Len(txtdescuento1.Text)
+                        rd5.Close() : cnn5.Close()
+                        Exit Sub
+                    End If
+                End If
+                rd5.Close() : cnn5.Close()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub txtdescu_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescu.KeyPress
+        If txtdescu.Text = "" And AscW(e.KeyChar) = 46 Then
+            txtdescu.Text = "0.00"
+            txtdescu.SelectionStart = 0
+            txtdescu.SelectionLength = Len(txtdescu.Text)
+            txtdescu.Focus().Equals(True)
+        End If
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If modo_caja = "CAJA" Then
+                txtefectivo.Focus().Equals(True)
+            Else
+                btnventa.Focus().Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtdescu_GotFocus(sender As Object, e As EventArgs) Handles txtdescu.GotFocus
+        donde_va = "Descuento Moneda"
+        txtdescu.SelectionStart = 0
+        txtdescu.SelectionLength = Len(txtdescu.Text)
+    End Sub
+
+    Private Sub txtdescu_Click(sender As Object, e As EventArgs) Handles txtdescu.Click
+        donde_va = "Descuento Moneda"
+        txtdescu.SelectionStart = 0
+        txtdescu.SelectionLength = Len(txtdescu.Text)
+    End Sub
+
+    Private Sub cboCuentaRecepcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuentaRecepcion.SelectedValueChanged
+        Try
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Banco FROM cuentasbancarias WHERE CuentaBan='" & cboCuentaRecepcion.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cboBancoRecepcion.Text = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
     End Sub
 End Class
