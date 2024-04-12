@@ -469,6 +469,11 @@ Public Class frmProRefaccionaria
 
         Dim img As String = ""
 
+        crea_ruta("C:\ControlNegociosPro\ProductosImg" & base)
+        If varrutabase <> "" Then
+            crea_ruta("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base)
+        End If
+
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -500,10 +505,17 @@ Public Class frmProRefaccionaria
                         If (picImagen.Image Is Nothing) Then
                         Else
                             If txtrutaimagen.Text <> "" Then
-                                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                    File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                                If varrutabase <> "" Then
+                                    If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                        File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                    End If
+                                    picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                                 End If
-                                picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                                If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                End If
+                                picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
                         End If
 
@@ -524,10 +536,17 @@ Public Class frmProRefaccionaria
                     If (picImagen.Image Is Nothing) Then
                     Else
                         If txtrutaimagen.Text <> "" Then
-                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg") Then
-                                File.Delete(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg")
+                            If varrutabase <> "" Then
+                                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                    File.Delete("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                                End If
+                                picImagen.Image.Save("\\" & varrutabase & "\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                             End If
-                            picImagen.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                            If File.Exists("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                                File.Delete("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                            End If
+                            picImagen.Image.Save("C:\ControlNegociosPro\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
                         End If
                     End If
 

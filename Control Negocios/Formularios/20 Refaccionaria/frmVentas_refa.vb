@@ -2260,7 +2260,156 @@ Public Class frmVentas_refa
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
+                            Promo = IIf(rd1("Status_Promocion").ToString = True, True, False)
+                            Anti = rd1("Grupo").ToString
+                            If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
+                                cbodesc.Text = rd1("Nombre").ToString
+                                txtprecio.Text = rd1("PrecioVentaIVA").ToString
+                                txtprecio.Tag = rd1("PrecioVentaIVA").ToString
+                                txtprecio.Text = FormatNumber(txtprecio.Text, 4)
 
+                                txtunidad.Text = rd1("UVenta").ToString
+                                txtexistencia.Text = CDbl(IIf(rd1("Existencia").ToString = "", "0", rd1("Existencia").ToString))
+                                txtcantidad.Focus().Equals(True)
+                                rd1.Close()
+                                cnn1.Close()
+                                Exit Sub
+                            End If
+
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg") Then
+                                picProd.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cbocodigo.Text & ".jpg")
+                            End If
+
+                            txtunidad.Text = rd1("UVenta").ToString()
+                            cbocodigo.Text = rd1("Codigo").ToString()
+                            cbodesc.Text = rd1("Nombre").ToString()
+                            MCD = rd1("MCD").ToString()
+                            Multiplo = rd1("Multiplo").ToString()
+                            Minimo = rd1("Min").ToString()
+                            txtUbicacion.Text = rd1("Ubicacion").ToString()
+
+                            cnn2.Close() : cnn2.Open()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                            "select Existencia from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * MCD
+                                End If
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "select FechaC from ComprasDet where Codigo='" & cbocodigo.Text & "' LIMIT 1"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    Label2.Text = "Descripción " & FormatDateTime(rd2(0).ToString, DateFormat.ShortDate)
+                                End If
+                            Else
+                                Label2.Text = "Descripción"
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "select tipo_cambio from tb_moneda,Productos where Codigo='" & cbocodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    TiCambio = rd2(0).ToString
+                                    If TiCambio = 0 Then TiCambio = 1
+                                End If
+                            Else
+                                TiCambio = 1
+                            End If
+                            rd2.Close()
+
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "select PrecioVentaIVA, PreEsp from Productos where Codigo='" & cbocodigo.Text & "'"
+                            rd2 = cmd2.ExecuteReader
+                            If rd2.HasRows Then
+                                If rd2.Read Then
+                                    PreLst = rd2(0).ToString
+                                    PreEsp = rd2(1).ToString
+                                End If
+                            End If
+                            rd2.Close()
+
+                            cboLote.Items.Clear()
+                            cmd2 = cnn2.CreateCommand
+                            If btndevo.Text = "GUARDAR DEVOLUCIÓN" Then
+                                cmd2.CommandText =
+                                    "select * from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                rd2 = cmd2.ExecuteReader
+                                Do While rd2.Read
+                                    If rd2.HasRows Then cboLote.Items.Add(rd2("Lote").ToString())
+                                Loop
+                                rd2.Close()
+                            Else
+                                If cbocodigo.Text = "" Then Exit Sub
+                                cmd2.CommandText =
+                                    "select distinct(Lote) as Lt from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Cantidad>0"
+                                rd2 = cmd2.ExecuteReader
+                                Do While rd2.Read
+                                    If rd2.HasRows Then cboLote.Items.Add(rd2("Lt").ToString())
+                                Loop
+                                rd2.Close()
+                            End If
+
+                            If cbotipo.Visible = False Then
+                                If T_Precio = "DIA_NOCHE" And (H_Actual > H_Inicia Or H_Actual < H_Final) Then
+                                    txtprecio.Text = FormatNumber(PreEsp * TiCambio, 4)
+                                    txtprecio.Tag = FormatNumber(PreEsp * TiCambio, 4)
+                                Else
+                                    txtprecio.Text = FormatNumber(PreLst * TiCambio, 4)
+                                    txtprecio.Tag = FormatNumber(PreLst * TiCambio, 4)
+                                End If
+                                If (Promo) Then
+                                    txtprecio.Text = Promos(cbocodigo.Text, txtprecio.Text)
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                End If
+                                txtprecio.ReadOnly = False
+                            Else
+                                If (Promo) Then
+                                    txtprecio.Text = Promos(cbocodigo.Text, txtprecio.Text)
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.ReadOnly = False
+                                Else
+                                    If cbonota.Text = "" Then
+                                        txtprecio.Text = Cambio(TiCambio)
+                                        txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                        txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                        txtprecio.ReadOnly = False
+                                    Else
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText =
+                                            "select Precio from VentasDetalle where Codigo='" & cbocodigo.Text & "' and Folio=" & cbonota.Text & ""
+                                        rd2 = cmd2.ExecuteReader
+                                        If rd2.HasRows Then
+                                            If rd2.Read Then
+                                                txtprecio.Text = rd2(0).ToString
+                                                txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                                txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                                txtprecio.ReadOnly = True
+                                            End If
+                                        Else
+                                            txtprecio.Text = Cambio(TiCambio)
+                                            txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                            txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                            txtprecio.ReadOnly = False
+                                        End If
+                                        rd2.Close()
+                                    End If
+                                End If
+                            End If
+                            cnn2.Close()
                         End If
                     Else
                         MsgBox("El código no se encuentra en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -3287,9 +3436,6 @@ Public Class frmVentas_refa
 
     Private Sub txtefectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtefectivo.KeyPress
         If Not IsNumeric(txtefectivo.Text) Then txtefectivo.Text = "" : Exit Sub
-
-
-
         If txtefectivo.Text = "" And AscW(e.KeyChar) = 46 Then
             txtefectivo.Text = "0.00"
             txtefectivo.SelectionStart = 0
@@ -3298,12 +3444,6 @@ Public Class frmVentas_refa
         End If
 
         If AscW(e.KeyChar) = Keys.Enter Then
-
-            If txtefectivo.Text > 0 Then
-                grdpago.Rows.Add("EFECTIVO", "", "", txtefectivo.Text, "", "", "", "")
-            End If
-
-
             txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
             Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
             If MyOpe < 0 Then
@@ -3318,37 +3458,8 @@ Public Class frmVentas_refa
             btnventa.Focus().Equals(True)
         End If
 
-        If Not IsNumeric(txtefectivo.Text) Then txtefectivo.Text = "" : Exit Sub
 
 
-
-        If txtefectivo.Text = "" And AscW(e.KeyChar) = 46 Then
-            txtefectivo.Text = "0.00"
-            txtefectivo.SelectionStart = 0
-            txtefectivo.SelectionLength = Len(txtefectivo.Text)
-            txtefectivo.Focus().Equals(True)
-        End If
-
-        If AscW(e.KeyChar) = Keys.Enter Then
-
-            If txtefectivo.Text > 0 Then
-                grdpago.Rows.Add("EFECTIVO", "", "", txtefectivo.Text, "", "", "", "")
-            End If
-
-
-            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
-            Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
-            If MyOpe < 0 Then
-                txtCambio.Text = FormatNumber(-MyOpe, 2)
-                txtResta.Text = "0.00"
-            Else
-                txtResta.Text = FormatNumber(MyOpe, 2)
-                txtCambio.Text = "0.00"
-            End If
-            txtCambio.Text = FormatNumber(txtCambio.Text, 2)
-            txtResta.Text = FormatNumber(txtResta.Text, 2)
-            btnventa.Focus().Equals(True)
-        End If
     End Sub
 
     Private Sub txtefectivo_TextChanged(sender As Object, e As EventArgs) Handles txtefectivo.TextChanged
@@ -7965,17 +8076,48 @@ ecomoda:
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 Dim descuento As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+                Dim numparte As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT N_Serie FROM productos WHERE Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        numparte = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
-                Y += 12.5
+
+                Dim caracteresPorLinea As Integer = 30
+                Dim texto As String = nombre
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, fuente_prods, Brushes.Black, 25, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
-                Y += 21
+                Y += 20
+
+                If numparte <> 0 Then
+                    Y -= 4
+                    e.Graphics.DrawString("N. Parte: " & numparte, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 3, Y)
+                    Y += 12
+                End If
                 'If descuento <> 0 Then
                 '    Y -= 4
                 '    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
@@ -8310,6 +8452,19 @@ ecomoda:
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 Dim descuento As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+                Dim numparte As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT N_Serie FROM productos WHERE Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        numparte = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
 
@@ -8319,22 +8474,24 @@ ecomoda:
                 Y += 12
                 If Mid(nombre, 26, 50) <> "" Then
                     e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 33, Y)
-                    Y += 12
+                    Y += 13
                 End If
                 If Mid(nombre, 51, 76) <> "" Then
                     e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 33, Y)
-                    Y += 12
+                    Y += 13
                 End If
-
-
-                'e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 33, Y)
-                Y += 11.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 15, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 25, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 120, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 21
+                Y += 20
+
+                If numparte <> 0 Then
+                    Y -= 4
+                    e.Graphics.DrawString("N. Parte: " & numparte, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 3, Y)
+                    Y += 13
+                End If
                 'If descuento <> 0 Then
                 '    Y -= 4
                 '    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 30, Y, sf)

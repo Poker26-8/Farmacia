@@ -465,10 +465,34 @@
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.Designer.vb">
+      <DependentUpon>frmConsultarRefaccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmMarcas.Designer.vb">
+      <DependentUpon>frmMarcas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmMarcas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmModelos.Designer.vb">
+      <DependentUpon>frmModelos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\frmModelos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.Designer.vb">
       <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.Designer.vb">
+      <DependentUpon>frmAsignarRefa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.Designer.vb">
@@ -1825,8 +1849,20 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTeTemp.resx">
       <DependentUpon>frmTeTemp.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.resx">
+      <DependentUpon>frmConsultarRefaccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmMarcas.resx">
+      <DependentUpon>frmMarcas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\frmModelos.resx">
+      <DependentUpon>frmModelos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProRefaccionaria.resx">
       <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.resx">
+      <DependentUpon>frmAsignarRefa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularNuvHab.resx">
       <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>

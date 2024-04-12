@@ -8198,6 +8198,19 @@ ecomoda:
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 ' Dim descuento As Double = 0
+                Dim numparte As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT N_Serie FROM productos WHERE Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        numparte = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
@@ -8209,6 +8222,12 @@ ecomoda:
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 21
+
+                If numparte <> "" Then
+                    Y -= 4
+                    e.Graphics.DrawString("N. Parte: " & numparte, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 5, Y)
+                    Y += 14
+                End If
                 'If descuento <> 0 Then
                 '    Y -= 4
                 '    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 285, Y, sf)
@@ -11116,6 +11135,19 @@ ecomoda:
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
                 ' Dim descuento As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
+                Dim NUMPARTE As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT N_Serie FROM productos WHERE Codigo='" & codigo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        NUMPARTE = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
 
                 Dim total As Double = FormatNumber(canti * precio, 2)
 
@@ -11125,22 +11157,26 @@ ecomoda:
                 Y += 12
                 If Mid(nombre, 26, 50) <> "" Then
                     e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 33, Y)
-                    Y += 12
+                    Y += 13
                 End If
                 If Mid(nombre, 51, 76) <> "" Then
                     e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 33, Y)
-                    Y += 12
+                    Y += 13
                 End If
 
-
-                'e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 33, Y)
-                Y += 11.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 15, Y, sf)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 25, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 120, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 Y += 21
+
+
+                If numparte <> "" Then
+                    Y -= 4
+                    e.Graphics.DrawString("N. Parte: " & NUMPARTE, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 5, Y)
+                    Y += 14
+                End If
                 'If descuento <> 0 Then
                 '    Y -= 4
                 '    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 30, Y, sf)

@@ -615,5 +615,7 @@ nopaso:
         Exit Sub
     End Sub
 
+    Private Sub cboCodigo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboCodigo.SelectedIndexChanged
 
+    End Sub
 End Class
