@@ -1475,15 +1475,12 @@ Public Class frmVentas_refa
             Try
                 cnn5.Close() : cnn5.Open()
                 cmd5 = cnn5.CreateCommand
+
                 If cbonota.Text = "" Then
                     cmd5.CommandText = "SELECT distinct Nombre FROM Productos WHERE Grupo<>'INSUMO' AND ProvRes<>1 AND Nombre<>'' order by Nombre"
                 Else
                     cmd5.CommandText = "SELECT distinct Nombre FROM VentasDetalle WHERE Folio=" & cbonota.Text & " AND Nombre<>'' order by Nombre"
                 End If
-
-                'If cbovehiculo.Text <> "" Then
-                '    cmd5.CommandText = "SELECT DISTINCT Nombre FROM refaccionaria WHERE Nombre<>'' AND IdVehiculo=" & lblidvehiculo.Text & " AND IdVehiculo<>'' ORDER BY Nombre"
-                'End If
 
                 If cbovehiculo.Text <> "" Then
                     cmd5.CommandText = "SELECT DISTINCT Nombre FROM refaccionaria WHERE Nombre<>'' AND IdVehiculo=" & lblidvehiculo.Text & " AND IdVehiculo<>'' ORDER BY Nombre"

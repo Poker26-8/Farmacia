@@ -2187,11 +2187,11 @@ Public Class frmAgregarProducto
             grdCaptura.Rows(zi).Cells(7).Value = min
         Next
         If min = 5 Then
-            grdCaptura.Rows.Add("--------------------", "Primer Tiempo")
+            grdCaptura.Rows.Add("--------------------", "Primer Tiempo", "0", "0", "0", "", "", "", "")
         ElseIf min = 10 Then
-            grdCaptura.Rows.Add("--------------------", "Segundo Tiempo")
+            grdCaptura.Rows.Add("--------------------", "Segundo Tiempo", "0", "0", "0", "", "", "", "")
         ElseIf min = 15 Then
-            grdCaptura.Rows.Add("--------------------", "Tercer Tiempo")
+            grdCaptura.Rows.Add("--------------------", "Tercer Tiempo", "0", "0", "0", "", "", "", "")
         End If
 
 

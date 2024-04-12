@@ -12,6 +12,55 @@ Public Class frmConsultarRefaccion
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            grdProductos.Rows.Clear()
+            Dim unidad As String = ""
+            Dim proveedor As String = ""
+            Dim precio As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+
+            If cboModelo.Text = "" Then
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "'"
+            End If
+
+            If cboModelo.Text <> "" Then
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "'"
+            End If
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & rd1("CodigoPro").ToString & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            unidad = rd2("UVenta").ToString
+                            precio = rd2("PrecioVentaIVA").ToString
+                            proveedor = rd2("ProvPri").ToString
+                        End If
+                    End If
+                    rd2.Close()
+
+                    grdProductos.Rows.Add(rd1("Codigopro").ToString,
+                                          rd1("Nombre").ToString,
+                                          unidad,
+                                          precio,
+                                          proveedor
+)
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
     End Sub
 
     Private Sub cboMarca_DropDown(sender As Object, e As EventArgs) Handles cboMarca.DropDown
@@ -63,8 +112,8 @@ Public Class frmConsultarRefaccion
 
         CODIGO = grdProductos.Rows(index).Cells(0).Value.ToString
 
-        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & CODIGO & ".jpg") Then
-            PicProducto.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & CODIGO & ".jpg")
+        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg") Then
+            PicProducto.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg")
         End If
     End Sub
 
@@ -74,5 +123,32 @@ Public Class frmConsultarRefaccion
         cboModelo.Text = ""
         grdProductos.Rows.Clear()
         cboaño.Focused.Equals(True)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cboaño_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboaño.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(cboaño.Text) Then
+                cboMarca.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub cboMarca_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMarca.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboModelo.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboModelo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboModelo.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Button3.Focus.Equals(True)
+        End If
     End Sub
 End Class

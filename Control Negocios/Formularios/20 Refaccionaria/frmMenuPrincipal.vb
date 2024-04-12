@@ -1,13 +1,14 @@
 ﻿Public Class frmMenuPrincipal
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVehiculoR.Show()
-        frmModelos.Show()
-        frmModelos.BringToFront()
+        ' frmModelos.Show()
+        ' frmModelos.BringToFront()
         Me.Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmProductoR.Show()
+        frmAsignarRefa.Show()
         Me.Close()
     End Sub
 
