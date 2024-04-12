@@ -2454,6 +2454,9 @@ Partial Class frmCorte2
         'pCalculoUsuario58
         '
         '
+        'pCierreUsuario80
+        '
+        '
         'frmCorte2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

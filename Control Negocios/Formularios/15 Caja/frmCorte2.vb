@@ -1687,14 +1687,14 @@ Public Class frmCorte2
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
-                End If
-                If tLogo = "CUAD" Then
-                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                    Y += 130
-                End If
-                If tLogo = "RECT" Then
-                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                    Y += 120
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
                 End If
             Else
                 Y = 0
@@ -2761,5 +2761,9 @@ Public Class frmCorte2
         End If
         txtTotal500.Text = CDec(txtCant500.Text) * 500
         txtTotal500.Text = FormatNumber(txtTotal500.Text, 2)
+    End Sub
+
+    Private Sub pCierreUsuario80_PrintPage(sender As Object, e As PrintPageEventArgs) Handles pCierreUsuario80.PrintPage
+
     End Sub
 End Class
