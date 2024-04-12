@@ -837,7 +837,7 @@ Partial Class frmVentas1
         Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(694, 486)
+        Me.Label26.Location = New System.Drawing.Point(696, 486)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(112, 20)
         Me.Label26.TabIndex = 167
@@ -2294,7 +2294,7 @@ Partial Class frmVentas1
         Me.txtubicacion.BackColor = System.Drawing.Color.White
         Me.txtubicacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtubicacion.Font = New System.Drawing.Font("Segoe UI", 11.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtubicacion.Location = New System.Drawing.Point(841, 132)
+        Me.txtubicacion.Location = New System.Drawing.Point(841, 133)
         Me.txtubicacion.Name = "txtubicacion"
         Me.txtubicacion.Size = New System.Drawing.Size(116, 28)
         Me.txtubicacion.TabIndex = 207
@@ -2307,7 +2307,7 @@ Partial Class frmVentas1
         Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(841, 113)
+        Me.Label16.Location = New System.Drawing.Point(841, 114)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(116, 20)
         Me.Label16.TabIndex = 208
@@ -2350,7 +2350,7 @@ Partial Class frmVentas1
         Me.txtadeuda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtadeuda.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtadeuda.ForeColor = System.Drawing.Color.Red
-        Me.txtadeuda.Location = New System.Drawing.Point(718, 131)
+        Me.txtadeuda.Location = New System.Drawing.Point(718, 132)
         Me.txtadeuda.Name = "txtadeuda"
         Me.txtadeuda.Size = New System.Drawing.Size(113, 29)
         Me.txtadeuda.TabIndex = 200
@@ -2522,7 +2522,7 @@ Partial Class frmVentas1
         Me.Label47.BackColor = System.Drawing.Color.White
         Me.Label47.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.ForeColor = System.Drawing.Color.Black
-        Me.Label47.Location = New System.Drawing.Point(3, 110)
+        Me.Label47.Location = New System.Drawing.Point(3, 108)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(91, 15)
         Me.Label47.TabIndex = 231
