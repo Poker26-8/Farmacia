@@ -8110,7 +8110,7 @@ ecomoda:
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 20
 
-                If numparte <> 0 Then
+                If numparte <> "" Then
                     Y -= 4
                     e.Graphics.DrawString("N. Parte: " & numparte, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 3, Y)
                     Y += 12

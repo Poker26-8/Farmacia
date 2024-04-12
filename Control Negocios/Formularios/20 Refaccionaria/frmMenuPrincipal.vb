@@ -8,13 +8,13 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmProductoR.Show()
-        frmAsignarRefa.Show()
+        'frmAsignarRefa.Show()
         Me.Close()
     End Sub
 
     Private Sub btnconsultar_Click(sender As Object, e As EventArgs) Handles btnconsultar.Click
         frmConsultaR.Show()
-        frmConsultarRefaccion.Show()
+        ' frmConsultarRefaccion.Show()
         Me.Close()
     End Sub
 

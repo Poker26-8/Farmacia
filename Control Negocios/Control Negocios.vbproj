@@ -1683,6 +1683,12 @@
     <Compile Include="Formularios\28 Pedidos\frmVehP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmCitas.Designer.vb">
+      <DependentUpon>frmCitas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\30 Citas Med\frmCitas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -2472,6 +2478,9 @@
     <EmbeddedResource Include="Formularios\28 Pedidos\frmVehP.resx">
       <DependentUpon>frmVehP.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\30 Citas Med\frmCitas.resx">
+      <DependentUpon>frmCitas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -2600,6 +2609,7 @@
     <None Include="Resources\confirmar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Formularios\29 Consignacion\" />
     <Folder Include="Resorces\" />
   </ItemGroup>
   <ItemGroup>

@@ -63,6 +63,8 @@ Partial Class frmModulos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -113,6 +115,8 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button14)
+        Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Controls.Add(Me.Button13)
         Me.Panel2.Controls.Add(Me.Label19)
         Me.Panel2.Controls.Add(Me.Button12)
@@ -584,6 +588,30 @@ Partial Class frmModulos
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label20
+        '
+        Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(316, 237)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(93, 19)
+        Me.Label20.TabIndex = 204
+        Me.Label20.Text = "Citas Medicas"
+        '
+        'Button14
+        '
+        Me.Button14.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button14.FlatAppearance.BorderSize = 0
+        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
+        Me.Button14.Location = New System.Drawing.Point(320, 259)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(80, 80)
+        Me.Button14.TabIndex = 205
+        Me.Button14.UseVisualStyleBackColor = True
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -647,4 +675,6 @@ Partial Class frmModulos
     Friend WithEvents Button12 As Button
     Friend WithEvents Label19 As Label
     Friend WithEvents Button13 As Button
+    Friend WithEvents Button14 As Button
+    Friend WithEvents Label20 As Label
 End Class

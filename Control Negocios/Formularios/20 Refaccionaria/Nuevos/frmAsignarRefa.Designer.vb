@@ -128,9 +128,9 @@ Partial Class frmAsignarRefa
         Me.txtnumparte.BackColor = System.Drawing.Color.White
         Me.txtnumparte.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtnumparte.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnumparte.Location = New System.Drawing.Point(305, 114)
+        Me.txtnumparte.Location = New System.Drawing.Point(302, 114)
         Me.txtnumparte.Name = "txtnumparte"
-        Me.txtnumparte.Size = New System.Drawing.Size(177, 23)
+        Me.txtnumparte.Size = New System.Drawing.Size(183, 23)
         Me.txtnumparte.TabIndex = 525
         Me.txtnumparte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -140,9 +140,9 @@ Partial Class frmAsignarRefa
         Me.Label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label25.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(305, 87)
+        Me.Label25.Location = New System.Drawing.Point(302, 88)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(177, 24)
+        Me.Label25.Size = New System.Drawing.Size(183, 24)
         Me.Label25.TabIndex = 524
         Me.Label25.Text = "N° de Parte"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -189,9 +189,9 @@ Partial Class frmAsignarRefa
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(305, 142)
+        Me.Label4.Location = New System.Drawing.Point(302, 142)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(298, 23)
+        Me.Label4.Size = New System.Drawing.Size(301, 23)
         Me.Label4.TabIndex = 529
         Me.Label4.Text = "Modelo Vehiculo"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -201,9 +201,9 @@ Partial Class frmAsignarRefa
         Me.cboModelo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboModelo.FormattingEnabled = True
-        Me.cboModelo.Location = New System.Drawing.Point(305, 168)
+        Me.cboModelo.Location = New System.Drawing.Point(302, 168)
         Me.cboModelo.Name = "cboModelo"
-        Me.cboModelo.Size = New System.Drawing.Size(298, 23)
+        Me.cboModelo.Size = New System.Drawing.Size(301, 23)
         Me.cboModelo.TabIndex = 530
         '
         'Panel1
@@ -213,7 +213,7 @@ Partial Class frmAsignarRefa
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(906, 36)
+        Me.Panel1.Size = New System.Drawing.Size(901, 36)
         Me.Panel1.TabIndex = 531
         '
         'Label5
@@ -222,7 +222,7 @@ Partial Class frmAsignarRefa
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(0, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(906, 36)
+        Me.Label5.Size = New System.Drawing.Size(901, 36)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Asignar refacción con las marcas y modelos"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -233,7 +233,7 @@ Partial Class frmAsignarRefa
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 277)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(906, 224)
+        Me.Panel2.Size = New System.Drawing.Size(901, 224)
         Me.Panel2.TabIndex = 532
         '
         'grdCaptura
@@ -248,7 +248,7 @@ Partial Class frmAsignarRefa
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(906, 224)
+        Me.grdCaptura.Size = New System.Drawing.Size(901, 224)
         Me.grdCaptura.TabIndex = 0
         '
         'Column1
@@ -381,9 +381,9 @@ Partial Class frmAsignarRefa
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(606, 90)
+        Me.Label7.Location = New System.Drawing.Point(606, 88)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(291, 23)
+        Me.Label7.Size = New System.Drawing.Size(291, 25)
         Me.Label7.TabIndex = 537
         Me.Label7.Text = "Ubicación"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -474,7 +474,7 @@ Partial Class frmAsignarRefa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(906, 501)
+        Me.ClientSize = New System.Drawing.Size(901, 501)
         Me.Controls.Add(Me.btnModelos)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.btnLimpiar)
