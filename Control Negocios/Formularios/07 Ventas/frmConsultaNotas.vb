@@ -2372,12 +2372,12 @@ Public Class frmConsultaNotas
                 If formato = "PDF - CARTA" Then
                     If varrutabase <> "" Then
                         'root_name_recibo2 = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & Folio & ".pdf"
-                        If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & cbofolio.Text & ".pdf") Then
-                            Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & cbofolio.Text & ".pdf")
+                        If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                            Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
                         End If
                     Else
-                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\" & cbofolio.Text & ".pdf") Then
-                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\" & cbofolio.Text & ".pdf")
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
                         End If
                     End If
                 End If
