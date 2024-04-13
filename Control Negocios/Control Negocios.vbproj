@@ -130,10 +130,6 @@
     <Reference Include="Gma.QrCodeNet.Encoding">
       <HintPath>..\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.FlexCodeSDK">
-      <HintPath>..\..\..\..\DLL\Interop.FlexCodeSDK.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\itextsharp.dll</HintPath>
