@@ -6850,10 +6850,48 @@ puertaXD1:
                 .WriteEndElement()
 
             ElseIf frmfacturacion.Text_IVA.Text > 0 And frmfacturacion.txt_impuestos.Text > 0 Then
+
+                'valida el total impuestos
+                Dim vartotalimpuestos As Double = 0
+                Dim varsum_vali As Double = 0
+
+                Dim variepspasados_vali(20) As String
+                For iz_vali = 0 To 19
+                    variepspasados_vali(iz_vali) = ""
+                Next
+
+                For i_vali = 0 To ieps_val - 1
+
+                    Dim variepssi_vali As Integer = 0
+
+                    For iz_vali = 0 To 19
+                        If variepspasados_vali(iz_vali) = arreg(i_vali) Then
+                            variepssi_vali = 1
+                            Exit For
+                        End If
+                    Next
+
+                    If variepssi_vali = 0 Then
+                        variepspasados_vali(i_vali) = arreg(i_vali)
+                    End If
+
+                    For iii_vali = 0 To frmfacturacion.grid_prods.RowCount - 1
+                        If CDec(frmfacturacion.grid_prods.Rows(iii_vali).Cells(16).Value.ToString) = CDec(arreg(i_vali)) Then
+                            varsum_vali = varsum_vali + CDec(frmfacturacion.grid_prods.Rows(iii_vali).Cells(11).Value.ToString)
+                        End If
+                    Next
+
+                    If variepssi_vali = 0 Then
+                        vartotalimpuestos += CDec(FormatNumber(varsum_vali, 2))
+                    End If
+
+                    varsum_vali = 0
+                Next
+
                 'si tiene iva, ieps
                 .WriteStartElement("cfdi:Impuestos")
-                .WriteAttributeString("TotalImpuestosTrasladados", Replace(FormatNumber(CDbl(frmfacturacion.Text_IVA.Text) + CDec(actuieps), 2), ",", ""))
-                '.WriteAttributeString("TotalImpuestosTrasladados", Replace(FormatNumber(CDbl(frmfacturacion.Text_IVA.Text) + CDec(frmfacturacion.txt_impuestos.Text), 2), ",", ""))
+                .WriteAttributeString("TotalImpuestosTrasladados", Replace(FormatNumber(CDbl(frmfacturacion.Text_IVA.Text) + CDec(vartotalimpuestos), 2), ",", ""))
+                '.WriteAttributeString("TotalImpuestosTrasladados", Replace(FormatNumber(CDbl(frmfacturacion.Text_IVA.Text) + CDec(actuieps), 2), ",", ""))
                 .WriteStartElement("cfdi:Traslados")
 
                 .WriteStartElement("cfdi:Traslado")
