@@ -741,6 +741,9 @@ Public Class frmProductosS
 
                 nombre = Trim(Replace(nombre, "‘", ""))
                 nombre = Trim(Replace(nombre, "'", "''"))
+                nombre = Trim(Replace(nombre, "*", ""))
+                nombre = Trim(Replace(nombre, "", ""))
+
                 proveedor = Trim(Replace(proveedor, "'", "''"))
                 depto = Trim(Replace(depto, "'", "''"))
                 grupo = Trim(Replace(grupo, "'", "''"))
@@ -755,11 +758,11 @@ Public Class frmProductosS
                     If cmd1.ExecuteNonQuery Then
 
                     Else
-                        MsgBox(codigo, nombre)
+                        MsgBox(codigo & nombre)
                     End If
 
                 Else
-                    MsgBox(codigo, nombre)
+                    MsgBox(codigo & nombre)
                     conteo += 1
                     barsube.Value = conteo
 
@@ -814,33 +817,33 @@ Public Class frmProductosS
             End If
             rd2.Close()
 
-            If barras <> "" Then
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "select * from Productos where CodBarra='" & barras & "'"
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        'MsgBox("Ya cuentas con un producto registrado con el código de barras " & barras & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        valida = False
-                        Exit Function
-                    End If
-                End If
-                rd2.Close()
-            End If
+            'If barras <> "" Then
+            '    cmd2 = cnn2.CreateCommand
+            '    cmd2.CommandText =
+            '        "select * from Productos where CodBarra='" & barras & "'"
+            '    rd2 = cmd2.ExecuteReader
+            '    If rd2.HasRows Then
+            '        If rd2.Read Then
+            '            'MsgBox("Ya cuentas con un producto registrado con el código de barras " & barras & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '            valida = False
+            '            Exit Function
+            '        End If
+            '    End If
+            '    rd2.Close()
+            'End If
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select * from Productos where Nombre='" & nombre & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    'MsgBox("Ya cuentas con un producto registrado con el nombre " & nombre & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    valida = False
-                    Exit Function
-                End If
-            End If
-            rd2.Close()
+            'cmd2 = cnn2.CreateCommand
+            'cmd2.CommandText =
+            '    "select * from Productos where Nombre='" & nombre & "'"
+            'rd2 = cmd2.ExecuteReader
+            'If rd2.HasRows Then
+            '    If rd2.Read Then
+            '        'MsgBox("Ya cuentas con un producto registrado con el nombre " & nombre & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '        valida = False
+            '        Exit Function
+            '    End If
+            'End If
+            'rd2.Close()
 
             cnn2.Close()
             Return valida
