@@ -2207,6 +2207,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\frmProductosS.resx">
       <DependentUpon>frmProductosS.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\frmProductosZap.resx">
       <DependentUpon>frmProductosZap.vb</DependentUpon>
