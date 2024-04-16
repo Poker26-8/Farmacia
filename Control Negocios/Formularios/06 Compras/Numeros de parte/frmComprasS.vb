@@ -323,8 +323,46 @@ Public Class frmComprasS
                     Bool = True
                 End If
             Else
-                cbonombre.Text = ""
-                cbonombre.Focus().Equals(True)
+
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "SELECT * FROM Productos where N_Serie='" & cbonombre.Text & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        If cbonombre.Text = "" Then cnn2.Close() : rd3.Close() : Return False : Exit Function
+                        txtcodigo.Text = rd3("Codigo").ToString
+                        cbonombre.Text = rd3("Nombre").ToString
+                        txtunidad.Text = rd3("UCompra").ToString
+                        txtprecio.Text = FormatNumber(rd3("PrecioCompra").ToString, 4)
+                        txtexiste.Text = rd3("Existencia").ToString
+                        lblvalor.Text = FormatNumber(rd3("PrecioCompra").ToString(), 4)
+
+                        cnn4.Close() : cnn4.Open() : cmd4 = cnn4.CreateCommand
+                        cmd4.CommandText =
+                            "select tipo_cambio,nombre_moneda from tb_moneda,Productos where Codigo='" & txtcodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
+                        rd4 = cmd4.ExecuteReader
+                        If rd4.HasRows Then
+                            If rd4.Read Then
+                                lblmoneda.Text = rd4("nombre_moneda").ToString
+                                If lblvalor.Text = "" Then lblvalor.Text = "1.0000"
+                            End If
+                        Else
+                            lblvalor.Text = "1.0000"
+                        End If
+                        rd4.Close() : cnn4.Close()
+
+                        txtcantidad.Focus().Equals(True)
+                        Bool = True
+                    End If
+                Else
+
+                    cbonombre.Text = ""
+                    cbonombre.Focus().Equals(True)
+                End If
+                rd3.Close()
+                cnn3.Close()
+
             End If
 
             cnn2.Close()
