@@ -333,6 +333,7 @@ Public Class frmComprasSeries
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
+
                     If cbonombre.Text = "" Then cnn2.Close() : rd2.Close() : Return False : Exit Function
                     txtcodigo.Text = rd2("Codigo").ToString
                     cbonombre.Text = rd2("Nombre").ToString
@@ -340,6 +341,19 @@ Public Class frmComprasSeries
                     txtprecio.Text = FormatNumber(rd2("PrecioCompra").ToString, 4)
                     txtexiste.Text = rd2("Existencia").ToString
                     lblvalor.Text = FormatNumber(rd2("PrecioCompra").ToString(), 4)
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT Serie FROM series WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            txtserie.Text = rd1(0).ToString
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+
 
                     cnn3.Close() : cnn3.Open() : cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
@@ -359,8 +373,60 @@ Public Class frmComprasSeries
                     Bool = True
                 End If
             Else
-                cbonombre.Text = ""
-                cbonombre.Focus().Equals(True)
+
+                Dim nombrepro As String = ""
+
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "SELECT Nombre,Serie FROM series WHERE Serie='" & cbonombre.Text & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        nombrepro = rd3(0).ToString
+                        txtserie.Text = rd3(1).ToString
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT * FROM Productos WHERE Nombre='" & nombrepro & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                If cbonombre.Text = "" Then cnn2.Close() : rd1.Close() : Return False : Exit Function
+                                txtcodigo.Text = rd1("Codigo").ToString
+                                cbonombre.Text = rd1("Nombre").ToString
+                                txtunidad.Text = rd1("UCompra").ToString
+                                txtprecio.Text = FormatNumber(rd1("PrecioCompra").ToString, 4)
+                                txtexiste.Text = rd1("Existencia").ToString
+                                lblvalor.Text = FormatNumber(rd1("PrecioCompra").ToString(), 4)
+
+                                cnn4.Close() : cnn4.Open() : cmd4 = cnn4.CreateCommand
+                                cmd4.CommandText =
+                                    "select tipo_cambio,nombre_moneda from tb_moneda,Productos where Codigo='" & txtcodigo.Text & "' and Productos.id_tbMoneda=tb_moneda.id"
+                                rd4 = cmd4.ExecuteReader
+                                If rd4.HasRows Then
+                                    If rd4.Read Then
+                                        lblmoneda.Text = rd4("nombre_moneda").ToString
+                                        If lblvalor.Text = "" Then lblvalor.Text = "1.0000"
+                                    End If
+                                Else
+                                    lblvalor.Text = "1.0000"
+                                End If
+                                rd4.Close() : cnn4.Close()
+
+                                txtcantidad.Focus().Equals(True)
+                                Bool = True
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+                    End If
+                Else
+                    cbonombre.Text = ""
+                    cbonombre.Focus().Equals(True)
+                End If
+                rd3.Close()
+                cnn3.Close()
+
             End If
             rd2.Close()
             cnn2.Close()
@@ -1211,6 +1277,13 @@ Public Class frmComprasSeries
             If (CDbl(txtprecio.Text) / CDbl(txtvalor.Text)) <> CDbl(lblvalor.Text) Then
                 If MsgBox("El precio de compra va a cambiar en la base de datos." & vbNewLine & "¿Desea que los porcentajes y precios de venta se modifiquen también?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                     CP = 1
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "UPDATE productos SET PrecioCompra=" & txtprecio.Text & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
+
                 Else
                     CP = 0
                 End If
@@ -1381,7 +1454,7 @@ kaka:
         Else
             cnn1.Close() : cnn1.Open() : cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "insert into AuxCompras(Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Serie,CP) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & cboproveedor.Text & "','" & txtcodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & CantidadP & "," & PrecioU & "," & TotalP & ",'',''," & CP & ")"
+                "insert into AuxCompras(Rem,Fac,Ped,Proveedor,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Caducidad,Lote,Serie,CP) values('" & cboremision.Text & "','" & cbofactura.Text & "','" & cbopedido.Text & "','" & cboproveedor.Text & "','" & txtcodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & CantidadP & "," & PrecioU & "," & TotalP & ",'','',''," & CP & ")"
             cmd1.ExecuteNonQuery() : cnn1.Close()
         End If
 
@@ -1662,6 +1735,7 @@ kaka:
             txtcantidad.Text = grdcaptura.Rows(index).Cells(3).Value.ToString
             txtprecio.Text = FormatNumber(grdcaptura.Rows(index).Cells(4).Value.ToString, 4)
             txttotal.Text = FormatNumber(grdcaptura.Rows(index).Cells(5).Value.ToString, 2)
+            txtserie.Text = grdcaptura.Rows(index).Cells(7).Value.ToString
 
             If CStr(grdcaptura.Rows(index).Cells(0).Value.ToString) = "" Then
             Else
@@ -2526,11 +2600,11 @@ kaka:
             e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
             e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
-            Y += 21
+            Y += 20
             If serie <> "" Then
-                Y -= 4
+                Y += 2
                 e.Graphics.DrawString("Serie: " & serie, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                Y += 4
+                Y += 18
             End If
         Next
         Y -= 3
@@ -2882,11 +2956,11 @@ carbon:
             e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 30, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 133, Y, sf)
             e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
-            Y += 21
+            Y += 20
             If serie <> "" Then
-                Y -= 4
+                Y += 2
                 e.Graphics.DrawString("Serie: " & serie, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
-                Y += 4
+                Y += 17
             End If
         Next
         Y += 3
