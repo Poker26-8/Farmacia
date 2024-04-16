@@ -1383,7 +1383,7 @@ Public Class frmProductos
         End Try
 
         If grdcaptura.Rows.Count > 0 Then
-            Sube_Lotes()
+            Sube_Medicos()
         End If
     End Sub
 
@@ -1416,6 +1416,41 @@ Public Class frmProductos
             Next
             cnn1.Close()
             MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            grdcaptura.DataSource = Nothing
+            grdcaptura.Dispose()
+            grdcaptura.Rows.Clear()
+            barsube.Value = 0
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+        End Try
+
+    End Sub
+
+    Private Sub Sube_Medicos()
+        Dim cedula, nombre, domicilio As String
+        Dim conteo As Integer = 0
+        Try
+            barsube.Value = 0
+            barsube.Maximum = grdcaptura.Rows.Count
+
+            cnn1.Close() : cnn1.Open()
+
+            For zef As Integer = 0 To grdcaptura.Rows.Count - 1
+                cedula = NulCad(grdcaptura.Rows(zef).Cells(1).Value.ToString())
+                nombre = NulCad(grdcaptura.Rows(zef).Cells(2).Value.ToString())
+                domicilio = NulCad(grdcaptura.Rows(zef).Cells(3).Value.ToString())
+
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "insert into ctmedicos(Cedula,Nombre,Domicilio) values('" & Trim(Replace(cedula, "'", "''")) & "','" & Trim(Replace(nombre, "'", "''")) & "','" & domicilio & "')"
+                cmd1.ExecuteNonQuery()
+
+                conteo += 1
+                barsube.Value = conteo
+            Next
+            cnn1.Close()
+            MsgBox(conteo & " datos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             grdcaptura.DataSource = Nothing
             grdcaptura.Dispose()
             grdcaptura.Rows.Clear()
@@ -1656,5 +1691,9 @@ Public Class frmProductos
             MessageBox.Show(ex.ToString)
             cnn5.Close()
         End Try
+    End Sub
+
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+
     End Sub
 End Class

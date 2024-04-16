@@ -7188,7 +7188,7 @@ doorcita:
         End If
 
         Try
-            cnn1.Open()
+            cnn1.Close() : cnn1.Open()
             For R As Integer = 0 To grdcaptura.Rows.Count - 1
                 If grdcaptura.Rows(R).Cells(0).Value.ToString = "" Then GoTo Door
                 DsctoProd = 0
@@ -7265,7 +7265,7 @@ doorcita:
                         Unico = rd1("Unico").ToString()
                         gprint = rd1("GPrint").ToString
                         If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
-                            rd1.Close() : cnn1.Close()
+                            rd1.Close()
                             GoTo Door
                         End If
                     End If
@@ -11649,7 +11649,7 @@ ecomoda:
                 If rd1.Read Then
                     txtid_medico.Text = rd1("Id").ToString
                     txtmedico.Text = rd1("Nombre").ToString
-                    txtdireccion_med.Text = rd1("Direccion").ToString
+                    txtdireccion_med.Text = rd1("Domicilio").ToString
                 End If
             Else
                 txtid_medico.Text = ""
