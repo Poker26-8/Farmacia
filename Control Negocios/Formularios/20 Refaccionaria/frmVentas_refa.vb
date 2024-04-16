@@ -8090,7 +8090,7 @@ ecomoda:
                 Dim total As Double = FormatNumber(canti * precio, 2)
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
 
-                Dim caracteresPorLinea As Integer = 30
+                Dim caracteresPorLinea As Integer = 27
                 Dim texto As String = nombre
                 Dim inicio As Integer = 0
                 Dim longitudTexto As Integer = texto.Length
@@ -8098,7 +8098,7 @@ ecomoda:
                 While inicio < longitudTexto
                     Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                     Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                    e.Graphics.DrawString(bloque, fuente_prods, Brushes.Black, 25, Y)
+                    e.Graphics.DrawString(bloque, fuente_prods, Brushes.Black, 55, Y)
                     Y += 13
                     inicio += caracteresPorLinea
                 End While

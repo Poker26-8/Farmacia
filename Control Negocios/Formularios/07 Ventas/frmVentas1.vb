@@ -3560,8 +3560,8 @@ kaka:
                 cnn1.Close()
 
                 If VSE = True Then
-                    Dim canti As Double = 0
-                    Dim exis As Double = 0
+                    Dim canti As Double = txtcantidad.Text
+                    Dim exis As Double = txtexistencia.Text
                     If canti > exis Then
                         MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
                         txtcantidad.Focus.Equals(True)
@@ -3811,8 +3811,8 @@ kaka:
             cnn1.Close()
 
             If VSE = True Then
-                Dim canti As Double = 0
-                Dim exis As Double = 0
+                Dim canti As Double = txtcantidad.Text
+                Dim exis As Double = txtexistencia.Text
                 If canti > exis Then
                     MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
                     txtcantidad.Focus.Equals(True)

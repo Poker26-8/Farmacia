@@ -60,6 +60,7 @@ Partial Class frmProductosS
         Me.Label14 = New System.Windows.Forms.Label()
         Me.tip = New System.Windows.Forms.ToolTip(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.txtutilidad = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -91,7 +92,6 @@ Partial Class frmProductosS
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -532,6 +532,23 @@ Partial Class frmProductosS
         Me.tip.SetToolTip(Me.Button1, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(76, 306)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 63)
+        Me.Button2.TabIndex = 251
+        Me.Button2.Text = "Importar (10 precios)"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button2, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'txtutilidad
         '
         Me.txtutilidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -550,7 +567,7 @@ Partial Class frmProductosS
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(901, 48)
+        Me.DataGridView1.Location = New System.Drawing.Point(8, 395)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(204, 166)
@@ -909,23 +926,6 @@ Partial Class frmProductosS
         Me.Label21.TabIndex = 249
         Me.Label21.Text = "Código de barras"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(76, 306)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 63)
-        Me.Button2.TabIndex = 251
-        Me.Button2.Text = "Importar (10 precios)"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.tip.SetToolTip(Me.Button2, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'frmProductosS
         '
