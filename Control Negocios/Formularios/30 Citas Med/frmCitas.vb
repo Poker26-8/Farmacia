@@ -130,7 +130,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO citas(Medico,Cedula,Paciente,Telefono,Motivo,Fecha,Hora) VALUES('" & cboMedico.Text & "','" & txtCedula.Text & "','" & cboPaciente.Text & "','" & txtTelefono.Text & "','" & txtMotivo.Text & "','" & Format(dtpFecha.Value, "yyyy/MM/dd") & "','" & Format(dtoHora.Value, "HH:mm:ss") & "')"
+            cmd1.CommandText = "INSERT INTO citas(Medico,Cedula,Paciente,Telefono,Motivo,Fecha,Hora,Usuario) VALUES('" & cboMedico.Text & "','" & txtCedula.Text & "','" & cboPaciente.Text & "','" & txtTelefono.Text & "','" & txtMotivo.Text & "','" & Format(dtpFecha.Value, "yyyy/MM/dd") & "','" & Format(dtoHora.Value, "HH:mm:ss") & "','" & lblUsuario.Text & "')"
             If cmd1.ExecuteNonQuery() Then
                 MsgBox("Cita asignada correctamente", vbInformation + vbOKOnly, titulocentral)
             End If
@@ -139,5 +139,45 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub txtClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClave.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Alias,Status FROM usuarios WHERE Clave='" & txtClave.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        If rd1(1).ToString = "1" Then
+                            lblUsuario.Text = rd1(0).ToString
+                        Else
+                            MsgBox("El usuario esta inactivo contacte a su administrador", vbInformation + vbOKOnly, titulocentral)
+                            txtClave.Focus.Equals(True)
+                            txtClave.Text = ""
+                            lblUsuario.Text = "Usuario"
+                            Exit Sub
+                        End If
+                    End If
+                Else
+                    MsgBox("La contraseña es incorrecta", vbInformation + vbOKOnly, titulocentral)
+                    txtClave.Focus.Equals(True)
+                    txtClave.Text = ""
+                    lblUsuario.Text = "Usuario"
+                    Exit Sub
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
 End Class

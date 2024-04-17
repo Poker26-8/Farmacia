@@ -753,7 +753,7 @@ Public Class Login
                     Dim cnnprueba As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
                     Dim sinfo As String = ""
                     Dim odata As New ToolKitSQL.myssql
-                    Dim sTargetprueba = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300"
+                    Dim sTargetprueba = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300"
                     'Dim sTargetprueba = "Server=localhost;user id = root; password=;"
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
@@ -767,6 +767,7 @@ Public Class Login
                             .runSp(cnnprueba, vartablapedidosven, sinfo)
                             .runSp(cnnprueba, VarKeypedidosven, sinfo)
                             .runSp(cnnprueba, varAutopedidosven, sinfo)
+
                             'detallehotelprecios
                             .runSp(cnnprueba, vartabladetallehotelprecios, sinfo)
                             .runSp(cnnprueba, varKeydetallehotelprecios, sinfo)

@@ -45,6 +45,7 @@
             ComboBox1.Enabled = False
             TextBox1.Text = ""
             TextBox1.Enabled = True
+            TextBox1.Focus.Equals(True)
             ComboBox1.Items.Clear()
             grdcaptura.Rows.Clear()
         End If
@@ -169,12 +170,6 @@
         Dim jiji As Integer = grdcaptura.CurrentRow.Index
 
         If Vienna = "Ventas1" Then
-            'frmVentas1_Partes.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
-            'frmVentas1_Partes.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
-            'frmVentas1_Partes.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
-            'frmVentas1_Partes.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
-            'frmVentas1_Partes.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
-            'frmVentas1_Partes.cbocodigo.Focus().Equals(True)
             frmVentas1.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
             frmVentas1.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
             frmVentas1.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
@@ -198,6 +193,15 @@
             frmVentas_Series.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
             frmVentas_Series.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
             frmVentas_Series.cbocodigo.Focus().Equals(True)
+        End If
+
+        If Vienna = "Ventas Partes" Then
+            frmVentas1_Partes.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString
+            frmVentas1_Partes.cbodesc.Text = grdcaptura.Rows(jiji).Cells(1).Value.ToString
+            frmVentas1_Partes.txtunidad.Text = grdcaptura.Rows(jiji).Cells(2).Value.ToString
+            frmVentas1_Partes.txtprecio.Text = grdcaptura.Rows(jiji).Cells(4).Value.ToString
+            frmVentas1_Partes.txtexistencia.Text = grdcaptura.Rows(jiji).Cells(5).Value.ToString
+            frmVentas1_Partes.cbocodigo.Focus().Equals(True)
         End If
         'If Vienna = "Ventas3" Then
         '    frmVentas3.cbocodigo.Text = grdcaptura.Rows(jiji).Cells(0).Value.ToString

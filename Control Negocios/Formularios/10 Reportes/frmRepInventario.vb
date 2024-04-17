@@ -40,7 +40,7 @@ Public Class frmRepInventario
             If (Libreria) Then
             Else
                 If (Partes) Then
-                    grdcaptura.ColumnCount = 10
+                    grdcaptura.ColumnCount = 12
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -87,6 +87,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(6)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(8)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -94,7 +110,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -102,7 +118,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -110,7 +126,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(9)
+                        With .Columns(11)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -120,7 +136,7 @@ Public Class frmRepInventario
                         End With
                     End With
                 Else
-                    grdcaptura.ColumnCount = 9
+                    grdcaptura.ColumnCount = 11
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -159,6 +175,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(5)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(6)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -166,7 +198,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(6)
+                        With .Columns(8)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -174,7 +206,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -182,7 +214,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -303,7 +335,7 @@ Public Class frmRepInventario
             If (Libreria) Then
             Else
                 If (Partes) Then
-                    grdcaptura.ColumnCount = 10
+                    grdcaptura.ColumnCount = 12
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -350,6 +382,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(6)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(8)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -357,7 +405,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -365,7 +413,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -373,7 +421,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(9)
+                        With .Columns(11)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -383,7 +431,7 @@ Public Class frmRepInventario
                         End With
                     End With
                 Else
-                    grdcaptura.ColumnCount = 9
+                    grdcaptura.ColumnCount = 11
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -422,6 +470,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(5)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(6)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -429,7 +493,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(6)
+                        With .Columns(8)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -437,7 +501,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -445,7 +509,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -476,7 +540,7 @@ Public Class frmRepInventario
             If (Libreria) Then
             Else
                 If (Partes) Then
-                    grdcaptura.ColumnCount = 10
+                    grdcaptura.ColumnCount = 12
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -523,6 +587,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(6)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(8)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -530,7 +610,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -538,7 +618,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -546,7 +626,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(9)
+                        With .Columns(11)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -556,7 +636,7 @@ Public Class frmRepInventario
                         End With
                     End With
                 Else
-                    grdcaptura.ColumnCount = 9
+                    grdcaptura.ColumnCount = 11
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -595,6 +675,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(5)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(6)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -602,7 +698,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(6)
+                        With .Columns(8)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -610,7 +706,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -618,7 +714,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -649,7 +745,7 @@ Public Class frmRepInventario
             If (Libreria) Then
             Else
                 If (Partes) Then
-                    grdcaptura.ColumnCount = 10
+                    grdcaptura.ColumnCount = 12
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -696,6 +792,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(6)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(8)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -703,7 +815,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -711,7 +823,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -719,7 +831,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(9)
+                        With .Columns(11)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -729,7 +841,7 @@ Public Class frmRepInventario
                         End With
                     End With
                 Else
-                    grdcaptura.ColumnCount = 9
+                    grdcaptura.ColumnCount = 11
                     With grdcaptura
                         With .Columns(0)
                             .HeaderText = "Código"
@@ -768,6 +880,22 @@ Public Class frmRepInventario
                             .Resizable = DataGridViewTriState.False
                         End With
                         With .Columns(5)
+                            .HeaderText = "Pedidos"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(6)
+                            .HeaderText = "Diferencia"
+                            .Width = 75
+                            .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                            .Visible = True
+                            .Resizable = DataGridViewTriState.False
+                        End With
+                        With .Columns(7)
                             .HeaderText = "Precio de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -775,7 +903,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(6)
+                        With .Columns(8)
                             .HeaderText = "Precio de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -783,7 +911,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(7)
+                        With .Columns(9)
                             .HeaderText = "Valor de compra"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -791,7 +919,7 @@ Public Class frmRepInventario
                             .Visible = True
                             .Resizable = DataGridViewTriState.False
                         End With
-                        With .Columns(8)
+                        With .Columns(10)
                             .HeaderText = "Valor de venta"
                             .Width = 75
                             .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -849,11 +977,31 @@ Public Class frmRepInventario
                     Dim vventa As Double = pventa * existe
                     vcompra = IIf(vcompra < 0, 0, vcompra)
                     vventa = IIf(vventa < 0, 0, vventa)
+
+                    Dim sumapedidos As Double = 0
+                    Dim diferencia As Double = 0
+
+                    cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT SUM(Cantidad) FROM pedidosvendet WHERE Codigo='" & codigo & "' GROUP BY Codigo"
+                    rd3 = cmd3.ExecuteReader
+                            If rd3.HasRows Then
+                                If rd3.Read Then
+                                    sumapedidos = IIf(rd3(0).ToString = "", 0, rd3(0).ToString)
+                                End If
+                            Else
+                                sumapedidos = "0"
+                            End If
+                            rd3.Close()
+                    cnn3.Close()
+
+                    diferencia = CDbl(existe) - CDbl(sumapedidos)
+
                     If (Libreria) Then
 
-                    Else
-                        If (Partes) Then
-                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+        Else
+            If (Partes) Then
+                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                         Else
                             If restaurante = 1 And copeo = 1 Then
                                 Dim existe_temp As Double = existe
@@ -882,9 +1030,9 @@ Public Class frmRepInventario
                                 End If
 
 
-                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             Else
-                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             End If
                         End If
                     End If
@@ -1002,42 +1150,68 @@ Public Class frmRepInventario
                     Dim pcompra As Double = IIf(rd1("PrecioCompra").ToString = "", 0, rd1("PrecioCompra").ToString)
                     Dim pventa As Double = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
                     Dim copas As Double = IIf(rd1("Copas").ToString() = 0, 1, rd1("Copas").ToString())
+                    Dim parte As String = IIf(rd1("N_Serie").ToString = "", "", rd1("N_Serie").ToString)
 
                     Dim vcompra As Double = pcompra * existe
                     Dim vventa As Double = pventa * existe
 
+                    Dim peidos As Double = 0
+                    Dim diferencia As Double = 0
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT SUM(Cantidad) FROM pedidosvendet WHERE Codigo='" & codigo & "' GROUP BY Codigo"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            peidos = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                        End If
+                    Else
+                        peidos = "0"
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+                    diferencia = CDbl(existe) - CDbl(peidos)
+
                     If (Libreria) Then
 
                     Else
-                        If restaurante = 1 And copeo = 1 Then
-                            Dim existe_temp As Double = existe
-                            Dim nueva_existe As Double = 0
-                            If copas > 1 Then
-
-                                Dim posicion As Integer = 0
-                                Dim entero As String = ""
-                                Dim decimaaal As String = ""
-
-                                Dim decimaal_db As Double = 0
-
-                                posicion = InStr(CStr(existe), ".")
-                                If posicion = 0 Then
-                                    nueva_existe = existe
-                                Else
-                                    entero = Mid(CStr(existe), 1, posicion - 1)
-                                    decimaaal = "0" & Mid(CStr(existe), posicion, 200)
-
-                                    decimaal_db = FormatNumber(CDbl(decimaaal) * copas, 0)
-                                    nueva_existe = entero & "." & decimaal_db
-                                End If
-                            Else
-                                nueva_existe = existe
-                            End If
-
-                            grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                        If (Partes) Then
+                            grdcaptura.Rows.Add(codigo, barras, parte, nombre, unidad, existe, peidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                         Else
-                            grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            If restaurante = 1 And copeo = 1 Then
+                                Dim existe_temp As Double = existe
+                                Dim nueva_existe As Double = 0
+                                If copas > 1 Then
+
+                                    Dim posicion As Integer = 0
+                                    Dim entero As String = ""
+                                    Dim decimaaal As String = ""
+
+                                    Dim decimaal_db As Double = 0
+
+                                    posicion = InStr(CStr(existe), ".")
+                                    If posicion = 0 Then
+                                        nueva_existe = existe
+                                    Else
+                                        entero = Mid(CStr(existe), 1, posicion - 1)
+                                        decimaaal = "0" & Mid(CStr(existe), posicion, 200)
+
+                                        decimaal_db = FormatNumber(CDbl(decimaaal) * copas, 0)
+                                        nueva_existe = entero & "." & decimaal_db
+                                    End If
+                                Else
+                                    nueva_existe = existe
+                                End If
+
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, peidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            Else
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, peidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            End If
                         End If
+
+
                     End If
                     ValCompra = ValCompra + vcompra
                     ValVenta = ValVenta + vventa

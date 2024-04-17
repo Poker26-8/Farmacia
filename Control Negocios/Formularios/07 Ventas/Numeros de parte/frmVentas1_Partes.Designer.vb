@@ -965,10 +965,11 @@ Partial Class frmVentas1_Partes
         '
         Me.btnpedido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnpedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnpedido.BackgroundImage = CType(resources.GetObject("btnpedido.BackgroundImage"), System.Drawing.Image)
         Me.btnpedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnpedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpedido.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpedido.Image = Global.Control_Negocios.My.Resources.Resources.pedidoRecurso_2
+        Me.btnpedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnpedido.Location = New System.Drawing.Point(727, 692)
         Me.btnpedido.Name = "btnpedido"
         Me.btnpedido.Size = New System.Drawing.Size(64, 76)
@@ -1516,7 +1517,6 @@ Partial Class frmVentas1_Partes
         Me.Button5.Text = "ABONO A VENTAS"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button5.UseVisualStyleBackColor = False
-        Me.Button5.Visible = False
         '
         'Label34
         '
@@ -2337,7 +2337,7 @@ Partial Class frmVentas1_Partes
         Me.MinimumSize = New System.Drawing.Size(1380, 779)
         Me.Name = "frmVentas1_Partes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Ventas (1)"
+        Me.Text = "Ventas Partes"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

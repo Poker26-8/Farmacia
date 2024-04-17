@@ -51,6 +51,7 @@ Public Class frmConsultaNotas
         txtmonto.Text = "0.00"
         dtpfecha.Value = Now
         grdpagos.Rows.Clear()
+        grdAbonos.Rows.Clear()
         lblNumCliente.Text = ""
         ' lblusuario.Text = ""
         'txtusuario.Text = ""
@@ -672,47 +673,76 @@ Public Class frmConsultaNotas
         If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder exportarlo a la pantalla de ventas.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
 
         Dim tipo_venta As String = ""
+        Dim partes As Integer = 0
+        Dim series As Integer = 0
 
         Try
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='Partes'"
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Partes'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    If rd1(0).ToString() = "1" Then
-                        rd1.Close()
-                        cnn1.Close()
-                        'Ventas con series
-                        tipo_venta = "Partes"
-                    Else
-                        rd1.Close()
-                        cnn1.Close()
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText =
-                            "select NotasCred from Formatos where Facturas='Desc_Ventas'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            If rd2.Read Then
-                                If rd2(0).ToString = "1" Then
-                                    rd2.Close() : cnn2.Close()
-
-                                    tipo_venta = "Descuentos"
-                                Else
-                                    rd2.Close() : cnn2.Close()
-                                    tipo_venta = "Normal"
-                                End If
-                            End If
-                        End If
-                        rd2.Close()
-                        cnn2.Close()
-                    End If
+                    partes = rd1(0).ToString
                 End If
             End If
-            rd1.Close() : cnn1.Close()
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Series'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    series = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If partes = 1 Then
+                tipo_venta = "frmVentas1_Partes"
+            ElseIf series = 1 Then
+                tipo_venta = "frmVentas_Series"
+            Else
+                tipo_venta = "frmVentas1"
+            End If
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText =
+            '    "select NotasCred from Formatos where Facturas='Partes'"
+            'rd1 = cmd1.ExecuteReader
+            'If rd1.HasRows Then
+            '    If rd1.Read Then
+            '        If rd1(0).ToString() = "1" Then
+            '            rd1.Close()
+            '            cnn1.Close()
+            '            'Ventas con series
+            '            tipo_venta = "Ventas Partes"
+            '        Else
+            '            rd1.Close()
+            '            cnn1.Close()
+            '            cnn2.Close() : cnn2.Open()
+            '            cmd2 = cnn2.CreateCommand
+            '            cmd2.CommandText =
+            '                "select NotasCred from Formatos where Facturas='Desc_Ventas'"
+            '            rd2 = cmd2.ExecuteReader
+            '            If rd2.HasRows Then
+            '                If rd2.Read Then
+            '                    If rd2(0).ToString = "1" Then
+            '                        rd2.Close() : cnn2.Close()
+
+            '                        tipo_venta = "Descuentos"
+            '                    Else
+            '                        rd2.Close() : cnn2.Close()
+            '                        tipo_venta = "Normal"
+            '                    End If
+            '                End If
+            '            End If
+            '            rd2.Close()
+            '            cnn2.Close()
+            '        End If
+            '    End If
+            'End If
+            'rd1.Close() : cnn1.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -722,135 +752,146 @@ Public Class frmConsultaNotas
 
         If VieneDe_Folios = "" Then VieneDe_Folios = "frmVentas1"
 
+        'If tipo_venta = "frmVentas1" Then
         'Ventas1
         If VieneDe_Folios = "frmVentas1" Then
-            With frmVentas1
-                .Show()
+                With frmVentas1
+                    .Show()
 
-                .btnnuevo.PerformClick()
-                cnn1.Close() : cnn1.Open()
-                For ctm As Integer = 0 To grdcaptura.Rows.Count - 1
-                    VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value.ToString()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                         "select * from Productos where Codigo='" & grdcaptura.Rows(ctm).Cells(0).Value.ToString() & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If grdcaptura.Rows.Count < 0 Then
-                        MsgBox("Hay productos que ya fueron dados de baja.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        Exit Sub
-                    End If
-                    If Not rd1.HasRows And grdcaptura.Rows.Count > 1 Then
-                        grdcaptura.Rows.Remove(grdcaptura.Rows(ctm))
-                    End If
-                    rd1.Close()
-                Next
-                cnn1.Close()
-
-                Dim VarMul As Integer = 0
-                Dim VarCode As String = ""
-                Dim VarConeto As Double = 0
-                Dim existencia As Double = 0
-                Dim descuentoiva As Double = 0
-                Dim total1 As Double = 0
-
-                .grdcaptura.Rows.Clear()
-                .cboNombre.Text = cbonombre.Text
-                .cboNombre_KeyPress(.cboNombre, New KeyPressEventArgs(ChrW(Keys.Enter)))
-                .txtdireccion.Text = txtdireccion.Text
-
-                cnn1.Close() : cnn1.Open()
-                For degm As Integer = 0 To grdcaptura.Rows.Count - 1
-                    .grdcaptura.Rows.Add()
-                    'Codigo
-                    .grdcaptura(0, degm).Value = grdcaptura(0, degm).Value.ToString()
-                    VarCode = grdcaptura(0, degm).Value.ToString()
-                    'Nombre
-                    .grdcaptura(1, degm).Value = grdcaptura(1, degm).Value.ToString()
-                    'Unidad
-                    .grdcaptura(2, degm).Value = grdcaptura(2, degm).Value.ToString()
-                    'Cantidad
-                    .grdcaptura(3, degm).Value = grdcaptura(3, degm).Value.ToString()
-                    VarConeto = VarConeto + CDbl(grdcaptura(3, degm).Value.ToString())
-                    'Precio
-                    .grdcaptura(4, degm).Value = FormatNumber(grdcaptura(4, degm).Value.ToString(), 4)
-                    'Total
-                    .grdcaptura(5, degm).Value = FormatNumber(grdcaptura(5, degm).Value.ToString(), 4)
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                         "select * from Productos where Codigo='" & VarCode & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            VarMul = rd1("Multiplo").ToString()
+                    .btnnuevo.PerformClick()
+                    cnn1.Close() : cnn1.Open()
+                    For ctm As Integer = 0 To grdcaptura.Rows.Count - 1
+                        VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value.ToString()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                             "select * from Productos where Codigo='" & grdcaptura.Rows(ctm).Cells(0).Value.ToString() & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If grdcaptura.Rows.Count < 0 Then
+                            MsgBox("Hay productos que ya fueron dados de baja.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            Exit Sub
                         End If
-                    End If
-                    rd1.Close()
+                        If Not rd1.HasRows And grdcaptura.Rows.Count > 1 Then
+                            grdcaptura.Rows.Remove(grdcaptura.Rows(ctm))
+                        End If
+                        rd1.Close()
+                    Next
+                    cnn1.Close()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                         "select * from Productos where Codigo='" & Strings.Left(VarCode, 6) & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            If rd1("Existencia").ToString() = 0 Then
-                                .grdcaptura(6, degm).Value = 0
-                            Else
-                                .grdcaptura(6, degm).Value = CDbl(rd1("Existencia").ToString()) / VarMul
+                    Dim VarMul As Integer = 0
+                    Dim VarCode As String = ""
+                    Dim VarConeto As Double = 0
+                    Dim existencia As Double = 0
+                    Dim descuentoiva As Double = 0
+                    Dim total1 As Double = 0
+
+                    .grdcaptura.Rows.Clear()
+                    .cboNombre.Text = cbonombre.Text
+                    .cboNombre_KeyPress(.cboNombre, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    .txtdireccion.Text = txtdireccion.Text
+
+                    cnn1.Close() : cnn1.Open()
+                    For degm As Integer = 0 To grdcaptura.Rows.Count - 1
+                        .grdcaptura.Rows.Add()
+                        'Codigo
+                        .grdcaptura(0, degm).Value = grdcaptura(0, degm).Value.ToString()
+                        VarCode = grdcaptura(0, degm).Value.ToString()
+                        'Nombre
+                        .grdcaptura(1, degm).Value = grdcaptura(1, degm).Value.ToString()
+                        'Unidad
+                        .grdcaptura(2, degm).Value = grdcaptura(2, degm).Value.ToString()
+                        'Cantidad
+                        .grdcaptura(3, degm).Value = grdcaptura(3, degm).Value.ToString()
+                        VarConeto = VarConeto + CDbl(grdcaptura(3, degm).Value.ToString())
+                        'Precio
+                        .grdcaptura(4, degm).Value = FormatNumber(grdcaptura(4, degm).Value.ToString(), 4)
+                        'Total
+                        .grdcaptura(5, degm).Value = FormatNumber(grdcaptura(5, degm).Value.ToString(), 4)
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                             "select * from Productos where Codigo='" & VarCode & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                VarMul = rd1("Multiplo").ToString()
                             End If
                         End If
-                    End If
-                    rd1.Close()
-                    'Lote
-                    '.grdcaptura(7, degm).Value = 0
-                    .grdcaptura(7, degm).Value = 0
-                    .grdcaptura(8, degm).Value = ""
-                    .grdcaptura(9, degm).Value = ""
-                    'IVAS
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                         "select IVA from Productos where Codigo='" & VarCode & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            If rd1(0).ToString() = 0 Then
-                                descuentoiva = grdcaptura(5, degm).Value.ToString()
-                                total1 = 0
-                            Else
-                                descuentoiva = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
-                                total1 = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
+                        rd1.Close()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                             "select * from Productos where Codigo='" & Strings.Left(VarCode, 6) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                If rd1("Existencia").ToString() = 0 Then
+                                    .grdcaptura(6, degm).Value = 0
+                                Else
+                                    .grdcaptura(6, degm).Value = CDbl(rd1("Existencia").ToString()) / VarMul
+                                End If
                             End If
                         End If
-                    Else
-                        descuentoiva = grdcaptura(5, degm).Value.ToString()
-                        total1 = 0
+                        rd1.Close()
+                        'Lote
+                        '.grdcaptura(7, degm).Value = 0
+                        .grdcaptura(7, degm).Value = 0
+                        .grdcaptura(8, degm).Value = ""
+                        .grdcaptura(9, degm).Value = ""
+                        'IVAS
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                             "select IVA from Productos where Codigo='" & VarCode & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                If rd1(0).ToString() = 0 Then
+                                    descuentoiva = grdcaptura(5, degm).Value.ToString()
+                                    total1 = 0
+                                Else
+                                    descuentoiva = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
+                                    total1 = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
+                                End If
+                            End If
+                        Else
+                            descuentoiva = grdcaptura(5, degm).Value.ToString()
+                            total1 = 0
+                        End If
+                        rd1.Close()
+                        .grdcaptura(10, degm).Value = 0
+                        .grdcaptura(11, degm).Value = 0
+                        .grdcaptura(12, degm).Value = descuentoiva
+                        .grdcaptura(13, degm).Value = total1
+                        .grdcaptura(14, degm).Value = 0
+                    Next
+                    cnn1.Close()
+
+                    .txtSubTotal.Text = FormatNumber(txtsubtotal.Text, 2)
+                    .txtdescuento2.Text = FormatNumber(txtdescuento.Text, 2)
+                    .txtdescuento1.Text = FormatNumber(((CDbl(txtdescuento.Text) * 100) / CDbl(txtsubtotal.Text)), 2)
+                    .txtPagar.Text = FormatNumber(txttotal.Text, 2)
+                    .txtResta.Text = FormatNumber(txttotal.Text)
+
+                    .txtcotped.Text = ""
+                    If (optcotiz.Checked) Then
+                        .txtcotped.Text = cbofolio.Text
                     End If
-                    rd1.Close()
-                    .grdcaptura(10, degm).Value = 0
-                    .grdcaptura(11, degm).Value = 0
-                    .grdcaptura(12, degm).Value = descuentoiva
-                    .grdcaptura(13, degm).Value = total1
-                    .grdcaptura(14, degm).Value = 0
-                Next
-                cnn1.Close()
 
-                .txtSubTotal.Text = FormatNumber(txtsubtotal.Text, 2)
-                .txtdescuento2.Text = FormatNumber(txtdescuento.Text, 2)
-                .txtdescuento1.Text = FormatNumber(((CDbl(txtdescuento.Text) * 100) / CDbl(txtsubtotal.Text)), 2)
-                .txtPagar.Text = FormatNumber(txttotal.Text, 2)
-                .txtResta.Text = FormatNumber(txttotal.Text)
+                    .lblpedido.Text = ""
+                    If (optPedidos.Checked) Then
+                        .lblpedido.Text = cbofolio.Text
+                    End If
 
-                .txtcotped.Text = ""
-                If (optcotiz.Checked) Then
-                    .txtcotped.Text = cbofolio.Text
-                End If
+                End With
+            End If
+        'End If
 
-                .lblpedido.Text = ""
-                If (optPedidos.Checked) Then
-                    .lblpedido.Text = cbofolio.Text
-                End If
+        'If tipo_venta = "frmVentas1_Partes" Then
+        'If VieneDe_Folios = "frmVentas1_Partes" Then
+        'With frmVentas1_Partes
+        '            .Show()
+        '        End With
 
-            End With
-        End If
+        'End If
+        'End If
 
         'Ventas 2
         'If VieneDe_Folios = "frmVentas2" Then
@@ -1584,7 +1625,7 @@ Public Class frmConsultaNotas
     End Sub
 
     Private Sub btnAbono_Click(sender As System.Object, e As System.EventArgs) Handles btnAbono.Click
-        If Not (optcobrar.Checked) Then MsgBox("No puedes abonar una nota que ya fue pagado o cancelada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
+        If Not (optcobrar.Checked) And Not (optPedidos.Checked) Then MsgBox("No puedes abonar una nota que ya fue pagado o cancelada.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
         If cbofolio.Text = "" Then MsgBox("Selecciona un folio para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
         If cbonombre.Text = "" Then MsgBox("Falta el nombre del cliente de la venta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbonombre.Focus().Equals(True) : Exit Sub
         If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Exit Sub
@@ -1632,12 +1673,18 @@ Public Class frmConsultaNotas
         End Try
 
         Try
-            cnn1.Close() : cnn1.Open()
 
             'Nota de venta pagada
+            cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select * from Ventas where Folio=" & cbofolio.Text & " and Status='PAGADO' and Cliente='" & cbonombre.Text & "'"
+
+            If (optPedidos.Checked) Then
+                cmd1.CommandText =
+                "select * from pedidosven where Folio=" & cbofolio.Text & " and Status='PAGADO' and Cliente='" & cbonombre.Text & "'"
+            Else
+                cmd1.CommandText =
+                "select * from Ventas where Folio=" & cbofolio.Text & " and Status='PAGADO' and Cliente='" & cbonombre.Text & "'"
+            End If
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1651,8 +1698,13 @@ Public Class frmConsultaNotas
 
             'Nota de venta cancelada
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select * from Ventas where Folio=" & cbofolio.Text & " and Status='CANCELADA' and Cliente='" & cbonombre.Text & "'"
+            If (optPedidos.Checked) Then
+                cmd1.CommandText =
+               "SELECT * from pedidosven where Folio=" & cbofolio.Text & " and Status='CANCELADA' and Cliente='" & cbonombre.Text & "'"
+            Else
+                cmd1.CommandText =
+               "select * from Ventas where Folio=" & cbofolio.Text & " and Status='CANCELADA' and Cliente='" & cbonombre.Text & "'"
+            End If
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1666,8 +1718,14 @@ Public Class frmConsultaNotas
 
             'Nota inexistente
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select * from Ventas where Folio=" & cbofolio.Text & " and Cliente='" & cbonombre.Text & "'"
+            If (optPedidos.Checked) Then
+                cmd1.CommandText =
+                "SELECT * FROM pedidosven WHERE Folio=" & cbofolio.Text & " AND Cliente='" & cbonombre.Text & "'"
+            Else
+                cmd1.CommandText =
+                "select * from Ventas where Folio=" & cbofolio.Text & " and Cliente='" & cbonombre.Text & "'"
+            End If
+
             rd1 = cmd1.ExecuteReader
             If Not rd1.HasRows Then
                 MsgBox("La nota de venta " & cbofolio.Text & " no existe.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -1699,10 +1757,16 @@ Public Class frmConsultaNotas
 
         Try
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select Resta, ACuenta, Descuento from Ventas where Folio=" & cbofolio.Text
+
+            If (optPedidos.Checked) Then
+                cmd1.CommandText =
+                "select Resta, ACuenta, Descuento from pedidosven where Folio=" & cbofolio.Text
+            Else
+                cmd1.CommandText =
+                "select Resta, ACuenta, Descuento from Ventas where Folio=" & cbofolio.Text
+            End If
+
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Dim n_resta As Double = 0
@@ -1720,12 +1784,16 @@ Public Class frmConsultaNotas
 
                         'El pago es menor al restante
                         cnn2.Close() : cnn2.Open()
-
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText =
-                             "update Ventas set Resta=" & n_resta & ", ACuenta=" & n_acuenta & ", Descuento=" & n_descu & " where Folio=" & cbofolio.Text
-                        cmd2.ExecuteNonQuery()
 
+                        If optPedidos.Checked Then
+                            cmd2.CommandText =
+                             "UPDATE pedidosven SET Resta=" & n_resta & ", ACuenta=" & n_acuenta & ", Descuento=" & n_descu & " WHERE Folio=" & cbofolio.Text
+                        Else
+                            cmd2.CommandText =
+                             "update Ventas set Resta=" & n_resta & ", ACuenta=" & n_acuenta & ", Descuento=" & n_descu & " where Folio=" & cbofolio.Text
+                        End If
+                        cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     Else
                         'El pago cubre el restante
@@ -1733,12 +1801,15 @@ Public Class frmConsultaNotas
                         descuentos = descuentos + n_descu
                         'El pago es menor al restante
                         cnn2.Close() : cnn2.Open()
-
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText =
-                         "update Ventas set Resta=0, ACuenta=" & n_acuenta & ",Descuento=" & n_descu & ", Status='PAGADO' where Folio=" & cbofolio.Text
+                        If optPedidos.Checked Then
+                            cmd2.CommandText =
+                        "UPDATE pedidosven set Resta=0, ACuenta=" & n_acuenta & ",Descuento=" & n_descu & ", Status='PAGADO' WHERE Folio=" & cbofolio.Text
+                        Else
+                            cmd2.CommandText =
+                        "update Ventas set Resta=0, ACuenta=" & n_acuenta & ",Descuento=" & n_descu & ", Status='PAGADO' where Folio=" & cbofolio.Text
+                        End If
                         cmd2.ExecuteNonQuery()
-
                         cnn2.Close()
                     End If
                 End If
@@ -1978,7 +2049,7 @@ Public Class frmConsultaNotas
 
         Borra()
         otropago()
-    End Sub
+        End Sub
 
     Private Sub pAbono80_PrintPage(sender As System.Object, e As System.Drawing.Printing.PrintPageEventArgs) Handles pAbono80.PrintPage
         'Fuentes prederminadas
@@ -6560,12 +6631,12 @@ doorcita:
             End Try
 
             btnCopia.Visible = True
-            btnAbono.Visible = False
+            btnAbono.Visible = True
             btnCancela.Visible = False
             btnVentas.Visible = True
             lblNumCliente.Text = "MOSTRADOR"
-            boxpagos.Enabled = False
-            txtefectivo.Enabled = False
+            boxpagos.Enabled = True
+            txtefectivo.Enabled = True
             txtefectivo.Text = "0.00"
         End If
     End Sub

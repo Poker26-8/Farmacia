@@ -13343,12 +13343,25 @@ ecomoda:
                 Dim MyDescuento As Double = 0
                 Dim MyPorcDesc As Double = 0
 
+                Dim ACuenta As Double = 0
+                Dim MyEfectivo As Double = 0
+                Dim MySaldo As Double = 0
+
+                Dim FormaPago As String = ""
+                Dim TotFormaPago As Double = 0
+                Dim BancoFP As String = ""
+                Dim ReferenciaFP As String = ""
+                Dim CmentarioFP As String = ""
+                Dim cuentac As String = ""
+                Dim brecepcion As String = ""
+                Dim TotSaldo As Double = 0
+
                 MyPago = CDbl(txtefectivo.Text) + CDbl(txtMontoP.Text)
                 MyResta = CDbl(txtResta.Text)
                 MyDescuento = CDbl(txtdescuento2.Text)
                 MyPorcDesc = CDbl(txtdescuento1.Text)
                 MyTotVenta = CDbl(txtPagar.Text)
-
+                MyEfectivo = CDbl(txtefectivo.Text)
                 If sumadeivas > 0 Then
                     MySubtotal = CDbl(MyTotVenta) - CDbl(sumadeivas)
                 Else
@@ -13380,7 +13393,93 @@ ecomoda:
                 rd2.Close()
                 cnn2.Close()
 
-                cnn1.Close() : cnn1.Open()
+                If lblNumCliente.Text <> "MOSTRADOR" Then
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtPagar.Text)
+                        End If
+                    Else
+                        MySaldo = MyTotVenta
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','PEDIDO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyTotVenta & ",0," & MySaldo & ",'',0,'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,'',0)"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
+                End If
+
+                ACuenta = FormatNumber((CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 4)
+
+                If ACuenta > 0 Then
+                    If lblNumCliente.Text <> "MOSTRADOR" Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString - ACuenta), 4)
+                            End If
+                        Else
+                            MySaldo = FormatNumber(txtPagar.Text, 4)
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+                    Else
+                        MySaldo = 0
+                    End If
+
+                    If MyEfectivo > 0 Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyEfectivo & "," & MySaldo & ",'EFECTIVO'," & MyEfectivo & ",'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,''," & MyDescuento & ")"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+                    End If
+
+                    If grdpago.Rows.Count > 0 Then
+                        For R As Integer = 0 To grdpago.Rows.Count - 1
+
+                            FormaPago = grdpago.Rows(R).Cells(0).Value.ToString()
+                            If CStr(grdpago.Rows(R).Cells(0).Value.ToString()) = FormaPago Then
+                                TotFormaPago = CDbl(grdpago.Rows(R).Cells(3).Value.ToString())
+                                BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
+                                ReferenciaFP = grdpago.Rows(R).Cells(2).Value.ToString()
+                                CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
+                                cuentac = grdpago.Rows(R).Cells(6).Value.ToString()
+                                brecepcion = grdpago.Rows(R).Cells(7).Value.ToString()
+                            End If
+
+
+                            If FormaPago = "SALDO FAVOR" Then
+                                If TotFormaPago > 0 Then
+                                    TotSaldo = TotFormaPago
+                                End If
+
+                            End If
+
+                            If TotFormaPago > 0 Then
+                                cnn1.Close() : cnn1.Open()
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & MySaldo & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "',0,0,0,0,0,'','" & CmentarioFP & "','" & cuentac & "','" & brecepcion & "',0,0,''," & MyDescuento & ")"
+                                cmd1.ExecuteNonQuery()
+                                cnn1.Close()
+                            End If
+
+                        Next
+                    End If
+
+                End If
+
+                    cnn1.Close() : cnn1.Open()
                 For monkey As Integer = 0 To grdcaptura.Rows.Count - 1
                     If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then GoTo rayos
 
@@ -14199,5 +14298,11 @@ doorcita:
         End Try
     End Sub
 
+    Private Sub btnRetiroCaja_Click(sender As Object, e As EventArgs) Handles btnRetiroCaja.Click
 
+    End Sub
+
+    Private Sub btnGeneraSaldo_Click(sender As Object, e As EventArgs) Handles btnGeneraSaldo.Click
+
+    End Sub
 End Class
