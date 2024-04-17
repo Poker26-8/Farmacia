@@ -2819,14 +2819,6 @@ Public Class Inicio
                         P.R_Inventario = False
                         Inv += 1
                     End If
-                    If rd5("Rep_Aju").ToString = True Then
-                        pAjuste.Enabled = True
-                        P.R_Ajuste = True
-                    Else
-                        pAjuste.Enabled = False
-                        P.R_Ajuste = False
-                        Inv += 1
-                    End If
                     If Inv = 2 Then
                         pRepInventario.Enabled = False
                         Repo += 1

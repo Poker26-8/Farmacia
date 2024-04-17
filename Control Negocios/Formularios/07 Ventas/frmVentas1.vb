@@ -3560,12 +3560,14 @@ kaka:
                 cnn1.Close()
 
                 If VSE = True Then
-                    Dim canti As Double = txtcantidad.Text
-                    Dim exis As Double = txtexistencia.Text
-                    If canti > exis Then
-                        MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
-                        txtcantidad.Focus.Equals(True)
-                        Exit Sub
+                    If txtunidad.Text <> "N/A" Then
+                        Dim canti As Double = txtcantidad.Text
+                        Dim exis As Double = txtexistencia.Text
+                        If canti > exis Then
+                            MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom COntrol Negocios PRO")
+                            txtcantidad.Focus.Equals(True)
+                            Exit Sub
+                        End If
                     End If
                 End If
 
@@ -3811,12 +3813,14 @@ kaka:
             cnn1.Close()
 
             If VSE = True Then
-                Dim canti As Double = txtcantidad.Text
-                Dim exis As Double = txtexistencia.Text
-                If canti > exis Then
-                    MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
-                    txtcantidad.Focus.Equals(True)
-                    Exit Sub
+                If txtunidad.Text <> "N/A" Then
+                    Dim canti As Double = txtcantidad.Text
+                    Dim exis As Double = txtexistencia.Text
+                    If canti > exis Then
+                        MsgBox("No puedes vender una cantidad mayor a las existencias registradas", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
+                        txtcantidad.Focus.Equals(True)
+                        Exit Sub
+                    End If
                 End If
             End If
 
@@ -3882,10 +3886,12 @@ kaka:
 
                             If TExiste < 0 And btndevo.Text = "DEVOLUCIÓN" Then
                                 If Me.Text = "Ventas(1)" Then
-                                    MsgBox("No puedes vender sin existencia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                                    txtcantidad.Focus().Equals(True)
-                                    rd1.Close() : cnn1.Close()
-                                    Exit Sub
+                                    If txtunidad.Text <> "N/A" Then
+                                        MsgBox("No puedes vender sin existencia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                                        txtcantidad.Focus().Equals(True)
+                                        rd1.Close() : cnn1.Close()
+                                        Exit Sub
+                                    End If
                                 Else
                                     If editap = False And AscW(e.KeyChar) <> 13 Then e.KeyChar = Nothing
                                     If AscW(e.KeyChar) = Keys.Enter Then
@@ -4068,7 +4074,7 @@ kaka:
                                         Exit Sub
                                     End If
                                 End If
-                                End If
+                            End If
                         End If
                     End If
                 End If
