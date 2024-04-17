@@ -171,6 +171,86 @@ Public Class frmPagarComanda
     Private Sub cboMesa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMesa.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            Try
+                grdCaptura.Rows.Clear()
+                txtPorcentaje.Text = "0"
+                txtefecporcentaje.Text = "0.00"
+                totalventa = 0
+
+                btnCambio.Enabled = True
+                btnCancelar.Enabled = True
+                btnCortesia.Enabled = True
+                btnPrecuenta.Enabled = True
+
+                Dim propina As Double = 0
+                Dim porcepropina As Double = 0
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Propina'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        propina = rd2(0).ToString
+                    End If
+                End If
+                rd2.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Usuario FROM comanda1 WHERE Nombre='" & cboMesa.Text & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        lblMesero.Text = rd2(0).ToString
+                    End If
+                End If
+                rd2.Close()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
+                rd2 = cmd2.ExecuteReader
+                Do While rd2.Read
+                    If rd2.HasRows Then
+
+                        Dim codigo As String = rd2("Codigo").ToString
+                        Dim nombre As String = rd2("Nombre").ToString
+                        Dim unidad As String = rd2("UVenta").ToString
+                        Dim cantidad As Double = rd2("Cantidad").ToString
+                        Dim precio As Double = rd2("Precio").ToString
+                        Dim total As Double = rd2("Total").ToString
+                        Dim comensal As String = rd2("Comensal").ToString
+                        Dim comanda As Integer = rd2("Id").ToString
+
+                        grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda)
+
+                        totalventa = totalventa + CDbl(total)
+
+                    End If
+                Loop
+                rd2.Close()
+                cnn2.Close()
+
+                If propina > 0 Then
+                    lblSubtotal.Text = FormatNumber(totalventa, 2)
+                    porcepropina = CDbl(totalventa) * (propina / 100)
+                    txtPropina.Text = FormatNumber(porcepropina, 2)
+                    lbltotalventa.Text = FormatNumber(CDbl(totalventa) + CDbl(txtPropina.Text), 2)
+                    txtResta.Text = FormatNumber(lbltotalventa.Text, 2)
+                Else
+                    lblSubtotal.Text = FormatNumber(totalventa, 2)
+                    lbltotalventa.Text = FormatNumber(totalventa, 2)
+                    txtResta.Text = lbltotalventa.Text
+                End If
+                cboComanda.Text = ""
+                cboComensal.Text = ""
+                txtEfectivo.Focus.Equals(True)
+                totalventa = 0
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn2.Close()
+            End Try
+
             cboComanda.Focus.Equals(True)
         End If
     End Sub
@@ -1043,7 +1123,7 @@ Public Class frmPagarComanda
                     PPrecuenta58.Print()
                 End If
             End If
-
+            Me.BringToFront()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()

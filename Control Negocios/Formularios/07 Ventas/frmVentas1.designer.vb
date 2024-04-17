@@ -2536,7 +2536,7 @@ Partial Class frmVentas1
         Me.Panel2.Controls.Add(Me.txtNombreClave)
         Me.Panel2.Location = New System.Drawing.Point(96, 37)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(468, 65)
+        Me.Panel2.Size = New System.Drawing.Size(468, 69)
         Me.Panel2.TabIndex = 212
         Me.Panel2.Visible = False
         '

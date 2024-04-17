@@ -3,6 +3,7 @@
         Try
 
             Dim TIPOCOBRO As String = ""
+            Dim cobroexacto As Integer = 0
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -27,6 +28,22 @@
             If rd2.HasRows Then
                 If rd2.Read Then
                     txtPorcentage.Text = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='CobroExacto'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cobroexacto = rd2(0).ToString
+                    If cobroexacto = 1 Then
+                        cbCobroExacto.Checked = True
+                    Else
+                        cbCobroExacto.Checked = False
+                    End If
+
                 End If
             End If
             rd2.Close()
@@ -662,7 +679,8 @@
                 cnn1.Close()
             End If
         Catch ex As Exception
-
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 
@@ -777,6 +795,7 @@
     End Sub
 
     Private Sub cboMesa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMesa.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cboUbicacion.Focus.Equals(True)
         End If
@@ -911,7 +930,7 @@
                 cmd2.ExecuteNonQuery()
 
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO mesasxempelados(Mesa,IdEmpleado,Grupo,Temporal) VALUES('" & cboMesa.Text & "',0,''.0)"
+                cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal) VALUES('" & cboMesa.Text & "',0,'',0)"
                 If cmd2.ExecuteNonQuery() Then
                     MsgBox("Mesa agregada correctamente", vbInformation + vbOKOnly, titulorestaurante)
                 End If
@@ -920,7 +939,7 @@
             rd1.Close()
             cnn1.Close()
 
-            btnnuevo.PerformClick()
+            btnNM.PerformClick()
             frmMesas.btnLimpiar.PerformClick()
             cboMesa.Focus.Equals(True)
 
@@ -961,5 +980,42 @@
 
         End If
 
+    End Sub
+
+    Private Sub cbCobroExacto_CheckedChanged(sender As Object, e As EventArgs) Handles cbCobroExacto.CheckedChanged
+        Try
+            Dim cobro As Integer = 0
+
+            If (cbCobroExacto.Checked) Then
+                cobro = 1
+            Else
+                cobro = 0
+            End If
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Facturas FROM Formatos WHERE Facturas='CobroExacto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "UPDATE Formatos SET NotasCred='" & cobro & "' WHERE Facturas='CobroExacto'"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+                End If
+            Else
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "INSERT INTO Formatos(Facturas,NotasCred,NumPart) VALUES('CobroExacto','" & cobro & "','0')"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

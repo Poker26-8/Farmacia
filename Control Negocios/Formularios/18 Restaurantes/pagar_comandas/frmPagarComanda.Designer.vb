@@ -24,7 +24,7 @@ Partial Class frmPagarComanda
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarComanda))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.psuperior = New System.Windows.Forms.Panel()
@@ -296,7 +296,7 @@ Partial Class frmPagarComanda
         Me.cbocliente.FormattingEnabled = True
         Me.cbocliente.Location = New System.Drawing.Point(70, 6)
         Me.cbocliente.Name = "cbocliente"
-        Me.cbocliente.Size = New System.Drawing.Size(284, 21)
+        Me.cbocliente.Size = New System.Drawing.Size(300, 21)
         Me.cbocliente.TabIndex = 6
         '
         'Label19
@@ -323,9 +323,10 @@ Partial Class frmPagarComanda
         '
         'txtContra
         '
-        Me.txtContra.Location = New System.Drawing.Point(245, 9)
+        Me.txtContra.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContra.Location = New System.Drawing.Point(248, 6)
         Me.txtContra.Name = "txtContra"
-        Me.txtContra.Size = New System.Drawing.Size(109, 20)
+        Me.txtContra.Size = New System.Drawing.Size(122, 24)
         Me.txtContra.TabIndex = 10
         Me.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtContra.UseSystemPasswordChar = True
@@ -376,9 +377,9 @@ Partial Class frmPagarComanda
         Me.btnCancM.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnCancM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancM.Location = New System.Drawing.Point(279, 6)
+        Me.btnCancM.Location = New System.Drawing.Point(291, 6)
         Me.btnCancM.Name = "btnCancM"
-        Me.btnCancM.Size = New System.Drawing.Size(75, 27)
+        Me.btnCancM.Size = New System.Drawing.Size(79, 27)
         Me.btnCancM.TabIndex = 8
         Me.btnCancM.Text = "Cancelar"
         Me.btnCancM.UseVisualStyleBackColor = False
@@ -390,7 +391,7 @@ Partial Class frmPagarComanda
         Me.btnAceptarM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptarM.Location = New System.Drawing.Point(193, 6)
         Me.btnAceptarM.Name = "btnAceptarM"
-        Me.btnAceptarM.Size = New System.Drawing.Size(80, 27)
+        Me.btnAceptarM.Size = New System.Drawing.Size(92, 27)
         Me.btnAceptarM.TabIndex = 7
         Me.btnAceptarM.Text = "Aceptar"
         Me.btnAceptarM.UseVisualStyleBackColor = False
@@ -671,7 +672,7 @@ Partial Class frmPagarComanda
         Me.Panel6.Controls.Add(Me.cboforma)
         Me.Panel6.Controls.Add(Me.Label27)
         Me.Panel6.Controls.Add(Me.grdPagos)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(398, 181)
@@ -1055,14 +1056,14 @@ Partial Class frmPagarComanda
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill

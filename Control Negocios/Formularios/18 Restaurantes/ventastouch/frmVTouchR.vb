@@ -762,6 +762,7 @@ respuesta, "")
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
         Try
             Dim id As Integer = 0
+            Dim exacto As Integer = 0
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -778,11 +779,37 @@ respuesta, "")
                         If rd2.Read Then
                             If rd2(0).ToString = 1 Then
                                 If frmPagarTouch.Visible = False Then
-                                    frmPagarTouch.Show(Me)
-                                    frmPagarTouch.txtEfectivo.Focus.Equals(True)
-                                    frmPagarTouch.focomapeo = 1
-                                    frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
-                                    frmPagarTouch.lblfolio.Text = lblfolio.Text
+
+                                    cnn1.Close() : cnn1.Open()
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroExacto'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            exacto = rd1(0).ToString
+
+                                            If exacto = 1 Then
+                                                frmPagarTouch.Show(Me)
+                                                frmPagarTouch.txtEfectivo.Focus.Equals(True)
+                                                frmPagarTouch.focomapeo = 1
+                                                frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                                frmPagarTouch.lblfolio.Text = lblfolio.Text
+                                                frmPagarTouch.txtEfectivo.Text = frmPagarTouch.txtTotal.Text
+                                                frmPagarTouch.btnIntro.Focus.Equals(True)
+                                            Else
+                                                frmPagarTouch.Show(Me)
+                                                frmPagarTouch.txtEfectivo.Focus.Equals(True)
+                                                frmPagarTouch.focomapeo = 1
+                                                frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                                frmPagarTouch.lblfolio.Text = lblfolio.Text
+                                            End If
+
+                                        End If
+                                    End If
+                                    rd1.Close()
+                                    cnn1.Close()
+
+
                                 End If
                             Else
                                 MsgBox("EL usuario no cuenta con el permiso para cerrar las cuentas", vbInformation + vbOKOnly, titulomensajes)

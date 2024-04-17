@@ -48,6 +48,7 @@ Partial Class frmPermisosRestaurant
         Me.txtPorcentage = New System.Windows.Forms.TextBox()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbCobroExacto = New System.Windows.Forms.CheckBox()
         Me.cbCopas = New System.Windows.Forms.CheckBox()
         Me.cbMesasPropias = New System.Windows.Forms.CheckBox()
         Me.cbmesas = New System.Windows.Forms.CheckBox()
@@ -355,6 +356,7 @@ Partial Class frmPermisosRestaurant
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.cbCobroExacto)
         Me.Panel2.Controls.Add(Me.cbCopas)
         Me.Panel2.Controls.Add(Me.cbMesasPropias)
         Me.Panel2.Controls.Add(Me.cbmesas)
@@ -368,8 +370,18 @@ Partial Class frmPermisosRestaurant
         Me.Panel2.Controls.Add(Me.cbPrecuentas)
         Me.Panel2.Location = New System.Drawing.Point(12, 106)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(165, 301)
+        Me.Panel2.Size = New System.Drawing.Size(165, 345)
         Me.Panel2.TabIndex = 240
+        '
+        'cbCobroExacto
+        '
+        Me.cbCobroExacto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCobroExacto.Location = New System.Drawing.Point(9, 300)
+        Me.cbCobroExacto.Name = "cbCobroExacto"
+        Me.cbCobroExacto.Size = New System.Drawing.Size(150, 40)
+        Me.cbCobroExacto.TabIndex = 242
+        Me.cbCobroExacto.Text = "Cobro Exacto Efectivo Ventas Mostrador"
+        Me.cbCobroExacto.UseVisualStyleBackColor = True
         '
         'cbCopas
         '
@@ -772,7 +784,7 @@ Partial Class frmPermisosRestaurant
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(847, 412)
+        Me.ClientSize = New System.Drawing.Size(847, 462)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblusuario)
@@ -878,4 +890,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents btnGM As Button
     Friend WithEvents btnNM As Button
     Friend WithEvents cbTiempo As CheckBox
+    Friend WithEvents cbCobroExacto As CheckBox
 End Class

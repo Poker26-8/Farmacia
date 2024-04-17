@@ -798,6 +798,7 @@ Public Class frmPagar
         End If
 
         Dim Subtotales1 As Double = 0
+        Dim SubtotalVenta As Double = 0
         Dim totcomi As Double = 0
         Dim CODIGO As String = ""
         Dim CANTI As Double = 0
@@ -811,8 +812,9 @@ Public Class frmPagar
 
         Cuenta = FormatNumber(Cuenta, 2)
         Subtotales1 = FormatNumber(txtSubtotalmapeo.Text / 1.16, 2)
-        Subtotales1 = CDec(Subtotales1)
 
+        Dim ivaproducto As Double = 0
+        Dim restaiva As Double = 0
 
         For zi As Integer = 0 To grdcomanda.Rows.Count - 1
 
@@ -826,11 +828,14 @@ Public Class frmPagar
             If rd2.HasRows Then
                 If rd2.Read Then
                     totcomi = totcomi + CDec(CDec(CANTI) * CDec(rd2("Comision").ToString))
-                    If rd2("IVA").ToString = 0 Then
-                    Else
-                        Tiva = CDec(Tiva) + (CANTI * CDec(CDec((CDec(rd2("PrecioVentaIVA").ToString / (1 + rd2("IVA").ToString)) * 0.16))))
+                    If rd2("IVA").ToString > 0 Then
+                        Subtotales1 = grdcomanda.Rows(zi).Cells(5).Value.ToString
+                        ivaproducto = subtotalmapeo / (1 + rd2("IVA").ToString)
+                        restaiva = CDbl(Subtotales1) - CDbl(ivaproducto)
+                        Tiva = Tiva + CDbl(restaiva)
+                        Tiva = FormatNumber(Tiva, 2)
                     End If
-                    Tiva = FormatNumber(Tiva, 2)
+
                 End If
             End If
 
@@ -838,6 +843,12 @@ Public Class frmPagar
             cnn2.Close()
         Next
 
+        If Tiva > 0 Then
+            SubtotalVenta = CDbl(txtTotal.Text) - CDbl(Tiva)
+        Else
+            SubtotalVenta = txtTotal.Text
+        End If
+        SubtotalVenta = FormatNumber(SubtotalVenta, 2)
 #Region "CODIGO AUTOFACTURAR"
         Dim letras As String
         Dim letters As String = ""
@@ -903,7 +914,7 @@ Public Class frmPagar
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato) VALUES('','" & lblmesa.Text & "',''," & Subtotales1 & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET')"
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 
@@ -981,7 +992,7 @@ Public Class frmPagar
                     If CDec(rd2("IVA").ToString) > 0 Then
                         TOTALSIVA = FormatNumber(mytotal / 1.16, 2)
                     Else
-                        TOTALSIVA = "0.00"
+                        TOTALSIVA = mytotal
                     End If
                 End If
             Else

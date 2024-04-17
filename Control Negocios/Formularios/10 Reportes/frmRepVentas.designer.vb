@@ -75,6 +75,8 @@ Partial Class frmRepVentas
         Me.txtVendido = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtrestante = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtPropina = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -643,11 +645,33 @@ Partial Class frmRepVentas
         Me.txtrestante.Text = "0.00"
         Me.txtrestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(403, 525)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(51, 15)
+        Me.Label4.TabIndex = 218
+        Me.Label4.Text = "Propina:"
+        '
+        'txtPropina
+        '
+        Me.txtPropina.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPropina.Location = New System.Drawing.Point(403, 543)
+        Me.txtPropina.Name = "txtPropina"
+        Me.txtPropina.Size = New System.Drawing.Size(93, 23)
+        Me.txtPropina.TabIndex = 217
+        Me.txtPropina.Text = "0.00"
+        Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 622)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.txtPropina)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtrestante)
         Me.Controls.Add(Me.Label2)
@@ -762,4 +786,6 @@ Partial Class frmRepVentas
     Friend WithEvents txtVendido As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtrestante As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtPropina As TextBox
 End Class

@@ -204,6 +204,7 @@ Public Class Inicio
         SFormatos("SalidaHab", "")
         SFormatos("PrecioDia", "")
         SFormatos("Cuartos", "")
+        SFormatos("CobroExacto", "")
         'Licencia()
         Try
             cnn1.Close()
