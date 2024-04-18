@@ -137,6 +137,7 @@ Public Class frmCorte2
                 "select Saldo_Ini from CorteUsuario where Usuario='" & cboUsuario.Text & "' and NumCorte=" & txtNumCorte.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
+
             Else
                 MsgBox("Primero guarda el registro de saldo inicial.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
                 txtSaldoUsuario.Focus().Equals(True)
@@ -1486,6 +1487,8 @@ Public Class frmCorte2
             Cierre = True
             Exit Sub
         End If
+
+        btnLimpiarUsuario.PerformClick()
     End Sub
 
     Private Sub pCalculoGlobal80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCalculoGlobal80.PrintPage
@@ -2818,6 +2821,7 @@ Public Class frmCorte2
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
             e.Graphics.DrawString("Usuario: " & cboUsuario.Text, fuente_datos, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString("N° Corte: " & txtNumCorte.Text, fuente_datos, Brushes.Black, 1, Y)
             Y += 18
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_datos, Brushes.Black, 285, Y, sf)
@@ -2950,5 +2954,11 @@ Public Class frmCorte2
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
+    End Sub
+
+    Private Sub txtSaldoUsuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSaldoUsuario.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnSaldoUsuario.Focus().Equals(True)
+        End If
     End Sub
 End Class
