@@ -77,6 +77,8 @@ Partial Class frmRepVentas
         Me.txtrestante = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtPropina = New System.Windows.Forms.TextBox()
+        Me.lblCosto = New System.Windows.Forms.Label()
+        Me.txtCosto = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -665,11 +667,33 @@ Partial Class frmRepVentas
         Me.txtPropina.Text = "0.00"
         Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'lblCosto
+        '
+        Me.lblCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCosto.AutoSize = True
+        Me.lblCosto.Location = New System.Drawing.Point(455, 502)
+        Me.lblCosto.Name = "lblCosto"
+        Me.lblCosto.Size = New System.Drawing.Size(41, 15)
+        Me.lblCosto.TabIndex = 220
+        Me.lblCosto.Text = "Costo:"
+        '
+        'txtCosto
+        '
+        Me.txtCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCosto.Location = New System.Drawing.Point(502, 496)
+        Me.txtCosto.Name = "txtCosto"
+        Me.txtCosto.Size = New System.Drawing.Size(93, 23)
+        Me.txtCosto.TabIndex = 219
+        Me.txtCosto.Text = "0.00"
+        Me.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 622)
+        Me.Controls.Add(Me.lblCosto)
+        Me.Controls.Add(Me.txtCosto)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtPropina)
         Me.Controls.Add(Me.Label3)
@@ -788,4 +812,6 @@ Partial Class frmRepVentas
     Friend WithEvents txtrestante As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtPropina As TextBox
+    Friend WithEvents lblCosto As Label
+    Friend WithEvents txtCosto As TextBox
 End Class
