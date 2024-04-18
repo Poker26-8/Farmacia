@@ -332,12 +332,12 @@ Partial Class frmCorte2
         'btnSaldoGlobal
         '
         Me.btnSaldoGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSaldoGlobal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
         Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoGlobal.Location = New System.Drawing.Point(347, 413)
+        Me.btnSaldoGlobal.Location = New System.Drawing.Point(365, 424)
         Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
-        Me.btnSaldoGlobal.Size = New System.Drawing.Size(74, 67)
+        Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnSaldoGlobal.TabIndex = 176
         Me.btnSaldoGlobal.Text = "Saldo inicial"
         Me.btnSaldoGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -346,12 +346,12 @@ Partial Class frmCorte2
         'btnCalcularGlobal
         '
         Me.btnCalcularGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalcularGlobal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
         Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcularGlobal.Location = New System.Drawing.Point(427, 413)
+        Me.btnCalcularGlobal.Location = New System.Drawing.Point(439, 424)
         Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
-        Me.btnCalcularGlobal.Size = New System.Drawing.Size(74, 67)
+        Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnCalcularGlobal.TabIndex = 175
         Me.btnCalcularGlobal.Text = "Calcular"
         Me.btnCalcularGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -360,12 +360,12 @@ Partial Class frmCorte2
         'btnLimpiarGlobal
         '
         Me.btnLimpiarGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
         Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(507, 412)
+        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(513, 423)
         Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
-        Me.btnLimpiarGlobal.Size = New System.Drawing.Size(74, 67)
+        Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnLimpiarGlobal.TabIndex = 174
         Me.btnLimpiarGlobal.Text = "Limpiar"
         Me.btnLimpiarGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1186,7 +1186,7 @@ Partial Class frmCorte2
         Me.gbxCalculo.Controls.Add(Me.grpb)
         Me.gbxCalculo.Location = New System.Drawing.Point(193, 89)
         Me.gbxCalculo.Name = "gbxCalculo"
-        Me.gbxCalculo.Size = New System.Drawing.Size(236, 383)
+        Me.gbxCalculo.Size = New System.Drawing.Size(232, 375)
         Me.gbxCalculo.TabIndex = 174
         Me.gbxCalculo.TabStop = False
         Me.gbxCalculo.Visible = False
@@ -2430,7 +2430,6 @@ Partial Class frmCorte2
         '
         'btnCalcular
         '
-        Me.btnCalcular.FlatAppearance.BorderSize = 0
         Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCalcular.Image = CType(resources.GetObject("btnCalcular.Image"), System.Drawing.Image)
         Me.btnCalcular.ImageAlign = System.Drawing.ContentAlignment.TopCenter
