@@ -13485,7 +13485,7 @@ ecomoda:
 
                 End If
 
-                    cnn1.Close() : cnn1.Open()
+                cnn1.Close() : cnn1.Open()
                 For monkey As Integer = 0 To grdcaptura.Rows.Count - 1
                     If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then GoTo rayos
 
