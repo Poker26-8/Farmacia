@@ -8,6 +8,8 @@ Imports QRCoder
 Imports System.Drawing
 Public Class frmVentas1
 
+    Dim nuevo_saldo_monedero As Double = 0
+
     Public WithEvents serialPortT As New SerialPort()
 
     Public IMPRE As String = ""
@@ -5799,6 +5801,7 @@ Door:
                 cnn1.Close()
 
                 Dim Imprime As Boolean = False
+                Dim Copias As Integer = 0
                 Dim TPrint As String = ""
                 Dim Imprime_En As String = ""
                 Dim Impresora As String = ""
@@ -5811,37 +5814,7 @@ Door:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select NoPrint from Ticket"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        Imprime = rd1(0).ToString
-                    End If
-                End If
-                rd1.Close() : cnn1.Close()
-
-                Dim img_pdf As String = DatosRecarga("IMG_PDF")
-
-                If (Imprime) Then
-                    If MsgBox("¿Deseas imprimir esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                        Pasa_Print = True
-                    Else
-                        Pasa_Print = False
-                    End If
-                Else
-                    Pasa_Print = True
-                End If
-
-                If Pasa_Print = True Then
-
-                End If
-                TPrint = cboimpresion.Text
-
-                cnn1.Close() : cnn1.Open()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select NotasCred from Formatos where Facturas='TamImpre'"
+                "select NotasCred from Formatos where Facturas='TamImpre'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -5850,106 +5823,141 @@ Door:
                 End If
                 rd1.Close()
 
-                If TPrint = "PDF - CARTA" Then
+                cnn1.Close() : cnn1.Open()
 
-                    Panel6.Visible = True
-                    My.Application.DoEvents()
-                    Insert_Cotizacion()
-                    If img_pdf = "1" Then
-                        PDF_Cotizacion_Img()
-                    Else
-                        PDF_Cotizacion()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+            "select * from Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Imprime = rd1("NoPrint").ToString
+                        Copias = rd1("Copias").ToString()
                     End If
-                    Panel6.Visible = False
-                    My.Application.DoEvents()
+                End If
+                rd1.Close() : cnn1.Close()
 
-
-
+                If (Imprime) Then
+                    If MsgBox("¿Deseas imprimir la cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                        Pasa_Print = True
+                    Else
+                        Pasa_Print = False
+                    End If
                 Else
+                    Pasa_Print = True
+                End If
+
+                If (Pasa_Print) Then
+
+                    TPrint = cboimpresion.Text
+
+                    cnn1.Close() : cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                "select NotasCred from Formatos where Facturas='TamImpre'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            Impresora = rd1(0).ToString()
+                            Tamaño = rd1(0).ToString
                         End If
+                    End If
+                    rd1.Close()
+
+                    If TPrint = "PDF - CARTA" Then
+
+                        'Genera PDF y lo guarda en la ruta
+                        Panel6.Visible = True
+                        My.Application.DoEvents()
+                        Insert_Cotizacion()
+                        PDF_Cotizacion()
+                        Panel6.Visible = False
+                        My.Application.DoEvents()
+
                     Else
-                        If TPrint = "MEDIA CARTA" Then
-                            cnn2.Close() : cnn2.Open()
-
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText =
-                                "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
-                            rd2 = cmd2.ExecuteReader
-                            If rd2.HasRows Then
-                                If rd2.Read Then
-                                    Impresora = rd2(0).ToString()
-                                End If
-                            Else
-                                MsgBox("No tienes una impresora configurada para imprimir en formato " & TPrint & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                                rd2.Close() : cnn2.Close()
-                                rd1.Close() : cnn1.Close()
-
-                                cnn1.Close() : cnn1.Open()
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                "select NotasCred from Formatos where Facturas='PedirContra'"
-                                rd1 = cmd1.ExecuteReader
-                                If rd1.HasRows Then
-                                    If rd1.Read Then
-                                        pide = rd1(0).ToString
-                                    End If
-                                End If
-                                rd1.Close()
-                                cnn1.Close()
-
-                                btnnuevo.PerformClick()
-                                If pide = "1" Then
-                                    lblusuario.Text = usu
-                                    txtcontraseña.Text = contra
-                                End If
-                                MYFOLIO = 0
-                                cbodesc.Focus().Equals(True)
-                                Exit Sub
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                Impresora = rd1(0).ToString
                             End If
-                            rd2.Close() : cnn2.Close()
+                        Else
+                            If TPrint = "MEDIA CARTA" Then
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText =
+                            "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+                                rd2 = cmd2.ExecuteReader
+                                If rd2.HasRows Then
+                                    If rd2.Read Then
+                                        Impresora = rd2(0).ToString()
+                                    End If
+                                Else
+                                    MsgBox("No tienes una impresora configurada para imprimir en formato " & TPrint & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                                    rd2.Close() : cnn2.Close()
+                                    rd1.Close() : cnn1.Close()
+
+                                    cnn1.Close() : cnn1.Open()
+                                    If txtcotped.Text <> "" Then
+                                        cmd1 = cnn1.CreateCommand
+                                        cmd1.CommandText =
+                                    "delete from CotPed where Folio=" & txtcotped.Text
+                                        cmd1.ExecuteNonQuery()
+
+                                        cmd1 = cnn1.CreateCommand
+                                        cmd1.CommandText =
+                                    "delete from CotPedDet where Folio=" & txtcotped.Text
+                                        cmd1.ExecuteNonQuery()
+                                    End If
+
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText =
+                                "select NotasCred from Formatos where Facturas='PedirContra'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            pide = rd1(0).ToString
+                                        End If
+                                    End If
+                                    rd1.Close() : cnn1.Close()
+
+                                    btnnuevo.PerformClick()
+                                    If pide = "1" Then
+                                        lblusuario.Text = usu
+                                        txtcontraseña.Text = contra
+                                    End If
+                                    If modo_caja = "CAJA" Then
+                                    Else
+                                        cboNombre.Text = "MOSTRADOR"
+                                    End If
+                                    cbodesc.Focus().Equals(True)
+                                    MYFOLIO = 0
+                                    Exit Sub
+                                End If
+                                rd2.Close() : cnn2.Close()
+                            End If
+                            cnn1.Close()
+                        End If
+                        rd1.Close() : cnn1.Close()
+                    End If
+
+                    If TPrint = "TICKET" Then
+                        If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
+                        If Tamaño = "80" Then
+                            For t As Integer = 1 To Copias
+                                pCotiza80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                                pCotiza80.Print()
+                            Next
+                        End If
+                        If Tamaño = "58" Then
+                            For t As Integer = 1 To Copias
+                                pCotiza58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                                pCotiza58.Print()
+                            Next
                         End If
                     End If
-                    rd1.Close() : cnn1.Close()
-                End If
-
-                If TPrint = "TICKET" Then
-                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Coti() : Exit Sub
-                    If Tamaño = "80" Then
-                        pCotiza80.PrinterSettings.PrinterName = Impresora
-                        pCotiza80.Print()
-                    End If
-                    If Tamaño = "58" Then
-                        pCotiza58.PrinterSettings.PrinterName = Impresora
-                        pCotiza58.Print()
-                    End If
-                Else
-                    If TPrint = "CARTA" Then
-                        If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Coti() : Exit Sub
-                        pCotizaCarta.PrinterSettings.PrinterName = Impresora
-                        pCotizaCarta.Print()
-                    End If
-                End If
-
-                If TPrint = "PDF - CARTA" Then
-                    If MsgBox("¿Desea enviar el Archivo Via E-Mail?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-
-                        Dim root_name_recibo2 As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf"
-
-                        frmEnviarPDF.Show()
-                        frmEnviarPDF.BringToFront()
-                        frmEnviarPDF.archivoadj = root_name_recibo2
-                        frmEnviarPDF.txtasunto.Text = "COTIZACION" & " " & MYFOLIO
-                        frmEnviarPDF.txtpara.Text = lblcorreocli.Text
-                    End If
-                    My.Application.DoEvents()
                 End If
 
                 cnn1.Close() : cnn1.Open()
@@ -6743,50 +6751,6 @@ doorcita:
             End If
         End If
 
-
-#Region "Valida grid"
-
-
-        'Validación de cálculos, totales, precios y pagos
-
-        'Recalcula los pagos, precios y descuentos del grid
-        '----- Recalcula los subtotales, descuentos, totales a pagar
-        Dim subtotal_total As Double = 0
-        Dim total_total As Double = 0
-        Dim descuento_total As Double = 0
-
-        For pepito As Integer = 0 To grdcaptura.Rows.Count - 1
-            If grdcaptura.Rows(pepito).Cells(0).Value.ToString() = "" Then Continue For
-            Dim cantidad_base As Double = 0
-            Dim precio_base As Double = 0
-            Dim total_calculo As Double = 0
-            Dim total_grid As Double = 0
-
-            cantidad_base = grdcaptura.Rows(pepito).Cells(3).Value.ToString()
-            precio_base = FormatNumber(grdcaptura.Rows(pepito).Cells(4).Value.ToString(), 4)
-
-            total_calculo = FormatNumber(precio_base * cantidad_base, 4)
-            total_grid = FormatNumber(grdcaptura.Rows(pepito).Cells(5).Value.ToString(), 4)
-
-            If total_calculo <> total_grid Then
-                grdcaptura.Rows(pepito).Cells(7).Value = FormatNumber(total_calculo, 4)
-            End If
-        Next
-
-        For eleven As Integer = 0 To grdcaptura.Rows.Count - 1
-            If grdcaptura.Rows(eleven).Cells(0).Value.ToString() = "" Then Continue For
-            Dim precio As Double = grdcaptura.Rows(eleven).Cells(4).Value.ToString()
-            Dim cantidad As Double = grdcaptura.Rows(eleven).Cells(3).Value.ToString()
-            Dim subtotxl As Double = precio * cantidad
-
-            subtotal_total = subtotal_total + subtotxl
-        Next
-
-        txtSubTotal.Text = FormatNumber(subtotal_total, 2)
-        My.Application.DoEvents()
-
-#End Region
-
         'Comienza proceso de guardado de la venta
         If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
 
@@ -7001,7 +6965,6 @@ doorcita:
             cnn1.Close()
         End Try
 
-
         'Obtiene el folio que se acaba de insertar
         cnn2.Close() : cnn2.Open()
         Do Until MYFOLIO <> 0
@@ -7016,8 +6979,6 @@ doorcita:
             End If
             rd2.Close()
         Loop
-
-
 
         If txttel.Text <> "" Then
             cmd2 = cnn2.CreateCommand
@@ -7094,6 +7055,8 @@ doorcita:
                 cmd1.CommandText =
                     "update Monedero set Saldo=" & nvo_saldo & " where Barras='" & txttel.Text & "'"
                 cmd1.ExecuteNonQuery()
+
+                nuevo_saldo_monedero = nvo_saldo
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -7285,9 +7248,9 @@ doorcita:
                     DsctoProdTod = CDbl(grdcaptura.Rows(R).Cells(12).Value.ToString) * (PorcentDscto / 100)
                 End If
 
-                Dim mycode As String = grdcaptura.Rows(R).Cells(0).Value.ToString
-                Dim mydesc As String = grdcaptura.Rows(R).Cells(1).Value.ToString
-                Dim myunid As String = grdcaptura.Rows(R).Cells(2).Value.ToString
+                Dim mycode As String = ""
+                Dim mydesc As String = ""
+                Dim myunid As String = ""
                 Dim mycant As Double = grdcaptura.Rows(R).Cells(3).Value.ToString
                 Dim myprecio As Double = grdcaptura.Rows(R).Cells(4).Value.ToString
                 Dim caduca As String = grdcaptura.Rows(R).Cells(9).Value.ToString
@@ -7316,6 +7279,9 @@ doorcita:
                 Dim myprecioS As Double = 0
                 Dim mytotalS As Double = 0
 
+                mycode = grdcaptura.Rows(R).Cells(0).Value.ToString
+                mydesc = grdcaptura.Rows(R).Cells(1).Value.ToString
+                myunid = grdcaptura.Rows(R).Cells(2).Value.ToString
 
                 Dim gprint As String = ""
 
@@ -9177,8 +9143,17 @@ ecomoda:
                 End If
             End If
 
+            Y += 8
 
+            If lblmonedero_saldo.Visible = True Then
+                Y += 10
+                e.Graphics.DrawString("Saldo monedero", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(nuevo_saldo_monedero, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
+                Y += 13.5
+                Y += 8
+            End If
 
+            Y += 8
 
             'Imprime pie de página
             Dim cadena_pie As String = Pie
@@ -9411,10 +9386,10 @@ ecomoda:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 280, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente
@@ -9457,8 +9432,8 @@ ecomoda:
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
             Y += 11
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 150, Y, sf)
-            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
+            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 270, Y)
             Y += 6
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
@@ -9477,23 +9452,17 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
-                Dim descu As Double = grdcaptura.Rows(miku).Cells(5).Value.ToString()
-
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 52, Y)
                 Y += 12.5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
-                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(precio, 4), fuente_prods, Brushes.Black, 133, Y, sf)
-                e.Graphics.DrawString(simbolo & FormatNumber(total, 4), fuente_prods, Brushes.Black, 270, Y, sf)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 21
-                'If descu <> 0 Then
-                '    Y -= 4
-                '    e.Graphics.DrawString("Descuento: %" & descu, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 270, Y, sf)
-                '    Y += 12
-                'End If
                 total_prods = total_prods + canti
             Next
             Y -= 3
@@ -9533,14 +9502,13 @@ ecomoda:
             TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
             MySubtotal = FormatNumber(MySubtotal, 4)
 
-            'If CDbl(txtdescuento2.Text) > 0 Then
-            '    e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
-            '    e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
-            '    Y += 13.5
-            'End If
-
+            If CDbl(txtdescuento2.Text) > 0 Then
+                e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 13.5
+            End If
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 270, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
             Y += 18
 
             e.Graphics.DrawString(convLetras(txtPagar.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
@@ -9552,13 +9520,13 @@ ecomoda:
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
                         Y += 12
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                         Y += 13.5
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
             End If
@@ -9684,10 +9652,10 @@ ecomoda:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_hora, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_hora, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_hora, Brushes.Black, 280, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente
@@ -9760,11 +9728,11 @@ ecomoda:
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
-                e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 21
                 If descuento <> 0 Then
                     Y -= 4
-                    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString("Descuento: %" & descuento, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                     Y += 12
                 End If
                 total_prods = total_prods + canti
@@ -9808,11 +9776,11 @@ ecomoda:
 
             If CDbl(txtdescuento2.Text) > 0 Then
                 e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
             Y += 18
 
             e.Graphics.DrawString(convLetras(txtPagar.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
@@ -9820,12 +9788,12 @@ ecomoda:
 
             If CDbl(txtefectivo.Text) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
             If CDbl(txtCambio.Text) > 0 Then
                 e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
@@ -9849,28 +9817,28 @@ ecomoda:
 
                 If tarjeta > 0 Then
                     e.Graphics.DrawString("Pago con tarjeta(s):", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(tarjeta, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(tarjeta, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
                 If transfe > 0 Then
                     e.Graphics.DrawString("Pago con transfe.(s):", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(transfe, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(transfe, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
                 If monedero > 0 Then
                     e.Graphics.DrawString("Pago con monedero(s):", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(monedero, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(monedero, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
                 If otro > 0 Then
                     e.Graphics.DrawString("Otros pagos:", fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(otro, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(otro, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
             End If
             If CDbl(txtResta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 4), fuente_prods, Brushes.Black, 280, Y, sf)
                 Y += 13.5
             End If
 
@@ -9880,13 +9848,13 @@ ecomoda:
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
                         Y += 12
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                         Y += 13.5
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
                     Y += 13.5
                 End If
             End If
@@ -10044,7 +10012,7 @@ ecomoda:
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
 
-            e.Graphics.DrawString("Folio: " & cbonota.Text, fuente_datos, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Folio: " & cbonota.Text, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 485, Y, sf)
@@ -12209,7 +12177,7 @@ ecomoda:
                     Y += 12
                 End If
             End If
-                Y += 1
+            Y += 1
 
             e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 90, Y, sc)
             Y += 12

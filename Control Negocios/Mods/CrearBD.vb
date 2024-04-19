@@ -6483,7 +6483,8 @@
                                               `CargadoAndroid` INT(1) NOT NULL DEFAULT '0',
                                               `FolioAndroid` varchar(100) NOT NULL DEFAULT '',
                                               `HVenta2` varchar(100) NOT NULL DEFAULT '',
-                                              `Pedido` int NOT NULL DEFAULT '0'
+                                              `Pedido` int NOT NULL DEFAULT '0',
+                                                `Fecha` datetime NOT NULL
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

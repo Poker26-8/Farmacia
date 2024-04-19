@@ -1691,6 +1691,12 @@
     <Compile Include="Formularios\30 Citas Med\frmCitas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\31 Bodegas\frmMapa.Designer.vb">
+      <DependentUpon>frmMapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\31 Bodegas\frmMapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -2486,6 +2492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\frmCitas.resx">
       <DependentUpon>frmCitas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\31 Bodegas\frmMapa.resx">
+      <DependentUpon>frmMapa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

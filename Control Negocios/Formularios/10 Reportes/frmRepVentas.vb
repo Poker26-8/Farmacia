@@ -24,7 +24,27 @@
                     End If
                 End If
             End If
+            rd1.Close()
+
+            cnn2.Close() : cnn2.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Ventas order by Folio"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+                    Dim fechas As Date = rd1("FVenta").ToString()
+                    Dim horas As Date = rd1("HVenta").ToString()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText =
+                        "update Ventas set Fecha='" & Format(fechas, "yyyy-MM-dd") & " " & Format(horas, "HH:mm:ss") & "' where Folio=" & rd1("Folio").ToString()
+                    cmd2.ExecuteNonQuery()
+                End If
+            Loop
             rd1.Close() : cnn1.Close()
+            cnn2.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -724,11 +744,11 @@
 
             If ComboBox1.Text = "" Then
 
-                ' cmd1.CommandText ="select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
-                cmd1.CommandText = "select count(Folio) from Ventas where Fventa between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA'  "
+                cmd1.CommandText =
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
             Else
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status='" & ComboBox1.Text & "'"
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
             End If
 
 
@@ -751,12 +771,13 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
+                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             Else
                 cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & ComboBox1.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
+                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
             End If
 
+            MsgBox(cmd1.CommandText.ToString)
 
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -786,10 +807,6 @@
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
-                            'subtotal = IIf(rd2("Sub").ToString = "", 0, rd2("Sub").ToString())
-                            'IVA = CDbl(IIf(rd2("Tot").ToString() = "", 0, rd2("Tot").ToString())) - CDbl(IIf(rd2("Sub").ToString() = "", 0, rd2("Sub").ToString()))
-                            'total = IIf(rd2("Tot").ToString() = "", 0, rd2("Tot").ToString())
-                            'descuento = IIf(rd2("Descu").ToString() = "", 0, rd2("Descu").ToString())
                             IEPS = IIf(rd2("ipes").ToString() = "", 0, rd2("ipes").ToString())
                         End If
                     End If
@@ -869,36 +886,22 @@
                 rd1.Close()
                 cnn1.Close()
 
-
-                'cmd2 = cnn2.CreateCommand
-                'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
-                'rd2 = cmd2.ExecuteReader
-                'Do While rd2.Read
-                '    If rd2.HasRows Then
-                '        folio = rd2("Folio").ToString
-                '        cliente = rd2("Cliente").ToString
-                '        temp = folio
-                '        Desc = CDbl(rd2("Descuento").ToString)
-                '        Desc3 = Desc3 + CDbl(rd2("Descuento").ToString)
-                '        Desc2 = FormatNumber(CDbl(rd2("Descuento").ToString) / (CDbl(rd2("Totales").ToString) + IIf(CDbl(rd2("Totales").ToString) <= 0, 1, 0)), 2)
-                '        Totales = Totales + CDbl(rd2("Totales").ToString)
-
                 cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
+                cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
                             "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
                 rd3 = cmd3.ExecuteReader
-                        Do While rd3.Read
-                            cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
-                            voy = voy + cantidad
-                        Loop
+                Do While rd3.Read
+                    cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
+                    voy = voy + cantidad
+                Loop
 
-                        ahorasi = soyTotal + CDec(voy)
-                        rd3.Close()
-                        cnn3.Close()
+                ahorasi = soyTotal + CDec(voy)
+                rd3.Close()
+                cnn3.Close()
 
-                        cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
                             "select * from VentasDetalle where left(Codigo, 6)='" & Strings.Left(ComboBox1.Text, 6) & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Codigo "
                 rd3 = cmd3.ExecuteReader
@@ -970,6 +973,7 @@
                 cnn1.Close()
             End Try
         End If
+
         'TotalesDetalle
         If (opttotalesdet.Checked) Then
             Dim temp As Integer = 0
@@ -984,8 +988,7 @@
             Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0, propinas As Double = 0, costo As Double = 0, sumacosto As Double = 0, DESCU As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
-            cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -998,8 +1001,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
-            cmd2.CommandText = "select * from Ventas where Fventa between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and Fecha<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1053,7 +1055,6 @@
                         If (Partes) Then
                             grdcaptura.Rows.Add(folio, cliente, codigo, barras, n_parte, descrip, unidad, cantidad, costo, FormatNumber(VarSubtotal, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
                         Else
-                            'grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, FormatNumber(VarSubtotal, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
 
                             grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
 
@@ -1063,9 +1064,6 @@
                         T_ieps = T_ieps + ieps
                         T_iva = T_iva + XTem
                         T_subtotal = T_subtotal + MyTotalSI
-                        T_productos = T_productos + cantidad
-                        'txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
-
                     Loop
                     rd3.Close()
                 End If
@@ -4069,5 +4067,44 @@
         End If
     End Sub
 
+    Private Sub lblutilidad_DoubleClick(sender As Object, e As EventArgs) Handles lblutilidad.DoubleClick
+        'cnn1.Close() : cnn1.Open()
 
+        'For pipi As Integer = 0 To grdcaptura.Rows.Count - 1
+        '    Dim folio As Integer = grdcaptura.Rows(pipi).Cells(0).Value.ToString()
+        '    Dim codigo As String = grdcaptura.Rows(pipi).Cells(2).Value.ToString()
+        '    Dim cantidad As Double = grdcaptura.Rows(pipi).Cells(6).Value.ToString()
+        '    Dim iva As Double = 0
+        '    Dim precio As Double = 0
+        '    Dim Pre_Comp As Double = 0
+        '    Dim MyCostVUE As Double = 0
+
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText =
+        '        "select * from Productos where Codigo='" & codigo & "'"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.HasRows Then
+        '        If rd1.Read Then
+        '            precio = rd1("PrecioVentaIVA").ToString()
+        '            iva = rd1("IVA").ToString()
+        '            Pre_Comp = rd1("PrecioCompra").ToString()
+        '            MyCostVUE = Pre_Comp * (cantidad / CDbl(rd1("MCD").ToString()))
+        '        End If
+        '    End If
+        '    rd1.Close()
+
+        '    Dim total1 As Double = precio * cantidad
+
+        '    Dim precio1 As Double = precio / (1 + iva)
+        '    Dim total2 As Double = total1 / (1 + iva)
+
+        '    Dim iva1 As Double = total2 - total1
+
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText =
+        '        "update VentasDetalle set Precio=" & FormatNumber(precio, 2) & ", Total=" & FormatNumber(total1, 2) & ", PrecioSinIVA=" & FormatNumber(precio1, 2) & ", TotalSinIVA=" & FormatNumber(total2, 2) & ", CostoVUE=" & MyCostVUE & " where Codigo='" & codigo & "' and Folio=" & folio
+        '    cmd1.ExecuteNonQuery()
+        'Next
+        'cnn1.Close()
+    End Sub
 End Class
