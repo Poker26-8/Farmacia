@@ -11,6 +11,9 @@ Public Class frmCorte2
     Dim Cierre As Boolean = False
     Dim Calculo As Boolean = False
 
+    Dim Folio1 As String = ""
+    Dim Folio2 As String = ""
+
     Private Sub C_Global()
         Try
             cnn1.Close() : cnn1.Open()
@@ -118,8 +121,6 @@ Public Class frmCorte2
     End Sub
 
     Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
-
-
         grdEgresos.Rows.Clear()
         grdIngresos.Rows.Clear()
 
@@ -127,7 +128,6 @@ Public Class frmCorte2
         Dim Usu As String = cboUsuario.Text
         If cboUsuario.Text = "" Then MsgBox("Selecciona un ususario para calcular su corte.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022") : cboUsuario.Focus.Equals(True) : Exit Sub
         If txtContrasena.Text = "" Then MsgBox("Ingrese su contraseña por favor.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022") : txtContrasena.Focus() : Exit Sub
-
 
         Try
             cnn1.Close() : cnn1.Open()
@@ -137,6 +137,7 @@ Public Class frmCorte2
                 "select Saldo_Ini from CorteUsuario where Usuario='" & cboUsuario.Text & "' and NumCorte=" & txtNumCorte.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
+
             Else
                 MsgBox("Primero guarda el registro de saldo inicial.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
                 txtSaldoUsuario.Focus().Equals(True)
@@ -146,7 +147,7 @@ Public Class frmCorte2
             rd1.Close() : cnn1.Close()
 
 
-            If TipoCorte() Then
+            If TipoCorte() = 1 Then
                 If Calculo = False Then
                     If gpbCiego.Visible = False And CDec(txtCalculo.Text) = 0 Then
                         MsgBox("Para continuar realice el cálculo de su efectivo en caja.", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022")
@@ -527,7 +528,7 @@ Public Class frmCorte2
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Impresora = rd1(0).ToString
+                    impresora = rd1(0).ToString
                 End If
             End If
             rd1.Close()
@@ -1392,6 +1393,28 @@ Public Class frmCorte2
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
+                "select NumFolio from abonoi where Id=(select MIN(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION')"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Folio1 = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NumFolio from abonoi where Id=(select MAX(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION')"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Folio2 = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
                     "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 and Usuario='" & cboUsuario.Text & "'"
             cmd1.ExecuteNonQuery()
 
@@ -1438,9 +1461,24 @@ Public Class frmCorte2
         End Try
 
         If MsgBox("¿Deseas imprimir el cierre del usuario " & cboUsuario.Text & "?", vbInformation + vbOKOnly, "Delsscom Control Negocios 2022") = vbOK Then
+
+            Dim impresora As String = ""
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    impresora = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
             Dim tam_impre As String = DatosRecarga("TamImpre")
 
             If tam_impre = "80" Then
+                pCierreUsuario80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                 pCierreUsuario80.Print()
             Else
                 pCierreUsuario58.Print()
@@ -1449,8 +1487,8 @@ Public Class frmCorte2
             Cierre = True
             Exit Sub
         End If
-        btnLimpiarUsuario.PerformClick()
 
+        btnLimpiarUsuario.PerformClick()
     End Sub
 
     Private Sub pCalculoGlobal80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCalculoGlobal80.PrintPage
@@ -1585,18 +1623,6 @@ Public Class frmCorte2
 
             Next
             Y += 20
-            'e.Graphics.DrawString(" ING. TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngTarjetaG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. TRANSFERE", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngTransfeG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. DEPOSITOS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngDepositoG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngMonederoG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-
 
             e.Graphics.DrawString("TOTAL DE EGRESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(txtEgresosGlobal.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
@@ -1621,17 +1647,6 @@ Public Class frmCorte2
 
             Next
 
-            'e.Graphics.DrawString(" EGR. TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrTarjetaG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. TRANSFERE", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrTransfeG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. DEPOSITOS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrDepositoG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrMonederoG.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
             Y += 20
 
             e.Graphics.DrawString("SALDO FINAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
@@ -1642,19 +1657,7 @@ Public Class frmCorte2
 
             e.Graphics.DrawString("EFECTIVO EN CAJA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString(FormatNumber(EfectivoCajaG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(TarjetaCajaG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO TRANSFERENCIAS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(TranfeCajaG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(MonederoCajaG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO DEPÓSITOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(DepositoCajaG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -1778,7 +1781,6 @@ Public Class frmCorte2
             e.Graphics.DrawString(FormatNumber(txtIngEfectivoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
             Y += 15
 
-
             Dim lol As Integer = 0
 
             For lol = 0 To grdIngresos.Rows.Count - 1
@@ -1792,19 +1794,6 @@ Public Class frmCorte2
 
             Next
             Y += 25
-
-            'e.Graphics.DrawString(" ING. TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngTarjetaU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. TRANSFERE", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngTransfeU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. DEPOSITOS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngDepositoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" ING. MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtIngMonederoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 34
 
             e.Graphics.DrawString("TOTAL DE EGRESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(txtEgresosUsuario.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
@@ -1826,18 +1815,6 @@ Public Class frmCorte2
                 egreso80 += 1
             Next
             Y += 34
-            'e.Graphics.DrawString(" EGR. TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrTarjetaU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. TRANSFERE", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrTransfeU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. DEPOSITOS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrDepositoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString(" EGR. MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtEgrMonederoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
-            'Y += 34
 
             e.Graphics.DrawString("SALDO FINAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(txtSaldoFinalU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
@@ -1853,19 +1830,6 @@ Public Class frmCorte2
             Y += 20
             e.Graphics.DrawString("FIRMA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
 
-
-            'e.Graphics.DrawString("SALDO TARJETAS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtTrajetasU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO TRANSFERENCIAS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtTransferU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO MONEDEROS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtMonederosU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
-            'e.Graphics.DrawString("SALDO DEPÓSITOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(FormatNumber(txtDepositosU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
-            'Y += 15
             e.HasMorePages = False
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -2711,8 +2675,6 @@ Public Class frmCorte2
             cnn1.Close()
         End Try
 
-
-
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -2724,6 +2686,7 @@ Public Class frmCorte2
             MessageBox.Show(ex.ToString())
             cnn2.Close()
         End Try
+
         CorteGlobal = True
 
         Dim impresora As String = ""
@@ -2764,7 +2727,188 @@ Public Class frmCorte2
     End Sub
 
     Private Sub pCierreUsuario80_PrintPage(sender As Object, e As PrintPageEventArgs) Handles pCierreUsuario80.PrintPage
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
+        Try
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 130
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
+                    End If
+                End If
+            Else
+                Y = 0
+            End If
+
+            '[°]. Datos del negocio
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Pie = rd1("Pie3").ToString
+                    'Razón social
+                    If rd1("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd1("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd1("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd1("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd1("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd1("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd1("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    Y += 17
+                End If
+            Else
+                Y += 0
+            End If
+            rd1.Close() : cnn1.Close()
+
+            '[1]. Datos de la venta
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("CIERRE USUARIO", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Usuario: " & cboUsuario.Text, fuente_datos, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString("N° Corte: " & txtNumCorte.Text, fuente_datos, Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_datos, Brushes.Black, 285, Y, sf)
+            Y += 20
+            e.Graphics.DrawString("Folios de " & Folio1 & "  al " & Folio2 & ".", fuente_prods, Brushes.Black, 1, Y)
+            Y += 20
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 20
+
+            e.Graphics.DrawString("SALDO INICIAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtSaldoUsuario.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+            Y += 28
+
+            e.Graphics.DrawString("TOTAL DE INGRESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtIngresosUsuario.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+            Y += 15
+            e.Graphics.DrawString(" ING. EFECTIVO", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(txtIngEfectivoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 15
+
+
+            Dim lol As Integer = 0
+
+            For lol = 0 To grdIngresos.Rows.Count - 1
+
+                Dim forma As String = grdIngresos.Rows(lol).Cells(0).Value.ToString
+                Dim MONTO As Double = grdIngresos.Rows(lol).Cells(1).Value.ToString
+
+                e.Graphics.DrawString(" ING. " & forma & "", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(MONTO, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 15
+
+            Next
+            Y += 25
+
+
+            e.Graphics.DrawString("TOTAL DE EGRESOS", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtEgresosUsuario.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+            Y += 15
+            e.Graphics.DrawString(" EGR. EFECTIVO", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(txtEgrEfectivoU.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 15
+
+            Dim egreso80 As Integer = 0
+
+            For egreso80 = 0 To grdEgresos.Rows.Count - 1
+
+                Dim forma80 As String = grdEgresos.Rows(egreso80).Cells(0).Value.ToString
+                Dim MONTO80 As Double = grdEgresos.Rows(egreso80).Cells(1).Value.ToString
+                e.Graphics.DrawString(" EGR. " & forma80 & "", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(MONTO80, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 15
+
+                egreso80 += 1
+            Next
+            Y += 34
+
+            e.Graphics.DrawString("SALDO FINAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtSaldoFinalU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 21
+
+            e.Graphics.DrawString("EFECTIVO EN CAJA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtEfectivoCajaU.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+            Y += 20
+
+            If TipoCorte() = 1 Then
+                e.Graphics.DrawString("CÁLCULO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtCalculo.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 285, Y, sf)
+                Y += 15
+                e.Graphics.DrawString("DIFERENCIA", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtDiferencia.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 15
+            End If
+
+            Y += 50
+
+            e.Graphics.DrawString("____________________________", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 20
+            e.Graphics.DrawString("FIRMA", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub dtpFecha_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha.ValueChanged
@@ -2806,5 +2950,15 @@ Public Class frmCorte2
         grdegresosglobal.Rows.Clear()
         grdingresosglobal.Rows.Clear()
         txtingresosformas.Text = "0.00"
+    End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub txtSaldoUsuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSaldoUsuario.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnSaldoUsuario.Focus().Equals(True)
+        End If
     End Sub
 End Class
