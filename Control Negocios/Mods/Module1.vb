@@ -537,6 +537,69 @@ Module Module1
         Return direccion_Ip
     End Function
 
+    Public Function TamImpre()
+        Try
+            Dim tam As Integer = 0
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TamImpre'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    tam = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            Return tam
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Function
+
+    Public Function ImpresoraImprimir()
+        Try
+            Dim impre As String = ""
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Impresora from rutasimpresion WHERE Tipo='TICKET' AND Equipo='" & ObtenerNombreEquipo() & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    impre = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            Return impre
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Function
+
+    Public Function TraerSimbolo()
+        Try
+            Dim simbo As String = ""
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Simbolo'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    simbo = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            Return simbo
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Function
+
     Public Structure validaciones
         Shared audita As String = ""
     End Structure

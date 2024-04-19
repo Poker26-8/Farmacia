@@ -63,6 +63,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 15
             With grdcaptura
@@ -235,6 +236,8 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
+
             If (Partes) Then
                 grdcaptura.ColumnCount = 17
                 With grdcaptura
@@ -546,6 +549,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 10
             With grdcaptura
@@ -697,6 +701,7 @@
         Dim t_resta As Double = 0
         Dim T_Propina As Double = 0
         Dim T_Costo As Double = 0
+        Dim T_productos As Double = 0
 
         txtiva.Text = "0.00"
         txtdescuento.Text = "0.00"
@@ -1054,6 +1059,7 @@
                         T_ieps = T_ieps + ieps
                         T_iva = T_iva + XTem
                         T_subtotal = T_subtotal + MyTotalSI
+                        T_productos = T_productos + cantidad
                         'txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
 
                     Loop
@@ -1071,7 +1077,7 @@
             txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva, 2)
             txtCosto.Text = FormatNumber(T_Costo, 2)
             txtutilidad.Text = FormatNumber(CDbl(txttotal.Text) - CDbl(txtCosto.Text), 2)
-
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
         'Detalle pago
@@ -1153,6 +1159,7 @@
                         T_iva = T_iva + XTem
                         T_subtotal = T_subtotal + MyTotalSI
                         T_total = T_total + (MyTotalSI + XTem)
+                        T_productos = T_productos + CDbl(cantidad)
                         txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
                     Loop
                     rd3.Close()
@@ -1167,6 +1174,7 @@
             txtiva.Text = FormatNumber(T_iva, 2)
             txttotal.Text = FormatNumber(T_total, 2)
             txtutilidad.Text = FormatNumber(CDbl(txtutilidad.Text), 2)
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
 
@@ -1345,7 +1353,7 @@
                             Else
                                 grdcaptura.Rows.Add(folio, codigo, barras, descrip, unidad, cantidad, FormatNumber(precio, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
                             End If
-
+                            T_productos = T_productos + CDbl(cantidad)
                         End If
                     Loop
                     rd2.Close()
@@ -1356,6 +1364,7 @@
                     T_subtotal = T_subtotal + MyTotalSI
                     T_total = T_total + (MyTotalSI + XTem)
                     txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
+
                 End If
                 barcarga.Value = barcarga.Value + 1
             Loop
@@ -1372,6 +1381,7 @@
             txtacuenta.Text = FormatNumber(T_acuenta, 2)
             txtresta.Text = FormatNumber(t_resta, 2)
             txtutilidad.Text = FormatNumber(txtutilidad.Text, 2)
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
 
@@ -1434,7 +1444,7 @@
                     T_subtotal = T_subtotal + MyTotalSI
                     T_total = T_total + (MyTotal + XTem)
                     txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
-
+                    T_productos = T_productos + CDbl(cantidad)
                     barcarga.Value = barcarga.Value + 1
                 End If
             Loop
@@ -1451,6 +1461,7 @@
             txtacuenta.Text = FormatNumber(T_acuenta, 2)
             txtresta.Text = FormatNumber(t_resta, 2)
             txtutilidad.Text = FormatNumber(txtutilidad.Text, 2)
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
 
@@ -1512,6 +1523,7 @@
                     T_iva = T_iva + (MyTotal - MyTotalSI)
                     T_subtotal = T_subtotal + MyTotalSI
                     T_total = T_total + (MyTotal + XTem)
+                    T_productos = T_productos + CDbl(cantidad)
                     txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
 
                     barcarga.Value = barcarga.Value + 1
@@ -1530,6 +1542,7 @@
             txtacuenta.Text = FormatNumber(T_acuenta, 2)
             txtresta.Text = FormatNumber(t_resta, 2)
             txtutilidad.Text = FormatNumber(txtutilidad.Text, 2)
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
 
@@ -1593,6 +1606,7 @@
                     T_iva = T_iva + (MyTotal - MyTotalSI)
                     T_subtotal = T_subtotal + MyTotalSI
                     T_total = T_total + (MyTotal + XTem)
+                    T_productos = T_productos + CDbl(cantidad)
                     txtutilidad.Text = CDbl(txtutilidad.Text) + MyUC2
                     txtpeso.Text = CDbl(txtpeso.Text) + opeso
 
@@ -1612,6 +1626,7 @@
             txtacuenta.Text = FormatNumber(T_acuenta, 2)
             txtresta.Text = FormatNumber(t_resta, 2)
             txtutilidad.Text = FormatNumber(txtutilidad.Text, 2)
+            txtSuma.Text = FormatNumber(T_productos, 2)
         End If
 
 
@@ -1737,6 +1752,7 @@
         'Prod mas ven
         If (optmasvendido.Checked) Then
 
+            Dim sumacantidad As Double = 0
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1786,11 +1802,15 @@
                     cmd2.CommandText =
                         "insert into ProMasVen(Cod,Cant,Descrip,Unidad,Inicio,Final) values('" & codigo & "'," & cantidad & ",'" & nombre & "','" & unidad & "','" & Format(M1, "yyyy-MM-dd") & "','" & Format(M2, "yyyy-MM-dd") & "')"
                     cmd2.ExecuteNonQuery()
+
+                    sumacantidad = sumacantidad + CDbl(cantidad)
                 End If
             Loop
             cnn2.Close()
             rd1.Close()
             cnn1.Close()
+
+            txtSuma.Text = FormatNumber(sumacantidad, 2)
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1803,6 +1823,7 @@
                 End If
             Loop
             rd1.Close() : cnn1.Close()
+
         End If
 
         'prod mas ven provee
@@ -1810,6 +1831,8 @@
         If (optmasvendidoprov.Checked) Then
 
             Try
+                Dim cantidadpro As Double = 0
+
                 cnn1.Close() : cnn1.Open()
                 cnn2.Close() : cnn2.Open()
 
@@ -1850,11 +1873,13 @@
                         rd2.Close()
 
                         grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad)
-
+                        cantidadpro = cantidadpro + CDbl(cantidad)
                     End If
                 Loop
                 rd1.Close()
                 cnn1.Close()
+
+                txtSuma.Text = FormatNumber(cantidadpro, 2)
 
                 barcarga.Visible = False
                 barcarga.Value = 0
@@ -2105,6 +2130,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             If (Partes) Then
                 grdcaptura.ColumnCount = 15
@@ -2382,6 +2408,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 14
             With grdcaptura
@@ -2537,6 +2564,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 14
             With grdcaptura
@@ -2691,6 +2719,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 13
             With grdcaptura
@@ -2840,6 +2869,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -2950,6 +2980,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 6
             With grdcaptura
@@ -3049,6 +3080,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 11
             With grdcaptura
@@ -3184,6 +3216,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 4
             With grdcaptura
@@ -3264,6 +3297,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             grdcaptura.ColumnCount = 4
             With grdcaptura
@@ -3407,6 +3441,7 @@
             txtresta.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             If (Partes) Then
                 grdcaptura.ColumnCount = 18
@@ -3736,6 +3771,7 @@
             txtVendido.Text = "0.00"
             txtPropina.Text = "0.00"
             txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
 
             If (Partes) Then
                 grdcaptura.ColumnCount = 17

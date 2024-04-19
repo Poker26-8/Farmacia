@@ -79,6 +79,8 @@ Partial Class frmRepVentas
         Me.txtPropina = New System.Windows.Forms.TextBox()
         Me.lblCosto = New System.Windows.Forms.Label()
         Me.txtCosto = New System.Windows.Forms.TextBox()
+        Me.txtSuma = New System.Windows.Forms.TextBox()
+        Me.lblSuma = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -131,7 +133,7 @@ Partial Class frmRepVentas
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(981, 257)
+        Me.grdcaptura.Size = New System.Drawing.Size(981, 312)
         Me.grdcaptura.TabIndex = 48
         '
         'opttotales
@@ -282,7 +284,7 @@ Partial Class frmRepVentas
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(10, 499)
+        Me.Button2.Location = New System.Drawing.Point(10, 568)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(90, 54)
@@ -296,7 +298,7 @@ Partial Class frmRepVentas
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(202, 499)
+        Me.Button1.Location = New System.Drawing.Point(202, 568)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 54)
         Me.Button1.TabIndex = 179
@@ -308,7 +310,7 @@ Partial Class frmRepVentas
         'txtutilidad
         '
         Me.txtutilidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtutilidad.Location = New System.Drawing.Point(898, 499)
+        Me.txtutilidad.Location = New System.Drawing.Point(898, 568)
         Me.txtutilidad.Name = "txtutilidad"
         Me.txtutilidad.Size = New System.Drawing.Size(93, 23)
         Me.txtutilidad.TabIndex = 181
@@ -319,7 +321,7 @@ Partial Class frmRepVentas
         '
         Me.lblutilidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblutilidad.AutoSize = True
-        Me.lblutilidad.Location = New System.Drawing.Point(606, 503)
+        Me.lblutilidad.Location = New System.Drawing.Point(606, 572)
         Me.lblutilidad.Name = "lblutilidad"
         Me.lblutilidad.Size = New System.Drawing.Size(286, 15)
         Me.lblutilidad.TabIndex = 182
@@ -328,7 +330,7 @@ Partial Class frmRepVentas
         'txttotal
         '
         Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txttotal.Location = New System.Drawing.Point(898, 544)
+        Me.txttotal.Location = New System.Drawing.Point(898, 611)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Size = New System.Drawing.Size(93, 23)
         Me.txttotal.TabIndex = 183
@@ -339,7 +341,7 @@ Partial Class frmRepVentas
         '
         Me.lbltotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbltotal.AutoSize = True
-        Me.lbltotal.Location = New System.Drawing.Point(898, 526)
+        Me.lbltotal.Location = New System.Drawing.Point(895, 594)
         Me.lbltotal.Name = "lbltotal"
         Me.lbltotal.Size = New System.Drawing.Size(35, 15)
         Me.lbltotal.TabIndex = 184
@@ -349,7 +351,7 @@ Partial Class frmRepVentas
         '
         Me.lblresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblresta.AutoSize = True
-        Me.lblresta.Location = New System.Drawing.Point(898, 570)
+        Me.lblresta.Location = New System.Drawing.Point(895, 641)
         Me.lblresta.Name = "lblresta"
         Me.lblresta.Size = New System.Drawing.Size(35, 15)
         Me.lblresta.TabIndex = 186
@@ -358,7 +360,7 @@ Partial Class frmRepVentas
         'txtresta
         '
         Me.txtresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtresta.Location = New System.Drawing.Point(898, 588)
+        Me.txtresta.Location = New System.Drawing.Point(898, 659)
         Me.txtresta.Name = "txtresta"
         Me.txtresta.Size = New System.Drawing.Size(93, 23)
         Me.txtresta.TabIndex = 185
@@ -369,7 +371,7 @@ Partial Class frmRepVentas
         '
         Me.lblacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblacuenta.AutoSize = True
-        Me.lblacuenta.Location = New System.Drawing.Point(799, 570)
+        Me.lblacuenta.Location = New System.Drawing.Point(796, 641)
         Me.lblacuenta.Name = "lblacuenta"
         Me.lblacuenta.Size = New System.Drawing.Size(54, 15)
         Me.lblacuenta.TabIndex = 190
@@ -378,7 +380,7 @@ Partial Class frmRepVentas
         'txtacuenta
         '
         Me.txtacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtacuenta.Location = New System.Drawing.Point(799, 588)
+        Me.txtacuenta.Location = New System.Drawing.Point(796, 659)
         Me.txtacuenta.Name = "txtacuenta"
         Me.txtacuenta.Size = New System.Drawing.Size(93, 23)
         Me.txtacuenta.TabIndex = 189
@@ -389,7 +391,7 @@ Partial Class frmRepVentas
         '
         Me.lbliva.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbliva.AutoSize = True
-        Me.lbliva.Location = New System.Drawing.Point(799, 526)
+        Me.lbliva.Location = New System.Drawing.Point(796, 594)
         Me.lbliva.Name = "lbliva"
         Me.lbliva.Size = New System.Drawing.Size(24, 15)
         Me.lbliva.TabIndex = 188
@@ -398,7 +400,7 @@ Partial Class frmRepVentas
         'txtiva
         '
         Me.txtiva.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtiva.Location = New System.Drawing.Point(799, 544)
+        Me.txtiva.Location = New System.Drawing.Point(796, 612)
         Me.txtiva.Name = "txtiva"
         Me.txtiva.Size = New System.Drawing.Size(93, 23)
         Me.txtiva.TabIndex = 187
@@ -409,7 +411,7 @@ Partial Class frmRepVentas
         '
         Me.lblpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblpeso.AutoSize = True
-        Me.lblpeso.Location = New System.Drawing.Point(761, 570)
+        Me.lblpeso.Location = New System.Drawing.Point(697, 641)
         Me.lblpeso.Name = "lblpeso"
         Me.lblpeso.Size = New System.Drawing.Size(32, 15)
         Me.lblpeso.TabIndex = 194
@@ -418,7 +420,7 @@ Partial Class frmRepVentas
         'txtpeso
         '
         Me.txtpeso.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtpeso.Location = New System.Drawing.Point(700, 588)
+        Me.txtpeso.Location = New System.Drawing.Point(697, 659)
         Me.txtpeso.Name = "txtpeso"
         Me.txtpeso.Size = New System.Drawing.Size(93, 23)
         Me.txtpeso.TabIndex = 193
@@ -429,7 +431,7 @@ Partial Class frmRepVentas
         '
         Me.lblieps.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblieps.AutoSize = True
-        Me.lblieps.Location = New System.Drawing.Point(700, 526)
+        Me.lblieps.Location = New System.Drawing.Point(697, 594)
         Me.lblieps.Name = "lblieps"
         Me.lblieps.Size = New System.Drawing.Size(29, 15)
         Me.lblieps.TabIndex = 192
@@ -438,7 +440,7 @@ Partial Class frmRepVentas
         'txtieps
         '
         Me.txtieps.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtieps.Location = New System.Drawing.Point(700, 544)
+        Me.txtieps.Location = New System.Drawing.Point(697, 612)
         Me.txtieps.Name = "txtieps"
         Me.txtieps.Size = New System.Drawing.Size(93, 23)
         Me.txtieps.TabIndex = 191
@@ -449,7 +451,7 @@ Partial Class frmRepVentas
         '
         Me.lblsubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblsubtotal.AutoSize = True
-        Me.lblsubtotal.Location = New System.Drawing.Point(502, 526)
+        Me.lblsubtotal.Location = New System.Drawing.Point(499, 594)
         Me.lblsubtotal.Name = "lblsubtotal"
         Me.lblsubtotal.Size = New System.Drawing.Size(54, 15)
         Me.lblsubtotal.TabIndex = 196
@@ -458,7 +460,7 @@ Partial Class frmRepVentas
         'txtsubtotal
         '
         Me.txtsubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtsubtotal.Location = New System.Drawing.Point(502, 544)
+        Me.txtsubtotal.Location = New System.Drawing.Point(499, 612)
         Me.txtsubtotal.Name = "txtsubtotal"
         Me.txtsubtotal.Size = New System.Drawing.Size(93, 23)
         Me.txtsubtotal.TabIndex = 195
@@ -469,7 +471,7 @@ Partial Class frmRepVentas
         '
         Me.lbldescuento.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbldescuento.AutoSize = True
-        Me.lbldescuento.Location = New System.Drawing.Point(601, 526)
+        Me.lbldescuento.Location = New System.Drawing.Point(598, 594)
         Me.lbldescuento.Name = "lbldescuento"
         Me.lbldescuento.Size = New System.Drawing.Size(66, 15)
         Me.lbldescuento.TabIndex = 200
@@ -478,7 +480,7 @@ Partial Class frmRepVentas
         'txtdescuento
         '
         Me.txtdescuento.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtdescuento.Location = New System.Drawing.Point(601, 544)
+        Me.txtdescuento.Location = New System.Drawing.Point(598, 612)
         Me.txtdescuento.Name = "txtdescuento"
         Me.txtdescuento.Size = New System.Drawing.Size(93, 23)
         Me.txtdescuento.TabIndex = 199
@@ -492,7 +494,7 @@ Partial Class frmRepVentas
         Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
         Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Exportar.Location = New System.Drawing.Point(10, 559)
+        Me.Exportar.Location = New System.Drawing.Point(10, 628)
         Me.Exportar.Name = "Exportar"
         Me.Exportar.Size = New System.Drawing.Size(90, 54)
         Me.Exportar.TabIndex = 202
@@ -507,7 +509,7 @@ Partial Class frmRepVentas
         Me.btnprint.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnprint.Image = CType(resources.GetObject("btnprint.Image"), System.Drawing.Image)
         Me.btnprint.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnprint.Location = New System.Drawing.Point(106, 499)
+        Me.btnprint.Location = New System.Drawing.Point(106, 568)
         Me.btnprint.Name = "btnprint"
         Me.btnprint.Size = New System.Drawing.Size(90, 54)
         Me.btnprint.TabIndex = 201
@@ -523,7 +525,7 @@ Partial Class frmRepVentas
         Me.btnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnuevo.Image = CType(resources.GetObject("btnuevo.Image"), System.Drawing.Image)
         Me.btnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnuevo.Location = New System.Drawing.Point(106, 559)
+        Me.btnuevo.Location = New System.Drawing.Point(106, 628)
         Me.btnuevo.Name = "btnuevo"
         Me.btnuevo.Size = New System.Drawing.Size(90, 54)
         Me.btnuevo.TabIndex = 204
@@ -536,7 +538,7 @@ Partial Class frmRepVentas
         Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(202, 559)
+        Me.Button6.Location = New System.Drawing.Point(202, 628)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(90, 54)
         Me.Button6.TabIndex = 203
@@ -548,7 +550,7 @@ Partial Class frmRepVentas
         'barcarga
         '
         Me.barcarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.barcarga.Location = New System.Drawing.Point(10, 473)
+        Me.barcarga.Location = New System.Drawing.Point(10, 527)
         Me.barcarga.Name = "barcarga"
         Me.barcarga.Size = New System.Drawing.Size(981, 20)
         Me.barcarga.TabIndex = 205
@@ -611,7 +613,7 @@ Partial Class frmRepVentas
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(464, 569)
+        Me.Label2.Location = New System.Drawing.Point(461, 638)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(112, 15)
         Me.Label2.TabIndex = 212
@@ -620,9 +622,9 @@ Partial Class frmRepVentas
         'txtVendido
         '
         Me.txtVendido.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtVendido.Location = New System.Drawing.Point(463, 587)
+        Me.txtVendido.Location = New System.Drawing.Point(464, 659)
         Me.txtVendido.Name = "txtVendido"
-        Me.txtVendido.Size = New System.Drawing.Size(93, 23)
+        Me.txtVendido.Size = New System.Drawing.Size(109, 23)
         Me.txtVendido.TabIndex = 211
         Me.txtVendido.Text = "0.00"
         Me.txtVendido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -631,7 +633,7 @@ Partial Class frmRepVentas
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(582, 570)
+        Me.Label3.Location = New System.Drawing.Point(579, 638)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 15)
         Me.Label3.TabIndex = 216
@@ -640,9 +642,9 @@ Partial Class frmRepVentas
         'txtrestante
         '
         Me.txtrestante.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtrestante.Location = New System.Drawing.Point(585, 591)
+        Me.txtrestante.Location = New System.Drawing.Point(582, 659)
         Me.txtrestante.Name = "txtrestante"
-        Me.txtrestante.Size = New System.Drawing.Size(93, 23)
+        Me.txtrestante.Size = New System.Drawing.Size(109, 23)
         Me.txtrestante.TabIndex = 215
         Me.txtrestante.Text = "0.00"
         Me.txtrestante.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -651,7 +653,7 @@ Partial Class frmRepVentas
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(403, 525)
+        Me.Label4.Location = New System.Drawing.Point(400, 593)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(51, 15)
         Me.Label4.TabIndex = 218
@@ -660,7 +662,7 @@ Partial Class frmRepVentas
         'txtPropina
         '
         Me.txtPropina.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPropina.Location = New System.Drawing.Point(403, 543)
+        Me.txtPropina.Location = New System.Drawing.Point(400, 611)
         Me.txtPropina.Name = "txtPropina"
         Me.txtPropina.Size = New System.Drawing.Size(93, 23)
         Me.txtPropina.TabIndex = 217
@@ -671,7 +673,7 @@ Partial Class frmRepVentas
         '
         Me.lblCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblCosto.AutoSize = True
-        Me.lblCosto.Location = New System.Drawing.Point(455, 502)
+        Me.lblCosto.Location = New System.Drawing.Point(499, 550)
         Me.lblCosto.Name = "lblCosto"
         Me.lblCosto.Size = New System.Drawing.Size(41, 15)
         Me.lblCosto.TabIndex = 220
@@ -680,18 +682,40 @@ Partial Class frmRepVentas
         'txtCosto
         '
         Me.txtCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCosto.Location = New System.Drawing.Point(502, 496)
+        Me.txtCosto.Location = New System.Drawing.Point(499, 569)
         Me.txtCosto.Name = "txtCosto"
         Me.txtCosto.Size = New System.Drawing.Size(93, 23)
         Me.txtCosto.TabIndex = 219
         Me.txtCosto.Text = "0.00"
         Me.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'txtSuma
+        '
+        Me.txtSuma.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSuma.Location = New System.Drawing.Point(400, 568)
+        Me.txtSuma.Name = "txtSuma"
+        Me.txtSuma.Size = New System.Drawing.Size(93, 23)
+        Me.txtSuma.TabIndex = 221
+        Me.txtSuma.Text = "0.00"
+        Me.txtSuma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblSuma
+        '
+        Me.lblSuma.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblSuma.AutoSize = True
+        Me.lblSuma.Location = New System.Drawing.Point(402, 550)
+        Me.lblSuma.Name = "lblSuma"
+        Me.lblSuma.Size = New System.Drawing.Size(40, 15)
+        Me.lblSuma.TabIndex = 222
+        Me.lblSuma.Text = "Suma:"
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1001, 622)
+        Me.ClientSize = New System.Drawing.Size(1001, 690)
+        Me.Controls.Add(Me.lblSuma)
+        Me.Controls.Add(Me.txtSuma)
         Me.Controls.Add(Me.lblCosto)
         Me.Controls.Add(Me.txtCosto)
         Me.Controls.Add(Me.Label4)
@@ -814,4 +838,6 @@ Partial Class frmRepVentas
     Friend WithEvents txtPropina As TextBox
     Friend WithEvents lblCosto As Label
     Friend WithEvents txtCosto As TextBox
+    Friend WithEvents txtSuma As TextBox
+    Friend WithEvents lblSuma As Label
 End Class
