@@ -106,7 +106,7 @@ Public Class frmPagar
     Private Sub frmPagar_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         frmMesas.Close()
-            frmMesas.Show()
+        frmMesas.Show()
 
     End Sub
 
@@ -1314,7 +1314,7 @@ Public Class frmPagar
                                 Existencia = existe / MyMultiplo
                                 If rd2("Departamento").ToString() <> "SERVICIOS" Then
                                     Pre_Comp = rd2("PrecioCompra").ToString()
-                                    MyCostVUE = Pre_Comp * (mycant / MyMCD)
+                                    MyCostVUE = Pre_Comp * (MYCANT / MyMCD)
                                 End If
                             End If
                         End If
@@ -1327,7 +1327,7 @@ Door:
 
                         opeCantReal = CDbl(MYCANT) * CDbl(MyMulti2)
                         Dim nueva_existe As Double = 0
-                        nueva_existe = Existencia - (mycant / MyMCD)
+                        nueva_existe = Existencia - (MYCANT / MyMCD)
 
 
                         cnn4.Close() : cnn4.Open()
@@ -4410,63 +4410,70 @@ Door:
         If AscW(e.KeyChar) = Keys.Enter Then
             If IsNumeric(txtPorcentaje.Text) Then
 
+
                 Dim saldo As Double = txtTotal.Text
                 Dim porcentaje As Double = (txtPorcentaje.Text / 100)
                 Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
                 txtDescuento.Text = FormatNumber(porcentajetot, 2)
 
+                Dim efectivo As Double = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)
+                Dim pagos As Double = IIf(txtpagos.Text = 0, 0, txtpagos.Text)
+                Dim total As Double = IIf(txtTotal.Text = 0, 0, txtTotal.Text)
+                Dim subtotal As Double = IIf(txtSubtotalmapeo.Text, 0, txtSubtotalmapeo.Text)
+
+
                 Dim VarRes As Double = 0
-                    Dim VRe As String = ""
-                    Dim Vre1 As String = ""
-                    Dim VarPropa As Double = 0
-                    Dim MyOpe As Double = 0
-                    Dim restapago As Double = 0
-                    Dim tmpCam As Double = 0
-                    Dim TotalPagar As Double = 0
+                Dim VRe As String = ""
+                Dim Vre1 As String = ""
+                Dim VarPropa As Double = 0
+                Dim MyOpe As Double = 0
+                Dim restapago As Double = 0
+                Dim tmpCam As Double = 0
+                Dim TotalPagar As Double = 0
 
                 VarRes = IIf(txtDescuento.Text = "", 0, txtDescuento.Text)
                 VRe = Mid(txtDescuento.Text, 1, 1)
                 Vre1 = Mid(txtDescuento.Text, 1, 2)
 
                 If VRe = "." Then
-                        VRe = 0
-                        VarPropa = VRe
-                    ElseIf VRe = "" Then
-                        VRe = 0
-                        VarPropa = VRe
-                    Else
+                    VRe = 0
+                    VarPropa = VRe
+                ElseIf VRe = "" Then
+                    VRe = 0
+                    VarPropa = VRe
+                Else
                     VarPropa = txtDescuento.Text
                 End If
 
-                    If Vre1 = ".." Then
-                        Vre1 = 0
-                        VarPropa = Vre1
-                        txtPropina.Text = Vre1
-                        txtPropina.SelectionStart = 0
-                        txtPropina.SelectionLength = Len(txtPropina.Text)
-                    End If
+                If Vre1 = ".." Then
+                    Vre1 = 0
+                    VarPropa = Vre1
+                    txtPropina.Text = Vre1
+                    txtPropina.SelectionStart = 0
+                    txtPropina.SelectionLength = Len(txtPropina.Text)
+                End If
                 If txtDescuento.Text = "0.00" Then
-                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text)) + CDec(txtPropina.Text)))
+                    MyOpe = CDbl(subtotalmapeo) + (CDbl(efectivo) + CDbl(pagos) + CDec(txtPropina.Text))
                 Else
-                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text))) - CDec(txtDescuento.Text))
+                    MyOpe = CDec(subtotalmapeo) - (CDbl(efectivo) + CDbl(pagos) + CDbl(propina)) - CDbl(txtDescuento.Text)
                 End If
 
-                    If MyOpe = 0 Then
-                        MyOpe = 0
-                    End If
+                If MyOpe = 0 Then
+                    MyOpe = 0
+                End If
 
 
-                    If MyOpe < 0 Then
-                        txtResta.Text = "0.00"
+                If MyOpe < 0 Then
+                    txtResta.Text = "0.00"
 
-                        txtPropina.Text = 0
-                    Else
-                        txtResta.Text = MyOpe
-                        txtCambio.Text = "0.00"
-                        restapago = txtResta.Text
-                    End If
+                    txtPropina.Text = 0
+                Else
+                    txtResta.Text = MyOpe
+                    txtCambio.Text = "0.00"
+                    restapago = txtResta.Text
+                End If
 
-                    txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+                txtCambio.Text = FormatNumber(txtCambio.Text, 2)
                 txtResta.Text = FormatNumber(txtResta.Text, 2)
 
 
@@ -4478,18 +4485,19 @@ Door:
                     txtTotal.Text = CDec(IIf(txtTotal.Text = "", "0", txtTotal.Text)) - CDec(txtDescuento.Text)
                     txtTotal.Text = FormatNumber(txtTotal.Text, 2)
 
-                        tmpCam = 0
+                    tmpCam = 0
 
-                        If CDec(tmpCam) >= 0 Then
-                            txtCambio.Text = FormatNumber(tmpCam, 2)
+                    If CDec(tmpCam) >= 0 Then
+                        txtCambio.Text = FormatNumber(tmpCam, 2)
 
-                        Else
-                            txtCambio.Text = "0.00"
-
-                        End If
+                    Else
+                        txtCambio.Text = "0.00"
 
                     End If
-                    txtEfectivo.Focus.Equals(True)
+
+                End If
+                txtEfectivo.Focus.Equals(True)
+
 
 
             End If
