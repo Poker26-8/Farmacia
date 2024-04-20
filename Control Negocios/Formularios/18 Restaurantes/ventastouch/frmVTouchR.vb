@@ -1187,11 +1187,11 @@ respuesta, "")
             End If
             If tLogo = "CUAD" Then
                 e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                Y += 90
+                Y += 12
             End If
             If tLogo = "RECT" Then
                 e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
-                Y += 90
+                Y += 120
             End If
         Else
             Y = 0
@@ -3572,11 +3572,11 @@ Door:
             End If
             If tLogo = "CUAD" Then
                 e.Graphics.DrawImage(Logotipo, 45, 5, 110, 110)
-                Y += 90
+                Y += 120
             End If
             If tLogo = "RECT" Then
                 e.Graphics.DrawImage(Logotipo, 12, 5, 160, 80)
-                Y += 90
+                Y += 120
             End If
         Else
             Y = 0
