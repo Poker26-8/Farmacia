@@ -4415,7 +4415,6 @@ Door:
                 Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
                 txtDescuento.Text = FormatNumber(porcentajetot, 2)
 
-                MsgBox("si se subio bien")
                 Dim VarRes As Double = 0
                     Dim VRe As String = ""
                     Dim Vre1 As String = ""
