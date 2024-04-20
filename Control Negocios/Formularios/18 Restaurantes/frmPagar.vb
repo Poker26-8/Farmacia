@@ -4410,12 +4410,18 @@ Door:
         If AscW(e.KeyChar) = Keys.Enter Then
             If IsNumeric(txtPorcentaje.Text) Then
 
+
                 Dim saldo As Double = txtTotal.Text
                 Dim porcentaje As Double = (txtPorcentaje.Text / 100)
                 Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
                 txtDescuento.Text = FormatNumber(porcentajetot, 2)
 
-                MsgBox("si se subio bien")
+                Dim efectivo As Double = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)
+                Dim pagos As Double = IIf(txtpagos.Text = 0, 0, txtpagos.Text)
+                Dim total As Double = IIf(txtTotal.Text = 0, 0, txtTotal.Text)
+                Dim subtotal As Double = IIf(txtSubtotalmapeo.Text, 0, txtSubtotalmapeo.Text)
+
+
                 Dim VarRes As Double = 0
                     Dim VRe As String = ""
                     Dim Vre1 As String = ""
@@ -4447,9 +4453,9 @@ Door:
                         txtPropina.SelectionLength = Len(txtPropina.Text)
                     End If
                 If txtDescuento.Text = "0.00" Then
-                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text)) + CDec(txtPropina.Text)))
+                    MyOpe = CDbl(subtotalmapeo) + (CDbl(efectivo) + CDbl(pagos) + CDec(txtPropina.Text))
                 Else
-                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text))) - CDec(txtDescuento.Text))
+                    MyOpe = CDec(subtotalmapeo) - (CDbl(efectivo) + CDbl(pagos) + CDbl(propina)) - CDbl(txtDescuento.Text)
                 End If
 
                     If MyOpe = 0 Then
@@ -4491,6 +4497,7 @@ Door:
 
                     End If
                     txtEfectivo.Focus.Equals(True)
+
 
 
             End If
