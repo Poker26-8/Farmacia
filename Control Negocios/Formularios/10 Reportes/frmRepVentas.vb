@@ -981,7 +981,7 @@
 
             Dim codigo As String = "", barras As String = "", descrip As String = "", unidad As String = "", cantidad As Double = 0, precio As Double = 0, ieps As Double = 0, fecha As String = "", Dscto As Double = 0, MyTotalSI As Double = 0, lote As String = "", caduca As String = "", n_parte As String = ""
             Dim MyUC2 As Double = 0, IvaTemp As Double = 0, YTem As Double = 0, XTem As Double = 0, ImporteDsct As Double = 0, ImpDscto As Double = 0, VarSumXD As Double = 0, VarSubtotal As Double = 0
-            Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0, propinas As Double = 0, costo As Double = 0, sumacosto As Double = 0
+            Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0, propinas As Double = 0, costo As Double = 0, sumacosto As Double = 0, DESCU As Double = 0
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
@@ -989,7 +989,9 @@
             Do While rd2.Read
                 If rd2.HasRows Then
                     propinas = rd2("Propina").ToString
+                    DESCU = rd2("Descuento").ToString
                     T_Propina = T_Propina + CDbl(propinas)
+                    T_descuento = T_descuento + CDbl(DESCU)
                 End If
             Loop
             rd2.Close()
@@ -1055,7 +1057,7 @@
 
                         End If
                         T_Costo = T_Costo + sumacosto
-                        T_descuento = T_descuento + ImpDscto
+                        ' T_descuento = T_descuento + ImpDscto
                         T_ieps = T_ieps + ieps
                         T_iva = T_iva + XTem
                         T_subtotal = T_subtotal + MyTotalSI
@@ -1074,7 +1076,8 @@
             txtsubtotal.Text = FormatNumber(T_subtotal + T_Propina, 2)
             txtieps.Text = FormatNumber(T_ieps, 2)
             txtiva.Text = FormatNumber(T_iva, 2)
-            txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva, 2)
+            'txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
+            txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
             txtCosto.Text = FormatNumber(T_Costo, 2)
             txtutilidad.Text = FormatNumber(CDbl(txttotal.Text) - CDbl(txtCosto.Text), 2)
             txtSuma.Text = FormatNumber(T_productos, 2)

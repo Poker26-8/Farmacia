@@ -66,6 +66,8 @@ Public Class frmPagar
                     lblMesero.Text = rd2("CUsuario").ToString
 
                     grdcomanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, verprecio, vertotal, vercomensal, vermesero, verid)
+
+                    Montocobromapeo = Montocobromapeo + vertotal
                 End If
             Loop
             rd2.Close()
@@ -143,7 +145,7 @@ Public Class frmPagar
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
 
-        myope = Montocobromapeo - (CDbl(txtEfectivo.Text) + CDbl(txtpagos.Text) + CDbl(txtDescuento.Text))
+        myope = Montocobromapeo - (CDbl(txtEfectivo.Text) + CDbl(txtpagos.Text))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -730,7 +732,7 @@ Public Class frmPagar
         cmd1.CommandText = "DELETE FROM VtaImpresion"
         cmd1.ExecuteNonQuery()
         cnn1.Close()
-
+        btnIntro.Enabled = True
         ' mypago = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) - CDec(txtCambio.Text) - CDec(txtDescuento.Text)
         mypago = CDec(txtEfectivo.Text) + CDec(txtpagos.Text) + CDbl(txtDescuento.Text) - CDec(txtCambio.Text)
 
@@ -912,6 +914,14 @@ Public Class frmPagar
         Dim descuentoventa22 As Double = 0
         descuentoventa22 = txtDescuento.Text
 
+        Dim nuevosubtotal As Double = 0
+        Dim nuevototal As Double = 0
+        Dim nuevoacuenta As Double = 0
+
+        nuevosubtotal = SubtotalVenta - CDbl(descuentoventa22)
+        nuevototal = totalventa22 - CDbl(descuentoventa22)
+        nuevoacuenta = Cuenta - CDbl(descuentoventa22)
+
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
         cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET')"
@@ -1078,9 +1088,9 @@ Public Class frmPagar
             SLD = 0
         End If
 
-        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, "0", txtpagos.Text)) + +CDec(IIf(txtPropina.Text = 0, "0", txtPropina.Text)) + CDbl(IIf(txtDescuento.Text = 0, "0", txtDescuento.Text)) - (CDec(txtCambio.Text + CDec(txtPropina.Text)))
+        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, "0", txtpagos.Text)) + CDec(IIf(txtPropina.Text = 0, "0", txtPropina.Text)) - (CDec(txtCambio.Text + CDbl(IIf(txtDescuento.Text = 0, "0", txtDescuento.Text))))
 
-
+        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, "0", txtpagos.Text)) - CDbl(IIf(txtCambio.Text = 0, "0", txtCambio.Text))
 
         If Abon < 0 Then Exit Sub : Abon = 0
 
@@ -4404,6 +4414,85 @@ Door:
                 Dim porcentaje As Double = (txtPorcentaje.Text / 100)
                 Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
                 txtDescuento.Text = FormatNumber(porcentajetot, 2)
+
+                MsgBox("si se subio bien")
+                Dim VarRes As Double = 0
+                    Dim VRe As String = ""
+                    Dim Vre1 As String = ""
+                    Dim VarPropa As Double = 0
+                    Dim MyOpe As Double = 0
+                    Dim restapago As Double = 0
+                    Dim tmpCam As Double = 0
+                    Dim TotalPagar As Double = 0
+
+                VarRes = IIf(txtDescuento.Text = "", 0, txtDescuento.Text)
+                VRe = Mid(txtDescuento.Text, 1, 1)
+                Vre1 = Mid(txtDescuento.Text, 1, 2)
+
+                If VRe = "." Then
+                        VRe = 0
+                        VarPropa = VRe
+                    ElseIf VRe = "" Then
+                        VRe = 0
+                        VarPropa = VRe
+                    Else
+                    VarPropa = txtDescuento.Text
+                End If
+
+                    If Vre1 = ".." Then
+                        Vre1 = 0
+                        VarPropa = Vre1
+                        txtPropina.Text = Vre1
+                        txtPropina.SelectionStart = 0
+                        txtPropina.SelectionLength = Len(txtPropina.Text)
+                    End If
+                If txtDescuento.Text = "0.00" Then
+                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text)) + CDec(txtPropina.Text)))
+                Else
+                    MyOpe = CDec(CDec(IIf(txtTotal.Text = 0, 0, txtTotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtpagos.Text = 0, 0, txtpagos.Text))) - CDec(txtDescuento.Text))
+                End If
+
+                    If MyOpe = 0 Then
+                        MyOpe = 0
+                    End If
+
+
+                    If MyOpe < 0 Then
+                        txtResta.Text = "0.00"
+
+                        txtPropina.Text = 0
+                    Else
+                        txtResta.Text = MyOpe
+                        txtCambio.Text = "0.00"
+                        restapago = txtResta.Text
+                    End If
+
+                    txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+                txtResta.Text = FormatNumber(txtResta.Text, 2)
+
+
+
+                If CDec(txtResta.Text) = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) And CDec(txtDescuento.Text) = 0 Then
+                    txtTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text))
+                    txtTotal.Text = FormatNumber(txtTotal.Text, 2)
+                Else
+                    txtTotal.Text = CDec(IIf(txtTotal.Text = "", "0", txtTotal.Text)) - CDec(txtDescuento.Text)
+                    txtTotal.Text = FormatNumber(txtTotal.Text, 2)
+
+                        tmpCam = 0
+
+                        If CDec(tmpCam) >= 0 Then
+                            txtCambio.Text = FormatNumber(tmpCam, 2)
+
+                        Else
+                            txtCambio.Text = "0.00"
+
+                        End If
+
+                    End If
+                    txtEfectivo.Focus.Equals(True)
+
+
             End If
         End If
     End Sub

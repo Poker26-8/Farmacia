@@ -2575,7 +2575,7 @@ Public Class frmCorte2
 
                     If formaglobalforma <> "" Then
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "select sum(Monto) from AbonoI where Concepto<>'ABONO' and Concepto<>'DEVOLUCION'and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago='" & formaglobalforma & "'"
+                        cmd3.CommandText = "select sum(Monto) from AbonoI where Concepto<>'ABONO' and Concepto<>'CARGO' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago='" & formaglobalforma & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then

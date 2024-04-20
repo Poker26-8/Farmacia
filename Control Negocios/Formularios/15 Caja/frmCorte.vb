@@ -322,6 +322,7 @@ Public Class frmCorte
 
             Dim Ingresos As String = "0"
             Ingresos = CDec(txtIngEfectivoG.Text) + CDec(txtIngTarjetaG.Text) + CDec(txtIngTransfeG.Text) + CDec(txtIngDepositoG.Text) + CDec(txtIngMonederoG.Text)
+
             txtIngresosGlobal.Text = FormatNumber(Ingresos, 2)
             My.Application.DoEvents()
 

@@ -528,7 +528,7 @@
             frmVTouchR.lblTelefono.Text = cboTelefono.Text
             frmVTouchR.lblDireccion.Text = rbtDireccion.Text
         End If
-
+        btnIntro.Enabled = False
         frmVTouchR.GuardarVenta()
 
     End Sub

@@ -2980,9 +2980,12 @@ Public Class frmConsultaNotas
 
 
                                 If lblNumCliente.Text = "MOSTRADOR" Then
+
+                                    Dim IDCLI As Integer = IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text)
+                                    cnn3.Close() : cnn3.Open()
                                     cmd3 = cnn3.CreateCommand
                                     cmd3.CommandText =
-                             "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where IdCliente=" & lblNumCliente.Text & ")"
+                             "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where IdCliente=" & IDCLI & ")"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -2996,9 +2999,10 @@ Public Class frmConsultaNotas
 
                                     cmd4 = cnn4.CreateCommand
                                     cmd4.CommandText =
-                             "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','CARGO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDbl(txtacuenta.Text) & ",0," & mysaldo2 & ",'',0,'','','" & lblusuario.Text & "',0,0)"
+                             "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & sumapagos & "," & monto_efectivo2 & ",'" & cuentapagar & "'," & sumapagos & ",'','','" & lblusuario.Text & "',0,0)"
                                     cmd4.ExecuteNonQuery()
                                 End If
+
                             End If
                         End If
                         rd2.Close()
@@ -3010,7 +3014,7 @@ Public Class frmConsultaNotas
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "update Ventas set MontoCance=" & monto_efectivo & " where Folio=" & cbofolio.Text
+                 "update Ventas set MontoCance=" & sumapagos & " where Folio=" & cbofolio.Text
             cmd1.ExecuteNonQuery()
 
             cnn1.Close() : cnn1.Open()
@@ -3081,8 +3085,8 @@ Public Class frmConsultaNotas
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
-                    suma_registros = rd4(0).ToString()
-                    cuestan_registros = rd4(1).ToString()
+                    suma_registros = IIf(rd4(0).ToString() = "", 0, rd4(0).ToString)
+                    cuestan_registros = IIf(rd4(1).ToString() = "", 0, rd4(1).ToString)
                 End If
             End If
             rd4.Close()
