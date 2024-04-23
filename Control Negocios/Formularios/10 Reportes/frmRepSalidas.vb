@@ -506,7 +506,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM Nomina WHERE Area='OPERACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT * FROM Nominas WHERE Area='OPERACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -605,6 +605,47 @@ Public Class frmRepSalidas
                 Loop
                 rd1.Close()
                 cnn1.Close()
+            End If
+
+            If (optNomina.Checked) Then
+
+
+                Dim tipo As String = ""
+                Dim concepto As String = ""
+                Dim folio As String = ""
+                Dim fecha As Date = Nothing
+                Dim efectivo As Double = 0
+                Dim Tarjeta As Double = 0
+                Dim transferencia As Double = 0
+                Dim total As Double = 0
+                Dim nota As String = 0
+                Dim usuario As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Concepto='NOMINA'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        tipo = rd1("Tipo").ToString
+                        concepto = rd1("Concepto").ToString
+                        folio = rd1("Folio").ToString
+                        fecha = rd1("Fecha").ToString
+                        efectivo = rd1("Efectivo").ToString
+                        Tarjeta = rd1("Tarjeta").ToString
+                        transferencia = rd1("Transfe").ToString
+                        total = rd1("Total").ToString
+                        nota = rd1("Nota").ToString
+                        usuario = rd1("Usuario").ToString
+
+                        grdCaptura.Rows.Add(tipo, concepto, folio, Format(fecha, "yyyy/MM/dd"), efectivo, Tarjeta, transferencia, total, nota, usuario)
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -925,7 +966,7 @@ Public Class frmRepSalidas
                 With .Columns(1)
                     .HeaderText = "Concepto"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -934,7 +975,7 @@ Public Class frmRepSalidas
                 With .Columns(2)
                     .HeaderText = "Folio"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -943,7 +984,7 @@ Public Class frmRepSalidas
                 With .Columns(3)
                     .HeaderText = "Fecha"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -952,7 +993,7 @@ Public Class frmRepSalidas
                 With .Columns(4)
                     .HeaderText = "Efectivo"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -961,7 +1002,7 @@ Public Class frmRepSalidas
                 With .Columns(5)
                     .HeaderText = "Tarjeta"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -970,7 +1011,7 @@ Public Class frmRepSalidas
                 With .Columns(6)
                     .HeaderText = "Transferencia"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -979,7 +1020,7 @@ Public Class frmRepSalidas
                 With .Columns(7)
                     .HeaderText = "Total"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -988,7 +1029,7 @@ Public Class frmRepSalidas
                 With .Columns(8)
                     .HeaderText = "Nota"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -997,7 +1038,7 @@ Public Class frmRepSalidas
                 With .Columns(9)
                     .HeaderText = "Usuario"
                     .Width = 70
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
                     .Visible = True
                     .Resizable = DataGridViewTriState.False
@@ -1006,5 +1047,116 @@ Public Class frmRepSalidas
             End With
         End If
 
+    End Sub
+
+    Private Sub optNomina_CheckedChanged(sender As Object, e As EventArgs) Handles optNomina.CheckedChanged
+        If (optNomina.Checked) Then
+
+            rbAnticipoProveedor.Checked = False
+            rbAnticipoProveedor.Checked = False
+            rbGastosVenta.Checked = False
+            rbGastosAdministracion.Checked = False
+            rbGastosOperacion.Checked = False
+
+            cboDatos.Visible = False
+            cbotres.Visible = False
+
+            grdCaptura.Rows.Clear()
+            grdCaptura.ColumnCount = 0
+            grdCaptura.ColumnCount = 10
+
+            With grdCaptura
+                With .Columns(0)
+                    .HeaderText = "Tipo"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(1)
+                    .HeaderText = "Concepto"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(2)
+                    .HeaderText = "Folio"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(3)
+                    .HeaderText = "Fecha"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(4)
+                    .HeaderText = "Efectivo"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(5)
+                    .HeaderText = "Tarjeta"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(6)
+                    .HeaderText = "Transferencia"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(7)
+                    .HeaderText = "Total"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(8)
+                    .HeaderText = "Nota"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(9)
+                    .HeaderText = "Usuario"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+            End With
+        End If
     End Sub
 End Class

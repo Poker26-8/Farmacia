@@ -38,6 +38,7 @@ Partial Class frmRepSalidas
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.cbotres = New System.Windows.Forms.ComboBox()
+        Me.optNomina = New System.Windows.Forms.RadioButton()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -146,7 +147,7 @@ Partial Class frmRepSalidas
         'rbTodosGastos
         '
         Me.rbTodosGastos.AutoSize = True
-        Me.rbTodosGastos.Location = New System.Drawing.Point(227, 42)
+        Me.rbTodosGastos.Location = New System.Drawing.Point(227, 69)
         Me.rbTodosGastos.Name = "rbTodosGastos"
         Me.rbTodosGastos.Size = New System.Drawing.Size(111, 19)
         Me.rbTodosGastos.TabIndex = 235
@@ -209,11 +210,23 @@ Partial Class frmRepSalidas
         Me.cbotres.Size = New System.Drawing.Size(185, 23)
         Me.cbotres.TabIndex = 242
         '
+        'optNomina
+        '
+        Me.optNomina.AutoSize = True
+        Me.optNomina.Location = New System.Drawing.Point(227, 42)
+        Me.optNomina.Name = "optNomina"
+        Me.optNomina.Size = New System.Drawing.Size(68, 19)
+        Me.optNomina.TabIndex = 243
+        Me.optNomina.TabStop = True
+        Me.optNomina.Text = "Nomina"
+        Me.optNomina.UseVisualStyleBackColor = True
+        '
         'frmRepSalidas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(993, 538)
+        Me.Controls.Add(Me.optNomina)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.grdCaptura)
@@ -256,4 +269,5 @@ Partial Class frmRepSalidas
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents btnNuevo As System.Windows.Forms.Button
     Friend WithEvents cbotres As ComboBox
+    Friend WithEvents optNomina As RadioButton
 End Class

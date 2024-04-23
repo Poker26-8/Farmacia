@@ -941,7 +941,6 @@ Partial Class Inicio
         Me.pNomina.Name = "pNomina"
         Me.pNomina.Size = New System.Drawing.Size(194, 22)
         Me.pNomina.Text = "Nómina"
-        Me.pNomina.Visible = False
         '
         'pTransporte
         '

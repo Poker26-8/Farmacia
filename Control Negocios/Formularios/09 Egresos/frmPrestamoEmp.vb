@@ -308,4 +308,6 @@
         SiguienteFolio()
         cbonombre.Focus().Equals(True)
     End Sub
+
+
 End Class

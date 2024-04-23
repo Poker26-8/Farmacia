@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmPagoNomina
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmPagoNomina
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagoNomina))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,8 +40,14 @@ Partial Class frmPagoNomina
         Me.txtarea = New System.Windows.Forms.TextBox()
         Me.cbonombre = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txttransfe = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.txtsueldo_neta = New System.Windows.Forms.TextBox()
+        Me.txtefectivo = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtotros_d = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -227,8 +233,14 @@ Partial Class frmPagoNomina
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.txttotal)
+        Me.GroupBox2.Controls.Add(Me.Label21)
+        Me.GroupBox2.Controls.Add(Me.txttransfe)
         Me.GroupBox2.Controls.Add(Me.Label16)
+        Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txtsueldo_neta)
+        Me.GroupBox2.Controls.Add(Me.txtefectivo)
+        Me.GroupBox2.Controls.Add(Me.Label18)
         Me.GroupBox2.Controls.Add(Me.Label15)
         Me.GroupBox2.Controls.Add(Me.txtotros_d)
         Me.GroupBox2.Controls.Add(Me.Label13)
@@ -240,10 +252,43 @@ Partial Class frmPagoNomina
         Me.GroupBox2.Controls.Add(Me.btnnuevo)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 223)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(539, 135)
+        Me.GroupBox2.Size = New System.Drawing.Size(539, 147)
         Me.GroupBox2.TabIndex = 47
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Pago de sueldo"
+        '
+        'txttotal
+        '
+        Me.txttotal.BackColor = System.Drawing.Color.White
+        Me.txttotal.Enabled = False
+        Me.txttotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.txttotal.Location = New System.Drawing.Point(306, 118)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.Size = New System.Drawing.Size(83, 23)
+        Me.txttotal.TabIndex = 234
+        Me.txttotal.Text = "0.00"
+        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(261, 119)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(39, 17)
+        Me.Label21.TabIndex = 233
+        Me.Label21.Text = "Total:"
+        '
+        'txttransfe
+        '
+        Me.txttransfe.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttransfe.ForeColor = System.Drawing.Color.LimeGreen
+        Me.txttransfe.Location = New System.Drawing.Point(306, 89)
+        Me.txttransfe.Name = "txttransfe"
+        Me.txttransfe.Size = New System.Drawing.Size(83, 23)
+        Me.txttransfe.TabIndex = 232
+        Me.txttransfe.Text = "0.00"
+        Me.txttransfe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label16
         '
@@ -254,6 +299,16 @@ Partial Class frmPagoNomina
         Me.Label16.TabIndex = 214
         Me.Label16.Text = "Sueldo neto:"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(225, 90)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(81, 17)
+        Me.Label4.TabIndex = 231
+        Me.Label4.Text = "Trasferencia:"
+        '
         'txtsueldo_neta
         '
         Me.txtsueldo_neta.Location = New System.Drawing.Point(124, 100)
@@ -262,6 +317,27 @@ Partial Class frmPagoNomina
         Me.txtsueldo_neta.TabIndex = 213
         Me.txtsueldo_neta.Text = "0.00"
         Me.txtsueldo_neta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtefectivo
+        '
+        Me.txtefectivo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtefectivo.ForeColor = System.Drawing.Color.LimeGreen
+        Me.txtefectivo.Location = New System.Drawing.Point(306, 60)
+        Me.txtefectivo.Name = "txtefectivo"
+        Me.txtefectivo.Size = New System.Drawing.Size(83, 23)
+        Me.txtefectivo.TabIndex = 230
+        Me.txtefectivo.Text = "0.00"
+        Me.txtefectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(245, 61)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(56, 17)
+        Me.Label18.TabIndex = 229
+        Me.Label18.Text = "Efectivo:"
         '
         'Label15
         '
@@ -501,7 +577,7 @@ Partial Class frmPagoNomina
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(554, 365)
+        Me.ClientSize = New System.Drawing.Size(554, 378)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.lblusuario)
         Me.Controls.Add(Me.txtcontraseña)
@@ -571,4 +647,10 @@ Partial Class frmPagoNomina
     Friend WithEvents txthoras As System.Windows.Forms.TextBox
     Friend WithEvents lblid_usu As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txttransfe As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtefectivo As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents txttotal As TextBox
+    Friend WithEvents Label21 As Label
 End Class

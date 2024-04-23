@@ -291,8 +291,8 @@ Public Class frmCorte2
 
                 'Nómina
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "SELECT SUM(nom_salario) FROM Nomina WHERE Usuario='" & Usu & "' and CorteU=0"
+                'cmd2.CommandText = "SELECT SUM(nom_salario) FROM Nomina WHERE Usuario='" & Usu & "' and CorteU=0"
+                cmd2.CommandText = "SELECT SUM(Total) FROM otrosgastos WHERE Usuario='" & Usu & "' and CorteU=0 AND Concepto='NOMINA'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -305,7 +305,7 @@ Public Class frmCorte2
                 'Otros gastos
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select SUM(Total) from OtrosGastos where Usuario='" & Usu & "' and CorteU=0"
+                    "select SUM(Total) from OtrosGastos where Usuario='" & Usu & "' and CorteU=0 AND Concepto<>'NOMINA'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -489,7 +489,8 @@ Public Class frmCorte2
                 cnn2.Close()
 
                 Dim Egresos As String = ""
-                Egresos = CDec(txtEgrEfectivoU.Text) + CDec(txtegresosformapago.Text) + CDec(txtOtrosGastosU.Text) + CDec(txtTransporteU.Text) + CDec(txtNominaU.Text) + CDec(txtPresEmpU.Text) + CDec(txtComprasU.Text)
+                'Egresos = CDec(txtEgrEfectivoU.Text) + CDec(txtegresosformapago.Text) + CDec(txtOtrosGastosU.Text) + CDec(txtTransporteU.Text) + CDec(txtNominaU.Text) + CDec(txtPresEmpU.Text) + CDec(txtComprasU.Text)
+                Egresos = CDec(txtComprasU.Text) + CDec(txtPresEmpU.Text) + CDec(txtNominaU.Text) + CDec(txtTransporteU.Text) + CDec(txtOtrosGastosU.Text)
                 txtEgresosUsuario.Text = FormatNumber(Egresos, 2)
                 txtCanceDevoU.Text = FormatNumber(CanceDevo, 2)
 
@@ -2467,8 +2468,8 @@ Public Class frmCorte2
 
             'Nómina
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select sum(nom_salario) from Nomina where nom_fecha_nomina='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            'cmd2.CommandText ="select sum(nom_salario) from Nominas where nom_fecha_nomina='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2481,7 +2482,7 @@ Public Class frmCorte2
             'Otros gastos
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Total) from OtrosGastos where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                "select sum(Total) from OtrosGastos where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto<>'NOMINA'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2654,8 +2655,8 @@ Public Class frmCorte2
             txtCanceDevoG.Text = FormatNumber(CanceDevo, 2)
 
             Dim Egresos As String = "0"
-            Egresos = CDec(txtEgrEfectivoG.Text) + CDec(txtegresosforma.Text) + CDec(txtTransporteG.Text) + CDec(txtPrestamoEmpG.Text) + CDec(txtComprasG.Text)
-            ' Egresos = CDec(txtEgrEfectivoG.Text) + CDec(txtEgrTarjetaG.Text) + CDec(txtEgrTransfeG.Text) + CDec(txtEgrDepositoG.Text) + CDec(txtEgrMonederoG.Text)
+            ' Egresos = CDec(txtEgrEfectivoG.Text) + CDec(txtegresosforma.Text) + CDec(txtTransporteG.Text) + CDec(txtPrestamoEmpG.Text) + CDec(txtComprasG.Text) + CDec(txtNominaG.Text) + CDec(txtOtrosGastosG.Text)
+            Egresos = CDec(txtComprasG.Text) + +CDec(txtPrestamoEmpG.Text) + CDec(txtNominaG.Text) + CDec(txtTransporteG.Text) + CDec(txtOtrosGastosG.Text)
             txtEgresosGlobal.Text = FormatNumber(Egresos, 2)
             My.Application.DoEvents()
 

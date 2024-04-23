@@ -69,6 +69,7 @@
                     txtpuesta.Text = rd1("Puesto").ToString()
                     txtnss.Text = rd1("NSS").ToString()
                     txtsueldo.Text = FormatNumber(IIf(rd1("Sueldo").ToString() = "", 0, rd1("Sueldo").ToString()), 2)
+                    txtsueldo_neta.Text = FormatNumber(txtsueldo.Text, 2)
                 End If
             End If
             rd1.Close()
@@ -276,7 +277,7 @@
 
     Private Sub dtphasta_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles dtphasta.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnguardar.Focus().Equals(True)
+            txtefectivo.Focus().Equals(True)
         End If
     End Sub
 
@@ -329,6 +330,20 @@
 
         If MsgBox("¿Deseas guardar este movimiento de nómina?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Try
+                Dim acuenta As Double = txtmonto.Text
+                Dim efectivo As Double = txtefectivo.Text
+                Dim transfe As Double = txttransfe.Text
+                Dim total As Double = CDbl(efectivo) + CDbl(transfe)
+
+                If total > txtsueldo_neta.Text Then
+                    MsgBox("El total no debe de rebasar el sueldo neto", vbInformation + vbOKOnly, titulocentral)
+                    txttotal.Text = "0.00"
+                    Exit Sub
+                ElseIf total < txtsueldo_neta.Text Then
+                    MsgBox("El total no debe de ser menor al sueldo neto", vbInformation + vbOKOnly, titulocentral)
+                    txttotal.Text = "0.00"
+                    Exit Sub
+                End If
                 cnn1.Close() : cnn1.Open()
 
                 If cbofolio.Text <> "" Then
@@ -336,7 +351,6 @@
                     Dim abonos As Double = 0
                     Dim resta As Double = 0
 
-                    Dim acuenta As Double = txtmonto.Text
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
@@ -374,8 +388,12 @@
                 End If
 
                 cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO otrosgastos(Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario,Corte,CorteU) VALUES('" & cbotipo.Text & "','NOMINA','0','" & Format(Date.Now, "yyyy/MM/dd") & "'," & efectivo & ",0," & transfe & "," & total & ",'','" & lblusuario.Text & "',0,0)"
+                cmd1.ExecuteNonQuery()
+
+                cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into Nomina(IdEmpleado,Nombre,Area,Puesto,Fecha,Sueldo,Descuento,Horas,OtrosD,OtrosP,SueldoNeto,Desde,Hasta,Usuario,Corte,CorteU) values(" & lblid_usu.Text & ",'" & cbonombre.Text & "','" & txtarea.Text & "','" & txtpuesta.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & CDbl(txtsueldo.Text) & "," & CDbl(txtmonto.Text) & "," & CDbl(txthoras.Text) & "," & CDbl(txtotros_d.Text) & "," & CDbl(txtotros_p.Text) & "," & CDbl(txtsueldo_neta.Text) & ",'" & Format(dtpdesde.Value, "yyyy-MM-dd") & "','" & Format(dtphasta.Value, "yyyy-MM-dd") & "','" & lblusuario.Text & "',0,0)"
+                    "insert into Nominas(IdEmpleado,Nombre,Area,Puesto,Fecha,Sueldo,Descuento,Horas,OtrosD,OtrosP,SueldoNeto,Desde,Hasta,Usuario,Corte,CorteU) values(" & lblid_usu.Text & ",'" & cbonombre.Text & "','" & txtarea.Text & "','" & txtpuesta.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & CDbl(txtsueldo.Text) & "," & CDbl(txtmonto.Text) & "," & CDbl(txthoras.Text) & "," & CDbl(txtotros_d.Text) & "," & CDbl(txtotros_p.Text) & "," & CDbl(txtsueldo_neta.Text) & ",'" & Format(dtpdesde.Value, "yyyy-MM-dd") & "','" & Format(dtphasta.Value, "yyyy-MM-dd") & "','" & lblusuario.Text & "',0,0)"
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Movimiento de nómina registrado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     btnnuevo.PerformClick()
@@ -415,6 +433,10 @@
         txtotros_p.Text = "0.00"
         txtotros_d.Text = "0.00"
         txtsueldo_neta.Text = "0.00"
+
+        txtefectivo.Text = "0.00"
+        txttransfe.Text = "0.00"
+        txttotal.Text = "0.00"
         dtpdesde.Value = Date.Now
         dtphasta.Value = Date.Now
     End Sub
@@ -424,5 +446,56 @@
         cbotipo.Items.Add("ADMINISTRACION")
         cbotipo.Items.Add("OPERACION")
         cbotipo.Items.Add("VENTAS")
+    End Sub
+
+    Private Sub txtefectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtefectivo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Not IsNumeric(txtefectivo.Text) Then txtefectivo.Text = "0"
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+            txttransfe.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtefectivo_Click(sender As Object, e As EventArgs) Handles txtefectivo.Click
+        txtefectivo.SelectionStart = 0
+        txtefectivo.SelectionLength = Len(txtefectivo.Text)
+    End Sub
+
+    Private Sub txttransfe_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttransfe.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If Not IsNumeric(txttransfe.Text) Then txttransfe.Text = "0"
+            txttransfe.Text = FormatNumber(txttransfe.Text, 2)
+            btnguardar.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txttransfe_Click(sender As Object, e As EventArgs) Handles txttransfe.Click
+        txttransfe.SelectionStart = 0
+        txttransfe.SelectionLength = Len(txttransfe.Text)
+    End Sub
+
+    Private Sub txtefectivo_GotFocus(sender As Object, e As EventArgs) Handles txtefectivo.GotFocus
+        txtefectivo.SelectionStart = 0
+        txtefectivo.SelectionLength = Len(txtefectivo.Text)
+    End Sub
+
+    Private Sub txtefectivo_LostFocus(sender As Object, e As EventArgs) Handles txtefectivo.LostFocus
+        If Not IsNumeric(txtefectivo.Text) Then Exit Sub
+        If Not IsNumeric(txttransfe.Text) Then Exit Sub
+        txttotal.Text = CDbl(txtefectivo.Text) + CDbl(txttransfe.Text)
+
+    End Sub
+
+    Private Sub txttransfe_GotFocus(sender As Object, e As EventArgs) Handles txttransfe.GotFocus
+        txttransfe.SelectionStart = 0
+        txttransfe.SelectionLength = Len(txttransfe.Text)
+    End Sub
+
+    Private Sub txttransfe_LostFocus(sender As Object, e As EventArgs) Handles txttransfe.LostFocus
+        If Not IsNumeric(txtefectivo.Text) Then Exit Sub
+        If Not IsNumeric(txttransfe.Text) Then Exit Sub
+
+        txttotal.Text = CDbl(txtefectivo.Text) + CDbl(txttransfe.Text)
+
     End Sub
 End Class

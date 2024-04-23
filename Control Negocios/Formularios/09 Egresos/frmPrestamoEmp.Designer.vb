@@ -60,9 +60,11 @@ Partial Class frmPrestamoEmp
         Me.lblFolio = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblid_usu = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -74,7 +76,7 @@ Partial Class frmPrestamoEmp
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(462, 31)
+        Me.Label1.Size = New System.Drawing.Size(461, 31)
         Me.Label1.TabIndex = 46
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -195,7 +197,7 @@ Partial Class frmPrestamoEmp
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Location = New System.Drawing.Point(8, 201)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(447, 106)
+        Me.GroupBox2.Size = New System.Drawing.Size(447, 110)
         Me.GroupBox2.TabIndex = 176
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Préstamo"
@@ -203,7 +205,7 @@ Partial Class frmPrestamoEmp
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(210, 49)
+        Me.Label11.Location = New System.Drawing.Point(210, 52)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(87, 15)
         Me.Label11.TabIndex = 202
@@ -212,7 +214,7 @@ Partial Class frmPrestamoEmp
         'dtppago
         '
         Me.dtppago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtppago.Location = New System.Drawing.Point(309, 45)
+        Me.dtppago.Location = New System.Drawing.Point(309, 48)
         Me.dtppago.Name = "dtppago"
         Me.dtppago.Size = New System.Drawing.Size(129, 23)
         Me.dtppago.TabIndex = 201
@@ -220,7 +222,7 @@ Partial Class frmPrestamoEmp
         'txtcomentario
         '
         Me.txtcomentario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcomentario.Location = New System.Drawing.Point(94, 72)
+        Me.txtcomentario.Location = New System.Drawing.Point(94, 75)
         Me.txtcomentario.Name = "txtcomentario"
         Me.txtcomentario.Size = New System.Drawing.Size(344, 23)
         Me.txtcomentario.TabIndex = 200
@@ -264,7 +266,7 @@ Partial Class frmPrestamoEmp
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 76)
+        Me.Label12.Location = New System.Drawing.Point(7, 79)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(36, 15)
         Me.Label12.TabIndex = 191
@@ -272,7 +274,7 @@ Partial Class frmPrestamoEmp
         '
         'txtsaldo
         '
-        Me.txtsaldo.Location = New System.Drawing.Point(94, 45)
+        Me.txtsaldo.Location = New System.Drawing.Point(94, 48)
         Me.txtsaldo.Name = "txtsaldo"
         Me.txtsaldo.Size = New System.Drawing.Size(110, 23)
         Me.txtsaldo.TabIndex = 173
@@ -282,7 +284,7 @@ Partial Class frmPrestamoEmp
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 49)
+        Me.Label10.Location = New System.Drawing.Point(7, 52)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 15)
         Me.Label10.TabIndex = 170
@@ -316,7 +318,7 @@ Partial Class frmPrestamoEmp
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.Location = New System.Drawing.Point(395, 313)
+        Me.btnguardar.Location = New System.Drawing.Point(331, 3)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 63)
         Me.btnguardar.TabIndex = 178
@@ -330,7 +332,7 @@ Partial Class frmPrestamoEmp
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(329, 313)
+        Me.btnnuevo.Location = New System.Drawing.Point(395, 3)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnnuevo.TabIndex = 177
@@ -442,11 +444,22 @@ Partial Class frmPrestamoEmp
         Me.lblid_usu.Size = New System.Drawing.Size(0, 15)
         Me.lblid_usu.TabIndex = 199
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.btnguardar)
+        Me.Panel1.Controls.Add(Me.btnnuevo)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 314)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(461, 72)
+        Me.Panel1.TabIndex = 201
+        '
         'frmPrestamoEmp
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(462, 384)
+        Me.ClientSize = New System.Drawing.Size(461, 386)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblid_usu)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblFolio)
@@ -454,8 +467,6 @@ Partial Class frmPrestamoEmp
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.txtcontraseña)
         Me.Controls.Add(Me.opttrabajo)
-        Me.Controls.Add(Me.btnguardar)
-        Me.Controls.Add(Me.btnnuevo)
         Me.Controls.Add(Me.optpersonal)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -476,6 +487,7 @@ Partial Class frmPrestamoEmp
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -517,4 +529,5 @@ Partial Class frmPrestamoEmp
     Friend WithEvents lblFolio As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lblid_usu As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As Panel
 End Class
