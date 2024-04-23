@@ -192,7 +192,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    CFOLIO = rd2(0).ToString + 1
+                    CFOLIO = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + 1
                 Else
                     CFOLIO = 1
                 End If

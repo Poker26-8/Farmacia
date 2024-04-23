@@ -44,6 +44,32 @@
                 End If
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & lblmesa.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1("Contabiliza").ToString = 1 Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & lblmesa.Text & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                MsgBox("Tiene que terminar el tiempo de la mesa para poder cambiarla", vbInformation + vbOKOnly, titulorestaurante)
+                                Exit Sub
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+
+                    End If
+                End If
+            End If
+            rd1.Close()
             cnn1.Close()
 
             If lblmesa.Text <> "" Then

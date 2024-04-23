@@ -396,28 +396,28 @@ Public Class Login
     End Sub
 
     Private Sub cboEmpresa_DropDown(sender As System.Object, e As System.EventArgs) Handles cboEmpresa.DropDown
-        Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
-        Dim coma As OleDbCommand = New OleDbCommand
-        Dim lect As OleDbDataReader = Nothing
+        'Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
+        'Dim coma As OleDbCommand = New OleDbCommand
+        'Dim lect As OleDbDataReader = Nothing
 
-        cboEmpresa.Items.Clear()
+        'cboEmpresa.Items.Clear()
 
-        Try
-            cias.Close() : cias.Open()
+        'Try
+        '    cias.Close() : cias.Open()
 
-            coma = cias.CreateCommand
-            coma.CommandText =
-                "select Id from Empresas order by Id"
-            lect = coma.ExecuteReader
-            Do While lect.Read
-                cboEmpresa.Items.Add(lect(0).ToString())
-            Loop
-            lect.Close()
-            cias.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cias.Close()
-        End Try
+        '    coma = cias.CreateCommand
+        '    coma.CommandText =
+        '        "select Id from Empresas order by Id"
+        '    lect = coma.ExecuteReader
+        '    Do While lect.Read
+        '        cboEmpresa.Items.Add(lect(0).ToString())
+        '    Loop
+        '    lect.Close()
+        '    cias.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString())
+        '    cias.Close()
+        'End Try
     End Sub
 
     Public Sub cboEmpresa_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cboEmpresa.SelectedValueChanged

@@ -2055,4 +2055,10 @@ Public Class frmPagarH
                 txtEfectivo.Focus.Equals(True)
         End Select
     End Sub
+
+    Private Sub grdComanda_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdComanda.CellClick
+        Dim prodseleccionado As String = ""
+        Dim index As Integer = grdComanda.CurrentRow.Index
+
+    End Sub
 End Class

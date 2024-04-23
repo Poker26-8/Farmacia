@@ -1295,6 +1295,7 @@ Partial Class frmVentas1
         Me.txtcotped.Name = "txtcotped"
         Me.txtcotped.Size = New System.Drawing.Size(67, 23)
         Me.txtcotped.TabIndex = 193
+        Me.txtcotped.Visible = False
         '
         'pVenta80
         '
@@ -1425,6 +1426,7 @@ Partial Class frmVentas1
         Me.Button17.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button17.ForeColor = System.Drawing.Color.Black
         Me.Button17.Image = CType(resources.GetObject("Button17.Image"), System.Drawing.Image)
+        Me.Button17.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button17.Location = New System.Drawing.Point(16, 331)
         Me.Button17.Margin = New System.Windows.Forms.Padding(8, 8, 8, 80)
         Me.Button17.Name = "Button17"

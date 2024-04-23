@@ -120,6 +120,7 @@ Partial Class frmPagarH
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -651,6 +652,7 @@ Partial Class frmPagarH
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.btnCancelar)
         Me.Panel3.Controls.Add(Me.txtsaldo_monedero)
         Me.Panel3.Controls.Add(Me.grdpago)
         Me.Panel3.Controls.Add(Me.cboBancoRecepcion)
@@ -1224,6 +1226,20 @@ Partial Class frmPagarH
         'PVenta58
         '
         '
+        'btnCancelar
+        '
+        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(871, 8)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(104, 82)
+        Me.btnCancelar.TabIndex = 253
+        Me.btnCancelar.Text = "Cancelar Producto"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
         'frmPagarH
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1353,4 +1369,5 @@ Partial Class frmPagarH
     Friend WithEvents TFecha As Timer
     Friend WithEvents PVenta80 As Printing.PrintDocument
     Friend WithEvents PVenta58 As Printing.PrintDocument
+    Friend WithEvents btnCancelar As Button
 End Class
