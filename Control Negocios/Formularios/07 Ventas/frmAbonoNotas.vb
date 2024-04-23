@@ -155,7 +155,7 @@ Public Class frmAbonoNotas
                     If Remision(zu) = "" Then Exit For
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Resta from Ventas where Folio=" & Remision(zu) & ""
+                        "select Resta from Ventas where Folio=" & Remision(zu) & " and Cliente='" & cbonombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -393,7 +393,7 @@ Public Class frmAbonoNotas
                     cnn1.Close()
                     cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "Select Saldo from Abonoi where IdCLiente=" & lblid_usu.Text & " order by Id desc"
+                    cmd1.CommandText = "Select Saldo from Abonoi where IdCliente=" & lblid_usu.Text & " order by Id desc"
                     rd1 = cmd1.ExecuteReader
                     If rd1.Read Then
                         MySaldo = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
@@ -405,11 +405,10 @@ Public Class frmAbonoNotas
 
                     If txtefectivo.Text <> "0.00" Then
                         cmd1 = cnn1.CreateCommand
-                        'cmd1.CommandText = "Insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Usuario,) values(" & Remision(zu) & "," & lblid_usu.Text & ",'" & cbonombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & CDec(txtefectivo.Text) & "," & CDec(MySaldo) & ",'EFECTIVO'," & CDec(txtefectivo.Text) & ",'" & lblusuario.Text & "')"
                         cmd1.CommandText =
                         "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario) values(" & Remision(zu) & "," & lblid_usu.Text & ",'" & IIf(cbonombre.Text = "", "PUBLICO EN GENERAL", cbonombre.Text) & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & txtefectivo.Text & "," & (MySaldo) & ",'EFECTIVO'," & txtefectivo.Text & ",'','','" & lblusuario.Text & "','')"
                         If cmd1.ExecuteNonQuery Then
-                            MsgBox("Si")
+
                         End If
                         cnn1.Close()
                     End If
@@ -427,26 +426,24 @@ Public Class frmAbonoNotas
                             'CmentarioFP = DataGridView1.Rows(R).Cells(4).Value.ToString()
                         End If
 
-
                         If TotFormaPago > 0 Then
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
                                 "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario) values(" & Remision(zu) & "," & lblid_usu.Text & ",'" & IIf(cbonombre.Text = "", "PUBLICO EN GENERAL", cbonombre.Text) & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & (MySaldo) & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "','" & CmentarioFP & "')"
                             If cmd2.ExecuteNonQuery() Then
-                                MsgBox("otro si")
                             End If
-
                             cnn2.Close()
                         End If
                     Next
-
                 Next
-
+                MsgBox("Abonos realizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             End If
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
+            cnn1.Close()
+            cnn2.Close()
         End Try
     End Sub
 
@@ -476,7 +473,21 @@ Public Class frmAbonoNotas
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        lblid_usu.Text = ""
+        cbonombre.Text = ""
+        txtfolios.Text = ""
+        txtapagar.Text = "0.00"
+        txtefectivo.Text = "0.00"
+        txtcambio.Text = "0.00"
+        txtpagos.Text = "0.00"
+        txtresta.Text = "0.00"
+        cbotipo.Text = ""
+        cbobanco.Text = ""
+        txtnumero.Text = ""
+        txtmonto.Text = "0.00"
+        DataGridView1.Rows.Clear()
+        lblusuario.Text = ""
+        txtcontraseña.Text = ""
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -492,5 +503,26 @@ Public Class frmAbonoNotas
             Next
             txtpagos.Text = FormatNumber(soypagos, 2)
         End If
+    End Sub
+
+    Private Sub cbotipo_DropDown(sender As Object, e As EventArgs) Handles cbotipo.DropDown
+        Try
+            cbotipo.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT FormaPago FROM formaspago WHERE FormaPago<>'' AND Valor=''"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cbotipo.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
     End Sub
 End Class
