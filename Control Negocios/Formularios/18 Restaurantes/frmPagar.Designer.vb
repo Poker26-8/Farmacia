@@ -23,14 +23,16 @@ Partial Class frmPagar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.lblMesero = New System.Windows.Forms.Label()
         Me.txtPorcentaje = New System.Windows.Forms.TextBox()
+        Me.lblmesa = New System.Windows.Forms.Label()
         Me.lblfolio = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -52,6 +54,7 @@ Partial Class frmPagar
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtSaldoM = New System.Windows.Forms.TextBox()
         Me.txtRecepcion = New System.Windows.Forms.TextBox()
         Me.cboCuenta = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -76,7 +79,6 @@ Partial Class frmPagar
         Me.cboforma = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.txtSaldoM = New System.Windows.Forms.TextBox()
         Me.grdcomanda = New System.Windows.Forms.DataGridView()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -96,9 +98,7 @@ Partial Class frmPagar
         Me.lblusuario2 = New System.Windows.Forms.Label()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.lblmesa = New System.Windows.Forms.Label()
         Me.btn0 = New System.Windows.Forms.Button()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.btnlimpiar = New System.Windows.Forms.Button()
         Me.btn3 = New System.Windows.Forms.Button()
         Me.btn2 = New System.Windows.Forms.Button()
@@ -210,6 +210,16 @@ Partial Class frmPagar
         Me.txtPorcentaje.Text = "0"
         Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'lblmesa
+        '
+        Me.lblmesa.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblmesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmesa.Location = New System.Drawing.Point(12, 90)
+        Me.lblmesa.Name = "lblmesa"
+        Me.lblmesa.Size = New System.Drawing.Size(377, 27)
+        Me.lblmesa.TabIndex = 24
+        Me.lblmesa.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'lblfolio
         '
         Me.lblfolio.BackColor = System.Drawing.Color.Gainsboro
@@ -219,6 +229,17 @@ Partial Class frmPagar
         Me.lblfolio.Size = New System.Drawing.Size(199, 29)
         Me.lblfolio.TabIndex = 32
         Me.lblfolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(12, 57)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(377, 33)
+        Me.Label19.TabIndex = 23
+        Me.Label19.Text = "Mesa"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label23
         '
@@ -454,6 +475,14 @@ Partial Class frmPagar
         Me.Label10.TabIndex = 15
         Me.Label10.Text = "Comentario:"
         '
+        'txtSaldoM
+        '
+        Me.txtSaldoM.Location = New System.Drawing.Point(325, 333)
+        Me.txtSaldoM.Name = "txtSaldoM"
+        Me.txtSaldoM.Size = New System.Drawing.Size(76, 20)
+        Me.txtSaldoM.TabIndex = 14
+        Me.txtSaldoM.Visible = False
+        '
         'txtRecepcion
         '
         Me.txtRecepcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
@@ -666,20 +695,12 @@ Partial Class frmPagar
         Me.Label18.TabIndex = 14
         Me.Label18.Text = "Recepción:"
         '
-        'txtSaldoM
-        '
-        Me.txtSaldoM.Location = New System.Drawing.Point(325, 333)
-        Me.txtSaldoM.Name = "txtSaldoM"
-        Me.txtSaldoM.Size = New System.Drawing.Size(76, 20)
-        Me.txtSaldoM.TabIndex = 14
-        Me.txtSaldoM.Visible = False
-        '
         'grdcomanda
         '
         Me.grdcomanda.AllowUserToAddRows = False
         Me.grdcomanda.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcomanda.BackgroundColor = System.Drawing.Color.White
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
@@ -887,16 +908,6 @@ Partial Class frmPagar
         Me.Label20.Text = "Usuario"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'lblmesa
-        '
-        Me.lblmesa.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblmesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesa.Location = New System.Drawing.Point(12, 90)
-        Me.lblmesa.Name = "lblmesa"
-        Me.lblmesa.Size = New System.Drawing.Size(377, 27)
-        Me.lblmesa.TabIndex = 24
-        Me.lblmesa.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'btn0
         '
         Me.btn0.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -910,17 +921,6 @@ Partial Class frmPagar
         Me.btn0.TabIndex = 12
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
-        '
-        'Label19
-        '
-        Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(12, 57)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(377, 33)
-        Me.Label19.TabIndex = 23
-        Me.Label19.Text = "Mesa"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'btnlimpiar
         '

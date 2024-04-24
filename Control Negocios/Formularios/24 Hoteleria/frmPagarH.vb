@@ -6,6 +6,19 @@ Public Class frmPagarH
 
     Public focoh As Integer = 0
     Public folioventa As Integer = 0
+    Dim codigoeliminar As String = ""
+    Dim descripcioneliminar As String = ""
+    Dim cantidadeliminar As Double = 0
+    Dim precioeliminar As Double = 0
+    Dim COMANDAELIMINAR As Integer = 0
+    Dim ideliminar As Integer = 0
+
+    Dim verid As Integer = 0
+    Dim vercodigo As String = ""
+
+    Dim idusuario As Integer = 0
+    Dim estadousuario As Integer = 0
+
     Private Sub frmPagarH_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Timer1.Start()
@@ -21,7 +34,6 @@ Public Class frmPagarH
             If rd2.HasRows Then
                 If rd2.Read Then
                     tomacontra = rd2(0).ToString
-
                     If tomacontra = 1 Then
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
@@ -48,12 +60,15 @@ Public Class frmPagarH
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
-
-                    grdComanda.Rows.Add(rd2("Codigo").ToString,
+                    verid = rd2("id").ToString
+                    vercodigo = rd2("Codigo").ToString
+                    grdComanda.Rows.Add(vercodigo,
                                         rd2("Nombre").ToString,
                                         rd2("Cantidad").ToString,
                                         rd2("Precio").ToString,
-                                        rd2("Total").ToString
+                                        rd2("Total").ToString,
+                                        rd2("IDC").ToString,
+                                        verid
 )
                     total = total + CDbl(rd2("total").ToString)
 
@@ -656,7 +671,7 @@ Public Class frmPagarH
         Dim codigo As String = ""
         Dim cantidad As Double = 0
 
-
+        btnCobrar.Enabled = False
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
@@ -2060,5 +2075,532 @@ Public Class frmPagarH
         Dim prodseleccionado As String = ""
         Dim index As Integer = grdComanda.CurrentRow.Index
 
+        codigoeliminar = grdComanda.CurrentRow.Cells(0).Value.ToString
+        descripcioneliminar = grdComanda.CurrentRow.Cells(1).Value.ToString
+        cantidadeliminar = grdComanda.CurrentRow.Cells(2).Value.ToString
+        precioeliminar = grdComanda.CurrentRow.Cells(3).Value.ToString
+        COMANDAELIMINAR = grdComanda.CurrentRow.Cells(5).Value.ToString
+        ideliminar = grdComanda.CurrentRow.Cells(6).Value.ToString
+    End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Try
+            Dim CantidadP As String = ""
+            Dim canc As String = ""
+
+            Dim COSTVUE1 As Double = 0
+            Dim PRECIOSINIVA1 As Double = 0
+            Dim IVA As Double = 0
+            Dim PRECIOSINIVA11 As Double = 0
+            Dim TOTALSINIVA As Double = 0
+            Dim TOTAL1 As Double = 0
+            Dim DEPA As String = ""
+            Dim GRUPO1 As String = ""
+            Dim UNIDAD As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT IdEmpleado,Status FROM Usuarios WHERE Alias='" & lblAtendio.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    idusuario = rd1(0).ToString
+                    estadousuario = rd1(1).ToString
+
+                    If estadousuario = 1 Then
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT CancelarM FROM permisosm WHERE IdEmpleado=" & idusuario & ""
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+
+                            End If
+                        Else
+                            MsgBox("El usuario no cuenta con permisos para realizar esta accion", vbInformation + vbOKOnly, titulomensajes)
+                            Exit Sub
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    Else
+                        MsgBox("El usuario no esta activo contacte a su administrador", vbInformation + vbOKOnly, titulomensajes)
+                        Exit Sub
+                    End If
+
+                End If
+            Else
+                MsgBox("El usuario no esta registrado", vbInformation + vbOKOnly, titulomensajes)
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If grdComanda.Rows.Count < 0 Then Exit Sub
+
+            CantidadP = InputBox("Ingrese cantidad a cancelar para el producto " & descripcioneliminar, "Cancelar Producto", 1)
+            My.Application.DoEvents()
+
+            If CantidadP <> "" Then
+                If cantidadeliminar >= CantidadP Then
+                    If MsgBox("¿Seguro que desea continuar con la cancelacion?", vbInformation + vbOKCancel, "Delsscom® Restaurant") = vbCancel Then
+                        Exit Sub
+                    End If
+                    canc = Val(CantidadP)
+
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigoeliminar & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.Read Then
+                        If rd3.HasRows Then
+
+                            UNIDAD = rd3("UVenta").ToString
+                            COSTVUE1 = rd3("PrecioCompra").ToString
+                            PRECIOSINIVA1 = rd3("PrecioVentaIVA").ToString
+                            IVA = rd3("IVA").ToString
+                            PRECIOSINIVA11 = FormatNumber(PRECIOSINIVA1 / IVA, 2)
+                            TOTALSINIVA = FormatNumber(CDec(CantidadP * precioeliminar / 1.6), 2)
+                            TOTAL1 = FormatNumber(CDec(CantidadP * precioeliminar), 2)
+                            DEPA = rd3("Departamento").ToString
+                            GRUPO1 = rd3("Grupo").ToString
+
+                        End If
+                    End If
+                    rd3.Close()
+                    cnn3.Close()
+
+                    cnn4.Close() : cnn4.Open()
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText = "INSERT INTO Devoluciones(Folio,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,ImporteEfec,NMESA,CUsuario,Hr,TipoMov) VALUES(" & ideliminar & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & UNIDAD & "'," & CantidadP & ",0,0," & COSTVUE1 & "," & precioeliminar & "," & TOTAL1 & "," & PRECIOSINIVA1 & "," & TOTALSINIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','',0,'" & DEPA & "','" & GRUPO1 & "',0,'" & lblHabitacion.Text & "','" & lblAtendio.Text & "','" & Format(Date.Now, "HH:mm:ss") & "','CANCELACION')"
+                    cmd4.ExecuteNonQuery()
+                    cnn4.Close()
+
+                    Call PRINT1(COMANDAELIMINAR, codigoeliminar)
+
+                    If cantidadeliminar = CantidadP Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE Rep_Comandas SET Status='CANCELADA' WHERE Codigo='" & codigoeliminar & "' AND Nombre='" & descripcioneliminar & "' AND Nmesa='" & lblHabitacion.Text & "' AND Id=" & ideliminar & ""
+                        cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM Comandas WHERE Id=" & ideliminar & " AND IDC=" & COMANDAELIMINAR & ""
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT NMESA FROM Comandas WHERE NMESA='" & lblHabitacion.Text & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                            End If
+                        Else
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & lblHabitacion.Text & "'"
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
+                        End If
+                        rd2.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Nombre FROM Comanda1 WHERE Nombre='" & lblHabitacion.Text & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+
+
+
+                            End If
+                        Else
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "DELETE FROM Mesa WHERE Nombre_Mesa='" & lblHabitacion.Text & "' AND Temporal=1"
+                            cmd3.ExecuteNonQuery()
+
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblHabitacion.Text & "' AND Temporal=1"
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                        MsgBox("Cancelación realizada correctamente.", vbInformation + vbOKOnly, titulomensajes)
+                    Else
+                        HrTiempo = Format(Date.Now, "yyyy/MM/dd")
+                        HrEntrega = Format(Date.Now, "yyyy/MM/dd")
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE Rep_Comandas SET Cantidad=" & cantidadeliminar - CantidadP & " WHERE Id=" & ideliminar & " AND Codigo='" & codigoeliminar & "'"
+                        cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE Rep_Comandas SET Total=Cantidad * Precio WHERE Id=" & ideliminar & " AND Codigo='" & codigoeliminar & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM Rep_Comandas WHERE Id=" & verid & " AND Codigo='" & vercodigo & "' AND Status<>'CANCELADA'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+
+                                cnn4.Close() : cnn4.Open()
+                                cmd4 = cnn4.CreateCommand
+                                cmd4.CommandText = "INSERT INTO Rep_Comandas(NMESA,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Grupo,EstatusT,Hr,EntregaT) VALUES('" & lblHabitacion.Text & "','" & rd2("Codigo").ToString & "','" & rd2("Nombre").ToString & "'," & CantidadP & ",'" & rd2("UVenta").ToString & "'," & rd2("CostVUE").ToString & "," & rd2("CostVP").ToString & "," & rd2("Precio").ToString & "," & rd2("Total").ToString & "," & rd2("PrecioSinIVA").ToString & "," & rd2("TotalSinIVA").ToString & ",'" & rd2("Comisionista").ToString & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & rd2("Depto").ToString & "','" & rd2("Comensal").ToString & "','CANCELADA','" & rd2("Comentario").ToString & "','" & rd2("GPrint").ToString & "','" & rd2("CUsuario").ToString & "','" & rd2("Total_comensales").ToString & "','" & rd2("Grupo").ToString & "',0,'" & HrTiempo & "','" & HrEntrega & "')"
+                                cmd4.ExecuteNonQuery()
+                                cnn4.Close()
+
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    End If
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE Comandas SET Cantidad=" & cantidadeliminar - CantidadP & " WHERE IDC=" & comandaeliminar & ""
+                    cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE Comandas SET Total= Cantidad * Precio  WHERE IDC=" & comandaeliminar & ""
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                Else
+                    MsgBox("No es posible cancelar una cantidad mayor a este producto.", vbInformation + vbOKOnly, titulohotelriaa)
+                End If
+            End If
+            Me.Close()
+            frmManejo.Show()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Public Function PRINT1(IDComanda As String, CodigoProd As String) As Boolean
+        Dim tam As String = TamImpre()
+        Dim impresora As String = ""
+        Dim impre As String = ""
+        Try
+
+            cnn1.Close() : cnn1.Open()
+            cnn3.Close() : cnn3.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT DISTINCT Gprint FROM Comandas WHERE IDC=" & IDComanda & " AND Codigo='" & CodigoProd & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    impre = rd1(0).ToString
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT Impresora FROM RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & impre & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            impresora = rd3(0).ToString
+                        End If
+                    Else
+                        MsgBox("No se tiene instalada ninguna impresora!", vbCritical, titulomensajes)
+                        PRINT1 = False
+                        ' imprime = False
+                        Exit Function
+                    End If
+                    rd3.Close()
+                    cnn3.Close()
+
+                    If TamImpre() = "80" Then
+                        Cancelacion80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        Cancelacion80.Print()
+
+                    End If
+
+                    If TamImpre() = "58" Then
+                        Cancelacion58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        Cancelacion58.Print()
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+    End Function
+
+    Private Sub Cancelacion80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles Cancelacion80.PrintPage
+        Try
+            Dim tipografia As String = "Lucida Sans Typewriter"
+            Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
+            Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+            Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+            Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
+            Dim hoja As New Pen(Brushes.Black, 1)
+            Dim Y As Double = 0
+
+            Dim pie1 As String = ""
+            Dim pie2 As String = ""
+            Dim pie3 As String = ""
+            Dim CveUsr As String = ""
+
+            cnn2.Close() : cnn2.Open()
+            cnn4.Close() : cnn4.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "select * from Ticket"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    pie3 = rd2("Pie3").ToString
+                    pie2 = rd2("Pie2").ToString
+                    pie1 = rd2("Pie1").ToString
+                    'Razón social
+                    If rd2("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, centro)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd2("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, centro)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd2("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, centro)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd2("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, centro)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd2("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, centro)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd2("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, centro)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd2("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, centro)
+                        Y += 12
+                    End If
+                    Y += 17
+                End If
+            Else
+                Y += 0
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("C O M A N D A   C A N C E L A D A", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("Folio: " & COMANDAELIMINAR, fuente_r, Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Fecha: " & Format(Date.Now, "yyyy/MM/dd"), fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & Format(Date.Now, "HH:mm:ss"), fuente_r, Brushes.Black, 270, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("CANT", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 35, Y)
+            e.Graphics.DrawString("COMENSAL", fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM Comandas WHERE IDC='" & COMANDAELIMINAR & "'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+
+                    e.Graphics.DrawString(cantidadeliminar, fuente_b, Brushes.Black, 1, Y)
+
+                    Dim caracteresPorLinea As Integer = 40
+                    Dim texto As String = descripcioneliminar
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                        Y += 15
+                        inicio += caracteresPorLinea
+                    End While
+
+                    e.Graphics.DrawString("1", fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 15
+
+                End If
+            Loop
+            rd4.Close()
+
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("Habitación: " & lblHabitacion.Text, fuente_r, Brushes.Black, 1, Y)
+
+
+            cnn4.Close()
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+            cnn4.Close()
+        End Try
+    End Sub
+
+    Private Sub Cancelacion58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
+        Try
+            Dim tipografia As String = "Lucida Sans Typewriter"
+            Dim fuente_r As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+            Dim fuente_b As New Font("Lucida Sans Typewriter", 7, FontStyle.Bold)
+            Dim fuente_c As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+            Dim fuente_p As New Font("Lucida Sans Typewriter", 6, FontStyle.Regular)
+            Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+            Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
+            Dim hoja As New Pen(Brushes.Black, 1)
+            Dim Y As Double = 0
+
+            Dim pie1 As String = ""
+            Dim pie2 As String = ""
+            Dim pie3 As String = ""
+            Dim CveUsr As String = ""
+
+            cnn2.Close() : cnn2.Open()
+            cnn4.Close() : cnn4.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "select * from Ticket"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    pie3 = rd2("Pie3").ToString
+                    pie2 = rd2("Pie2").ToString
+                    pie1 = rd2("Pie1").ToString
+                    'Razón social
+                    If rd2("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, centro)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd2("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, centro)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd2("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, centro)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd2("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, centro)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd2("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, centro)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd2("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, centro)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd2("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 90, Y, centro)
+                        Y += 12
+                    End If
+                    Y += 17
+                End If
+            Else
+                Y += 0
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("C O M A N D A   C A N C E L A D A", fuente_b, Brushes.Black, 90, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("Folio: " & COMANDAELIMINAR, fuente_r, Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Fecha: " & Format(Date.Now, "yyyy/MM/dd"), fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & Format(Date.Now, "HH:mm:ss"), fuente_r, Brushes.Black, 180, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("CANT", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 33, Y)
+            e.Graphics.DrawString("COMENSAL", fuente_b, Brushes.Black, 180, Y, derecha)
+            Y += 20
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM Comandas WHERE IDC='" & COMANDAELIMINAR & "'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+
+                    e.Graphics.DrawString(cantidadeliminar, fuente_b, Brushes.Black, 1, Y)
+
+                    Dim caracteresPorLinea As Integer = 35
+                    Dim texto As String = descripcioneliminar
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                        Y += 15
+                        inicio += caracteresPorLinea
+                    End While
+
+                    e.Graphics.DrawString("1", fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+
+                End If
+            Loop
+            rd4.Close()
+
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("Habitación: " & lblHabitacion.Text, fuente_r, Brushes.Black, 1, Y)
+
+
+            cnn4.Close()
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+            cnn4.Close()
+        End Try
     End Sub
 End Class

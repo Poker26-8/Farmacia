@@ -4434,6 +4434,27 @@ Door:
 
     End Sub
 
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+
+        If grdCaptura.Rows.Count > 0 Then
+            Dim INDEX As Double = grdCaptura.CurrentRow.Index
+
+            Dim IMPORTE = grdCaptura.Rows(INDEX).Cells(4).Value.ToString
+            lblTotalPagar.Text = lblTotalPagar.Text - IMPORTE
+            lblRestaPagar.Text = lblRestaPagar.Text - IMPORTE
+
+            lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
+            lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
+
+
+            grdCaptura.Rows.Remove(grdCaptura.CurrentRow)
+            lblPropina.Text = "0.00"
+            lbltotalventa.Text = "0.00"
+            lblRestaPagar.Text = "0.00"
+        End If
+
+    End Sub
+
     Private Sub btnB_Click(sender As Object, e As EventArgs) Handles btnB.Click
         txtRespuesta.Text = txtRespuesta.Text + btnB.Text
     End Sub

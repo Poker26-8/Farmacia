@@ -24,8 +24,8 @@ Partial Class frmVTouchR
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVTouchR))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbltotalventa = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -143,6 +143,7 @@ Partial Class frmVTouchR
         Me.PVentaTouch58 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia58 = New System.Drawing.Printing.PrintDocument()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -188,7 +189,7 @@ Partial Class frmVTouchR
         Me.lbltotalventa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbltotalventa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltotalventa.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lbltotalventa.Location = New System.Drawing.Point(526, 84)
+        Me.lbltotalventa.Location = New System.Drawing.Point(468, 84)
         Me.lbltotalventa.Name = "lbltotalventa"
         Me.lbltotalventa.Size = New System.Drawing.Size(117, 23)
         Me.lbltotalventa.TabIndex = 96
@@ -201,7 +202,7 @@ Partial Class frmVTouchR
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(521, 60)
+        Me.Label15.Location = New System.Drawing.Point(463, 60)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(121, 23)
         Me.Label15.TabIndex = 95
@@ -303,7 +304,7 @@ Partial Class frmVTouchR
         Me.lblCambio.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCambio.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblCambio.Location = New System.Drawing.Point(493, 34)
+        Me.lblCambio.Location = New System.Drawing.Point(442, 34)
         Me.lblCambio.Name = "lblCambio"
         Me.lblCambio.Size = New System.Drawing.Size(95, 23)
         Me.lblCambio.TabIndex = 86
@@ -315,7 +316,7 @@ Partial Class frmVTouchR
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(481, 9)
+        Me.Label2.Location = New System.Drawing.Point(430, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(95, 23)
         Me.Label2.TabIndex = 85
@@ -327,7 +328,7 @@ Partial Class frmVTouchR
         Me.lblRestaPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblRestaPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRestaPagar.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblRestaPagar.Location = New System.Drawing.Point(587, 32)
+        Me.lblRestaPagar.Location = New System.Drawing.Point(536, 32)
         Me.lblRestaPagar.Name = "lblRestaPagar"
         Me.lblRestaPagar.Size = New System.Drawing.Size(117, 23)
         Me.lblRestaPagar.TabIndex = 84
@@ -340,7 +341,7 @@ Partial Class frmVTouchR
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(587, 9)
+        Me.Label3.Location = New System.Drawing.Point(536, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(117, 23)
         Me.Label3.TabIndex = 83
@@ -353,10 +354,11 @@ Partial Class frmVTouchR
         Me.Panel6.Controls.Add(Me.btnSalir)
         Me.Panel6.Controls.Add(Me.btnLimpiar)
         Me.Panel6.Controls.Add(Me.btnPagar)
+        Me.Panel6.Controls.Add(Me.btnEliminar)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(750, 0)
+        Me.Panel6.Location = New System.Drawing.Point(694, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(283, 121)
+        Me.Panel6.Size = New System.Drawing.Size(339, 121)
         Me.Panel6.TabIndex = 69
         '
         'btnSalir
@@ -368,7 +370,7 @@ Partial Class frmVTouchR
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(199, 12)
+        Me.btnSalir.Location = New System.Drawing.Point(255, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(78, 87)
         Me.btnSalir.TabIndex = 73
@@ -385,7 +387,7 @@ Partial Class frmVTouchR
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(117, 12)
+        Me.btnLimpiar.Location = New System.Drawing.Point(173, 12)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(78, 87)
         Me.btnLimpiar.TabIndex = 72
@@ -402,7 +404,7 @@ Partial Class frmVTouchR
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(33, 12)
+        Me.btnPagar.Location = New System.Drawing.Point(89, 12)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(78, 87)
         Me.btnPagar.TabIndex = 71
@@ -477,6 +479,7 @@ Partial Class frmVTouchR
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1033, 159)
         Me.TableLayoutPanel1.TabIndex = 3
         '
@@ -728,19 +731,19 @@ Partial Class frmVTouchR
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column9})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle4
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 121)
         Me.grdCaptura.Name = "grdCaptura"
@@ -1526,6 +1529,21 @@ Partial Class frmVTouchR
         'Cortesia58
         '
         '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(5, 11)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(82, 87)
+        Me.btnEliminar.TabIndex = 74
+        Me.btnEliminar.Text = "Borrar Producto"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminar.UseVisualStyleBackColor = False
+        '
         'frmVTouchR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1679,4 +1697,5 @@ Partial Class frmVTouchR
     Friend WithEvents PVentaTouch58 As Printing.PrintDocument
     Friend WithEvents Cortesia80 As Printing.PrintDocument
     Friend WithEvents Cortesia58 As Printing.PrintDocument
+    Friend WithEvents btnEliminar As Button
 End Class

@@ -64,6 +64,7 @@ Partial Class frmPagarH
         Me.btn6 = New System.Windows.Forms.Button()
         Me.btn5 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtsaldo_monedero = New System.Windows.Forms.TextBox()
         Me.grdpago = New System.Windows.Forms.DataGridView()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -111,16 +112,19 @@ Partial Class frmPagarH
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.grdComanda = New System.Windows.Forms.DataGridView()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
+        Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
-        Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
-        Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
-        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cancelacion80 = New System.Drawing.Printing.PrintDocument()
+        Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -678,6 +682,20 @@ Partial Class frmPagarH
         Me.Panel3.Size = New System.Drawing.Size(981, 178)
         Me.Panel3.TabIndex = 56
         '
+        'btnCancelar
+        '
+        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(871, 8)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(104, 82)
+        Me.btnCancelar.TabIndex = 253
+        Me.btnCancelar.Text = "Cancelar Producto"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
         'txtsaldo_monedero
         '
         Me.txtsaldo_monedero.Location = New System.Drawing.Point(752, 137)
@@ -1175,44 +1193,13 @@ Partial Class frmPagarH
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdComanda.BackgroundColor = System.Drawing.Color.White
         Me.grdComanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdComanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.grdComanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
         Me.grdComanda.Location = New System.Drawing.Point(6, 9)
         Me.grdComanda.Name = "grdComanda"
         Me.grdComanda.ReadOnly = True
         Me.grdComanda.RowHeadersVisible = False
         Me.grdComanda.Size = New System.Drawing.Size(734, 319)
         Me.grdComanda.TabIndex = 35
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Descripción"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Cantidad"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Precio"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Total"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
         '
         'Timer1
         '
@@ -1226,19 +1213,57 @@ Partial Class frmPagarH
         'PVenta58
         '
         '
-        'btnCancelar
+        'Column1
         '
-        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(871, 8)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(104, 82)
-        Me.btnCancelar.TabIndex = 253
-        Me.btnCancelar.Text = "Cancelar Producto"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Descripción"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 88
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column3.HeaderText = "Cantidad"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column4.HeaderText = "Precio"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column5.HeaderText = "Total"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column6.HeaderText = "idc"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column7.HeaderText = "IdComanda"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Cancelacion80
+        '
         '
         'frmPagarH
         '
@@ -1360,14 +1385,18 @@ Partial Class frmPagarH
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel9 As Panel
     Friend WithEvents grdComanda As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Timer1 As Timer
     Friend WithEvents TFecha As Timer
     Friend WithEvents PVenta80 As Printing.PrintDocument
     Friend WithEvents PVenta58 As Printing.PrintDocument
     Friend WithEvents btnCancelar As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Cancelacion80 As Printing.PrintDocument
+    Friend WithEvents Cancelacion58 As Printing.PrintDocument
 End Class

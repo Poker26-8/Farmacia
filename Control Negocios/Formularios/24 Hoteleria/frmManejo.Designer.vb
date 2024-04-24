@@ -28,6 +28,7 @@ Partial Class frmManejo
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.piclogo = New System.Windows.Forms.PictureBox()
         Me.pBotones = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnCambiarH = New System.Windows.Forms.Button()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.btnServicio = New System.Windows.Forms.Button()
@@ -82,7 +83,7 @@ Partial Class frmManejo
         Me.psuperior.Dock = System.Windows.Forms.DockStyle.Top
         Me.psuperior.Location = New System.Drawing.Point(0, 0)
         Me.psuperior.Name = "psuperior"
-        Me.psuperior.Size = New System.Drawing.Size(1181, 100)
+        Me.psuperior.Size = New System.Drawing.Size(1329, 100)
         Me.psuperior.TabIndex = 0
         '
         'pUbicaciones
@@ -91,7 +92,7 @@ Partial Class frmManejo
         Me.pUbicaciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pUbicaciones.Location = New System.Drawing.Point(159, 0)
         Me.pUbicaciones.Name = "pUbicaciones"
-        Me.pUbicaciones.Size = New System.Drawing.Size(439, 100)
+        Me.pUbicaciones.Size = New System.Drawing.Size(510, 100)
         Me.pUbicaciones.TabIndex = 7
         '
         'Panel3
@@ -118,6 +119,7 @@ Partial Class frmManejo
         'pBotones
         '
         Me.pBotones.BackColor = System.Drawing.Color.SteelBlue
+        Me.pBotones.Controls.Add(Me.Button1)
         Me.pBotones.Controls.Add(Me.btnCambiarH)
         Me.pBotones.Controls.Add(Me.btnPagar)
         Me.pBotones.Controls.Add(Me.btnServicio)
@@ -125,10 +127,26 @@ Partial Class frmManejo
         Me.pBotones.Controls.Add(Me.btnSalir)
         Me.pBotones.Controls.Add(Me.btnLimpiar)
         Me.pBotones.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pBotones.Location = New System.Drawing.Point(598, 0)
+        Me.pBotones.Location = New System.Drawing.Point(669, 0)
         Me.pBotones.Name = "pBotones"
-        Me.pBotones.Size = New System.Drawing.Size(583, 100)
+        Me.pBotones.Size = New System.Drawing.Size(660, 100)
         Me.pBotones.TabIndex = 4
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(105, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(97, 80)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "Cancelacion"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'btnCambiarH
         '
@@ -138,7 +156,7 @@ Partial Class frmManejo
         Me.btnCambiarH.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCambiarH.Image = CType(resources.GetObject("btnCambiarH.Image"), System.Drawing.Image)
         Me.btnCambiarH.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCambiarH.Location = New System.Drawing.Point(110, 12)
+        Me.btnCambiarH.Location = New System.Drawing.Point(205, 12)
         Me.btnCambiarH.Name = "btnCambiarH"
         Me.btnCambiarH.Size = New System.Drawing.Size(88, 80)
         Me.btnCambiarH.TabIndex = 7
@@ -154,7 +172,7 @@ Partial Class frmManejo
         Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
-        Me.btnPagar.Location = New System.Drawing.Point(205, 12)
+        Me.btnPagar.Location = New System.Drawing.Point(296, 12)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.Size = New System.Drawing.Size(88, 80)
         Me.btnPagar.TabIndex = 6
@@ -170,7 +188,7 @@ Partial Class frmManejo
         Me.btnServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnServicio.Image = CType(resources.GetObject("btnServicio.Image"), System.Drawing.Image)
         Me.btnServicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnServicio.Location = New System.Drawing.Point(300, 12)
+        Me.btnServicio.Location = New System.Drawing.Point(387, 12)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(88, 80)
         Me.btnServicio.TabIndex = 5
@@ -200,7 +218,7 @@ Partial Class frmManejo
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(490, 12)
+        Me.btnSalir.Location = New System.Drawing.Point(567, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(88, 80)
         Me.btnSalir.TabIndex = 0
@@ -216,7 +234,7 @@ Partial Class frmManejo
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(395, 12)
+        Me.btnLimpiar.Location = New System.Drawing.Point(477, 12)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(88, 80)
         Me.btnLimpiar.TabIndex = 2
@@ -228,7 +246,7 @@ Partial Class frmManejo
         '
         Me.Panel2.Controls.Add(Me.pcontra)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(988, 100)
+        Me.Panel2.Location = New System.Drawing.Point(1136, 100)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(193, 726)
         Me.Panel2.TabIndex = 1
@@ -596,7 +614,7 @@ Partial Class frmManejo
         Me.pHab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pHab.Location = New System.Drawing.Point(0, 100)
         Me.pHab.Name = "pHab"
-        Me.pHab.Size = New System.Drawing.Size(988, 726)
+        Me.pHab.Size = New System.Drawing.Size(1136, 726)
         Me.pHab.TabIndex = 4
         '
         'frmManejo
@@ -604,7 +622,7 @@ Partial Class frmManejo
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1181, 826)
+        Me.ClientSize = New System.Drawing.Size(1329, 826)
         Me.Controls.Add(Me.pHab)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.psuperior)
@@ -666,4 +684,5 @@ Partial Class frmManejo
     Friend WithEvents pHab As Panel
     Friend WithEvents pUbicaciones As Panel
     Friend WithEvents Label10 As Label
+    Friend WithEvents Button1 As Button
 End Class

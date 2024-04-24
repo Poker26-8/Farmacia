@@ -72,6 +72,8 @@ Partial Class frmPagoNomina
         Me.txtmonto = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtsaldo = New System.Windows.Forms.TextBox()
+        Me.PNomina80 = New System.Drawing.Printing.PrintDocument()
+        Me.pNomina58 = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -573,6 +575,12 @@ Partial Class frmPagoNomina
         Me.txtsaldo.Text = "0.00"
         Me.txtsaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'PNomina80
+        '
+        '
+        'pNomina58
+        '
+        '
         'frmPagoNomina
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -653,4 +661,6 @@ Partial Class frmPagoNomina
     Friend WithEvents Label18 As Label
     Friend WithEvents txttotal As TextBox
     Friend WithEvents Label21 As Label
+    Friend WithEvents PNomina80 As Printing.PrintDocument
+    Friend WithEvents pNomina58 As Printing.PrintDocument
 End Class

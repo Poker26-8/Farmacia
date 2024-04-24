@@ -503,6 +503,12 @@
     <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCancelarHab.Designer.vb">
+      <DependentUpon>frmCancelarHab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCancelarHab.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmPrecioH.Designer.vb">
       <DependentUpon>frmPrecioH.vb</DependentUpon>
     </Compile>
@@ -1883,6 +1889,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularNuvHab.resx">
       <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\24 Hoteleria\frmCancelarHab.resx">
+      <DependentUpon>frmCancelarHab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmPrecioH.resx">
       <DependentUpon>frmPrecioH.vb</DependentUpon>

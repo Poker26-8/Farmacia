@@ -1,5 +1,25 @@
 ﻿Module CrearBD
 
+    'nominas
+    Public vartablanominass As String = "CREATE TABLE `nominas` (
+                                          `Id` int(11) NOT NULL,
+                                          `IdEmpleado` int(11) DEFAULT '0',
+                                          `Nombre` varchar(255) DEFAULT '',
+                                          `Area` varchar(70) DEFAULT '',
+                                          `Puesto` varchar(70) DEFAULT '',
+                                          `Sueldo` float DEFAULT '0',
+                                          `Descuento` float DEFAULT '0',
+                                          `Fecha` date DEFAULT NULL,
+                                          `Horas` int(11) DEFAULT '0',
+                                          `OtrosD` float DEFAULT '0',
+                                          `OtrosP` float DEFAULT '0',
+                                          `SueldoNeto` float DEFAULT '0',
+                                          `Desde` date DEFAULT NULL,
+                                          `Hasta` date DEFAULT NULL,
+                                          `Usuario` varchar(70) DEFAULT NULL,
+                                          `Corte` int(11) DEFAULT '0',
+                                          `CorteU` int(10) UNSIGNED ZEROFILL DEFAULT '0000000000'
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'pedidosvendet
     Public vartablapedidosvendet As String = "CREATE TABLE `pedidosvendet` (
                                                                       `id` int(11) NOT NULL,
@@ -6536,6 +6556,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeynominass As String = "ALTER TABLE `nominas` ADD PRIMARY KEY (`Id`);"
     Public VarKeypedidosvendet As String = "ALTER TABLE `pedidosvendet` ADD PRIMARY KEY (`Id`);"
     Public VarKeypedidosven As String = "ALTER TABLE `pedidosven` ADD PRIMARY KEY (`Folio`);"
     Public VarKeydetallehotelprecios As String = "ALTER TABLE `detallehotelprecios` ADD PRIMARY KEY (`Id`);"
@@ -6687,6 +6708,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutonominass As String = "ALTER TABLE `nominas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidosvendet As String = "ALTER TABLE `pedidosvendet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidosven As String = "ALTER TABLE `pedidosven` MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodetallehotelprecios As String = "ALTER TABLE `detallehotelprecios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
