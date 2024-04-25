@@ -25,15 +25,19 @@ Partial Class frmVehP
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehP))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboPlaca = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtModelo = New System.Windows.Forms.TextBox()
+        Me.txtMarca = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtEconomico = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cboStatus = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Panel1
@@ -49,19 +53,19 @@ Partial Class frmVehP
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 46)
+        Me.Label1.Location = New System.Drawing.Point(7, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 18)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Placa:"
         '
-        'ComboBox1
+        'cboPlaca
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(68, 46)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(256, 21)
-        Me.ComboBox1.TabIndex = 2
+        Me.cboPlaca.FormattingEnabled = True
+        Me.cboPlaca.Location = New System.Drawing.Point(68, 46)
+        Me.cboPlaca.Name = "cboPlaca"
+        Me.cboPlaca.Size = New System.Drawing.Size(361, 21)
+        Me.cboPlaca.TabIndex = 2
         '
         'Label2
         '
@@ -73,25 +77,25 @@ Partial Class frmVehP
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Modelo:"
         '
-        'TextBox1
+        'txtModelo
         '
-        Me.TextBox1.Location = New System.Drawing.Point(290, 73)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox1.TabIndex = 4
+        Me.txtModelo.Location = New System.Drawing.Point(290, 73)
+        Me.txtModelo.Name = "txtModelo"
+        Me.txtModelo.Size = New System.Drawing.Size(139, 20)
+        Me.txtModelo.TabIndex = 4
         '
-        'TextBox2
+        'txtMarca
         '
-        Me.TextBox2.Location = New System.Drawing.Point(68, 73)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(148, 20)
-        Me.TextBox2.TabIndex = 6
+        Me.txtMarca.Location = New System.Drawing.Point(68, 73)
+        Me.txtMarca.Name = "txtMarca"
+        Me.txtMarca.Size = New System.Drawing.Size(148, 20)
+        Me.txtMarca.TabIndex = 6
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(7, 75)
+        Me.Label3.Location = New System.Drawing.Point(7, 72)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 18)
         Me.Label3.TabIndex = 5
@@ -104,7 +108,7 @@ Partial Class frmVehP
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(303, 107)
+        Me.btnNuevo.Location = New System.Drawing.Point(303, 155)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 144
@@ -120,7 +124,7 @@ Partial Class frmVehP
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(171, 107)
+        Me.btnEliminar.Location = New System.Drawing.Point(171, 155)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 143
@@ -135,7 +139,7 @@ Partial Class frmVehP
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(237, 107)
+        Me.btnGuardar.Location = New System.Drawing.Point(237, 155)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 142
@@ -151,7 +155,7 @@ Partial Class frmVehP
         Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(369, 107)
+        Me.btnSalir.Location = New System.Drawing.Point(369, 155)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(60, 63)
         Me.btnSalir.TabIndex = 145
@@ -159,25 +163,65 @@ Partial Class frmVehP
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(7, 101)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(123, 18)
+        Me.Label4.TabIndex = 146
+        Me.Label4.Text = "N° Economico:"
+        '
+        'txtEconomico
+        '
+        Me.txtEconomico.Location = New System.Drawing.Point(136, 99)
+        Me.txtEconomico.Name = "txtEconomico"
+        Me.txtEconomico.Size = New System.Drawing.Size(293, 20)
+        Me.txtEconomico.TabIndex = 147
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(10, 125)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(127, 21)
+        Me.Label5.TabIndex = 148
+        Me.Label5.Text = "Status:"
+        '
+        'cboStatus
+        '
+        Me.cboStatus.FormattingEnabled = True
+        Me.cboStatus.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
+        Me.cboStatus.Location = New System.Drawing.Point(136, 125)
+        Me.cboStatus.Name = "cboStatus"
+        Me.cboStatus.Size = New System.Drawing.Size(293, 21)
+        Me.cboStatus.TabIndex = 149
+        '
         'frmVehP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(435, 173)
+        Me.ClientSize = New System.Drawing.Size(435, 221)
+        Me.Controls.Add(Me.cboStatus)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtEconomico)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtMarca)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtModelo)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cboPlaca)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmVehP"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Unidades"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -186,13 +230,17 @@ Partial Class frmVehP
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboPlaca As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtModelo As TextBox
+    Friend WithEvents txtMarca As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnNuevo As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtEconomico As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents cboStatus As ComboBox
 End Class

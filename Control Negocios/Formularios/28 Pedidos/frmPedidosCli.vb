@@ -218,7 +218,7 @@ Public Class frmPedidosCli
 
             grdCaptura.Rows.Clear()
             grdCaptura.ColumnCount = 0
-            grdCaptura.ColumnCount = 12
+            grdCaptura.ColumnCount = 13
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -293,15 +293,6 @@ Public Class frmPedidosCli
                 End With
 
                 With .Columns(8)
-                    .HeaderText = "Fecha"
-                    .Width = 60
-                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-                    .Visible = True
-                    .Resizable = DataGridViewTriState.False
-                End With
-
-                With .Columns(9)
                     .HeaderText = "Status"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -310,7 +301,7 @@ Public Class frmPedidosCli
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(10)
+                With .Columns(9)
                     .HeaderText = "Chofer"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -319,8 +310,26 @@ Public Class frmPedidosCli
                     .Resizable = DataGridViewTriState.False
                 End With
 
-                With .Columns(11)
+                With .Columns(10)
                     .HeaderText = "Vehiculo"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(11)
+                    .HeaderText = "Fec Asignación"
+                    .Width = 60
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(12)
+                    .HeaderText = "Hor Asignación"
                     .Width = 60
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
@@ -344,9 +353,9 @@ Public Class frmPedidosCli
                 Do While rd1.Read
                     If rd1.HasRows Then
                         fecha = rd1("FechaAsignacion").ToString
-                        fecham = Format(fecha, "yyyy-MM-dd HH:mm:ss")
+                        fecham = Format(fecha, "yyyy-MM-dd")
 
-                        grdCaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd1("Direccion").ToString, rd1("Precio").ToString, rd1("Cantidad").ToString, rd1("Total").ToString, rd1("ACuenta").ToString, rd1("Resta").ToString, fecham, rd1("Status").ToString, rd1("Chofer").ToString, rd1("Vehiculo").ToString)
+                        grdCaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd1("Direccion").ToString, rd1("Precio").ToString, rd1("Cantidad").ToString, rd1("Total").ToString, rd1("ACuenta").ToString, rd1("Resta").ToString, rd1("Status").ToString, rd1("Chofer").ToString, rd1("Vehiculo").ToString, fecham, rd1("HoraAsignacion").ToString)
                     End If
                 Loop
                 rd1.Close()
@@ -390,8 +399,10 @@ Public Class frmPedidosCli
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO pedidosasignados(Folio,IdCliente,Cliente,Direccion,Codigo,Nombre,Cantidad,Precio,Total,FechaAsignacion,Chofer,Vehiculo,Status) VALUES(" & folio & "," & idcliente & ",'" & cboCliente.Text & "','" & direcicon & "','" & CODIGO & "','" & nombre & "'," & cantida & "," & precio & "," & total & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboChofer.Text & "','" & cboVehiculo.Text & "','ASIGNADO')"
-                    cmd2.ExecuteNonQuery()
+                    cmd2.CommandText = "INSERT INTO pedidosasignados(Folio,IdCliente,Cliente,Direccion,Codigo,Nombre,Cantidad,Precio,Total,FechaAsignacion,HoraAsignacion,Fecha,Chofer,Vehiculo,Status) VALUES(" & folio & "," & idcliente & ",'" & cboCliente.Text & "','" & direcicon & "','" & CODIGO & "','" & nombre & "'," & cantida & "," & precio & "," & total & ",'" & Format(dtpAsignacion.Value, "yyyy-MM-dd") & "','" & Format(dtpinicio.Value, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & cboChofer.Text & "','" & cboVehiculo.Text & "','ASIGNADO')"
+                    If cmd2.ExecuteNonQuery() Then
+                        MsgBox("Pedido asignado correctamente", vbInformation + vbOKOnly, titulocentral)
+                    End If
                     cnn2.Close()
                 Next
             End If
@@ -409,7 +420,7 @@ Public Class frmPedidosCli
             cboVehiculo.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT placa FROM vehiculo WHERE Placa<>'' ORDER BY Placa"
+            cmd5.CommandText = "SELECT DISTINCT placa FROM vehiculo WHERE Placa<>'' AND StatusT=1 ORDER BY Placa"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -464,4 +475,6 @@ Public Class frmPedidosCli
             cnn1.Close()
         End Try
     End Sub
+
+
 End Class

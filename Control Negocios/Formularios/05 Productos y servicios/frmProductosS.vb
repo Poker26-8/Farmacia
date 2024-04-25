@@ -82,7 +82,7 @@ Public Class frmProductosS
     End Sub
 
     Private Sub txtbarras_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtbarras.KeyPress
-        If Not IsNumeric(txtbarras.Text) Then txtbarras.Text = "" : Exit Sub
+        'If Not IsNumeric(txtbarras.Text) Then txtbarras.Text = "" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtbarras.Text <> "" Then
                 ShowData("BARRAS")

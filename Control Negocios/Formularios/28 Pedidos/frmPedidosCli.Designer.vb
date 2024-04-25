@@ -27,11 +27,14 @@ Partial Class frmPedidosCli
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtpAsignacion = New System.Windows.Forms.DateTimePicker()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cboChofer = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cboVehiculo = New System.Windows.Forms.ComboBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.cboPedido = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cboCliente = New System.Windows.Forms.ComboBox()
@@ -58,7 +61,7 @@ Partial Class frmPedidosCli
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1052, 39)
+        Me.Panel1.Size = New System.Drawing.Size(1058, 39)
         Me.Panel1.TabIndex = 0
         '
         'Panel2
@@ -69,16 +72,19 @@ Partial Class frmPedidosCli
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 39)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1052, 83)
+        Me.Panel2.Size = New System.Drawing.Size(1058, 95)
         Me.Panel2.TabIndex = 1
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.dtpinicio)
+        Me.Panel5.Controls.Add(Me.Label6)
+        Me.Panel5.Controls.Add(Me.dtpAsignacion)
+        Me.Panel5.Controls.Add(Me.Label5)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.cboChofer)
         Me.Panel5.Controls.Add(Me.Label4)
         Me.Panel5.Controls.Add(Me.cboVehiculo)
-        Me.Panel5.Controls.Add(Me.CheckBox1)
         Me.Panel5.Controls.Add(Me.cboPedido)
         Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Controls.Add(Me.cboCliente)
@@ -86,8 +92,47 @@ Partial Class frmPedidosCli
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(165, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(721, 83)
+        Me.Panel5.Size = New System.Drawing.Size(727, 95)
         Me.Panel5.TabIndex = 89
+        '
+        'dtpinicio
+        '
+        Me.dtpinicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpinicio.Location = New System.Drawing.Point(524, 62)
+        Me.dtpinicio.Name = "dtpinicio"
+        Me.dtpinicio.ShowUpDown = True
+        Me.dtpinicio.Size = New System.Drawing.Size(138, 22)
+        Me.dtpinicio.TabIndex = 208
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(371, 64)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(147, 20)
+        Me.Label6.TabIndex = 94
+        Me.Label6.Text = "Hora de Entrega:"
+        '
+        'dtpAsignacion
+        '
+        Me.dtpAsignacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpAsignacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpAsignacion.Location = New System.Drawing.Point(169, 62)
+        Me.dtpAsignacion.Name = "dtpAsignacion"
+        Me.dtpAsignacion.Size = New System.Drawing.Size(193, 22)
+        Me.dtpAsignacion.TabIndex = 93
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(7, 62)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(161, 20)
+        Me.Label5.TabIndex = 92
+        Me.Label5.Text = "Fecha De Entrega:"
         '
         'Label3
         '
@@ -125,15 +170,6 @@ Partial Class frmPedidosCli
         Me.cboVehiculo.Size = New System.Drawing.Size(254, 21)
         Me.cboVehiculo.TabIndex = 88
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(347, 11)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 85
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
         'cboPedido
         '
         Me.cboPedido.FormattingEnabled = True
@@ -157,7 +193,7 @@ Partial Class frmPedidosCli
         Me.cboCliente.FormattingEnabled = True
         Me.cboCliente.Location = New System.Drawing.Point(104, 8)
         Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(240, 21)
+        Me.cboCliente.Size = New System.Drawing.Size(258, 21)
         Me.cboCliente.TabIndex = 1
         '
         'Label1
@@ -177,16 +213,16 @@ Partial Class frmPedidosCli
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(165, 83)
+        Me.Panel4.Size = New System.Drawing.Size(165, 95)
         Me.Panel4.TabIndex = 88
         '
         'rbPendientes
         '
         Me.rbPendientes.AutoSize = True
-        Me.rbPendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbPendientes.Location = New System.Drawing.Point(12, 34)
+        Me.rbPendientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbPendientes.Location = New System.Drawing.Point(4, 36)
         Me.rbPendientes.Name = "rbPendientes"
-        Me.rbPendientes.Size = New System.Drawing.Size(146, 20)
+        Me.rbPendientes.Size = New System.Drawing.Size(155, 22)
         Me.rbPendientes.TabIndex = 1
         Me.rbPendientes.TabStop = True
         Me.rbPendientes.Text = "Pedidos pendientes"
@@ -195,10 +231,10 @@ Partial Class frmPedidosCli
         'rbAsignar
         '
         Me.rbAsignar.AutoSize = True
-        Me.rbAsignar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbAsignar.Location = New System.Drawing.Point(12, 6)
+        Me.rbAsignar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbAsignar.Location = New System.Drawing.Point(4, 3)
         Me.rbAsignar.Name = "rbAsignar"
-        Me.rbAsignar.Size = New System.Drawing.Size(117, 20)
+        Me.rbAsignar.Size = New System.Drawing.Size(123, 22)
         Me.rbAsignar.TabIndex = 0
         Me.rbAsignar.TabStop = True
         Me.rbAsignar.Text = "Asignar pedido"
@@ -209,15 +245,16 @@ Partial Class frmPedidosCli
         Me.Panel3.Controls.Add(Me.btnreporte)
         Me.Panel3.Controls.Add(Me.btnEntrega)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(886, 0)
+        Me.Panel3.Location = New System.Drawing.Point(892, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(166, 83)
+        Me.Panel3.Size = New System.Drawing.Size(166, 95)
         Me.Panel3.TabIndex = 87
         '
         'btnreporte
         '
         Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnreporte.Image = CType(resources.GetObject("btnreporte.Image"), System.Drawing.Image)
         Me.btnreporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnreporte.Location = New System.Drawing.Point(86, 4)
@@ -232,6 +269,7 @@ Partial Class frmPedidosCli
         '
         Me.btnEntrega.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEntrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEntrega.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEntrega.Image = CType(resources.GetObject("btnEntrega.Image"), System.Drawing.Image)
         Me.btnEntrega.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnEntrega.Location = New System.Drawing.Point(3, 4)
@@ -247,9 +285,9 @@ Partial Class frmPedidosCli
         '
         Me.PCentral.Controls.Add(Me.grdCaptura)
         Me.PCentral.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PCentral.Location = New System.Drawing.Point(0, 122)
+        Me.PCentral.Location = New System.Drawing.Point(0, 134)
         Me.PCentral.Name = "PCentral"
-        Me.PCentral.Size = New System.Drawing.Size(1052, 346)
+        Me.PCentral.Size = New System.Drawing.Size(1058, 334)
         Me.PCentral.TabIndex = 2
         '
         'grdCaptura
@@ -271,7 +309,7 @@ Partial Class frmPedidosCli
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(1052, 346)
+        Me.grdCaptura.Size = New System.Drawing.Size(1058, 334)
         Me.grdCaptura.TabIndex = 0
         '
         'frmPedidosCli
@@ -279,12 +317,13 @@ Partial Class frmPedidosCli
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1052, 468)
+        Me.ClientSize = New System.Drawing.Size(1058, 468)
         Me.Controls.Add(Me.PCentral)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPedidosCli"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pedidos para clientes"
         Me.Panel2.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
@@ -310,7 +349,6 @@ Partial Class frmPedidosCli
     Friend WithEvents Label2 As Label
     Friend WithEvents cboCliente As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents PCentral As Panel
     Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents rbPendientes As RadioButton
@@ -318,4 +356,8 @@ Partial Class frmPedidosCli
     Friend WithEvents cboVehiculo As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents cboChofer As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtpAsignacion As DateTimePicker
+    Friend WithEvents Label5 As Label
+    Friend WithEvents dtpinicio As DateTimePicker
 End Class

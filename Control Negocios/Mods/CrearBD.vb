@@ -6446,7 +6446,7 @@
                                               `ACuenta` float NOT NULL DEFAULT '0',
                                               `Resta` float NOT NULL DEFAULT '0',
                                               `Usuario` varchar(60) NOT NULL DEFAULT '',
-                                              `FVenta` date NOT NULL,
+                                              `FVenta` datetime NOT NULL,
                                               `HVenta` time NOT NULL,
                                               `FPago` varchar(80) NOT NULL DEFAULT '',
                                               `FCancelado` varchar(80) NOT NULL DEFAULT '',

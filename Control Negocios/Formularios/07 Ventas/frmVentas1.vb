@@ -1800,6 +1800,55 @@ kak:
                             cbocomisionista.Enabled = True
                         End If
 
+                        Dim dire(9) As String
+                        Dim direccion As String = ""
+
+                        dire(0) = rd1("Calle").ToString()       'Calle
+                        dire(1) = rd1("NInterior").ToString()   'Numero Int
+                        dire(2) = rd1("NExterior").ToString()   'Numero Ext
+                        dire(3) = rd1("Colonia").ToString()     'Colonia
+                        dire(4) = rd1("Delegacion").ToString()  'Delegacion
+                        dire(5) = rd1("Entidad").ToString()     'Entidad
+                        dire(6) = rd1("Pais").ToString()        'Pais
+                        dire(7) = rd1("CP").ToString()          'CP
+
+                        'Calle
+                        If Trim(dire(0)) <> "" Then
+                            direccion = direccion & dire(0) & " "
+                        End If
+                        'Numero Int
+                        If Trim(dire(1)) <> "" Then
+                            direccion = direccion & dire(1) & " "
+                        End If
+                        'Numero Ext
+                        If Trim(dire(2)) <> "" Then
+                            direccion = direccion & dire(2) & " "
+                        End If
+                        'Colonia
+                        If Trim(dire(3)) <> "" Then
+                            direccion = direccion & dire(3) & " "
+                        End If
+                        'Delegacion
+                        If Trim(dire(4)) <> "" Then
+                            direccion = direccion & dire(4) & " "
+                        End If
+                        'Entidad
+                        If Trim(dire(5)) <> "" Then
+                            direccion = direccion & dire(5) & " "
+                        End If
+                        'Pais
+                        If Trim(dire(6)) <> "" Then
+                            direccion = direccion & dire(6) & " "
+                        End If
+                        'CP
+                        If Trim(dire(7)) <> "" Then
+                            direccion = direccion & "CP " & dire(7) & " "
+                        End If
+
+                        txtdireccion.Text = ""
+                        txtdireccion.Text = direccion
+                        txtdireccion.Focus().Equals(True)
+
                         txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
 
                         Label1.Visible = True
@@ -6881,7 +6930,7 @@ doorcita:
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txttel.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ")"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'',0,'" & txttel.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
@@ -8790,6 +8839,7 @@ ecomoda:
         Dim tLogo As String = DatosRecarga("TipoLogo")
         Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
+        Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
@@ -8820,6 +8870,8 @@ ecomoda:
             If rd1.HasRows Then
                 If rd1.Read Then
                     Pie = rd1("Pie1").ToString
+                    pagare = rd1("Pagare").ToString
+
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -9126,9 +9178,24 @@ ecomoda:
                 Y += 13.5
             End If
 
-            Y += 18
+            Y += 7
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
             Y += 20
+
+            If txtResta.Text > 0 Then
+                Dim caracteresPorLinea As Integer = 40
+                Dim texto As String = pagare
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+            End If
 
             'para el qr
 
@@ -11772,6 +11839,7 @@ ecomoda:
         Dim tLogo As String = DatosRecarga("TipoLogo")
         Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
+        Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
@@ -11782,11 +11850,11 @@ ecomoda:
                 End If
                 If tLogo = "CUAD" Then
                     e.Graphics.DrawImage(Logotipo, 45, 5, 110, 110)
-                    Y += 115
+                    Y += 145
                 End If
                 If tLogo = "RECT" Then
                     e.Graphics.DrawImage(Logotipo, 12, 5, 160, 110)
-                    Y += 90
+                    Y += 140
                 End If
             Else
                 Y = 0
@@ -11802,6 +11870,7 @@ ecomoda:
             If rd1.HasRows Then
                 If rd1.Read Then
                     Pie = rd1("Pie3").ToString
+                    pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
@@ -12074,6 +12143,33 @@ ecomoda:
             End If
             Y += 3
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 90, Y, sc)
+            Y += 20
+
+            If txtResta.Text > 0 Then
+                Dim caracteresPorLinea As Integer = 30
+                Dim texto As String = pagare
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+
+                Y += 25
+                If pagare <> "" Then
+                    e.Graphics.DrawString("__________________________________", fuente_prods, Brushes.Black, 1, Y)
+                    Y += 20
+                    e.Graphics.DrawString("FIRMA", fuente_prods, Brushes.Black, 90, Y, sc)
+                    Y += 20
+                End If
+
+            End If
+
+
 
             Dim va_whatsapp As Integer = 0
             Try

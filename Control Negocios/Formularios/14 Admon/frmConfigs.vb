@@ -510,7 +510,7 @@ Public Class frmConfigs
                     txtComerciall.Text = rd4("Cab7").ToString
                     txtPdomicilio.Text = rd4("Pie1").ToString()
                     txtPcotiza.Text = rd4("Pie2").ToString()
-                    'txtPagare.Text = rd4("Pagare").ToString()
+                    txtPagare.Text = rd4("Pagare").ToString()
                     'txtC1.Text = rd4("C1").ToString()
                     'txtC2.Text = rd4("C2").ToString()
                     'txtC3.Text = rd4("C3").ToString()

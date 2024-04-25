@@ -843,7 +843,7 @@ Public Class frmMesas
                 End If
                 rd1.Close()
 
-                btncobro.Enabled = False
+                'btncobro.Enabled = False
                 btnconsulta.Enabled = False
 
                 cmd1 = cnn1.CreateCommand
@@ -874,7 +874,7 @@ Public Class frmMesas
                     If rd1.Read Then
                         If rd1(0).ToString = 1 Then
                             If total_billar = 0 Then
-                                btncobro.Enabled = False
+                                'btncobro.Enabled = False
 
                                 frmAsigna.lblpc.Text = mesa
                                 foco = "B"

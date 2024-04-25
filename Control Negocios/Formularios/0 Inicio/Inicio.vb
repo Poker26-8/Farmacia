@@ -3372,4 +3372,9 @@ Public Class Inicio
         frmPagarComanda.Show()
         frmPagarComanda.BringToFront()
     End Sub
+
+    Private Sub VehiculosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VehiculosToolStripMenuItem.Click
+        frmVehP.Show()
+        frmVehP.BringToFront()
+    End Sub
 End Class

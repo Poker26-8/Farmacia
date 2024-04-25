@@ -965,7 +965,7 @@ Public Class frmPagarH
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Descuento,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales,Corte,CorteU,CodFactura,IP) VALUES(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & ACUENTA & "," & RESTAVENTA & ",0," & DESCUENTOVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','" & totcomi & "',1,1,0,'" & lic & "','" & dameIP2() & "')"
+                cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Descuento,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales,Corte,CorteU,CodFactura,IP,Formato) VALUES(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & ACUENTA & "," & RESTAVENTA & ",0," & DESCUENTOVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','" & totcomi & "',1,1,0,'" & lic & "','" & dameIP2() & "','TICKET')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
 
@@ -991,7 +991,7 @@ Public Class frmPagarH
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,CodFactura) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & DESCUENTOVENTA & ",0," & ACUENTA2 & "," & RESTAVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & DESCUENTOVENTA & ",'','',0,'" & dameIP2() & "',0,'" & lic & "')"
+                    "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,CodFactura,Formato) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & DESCUENTOVENTA & ",0," & ACUENTA2 & "," & RESTAVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & DESCUENTOVENTA & ",'','',0,'" & dameIP2() & "',0,'" & lic & "','TICKET')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
         End Select
@@ -2174,7 +2174,7 @@ Public Class frmPagarH
 
                     cnn4.Close() : cnn4.Open()
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "INSERT INTO Devoluciones(Folio,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,ImporteEfec,NMESA,CUsuario,Hr,TipoMov) VALUES(" & ideliminar & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & UNIDAD & "'," & CantidadP & ",0,0," & COSTVUE1 & "," & precioeliminar & "," & TOTAL1 & "," & PRECIOSINIVA1 & "," & TOTALSINIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','',0,'" & DEPA & "','" & GRUPO1 & "',0,'" & lblHabitacion.Text & "','" & lblAtendio.Text & "','" & Format(Date.Now, "HH:mm:ss") & "','CANCELACION')"
+                    cmd4.CommandText = "INSERT INTO Devoluciones(Folio,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,ImporteEfec,NMESA,CUsuario,Hr,TipoMov) VALUES(" & ideliminar & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & UNIDAD & "'," & CantidadP & ",0,0," & COSTVUE1 & "," & precioeliminar & "," & TOTAL1 & "," & PRECIOSINIVA1 & "," & TOTALSINIVA & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','',0,'" & DEPA & "','" & GRUPO1 & "',0,'" & lblHabitacion.Text & "','" & lblAtendio.Text & "','" & Format(Date.Now, "HH:mm:ss") & "','CANCELACION')"
                     cmd4.ExecuteNonQuery()
                     cnn4.Close()
 

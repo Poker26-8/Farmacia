@@ -42,8 +42,7 @@
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select Nombre from Clientes order by Nombre"
+            cmd1.CommandText = "select DISTINCT Nombre FROM Clientes order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

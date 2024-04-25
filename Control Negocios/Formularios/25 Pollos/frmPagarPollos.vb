@@ -746,7 +746,7 @@ Public Class frmPagarPollos
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,IP) VALUES('','" & lblmesa.Text & "',''," & SUBTOTAL1 & "," & TOTIVA & "," & totalventa & "," & totalventa & ",0,0,'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','PAGADO',0,'','','1','0','" & lic & "','" & dameIP2() & "')"
+        cmd3.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,IP) VALUES('','" & lblmesa.Text & "',''," & SUBTOTAL1 & "," & TOTIVA & "," & totalventa & "," & totalventa & ",0,0,'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','PAGADO',0,'','','1','0','" & lic & "','" & dameIP2() & "')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 

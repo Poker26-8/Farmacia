@@ -3598,6 +3598,7 @@ doorcita:
         Dim tLogo As String = DatosRecarga("TipoLogo")
         Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
+        Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
@@ -3628,6 +3629,7 @@ doorcita:
             If rd1.HasRows Then
                 If rd1.Read Then
                     Pie = rd1("Pie3").ToString
+                    pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -3814,6 +3816,22 @@ doorcita:
             End If
             Y += 18
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
+            Y += 20
+
+            If txtresta.Text > 0 Then
+                Dim caracteresPorLinea As Integer = 40
+                Dim texto As String = pagare
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+            End If
 
             Dim va_whatsapp As Integer = 0
             Try
@@ -4986,6 +5004,7 @@ doorcita:
         Dim tLogo As String = DatosRecarga("TipoLogo")
         Dim simbolo As String = DatosRecarga("Simbolo")
         Dim Pie As String = ""
+        Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
@@ -4996,11 +5015,11 @@ doorcita:
                 End If
                 If tLogo = "CUAD" Then
                     e.Graphics.DrawImage(Logotipo, 45, 5, 110, 120)
-                    Y += 115
+                    Y += 120
                 End If
                 If tLogo = "RECT" Then
                     e.Graphics.DrawImage(Logotipo, 12, 5, 160, 110)
-                    Y += 90
+                    Y += 120
                 End If
             Else
                 Y = 0
@@ -5016,6 +5035,7 @@ doorcita:
             If rd1.HasRows Then
                 If rd1.Read Then
                     Pie = rd1("Pie3").ToString
+                    pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
@@ -5150,7 +5170,7 @@ doorcita:
                 End If
                 'e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
                 Y += 12
-                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 15, Y, sf)
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 25, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 80, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
@@ -5186,7 +5206,7 @@ doorcita:
             e.Graphics.DrawString(simbolo & FormatNumber(txttotal.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
             Y += 15
 
-            e.Graphics.DrawString(convLetras(txttotal.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(convLetras(txttotal.Text), New Drawing.Font(tipografia, 6, FontStyle.Italic), Brushes.Black, 1, Y)
             Y += 15
 
             If TipoVenta = 2 Then
@@ -5197,7 +5217,7 @@ doorcita:
                 End If
             End If
 
-            Y += 10
+            Y += 5
 
             e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 90, Y, sc)
             Y += 12
@@ -5209,8 +5229,32 @@ doorcita:
                 e.Graphics.DrawString(Mid(Pie, 71, 105), fuente_prods, Brushes.Black, 90, Y, sc)
                 Y += 12
             End If
-            Y += 10
+            Y += 5
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 90, Y, sc)
+            Y += 20
+
+            If txtresta.Text > 0 Then
+                Dim caracteresPorLinea As Integer = 27
+                Dim texto As String = pagare
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+
+                Y += 25
+                If pagare <> "" Then
+                    e.Graphics.DrawString("__________________________________", fuente_prods, Brushes.Black, 1, Y)
+                    Y += 20
+                    e.Graphics.DrawString("FIRMA", fuente_prods, Brushes.Black, 90, Y, sc)
+                    Y += 20
+                End If
+            End If
 
             Dim va_whatsapp As Integer = 0
             Try
@@ -5453,6 +5497,9 @@ doorcita:
             Y += 15
 
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 90, Y, sc)
+            Y = 20
+
+
 
             e.HasMorePages = False
         Catch ex As Exception

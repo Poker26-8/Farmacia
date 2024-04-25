@@ -724,11 +724,11 @@
 
             If ComboBox1.Text = "" Then
 
-                cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+                ' cmd1.CommandText ="select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+                cmd1.CommandText = "select count(Folio) from Ventas where Fventa between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA'  "
             Else
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & ComboBox1.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "'"
+              "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status='" & ComboBox1.Text & "'"
             End If
 
 
@@ -751,7 +751,7 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
+                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             Else
                 cmd1.CommandText =
                 "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='" & ComboBox1.Text & "' AND Hventa between '" & dtpinicio.Text & "' AND '" & dtpfin.Text & "' order by Folio"
@@ -984,7 +984,8 @@
             Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0, propinas As Double = 0, costo As Double = 0, sumacosto As Double = 0, DESCU As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+            'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -997,7 +998,8 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+            'cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where Fventa between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1099,7 +1101,7 @@
             Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1188,7 +1190,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "'"
+                "select count(Folio) from Ventas where Fventa between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1205,7 +1207,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "' order by Folio"
+                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' and Cliente='" & ComboBox1.Text & "' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1267,7 +1269,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Ventas.Folio) from Ventas INNER JOIN VentasDetalle ON Ventas.Folio=VentasDetalle.Folio where Ventas.FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Ventas.Cliente='" & ComboBox1.Text & "'"
+                "select count(Ventas.Folio) from Ventas INNER JOIN VentasDetalle ON Ventas.Folio=VentasDetalle.Folio where Ventas.FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Ventas.Cliente='" & ComboBox1.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1287,7 +1289,7 @@
 
             cmd1 = cnn1.CreateCommand
             'cmd1.CommandText = "select * FROM Ventas V INNER JOIN VentasDetalle VD ON V.Folio=VD.Folio where V.FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and V.Nombre='" & ComboBox1.Text & "'"
-            cmd1.CommandText = "select * FROM Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Cliente='" & ComboBox1.Text & "'"
+            cmd1.CommandText = "select * FROM Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Cliente='" & ComboBox1.Text & "'"
 
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -1640,7 +1642,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Folio) from Ventas where Usuario='" & ComboBox1.Text & "' and FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Folio <>0"
+                "select count(Folio) from Ventas where Usuario='" & ComboBox1.Text & "' and FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Folio <>0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1663,7 +1665,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where Usuario='" & ComboBox1.Text & "' and FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Folio"
+                "select * from Ventas where Usuario='" & ComboBox1.Text & "' and FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1711,7 +1713,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Id) from Devoluciones where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "'"
+                "select count(Id) from Devoluciones where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1728,7 +1730,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Devoluciones where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "'  order by Folio"
+                "select * from Devoluciones where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1900,7 +1902,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA'"
+                "select count(Folio) from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1917,7 +1919,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status<>'CANCELADA' order by Folio"
+                "select * from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Status<>'CANCELADA' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -2019,14 +2021,14 @@
         ComboBox1.Items.Clear()
 
         If (opttotales.Checked) Then
-            querry = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & "' AND '" & Format(M2, "yyyy-MM-dd") & "' AND HVenta BETWEEN '" & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(dtpfin.Value, "HH:mm:ss") & "' "
+            querry = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' "
         End If
 
         If (optcliente.Checked) Then
-            querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Cliente<>'' order by Cliente"
+            querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Cliente<>'' order by Cliente"
         End If
         If (optclientedet.Checked) Then
-            querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Cliente<>'' order by Cliente"
+            querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Cliente<>'' order by Cliente"
         End If
         If (optdepto.Checked) Then
             querry = "select distinct Depto from VentasDetalle where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Depto<>'' order by Depto"
@@ -2038,7 +2040,7 @@
             querry = "select distinct Nombre from VentasDetalle where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Nombre<>'' order by Nombre"
         End If
         If (optvendedor.Checked) Then
-            querry = "select distinct Usuario from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>''"
+            querry = "select distinct Usuario from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "' and Usuario<>''"
         End If
 
         If (optmasvendidoprov.Checked) Then
@@ -2046,7 +2048,7 @@
         End If
 
         If (RadioButton1.Checked) Then
-            querry = "select distinct Formato from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "'"
+            querry = "select distinct Formato from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpfin.Text & "'"
         End If
 
         If (optDerivados.Checked) Then
