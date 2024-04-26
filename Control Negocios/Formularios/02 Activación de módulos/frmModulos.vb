@@ -199,9 +199,7 @@
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Me.Close()
-        frmVehP.Show()
-        frmPedidosCli.Show()
-        frmNuevo.Show()
+        frmCitas.Show()
 
     End Sub
 End Class

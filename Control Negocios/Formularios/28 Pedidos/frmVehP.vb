@@ -143,4 +143,35 @@
             cnn1.Close()
         End Try
     End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    If MsgBox("Se eliminara el vehiculo, Esta seguro!", vbInformation + vbYesNo) = vbYes Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "DELETE FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
+                        If cmd2.ExecuteNonQuery() Then
+                            MsgBox("Vehiculo eliminado correctamente", vbInformation + vbOKOnly, titulocentral)
+                        End If
+                        cnn2.Close()
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            btnNuevo.PerformClick()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

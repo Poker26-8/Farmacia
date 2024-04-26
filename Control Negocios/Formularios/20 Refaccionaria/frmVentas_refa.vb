@@ -5212,10 +5212,8 @@ doorcita:
                 Dim porcentaje_mone As Double = 0
 
                 cnn1.Close() : cnn1.Open()
-
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Formatos where Facturas='Porc_Mone'"
+                cmd1.CommandText = "SELECT * FROM Formatos WHERE Facturas='Porc_Mone'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -5226,8 +5224,7 @@ doorcita:
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & txttel.Text & "')"
+                cmd1.CommandText = "SELECT Saldo FROM monedero WHERE Barras='" & txttel.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -5244,7 +5241,7 @@ doorcita:
                 Dim ope As Double = 0
 
                 Dim total_venta As Double = 0
-
+                Dim total_bono As Double = 0
                 'Por venta
                 If tipo_mone = 1 Then
                     total_venta = Total_Ve
@@ -5260,7 +5257,7 @@ doorcita:
                         precio_prod = grdcaptura(4, denji).Value
                         cantid_prod = grdcaptura(3, denji).Value
 
-                        Dim total_bono As Double = (porc_mone * precio_prod) / 100
+                        total_bono = (porc_mone * precio_prod) / 100
                         ope = ope + (total_bono * cantid_prod)
                     Next
                     nvo_saldo = ope + sal_monedero
@@ -5273,7 +5270,7 @@ doorcita:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & ",0," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             End If
@@ -5360,6 +5357,38 @@ doorcita:
                             BancoFP = BancoFP & "-" & CStr(grdpago.Rows(t).Cells(1).Value.ToString())
                             ReferenciaFP = grdpago.Rows(t).Cells(2).Value.ToString()
                             CmentarioFP = grdpago.Rows(t).Cells(5).Value.ToString()
+                        End If
+
+                        If FormaPago = "MONEDERO" Then
+
+                            Dim saldomonedero As Double = 0
+                            Dim saldonuevo As Double = 0
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "SELECT Saldo from monedero where Barras='" & txttel.Text & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    saldomonedero = rd1(0).ToString
+                                    saldonuevo = saldomonedero - TotFormaPago
+                                    saldonuevo = FormatNumber(saldonuevo, 2)
+
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE monedero set Saldo=" & saldonuevo & " WHERE Barras='" & txttel.Text & "'"
+                                    cmd2.ExecuteNonQuery()
+
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "INSERT INTO movmonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & txttel.Text & "','Venta',0," & TotFormaPago & "," & saldonuevo & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+                                    cmd2.ExecuteNonQuery()
+
+                                    cnn2.Close()
+
+                                End If
+                            End If
+                            rd1.Close()
+                            cnn1.Close()
                         End If
 
                         If FormaPago = "SALDO FAVOR" Then

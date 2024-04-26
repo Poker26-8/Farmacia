@@ -223,12 +223,11 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select * from Monedero where Folio='" & txtFolio.Text & "'"
+            cmd1.CommandText = "select * from Monedero where Barras='" & txtTelefono.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    query = "update Monedero set Saldo=" & saldo & ", Actualiza='" & Format(Date.Now, "yyyy-MM-dd") & "' where Folio='" & txtFolio.Text & "'"
+                    query = "update Monedero set Saldo=" & saldo & ", Actualiza='" & Format(Date.Now, "yyyy-MM-dd") & "' where Barras='" & txtTelefono.Text & "'"
                 Else
                     query = "insert into Monedero(Folio, IdCliente, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "'," & txtidcliente.Text & ",'" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
                 End If

@@ -128,6 +128,8 @@
                             txtapagar.Text = FormatNumber(rd1("Pagar").ToString, 2)
                             txtanticipo.Text = FormatNumber(rd1("Anticipo").ToString, 2)
                             dtpfecha.Text = rd1("FechaC").ToString
+                            txtresta.Text = rd1("Resta").ToString
+
                             btnabono.Enabled = True
                             If cbofactura.Text <> "" Then
                                 btnasignar.Enabled = False
