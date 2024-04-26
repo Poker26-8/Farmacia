@@ -1612,12 +1612,13 @@ kak:
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                        "select * from Clientes where Nombre='" & cboNombre.Text & "' or Referencia='" & cboNombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
                             If (rd1("Suspender").ToString) Then MsgBox("Venta suspendida a este cliente." & vbNewLine & "Consulta con el administrador.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : rd1.Close() : cnn1.Close() : Exit Sub
                             cbotipo.Text = rd1("Tipo").ToString
+                            cboNombre.Text = rd1("Nombre").ToString
                             MyIdCliente = rd1("Id").ToString
                             lblNumCliente.Text = MyIdCliente
                             txtcredito.Text = FormatNumber(rd1("Credito").ToString, 4)
