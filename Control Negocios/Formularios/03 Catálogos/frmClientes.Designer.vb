@@ -78,6 +78,8 @@ Partial Class frmClientes
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnMsj = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtreferencia = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -662,11 +664,33 @@ Partial Class frmClientes
         Me.btnMsj.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnMsj.UseVisualStyleBackColor = True
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(538, 122)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(62, 15)
+        Me.Label21.TabIndex = 225
+        Me.Label21.Text = "Referencia"
+        '
+        'txtreferencia
+        '
+        Me.txtreferencia.BackColor = System.Drawing.Color.White
+        Me.txtreferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtreferencia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtreferencia.Location = New System.Drawing.Point(606, 118)
+        Me.txtreferencia.Name = "txtreferencia"
+        Me.txtreferencia.Size = New System.Drawing.Size(267, 23)
+        Me.txtreferencia.TabIndex = 224
+        '
         'frmClientes
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(878, 260)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.txtreferencia)
         Me.Controls.Add(Me.btnMsj)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridView1)
@@ -771,4 +795,6 @@ Partial Class frmClientes
     Friend WithEvents barsube As ProgressBar
     Friend WithEvents Button2 As Button
     Friend WithEvents btnMsj As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtreferencia As TextBox
 End Class
