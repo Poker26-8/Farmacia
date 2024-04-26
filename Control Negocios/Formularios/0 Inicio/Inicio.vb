@@ -2829,6 +2829,11 @@ Public Class Inicio
                         P.R_Salidas = False
                         Repo += 1
                     End If
+                    If rd5("Rep_Aju").ToString = True Then
+                        pAjuste.Enabled = True
+                    Else
+                        pAjuste.Enabled = False
+                    End If
                     If rd5("Rep_Inv").ToString = True Then
                         pInventario.Enabled = True
                         P.R_Inventario = True
