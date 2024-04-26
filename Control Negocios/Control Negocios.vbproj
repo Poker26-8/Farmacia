@@ -389,6 +389,12 @@
     <Compile Include="Formularios\10 Reportes\frmcofepris.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\frmEtiquetas2.Designer.vb">
+      <DependentUpon>frmEtiquetas2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmEtiquetas2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\15 Caja\frmCorte3.Designer.vb">
       <DependentUpon>frmCorte3.vb</DependentUpon>
     </Compile>
@@ -1820,6 +1826,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmcofepris.resx">
       <DependentUpon>frmcofepris.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmEtiquetas2.resx">
+      <DependentUpon>frmEtiquetas2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\15 Caja\frmCorte3.resx">
       <DependentUpon>frmCorte3.vb</DependentUpon>

@@ -1112,4 +1112,24 @@ Module Module1
             MsgBox(ex.ToString)
         End Try
     End Sub
+    Public Sub GeneraBarras2(ByVal pic2 As PictureBox, ByVal codigo2 As String)
+        Dim barcod2 As New Barcode128
+
+        barcod2.BarHeight = 200
+        barcod2.Code = codigo2
+        barcod2.GenerateChecksum = True
+        barcod2.CodeType = Barcode.CODE128
+
+        Try
+            Dim bmp2 As New Bitmap(barcod2.CreateDrawingImage(Color.Black, Color.White))
+            Dim img2 As Image = New Bitmap(bmp2.Width, bmp2.Height)
+            Dim grf2 As Graphics = Graphics.FromImage(img2)
+
+            grf2.FillRectangle(New SolidBrush(Color.White), 0, 0, bmp2.Width, bmp2.Height)
+            grf2.DrawImage(bmp2, 0, 0)
+            pic2.Image = img2
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
 End Module
