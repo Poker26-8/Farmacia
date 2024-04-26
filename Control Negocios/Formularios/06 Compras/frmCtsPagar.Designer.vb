@@ -583,6 +583,7 @@ Partial Class frmCtsPagar
         Me.btnasignar.Enabled = False
         Me.btnasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnasignar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnasignar.Image = CType(resources.GetObject("btnasignar.Image"), System.Drawing.Image)
         Me.btnasignar.Location = New System.Drawing.Point(553, 327)
         Me.btnasignar.Name = "btnasignar"
         Me.btnasignar.Size = New System.Drawing.Size(60, 63)

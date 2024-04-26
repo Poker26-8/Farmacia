@@ -23,7 +23,7 @@ Partial Class frmPagar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -128,6 +128,9 @@ Partial Class frmPagar
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.txtMonedero = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -151,6 +154,9 @@ Partial Class frmPagar
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Label25)
+        Me.Panel7.Controls.Add(Me.txtMonedero)
+        Me.Panel7.Controls.Add(Me.Label24)
         Me.Panel7.Controls.Add(Me.Label21)
         Me.Panel7.Controls.Add(Me.lblMesero)
         Me.Panel7.Controls.Add(Me.txtPorcentaje)
@@ -175,9 +181,10 @@ Partial Class frmPagar
         Me.Panel7.Controls.Add(Me.Label2)
         Me.Panel7.Controls.Add(Me.txtSubtotalmapeo)
         Me.Panel7.Controls.Add(Me.Label1)
-        Me.Panel7.Location = New System.Drawing.Point(12, 12)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel7.Location = New System.Drawing.Point(0, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(389, 341)
+        Me.Panel7.Size = New System.Drawing.Size(408, 406)
         Me.Panel7.TabIndex = 7
         '
         'Label21
@@ -195,7 +202,7 @@ Partial Class frmPagar
         Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMesero.Location = New System.Drawing.Point(219, 30)
         Me.lblMesero.Name = "lblMesero"
-        Me.lblMesero.Size = New System.Drawing.Size(170, 27)
+        Me.lblMesero.Size = New System.Drawing.Size(182, 27)
         Me.lblMesero.TabIndex = 34
         Me.lblMesero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -216,7 +223,7 @@ Partial Class frmPagar
         Me.lblmesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblmesa.Location = New System.Drawing.Point(12, 90)
         Me.lblmesa.Name = "lblmesa"
-        Me.lblmesa.Size = New System.Drawing.Size(377, 27)
+        Me.lblmesa.Size = New System.Drawing.Size(389, 27)
         Me.lblmesa.TabIndex = 24
         Me.lblmesa.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
@@ -236,7 +243,7 @@ Partial Class frmPagar
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.Location = New System.Drawing.Point(12, 57)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(377, 33)
+        Me.Label19.Size = New System.Drawing.Size(389, 33)
         Me.Label19.TabIndex = 23
         Me.Label19.Text = "Mesa"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -247,7 +254,7 @@ Partial Class frmPagar
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.Location = New System.Drawing.Point(219, 6)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(170, 21)
+        Me.Label23.Size = New System.Drawing.Size(182, 21)
         Me.Label23.TabIndex = 33
         Me.Label23.Text = "Mesero"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -453,9 +460,9 @@ Partial Class frmPagar
         Me.Panel8.Controls.Add(Me.Label4)
         Me.Panel8.Controls.Add(Me.Label18)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel8.Location = New System.Drawing.Point(0, 359)
+        Me.Panel8.Location = New System.Drawing.Point(0, 406)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(408, 413)
+        Me.Panel8.Size = New System.Drawing.Size(408, 366)
         Me.Panel8.TabIndex = 12
         '
         'txtComentario
@@ -699,8 +706,8 @@ Partial Class frmPagar
         '
         Me.grdcomanda.AllowUserToAddRows = False
         Me.grdcomanda.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcomanda.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.grdcomanda.BackgroundColor = System.Drawing.Color.White
         Me.grdcomanda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcomanda.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column13, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column14, Me.Column15})
@@ -1221,6 +1228,32 @@ Partial Class frmPagar
         'PVentaMapeo58
         '
         '
+        'Label24
+        '
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(6, 335)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(93, 22)
+        Me.Label24.TabIndex = 36
+        Me.Label24.Text = "Monedero:"
+        '
+        'txtMonedero
+        '
+        Me.txtMonedero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMonedero.Location = New System.Drawing.Point(114, 335)
+        Me.txtMonedero.Name = "txtMonedero"
+        Me.txtMonedero.Size = New System.Drawing.Size(211, 22)
+        Me.txtMonedero.TabIndex = 37
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(111, 360)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(214, 13)
+        Me.Label25.TabIndex = 38
+        Me.Label25.Text = "Ingresa número telefonico para el monedero"
+        '
         'frmPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1352,4 +1385,7 @@ Partial Class frmPagar
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents txtPorcentaje As TextBox
     Friend WithEvents Label21 As Label
+    Friend WithEvents txtMonedero As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
 End Class

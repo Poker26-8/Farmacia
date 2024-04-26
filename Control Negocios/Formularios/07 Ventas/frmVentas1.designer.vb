@@ -1664,7 +1664,7 @@ Partial Class frmVentas1
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(79, 85)
         Me.Button11.TabIndex = 184
-        Me.Button11.Text = "PARCIALIDADES"
+        Me.Button11.Text = "ENTREGAS"
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button11.UseVisualStyleBackColor = False
         '

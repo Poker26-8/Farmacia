@@ -747,57 +747,79 @@ Public Class frmPagar
             Exit Sub
         End If
 
-        If grdPagos.Rows.Count > 0 Then
+        If txtMonedero.Text <> "" Then
+            Dim sal_monedero As Double = 0
+            Dim tipo_mone As Integer = 0
+            Dim porcentaje_mone As Double = 0
 
-            For pago = 0 To grdPagos.Rows.Count - 1
-                tipopago = grdPagos.Rows(pago).Cells(0).Value.ToString
-
-
-                If tipopago = "MONEDERO" Then
-                    foliomonedero = grdPagos.Rows(pago).Cells(2).Value.ToString
-                    montopagomonedero = grdPagos.Rows(pago).Cells(3).Value.ToString
-
-                    If foliomonedero <> "" Then
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Monedero WHERE Barras='" & foliomonedero & "'"
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            If rd2.Read Then
-                                IDMON = rd2("Id").ToString
-                                SALDOMONEDERO = rd2("Saldo").ToString
-                                PORCENTAJEMONEDERO = rd2("Porcentaje").ToString
-                                'nummonedero = IIf(rd2("Folio").ToString = "", "", rd2("Folio").ToString)
-                            End If
-                        End If
-                        rd2.Close()
-
-
-                        Dim cuantosporoductos As Integer = 0
-                        Dim porcentajenuevo As Double = 0
-                        Dim siiiu As Integer = 0
-
-                        saldomonnuevo = CDec(CDec(txtTotal.Text) - CDec(montopagomonedero)) * CDec(PORCENTAJEMONEDERO / 100)
-
-                        Dim conversaldo As String = ""
-                        conversaldo = ""
-                        For i = 1 To Len(saldomonnuevo)
-                            If Mid(saldomonnuevo, i, 1) = "." Then
-                                Exit For
-                            End If
-                            conversaldo = saldomonnuevo
-                        Next i
-                        saldomonnuevo = conversaldo
-                    End If
-                    cnn2.Close()
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM formatos WHERE Facturas='Porc_Mone'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    tipo_mone = rd2("NumPart").ToString()
+                    porcentaje_mone = IIf(rd2("NotasCred").ToString() = "", 0, rd2("NotasCred").ToString())
 
                 End If
+            End If
 
-            Next
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Monedero WHERE Barras='" & txtMonedero.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SALDOMONEDERO = rd2("Saldo").ToString
+                End If
+            End If
+            rd2.Close()
+
+            Dim porc_mone As Double = 0
+            Dim precio_prod As Double = 0
+            Dim cantid_prod As Double = 0
+            Dim nvo_saldo As Double = 0
+            Dim porcentaje As Double = 0
+            Dim ope As Double = 0
+
+            Dim total_venta As Double = 0
+            Dim total_bono As Double = 0
+
+            'Por venta
+            If tipo_mone = 1 Then
+                total_venta = txtTotal.Text
+                total_bono = (porcentaje_mone * total_venta) / 100
+
+                nvo_saldo = total_bono + SALDOMONEDERO
+            End If
+
+            'Por producto
+            If tipo_mone = 0 Then
+                For denji As Integer = 0 To grdcomanda.Rows.Count - 1
+                    porc_mone = grdcomanda(14, denji).Value
+                    precio_prod = grdcomanda(5, denji).Value
+                    cantid_prod = grdcomanda(4, denji).Value
+
+                    total_bono = (porc_mone * precio_prod) / 100
+                    ope = ope + (total_bono * cantid_prod)
+                Next
+                nvo_saldo = ope + SALDOMONEDERO
+            End If
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "update Monedero set Saldo=" & nvo_saldo & " where Barras='" & txtMonedero.Text & "'"
+            cmd2.ExecuteNonQuery()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txtMonedero.Text & "','Venta'," & ope & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+            cmd2.ExecuteNonQuery()
+            cnn2.Close()
+
         End If
 
-        Dim mypagomonedero As Double = 0
-        mypagomonedero = mypagomonedero + montopagomonedero
+
+
 
         Dim myidcliente As Integer = 0
 
@@ -930,7 +952,7 @@ Public Class frmPagar
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET')"
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato,IP) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET','" & dameIP2() & "')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 
@@ -946,19 +968,6 @@ Public Class frmPagar
         End If
         rd1.Close()
         cnn1.Close()
-
-        If montopagomonedero > 0 Then
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "UPDATE Monedero SET Saldo=Saldo + " & CDec(saldomonnuevo) & ", Cargado='0' WHERE Id=" & IDMON & ""
-            cmd2.ExecuteNonQuery()
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "UPDATE Monedero SET Cargado='0' WHERE Folio='" & foliomonedero & "'"
-            cmd2.ExecuteNonQuery()
-            cnn2.Close()
-        End If
 
         Dim idc As Integer = 0
         Dim mycodigo As String = ""
@@ -1001,7 +1010,7 @@ Public Class frmPagar
             If rd2.HasRows Then
                 If rd2.Read Then
                     COSTVUE1 = rd2("PrecioCompra").ToString
-                    PRECIOSINIVA1 = FormatNumber(rd2("PrecioVentaIVA").ToString / CDec(rd2("IVA").ToString + 1), 2)
+                    PRECIOSINIVA1 = FormatNumber(myprecio / CDec(rd2("IVA").ToString + 1), 2)
                     DEPA = rd2("Departamento").ToString
                     GRUPO = rd2("Grupo").ToString
                     MULTIPLO = rd2("Multiplo").ToString
@@ -1029,21 +1038,9 @@ Public Class frmPagar
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,TasaIEPS,TotalIEPS,Descto,Facturado) VALUES('" & folio & "','" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & myprecio & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & varieps & "," & vartotal & ",'0','0')"
+            cmd3.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,TasaIEPS,TotalIEPS,Descto,Facturado) VALUES('" & folio & "','" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & COSTVUE1 & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & varieps & "," & vartotal & ",'0','0')"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
-
-            If saldomonnuevo <> 0 Then
-                Dim saldomonderopro As Double = 0
-                saldomonderopro = 0
-                saldomonderopro = CDec(CDec(txtTotal.Text) - CDec(montopagomonedero)) * CDec(PORCENTAJEMONEDERO / 100)
-
-                cnn3.Close() : cnn3.Open()
-                cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & foliomonedero & "','Asigna Puntos','" & saldomonderopro & "'," & montopagomonedero & "," & saldomonnuevo & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & folio & ")"
-                cmd3.ExecuteNonQuery()
-                cnn3.Close()
-            End If
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -1124,6 +1121,39 @@ Public Class frmPagar
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 
+                If formapago = "MONEDERO" Then
+                    If montopago > 0 Then
+
+                        Dim SALDOMON As Double = 0
+                        Dim nuevosaldo As Double = 0
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT Saldo FROM monedero WHERE Barras='" & referencia & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                SALDOMON = rd1(0).ToString
+                                nuevosaldo = SALDOMON - CDbl(montopago)
+                                nuevosaldo = FormatNumber(nuevosaldo, 2)
+
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "UPDATE monedero set Saldo=" & nuevosaldo & " WHERE Barras='" & referencia & "'"
+                                cmd2.ExecuteNonQuery()
+
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "INSERT INTO movmonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & referencia & "','Venta',0," & montopago & "," & nuevosaldo & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+                                cmd2.ExecuteNonQuery()
+                                cnn2.Close()
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+
+                    End If
+                End If
+
                 If CDec(montopago) > 0 Then
 
                     cnn3.Close() : cnn3.Open()
@@ -1132,17 +1162,6 @@ Public Class frmPagar
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
                 End If
-
-                If formapago = "MONEDERO" Then
-                    If CDec(montopago) > 0 Then
-                        cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "UPDATE Monedero SET Saldo=Saldo-" & CDec(montopago) & ",Cargado='0' WHERE Id=" & IDMON & ""
-                        cmd3.ExecuteNonQuery()
-                        cnn3.Close()
-                    End If
-                End If
-
             Next
         End If
 
@@ -1431,13 +1450,6 @@ Door:
             'cnn1.Close()
         Next
 
-        If montopagomonedero <> 0 Then
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "INSERT INTO Mov_Monedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & foliomonedero & "','Pago Puntos'," & saldomonnuevo & "," & saldomonnuevo & "," & montopagomonedero & ",'" & Format(Date.Now, "yyyy/MM/dd") & "'," & folio & ")"
-            cmd2.ExecuteNonQuery()
-            cnn2.Close()
-        End If
 
         If CDec(txtResta.Text) > 0 Then
             cnn2.Close() : cnn2.Open()
@@ -1575,7 +1587,7 @@ Door:
 
         frmMesas.Close()
         frmMesas.Show()
-        frmMesas.Show()
+
     End Sub
 
     Private Sub btnPrecuenta_Click(sender As Object, e As EventArgs) Handles btnPrecuenta.Click
@@ -3443,9 +3455,9 @@ Door:
                         e.Graphics.DrawString(FormatNumber(montopago, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                         Y += 20
 
-                        e.Graphics.DrawString("FOLIO DEL MONEDERO: ", fuente_b, Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(foliomonedero, fuente_b, Brushes.Black, 150, Y)
-                        Y += 20
+                        'e.Graphics.DrawString("FOLIO DEL MONEDERO: ", fuente_b, Brushes.Black, 1, Y)
+                        'e.Graphics.DrawString(foliomonedero, fuente_b, Brushes.Black, 150, Y)
+                        'Y += 20
                     Else
                         If montopago > 0 Then
                             e.Graphics.DrawString("PAGO EN " & formapago & ":", fuente_b, Brushes.Black, 1, Y)
@@ -3914,9 +3926,9 @@ Door:
                         e.Graphics.DrawString(FormatNumber(montopago, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                         Y += 15
 
-                        e.Graphics.DrawString("FOLIO DEL MONEDERO: ", fuente_b, Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(foliomonedero, fuente_b, Brushes.Black, 100, Y)
-                        Y += 15
+                        'e.Graphics.DrawString("FOLIO DEL MONEDERO: ", fuente_b, Brushes.Black, 1, Y)
+                        'e.Graphics.DrawString(foliomonedero, fuente_b, Brushes.Black, 100, Y)
+                        'Y += 15
                     Else
                         If montopago > 0 Then
                             e.Graphics.DrawString("PAGO EN " & formapago & ":", fuente_b, Brushes.Black, 1, Y)
@@ -4498,7 +4510,5 @@ Door:
         focomapeo = 29
     End Sub
 
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
 
-    End Sub
 End Class

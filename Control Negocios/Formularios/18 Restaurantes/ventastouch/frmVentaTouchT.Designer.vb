@@ -83,9 +83,9 @@ Partial Class frmVentaTouchT
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.framecampo)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(4, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(637, 511)
+        Me.GroupBox1.Size = New System.Drawing.Size(630, 509)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         '
@@ -94,9 +94,9 @@ Partial Class frmVentaTouchT
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(18, 19)
+        Me.Button1.Location = New System.Drawing.Point(6, 12)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(613, 43)
+        Me.Button1.Size = New System.Drawing.Size(608, 43)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Salir"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -148,9 +148,9 @@ Partial Class frmVentaTouchT
         Me.GroupBox3.Controls.Add(Me.btn3)
         Me.GroupBox3.Controls.Add(Me.btn2)
         Me.GroupBox3.Controls.Add(Me.btn1)
-        Me.GroupBox3.Location = New System.Drawing.Point(18, 135)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 135)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(613, 370)
+        Me.GroupBox3.Size = New System.Drawing.Size(619, 370)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         '
@@ -674,9 +674,9 @@ Partial Class frmVentaTouchT
         '
         Me.framecampo.Controls.Add(Me.txtClaveVendedor)
         Me.framecampo.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.framecampo.Location = New System.Drawing.Point(18, 60)
+        Me.framecampo.Location = New System.Drawing.Point(6, 60)
         Me.framecampo.Name = "framecampo"
-        Me.framecampo.Size = New System.Drawing.Size(613, 69)
+        Me.framecampo.Size = New System.Drawing.Size(619, 69)
         Me.framecampo.TabIndex = 1
         Me.framecampo.TabStop = False
         '
@@ -694,7 +694,7 @@ Partial Class frmVentaTouchT
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(655, 527)
+        Me.ClientSize = New System.Drawing.Size(637, 510)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmVentaTouchT"

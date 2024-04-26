@@ -50,7 +50,7 @@
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
 
-        myope = Montocobromapeo - (CDbl(txtEfectivo.Text) + CDbl(txtpagos.Text) + CDbl(txtDescuento.Text))
+        myope = Montocobromapeo - (CDbl(txtEfectivo.Text) + CDbl(txtpagos.Text))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -77,7 +77,7 @@
         If Not IsNumeric(txtDescuento.Text) Then txtDescuento.Text = "0.00" : Exit Sub
         If Strings.Left(txtDescuento.Text, 1) = "," Or Strings.Left(txtDescuento.Text, 1) = "." Then Exit Sub
 
-        myope = Montocobromapeo - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(txtpagos.Text) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
+        myope = IIf(txtSubtotalmapeo.Text = "", 0, txtSubtotalmapeo.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(txtpagos.Text) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -100,16 +100,19 @@
         txtEfectivo.Text = "0.00"
         txtpagos.Text = "0.00"
         txtCambio.Text = "0.00"
-
+        txtTotal.Text = txtSubtotalmapeo.Text
         cboTelefono.Text = ""
         cboNombre.Text = ""
         rbtDireccion.Text = ""
         txtMaxCredito.Text = "0.00"
         txtAfavor.Text = "0.00"
         txtAdeuda.Text = "0.00"
-
+        txtPropina.Text = "0.00"
         grdPagos.Rows.Clear()
 
+        txtmonedero.Text = ""
+        txtsaldomon.Text = ""
+        txtcliente.Text = ""
     End Sub
 
     Private Sub txtPropina_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPropina.KeyPress
@@ -1036,4 +1039,6 @@
     Private Sub cboTelefono_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboTelefono.SelectedValueChanged
         cboTelefono_KeyPress(cboTelefono, New KeyPressEventArgs(ControlChars.Cr))
     End Sub
+
+
 End Class

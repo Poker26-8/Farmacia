@@ -1595,12 +1595,6 @@
     <Compile Include="Formularios\24 Hoteleria\frmAdministracion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\24 Hoteleria\frmCalcularH.Designer.vb">
-      <DependentUpon>frmCalcularH.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\24 Hoteleria\frmCalcularH.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmCambiarHab.Designer.vb">
       <DependentUpon>frmCambiarHab.vb</DependentUpon>
     </Compile>
@@ -2443,9 +2437,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmAdministracion.resx">
       <DependentUpon>frmAdministracion.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularH.resx">
-      <DependentUpon>frmCalcularH.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCambiarHab.resx">
       <DependentUpon>frmCambiarHab.vb</DependentUpon>

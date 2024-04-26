@@ -208,19 +208,19 @@
 
             cnn1.Close()
             cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboCliente.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboCliente.Text & "'"
+            'rd1 = cmd1.ExecuteReader
+            'If rd1.HasRows Then
+            '    If rd1.Read Then
 
-                End If
-            Else
-                MsgBox("El cliente no esta registrado", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                Exit Sub
-                btnNuevo.PerformClick()
-            End If
-            rd1.Close()
+            '    End If
+            'Else
+            '    MsgBox("El cliente no esta registrado", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            '    Exit Sub
+            '    btnNuevo.PerformClick()
+            'End If
+            'rd1.Close()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "select * from Monedero where Barras='" & txtTelefono.Text & "'"

@@ -741,7 +741,8 @@ Public Class frmPagarH
         Dim totcomi As Double = 0
         Dim tIVA As Double = 0
         Dim OPE As Double = 0
-
+        Dim IVADEPRODUCTO As Double = 0
+        Dim MYSUBTOTALVE As Double = 0
 
         If CDec(txtTotal.Text) <= CDec(cuenta) Then
             cuenta = txtTotal.Text
@@ -760,19 +761,12 @@ Public Class frmPagarH
             If rd2.HasRows Then
                 If rd2.Read Then
                     totcomi = totcomi + CDec(CDec(cantidad) * CDec(rd2("Comision").ToString))
-                    If rd2("IVA").ToString = 0 Then
-
-                    Else
-                        If CDec(grdComanda.Rows(dx).Cells(3).Value.ToString) > 0 Then
-
-                            ' subtotal1 = subtotal1 + CDec(grdComanda.Rows(dx).Cells(4).Value.ToString) / (1 * rd2("IVA").ToString)
-
-                            OPE = FormatNumber(CDec(grdComanda.Rows(dx).Cells(4).Value.ToString) / 1.16, 2)
-                            tIVA = tIVA + CDec(OPE)
-                            tIVA = FormatNumber(tIVA, 2)
-                        End If
+                    If rd2("IVA").ToString > 0 Then
+                        OPE = grdComanda.Rows(dx).Cells(4).Value.ToString
+                        subtotal1 = OPE / (1 + rd2("IVA").ToString)
+                        IVADEPRODUCTO = OPE - subtotal1
+                        tIVA = tIVA + CDbl(IVADEPRODUCTO)
                     End If
-
                 End If
 
             End If
@@ -782,6 +776,8 @@ Public Class frmPagarH
 
         Next
         tIVA = FormatNumber(tIVA, 2)
+        MYSUBTOTALVE = txtTotal.Text - tIVA
+        MYSUBTOTALVE = FormatNumber(MYSUBTOTALVE, 2)
 
         If lblCliente.Text = "" Then
             If (lblTipoVenta.Text = "MOSTRADOR" And txtResta.Text <> 0) Then
@@ -965,7 +961,7 @@ Public Class frmPagarH
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Descuento,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales,Corte,CorteU,CodFactura,IP,Formato) VALUES(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & ACUENTA & "," & RESTAVENTA & ",0," & DESCUENTOVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','" & totcomi & "',1,1,0,'" & lic & "','" & dameIP2() & "','TICKET')"
+                cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Descuento,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales,Corte,CorteU,CodFactura,IP,Formato) VALUES(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & MYSUBTOTALVE & "," & tIVA & "," & TOTALVENTA & "," & ACUENTA & "," & RESTAVENTA & ",0," & DESCUENTOVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','" & totcomi & "',1,1,0,'" & lic & "','" & dameIP2() & "','TICKET')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
 
@@ -991,7 +987,7 @@ Public Class frmPagarH
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,CodFactura,Formato) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & subtotal & "," & tIVA & "," & TOTALVENTA & "," & DESCUENTOVENTA & ",0," & ACUENTA2 & "," & RESTAVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & DESCUENTOVENTA & ",'','',0,'" & dameIP2() & "',0,'" & lic & "','TICKET')"
+                    "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,CodFactura,Formato) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "',''," & MYSUBTOTALVE & "," & tIVA & "," & TOTALVENTA & "," & DESCUENTOVENTA & ",0," & ACUENTA2 & "," & RESTAVENTA & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & DESCUENTOVENTA & ",'','',0,'" & dameIP2() & "',0,'" & lic & "','TICKET')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
         End Select

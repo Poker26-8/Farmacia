@@ -743,25 +743,13 @@ Public Class frmManejo
 
                                                 End If
 
-
-
-
-
-
-
                                             Else
-                                                    If fechasalida >= nuevafechasalida Then
+                                                If fechasalida >= nuevafechasalida Then
                                                     btnHabitacionn.BackColor = Color.Violet
                                                 Else
                                                     btnHabitacionn.BackColor = Color.FromArgb(192, 39, 71)
                                                 End If
                                             End If
-
-
-
-
-
-
 
                                         End If
                                     End If
@@ -771,8 +759,6 @@ Public Class frmManejo
                                 Catch ex As Exception
                                     MessageBox.Show(ex.ToString)
                                 End Try
-
-
 
 
                                 Dim ruta As String = My.Application.Info.DirectoryPath & "\ImagenesProductos\ocupada.png"

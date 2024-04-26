@@ -397,7 +397,7 @@
         Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
         Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
         Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
-        Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_p As New Font("Lucida Sans Typewriter", 10, FontStyle.Regular)
         Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
         Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim hoja As New Pen(Brushes.Black, 1)
@@ -429,26 +429,26 @@
         e.Graphics.DrawString("--------------------------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
         Y += 15
 
+        e.Graphics.DrawString("MESA: ", fuente_p, Brushes.Black, 1, Y)
+        e.Graphics.DrawString(lblpc.Text, fuente_p, Brushes.Black, 270, Y, derecha)
+        Y += 20
         e.Graphics.DrawString("Fecha: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(Format(Date.Now, "yyyy/MM/dd"), fuente_c, Brushes.Black, 130, Y)
+        e.Graphics.DrawString(Format(Date.Now, "yyyy/MM/dd"), fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
         e.Graphics.DrawString("Hora de Asignacion: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(txtHorIni.Text, fuente_c, Brushes.Black, 150, Y)
+        e.Graphics.DrawString(txtHorIni.Text, fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
         e.Graphics.DrawString("Hora de Terminación:", fuente_b, Brushes.Black, 1, Y)
         e.Graphics.DrawString(txtHorFin.Text, fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
-        e.Graphics.DrawString("MESA: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(lblpc.Text, fuente_c, Brushes.Black, 150, Y)
-        Y += 20
         e.Graphics.DrawString("Tiempo:", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(txtHoras.Text & " hrs.", fuente_c, Brushes.Black, 70, Y)
+        e.Graphics.DrawString(txtHoras.Text & " hrs.", fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
         e.Graphics.DrawString("Precio por Hora: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(FormatNumber(txtPrecioHora.Text, 2), fuente_c, Brushes.Black, 120, Y)
+        e.Graphics.DrawString(FormatNumber(txtPrecioHora.Text, 2), fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
         e.Graphics.DrawString("Total a Pagar: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(FormatNumber(txtTotalPag.Text, 2), fuente_c, Brushes.Black, 120, Y)
+        e.Graphics.DrawString(FormatNumber(txtTotalPag.Text, 2), fuente_c, Brushes.Black, 270, Y, derecha)
         e.HasMorePages = False
 
     End Sub

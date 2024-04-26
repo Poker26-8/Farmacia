@@ -7108,6 +7108,8 @@ Door:
             Dim MySubtotal As Double = 0
             Dim TotalIVAPrint As Double = 0
             Dim TotalIEPS As Double = 0
+            Dim ivaproducto As Double = 0
+            Dim ivadeproducto As Double = 0
 
             Try
                 cnn1.Close() : cnn1.Open()
@@ -7119,13 +7121,19 @@ Door:
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
-                                If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
 
-                                    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-
-                                    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
-
+                                If rd1(0).ToString > 0 Then
+                                    MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                    ivaproducto = MySubtotal / (1 + rd1(0).ToString)
+                                    ivadeproducto = MySubtotal - CDbl(ivaproducto)
+                                    TotalIVAPrint = TotalIVAPrint + CDbl(ivadeproducto)
                                 End If
+
+                                'If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
+                                '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+
+                                '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                                'End If
                             End If
                         End If
                         rd1.Close()
@@ -7190,16 +7198,16 @@ Door:
             If DesglosaIVA = "1" Then
                 If TotalIVAPrint > 0 Then
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 12
+                        Y += 15
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                        Y += 13.5
+                        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                        Y += 15
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                    Y += 13.5
+                    Y += 15
                 End If
             End If
 
@@ -9223,7 +9231,8 @@ Door:
             Dim MySubtotal As Double = 0
             Dim TotalIVAPrint As Double = 0
             Dim TotalIEPS As Double = 0
-
+            Dim ivaproducto As Double = 0
+            Dim ivadeproducto
             cnn1.Close() : cnn1.Open()
             For N As Integer = 0 To grdcaptura.Rows.Count - 1
                 If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
@@ -9233,10 +9242,16 @@ Door:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
-                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                            If rd1(0).ToString > 0 Then
+                                MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                ivaproducto = MySubtotal / (1 + rd1(0).ToString)
+                                ivadeproducto = MySubtotal - ivaproducto
+                                TotalIVAPrint = TotalIVAPrint + CDbl(ivadeproducto)
                             End If
+                            'If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                            '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+                            '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                            'End If
                             If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
                                 TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString)
                             End If
@@ -9306,16 +9321,16 @@ Door:
             If DesglosaIVA = "1" Then
                 If TotalIVAPrint > 0 Then
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 12
+                        Y += 7
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                        Y += 12
+                        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                        Y += 15
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                    Y += 12
+                    Y += 15
                 End If
             End If
             Y += 15
