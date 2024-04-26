@@ -2659,4 +2659,92 @@ quepaso_wey:
         frmRepCopeo.Show()
         frmRepCopeo.BringToFront()
     End Sub
+
+    Private Sub rbAjuste_CheckedChanged(sender As Object, e As EventArgs) Handles rbAjuste.CheckedChanged
+        Try
+
+            If (rbAjuste.Checked) Then
+                grdcaptura.Rows.Clear()
+                grdcaptura.ColumnCount = 0
+
+                grdcaptura.ColumnCount = 5
+
+                With grdcaptura.Columns(0)
+                    .Name = "Código"
+                    .Width = 45
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With grdcaptura.Columns(1)
+                    .Name = "Nombre"
+                    .Width = 110
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With grdcaptura.Columns(2)
+                    .Name = "Existencias"
+                    .Width = 210
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With grdcaptura.Columns(3)
+                    .Name = "Inventario Fisico"
+                    .Width = 210
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With grdcaptura.Columns(4)
+                    .Name = "Diferencias"
+                    .Width = 210
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Codigo,Nombre,Existencia FROM productos"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        grdcaptura.Rows.Add(rd1(0).ToString, rd1(1).ToString, rd1(2).ToString, 0, rd1(2).ToString)
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
+        If e.ColumnIndex > 0 Then
+            Dim nuevoValor As String = ""
+            Dim INDEX As Double = grdcaptura.CurrentRow.Index
+            Dim valorActual As String = grdcaptura.Rows(INDEX).Cells(3).Value.ToString
+
+            Dim existencia As String = grdcaptura.Rows(INDEX).Cells(2).Value.ToString
+            Dim diferencia As Double = 0
+            nuevoValor = InputBox("Ingresa la nueva existencia", "Editar Existencia", valorActual.ToString())
+            If nuevoValor <> "" Then
+                ' grdcaptura.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = nuevoValor
+                grdcaptura.Rows(INDEX).Cells(3).Value = nuevoValor
+
+                diferencia = CDbl(existencia) - CDbl(nuevoValor)
+                grdcaptura.Rows(INDEX).Cells(4).Value = diferencia
+            End If
+        End If
+    End Sub
 End Class

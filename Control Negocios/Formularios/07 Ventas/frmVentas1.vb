@@ -4942,8 +4942,8 @@ kaka:
                         "select * from Monedero where Barras='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
-                        If rd1.HasRows Then
-                            txtsaldo_monedero.Text = FormatNumber(IIf(rd1("Saldo").ToString() = "", 0, rd1("Saldo").ToString()), 4)
+                        If rd1.Read Then
+                            txtsaldo_monedero.Text = FormatNumber(IIf(rd1("Saldo").ToString = "", 0, rd1("Saldo").ToString), 4)
                         End If
                     End If
                     rd1.Close()
@@ -5416,7 +5416,8 @@ kaka:
         frmAbonoNotas.BringToFront()
     End Sub
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-        frmPasa_Corte.Show()
+        'frmPasa_Corte.Show()
+        frmPedidosCli.Show()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'frmVentas2.Show()
@@ -7047,8 +7048,9 @@ doorcita:
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & txttel.Text & "')"
+                ' cmd1.CommandText =
+                '"select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & txttel.Text & "')"
+                cmd1.CommandText = "select Saldo from Monedero WHERE Barras='" & txttel.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -7065,7 +7067,7 @@ doorcita:
                 Dim ope As Double = 0
 
                 Dim total_venta As Double = 0
-
+                Dim total_bono As Double = 0
                 'Por venta
                 If tipo_mone = 1 Then
                     total_venta = Total_Ve
@@ -7081,7 +7083,7 @@ doorcita:
                         precio_prod = grdcaptura(4, denji).Value
                         cantid_prod = grdcaptura(3, denji).Value
 
-                        Dim total_bono As Double = (porc_mone * precio_prod) / 100
+                        total_bono = (porc_mone * precio_prod) / 100
                         ope = ope + (total_bono * cantid_prod)
                     Next
                     nvo_saldo = ope + sal_monedero
@@ -7094,7 +7096,7 @@ doorcita:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & ",0," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
+                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             End If
@@ -7183,6 +7185,37 @@ doorcita:
                             CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
                         End If
 
+                        If FormaPago = "MONEDERO" Then
+
+                            Dim saldomonedero As Double = 0
+                            Dim saldonuevo As Double = 0
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "SELECT Saldo from monedero where Barras='" & txttel.Text & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    saldomonedero = rd1(0).ToString
+                                    saldonuevo = saldomonedero - TotFormaPago
+                                    saldonuevo = FormatNumber(saldonuevo, 2)
+
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE monedero set Saldo=" & saldonuevo & " WHERE Barras='" & txttel.Text & "'"
+                                    cmd2.ExecuteNonQuery()
+
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "INSERT INTO movmonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & txttel.Text & "','Venta',0," & TotFormaPago & "," & saldonuevo & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
+                                    cmd2.ExecuteNonQuery()
+
+                                    cnn2.Close()
+
+                                End If
+                            End If
+                            rd1.Close()
+                            cnn1.Close()
+                        End If
 
                         If FormaPago = "SALDO FAVOR" Then
                             If TotFormaPago > 0 Then
@@ -8842,6 +8875,8 @@ ecomoda:
         Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
+        Dim saldomonedero As Double = 0
+
         Try
             '[°]. Logotipo
             If tLogo <> "SIN" Then
@@ -8862,6 +8897,15 @@ ecomoda:
 
             '[°]. Datos del negocio
             cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM monedero WHERE Barras='" & txttel.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    saldomonedero = rd1("Saldo").ToString
+                End If
+            End If
+            rd1.Close()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
@@ -9068,12 +9112,12 @@ ecomoda:
             If CDbl(txtefectivo.Text) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
             If CDbl(txtCambio.Text) > 0 Then
                 e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
             Dim formapagon As String = ""
@@ -9101,27 +9145,33 @@ ecomoda:
             If CDbl(txtResta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 13.5
+                Y += 20
             End If
 
-            Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
-            If DesglosaIVA = "1" Then
-                If TotalIVAPrint > 0 Then
-                    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 12
-                        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
-                        Y += 13.5
-                    End If
-                End If
-                If TotalIEPS > 0 Then
-                    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
-                    Y += 13.5
-                End If
+            If txttel.Text <> "" Then
+                e.Graphics.DrawString("Saldo de Monedero:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(saldomonedero, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 20
             End If
 
-            Y += 19
+            ' Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
+            'If DesglosaIVA = "1" Then
+            '    If TotalIVAPrint > 0 Then
+            '        If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
+            '            Y += 12
+            '            e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '            e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
+            '            Y += 13.5
+            '        End If
+            '    End If
+            '    If TotalIEPS > 0 Then
+            '        e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '        e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 280, Y, sf)
+            '        Y += 13.5
+            '    End If
+            'End If
+
+
 
 
             'Imprime pie de página
@@ -11841,7 +11891,7 @@ ecomoda:
         Dim Pie As String = ""
         Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-
+        Dim saldomonedero As Double = 0
         Try
             '[°]. Logotipo
             If tLogo <> "SIN" Then
@@ -11862,6 +11912,15 @@ ecomoda:
 
             '[°]. Datos del negocio
             cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM monedero WHERE Barras='" & txttel.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    saldomonedero = rd1("Saldo").ToString
+                End If
+            End If
+            rd1.Close()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
@@ -12080,12 +12139,12 @@ ecomoda:
             If CDbl(txtefectivo.Text) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
+                Y += 20
             End If
             If CDbl(txtCambio.Text) > 0 Then
                 e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
+                Y += 20
             End If
 
             Dim formapago As String = ""
@@ -12109,27 +12168,32 @@ ecomoda:
             If CDbl(txtResta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                Y += 12
+                Y += 20
             End If
 
-            Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
-            If DesglosaIVA = "1" Then
-                If TotalIVAPrint > 0 Then
-                    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 12
-                        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                        Y += 12
-                    End If
-                End If
-                If TotalIEPS > 0 Then
-                    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                    Y += 12
-                End If
+            If txttel.Text <> "" Then
+                e.Graphics.DrawString("Saldo de Monedero:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(saldomonedero, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                Y += 20
             End If
 
-            Y += 15
+            'Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
+            'If DesglosaIVA = "1" Then
+            '    If TotalIVAPrint > 0 Then
+            '        If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
+            '            Y += 12
+            '            e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '            e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+            '            Y += 12
+            '        End If
+            '    End If
+            '    If TotalIEPS > 0 Then
+            '        e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '        e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+            '        Y += 12
+            '    End If
+            'End If
+            Y += 1
 
             e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 90, Y, sc)
             Y += 12
@@ -13226,9 +13290,17 @@ ecomoda:
             If rd1.Read Then
                 txtvalor.Text = rd1(0).ToString
                 txtequivale.Text = FormatNumber(txtPagar.Text / CDec(txtvalor.Text), 2)
+
+                If cbotpago.Text = "MONEDERO" Then
+                    txtnumref.Text = txttel.Text
+                End If
             Else
                 txtvalor.Text = "0.00"
                 txtequivale.Text = "0.00"
+
+                If cbotpago.Text = "MONEDERO" Then
+                    txtnumref.Text = txttel.Text
+                End If
             End If
             rd1.Close()
             cnn1.Close()

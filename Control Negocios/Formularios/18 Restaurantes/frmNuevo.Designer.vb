@@ -25,9 +25,14 @@ Partial Class frmNuevo
         Me.pmesas = New System.Windows.Forms.Panel()
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.grdCaptura2 = New System.Windows.Forms.DataGridView()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.zx = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.zxx = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
+        CType(Me.grdCaptura2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,29 +56,54 @@ Partial Class frmNuevo
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.grdCaptura)
+        Me.Panel1.Controls.Add(Me.grdCaptura2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(447, 100)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(483, 540)
         Me.Panel1.TabIndex = 1
         '
+        'grdCaptura2
+        '
+        Me.grdCaptura2.AllowUserToAddRows = False
+        Me.grdCaptura2.AllowUserToDeleteRows = False
+        Me.grdCaptura2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdCaptura2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4})
+        Me.grdCaptura2.Location = New System.Drawing.Point(15, 352)
+        Me.grdCaptura2.Name = "grdCaptura2"
+        Me.grdCaptura2.Size = New System.Drawing.Size(456, 150)
+        Me.grdCaptura2.TabIndex = 1
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "NOMBRE"
+        Me.Column3.Name = "Column3"
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "OTRO NOMBRE"
+        Me.Column4.Name = "Column4"
+        '
         'grdCaptura
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.grdCaptura.Location = New System.Drawing.Point(6, 15)
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.zx, Me.zxx})
+        Me.grdCaptura.Location = New System.Drawing.Point(44, 18)
         Me.grdCaptura.Name = "grdCaptura"
-        Me.grdCaptura.ReadOnly = True
-        Me.grdCaptura.Size = New System.Drawing.Size(465, 305)
-        Me.grdCaptura.TabIndex = 0
+        Me.grdCaptura.Size = New System.Drawing.Size(240, 150)
+        Me.grdCaptura.TabIndex = 2
         '
-        'Column1
+        'zx
         '
-        Me.Column1.HeaderText = "nombre"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
+        Me.zx.HeaderText = "xxzzxxz"
+        Me.zx.Name = "zx"
+        '
+        'zxx
+        '
+        Me.zxx.HeaderText = "dsdssdsd"
+        Me.zxx.Name = "zxx"
         '
         'frmNuevo
         '
@@ -88,6 +118,7 @@ Partial Class frmNuevo
         Me.Text = "frmNuevo"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.grdCaptura2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -96,6 +127,13 @@ Partial Class frmNuevo
     Friend WithEvents pmesas As Panel
     Friend WithEvents psuperior As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents grdCaptura As DataGridView
+    Friend WithEvents grdCaptura1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents grdCaptura2 As DataGridView
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents grdCaptura As DataGridView
+    Friend WithEvents zx As DataGridViewTextBoxColumn
+    Friend WithEvents zxx As DataGridViewTextBoxColumn
 End Class

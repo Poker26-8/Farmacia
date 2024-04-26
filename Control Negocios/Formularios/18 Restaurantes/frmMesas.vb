@@ -758,6 +758,7 @@ Public Class frmMesas
         Dim totalc As Double = 0
 
         frmPagar.Close()
+        frmCalcula.Close()
 
         If tables.BackColor <> Color.White Then
             Try
@@ -887,6 +888,8 @@ Public Class frmMesas
                                         If rd2.HasRows Then
                                             If rd2.Read Then
                                                 If MsgBox("¿Deseas consultar el tiempo de la mesa?", vbInformation + vbOKCancel, titulomensajes) = vbCancel Then Exit Sub
+
+
 
                                                 frmCalcula.lblpc.Text = tables.Text
                                                 frmCalcula.Show()

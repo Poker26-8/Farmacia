@@ -1375,7 +1375,7 @@ Partial Class frmVentas1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button17, 1, 7)
-        Me.TableLayoutPanel1.Controls.Add(Me.picProd, 4, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.picProd, 3, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.Button16, 5, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Button13, 0, 11)
         Me.TableLayoutPanel1.Controls.Add(Me.Button6, 0, 10)
@@ -1475,11 +1475,12 @@ Partial Class frmVentas1
         Me.picProd.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.picProd, 2)
         Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picProd.Location = New System.Drawing.Point(216, 333)
+        Me.picProd.Location = New System.Drawing.Point(121, 328)
         Me.picProd.Margin = New System.Windows.Forms.Padding(10)
         Me.picProd.Name = "picProd"
         Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picProd.Size = New System.Drawing.Size(83, 135)
+        Me.TableLayoutPanel1.SetRowSpan(Me.picProd, 2)
+        Me.picProd.Size = New System.Drawing.Size(83, 140)
         Me.picProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picProd.TabIndex = 160
         Me.picProd.TabStop = False
@@ -1609,14 +1610,14 @@ Partial Class frmVentas1
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Image = Global.Control_Negocios.My.Resources.Resources.corte2Recurso_81
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button4.Location = New System.Drawing.Point(16, 119)
         Me.Button4.Margin = New System.Windows.Forms.Padding(8)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(79, 85)
         Me.Button4.TabIndex = 191
-        Me.Button4.Text = "CORTE DE CAJA"
+        Me.Button4.Text = "ENTREGA DE PEDIDOS"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button4.UseVisualStyleBackColor = False
         '
@@ -1663,7 +1664,7 @@ Partial Class frmVentas1
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(79, 85)
         Me.Button11.TabIndex = 184
-        Me.Button11.Text = "ENTREGAS"
+        Me.Button11.Text = "PARCIALIDADES"
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button11.UseVisualStyleBackColor = False
         '
@@ -2784,7 +2785,7 @@ Partial Class frmVentas1
         Me.Controls.Add(Me.txtfechacad)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1300, 779)
+        Me.MinimumSize = New System.Drawing.Size(1293, 766)
         Me.Name = "frmVentas1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas (1)"

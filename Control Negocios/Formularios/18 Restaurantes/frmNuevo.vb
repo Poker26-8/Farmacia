@@ -2,13 +2,16 @@
 
     Friend WithEvents btnMesa As System.Windows.Forms.Button
     Dim btnaccion = New DataGridViewButtonColumn()
+    Dim btnaccion2 = New DataGridViewTextBoxCell()
+    Dim rowIndex As Integer = 0 ' 
     Private Sub frmNuevo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mesa()
 
 
-        btnaccion.Name = "Eliminar"
+        ' btnaccion.Name = "Eliminar"
+        btnaccion2.value = "Inventario Fisico"
 
-        grdCaptura.Columns.Add(btnaccion)
+        ' grdCaptura.Columns.Add(btnaccion2)
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
@@ -17,15 +20,19 @@
         Do While rd1.Read
             If rd1.HasRows Then
 
-                grdCaptura.Rows.Add(rd1(0).ToString)
+                grdCaptura2.Rows.Add(rd1(0).ToString, "222")
+                ' Agregar la celda a una fila específica en el control DataGridView
+                'grdCaptura.Rows(rowIndex).Cells.Add(btnaccion2)
             End If
         Loop
         rd1.Close()
         cnn1.Close()
 
+
+
     End Sub
 
-    Private Sub grdCaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdCaptura.CellPainting
+    Private Sub grdCaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs)
         e.Paint(e.CellBounds, DataGridViewPaintParts.All)
 
 
@@ -82,23 +89,23 @@
                     'btnMesa.Height = pmesas.Height / cuantosFilas ' Alto del botón
 
                     btnMesa.Width = btnWidth ' Ancho del botón
-                            btnMesa.Height = btnHeight ' Alto del botón
+                    btnMesa.Height = btnHeight ' Alto del botón
 
-                            btnMesa.BackColor = Color.FromArgb(238, 220, 162)
-                            btnMesa.FlatStyle = FlatStyle.Flat
-                            btnMesa.FlatAppearance.BorderSize = 0
+                    btnMesa.BackColor = Color.FromArgb(238, 220, 162)
+                    btnMesa.FlatStyle = FlatStyle.Flat
+                    btnMesa.FlatAppearance.BorderSize = 0
                     btnMesa.Name = "btnMesa(" & nombreMesa & ")"
                     btnMesa.TextAlign = ContentAlignment.BottomCenter
-                            btnMesa.Font = New Font(btnMesa.Font, FontStyle.Bold)
+                    btnMesa.Font = New Font(btnMesa.Font, FontStyle.Bold)
 
-                            ' Posicionar el botón dentro del panel
-                            btnMesa.Left = columna * (btnMesa.Width + espacioHorizontal)
-                            btnMesa.Top = fila * (btnMesa.Height + espacioVertical)
+                    ' Posicionar el botón dentro del panel
+                    btnMesa.Left = columna * (btnMesa.Width + espacioHorizontal)
+                    btnMesa.Top = fila * (btnMesa.Height + espacioVertical)
 
-                            AddHandler btnMesa.Click, AddressOf btnMesa_Click
-                            pmesas.Controls.Add(btnMesa)
+                    AddHandler btnMesa.Click, AddressOf btnMesa_Click
+                    pmesas.Controls.Add(btnMesa)
 
-                            mesa += 1
+                    mesa += 1
 
 
                 Next
@@ -168,11 +175,33 @@
         Next
     End Sub
 
-    Private Sub grdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellClick
+    Private Sub grdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         ' Manejar el evento de clic de la celda del botón
-        If e.ColumnIndex = grdCaptura.Columns("Eliminar").Index AndAlso e.RowIndex >= 0 Then
-            MessageBox.Show("Haz clic en el botón en la fila " & (e.RowIndex + 1).ToString())
-            ' Aquí puedes realizar las acciones que desees al hacer clic en el botón
+        'If e.ColumnIndex = grdCaptura.Columns("Eliminar").Index AndAlso e.RowIndex >= 0 Then
+        '    MessageBox.Show("Haz clic en el botón en la fila " & (e.RowIndex + 1).ToString())
+        '    ' Aquí puedes realizar las acciones que desees al hacer clic en el botón
+        'End If
+
+        If e.ColumnIndex = 1 AndAlso e.RowIndex >= 0 Then ' Las columnas en DataGridView son base cero, por lo que la tercera columna tiene el índice 2
+            grdCaptura1.BeginEdit(True) ' Iniciar la edición de la celda
+        End If
+
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
+        'If e.ColumnIndex = 1 Then
+        '    grdCaptura.EditMode = DataGridViewEditMode.EditOnEnter
+        '    MsgBox("HHHH")
+        'End If
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura2.CellDoubleClick
+        If e.ColumnIndex > 0 Then
+            Dim valorActual As String = grdCaptura2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+            Dim nuevoValor As String = InputBox("Ingresa la nueva existencia", "Editar Existencia", valorActual.ToString())
+            If nuevoValor <> "" Then
+                grdCaptura2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = nuevoValor
+            End If
         End If
     End Sub
 End Class

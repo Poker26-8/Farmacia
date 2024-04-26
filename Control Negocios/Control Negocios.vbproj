@@ -1667,18 +1667,6 @@
     <Compile Include="Formularios\27 Mensajes\frmConfiM.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer.Designer.vb">
-      <DependentUpon>frmAsignarChofer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer2.Designer.vb">
-      <DependentUpon>frmAsignarChofer2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\28 Pedidos\frmAsignarChofer2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\28 Pedidos\frmPedidosCli.Designer.vb">
       <DependentUpon>frmPedidosCli.vb</DependentUpon>
     </Compile>
@@ -2486,12 +2474,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\27 Mensajes\frmConfiM.resx">
       <DependentUpon>frmConfiM.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\28 Pedidos\frmAsignarChofer.resx">
-      <DependentUpon>frmAsignarChofer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\28 Pedidos\frmAsignarChofer2.resx">
-      <DependentUpon>frmAsignarChofer2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\28 Pedidos\frmPedidosCli.resx">
       <DependentUpon>frmPedidosCli.vb</DependentUpon>

@@ -22,6 +22,7 @@ Partial Class frmRepInventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepInventario))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
@@ -79,6 +80,7 @@ Partial Class frmRepInventario
         Me.btnExistencia = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.rbAjuste = New System.Windows.Forms.RadioButton()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -98,7 +100,7 @@ Partial Class frmRepInventario
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(973, 31)
+        Me.Label1.Size = New System.Drawing.Size(1004, 31)
         Me.Label1.TabIndex = 229
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -109,11 +111,12 @@ Partial Class frmRepInventario
         Me.tcOpt.Location = New System.Drawing.Point(8, 38)
         Me.tcOpt.Name = "tcOpt"
         Me.tcOpt.SelectedIndex = 0
-        Me.tcOpt.Size = New System.Drawing.Size(202, 159)
+        Me.tcOpt.Size = New System.Drawing.Size(284, 159)
         Me.tcOpt.TabIndex = 230
         '
         'tpInv
         '
+        Me.tpInv.Controls.Add(Me.rbAjuste)
         Me.tpInv.Controls.Add(Me.optperdidas)
         Me.tpInv.Controls.Add(Me.optTodos)
         Me.tpInv.Controls.Add(Me.optGrupo)
@@ -122,7 +125,7 @@ Partial Class frmRepInventario
         Me.tpInv.Location = New System.Drawing.Point(4, 24)
         Me.tpInv.Name = "tpInv"
         Me.tpInv.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpInv.Size = New System.Drawing.Size(194, 131)
+        Me.tpInv.Size = New System.Drawing.Size(276, 131)
         Me.tpInv.TabIndex = 0
         Me.tpInv.Text = "      Inventario      "
         Me.tpInv.UseVisualStyleBackColor = True
@@ -232,6 +235,8 @@ Partial Class frmRepInventario
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -239,9 +244,8 @@ Partial Class frmRepInventario
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Location = New System.Drawing.Point(8, 203)
         Me.grdcaptura.Name = "grdcaptura"
-        Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(955, 311)
+        Me.grdcaptura.Size = New System.Drawing.Size(986, 311)
         Me.grdcaptura.TabIndex = 231
         '
         'btnsalida
@@ -251,7 +255,7 @@ Partial Class frmRepInventario
         Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(882, 123)
+        Me.btnsalida.Location = New System.Drawing.Point(913, 123)
         Me.btnsalida.Name = "btnsalida"
         Me.btnsalida.Size = New System.Drawing.Size(82, 63)
         Me.btnsalida.TabIndex = 235
@@ -266,7 +270,7 @@ Partial Class frmRepInventario
         Me.btnentrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnentrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnentrada.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnentrada.Location = New System.Drawing.Point(882, 50)
+        Me.btnentrada.Location = New System.Drawing.Point(913, 50)
         Me.btnentrada.Name = "btnentrada"
         Me.btnentrada.Size = New System.Drawing.Size(82, 63)
         Me.btnentrada.TabIndex = 234
@@ -281,7 +285,7 @@ Partial Class frmRepInventario
         Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnetiquetas.Location = New System.Drawing.Point(795, 123)
+        Me.btnetiquetas.Location = New System.Drawing.Point(826, 123)
         Me.btnetiquetas.Name = "btnetiquetas"
         Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
         Me.btnetiquetas.TabIndex = 233
@@ -296,7 +300,7 @@ Partial Class frmRepInventario
         Me.btncatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btncatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncatalogo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncatalogo.Location = New System.Drawing.Point(794, 50)
+        Me.btncatalogo.Location = New System.Drawing.Point(825, 50)
         Me.btncatalogo.Name = "btncatalogo"
         Me.btncatalogo.Size = New System.Drawing.Size(82, 63)
         Me.btncatalogo.TabIndex = 232
@@ -313,7 +317,7 @@ Partial Class frmRepInventario
         Me.boxcaduca.Controls.Add(Me.dtpIni)
         Me.boxcaduca.Enabled = False
         Me.boxcaduca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxcaduca.Location = New System.Drawing.Point(216, 38)
+        Me.boxcaduca.Location = New System.Drawing.Point(298, 38)
         Me.boxcaduca.Margin = New System.Windows.Forms.Padding(2)
         Me.boxcaduca.Name = "boxcaduca"
         Me.boxcaduca.Padding = New System.Windows.Forms.Padding(2)
@@ -381,7 +385,7 @@ Partial Class frmRepInventario
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofiltro.FormattingEnabled = True
-        Me.cbofiltro.Location = New System.Drawing.Point(216, 123)
+        Me.cbofiltro.Location = New System.Drawing.Point(298, 123)
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(247, 25)
         Me.cbofiltro.TabIndex = 237
@@ -420,7 +424,7 @@ Partial Class frmRepInventario
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(565, 541)
+        Me.Label4.Location = New System.Drawing.Point(596, 541)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(97, 19)
@@ -433,7 +437,7 @@ Partial Class frmRepInventario
         Me.txtregistros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtregistros.BackColor = System.Drawing.Color.White
         Me.txtregistros.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtregistros.Location = New System.Drawing.Point(565, 562)
+        Me.txtregistros.Location = New System.Drawing.Point(596, 562)
         Me.txtregistros.Margin = New System.Windows.Forms.Padding(2)
         Me.txtregistros.Name = "txtregistros"
         Me.txtregistros.ReadOnly = True
@@ -446,7 +450,7 @@ Partial Class frmRepInventario
         Me.txtVentaTot.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtVentaTot.BackColor = System.Drawing.Color.White
         Me.txtVentaTot.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVentaTot.Location = New System.Drawing.Point(852, 562)
+        Me.txtVentaTot.Location = New System.Drawing.Point(883, 562)
         Me.txtVentaTot.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaTot.Name = "txtVentaTot"
         Me.txtVentaTot.ReadOnly = True
@@ -458,7 +462,7 @@ Partial Class frmRepInventario
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(852, 541)
+        Me.Label3.Location = New System.Drawing.Point(883, 541)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 19)
@@ -470,7 +474,7 @@ Partial Class frmRepInventario
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(736, 541)
+        Me.Label2.Location = New System.Drawing.Point(767, 541)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(111, 19)
@@ -483,7 +487,7 @@ Partial Class frmRepInventario
         Me.txtCompraTot.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCompraTot.BackColor = System.Drawing.Color.White
         Me.txtCompraTot.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCompraTot.Location = New System.Drawing.Point(736, 562)
+        Me.txtCompraTot.Location = New System.Drawing.Point(767, 562)
         Me.txtCompraTot.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCompraTot.Name = "txtCompraTot"
         Me.txtCompraTot.ReadOnly = True
@@ -496,7 +500,7 @@ Partial Class frmRepInventario
         Me.barCarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.barCarga.Location = New System.Drawing.Point(27, 338)
         Me.barCarga.Name = "barCarga"
-        Me.barCarga.Size = New System.Drawing.Size(918, 18)
+        Me.barCarga.Size = New System.Drawing.Size(949, 18)
         Me.barCarga.TabIndex = 247
         Me.barCarga.Visible = False
         '
@@ -520,7 +524,7 @@ Partial Class frmRepInventario
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.IniCosteo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(467, 38)
+        Me.GroupBox1.Location = New System.Drawing.Point(562, 38)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
@@ -601,7 +605,7 @@ Partial Class frmRepInventario
         Me.grdestado.Name = "grdestado"
         Me.grdestado.ReadOnly = True
         Me.grdestado.RowHeadersVisible = False
-        Me.grdestado.Size = New System.Drawing.Size(891, 253)
+        Me.grdestado.Size = New System.Drawing.Size(922, 253)
         Me.grdestado.TabIndex = 249
         '
         'Column1
@@ -700,7 +704,7 @@ Partial Class frmRepInventario
         Me.btnExistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnExistencia.Image = CType(resources.GetObject("btnExistencia.Image"), System.Drawing.Image)
         Me.btnExistencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExistencia.Location = New System.Drawing.Point(715, 123)
+        Me.btnExistencia.Location = New System.Drawing.Point(746, 123)
         Me.btnExistencia.Name = "btnExistencia"
         Me.btnExistencia.Size = New System.Drawing.Size(75, 63)
         Me.btnExistencia.TabIndex = 252
@@ -711,7 +715,7 @@ Partial Class frmRepInventario
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(478, 123)
+        Me.DataGridView1.Location = New System.Drawing.Point(553, 122)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(105, 63)
         Me.DataGridView1.TabIndex = 253
@@ -723,7 +727,7 @@ Partial Class frmRepInventario
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(633, 123)
+        Me.Button1.Location = New System.Drawing.Point(664, 123)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 63)
         Me.Button1.TabIndex = 254
@@ -731,11 +735,22 @@ Partial Class frmRepInventario
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'rbAjuste
+        '
+        Me.rbAjuste.AutoSize = True
+        Me.rbAjuste.Location = New System.Drawing.Point(125, 8)
+        Me.rbAjuste.Name = "rbAjuste"
+        Me.rbAjuste.Size = New System.Drawing.Size(145, 19)
+        Me.rbAjuste.TabIndex = 58
+        Me.rbAjuste.TabStop = True
+        Me.rbAjuste.Text = "Preajuste de Inventario"
+        Me.rbAjuste.UseVisualStyleBackColor = True
+        '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(973, 595)
+        Me.ClientSize = New System.Drawing.Size(1004, 595)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnExistencia)
@@ -841,4 +856,5 @@ Partial Class frmRepInventario
     Friend WithEvents btnExistencia As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
+    Friend WithEvents rbAjuste As RadioButton
 End Class

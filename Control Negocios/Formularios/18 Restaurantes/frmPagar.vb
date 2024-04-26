@@ -1352,83 +1352,83 @@ Door:
             rd1.Close()
             cnn1.Close()
 
-            Dim necesito As Double = MYCANT / MyMCD
-            Dim tengo As Double = 0
-            Dim cuanto_cuestan As Double = 0
-            Dim id_peps As Integer = 0
-            Dim utilidad As Double = 0
+            'Dim necesito As Double = MYCANT / MyMCD
+            'Dim tengo As Double = 0
+            'Dim cuanto_cuestan As Double = 0
+            'Dim id_peps As Integer = 0
+            'Dim utilidad As Double = 0
 
-            Dim quedan As Double = 0
-            Dim v_costo As Double = 0
-            Dim v_venta As Double = 0
+            'Dim quedan As Double = 0
+            'Dim v_costo As Double = 0
+            'Dim v_venta As Double = 0
 
-            cnn1.Close() : cnn1.Open()
-            If DEPA <> "SERVICIOS" Then
-                'Cálculos de PePs
-                Do While necesito > 0
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                                "select Id,Saldo,Costo from Costeo where Id=(select MIN(Id) from Costeo where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(mycodigo, 6) & "')"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            id_peps = rd1("Id").ToString()
-                            tengo = rd1("Saldo").ToString()
-                            cuanto_cuestan = rd1("Costo").ToString()
-                        End If
-                    Else
-                        'Esto para evitar un bucle cuando no hay una compra previa
-                        rd1.Close()
-                        Exit Do
-                    End If
-                    rd1.Close()
+            'cnn1.Close() : cnn1.Open()
+            'If DEPA <> "SERVICIOS" Then
+            '    'Cálculos de PePs
+            '    Do While necesito > 0
+            '        cmd1 = cnn1.CreateCommand
+            '        cmd1.CommandText =
+            '                    "select Id,Saldo,Costo from Costeo where Id=(select MIN(Id) from Costeo where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(mycodigo, 6) & "')"
+            '        rd1 = cmd1.ExecuteReader
+            '        If rd1.HasRows Then
+            '            If rd1.Read Then
+            '                id_peps = rd1("Id").ToString()
+            '                tengo = rd1("Saldo").ToString()
+            '                cuanto_cuestan = rd1("Costo").ToString()
+            '            End If
+            '        Else
+            '            'Esto para evitar un bucle cuando no hay una compra previa
+            '            rd1.Close()
+            '            Exit Do
+            '        End If
+            '        rd1.Close()
 
-                    'En todo va a hacer los cálculos de la utilidad
-                    If tengo >= necesito Then
-                        quedan = tengo - necesito
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                                    "update Costeo set Saldo=" & quedan & " where Id=" & id_peps
-                        cmd1.ExecuteNonQuery()
+            '        'En todo va a hacer los cálculos de la utilidad
+            '        If tengo >= necesito Then
+            '            quedan = tengo - necesito
+            '            cmd1 = cnn1.CreateCommand
+            '            cmd1.CommandText =
+            '                        "update Costeo set Saldo=" & quedan & " where Id=" & id_peps
+            '            cmd1.ExecuteNonQuery()
 
-                        v_costo = necesito * cuanto_cuestan
-                        v_venta = necesito * myprecio
-                        utilidad = utilidad + (v_venta - v_costo)
+            '            v_costo = necesito * cuanto_cuestan
+            '            v_venta = necesito * myprecio
+            '            utilidad = utilidad + (v_venta - v_costo)
 
-                        Exit Do
-                    ElseIf tengo < necesito Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                                    "update Costeo set Saldo=0 where Id=" & id_peps
-                        cmd1.ExecuteNonQuery()
+            '            Exit Do
+            '        ElseIf tengo < necesito Then
+            '            cmd1 = cnn1.CreateCommand
+            '            cmd1.CommandText =
+            '                        "update Costeo set Saldo=0 where Id=" & id_peps
+            '            cmd1.ExecuteNonQuery()
 
-                        v_costo = tengo * cuanto_cuestan
-                        v_venta = tengo * myprecio
-                        utilidad = (v_venta - v_costo)
-                        necesito = necesito - tengo
+            '            v_costo = tengo * cuanto_cuestan
+            '            v_venta = tengo * myprecio
+            '            utilidad = (v_venta - v_costo)
+            '            necesito = necesito - tengo
 
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                                    "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycodigo, 6) & "','" & mydescripcion & "','" & myunidad & "',0," & (tengo * MULTIPLO) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario2.Text & "')"
-                        cmd1.ExecuteNonQuery()
-                        utilidad = 0
-                    End If
-                Loop
+            '            cmd1 = cnn1.CreateCommand
+            '            cmd1.CommandText =
+            '                        "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycodigo, 6) & "','" & mydescripcion & "','" & myunidad & "',0," & (tengo * MULTIPLO) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario2.Text & "')"
+            '            cmd1.ExecuteNonQuery()
+            '            utilidad = 0
+            '        End If
+            '    Loop
 
-                'Sí alcanzan las que tengo en el primer registro, entonces guarda y avanza
+            '    'Sí alcanzan las que tengo en el primer registro, entonces guarda y avanza
 
-                If mycodigo <> "xc3" Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                                "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycodigo, 6) & "','" & mydescripcion & "','" & myunidad & "',0," & (necesito * MULTIPLO) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario2.Text & "')"
-                    cmd1.ExecuteNonQuery()
-                End If
+            '    If mycodigo <> "xc3" Then
+            '        cmd1 = cnn1.CreateCommand
+            '        cmd1.CommandText =
+            '                    "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MyFolio & "','" & Strings.Left(mycodigo, 6) & "','" & mydescripcion & "','" & myunidad & "',0," & (necesito * MULTIPLO) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario2.Text & "')"
+            '        cmd1.ExecuteNonQuery()
+            '    End If
 
 
 
-            End If
-            rd1.Close()
-            cnn1.Close()
+            'End If
+            'rd1.Close()
+            'cnn1.Close()
         Next
 
         If montopagomonedero <> 0 Then

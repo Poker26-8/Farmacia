@@ -438,7 +438,7 @@
         e.Graphics.DrawString("Hora de Terminación:", fuente_b, Brushes.Black, 1, Y)
         e.Graphics.DrawString(txtHorFin.Text, fuente_c, Brushes.Black, 270, Y, derecha)
         Y += 20
-        e.Graphics.DrawString("Número de Servicio: ", fuente_b, Brushes.Black, 1, Y)
+        e.Graphics.DrawString("MESA: ", fuente_b, Brushes.Black, 1, Y)
         e.Graphics.DrawString(lblpc.Text, fuente_c, Brushes.Black, 150, Y)
         Y += 20
         e.Graphics.DrawString("Tiempo:", fuente_b, Brushes.Black, 1, Y)
