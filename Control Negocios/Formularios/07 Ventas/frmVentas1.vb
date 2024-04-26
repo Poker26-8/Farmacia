@@ -7172,9 +7172,6 @@ doorcita:
                 End If
 
                 If grdpago.Rows.Count > 0 Then
-
-
-
                     For R As Integer = 0 To grdpago.Rows.Count - 1
 
                         FormaPago = grdpago.Rows(R).Cells(0).Value.ToString()
