@@ -1232,6 +1232,10 @@ Public Class Login
                             .runSp(cnnprueba, varKeyloginrecargas, sinfo)
                             .runSp(cnnprueba, varAutologinrecargas, sinfo)
 
+                            .runSp(cnnprueba, vartablaliberacion, sinfo)
+                            .runSp(cnnprueba, varKeyliberacion, sinfo)
+                            .runSp(cnnprueba, varAutoliberacion, sinfo)
+
                             'LoteCaducidad
                             .runSp(cnnprueba, vartablalotecaducidad, sinfo)
                             .runSp(cnnprueba, varKeylotecaducidad, sinfo)

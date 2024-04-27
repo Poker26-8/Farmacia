@@ -1818,6 +1818,13 @@
                                               `password` varchar(255) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+
+    Public vartablaliberacion As String = "CREATE TABLE IF NOT EXISTS `liberacion` (
+                                              `Id` int(11) NOT NULL,
+                                              `Codigo` varchar(255) NOT NULL DEFAULT '',
+                                              `Valor` int(11) NOT NULL DEFAULT '0'
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'Kits
     Public vartablakits As String = "CREATE TABLE IF NOT EXISTS `kits` (
                                   `Cod` varchar(50) NOT NULL DEFAULT '',
@@ -6634,6 +6641,7 @@
     Public varKeyimpuestosat As String = "ALTER TABLE `impuestosat` ADD PRIMARY KEY (`Id`);"
     Public varKeyiva As String = "ALTER TABLE `iva` ADD PRIMARY KEY (`Id`);"
     Public varKeyloginrecargas As String = "ALTER TABLE `loginrecargas` ADD PRIMARY KEY (`Id`);"
+    Public varKeyliberacion As String = "ALTER TABLE `liberacion` ADD PRIMARY KEY (`Id`);"
     Public varKeylotecaducidad As String = "ALTER TABLE `lotecaducidad` ADD PRIMARY KEY (`Id`);"
     Public varKeymembresiasgym As String = "ALTER TABLE `membresiasgym` ADD PRIMARY KEY (`Id`);"
     Public varKeymerma As String = "ALTER TABLE `merma` ADD PRIMARY KEY (`Id`);"
@@ -6786,6 +6794,7 @@
     Public varAutoimpuestosat As String = "ALTER TABLE `impuestosat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;"
     Public varAutoiva As String = "ALTER TABLE `iva` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;;"
     Public varAutologinrecargas As String = "ALTER TABLE `loginrecargas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoliberacion As String = "ALTER TABLE `liberacion` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutolotecaducidad As String = "ALTER TABLE `lotecaducidad` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomembresiasgym As String = "ALTER TABLE `membresiasgym` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomerma As String = "ALTER TABLE `merma` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
