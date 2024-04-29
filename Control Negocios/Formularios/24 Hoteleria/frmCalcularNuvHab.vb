@@ -146,7 +146,7 @@
             If MsgBox("¿Se desocupara la habitación, Esta en lo corerecto?", vbInformation + vbYesNo) = vbNo Then
                 Exit Sub
             End If
-
+            Dim FOLIOCOMANDA As Integer = 0
 
             Dim totalpagar As Double = 0
             totalpagar = FormatNumber(lblPagar.Text, 2)
@@ -154,28 +154,31 @@
             Dim precioh As Double = 0
             precioh = lblPrecio.Text
 
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT MAX(Folio) FROM comanda1"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    FOLIOCOMANDA = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
             cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & lblpc.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
 
-                    Dim hrentrada As Date = Nothing
-                    Dim hentradanu As String = ""
-
-                    hrentrada = rd1("HorEnt").ToString
-                    hentradanu = Format(hrentrada, "yyyy/MM/dd HH:mm:ss")
-
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO histasigpc(Nombre,NumHrs,Total,HorEnt,HorSal,Fecha) VALUES('" & lblpc.Text & "'," & lbltiempouso.Text & "," & lblPagar.Text & ",'" & hentradanu & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "')"
-                    cmd2.ExecuteNonQuery()
-                    cnn2.Close()
-
+            If lblPagar.Text > 0 Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM comandas WHERE NMesa='" & lblpc.Text & "' AND Codigo='xc3'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                    End If
+                Else
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "UPDATE comandas SET Cantidad=" & lblHoras.Text & ",Precio=" & lblPrecio.Text & ",Total=" & totalpagar & ",PrecioSinIVA=" & precioh & ",TotalSinIVA=" & totalpagar & ",Hr='',EntregaT='' WHERE Nmesa='" & lblpc.Text & "' AND Comentario='Renta de Habitacion'"
+                    cmd3.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,Cantidad,UVenta,CostVR,CostVP,CostVUE,Descuento,Precio,Total,PrecioSinIva,TotalSinIVA,Comisionista,Fecha,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,Depto,Grupo,EstatusT,Hr,EntregaT) VALUES(" & FOLIOCOMANDA & ",'" & lblpc.Text & "','xc3','Tiempo Habitacion',1,'SER',0,0,0,0," & lblPrecio.Text & "," & totalpagar & "," & lblPrecio.Text & "," & totalpagar & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "',0,'RESTA','Renta de Habitacion','','',0,'HABITACION','HABITACION',0,'" & HrTiempo & "','" & HrEntrega & "')"
                     cmd3.ExecuteNonQuery()
 
                     cmd3 = cnn3.CreateCommand
@@ -185,13 +188,65 @@
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
                     cmd3.ExecuteNonQuery()
+
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
+                    cmd3.ExecuteNonQuery()
                     cnn3.Close()
-
-
                 End If
+                rd1.Close()
+                cnn1.Close()
+            Else
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & lblpc.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        Dim hrentrada As Date = Nothing
+                        Dim hentradanu As String = ""
+
+                        hrentrada = rd1("HorEnt").ToString
+                        hentradanu = Format(hrentrada, "yyyy/MM/dd HH:mm:ss")
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "INSERT INTO histasigpc(Nombre,NumHrs,Total,HorEnt,HorSal,Fecha) VALUES('" & lblpc.Text & "'," & lbltiempouso.Text & "," & lblPagar.Text & ",'" & hentradanu & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "')"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "UPDATE comandas SET Cantidad=" & lblHoras.Text & ",Precio=" & lblPrecio.Text & ",Total=" & totalpagar & ",PrecioSinIVA=" & precioh & ",TotalSinIVA=" & totalpagar & ",Hr='',EntregaT='' WHERE Nmesa='" & lblpc.Text & "' AND Comentario='Renta de Habitacion'"
+                        cmd3.ExecuteNonQuery()
+
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "DELETE FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+                        cmd3.ExecuteNonQuery()
+
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "DELETE FROM detallehotel WHERE Habitacion='" & lblpc.Text & "'"
+                        cmd3.ExecuteNonQuery()
+
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "DELETE FROM comanda1 WHERE Nombre='" & lblpc.Text & "'"
+                        cmd3.ExecuteNonQuery()
+
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "UPDATE Habitacion SET Estado='Desocupada' WHERE N_Habitacion='" & lblpc.Text & "'"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+
             End If
-            rd1.Close()
-            cnn1.Close()
+
+
+
 
             Me.Close()
             frmManejo.primerBoton()

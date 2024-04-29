@@ -684,6 +684,7 @@ Public Class frmPagarH
 
         If mypago < txtTotal.Text Then
             MsgBox("Debe cerrar la cuenta!.", vbInformation + vbOKOnly, titulohotelriaa)
+            btnPagar.Enabled = True
             Exit Sub
         End If
 
@@ -1302,6 +1303,10 @@ Public Class frmPagarH
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText = "UPDATE detallehotel SET Status='PAGADO' WHERE Habitacion='" & lblHabitacion.Text & "'"
+                cmd3.ExecuteNonQuery()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "DELETE FROM comandas WHERE Codigo='xc3' AND Nombre='Tiempo Habitacion'"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
 

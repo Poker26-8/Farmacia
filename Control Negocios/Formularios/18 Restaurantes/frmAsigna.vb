@@ -188,7 +188,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT MAX(Folio) FROM Comanda1"
+            cmd2.CommandText = "SELECT MAX(Id) FROM Comanda1"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -211,7 +211,7 @@
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO Comanda1(Folio,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Nombre,TComensales) VALUES(" & CFOLIO & ",0,'','','','','','','','','" & lblpc.Text & "',0)"
+            cmd1.CommandText = "INSERT INTO Comanda1(IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Nombre,TComensales) VALUES(0,'','','','','','','','','" & lblpc.Text & "',0)"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
 

@@ -185,7 +185,7 @@ Public Class frmAgregarProducto
         TFolio.Interval = 5000
         cnntimer2.Close() : cnntimer2.Open()
         cmdtimer2 = cnntimer2.CreateCommand
-        cmdtimer2.CommandText = "SELECT Max(Folio) FROM Comanda1"
+        cmdtimer2.CommandText = "SELECT Max(Id) FROM Comanda1"
         rdtimer2 = cmdtimer2.ExecuteReader
         If rdtimer2.HasRows Then
             If rdtimer2.Read Then
@@ -2205,7 +2205,7 @@ Public Class frmAgregarProducto
         Dim drawLine As String = ""
 
         FolioVenta = Trim(lblFolio.Text)
-        MyFolio = Val(FolioVenta)
+
 
         Dim IVAPRODUCTO As Double = 0
         Dim iva As Double = 0
@@ -2265,10 +2265,9 @@ Public Class frmAgregarProducto
         mytotalventa = lblTotalVenta.Text
         mysubtotal = CDbl(mytotalventa) - CDbl(totaliva)
 
-
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "INSERT INTO Comanda1(Folio,Nombre,Subtotal,IVA,Totales,Resta,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES('" & MyFolio & "','" & lblmesa.Text & "'," & mysubtotal & "," & totaliva & "," & mytotalventa & "," & mytotalventa & "," & CInt(lblNcomensales.Text) & ",'','','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','','','','')"
+        cmd1.CommandText = "INSERT INTO Comanda1(Nombre,Subtotal,IVA,Totales,Resta,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES('" & lblmesa.Text & "'," & mysubtotal & "," & totaliva & "," & mytotalventa & "," & mytotalventa & "," & CInt(lblNcomensales.Text) & ",'','','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','','','','')"
         cmd1.ExecuteNonQuery()
         cnn1.Close()
 
@@ -2381,16 +2380,16 @@ Public Class frmAgregarProducto
 
                         cnn3.Close() : cnn3.Open()
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "select MAX(Folio) from Comanda1"
+                        cmd3.CommandText = "select MAX(Id) from Comanda1"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
-                                CFOLIO = rd3(0).ToString
+                                CFOLIO = IIf(rd3(0).ToString = "", 0, rd3(0).ToString)
                                 lblFolio.Text = CFOLIO
                             End If
                         Else
                             CFOLIO = 0
-                            lblFolio.Text = CFOLIO + 1
+                            lblFolio.Text = CFOLIO
                         End If
                         rd3.Close()
 

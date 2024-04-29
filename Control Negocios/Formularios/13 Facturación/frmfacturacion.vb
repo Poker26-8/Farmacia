@@ -1289,9 +1289,9 @@ malo:
         busca_clvsat(id_prod, clvsatp)
         Dim ssql As String = "INSERT INTO detalle_factura (id_prod, descripcion,descripcion_larga, Unidad, cantidad, preciou, totaliva , porceniva" &
             " , descuento, ret_iva, ieps,  cliente, factura, totalsiva " &
-            ", orden, clvsat, isr, ieps_porcentaje, ieps_TasaoCuota, ret_iva_perc, ip_loc) values('" & id_prod & "', '" & Cmb_Desc.Text & "','" & describiendoa & "','" & txt_unidadventaNew.Text & "'," & Replace(Text_cantidad.Text, ",", "") & "," & Replace(Text_Precio.Text, ",", "") &
-            " , " & Replace(totaliva, ",", "") & "," & txt_piva.Text & ", " & txt_descuento.Text & " ," & Abs(reten) &
-            "," & Replace(FormatNumber((CDbl(Text_t.Text) * CDec(cboIeps.Text)), 6), ",", "") & ", " & var_cliente & ", 0, " & Replace(Text_t.Text, ",", "") & ", " & txt_partida.Text & ", '" & txt_prodsat.Text & "'," & IIf(txtIsrDet.Text = "", 0, txtIsrDet.Text) & ",'" & IIf(cboIeps.Text = "", 0, FormatNumber(cboIeps.Text, 2)) & "', '" & IIf(chkTasa.Checked = True, "Tasa", IIf(chkCuota.Checked = True, "Cuota", "")) & "', '" & IIf(txt_ivaret.Text = "", "0", IIf(txt_ivaret.Text = 0, "0", FormatNumber(txt_ivaret.Text / 100, 6))) & "','" & numero_MAC & "')"
+            ", orden, clvsat, isr, ieps_porcentaje, ieps_TasaoCuota, ret_iva_perc, ip_loc) values('" & id_prod & "', '" & Cmb_Desc.Text & "','" & describiendoa & "','" & txt_unidadventaNew.Text & "'," & Replace(Text_cantidad.Text, ",", "") & "," & Replace(FormatNumber(Text_Precio.Text, 6), ",", "") &
+            " , " & Replace(FormatNumber(totaliva, 6), ",", "") & "," & txt_piva.Text & ", " & txt_descuento.Text & " ," & Abs(reten) &
+            "," & Replace(FormatNumber((CDbl(Text_t.Text) * CDec(cboIeps.Text)), 6), ",", "") & ", " & var_cliente & ", 0, " & Replace(FormatNumber(Text_t.Text, 6), ",", "") & ", " & txt_partida.Text & ", '" & txt_prodsat.Text & "'," & IIf(txtIsrDet.Text = "", 0, txtIsrDet.Text) & ",'" & IIf(cboIeps.Text = "", 0, FormatNumber(cboIeps.Text, 2)) & "', '" & IIf(chkTasa.Checked = True, "Tasa", IIf(chkCuota.Checked = True, "Cuota", "")) & "', '" & IIf(txt_ivaret.Text = "", "0", IIf(txt_ivaret.Text = 0, "0", FormatNumber(txt_ivaret.Text / 100, 6))) & "','" & numero_MAC & "')"
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -4902,7 +4902,11 @@ malo:
 
         e.KeyChar = UCase(e.KeyChar)
         If Asc(e.KeyChar) = Keys.Enter Then
-            recupera_campos()
+
+            Dim dameuuid As String = ""
+            Dim damesellocfd As String = ""
+
+            recupera_campos(dameuuid, damesellocfd)
             My.Application.DoEvents()
             btnReenvio.Enabled = True
 
@@ -4938,6 +4942,10 @@ malo:
                     root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
                 End If
 
+                If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\imagenes\" & var_folio & ".jpg") = False Then
+                    ima_qr(cbo_rfc_emisor.Text, Cmb_RFC.Text, Text_TOTAL.Text, dameuuid, var_folio, newcarpeta, Microsoft.VisualBasic.Right(damesellocfd, 8))
+                End If
+
                 If File.Exists(root_name_recibo) Then
                     File.Delete(root_name_recibo)
                     consultaxml()
@@ -4971,7 +4979,7 @@ malo:
         'MsgBox(Err.Description)
     End Sub
 
-    Private Sub recupera_campos()
+    Private Sub recupera_campos(ByRef dameuuid As String, ByRef damesellocfd As String)
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim sSQL As String = ""
         sSQL = "Select * from facturas where nom_id=" & Cmb_Nfactura.SelectedValue
@@ -4986,6 +4994,9 @@ malo:
 
                     Cmb_RazonS.Text = dame_RS_ClienteID(dr("nom_id_cliente").ToString)
                     Cmb_RFC.Text = dame_RFC_Cliente(Cmb_RazonS.Text)
+
+                    dameuuid = dr("nom_folio_sat_uuid").ToString
+                    damesellocfd = dr("nom_sello_emisor").ToString
 
                     If .getDt(cnn, dt, "select * from UUIDRelacion where IdFact = " & Cmb_Nfactura.Text & "", sinfo) Then
                         For Each dr5 In dt.Rows
@@ -5247,7 +5258,7 @@ malo:
                 nombreCFD = "N" & txt_serie.Text & Cmb_Nfactura.Text & ".xml"
         End Select
 
-        Dim newcarpeta As String = Replace(razon_social, Chr(34), "").ToString
+        Dim newcarpeta As String = Replace(cbo_emisor.Text, Chr(34), "").ToString
         Dim root_name_recibo As String = My.Application.Info.DirectoryPath & "\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD '"C:\ControlNegociosV2022\ARCHIVOSDL" & varnumbase & "\" & cbo_emisor.Text & "\" & Cmb_TipoFact.Text & "\" & Cmb_TipoFact.Text & "_E" & var_folio & "_F" & var_folio & ".pdf"
         If varrutabase <> "" Then
             root_name_recibo = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL" & varnumbase & "\" & newcarpeta & "\XML\" & Cmb_TipoFact.Text & "\" & nombreCFD

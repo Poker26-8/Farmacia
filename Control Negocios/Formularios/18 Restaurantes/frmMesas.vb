@@ -804,7 +804,7 @@ Public Class frmMesas
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT TComensales FROM Comanda1 WHERE Nombre='" & tables.Text & "' ORDER BY Folio desc"
+                cmd1.CommandText = "SELECT TComensales FROM Comanda1 WHERE Nombre='" & tables.Text & "' ORDER BY Id desc"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

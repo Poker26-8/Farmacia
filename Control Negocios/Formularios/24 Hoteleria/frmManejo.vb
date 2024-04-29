@@ -872,8 +872,6 @@ Public Class frmManejo
                     Else
                         If tiempo = 1 Then
 
-
-
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText = "SELECT * FROM Asigpc WHERE Nombre='" & txtHabitacion.Text & "'"
@@ -964,11 +962,6 @@ Public Class frmManejo
                                 rd1.Close()
                                 cnn1.Close()
                                 cnn2.Close()
-
-
-
-
-
                             End If
                             rd2.Close()
                             cnn2.Close()
