@@ -2763,7 +2763,7 @@ kaka:
                 Y -= 4
                 e.Graphics.DrawString("Caducidad: " & caducidad, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 1, Y)
                 e.Graphics.DrawString("Lote: " & lote, New Drawing.Font(tipografia, 7, FontStyle.Regular), Brushes.Black, 180, Y)
-                Y += 4
+                Y += 10
             End If
         Next
         Y -= 3

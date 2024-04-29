@@ -158,8 +158,6 @@ Public Class frmConsultaNotas
         Dim codigo, nombre, unidad, comentario As String
         Dim cantidad, precio, total, descue As Double
 
-
-
         If cbofolio.Text <> "" Then
             grdcaptura.Rows.Clear()
             grdAbonos.Rows.Clear()
@@ -272,34 +270,35 @@ Public Class frmConsultaNotas
                 cnn1.Close()
                 cnn2.Close()
 
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                'cmd1.CommandText = "SELECT Fecha,Hora,Abono,Efectivo,Tarjeta,Transfe,Monedero,Otro,Banco,Referencia,Comentario,Usuario FROM AbonoI WHERE NumFolio='" & cbofolio.Text & "' AND Concepto='ABONO'"
-                cmd1.CommandText = "SELECT Fecha,Hora,Abono,FormaPago,Banco,Referencia,Comentario,CuentaC,BRecepcion,Usuario FROM AbonoI WHERE NumFolio='" & cbofolio.Text & "' AND Concepto='ABONO'"
-                rd1 = cmd1.ExecuteReader
-                Do While rd1.Read
-                    If rd1.HasRows Then
+                If (optnotas.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcobrar.Checked) Then
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "SELECT Fecha,Hora,Abono,FormaPago,Banco,Referencia,Comentario,CuentaC,BRecepcion,Usuario FROM AbonoI WHERE NumFolio='" & cbofolio.Text & "' AND Concepto='ABONO'"
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then
 
-                        Dim fecha As Date = Nothing
-                        fecha = rd1(0).ToString
+                            Dim fecha As Date = Nothing
+                            fecha = rd1(0).ToString
+
+                            grdAbonos.Rows.Add(Format(fecha, "yyyy-MM-dd"),
+                                               rd1(1).ToString,
+                                               rd1(2).ToString,
+                                               rd1(3).ToString,
+                                               rd1(4).ToString,
+                                               rd1(5).ToString,
+                                               rd1(6).ToString,
+                                               rd1(9).ToString,
+                                               rd1(7).ToString,
+                                               rd1(8).ToString)
 
 
-                        grdAbonos.Rows.Add(Format(fecha, "yyyy-MM-dd"),
-                                           rd1(1).ToString,
-                                           rd1(2).ToString,
-                                           rd1(3).ToString,
-                                           rd1(4).ToString,
-                                           rd1(5).ToString,
-                                           rd1(6).ToString,
-                                           rd1(9).ToString,
-                                           rd1(7).ToString,
-                                           rd1(8).ToString)
-
-
-                    End If
-                Loop
-                rd1.Close()
-                cnn1.Close()
+                        End If
+                    Loop
+                    rd1.Close()
+                    cnn1.Close()
+                End If
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
