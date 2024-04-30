@@ -1,6 +1,8 @@
 ﻿Imports System.Drawing.Printing
 Imports System.IO
 Imports System.Net
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 
 Public Class frmCorte2
 
@@ -1489,6 +1491,11 @@ Public Class frmCorte2
             Exit Sub
         End If
 
+        If MsgBox("¿Deseas enviar el corte por correo?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Insert_Corte_U()
+            PDF_Corte_U()
+        End If
+
         btnLimpiarUsuario.PerformClick()
     End Sub
 
@@ -2714,9 +2721,351 @@ Public Class frmCorte2
             End If
             CorteGlobal = True
         End If
+
+        If MsgBox("¿Deseas enviar el corte por correo electrónico?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            Insert_Corte_G()
+            PDF_Corte_G()
+        End If
+
         cnn1.Close()
         cnn2.Close()
         cnn3.Close()
+    End Sub
+
+    Private Sub Insert_Corte_G()
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New DataTable
+
+        Dim my_folio As Integer = 0
+        Dim MyStatus As String = ""
+        Dim ACuenta As Double = 0
+        Dim Resta As Double = 0
+        Dim tel_cliente As String = ""
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from Caja_Ingresos", sinfo)
+                sinfo = ""
+
+                'Inserta ingresos
+                '-Efectivo
+                If CDbl(txtIngEfectivoG.Text) > 0 Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & txtIngEfectivoG.Text & ")", sinfo) Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+                End If
+                '-Otros
+                If grdingresosglobal.Rows.Count > 0 Then
+                    For t As Integer = 0 To grdingresosglobal.Rows.Count - 1
+                        Dim monto_ing As String = grdingresosglobal.Rows(t).Cells(0).Value.ToString()
+                        Dim monto As Double = grdingresosglobal.Rows(t).Cells(1).Value.ToString()
+
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & monto & ")", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    Next
+                End If
+
+                'Inserta egresos
+                '-Efectivo
+                If CDbl(txtEgrEfectivoG.Text) > 0 Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & txtEgrEfectivoG.Text & ")", sinfo) Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+                End If
+                '-Otros
+                If grdegresosglobal.Rows.Count > 0 Then
+                    For t As Integer = 0 To grdegresosglobal.Rows.Count - 1
+                        Dim monto_igr As String = grdegresosglobal.Rows(t).Cells(0).Value.ToString()
+                        Dim monto As Double = grdegresosglobal.Rows(t).Cells(1).Value.ToString()
+
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & monto & ")", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    Next
+                End If
+
+                a_cnn.Close()
+            End If
+        End With
+    End Sub
+
+    Private Sub PDF_Corte_G()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Corte_Caja
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        'Los totales los va a mandar directos
+        FileNta.SetDatabaseLogon("", "jipl22")
+        FileNta.DataDefinition.FormulaFields("Saldo_Inicial").Text = "'" & FormatNumber(txtSaldoGlobal.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Total_Ingresos").Text = "'" & FormatNumber(txtIngresosGlobal.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Total_Egresos").Text = "'" & FormatNumber(txtEgresosGlobal.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Saldo_Final").Text = "'" & FormatNumber(txtSaldoFinalG.Text, 2) & "'"
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            Dim root_corte As String = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf"
+            My.Application.DoEvents()
+            frmEnvio_Corte.Show()
+            frmEnvio_Corte.BringToFront()
+            frmEnvio_Corte.archivoadj = root_corte
+            frmEnvio_Corte.txtasunto.Text = "Corte de caja global del día " & Format(Date.Now, "yyyy-MM-dd") & ""
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdff")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteDia_" & Format(Date.Now, "yyyy-MM-dd") & ".pdf")
+        End If
+    End Sub
+
+    Private Sub Insert_Corte_U()
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New DataTable
+
+        Dim my_folio As Integer = 0
+        Dim MyStatus As String = ""
+        Dim ACuenta As Double = 0
+        Dim Resta As Double = 0
+        Dim tel_cliente As String = ""
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from Caja_Ingresos", sinfo)
+                sinfo = ""
+
+                'Inserta ingresos
+                '-Efectivo
+                If CDbl(txtIngEfectivoU.Text) > 0 Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & txtIngEfectivoU.Text & ")", sinfo) Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+                End If
+                '-Otros
+                If grdIngresos.Rows.Count > 0 Then
+                    For t As Integer = 0 To grdIngresos.Rows.Count - 1
+                        Dim monto_ing As String = grdIngresos.Rows(t).Cells(0).Value.ToString()
+                        Dim monto As Double = grdIngresos.Rows(t).Cells(1).Value.ToString()
+
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & monto & ")", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    Next
+                End If
+
+                'Inserta egresos
+                '-Efectivo
+                If CDbl(txtEgrEfectivoU.Text) > 0 Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & txtEgrEfectivoU.Text & ")", sinfo) Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+                End If
+                '-Otros
+                If grdEgresos.Rows.Count > 0 Then
+                    For t As Integer = 0 To grdEgresos.Rows.Count - 1
+                        Dim monto_igr As String = grdEgresos.Rows(t).Cells(0).Value.ToString()
+                        Dim monto As Double = grdEgresos.Rows(t).Cells(1).Value.ToString()
+
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & monto & ")", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    Next
+                End If
+
+                a_cnn.Close()
+            End If
+        End With
+    End Sub
+
+    Private Sub PDF_Corte_U()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Corte_Usuario
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        'Los totales los va a mandar directos
+        FileNta.SetDatabaseLogon("", "jipl22")
+        FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & cboUsuario.Text & "'"
+        FileNta.DataDefinition.FormulaFields("Calculo").Text = "'" & "1" & "'"
+        FileNta.DataDefinition.FormulaFields("Saldo_Inicial").Text = "'" & FormatNumber(txtSaldoUsuario.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Total_Ingresos").Text = "'" & FormatNumber(txtIngresosUsuario.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Total_Egresos").Text = "'" & FormatNumber(txtEgresosUsuario.Text, 2) & "'"
+        FileNta.DataDefinition.FormulaFields("Saldo_Final").Text = "'" & FormatNumber(txtSaldoFinalU.Text, 2) & "'"
+
+        If gpbCiego.Visible = True Then
+            FileNta.DataDefinition.FormulaFields("En_Caja").Text = "'" & FormatNumber(txtEnCaja.Text, 2) & "'"
+            FileNta.DataDefinition.FormulaFields("Calculoo").Text = "'" & FormatNumber(txtCalculo.Text, 2) & "'"
+            FileNta.DataDefinition.FormulaFields("Diferencia").Text = "'" & FormatNumber(txtDiferencia.Text, 2) & "'"
+        End If
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            Dim root_corte As String = "C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf"
+            My.Application.DoEvents()
+            frmEnvio_Corte.Show()
+            frmEnvio_Corte.BringToFront()
+            frmEnvio_Corte.archivoadj = root_corte
+            frmEnvio_Corte.txtasunto.Text = "Corte por usuario " & cboUsuario.Text & " " & txtNumCorte.Text & ""
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdff")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\CORTES\CorteUsuario_" & cboUsuario.Text & "_" & txtNumCorte.Text & ".pdf")
+        End If
     End Sub
 
     Private Sub txtCant500_TextChanged(sender As Object, e As EventArgs) Handles txtCant500.TextChanged

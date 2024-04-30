@@ -28,8 +28,6 @@ Partial Class frmCorte2
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.txtegresosforma = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.txtingresosformas = New System.Windows.Forms.TextBox()
         Me.btnSaldoGlobal = New System.Windows.Forms.Button()
         Me.btnCalcularGlobal = New System.Windows.Forms.Button()
         Me.btnLimpiarGlobal = New System.Windows.Forms.Button()
@@ -79,7 +77,9 @@ Partial Class frmCorte2
         Me.grdingresosglobal = New System.Windows.Forms.DataGridView()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.txtVentasG = New System.Windows.Forms.TextBox()
+        Me.txtingresosformas = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtComprasCanceG = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -307,33 +307,13 @@ Partial Class frmCorte2
         Me.txtegresosforma.Text = "0.00"
         Me.txtegresosforma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(0, 171)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(176, 13)
-        Me.Label21.TabIndex = 178
-        Me.Label21.Text = "INGRESOS EN FORMA DE PAGO:"
-        '
-        'txtingresosformas
-        '
-        Me.txtingresosformas.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtingresosformas.Location = New System.Drawing.Point(181, 167)
-        Me.txtingresosformas.Name = "txtingresosformas"
-        Me.txtingresosformas.ReadOnly = True
-        Me.txtingresosformas.Size = New System.Drawing.Size(100, 20)
-        Me.txtingresosformas.TabIndex = 177
-        Me.txtingresosformas.Text = "0.00"
-        Me.txtingresosformas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'btnSaldoGlobal
         '
         Me.btnSaldoGlobal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
         Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoGlobal.Location = New System.Drawing.Point(365, 424)
+        Me.btnSaldoGlobal.Location = New System.Drawing.Point(365, 428)
         Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
         Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnSaldoGlobal.TabIndex = 176
@@ -347,7 +327,7 @@ Partial Class frmCorte2
         Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
         Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcularGlobal.Location = New System.Drawing.Point(439, 424)
+        Me.btnCalcularGlobal.Location = New System.Drawing.Point(439, 428)
         Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
         Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnCalcularGlobal.TabIndex = 175
@@ -361,7 +341,7 @@ Partial Class frmCorte2
         Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
         Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(513, 423)
+        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(513, 427)
         Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
         Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnLimpiarGlobal.TabIndex = 174
@@ -888,6 +868,15 @@ Partial Class frmCorte2
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 110
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(0, 171)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(176, 13)
+        Me.Label21.TabIndex = 178
+        Me.Label21.Text = "INGRESOS EN FORMA DE PAGO:"
+        '
         'txtVentasG
         '
         Me.txtVentasG.BackColor = System.Drawing.Color.WhiteSmoke
@@ -898,6 +887,17 @@ Partial Class frmCorte2
         Me.txtVentasG.TabIndex = 100
         Me.txtVentasG.Text = "0.00"
         Me.txtVentasG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtingresosformas
+        '
+        Me.txtingresosformas.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtingresosformas.Location = New System.Drawing.Point(181, 167)
+        Me.txtingresosformas.Name = "txtingresosformas"
+        Me.txtingresosformas.ReadOnly = True
+        Me.txtingresosformas.Size = New System.Drawing.Size(100, 20)
+        Me.txtingresosformas.TabIndex = 177
+        Me.txtingresosformas.Text = "0.00"
+        Me.txtingresosformas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label17
         '
@@ -2461,7 +2461,7 @@ Partial Class frmCorte2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(615, 671)
+        Me.ClientSize = New System.Drawing.Size(615, 562)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCorte2"

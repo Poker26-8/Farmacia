@@ -205,6 +205,12 @@
       <DependentUpon>Corte_Caja.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Corte_Usuario.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Corte_Usuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\Imagenes\Cotización_Img.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -407,6 +413,12 @@
       <DependentUpon>frmCorte3.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\15 Caja\frmCorte3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\15 Caja\frmEnvio_Corte.Designer.vb">
+      <DependentUpon>frmEnvio_Corte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\15 Caja\frmEnvio_Corte.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.Designer.vb">
@@ -1746,6 +1758,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Corte_Caja.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Corte_Usuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Corte_Usuario.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\Imagenes\Cotización_Img.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cotización_Img.vb</LastGenOutput>
@@ -1850,6 +1866,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\15 Caja\frmCorte3.resx">
       <DependentUpon>frmCorte3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\15 Caja\frmEnvio_Corte.resx">
+      <DependentUpon>frmEnvio_Corte.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\copeo\frmRepCopeo.resx">
       <DependentUpon>frmRepCopeo.vb</DependentUpon>
