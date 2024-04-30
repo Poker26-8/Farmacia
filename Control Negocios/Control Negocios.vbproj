@@ -42,6 +42,7 @@
     <DocumentationFile>Control Negocios.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
+    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -53,6 +54,7 @@
     <DocumentationFile>Control Negocios.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
+    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -435,6 +437,12 @@
       <DependentUpon>frmPromociones.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmPromociones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\frmRepetirProducto.Designer.vb">
+      <DependentUpon>frmRepetirProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\frmRepetirProducto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.Designer.vb">
@@ -1857,6 +1865,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPromociones.resx">
       <DependentUpon>frmPromociones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\frmRepetirProducto.resx">
+      <DependentUpon>frmRepetirProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.resx">
       <DependentUpon>frmAgregarM.vb</DependentUpon>

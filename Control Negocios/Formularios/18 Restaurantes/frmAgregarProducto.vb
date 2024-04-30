@@ -3189,7 +3189,8 @@ Public Class frmAgregarProducto
     End Sub
 
     Private Sub btnRepertir_Click(sender As Object, e As EventArgs) Handles btnRepertir.Click
-
+        frmRepetirProducto.Show()
+        frmRepetirProducto.BringToFront()
     End Sub
 
     Private Sub TFecha_Tick(sender As Object, e As EventArgs) Handles TFecha.Tick

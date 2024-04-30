@@ -180,8 +180,9 @@ Partial Class frmVTouchR
         Me.Panel1.Controls.Add(Me.Panel5)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1033, 121)
+        Me.Panel1.Size = New System.Drawing.Size(1549, 186)
         Me.Panel1.TabIndex = 0
         '
         'lbltotalventa
@@ -189,9 +190,10 @@ Partial Class frmVTouchR
         Me.lbltotalventa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbltotalventa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltotalventa.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lbltotalventa.Location = New System.Drawing.Point(468, 84)
+        Me.lbltotalventa.Location = New System.Drawing.Point(701, 129)
+        Me.lbltotalventa.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbltotalventa.Name = "lbltotalventa"
-        Me.lbltotalventa.Size = New System.Drawing.Size(117, 23)
+        Me.lbltotalventa.Size = New System.Drawing.Size(176, 35)
         Me.lbltotalventa.TabIndex = 96
         Me.lbltotalventa.Text = "0.00"
         Me.lbltotalventa.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -202,9 +204,10 @@ Partial Class frmVTouchR
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(463, 60)
+        Me.Label15.Location = New System.Drawing.Point(693, 92)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(121, 23)
+        Me.Label15.Size = New System.Drawing.Size(182, 35)
         Me.Label15.TabIndex = 95
         Me.Label15.Text = "Total a Pagar:"
         Me.Label15.Visible = False
@@ -213,9 +216,10 @@ Partial Class frmVTouchR
         '
         Me.lblDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDescuento.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblDescuento.Location = New System.Drawing.Point(339, 85)
+        Me.lblDescuento.Location = New System.Drawing.Point(508, 131)
+        Me.lblDescuento.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDescuento.Name = "lblDescuento"
-        Me.lblDescuento.Size = New System.Drawing.Size(100, 23)
+        Me.lblDescuento.Size = New System.Drawing.Size(150, 35)
         Me.lblDescuento.TabIndex = 94
         Me.lblDescuento.Text = "0.00"
         Me.lblDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -225,9 +229,10 @@ Partial Class frmVTouchR
         '
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Black
-        Me.Label14.Location = New System.Drawing.Point(339, 60)
+        Me.Label14.Location = New System.Drawing.Point(508, 92)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(100, 23)
+        Me.Label14.Size = New System.Drawing.Size(150, 35)
         Me.Label14.TabIndex = 93
         Me.Label14.Text = "Descuento:"
         Me.Label14.Visible = False
@@ -236,9 +241,10 @@ Partial Class frmVTouchR
         '
         Me.lblPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPropina.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblPropina.Location = New System.Drawing.Point(233, 83)
+        Me.lblPropina.Location = New System.Drawing.Point(350, 128)
+        Me.lblPropina.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPropina.Name = "lblPropina"
-        Me.lblPropina.Size = New System.Drawing.Size(100, 23)
+        Me.lblPropina.Size = New System.Drawing.Size(150, 35)
         Me.lblPropina.TabIndex = 92
         Me.lblPropina.Text = "0.00"
         Me.lblPropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -248,9 +254,10 @@ Partial Class frmVTouchR
         '
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(233, 60)
+        Me.Label13.Location = New System.Drawing.Point(350, 92)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(100, 23)
+        Me.Label13.Size = New System.Drawing.Size(150, 35)
         Me.Label13.TabIndex = 91
         Me.Label13.Text = "Propina:"
         Me.Label13.Visible = False
@@ -259,9 +266,10 @@ Partial Class frmVTouchR
         '
         Me.lblPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPagos.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblPagos.Location = New System.Drawing.Point(233, 37)
+        Me.lblPagos.Location = New System.Drawing.Point(350, 57)
+        Me.lblPagos.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPagos.Name = "lblPagos"
-        Me.lblPagos.Size = New System.Drawing.Size(100, 23)
+        Me.lblPagos.Size = New System.Drawing.Size(150, 35)
         Me.lblPagos.TabIndex = 90
         Me.lblPagos.Text = "0.00"
         Me.lblPagos.Visible = False
@@ -270,9 +278,10 @@ Partial Class frmVTouchR
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(232, 9)
+        Me.Label10.Location = New System.Drawing.Point(348, 14)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(101, 23)
+        Me.Label10.Size = New System.Drawing.Size(152, 35)
         Me.Label10.TabIndex = 89
         Me.Label10.Text = "$ Pagos:"
         Me.Label10.Visible = False
@@ -281,9 +290,10 @@ Partial Class frmVTouchR
         '
         Me.lblImporteEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblImporteEfectivo.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblImporteEfectivo.Location = New System.Drawing.Point(339, 34)
+        Me.lblImporteEfectivo.Location = New System.Drawing.Point(508, 52)
+        Me.lblImporteEfectivo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblImporteEfectivo.Name = "lblImporteEfectivo"
-        Me.lblImporteEfectivo.Size = New System.Drawing.Size(100, 23)
+        Me.lblImporteEfectivo.Size = New System.Drawing.Size(150, 35)
         Me.lblImporteEfectivo.TabIndex = 88
         Me.lblImporteEfectivo.Text = "0.00"
         Me.lblImporteEfectivo.Visible = False
@@ -292,9 +302,10 @@ Partial Class frmVTouchR
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(319, 9)
+        Me.Label1.Location = New System.Drawing.Point(478, 14)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 23)
+        Me.Label1.Size = New System.Drawing.Size(152, 35)
         Me.Label1.TabIndex = 87
         Me.Label1.Text = "$ Efectivo:"
         Me.Label1.Visible = False
@@ -304,9 +315,10 @@ Partial Class frmVTouchR
         Me.lblCambio.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCambio.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblCambio.Location = New System.Drawing.Point(442, 34)
+        Me.lblCambio.Location = New System.Drawing.Point(662, 52)
+        Me.lblCambio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCambio.Name = "lblCambio"
-        Me.lblCambio.Size = New System.Drawing.Size(95, 23)
+        Me.lblCambio.Size = New System.Drawing.Size(142, 35)
         Me.lblCambio.TabIndex = 86
         Me.lblCambio.Text = "0.00"
         Me.lblCambio.Visible = False
@@ -316,9 +328,10 @@ Partial Class frmVTouchR
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(430, 9)
+        Me.Label2.Location = New System.Drawing.Point(644, 14)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(95, 23)
+        Me.Label2.Size = New System.Drawing.Size(142, 35)
         Me.Label2.TabIndex = 85
         Me.Label2.Text = "$ Cambio:"
         Me.Label2.Visible = False
@@ -328,9 +341,10 @@ Partial Class frmVTouchR
         Me.lblRestaPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblRestaPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRestaPagar.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblRestaPagar.Location = New System.Drawing.Point(536, 32)
+        Me.lblRestaPagar.Location = New System.Drawing.Point(803, 49)
+        Me.lblRestaPagar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblRestaPagar.Name = "lblRestaPagar"
-        Me.lblRestaPagar.Size = New System.Drawing.Size(117, 23)
+        Me.lblRestaPagar.Size = New System.Drawing.Size(176, 35)
         Me.lblRestaPagar.TabIndex = 84
         Me.lblRestaPagar.Text = "0.00"
         Me.lblRestaPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -341,9 +355,10 @@ Partial Class frmVTouchR
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(536, 9)
+        Me.Label3.Location = New System.Drawing.Point(803, 14)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 23)
+        Me.Label3.Size = New System.Drawing.Size(176, 35)
         Me.Label3.TabIndex = 83
         Me.Label3.Text = "Resta Pagar:"
         Me.Label3.Visible = False
@@ -356,9 +371,10 @@ Partial Class frmVTouchR
         Me.Panel6.Controls.Add(Me.btnPagar)
         Me.Panel6.Controls.Add(Me.btnEliminar)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(694, 0)
+        Me.Panel6.Location = New System.Drawing.Point(1041, 0)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(339, 121)
+        Me.Panel6.Size = New System.Drawing.Size(508, 186)
         Me.Panel6.TabIndex = 69
         '
         'btnSalir
@@ -370,9 +386,10 @@ Partial Class frmVTouchR
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(255, 12)
+        Me.btnSalir.Location = New System.Drawing.Point(382, 18)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(78, 87)
+        Me.btnSalir.Size = New System.Drawing.Size(117, 134)
         Me.btnSalir.TabIndex = 73
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -387,9 +404,10 @@ Partial Class frmVTouchR
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(173, 12)
+        Me.btnLimpiar.Location = New System.Drawing.Point(260, 18)
+        Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(78, 87)
+        Me.btnLimpiar.Size = New System.Drawing.Size(117, 134)
         Me.btnLimpiar.TabIndex = 72
         Me.btnLimpiar.Text = "Limpiar"
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -404,9 +422,10 @@ Partial Class frmVTouchR
         Me.btnPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.Location = New System.Drawing.Point(89, 12)
+        Me.btnPagar.Location = New System.Drawing.Point(134, 18)
+        Me.btnPagar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(78, 87)
+        Me.btnPagar.Size = New System.Drawing.Size(117, 134)
         Me.btnPagar.TabIndex = 71
         Me.btnPagar.Text = "Pagar"
         Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -419,9 +438,10 @@ Partial Class frmVTouchR
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(5, 11)
+        Me.btnEliminar.Location = New System.Drawing.Point(8, 17)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(82, 87)
+        Me.btnEliminar.Size = New System.Drawing.Size(123, 134)
         Me.btnEliminar.TabIndex = 74
         Me.btnEliminar.Text = "Borrar Producto"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -432,8 +452,9 @@ Partial Class frmVTouchR
         Me.Panel5.Controls.Add(Me.PictureBox1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(226, 121)
+        Me.Panel5.Size = New System.Drawing.Size(339, 186)
         Me.Panel5.TabIndex = 0
         '
         'PictureBox1
@@ -442,8 +463,9 @@ Partial Class frmVTouchR
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(226, 121)
+        Me.PictureBox1.Size = New System.Drawing.Size(339, 186)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 68
         Me.PictureBox1.TabStop = False
@@ -452,9 +474,10 @@ Partial Class frmVTouchR
         '
         Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 625)
+        Me.Panel2.Location = New System.Drawing.Point(0, 961)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1033, 159)
+        Me.Panel2.Size = New System.Drawing.Size(1549, 245)
         Me.Panel2.TabIndex = 1
         '
         'TableLayoutPanel1
@@ -487,6 +510,7 @@ Partial Class frmVTouchR
         Me.TableLayoutPanel1.Controls.Add(Me.txtUsuario, 5, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 5
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.56863!))
@@ -494,8 +518,8 @@ Partial Class frmVTouchR
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1033, 159)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1549, 245)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'lblCliente
@@ -505,9 +529,10 @@ Partial Class frmVTouchR
         Me.lblCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCliente.ForeColor = System.Drawing.Color.Black
-        Me.lblCliente.Location = New System.Drawing.Point(240, 127)
+        Me.lblCliente.Location = New System.Drawing.Point(360, 196)
+        Me.lblCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCliente.Name = "lblCliente"
-        Me.lblCliente.Size = New System.Drawing.Size(352, 32)
+        Me.lblCliente.Size = New System.Drawing.Size(529, 49)
         Me.lblCliente.TabIndex = 3
         Me.lblCliente.Text = "MOSTRADOR"
         '
@@ -517,9 +542,10 @@ Partial Class frmVTouchR
         Me.lblNumCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNumCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumCliente.ForeColor = System.Drawing.Color.Black
-        Me.lblNumCliente.Location = New System.Drawing.Point(207, 127)
+        Me.lblNumCliente.Location = New System.Drawing.Point(310, 196)
+        Me.lblNumCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblNumCliente.Name = "lblNumCliente"
-        Me.lblNumCliente.Size = New System.Drawing.Size(27, 32)
+        Me.lblNumCliente.Size = New System.Drawing.Size(42, 49)
         Me.lblNumCliente.TabIndex = 2
         Me.lblNumCliente.Text = "0"
         Me.lblNumCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -531,9 +557,10 @@ Partial Class frmVTouchR
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(207, 34)
+        Me.Label6.Location = New System.Drawing.Point(310, 52)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(231, 31)
+        Me.Label6.Size = New System.Drawing.Size(348, 48)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "Fecha:"
         '
@@ -544,9 +571,10 @@ Partial Class frmVTouchR
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(3, 34)
+        Me.Label5.Location = New System.Drawing.Point(4, 52)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(198, 31)
+        Me.Label5.Size = New System.Drawing.Size(298, 48)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Folio:"
         '
@@ -557,9 +585,10 @@ Partial Class frmVTouchR
         Me.lblfolio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblfolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.ForeColor = System.Drawing.Color.Black
-        Me.lblfolio.Location = New System.Drawing.Point(3, 65)
+        Me.lblfolio.Location = New System.Drawing.Point(4, 100)
+        Me.lblfolio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblfolio.Name = "lblfolio"
-        Me.lblfolio.Size = New System.Drawing.Size(198, 31)
+        Me.lblfolio.Size = New System.Drawing.Size(298, 48)
         Me.lblfolio.TabIndex = 4
         '
         'lblFecha
@@ -570,9 +599,10 @@ Partial Class frmVTouchR
         Me.lblFecha.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.ForeColor = System.Drawing.Color.Black
-        Me.lblFecha.Location = New System.Drawing.Point(207, 65)
+        Me.lblFecha.Location = New System.Drawing.Point(310, 100)
+        Me.lblFecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(231, 31)
+        Me.lblFecha.Size = New System.Drawing.Size(348, 48)
         Me.lblFecha.TabIndex = 5
         '
         'Label9
@@ -582,9 +612,10 @@ Partial Class frmVTouchR
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(207, 96)
+        Me.Label9.Location = New System.Drawing.Point(310, 148)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(231, 31)
+        Me.Label9.Size = New System.Drawing.Size(348, 48)
         Me.Label9.TabIndex = 6
         Me.Label9.Text = "Cliente:"
         '
@@ -594,9 +625,10 @@ Partial Class frmVTouchR
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(3, 96)
+        Me.Label8.Location = New System.Drawing.Point(4, 148)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(198, 31)
+        Me.Label8.Size = New System.Drawing.Size(298, 48)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Tipo de Venta"
         '
@@ -606,9 +638,10 @@ Partial Class frmVTouchR
         Me.lblTipoVenta.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblTipoVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTipoVenta.ForeColor = System.Drawing.Color.Black
-        Me.lblTipoVenta.Location = New System.Drawing.Point(3, 127)
+        Me.lblTipoVenta.Location = New System.Drawing.Point(4, 196)
+        Me.lblTipoVenta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTipoVenta.Name = "lblTipoVenta"
-        Me.lblTipoVenta.Size = New System.Drawing.Size(198, 32)
+        Me.lblTipoVenta.Size = New System.Drawing.Size(298, 49)
         Me.lblTipoVenta.TabIndex = 8
         Me.lblTipoVenta.Text = "MOSTRADOR"
         '
@@ -617,9 +650,10 @@ Partial Class frmVTouchR
         Me.lblTelefono.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefono.ForeColor = System.Drawing.Color.Black
-        Me.lblTelefono.Location = New System.Drawing.Point(598, 127)
+        Me.lblTelefono.Location = New System.Drawing.Point(897, 196)
+        Me.lblTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTelefono.Name = "lblTelefono"
-        Me.lblTelefono.Size = New System.Drawing.Size(187, 32)
+        Me.lblTelefono.Size = New System.Drawing.Size(281, 49)
         Me.lblTelefono.TabIndex = 9
         '
         'lblDireccion
@@ -627,9 +661,10 @@ Partial Class frmVTouchR
         Me.lblDireccion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDireccion.ForeColor = System.Drawing.Color.Black
-        Me.lblDireccion.Location = New System.Drawing.Point(791, 127)
+        Me.lblDireccion.Location = New System.Drawing.Point(1186, 196)
+        Me.lblDireccion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDireccion.Name = "lblDireccion"
-        Me.lblDireccion.Size = New System.Drawing.Size(239, 32)
+        Me.lblDireccion.Size = New System.Drawing.Size(359, 49)
         Me.lblDireccion.TabIndex = 10
         '
         'Label11
@@ -638,9 +673,10 @@ Partial Class frmVTouchR
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(444, 65)
+        Me.Label11.Location = New System.Drawing.Point(666, 100)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(148, 31)
+        Me.Label11.Size = New System.Drawing.Size(223, 48)
         Me.Label11.TabIndex = 11
         Me.Label11.Text = "Le Atiende:"
         '
@@ -649,9 +685,10 @@ Partial Class frmVTouchR
         Me.lblAtendio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblAtendio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAtendio.ForeColor = System.Drawing.Color.Black
-        Me.lblAtendio.Location = New System.Drawing.Point(444, 96)
+        Me.lblAtendio.Location = New System.Drawing.Point(666, 148)
+        Me.lblAtendio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAtendio.Name = "lblAtendio"
-        Me.lblAtendio.Size = New System.Drawing.Size(148, 31)
+        Me.lblAtendio.Size = New System.Drawing.Size(223, 48)
         Me.lblAtendio.TabIndex = 12
         '
         'Label12
@@ -660,9 +697,10 @@ Partial Class frmVTouchR
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(598, 65)
+        Me.Label12.Location = New System.Drawing.Point(897, 100)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(187, 31)
+        Me.Label12.Size = New System.Drawing.Size(281, 48)
         Me.Label12.TabIndex = 13
         Me.Label12.Text = "Fecha Pago/Vencimiento"
         '
@@ -671,9 +709,10 @@ Partial Class frmVTouchR
         Me.lblFechaPago.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFechaPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaPago.ForeColor = System.Drawing.Color.Black
-        Me.lblFechaPago.Location = New System.Drawing.Point(598, 96)
+        Me.lblFechaPago.Location = New System.Drawing.Point(897, 148)
+        Me.lblFechaPago.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFechaPago.Name = "lblFechaPago"
-        Me.lblFechaPago.Size = New System.Drawing.Size(187, 31)
+        Me.lblFechaPago.Size = New System.Drawing.Size(281, 48)
         Me.lblFechaPago.TabIndex = 14
         '
         'btnOcacional
@@ -682,10 +721,11 @@ Partial Class frmVTouchR
         Me.btnOcacional.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnOcacional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOcacional.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOcacional.Location = New System.Drawing.Point(791, 3)
+        Me.btnOcacional.Location = New System.Drawing.Point(1186, 5)
+        Me.btnOcacional.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnOcacional.Name = "btnOcacional"
         Me.TableLayoutPanel1.SetRowSpan(Me.btnOcacional, 2)
-        Me.btnOcacional.Size = New System.Drawing.Size(239, 59)
+        Me.btnOcacional.Size = New System.Drawing.Size(359, 90)
         Me.btnOcacional.TabIndex = 15
         Me.btnOcacional.Text = "Producto Ocasional"
         Me.btnOcacional.UseVisualStyleBackColor = False
@@ -696,10 +736,11 @@ Partial Class frmVTouchR
         Me.btnCortesia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnCortesia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCortesia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCortesia.Location = New System.Drawing.Point(598, 3)
+        Me.btnCortesia.Location = New System.Drawing.Point(897, 5)
+        Me.btnCortesia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCortesia.Name = "btnCortesia"
         Me.TableLayoutPanel1.SetRowSpan(Me.btnCortesia, 2)
-        Me.btnCortesia.Size = New System.Drawing.Size(187, 59)
+        Me.btnCortesia.Size = New System.Drawing.Size(281, 90)
         Me.btnCortesia.TabIndex = 16
         Me.btnCortesia.Text = "Cortesia"
         Me.btnCortesia.UseVisualStyleBackColor = False
@@ -707,9 +748,10 @@ Partial Class frmVTouchR
         'txtUsuario
         '
         Me.txtUsuario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtUsuario.Location = New System.Drawing.Point(791, 68)
+        Me.txtUsuario.Location = New System.Drawing.Point(1186, 105)
+        Me.txtUsuario.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(239, 20)
+        Me.txtUsuario.Size = New System.Drawing.Size(359, 26)
         Me.txtUsuario.TabIndex = 18
         Me.txtUsuario.Visible = False
         '
@@ -717,18 +759,20 @@ Partial Class frmVTouchR
         '
         Me.pdepa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.pdepa.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pdepa.Location = New System.Drawing.Point(0, 121)
+        Me.pdepa.Location = New System.Drawing.Point(0, 186)
+        Me.pdepa.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pdepa.Name = "pdepa"
-        Me.pdepa.Size = New System.Drawing.Size(113, 504)
+        Me.pdepa.Size = New System.Drawing.Size(170, 775)
         Me.pdepa.TabIndex = 63
         '
         'PGrupo
         '
         Me.PGrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.PGrupo.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PGrupo.Location = New System.Drawing.Point(113, 121)
+        Me.PGrupo.Location = New System.Drawing.Point(170, 186)
+        Me.PGrupo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PGrupo.Name = "PGrupo"
-        Me.PGrupo.Size = New System.Drawing.Size(113, 504)
+        Me.PGrupo.Size = New System.Drawing.Size(170, 775)
         Me.PGrupo.TabIndex = 64
         '
         'Panel3
@@ -737,9 +781,10 @@ Partial Class frmVTouchR
         Me.Panel3.Controls.Add(Me.TabControl1)
         Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(1033, 0)
+        Me.Panel3.Location = New System.Drawing.Point(1549, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(341, 784)
+        Me.Panel3.Size = New System.Drawing.Size(512, 1206)
         Me.Panel3.TabIndex = 65
         '
         'grdCaptura
@@ -760,24 +805,29 @@ Partial Class frmVTouchR
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 121)
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 186)
+        Me.grdCaptura.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
+        Me.grdCaptura.RowHeadersWidth = 62
         Me.grdCaptura.RowTemplate.Height = 40
-        Me.grdCaptura.Size = New System.Drawing.Size(341, 412)
+        Me.grdCaptura.Size = New System.Drawing.Size(512, 634)
         Me.grdCaptura.TabIndex = 87
         '
         'Column1
         '
         Me.Column1.HeaderText = "Cod"
+        Me.Column1.MinimumWidth = 8
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
         Me.Column1.Visible = False
+        Me.Column1.Width = 150
         '
         'Column2
         '
         Me.Column2.HeaderText = "Desc."
+        Me.Column2.MinimumWidth = 8
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         Me.Column2.Width = 150
@@ -785,6 +835,7 @@ Partial Class frmVTouchR
         'Column3
         '
         Me.Column3.HeaderText = "Cant."
+        Me.Column3.MinimumWidth = 8
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         Me.Column3.Width = 60
@@ -792,6 +843,7 @@ Partial Class frmVTouchR
         'Column4
         '
         Me.Column4.HeaderText = "P.U."
+        Me.Column4.MinimumWidth = 8
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 70
@@ -799,6 +851,7 @@ Partial Class frmVTouchR
         'Column5
         '
         Me.Column5.HeaderText = "Importe"
+        Me.Column5.MinimumWidth = 8
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         Me.Column5.Width = 65
@@ -806,20 +859,26 @@ Partial Class frmVTouchR
         'Column6
         '
         Me.Column6.HeaderText = "Com"
+        Me.Column6.MinimumWidth = 8
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
+        Me.Column6.Width = 150
         '
         'Column7
         '
         Me.Column7.HeaderText = "PEP"
+        Me.Column7.MinimumWidth = 8
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
+        Me.Column7.Width = 150
         '
         'Column9
         '
         Me.Column9.HeaderText = "Comentario"
+        Me.Column9.MinimumWidth = 8
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
+        Me.Column9.Width = 150
         '
         'TabControl1
         '
@@ -828,10 +887,11 @@ Partial Class frmVTouchR
         Me.TabControl1.Controls.Add(Me.pPromociones)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 533)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 820)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(341, 251)
+        Me.TabControl1.Size = New System.Drawing.Size(512, 386)
         Me.TabControl1.TabIndex = 83
         '
         'pPreferencia
@@ -839,30 +899,33 @@ Partial Class frmVTouchR
         Me.pPreferencia.AutoScroll = True
         Me.pPreferencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pPreferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pPreferencia.Location = New System.Drawing.Point(4, 25)
+        Me.pPreferencia.Location = New System.Drawing.Point(4, 34)
+        Me.pPreferencia.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pPreferencia.Name = "pPreferencia"
-        Me.pPreferencia.Padding = New System.Windows.Forms.Padding(3)
-        Me.pPreferencia.Size = New System.Drawing.Size(333, 222)
+        Me.pPreferencia.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.pPreferencia.Size = New System.Drawing.Size(504, 348)
         Me.pPreferencia.TabIndex = 0
         Me.pPreferencia.Text = "    Preferencias    "
         '
         'pExtras
         '
         Me.pExtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.pExtras.Location = New System.Drawing.Point(4, 25)
+        Me.pExtras.Location = New System.Drawing.Point(4, 34)
+        Me.pExtras.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pExtras.Name = "pExtras"
-        Me.pExtras.Padding = New System.Windows.Forms.Padding(3)
-        Me.pExtras.Size = New System.Drawing.Size(333, 222)
+        Me.pExtras.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.pExtras.Size = New System.Drawing.Size(504, 348)
         Me.pExtras.TabIndex = 1
         Me.pExtras.Text = "          Extras          "
         '
         'pPromociones
         '
         Me.pPromociones.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.pPromociones.Location = New System.Drawing.Point(4, 25)
+        Me.pPromociones.Location = New System.Drawing.Point(4, 34)
+        Me.pPromociones.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pPromociones.Name = "pPromociones"
-        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3)
-        Me.pPromociones.Size = New System.Drawing.Size(333, 222)
+        Me.pPromociones.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.pPromociones.Size = New System.Drawing.Size(504, 348)
         Me.pPromociones.TabIndex = 2
         Me.pPromociones.Text = "    Promociones    "
         '
@@ -873,8 +936,9 @@ Partial Class frmVTouchR
         Me.Panel4.Controls.Add(Me.Label4)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(341, 121)
+        Me.Panel4.Size = New System.Drawing.Size(512, 186)
         Me.Panel4.TabIndex = 0
         '
         'lblCantidadLetra
@@ -882,9 +946,10 @@ Partial Class frmVTouchR
         Me.lblCantidadLetra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblCantidadLetra.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCantidadLetra.ForeColor = System.Drawing.Color.Black
-        Me.lblCantidadLetra.Location = New System.Drawing.Point(0, 76)
+        Me.lblCantidadLetra.Location = New System.Drawing.Point(0, 117)
+        Me.lblCantidadLetra.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCantidadLetra.Name = "lblCantidadLetra"
-        Me.lblCantidadLetra.Size = New System.Drawing.Size(338, 41)
+        Me.lblCantidadLetra.Size = New System.Drawing.Size(507, 63)
         Me.lblCantidadLetra.TabIndex = 83
         Me.lblCantidadLetra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -893,9 +958,10 @@ Partial Class frmVTouchR
         Me.lblTotalPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblTotalPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalPagar.ForeColor = System.Drawing.Color.Black
-        Me.lblTotalPagar.Location = New System.Drawing.Point(1, 23)
+        Me.lblTotalPagar.Location = New System.Drawing.Point(2, 35)
+        Me.lblTotalPagar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalPagar.Name = "lblTotalPagar"
-        Me.lblTotalPagar.Size = New System.Drawing.Size(337, 53)
+        Me.lblTotalPagar.Size = New System.Drawing.Size(506, 82)
         Me.lblTotalPagar.TabIndex = 82
         Me.lblTotalPagar.Text = "0.00"
         Me.lblTotalPagar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -905,9 +971,10 @@ Partial Class frmVTouchR
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(1, 0)
+        Me.Label4.Location = New System.Drawing.Point(2, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(337, 23)
+        Me.Label4.Size = New System.Drawing.Size(506, 35)
         Me.Label4.TabIndex = 81
         Me.Label4.Text = "VENTA TOTAL"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -932,9 +999,10 @@ Partial Class frmVTouchR
         Me.PTeclado.Controls.Add(Me.btn7)
         Me.PTeclado.Controls.Add(Me.pletras)
         Me.PTeclado.Controls.Add(Me.pCampo)
-        Me.PTeclado.Location = New System.Drawing.Point(252, 144)
+        Me.PTeclado.Location = New System.Drawing.Point(378, 222)
+        Me.PTeclado.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PTeclado.Name = "PTeclado"
-        Me.PTeclado.Size = New System.Drawing.Size(787, 426)
+        Me.PTeclado.Size = New System.Drawing.Size(1180, 655)
         Me.PTeclado.TabIndex = 66
         Me.PTeclado.Visible = False
         '
@@ -943,9 +1011,10 @@ Partial Class frmVTouchR
         Me.Button17.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button17.Location = New System.Drawing.Point(615, 148)
+        Me.Button17.Location = New System.Drawing.Point(922, 228)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(119, 41)
+        Me.Button17.Size = New System.Drawing.Size(178, 63)
         Me.Button17.TabIndex = 70
         Me.Button17.Text = "Aceptar"
         Me.Button17.UseVisualStyleBackColor = False
@@ -955,9 +1024,10 @@ Partial Class frmVTouchR
         Me.Button16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button16.Location = New System.Drawing.Point(615, 101)
+        Me.Button16.Location = New System.Drawing.Point(922, 155)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(119, 41)
+        Me.Button16.Size = New System.Drawing.Size(178, 63)
         Me.Button16.TabIndex = 69
         Me.Button16.Text = "Salir"
         Me.Button16.UseVisualStyleBackColor = False
@@ -967,9 +1037,10 @@ Partial Class frmVTouchR
         Me.btnco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnco.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnco.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnco.Location = New System.Drawing.Point(500, 148)
+        Me.btnco.Location = New System.Drawing.Point(750, 228)
+        Me.btnco.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnco.Name = "btnco"
-        Me.btnco.Size = New System.Drawing.Size(75, 58)
+        Me.btnco.Size = New System.Drawing.Size(112, 89)
         Me.btnco.TabIndex = 68
         Me.btnco.Text = "CO"
         Me.btnco.UseVisualStyleBackColor = False
@@ -979,9 +1050,10 @@ Partial Class frmVTouchR
         Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn0.Location = New System.Drawing.Point(419, 148)
+        Me.btn0.Location = New System.Drawing.Point(628, 228)
+        Me.btn0.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(75, 58)
+        Me.btn0.Size = New System.Drawing.Size(112, 89)
         Me.btn0.TabIndex = 67
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
@@ -991,9 +1063,10 @@ Partial Class frmVTouchR
         Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(95, 84)
+        Me.btn1.Location = New System.Drawing.Point(142, 129)
+        Me.btn1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(75, 58)
+        Me.btn1.Size = New System.Drawing.Size(112, 89)
         Me.btn1.TabIndex = 66
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
@@ -1003,9 +1076,10 @@ Partial Class frmVTouchR
         Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(176, 84)
+        Me.btn2.Location = New System.Drawing.Point(264, 129)
+        Me.btn2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(75, 58)
+        Me.btn2.Size = New System.Drawing.Size(112, 89)
         Me.btn2.TabIndex = 65
         Me.btn2.Text = "2"
         Me.btn2.UseVisualStyleBackColor = False
@@ -1015,9 +1089,10 @@ Partial Class frmVTouchR
         Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn4.Location = New System.Drawing.Point(338, 84)
+        Me.btn4.Location = New System.Drawing.Point(507, 129)
+        Me.btn4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(75, 58)
+        Me.btn4.Size = New System.Drawing.Size(112, 89)
         Me.btn4.TabIndex = 64
         Me.btn4.Text = "4"
         Me.btn4.UseVisualStyleBackColor = False
@@ -1027,9 +1102,10 @@ Partial Class frmVTouchR
         Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn5.Location = New System.Drawing.Point(419, 84)
+        Me.btn5.Location = New System.Drawing.Point(628, 129)
+        Me.btn5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(75, 58)
+        Me.btn5.Size = New System.Drawing.Size(112, 89)
         Me.btn5.TabIndex = 63
         Me.btn5.Text = "5"
         Me.btn5.UseVisualStyleBackColor = False
@@ -1039,9 +1115,10 @@ Partial Class frmVTouchR
         Me.btnpunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnpunto.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnpunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpunto.Location = New System.Drawing.Point(500, 84)
+        Me.btnpunto.Location = New System.Drawing.Point(750, 129)
+        Me.btnpunto.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnpunto.Name = "btnpunto"
-        Me.btnpunto.Size = New System.Drawing.Size(75, 58)
+        Me.btnpunto.Size = New System.Drawing.Size(112, 89)
         Me.btnpunto.TabIndex = 62
         Me.btnpunto.Text = "."
         Me.btnpunto.UseVisualStyleBackColor = False
@@ -1051,9 +1128,10 @@ Partial Class frmVTouchR
         Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(257, 84)
+        Me.btn3.Location = New System.Drawing.Point(386, 129)
+        Me.btn3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(75, 58)
+        Me.btn3.Size = New System.Drawing.Size(112, 89)
         Me.btn3.TabIndex = 61
         Me.btn3.Text = "3"
         Me.btn3.UseVisualStyleBackColor = False
@@ -1063,9 +1141,10 @@ Partial Class frmVTouchR
         Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn6.Location = New System.Drawing.Point(95, 148)
+        Me.btn6.Location = New System.Drawing.Point(142, 228)
+        Me.btn6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(75, 58)
+        Me.btn6.Size = New System.Drawing.Size(112, 89)
         Me.btn6.TabIndex = 60
         Me.btn6.Text = "6"
         Me.btn6.UseVisualStyleBackColor = False
@@ -1075,9 +1154,10 @@ Partial Class frmVTouchR
         Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(338, 148)
+        Me.btn9.Location = New System.Drawing.Point(507, 228)
+        Me.btn9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(75, 58)
+        Me.btn9.Size = New System.Drawing.Size(112, 89)
         Me.btn9.TabIndex = 59
         Me.btn9.Text = "9"
         Me.btn9.UseVisualStyleBackColor = False
@@ -1087,9 +1167,10 @@ Partial Class frmVTouchR
         Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(257, 148)
+        Me.btn8.Location = New System.Drawing.Point(386, 228)
+        Me.btn8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(75, 58)
+        Me.btn8.Size = New System.Drawing.Size(112, 89)
         Me.btn8.TabIndex = 58
         Me.btn8.Text = "8"
         Me.btn8.UseVisualStyleBackColor = False
@@ -1099,9 +1180,10 @@ Partial Class frmVTouchR
         Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn7.Location = New System.Drawing.Point(176, 148)
+        Me.btn7.Location = New System.Drawing.Point(264, 228)
+        Me.btn7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(75, 58)
+        Me.btn7.Size = New System.Drawing.Size(112, 89)
         Me.btn7.TabIndex = 57
         Me.btn7.Text = "7"
         Me.btn7.UseVisualStyleBackColor = False
@@ -1138,9 +1220,10 @@ Partial Class frmVTouchR
         Me.pletras.Controls.Add(Me.btnC)
         Me.pletras.Controls.Add(Me.btnD)
         Me.pletras.Enabled = False
-        Me.pletras.Location = New System.Drawing.Point(12, 212)
+        Me.pletras.Location = New System.Drawing.Point(18, 326)
+        Me.pletras.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pletras.Name = "pletras"
-        Me.pletras.Size = New System.Drawing.Size(765, 198)
+        Me.pletras.Size = New System.Drawing.Size(1148, 305)
         Me.pletras.TabIndex = 56
         '
         'btnQ
@@ -1148,9 +1231,10 @@ Partial Class frmVTouchR
         Me.btnQ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnQ.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnQ.Location = New System.Drawing.Point(7, 13)
+        Me.btnQ.Location = New System.Drawing.Point(10, 20)
+        Me.btnQ.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnQ.Name = "btnQ"
-        Me.btnQ.Size = New System.Drawing.Size(65, 53)
+        Me.btnQ.Size = New System.Drawing.Size(98, 82)
         Me.btnQ.TabIndex = 15
         Me.btnQ.Text = "Q"
         Me.btnQ.UseVisualStyleBackColor = False
@@ -1160,9 +1244,10 @@ Partial Class frmVTouchR
         Me.btnespacio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnespacio.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnespacio.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnespacio.Location = New System.Drawing.Point(616, 131)
+        Me.btnespacio.Location = New System.Drawing.Point(924, 202)
+        Me.btnespacio.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnespacio.Name = "btnespacio"
-        Me.btnespacio.Size = New System.Drawing.Size(141, 53)
+        Me.btnespacio.Size = New System.Drawing.Size(212, 82)
         Me.btnespacio.TabIndex = 54
         Me.btnespacio.Text = " "
         Me.btnespacio.UseVisualStyleBackColor = False
@@ -1172,9 +1257,10 @@ Partial Class frmVTouchR
         Me.btnW.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnW.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnW.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnW.Location = New System.Drawing.Point(83, 13)
+        Me.btnW.Location = New System.Drawing.Point(124, 20)
+        Me.btnW.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnW.Name = "btnW"
-        Me.btnW.Size = New System.Drawing.Size(65, 53)
+        Me.btnW.Size = New System.Drawing.Size(98, 82)
         Me.btnW.TabIndex = 27
         Me.btnW.Text = "W"
         Me.btnW.UseVisualStyleBackColor = False
@@ -1184,9 +1270,10 @@ Partial Class frmVTouchR
         Me.btnComa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnComa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnComa.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnComa.Location = New System.Drawing.Point(539, 131)
+        Me.btnComa.Location = New System.Drawing.Point(808, 202)
+        Me.btnComa.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnComa.Name = "btnComa"
-        Me.btnComa.Size = New System.Drawing.Size(65, 53)
+        Me.btnComa.Size = New System.Drawing.Size(98, 82)
         Me.btnComa.TabIndex = 53
         Me.btnComa.Text = ","
         Me.btnComa.UseVisualStyleBackColor = False
@@ -1196,9 +1283,10 @@ Partial Class frmVTouchR
         Me.btnE.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnE.Location = New System.Drawing.Point(159, 13)
+        Me.btnE.Location = New System.Drawing.Point(238, 20)
+        Me.btnE.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnE.Name = "btnE"
-        Me.btnE.Size = New System.Drawing.Size(65, 53)
+        Me.btnE.Size = New System.Drawing.Size(98, 82)
         Me.btnE.TabIndex = 28
         Me.btnE.Text = "E"
         Me.btnE.UseVisualStyleBackColor = False
@@ -1208,9 +1296,10 @@ Partial Class frmVTouchR
         Me.btnÑ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnÑ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnÑ.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnÑ.Location = New System.Drawing.Point(690, 72)
+        Me.btnÑ.Location = New System.Drawing.Point(1035, 111)
+        Me.btnÑ.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnÑ.Name = "btnÑ"
-        Me.btnÑ.Size = New System.Drawing.Size(65, 53)
+        Me.btnÑ.Size = New System.Drawing.Size(98, 82)
         Me.btnÑ.TabIndex = 52
         Me.btnÑ.Text = "Ñ"
         Me.btnÑ.UseVisualStyleBackColor = False
@@ -1220,9 +1309,10 @@ Partial Class frmVTouchR
         Me.btnR.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnR.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnR.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnR.Location = New System.Drawing.Point(235, 13)
+        Me.btnR.Location = New System.Drawing.Point(352, 20)
+        Me.btnR.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnR.Name = "btnR"
-        Me.btnR.Size = New System.Drawing.Size(65, 53)
+        Me.btnR.Size = New System.Drawing.Size(98, 82)
         Me.btnR.TabIndex = 29
         Me.btnR.Text = "R"
         Me.btnR.UseVisualStyleBackColor = False
@@ -1232,9 +1322,10 @@ Partial Class frmVTouchR
         Me.btnL.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnL.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnL.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnL.Location = New System.Drawing.Point(614, 72)
+        Me.btnL.Location = New System.Drawing.Point(921, 111)
+        Me.btnL.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnL.Name = "btnL"
-        Me.btnL.Size = New System.Drawing.Size(65, 53)
+        Me.btnL.Size = New System.Drawing.Size(98, 82)
         Me.btnL.TabIndex = 51
         Me.btnL.Text = "L"
         Me.btnL.UseVisualStyleBackColor = False
@@ -1244,9 +1335,10 @@ Partial Class frmVTouchR
         Me.btnT.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnT.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnT.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnT.Location = New System.Drawing.Point(311, 13)
+        Me.btnT.Location = New System.Drawing.Point(466, 20)
+        Me.btnT.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnT.Name = "btnT"
-        Me.btnT.Size = New System.Drawing.Size(65, 53)
+        Me.btnT.Size = New System.Drawing.Size(98, 82)
         Me.btnT.TabIndex = 30
         Me.btnT.Text = "T"
         Me.btnT.UseVisualStyleBackColor = False
@@ -1256,9 +1348,10 @@ Partial Class frmVTouchR
         Me.btnK.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnK.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnK.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnK.Location = New System.Drawing.Point(539, 72)
+        Me.btnK.Location = New System.Drawing.Point(808, 111)
+        Me.btnK.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnK.Name = "btnK"
-        Me.btnK.Size = New System.Drawing.Size(65, 53)
+        Me.btnK.Size = New System.Drawing.Size(98, 82)
         Me.btnK.TabIndex = 50
         Me.btnK.Text = "K"
         Me.btnK.UseVisualStyleBackColor = False
@@ -1268,9 +1361,10 @@ Partial Class frmVTouchR
         Me.btnY.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnY.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnY.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnY.Location = New System.Drawing.Point(387, 13)
+        Me.btnY.Location = New System.Drawing.Point(580, 20)
+        Me.btnY.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnY.Name = "btnY"
-        Me.btnY.Size = New System.Drawing.Size(65, 53)
+        Me.btnY.Size = New System.Drawing.Size(98, 82)
         Me.btnY.TabIndex = 31
         Me.btnY.Text = "Y"
         Me.btnY.UseVisualStyleBackColor = False
@@ -1280,9 +1374,10 @@ Partial Class frmVTouchR
         Me.btnM.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnM.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnM.Location = New System.Drawing.Point(463, 131)
+        Me.btnM.Location = New System.Drawing.Point(694, 202)
+        Me.btnM.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnM.Name = "btnM"
-        Me.btnM.Size = New System.Drawing.Size(65, 53)
+        Me.btnM.Size = New System.Drawing.Size(98, 82)
         Me.btnM.TabIndex = 49
         Me.btnM.Text = "M"
         Me.btnM.UseVisualStyleBackColor = False
@@ -1292,9 +1387,10 @@ Partial Class frmVTouchR
         Me.btnU.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnU.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnU.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnU.Location = New System.Drawing.Point(463, 13)
+        Me.btnU.Location = New System.Drawing.Point(694, 20)
+        Me.btnU.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnU.Name = "btnU"
-        Me.btnU.Size = New System.Drawing.Size(65, 53)
+        Me.btnU.Size = New System.Drawing.Size(98, 82)
         Me.btnU.TabIndex = 32
         Me.btnU.Text = "U"
         Me.btnU.UseVisualStyleBackColor = False
@@ -1304,9 +1400,10 @@ Partial Class frmVTouchR
         Me.btnN.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnN.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnN.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnN.Location = New System.Drawing.Point(387, 131)
+        Me.btnN.Location = New System.Drawing.Point(580, 202)
+        Me.btnN.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnN.Name = "btnN"
-        Me.btnN.Size = New System.Drawing.Size(65, 53)
+        Me.btnN.Size = New System.Drawing.Size(98, 82)
         Me.btnN.TabIndex = 48
         Me.btnN.Text = "N"
         Me.btnN.UseVisualStyleBackColor = False
@@ -1316,9 +1413,10 @@ Partial Class frmVTouchR
         Me.btnI.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnI.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnI.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnI.Location = New System.Drawing.Point(538, 13)
+        Me.btnI.Location = New System.Drawing.Point(807, 20)
+        Me.btnI.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnI.Name = "btnI"
-        Me.btnI.Size = New System.Drawing.Size(65, 53)
+        Me.btnI.Size = New System.Drawing.Size(98, 82)
         Me.btnI.TabIndex = 33
         Me.btnI.Text = "I"
         Me.btnI.UseVisualStyleBackColor = False
@@ -1328,9 +1426,10 @@ Partial Class frmVTouchR
         Me.btnB.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnB.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnB.Location = New System.Drawing.Point(311, 131)
+        Me.btnB.Location = New System.Drawing.Point(466, 202)
+        Me.btnB.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnB.Name = "btnB"
-        Me.btnB.Size = New System.Drawing.Size(65, 53)
+        Me.btnB.Size = New System.Drawing.Size(98, 82)
         Me.btnB.TabIndex = 47
         Me.btnB.Text = "B"
         Me.btnB.UseVisualStyleBackColor = False
@@ -1340,9 +1439,10 @@ Partial Class frmVTouchR
         Me.btnO.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnO.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnO.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnO.Location = New System.Drawing.Point(614, 13)
+        Me.btnO.Location = New System.Drawing.Point(921, 20)
+        Me.btnO.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnO.Name = "btnO"
-        Me.btnO.Size = New System.Drawing.Size(65, 53)
+        Me.btnO.Size = New System.Drawing.Size(98, 82)
         Me.btnO.TabIndex = 34
         Me.btnO.Text = "O"
         Me.btnO.UseVisualStyleBackColor = False
@@ -1352,9 +1452,10 @@ Partial Class frmVTouchR
         Me.btnV.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnV.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnV.Location = New System.Drawing.Point(235, 131)
+        Me.btnV.Location = New System.Drawing.Point(352, 202)
+        Me.btnV.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnV.Name = "btnV"
-        Me.btnV.Size = New System.Drawing.Size(65, 53)
+        Me.btnV.Size = New System.Drawing.Size(98, 82)
         Me.btnV.TabIndex = 46
         Me.btnV.Text = "V"
         Me.btnV.UseVisualStyleBackColor = False
@@ -1364,9 +1465,10 @@ Partial Class frmVTouchR
         Me.btnP.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnP.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP.Location = New System.Drawing.Point(690, 13)
+        Me.btnP.Location = New System.Drawing.Point(1035, 20)
+        Me.btnP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnP.Name = "btnP"
-        Me.btnP.Size = New System.Drawing.Size(65, 53)
+        Me.btnP.Size = New System.Drawing.Size(98, 82)
         Me.btnP.TabIndex = 35
         Me.btnP.Text = "P"
         Me.btnP.UseVisualStyleBackColor = False
@@ -1376,9 +1478,10 @@ Partial Class frmVTouchR
         Me.btnJ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnJ.Location = New System.Drawing.Point(463, 72)
+        Me.btnJ.Location = New System.Drawing.Point(694, 111)
+        Me.btnJ.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnJ.Name = "btnJ"
-        Me.btnJ.Size = New System.Drawing.Size(65, 53)
+        Me.btnJ.Size = New System.Drawing.Size(98, 82)
         Me.btnJ.TabIndex = 45
         Me.btnJ.Text = "J"
         Me.btnJ.UseVisualStyleBackColor = False
@@ -1388,9 +1491,10 @@ Partial Class frmVTouchR
         Me.btnA.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnA.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnA.Location = New System.Drawing.Point(7, 72)
+        Me.btnA.Location = New System.Drawing.Point(10, 111)
+        Me.btnA.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnA.Name = "btnA"
-        Me.btnA.Size = New System.Drawing.Size(65, 53)
+        Me.btnA.Size = New System.Drawing.Size(98, 82)
         Me.btnA.TabIndex = 36
         Me.btnA.Text = "A"
         Me.btnA.UseVisualStyleBackColor = False
@@ -1400,9 +1504,10 @@ Partial Class frmVTouchR
         Me.btnH.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnH.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnH.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnH.Location = New System.Drawing.Point(387, 72)
+        Me.btnH.Location = New System.Drawing.Point(580, 111)
+        Me.btnH.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnH.Name = "btnH"
-        Me.btnH.Size = New System.Drawing.Size(65, 53)
+        Me.btnH.Size = New System.Drawing.Size(98, 82)
         Me.btnH.TabIndex = 44
         Me.btnH.Text = "H"
         Me.btnH.UseVisualStyleBackColor = False
@@ -1412,9 +1517,10 @@ Partial Class frmVTouchR
         Me.btnS.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnS.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnS.Location = New System.Drawing.Point(83, 72)
+        Me.btnS.Location = New System.Drawing.Point(124, 111)
+        Me.btnS.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnS.Name = "btnS"
-        Me.btnS.Size = New System.Drawing.Size(65, 53)
+        Me.btnS.Size = New System.Drawing.Size(98, 82)
         Me.btnS.TabIndex = 37
         Me.btnS.Text = "S"
         Me.btnS.UseVisualStyleBackColor = False
@@ -1424,9 +1530,10 @@ Partial Class frmVTouchR
         Me.btnG.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnG.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnG.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnG.Location = New System.Drawing.Point(311, 72)
+        Me.btnG.Location = New System.Drawing.Point(466, 111)
+        Me.btnG.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnG.Name = "btnG"
-        Me.btnG.Size = New System.Drawing.Size(65, 53)
+        Me.btnG.Size = New System.Drawing.Size(98, 82)
         Me.btnG.TabIndex = 43
         Me.btnG.Text = "G"
         Me.btnG.UseVisualStyleBackColor = False
@@ -1436,9 +1543,10 @@ Partial Class frmVTouchR
         Me.btnZ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnZ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnZ.Location = New System.Drawing.Point(6, 131)
+        Me.btnZ.Location = New System.Drawing.Point(9, 202)
+        Me.btnZ.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnZ.Name = "btnZ"
-        Me.btnZ.Size = New System.Drawing.Size(65, 53)
+        Me.btnZ.Size = New System.Drawing.Size(98, 82)
         Me.btnZ.TabIndex = 38
         Me.btnZ.Text = "Z"
         Me.btnZ.UseVisualStyleBackColor = False
@@ -1448,9 +1556,10 @@ Partial Class frmVTouchR
         Me.btnF.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnF.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnF.Location = New System.Drawing.Point(235, 72)
+        Me.btnF.Location = New System.Drawing.Point(352, 111)
+        Me.btnF.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnF.Name = "btnF"
-        Me.btnF.Size = New System.Drawing.Size(65, 53)
+        Me.btnF.Size = New System.Drawing.Size(98, 82)
         Me.btnF.TabIndex = 42
         Me.btnF.Text = "F"
         Me.btnF.UseVisualStyleBackColor = False
@@ -1460,9 +1569,10 @@ Partial Class frmVTouchR
         Me.btnX.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnX.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnX.Location = New System.Drawing.Point(83, 131)
+        Me.btnX.Location = New System.Drawing.Point(124, 202)
+        Me.btnX.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnX.Name = "btnX"
-        Me.btnX.Size = New System.Drawing.Size(65, 53)
+        Me.btnX.Size = New System.Drawing.Size(98, 82)
         Me.btnX.TabIndex = 39
         Me.btnX.Text = "X"
         Me.btnX.UseVisualStyleBackColor = False
@@ -1472,9 +1582,10 @@ Partial Class frmVTouchR
         Me.btnC.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnC.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnC.Location = New System.Drawing.Point(159, 131)
+        Me.btnC.Location = New System.Drawing.Point(238, 202)
+        Me.btnC.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnC.Name = "btnC"
-        Me.btnC.Size = New System.Drawing.Size(65, 53)
+        Me.btnC.Size = New System.Drawing.Size(98, 82)
         Me.btnC.TabIndex = 41
         Me.btnC.Text = "C"
         Me.btnC.UseVisualStyleBackColor = False
@@ -1484,9 +1595,10 @@ Partial Class frmVTouchR
         Me.btnD.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnD.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnD.Location = New System.Drawing.Point(159, 72)
+        Me.btnD.Location = New System.Drawing.Point(238, 111)
+        Me.btnD.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnD.Name = "btnD"
-        Me.btnD.Size = New System.Drawing.Size(65, 53)
+        Me.btnD.Size = New System.Drawing.Size(98, 82)
         Me.btnD.TabIndex = 40
         Me.btnD.Text = "D"
         Me.btnD.UseVisualStyleBackColor = False
@@ -1496,18 +1608,21 @@ Partial Class frmVTouchR
         Me.pCampo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pCampo.Controls.Add(Me.txtRespuesta)
         Me.pCampo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pCampo.Location = New System.Drawing.Point(12, 15)
+        Me.pCampo.Location = New System.Drawing.Point(18, 23)
+        Me.pCampo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pCampo.Name = "pCampo"
-        Me.pCampo.Size = New System.Drawing.Size(765, 63)
+        Me.pCampo.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.pCampo.Size = New System.Drawing.Size(1148, 97)
         Me.pCampo.TabIndex = 0
         Me.pCampo.TabStop = False
         '
         'txtRespuesta
         '
         Me.txtRespuesta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRespuesta.Location = New System.Drawing.Point(6, 23)
+        Me.txtRespuesta.Location = New System.Drawing.Point(9, 35)
+        Me.txtRespuesta.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtRespuesta.Name = "txtRespuesta"
-        Me.txtRespuesta.Size = New System.Drawing.Size(754, 26)
+        Me.txtRespuesta.Size = New System.Drawing.Size(1129, 35)
         Me.txtRespuesta.TabIndex = 1
         Me.txtRespuesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1515,9 +1630,10 @@ Partial Class frmVTouchR
         '
         Me.pproductos.BackColor = System.Drawing.Color.White
         Me.pproductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pproductos.Location = New System.Drawing.Point(226, 121)
+        Me.pproductos.Location = New System.Drawing.Point(340, 186)
+        Me.pproductos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pproductos.Name = "pproductos"
-        Me.pproductos.Size = New System.Drawing.Size(807, 504)
+        Me.pproductos.Size = New System.Drawing.Size(1209, 775)
         Me.pproductos.TabIndex = 67
         '
         'TFecha
@@ -1546,9 +1662,9 @@ Partial Class frmVTouchR
         '
         'frmVTouchR
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1374, 784)
+        Me.ClientSize = New System.Drawing.Size(2061, 1206)
         Me.Controls.Add(Me.PTeclado)
         Me.Controls.Add(Me.pproductos)
         Me.Controls.Add(Me.PGrupo)
@@ -1557,6 +1673,7 @@ Partial Class frmVTouchR
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmVTouchR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Venta Touch"
