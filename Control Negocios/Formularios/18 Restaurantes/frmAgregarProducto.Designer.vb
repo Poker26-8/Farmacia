@@ -679,7 +679,7 @@ Partial Class frmAgregarProducto
         Me.btnRepertir.Name = "btnRepertir"
         Me.btnRepertir.Size = New System.Drawing.Size(141, 87)
         Me.btnRepertir.TabIndex = 26
-        Me.btnRepertir.Text = "Repetir producto"
+        Me.btnRepertir.Text = "Repetir produgffgfgfgfgcto"
         Me.btnRepertir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnRepertir.UseVisualStyleBackColor = False
         Me.btnRepertir.Visible = False
