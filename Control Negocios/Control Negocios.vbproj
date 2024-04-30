@@ -199,10 +199,10 @@
       <DependentUpon>Abono.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReports\Corte.vb">
+    <Compile Include="CrystalReports\Corte_Caja.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Corte.rpt</DependentUpon>
+      <DependentUpon>Corte_Caja.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReports\Imagenes\Cotización_Img.vb">
@@ -1742,9 +1742,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Abono.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReports\Corte.rpt">
+    <EmbeddedResource Include="CrystalReports\Corte_Caja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Corte.vb</LastGenOutput>
+      <LastGenOutput>Corte_Caja.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\Imagenes\Cotización_Img.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

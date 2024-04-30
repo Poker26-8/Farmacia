@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class Corte
+Public Class Corte_Caja
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class Corte
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "Corte.rpt"
+            Return "Corte_Caja.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class Corte
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Control_Negocios.Corte.rpt"
+            Return "Control_Negocios.Corte_Caja.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class Corte
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedCorte
+Public Class CachedCorte_Caja
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedCorte
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As Corte = New Corte()
+        Dim rpt As Corte_Caja = New Corte_Caja()
         rpt.Site = Me.Site
         Return rpt
     End Function
