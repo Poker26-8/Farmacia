@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class Corte
+Public Class Corte_Usuario
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class Corte
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "Corte.rpt"
+            Return "Corte_Usuario.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class Corte
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Control_Negocios.Corte.rpt"
+            Return "Control_Negocios.Corte_Usuario.rpt"
         End Get
         Set
             'Do nothing
@@ -86,15 +86,23 @@ Public Class Corte
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Section5() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property ReportFooterSection1() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(4)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Section5() As CrystalDecisions.CrystalReports.Engine.Section
+        Get
+            Return Me.ReportDefinition.Sections(5)
         End Get
     End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedCorte
+Public Class CachedCorte_Usuario
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +144,7 @@ Public Class CachedCorte
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As Corte = New Corte()
+        Dim rpt As Corte_Usuario = New Corte_Usuario()
         rpt.Site = Me.Site
         Return rpt
     End Function

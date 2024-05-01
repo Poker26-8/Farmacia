@@ -26,6 +26,13 @@ Module ModGral
     Public PEDI As Boolean
     Public MyFolio As Double = 0
 
+    Dim nombree As String = ""
+    Dim cuentamail As String = ""
+    Dim passmail As String = ""
+    Dim servidor As String = ""
+    Dim puerto As String = ""
+    Dim seguridad As Boolean = False
+
     'DatosRecarga
     Public Function DatosRecarga(ByVal valor As String) As String
         Dim respuesta As String = ""
@@ -291,5 +298,85 @@ Module ModGral
         If texto = "´" Then Elimina_Especiales = ""
 
         Return Elimina_Especiales
+    End Function
+
+    Private Sub recupera_campos()
+        conexionlocal()
+        'cnn1.Close() : cnn1.Open()
+        'cmd1 = cnn1.CreateCommand
+        'cmd1.CommandText = ""
+        'rd1 = cmd1.ExecuteReader
+        'If rd1.HasRows Then
+        '    If rd1.Read Then
+
+        '    End If
+        'End If
+        'rd1.Close()
+        'cnn1.Close()
+
+        Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
+        Dim sSQL As String = "SELECT * FROM Formatos"
+        Dim sinfo As String = ""
+        Dim dr As DataRow
+        Dim dt As New DataTable
+        Dim oData As New ToolKitSQL.myssql
+        With oData
+            If .dbOpen(cnn, sTargetlocal, sinfo) Then
+                If .getDt(cnn, dt, sSQL, sinfo) Then
+                    For Each dr In dt.Rows
+                        Select Case dr("Facturas").ToString
+                            Case "Mail_Emi"
+                                cuentamail = dr("NotasCred").ToString
+                            Case "Shibboleth_ML"
+                                passmail = dr("NotasCred").ToString
+                            Case "Server_SMTP"
+                                servidor = dr("NotasCred").ToString
+                            Case "Pto_Mail"
+                                puerto = dr("NotasCred").ToString
+                            Case "SSL"
+                                seguridad = dr("NotasCred").ToString
+                        End Select
+                    Next
+                    seguridad = True
+                    nombree = varnomemail
+                Else
+                    MsgBox("Error en la configuracion de correo")
+                End If
+                cnn.Close()
+            Else
+                MsgBox(sinfo)
+            End If
+        End With
+    End Sub
+
+    Public Function envio_Corte(ByVal paraf As String, ByVal asuntof As String, ByVal mensajef As String, ByVal archivof As String)
+        If archivof <> "" Then
+            recupera_campos()
+
+            Dim mail As New MailMessage
+            Dim oAttch As Net.Mail.AttachmentBase = New Net.Mail.Attachment(archivof)
+
+            Try
+                mail.From = New MailAddress(cuentamail, nombree)
+                mail.To.Add(paraf)
+                mail.Subject = (asuntof)
+                mail.Body = (mensajef)
+                mail.Attachments.Add(oAttch)
+
+                Dim servidorx As New SmtpClient(servidor)
+                servidorx.Port = puerto
+                servidorx.EnableSsl = seguridad
+                servidorx.Credentials = New System.Net.NetworkCredential(cuentamail, passmail)
+                servidorx.Send(mail)
+
+                MessageBox.Show("Mensaje enviado correctamene", "Exito!", MessageBoxButtons.OK)
+                Return True
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString, "Error!", MessageBoxButtons.OK)
+                Return False
+            End Try
+        End If
+#Disable Warning BC42105 ' La función 'envio' no devuelve un valor en todas las rutas de acceso de código. Puede producirse una excepción de referencia NULL en tiempo de ejecución cuando se use el resultado.
     End Function
 End Module
