@@ -211,6 +211,12 @@
       <DependentUpon>Cotización_Img.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Restaurantes\PruebaMesa.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PruebaMesa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Formularios\0 Inicio\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
@@ -1749,6 +1755,10 @@
     <EmbeddedResource Include="CrystalReports\Imagenes\Cotización_Img.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cotización_Img.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Restaurantes\PruebaMesa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PruebaMesa.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>

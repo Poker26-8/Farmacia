@@ -411,7 +411,7 @@ Partial Class frmAgregarProducto
         Me.pPreferencias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pPreferencias.Location = New System.Drawing.Point(4, 25)
         Me.pPreferencias.Name = "pPreferencias"
-        Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPreferencias.Padding = New System.Windows.Forms.Padding(3)
         Me.pPreferencias.Size = New System.Drawing.Size(406, 234)
         Me.pPreferencias.TabIndex = 0
         Me.pPreferencias.Text = "     Preferencias     "
@@ -421,7 +421,7 @@ Partial Class frmAgregarProducto
         Me.pExtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pExtras.Location = New System.Drawing.Point(4, 25)
         Me.pExtras.Name = "pExtras"
-        Me.pExtras.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pExtras.Padding = New System.Windows.Forms.Padding(3)
         Me.pExtras.Size = New System.Drawing.Size(406, 234)
         Me.pExtras.TabIndex = 1
         Me.pExtras.Text = "          Extras          "
@@ -431,7 +431,7 @@ Partial Class frmAgregarProducto
         Me.pPromociones.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.pPromociones.Location = New System.Drawing.Point(4, 25)
         Me.pPromociones.Name = "pPromociones"
-        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3)
         Me.pPromociones.Size = New System.Drawing.Size(406, 234)
         Me.pPromociones.TabIndex = 2
         Me.pPromociones.Text = "    Promociones    "
@@ -1314,6 +1314,7 @@ Partial Class frmAgregarProducto
         Me.Column7.MinimumWidth = 8
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
         Me.Column7.Width = 53
         '
         'Column8
@@ -1323,6 +1324,7 @@ Partial Class frmAgregarProducto
         Me.Column8.MinimumWidth = 8
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
         Me.Column8.Width = 72
         '
         'Column9

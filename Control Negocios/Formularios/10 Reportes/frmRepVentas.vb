@@ -987,6 +987,9 @@
             Dim MyUC2 As Double = 0, IvaTemp As Double = 0, YTem As Double = 0, XTem As Double = 0, ImporteDsct As Double = 0, ImpDscto As Double = 0, VarSumXD As Double = 0, VarSubtotal As Double = 0
             Dim Desc As Double = 0, Desc3 As Double = 0, Desc2 As Double = 0, propinas As Double = 0, costo As Double = 0, sumacosto As Double = 0, DESCU As Double = 0
 
+            Dim nuvaiva As Double = 0
+            Dim nuevosubtotal As Double = 0
+
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
@@ -1027,14 +1030,17 @@
                             unidad = rd3("Unidad").ToString()
                             cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
                             precio = IIf(rd3("Precio").ToString() = "", 0, rd3("Precio").ToString())
-                            MyTotalSI = IIf(rd3("TotalSinIVA").ToString() = "", 0, rd3("TotalSinIVA").ToString())
+                            ' MyTotalSI = IIf(rd3("TotalSinIVA").ToString() = "", 0, rd3("TotalSinIVA").ToString())
+                            MyTotalSI = IIf(rd3("Total").ToString() = "", 0, rd3("Total").ToString())
                             ieps = rd3("TotalIEPS").ToString()
                             fecha = rd3("Fecha").ToString()
                             MyUC2 = DameUti(folio, codigo, cantidad)
                             IvaTemp = IvaDSC(codigo)
                             'YTem = CDbl(rd3("TotalSinIVA").ToString()) - (CDbl(rd3("TotalSinIVA").ToString()) * Desc2)
-                            XTem = CDbl(rd3("TotalSinIVA").ToString()) * IvaTemp
-                            XTem = FormatNumber(XTem, 2)
+                            'XTem = CDbl(rd3("Total").ToString()) * (1 + IvaTemp)
+                            XTem = CDbl(rd3("Total").ToString()) / (1 + IvaTemp)
+                            nuvaiva = MyTotalSI - CDbl(XTem)
+                            nuevosubtotal = MyTotalSI - CDbl(nuvaiva)
 
                             lote = rd3("Lote").ToString()
                             caduca = IIf(rd3("Caducidad").ToString() = "", "", rd3("Caducidad").ToString())
@@ -1056,7 +1062,7 @@
                             grdcaptura.Rows.Add(folio, cliente, codigo, barras, n_parte, descrip, unidad, cantidad, costo, FormatNumber(VarSubtotal, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
                         Else
 
-                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
+                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(nuevosubtotal, 2), FormatNumber(nuvaiva, 2), FormatNumber(MyTotalSI, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
 
                         End If
                         T_Costo = T_Costo + sumacosto

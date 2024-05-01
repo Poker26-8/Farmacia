@@ -136,6 +136,8 @@
         Dim pie2 As String = ""
         Dim pie3 As String = ""
 
+        Dim foliocoma As Integer = 0
+
         cnn2.Close() : cnn2.Open()
         cmd2 = cnn2.CreateCommand
         cmd2.CommandText = "select * from Ticket"
@@ -154,8 +156,25 @@
         rd2.Close()
         cnn2.Close()
 
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT MAX(Id) FROM comanda1"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                foliocoma = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+
+            End If
+        Else
+            foliocoma = "1"
+        End If
+        rd2.Close()
+        cnn2.Close()
+
         e.Graphics.DrawString("--------------------------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
         Y += 15
+        e.Graphics.DrawString("Folio: " & foliocoma, fuente_b, Brushes.Black, 1, Y)
+        Y += 20
         e.Graphics.DrawString("Fecha: ", fuente_b, Brushes.Black, 1, Y)
         e.Graphics.DrawString(Format(Date.Now, "yyyy/MM/dd"), fuente_b, Brushes.Black, 45, Y)
         Y += 20
@@ -186,20 +205,7 @@
 
         Try
 
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT MAX(Id) FROM Comanda1"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    CFOLIO = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + 1
-                Else
-                    CFOLIO = 1
-                End If
-            Else
-                CFOLIO = 1
-            End If
-            rd2.Close()
+
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -216,6 +222,20 @@
             cnn1.Close()
 
 
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT MAX(Id) FROM Comanda1"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    CFOLIO = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                Else
+                    CFOLIO = 1
+                End If
+            Else
+                CFOLIO = 1
+            End If
+            rd2.Close()
 
             If minutosTiempo = 0 Then
                 HrTiempo = Format(Date.Now, "HH:mm:ss")

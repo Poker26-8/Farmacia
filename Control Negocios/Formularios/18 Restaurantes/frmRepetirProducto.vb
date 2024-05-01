@@ -7,7 +7,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Codigo,Nombre,UVenta,Cantidad,Precio FROM comandas order by Nombre"
+            cmd1.CommandText = "SELECT DISTINCT Codigo,Nombre,UVenta,Cantidad,Precio FROM comandas WHERE Codigo<>'xc3' order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

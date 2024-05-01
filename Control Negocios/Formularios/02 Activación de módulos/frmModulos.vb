@@ -199,7 +199,7 @@
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Me.Close()
-        frmCitas.Show()
-
+        ' frmCitas.Show()
+        frmNuevo.Show()
     End Sub
 End Class

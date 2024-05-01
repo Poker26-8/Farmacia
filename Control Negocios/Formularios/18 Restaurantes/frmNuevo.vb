@@ -1,4 +1,7 @@
-﻿Public Class frmNuevo
+﻿Imports System.IO
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
+Public Class frmNuevo
 
     Friend WithEvents btnMesa As System.Windows.Forms.Button
     Dim btnaccion = New DataGridViewButtonColumn()
@@ -203,5 +206,117 @@
                 grdCaptura2.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = nuevoValor
             End If
         End If
+    End Sub
+
+    Private Sub btnPdf_Click(sender As Object, e As EventArgs) Handles btnPdf.Click
+        PDF_MESAS()
+    End Sub
+
+    Private Sub PDF_MESAS()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New PruebaMesa
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        ' Lista para almacenar nombres de mesa
+        Dim nombres_mesas As New List(Of String)
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        cnn5.Close() : cnn5.Open()
+        cmd5 = cnn5.CreateCommand
+        cmd5.CommandText = "SELECT DISTINCT Nombre_mesa FROM mesa WHERE Nombre_mesa<>''"
+        rd5 = cmd5.ExecuteReader
+        Do While rd5.Read
+            If rd5.HasRows Then
+                nombres_mesas.Add(rd5(0).ToString())
+            End If
+        Loop
+        rd5.Close()
+        cnn5.Close()
+
+        ' Asignar los nombres de mesa al informe
+        For Each nombre As String In nombres_mesas
+            FileNta.DataDefinition.FormulaFields("mesamy").Text = "'" & nombre & "'"
+            FileNta.Refresh()
+        Next
+
+        ' FileNta.DataDefinition.FormulaFields("mesamy").Text = "'" & mesa & "'"
+
+        ' FileNta.Refresh()
+        'FileNta.Refresh()
+        'FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+                Dim CrExportOptions As ExportOptions
+                Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+                Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+                CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+                CrExportOptions = FileNta.ExportOptions
+                With CrExportOptions
+                    .ExportDestinationType = ExportDestinationType.DiskFile
+                    .ExportFormatType = ExportFormatType.PortableDocFormat
+                    .DestinationOptions = CrDiskFileDestinationOptions
+                    .FormatOptions = CrFormatTypeOptions
+                End With
+
+                FileNta.Export()
+                FileOpen.UseShellExecute = True
+                FileOpen.FileName = root_name_recibo
+
+                My.Application.DoEvents()
+
+                If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    Process.Start(FileOpen)
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            FileNta.Close()
+
+            If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta1.pdf")
+        End If
+
+
     End Sub
 End Class
