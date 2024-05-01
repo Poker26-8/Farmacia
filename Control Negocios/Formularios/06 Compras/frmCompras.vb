@@ -1881,7 +1881,10 @@ kaka:
             DondeVoy = "Guarda"
             tipo_impre = "NORMAL"
 
-            If cboremision.Text = "" Then MsgBox("Escribe el número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+            If cbofactura.Text = "" Then
+                If cboremision.Text = "" Then MsgBox("Escribe el número de remisión para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboremision.Focus().Equals(True) : Exit Sub
+            End If
+
             If cboproveedor.Text = "" Then MsgBox("Selecciona un proveedor para continuar con la compra.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboproveedor.Focus().Equals(True) : Exit Sub
             If CDbl(txtresta.Text) < 0 Then MsgBox("El abono a la compra no puede ser mayor al total de la misma.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtefectivo.Focus().Equals(True) : Exit Sub
             If CDbl(txtsub1.Text) = 0 Then MsgBox("Falta algún precio o alguna cantidad.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcodigo.Focus().Equals(True) : Exit Sub
