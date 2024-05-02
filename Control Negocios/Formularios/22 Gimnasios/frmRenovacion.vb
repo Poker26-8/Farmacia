@@ -159,8 +159,8 @@
             Exit Sub
         End If
 
-        Dim inicio As Date = mcinicio.SelectionStart.ToShortDateString
-        Dim fin As Date = mcfin.SelectionStart.ToShortDateString
+        Dim inicio As Date = DateTimePicker1.Value
+        Dim fin As Date = DateTimePicker2.Value
         Dim folio As Integer = 0
         Dim precio As Double = 0
         precio = txtPrecio.Text
