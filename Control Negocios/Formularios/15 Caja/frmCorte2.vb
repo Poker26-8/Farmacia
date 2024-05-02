@@ -2754,7 +2754,7 @@ Public Class frmCorte2
                 'Inserta ingresos
                 '-Efectivo
                 If CDbl(txtIngEfectivoG.Text) > 0 Then
-                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & txtIngEfectivoG.Text & ")", sinfo) Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & CDbl(txtIngEfectivoG.Text) & ")", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)
@@ -2766,7 +2766,7 @@ Public Class frmCorte2
                         Dim monto_ing As String = grdingresosglobal.Rows(t).Cells(0).Value.ToString()
                         Dim monto As Double = grdingresosglobal.Rows(t).Cells(1).Value.ToString()
 
-                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & monto & ")", sinfo) Then
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & CDbl(monto) & ")", sinfo) Then
                             sinfo = ""
                         Else
                             MsgBox(sinfo)
@@ -2777,7 +2777,7 @@ Public Class frmCorte2
                 'Inserta egresos
                 '-Efectivo
                 If CDbl(txtEgrEfectivoG.Text) > 0 Then
-                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & txtEgrEfectivoG.Text & ")", sinfo) Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & CDbl(txtEgrEfectivoG.Text) & ")", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)
@@ -2789,7 +2789,7 @@ Public Class frmCorte2
                         Dim monto_igr As String = grdegresosglobal.Rows(t).Cells(0).Value.ToString()
                         Dim monto As Double = grdegresosglobal.Rows(t).Cells(1).Value.ToString()
 
-                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & monto & ")", sinfo) Then
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & CDbl(monto) & ")", sinfo) Then
                             sinfo = ""
                         Else
                             MsgBox(sinfo)
@@ -2918,7 +2918,7 @@ Public Class frmCorte2
                 'Inserta ingresos
                 '-Efectivo
                 If CDbl(txtIngEfectivoU.Text) > 0 Then
-                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & txtIngEfectivoU.Text & ")", sinfo) Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. EFECTIVO'," & CDbl(txtIngEfectivoU.Text) & ")", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)
@@ -2930,7 +2930,7 @@ Public Class frmCorte2
                         Dim monto_ing As String = grdIngresos.Rows(t).Cells(0).Value.ToString()
                         Dim monto As Double = grdIngresos.Rows(t).Cells(1).Value.ToString()
 
-                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & monto & ")", sinfo) Then
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('ING. " & monto_ing & "'," & CDbl(monto) & ")", sinfo) Then
                             sinfo = ""
                         Else
                             MsgBox(sinfo)
@@ -2941,7 +2941,7 @@ Public Class frmCorte2
                 'Inserta egresos
                 '-Efectivo
                 If CDbl(txtEgrEfectivoU.Text) > 0 Then
-                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & txtEgrEfectivoU.Text & ")", sinfo) Then
+                    If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. EFECTIVO'," & CDbl(txtEgrEfectivoU.Text) & ")", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)
@@ -2953,7 +2953,7 @@ Public Class frmCorte2
                         Dim monto_igr As String = grdEgresos.Rows(t).Cells(0).Value.ToString()
                         Dim monto As Double = grdEgresos.Rows(t).Cells(1).Value.ToString()
 
-                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & monto & ")", sinfo) Then
+                        If .runSp(a_cnn, "insert into Caja_Ingresos(Concepto,Monto) values('EGR. " & monto_igr & "'," & CDbl(monto) & ")", sinfo) Then
                             sinfo = ""
                         Else
                             MsgBox(sinfo)
