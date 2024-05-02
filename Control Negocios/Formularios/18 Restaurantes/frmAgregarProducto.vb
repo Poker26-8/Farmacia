@@ -1691,7 +1691,7 @@ Public Class frmAgregarProducto
     Public Sub UpGridCaptura()
         Dim TotalVenta As Double = 0
         Dim esta As String = ""
-
+        Dim acumula As Integer = 0
         Dim hora_dia As String = Format(Date.Now, "HH:mm:ss")
 
         cnn1.Close() : cnn1.Open()
@@ -1705,7 +1705,18 @@ Public Class frmAgregarProducto
                 esta = rd1("Comensal").ToString
             End If
         End If
-        rd1.Close() : cnn1.Close()
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Acumula'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                acumula = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
 
         If esta = 1 Then
             With Me.grdCaptura
@@ -2153,28 +2164,62 @@ Public Class frmAgregarProducto
 
                 Dim banderaentraa As Integer = 0
                 banderaentraa = 0
-                For qq As Integer = 0 To grdCaptura.Rows.Count - 1
 
-                    If .Rows(qq).Cells(0).Value = CodigoProducto Then
-                        .Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
-                        .Rows(qq).Cells(2).Value = .Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
-                        .Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
-                        .Rows(qq).Cells(4).Value = .Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
-                        .Rows(qq).Cells(5).Value = cantidad2
-                        .Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+                If acumula = 1 Then
+                    For dx As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If CodigoProducto = grdCaptura.Rows(dx).Cells(0).Value.ToString Then
+                            grdCaptura.Rows(dx).Cells(2).Value = cantidad + CDbl(grdCaptura.Rows(dx).Cells(2).Value.ToString)
+                            grdCaptura.Rows(dx).Cells(4).Value = FormatNumber(Importe + CDbl(grdCaptura.Rows(dx).Cells(4).Value.ToString), 2)
 
-                        lblTotalVenta.Text = lblTotalVenta.Text + Importe
-                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
-                        banderaentraa = 1
-                    End If
-                Next
+                            lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                            lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
 
-                If banderaentraa = 0 Then
+                            GoTo deku
+                        End If
+                    Next
+
+                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                    lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                Else
                     .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
 
                     lblTotalVenta.Text = lblTotalVenta.Text + Importe
                     lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
                 End If
+
+deku:
+                'For qq As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                '        If .Rows(qq).Cells(0).Value = CodigoProducto Then
+                '            .Rows(qq).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+                '            .Rows(qq).Cells(2).Value = .Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                '            .Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                '            .Rows(qq).Cells(4).Value = .Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(Importe, 2))
+                '            .Rows(qq).Cells(5).Value = cantidad2
+                '            .Rows(qq).Cells(6).Value = IIf(nompreferencia = "", "", nompreferencia)
+
+                '            lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                '            lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                '            banderaentraa = 1
+                '        End If
+                '    Next
+
+                'If banderaentraa = 0 Then
+                '    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+
+                '    lblTotalVenta.Text = lblTotalVenta.Text + Importe
+                '    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                'End If
+
+
+
+
+
+
+
+
             End With
         End If
     End Sub

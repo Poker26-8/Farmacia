@@ -620,6 +620,19 @@ nopaso:
     Public Sub UpGridCaptura()
 
         Dim TotalVenta As Double = 0
+        Dim acumula As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Acumula'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                acumula = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
 
         If dosxuno = 1 Then
 
@@ -668,31 +681,28 @@ nopaso:
             Dim banderaproducto As Integer = 0
             banderaproducto = 0
 
-            For q As Integer = 0 To grdCaptura.Rows.Count - 1
+            If acumula = 1 Then
+                For dx As Integer = 0 To grdCaptura.Rows.Count - 1
+                    If CodigoProducto = grdCaptura.Rows(dx).Cells(0).Value.ToString Then
+                        grdCaptura.Rows(dx).Cells(2).Value = cantidad + CDec(grdCaptura.Rows(dx).Cells(2).Value)
+                        grdCaptura.Rows(dx).Cells(4).Value = FormatNumber(importe + CDec(grdCaptura.Rows(dx).Cells(4).Value), 2)
 
-                If grdCaptura.Rows(q).Cells(0).Value = CodigoProducto Then
-                    grdCaptura.Rows(q).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
-                    grdCaptura.Rows(q).Cells(2).Value = FormatNumber(CDbl(grdCaptura.Rows(q).Cells(2).Value.ToString()) + CDec(cantidad), 2)
-                    grdCaptura.Rows(q).Cells(3).Value = FormatNumber(precio, 2)
-                    grdCaptura.Rows(q).Cells(4).Value = FormatNumber(CDbl(grdCaptura.Rows(q).Cells(4).Value.ToString()) + importe, 2)
+                        lblTotalPagar.Text = lblTotalPagar.Text + importe
+                        lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
 
-                    lblTotalPagar.Text = lblTotalPagar.Text + importe
-                    lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
-                    lblRestaPagar.Text = lblRestaPagar.Text + importe
-                    lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
-                    banderaproducto = 1
-                End If
+                        lblRestaPagar.Text = lblRestaPagar.Text + importe
+                        lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
 
-            Next q
-
-            If banderaproducto = 0 Then
+                        GoTo deku
+                    End If
+                Next
 
                 grdCaptura.Rows.Add(CodigoProducto,
-                                    CodigoProducto & vbNewLine & descripcion,
-                                    cantidad,
-                                    FormatNumber(precio, 2),
-                                    FormatNumber(importe, 2),
-respuesta, "")
+                                        CodigoProducto & vbNewLine & descripcion,
+                                        cantidad,
+                                        FormatNumber(precio, 2),
+                                        FormatNumber(importe, 2),
+    respuesta, "")
 
                 lblTotalPagar.Text = lblTotalPagar.Text + importe
                 lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -700,7 +710,43 @@ respuesta, "")
                 lblRestaPagar.Text = lblRestaPagar.Text + importe
                 lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
 
+            Else
+                If banderaproducto = 0 Then
+
+                    grdCaptura.Rows.Add(CodigoProducto,
+                                        CodigoProducto & vbNewLine & descripcion,
+                                        cantidad,
+                                        FormatNumber(precio, 2),
+                                        FormatNumber(importe, 2),
+    respuesta, "")
+
+                    lblTotalPagar.Text = lblTotalPagar.Text + importe
+                    lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
+
+                    lblRestaPagar.Text = lblRestaPagar.Text + importe
+                    lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
+
+                End If
             End If
+deku:
+            'For q As Integer = 0 To grdCaptura.Rows.Count - 1
+
+            '    If grdCaptura.Rows(q).Cells(0).Value = CodigoProducto Then
+            '        grdCaptura.Rows(q).Cells(1).Value = CodigoProducto & vbNewLine & descripcion
+            '        grdCaptura.Rows(q).Cells(2).Value = FormatNumber(CDbl(grdCaptura.Rows(q).Cells(2).Value.ToString()) + CDec(cantidad), 2)
+            '        grdCaptura.Rows(q).Cells(3).Value = FormatNumber(precio, 2)
+            '        grdCaptura.Rows(q).Cells(4).Value = FormatNumber(CDbl(grdCaptura.Rows(q).Cells(4).Value.ToString()) + importe, 2)
+
+            '        lblTotalPagar.Text = lblTotalPagar.Text + importe
+            '        lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
+            '        lblRestaPagar.Text = lblRestaPagar.Text + importe
+            '        lblRestaPagar.Text = FormatNumber(lblRestaPagar.Text, 2)
+            '        banderaproducto = 1
+            '    End If
+
+            'Next q
+
+
 
         End With
 

@@ -777,8 +777,6 @@
                     "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
             End If
 
-            MsgBox(cmd1.CommandText.ToString)
-
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1068,8 +1066,10 @@
                         T_Costo = T_Costo + sumacosto
                         ' T_descuento = T_descuento + ImpDscto
                         T_ieps = T_ieps + ieps
-                        T_iva = T_iva + XTem
-                        T_subtotal = T_subtotal + MyTotalSI
+                        T_iva = T_iva + nuvaiva
+                        T_iva = FormatNumber(T_iva, 2)
+                        T_subtotal = T_subtotal + nuevosubtotal
+                        T_subtotal = FormatNumber(T_subtotal, 2)
                     Loop
                     rd3.Close()
                 End If
@@ -1079,11 +1079,11 @@
             cnn2.Close() : cnn3.Close()
             txtPropina.Text = FormatNumber(T_Propina, 2)
             txtdescuento.Text = FormatNumber(T_descuento, 2)
-            txtsubtotal.Text = FormatNumber(T_subtotal + T_Propina, 2)
+            txtsubtotal.Text = FormatNumber(T_subtotal, 2)
             txtieps.Text = FormatNumber(T_ieps, 2)
             txtiva.Text = FormatNumber(T_iva, 2)
             'txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
-            txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
+            txttotal.Text = FormatNumber(CDbl(T_subtotal) + CDbl(T_iva) + CDbl(T_Propina) - txtdescuento.Text, 2)
             txtCosto.Text = FormatNumber(T_Costo, 2)
             txtutilidad.Text = FormatNumber(CDbl(txttotal.Text) - CDbl(txtCosto.Text), 2)
             txtSuma.Text = FormatNumber(T_productos, 2)
