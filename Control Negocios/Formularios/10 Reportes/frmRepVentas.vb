@@ -825,18 +825,19 @@
                         End If
                     End If
                     rd2.Close()
-
-                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
-                    barcarga.Value = barcarga.Value + 1
-
                     T_Propina = T_Propina + propina
                     T_descuento = T_descuento + descuento
                     T_ieps = T_ieps + IEPS
                     T_iva = T_iva + IVA
-                    T_subtotal = T_subtotal + subtotal
+                    T_subtotal = T_subtotal + subtotal + T_descuento
                     T_total = T_total + total
                     T_acuenta = T_acuenta + acuenta
                     t_resta = t_resta + resta
+
+                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal + T_descuento + T_iva, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
+                    barcarga.Value = barcarga.Value + 1
+
+
                 End If
             Loop
             rd1.Close() : cnn1.Close()
