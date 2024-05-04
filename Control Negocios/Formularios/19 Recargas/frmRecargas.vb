@@ -312,15 +312,15 @@ Public Class frmRecargas
     End Sub
 
     Private Sub cboCompañia_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCompañia.SelectedValueChanged
-        If cboCompañia.Text = "Telcel" Then
-            PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".jpg")
-        End If
-        If cboCompañia.Text = "Movistar" Then
-            PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".png")
-        End If
-        If cboCompañia.Text = "Nextel - ATT" Then
-            PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".png")
-        End If
+        'If cboCompañia.Text = "Telcel" Then
+        '    PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".jpg")
+        'End If
+        'If cboCompañia.Text = "Movistar" Then
+        '    PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".png")
+        'End If
+        'If cboCompañia.Text = "Nextel - ATT" Then
+        '    PictureBox1.Image = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\logos\" & cboCompañia.Text & ".png")
+        'End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

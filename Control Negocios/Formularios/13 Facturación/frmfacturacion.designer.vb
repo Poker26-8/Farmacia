@@ -73,156 +73,6 @@ Partial Class frmfacturacion
         Me.Label38 = New System.Windows.Forms.Label()
         Me.txtUUID = New System.Windows.Forms.TextBox()
         Me.cboFolio = New System.Windows.Forms.ComboBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.btnAceptarCP = New System.Windows.Forms.Button()
-        Me.btnLimpiarCP = New System.Windows.Forms.Button()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.GroupBox22 = New System.Windows.Forms.GroupBox()
-        Me.txtNumPolizaMatPel = New System.Windows.Forms.TextBox()
-        Me.Label95 = New System.Windows.Forms.Label()
-        Me.txtAseguradoraMatPel = New System.Windows.Forms.TextBox()
-        Me.Label96 = New System.Windows.Forms.Label()
-        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.txtNumPed4 = New System.Windows.Forms.TextBox()
-        Me.txtNumPed3 = New System.Windows.Forms.TextBox()
-        Me.txtNumPed2 = New System.Windows.Forms.TextBox()
-        Me.txtNumPed1 = New System.Windows.Forms.TextBox()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.txtDestinoLoc = New System.Windows.Forms.TextBox()
-        Me.cboDesDestinatario = New System.Windows.Forms.ComboBox()
-        Me.txtDesRFC = New System.Windows.Forms.TextBox()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.txtDestinioDist = New System.Windows.Forms.TextBox()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.cboDestinoMun = New System.Windows.Forms.ComboBox()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.cboDestinoEdo = New System.Windows.Forms.ComboBox()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.txtDestinoNumI = New System.Windows.Forms.TextBox()
-        Me.Label63 = New System.Windows.Forms.Label()
-        Me.cboDestinoColonia = New System.Windows.Forms.ComboBox()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.txtDestinoCP = New System.Windows.Forms.TextBox()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.txtDestinoNumE = New System.Windows.Forms.TextBox()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.txtDestinoCalle = New System.Windows.Forms.TextBox()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.cboDestinoPais = New System.Windows.Forms.ComboBox()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.dtpDesHora = New System.Windows.Forms.DateTimePicker()
-        Me.dtpDesFecha = New System.Windows.Forms.DateTimePicker()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.cboOrigMun = New System.Windows.Forms.ComboBox()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.txtOrigNumInt = New System.Windows.Forms.TextBox()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.cboOrigColonia = New System.Windows.Forms.ComboBox()
-        Me.cboOrigEdo = New System.Windows.Forms.ComboBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.txtOrigCP = New System.Windows.Forms.TextBox()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.txtOrigNumExt = New System.Windows.Forms.TextBox()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.txtOrigCalle = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.dtpOrigHora = New System.Windows.Forms.DateTimePicker()
-        Me.dtpOrigFecha = New System.Windows.Forms.DateTimePicker()
-        Me.cboOrigRemitente = New System.Windows.Forms.ComboBox()
-        Me.txtOrigRFC = New System.Windows.Forms.TextBox()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.txtPlaca = New System.Windows.Forms.ComboBox()
-        Me.cboPermisoSCT = New System.Windows.Forms.ComboBox()
-        Me.txtNumPermisoSCT = New System.Windows.Forms.TextBox()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.txtAseguradora = New System.Windows.Forms.TextBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.cboConfigV = New System.Windows.Forms.ComboBox()
-        Me.txtNumPoliza = New System.Windows.Forms.TextBox()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.txtModeloAño = New System.Windows.Forms.TextBox()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
-        Me.chkInter = New System.Windows.Forms.CheckBox()
-        Me.Label70 = New System.Windows.Forms.Label()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
-        Me.cboTipoFigura = New System.Windows.Forms.ComboBox()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.txtOpeLicencia = New System.Windows.Forms.TextBox()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.cboOpeNombre = New System.Windows.Forms.ComboBox()
-        Me.txtOpeRFC = New System.Windows.Forms.TextBox()
-        Me.Label90 = New System.Windows.Forms.Label()
-        Me.Label91 = New System.Windows.Forms.Label()
-        Me.dgProductos = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox23 = New System.Windows.Forms.GroupBox()
-        Me.cboEmbalaje = New System.Windows.Forms.ComboBox()
-        Me.Label97 = New System.Windows.Forms.Label()
-        Me.cboMatPeligroso = New System.Windows.Forms.ComboBox()
-        Me.chkMatPeg = New System.Windows.Forms.CheckBox()
-        Me.Label98 = New System.Windows.Forms.Label()
-        Me.cboUniMedSAT = New System.Windows.Forms.ComboBox()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.cboProdServSAT = New System.Windows.Forms.ComboBox()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.cboDescripcion = New System.Windows.Forms.ComboBox()
-        Me.txtCantidad = New System.Windows.Forms.TextBox()
-        Me.txtPartidaNew = New System.Windows.Forms.TextBox()
-        Me.txtFraccAran = New System.Windows.Forms.TextBox()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.txtUUIDComE = New System.Windows.Forms.TextBox()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.txtTotalPeso = New System.Windows.Forms.TextBox()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.txtPesoKG = New System.Windows.Forms.TextBox()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.txtValorMerc = New System.Windows.Forms.TextBox()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.GroupBox21 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.cboTipoRemolque = New System.Windows.Forms.ComboBox()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.txtPlacaTipoRemolque = New System.Windows.Forms.TextBox()
-        Me.Label92 = New System.Windows.Forms.Label()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.btnParcialidades = New System.Windows.Forms.Button()
@@ -390,31 +240,163 @@ Partial Class frmfacturacion
         Me.EditarDescripcionLargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.lblfolioventa = New System.Windows.Forms.Label()
-        Me.txtPesoBrutoV = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.GroupBox21 = New System.Windows.Forms.GroupBox()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.txtPlacaTipoRemolque = New System.Windows.Forms.TextBox()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.cboTipoRemolque = New System.Windows.Forms.ComboBox()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.txtValorMerc = New System.Windows.Forms.TextBox()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.txtPesoKG = New System.Windows.Forms.TextBox()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.txtTotalPeso = New System.Windows.Forms.TextBox()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.txtUUIDComE = New System.Windows.Forms.TextBox()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.txtFraccAran = New System.Windows.Forms.TextBox()
+        Me.txtPartidaNew = New System.Windows.Forms.TextBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.cboDescripcion = New System.Windows.Forms.ComboBox()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.cboProdServSAT = New System.Windows.Forms.ComboBox()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.cboUniMedSAT = New System.Windows.Forms.ComboBox()
+        Me.GroupBox23 = New System.Windows.Forms.GroupBox()
+        Me.Label98 = New System.Windows.Forms.Label()
+        Me.chkMatPeg = New System.Windows.Forms.CheckBox()
+        Me.cboMatPeligroso = New System.Windows.Forms.ComboBox()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.cboEmbalaje = New System.Windows.Forms.ComboBox()
+        Me.dgProductos = New System.Windows.Forms.DataGridView()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.Label90 = New System.Windows.Forms.Label()
+        Me.txtOpeRFC = New System.Windows.Forms.TextBox()
+        Me.cboOpeNombre = New System.Windows.Forms.ComboBox()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.txtOpeLicencia = New System.Windows.Forms.TextBox()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.cboTipoFigura = New System.Windows.Forms.ComboBox()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.Label70 = New System.Windows.Forms.Label()
+        Me.chkInter = New System.Windows.Forms.CheckBox()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.txtModeloAño = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.txtNumPoliza = New System.Windows.Forms.TextBox()
+        Me.cboConfigV = New System.Windows.Forms.ComboBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.txtAseguradora = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.txtNumPermisoSCT = New System.Windows.Forms.TextBox()
+        Me.cboPermisoSCT = New System.Windows.Forms.ComboBox()
+        Me.txtPlaca = New System.Windows.Forms.ComboBox()
         Me.Label109 = New System.Windows.Forms.Label()
+        Me.txtPesoBrutoV = New System.Windows.Forms.TextBox()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.txtOrigRFC = New System.Windows.Forms.TextBox()
+        Me.cboOrigRemitente = New System.Windows.Forms.ComboBox()
+        Me.dtpOrigFecha = New System.Windows.Forms.DateTimePicker()
+        Me.dtpOrigHora = New System.Windows.Forms.DateTimePicker()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.txtOrigCalle = New System.Windows.Forms.TextBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.txtOrigNumExt = New System.Windows.Forms.TextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.txtOrigCP = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.cboOrigEdo = New System.Windows.Forms.ComboBox()
+        Me.cboOrigColonia = New System.Windows.Forms.ComboBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.txtOrigNumInt = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.cboOrigMun = New System.Windows.Forms.ComboBox()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.dtpDesFecha = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDesHora = New System.Windows.Forms.DateTimePicker()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.cboDestinoPais = New System.Windows.Forms.ComboBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.txtDestinoCalle = New System.Windows.Forms.TextBox()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.txtDestinoNumE = New System.Windows.Forms.TextBox()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.txtDestinoCP = New System.Windows.Forms.TextBox()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.cboDestinoColonia = New System.Windows.Forms.ComboBox()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.txtDestinoNumI = New System.Windows.Forms.TextBox()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.cboDestinoEdo = New System.Windows.Forms.ComboBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.cboDestinoMun = New System.Windows.Forms.ComboBox()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.txtDestinioDist = New System.Windows.Forms.TextBox()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.txtDesRFC = New System.Windows.Forms.TextBox()
+        Me.cboDesDestinatario = New System.Windows.Forms.ComboBox()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.txtDestinoLoc = New System.Windows.Forms.TextBox()
+        Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.txtNumPed1 = New System.Windows.Forms.TextBox()
+        Me.txtNumPed2 = New System.Windows.Forms.TextBox()
+        Me.txtNumPed3 = New System.Windows.Forms.TextBox()
+        Me.txtNumPed4 = New System.Windows.Forms.TextBox()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.GroupBox22 = New System.Windows.Forms.GroupBox()
+        Me.Label96 = New System.Windows.Forms.Label()
+        Me.txtAseguradoraMatPel = New System.Windows.Forms.TextBox()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.txtNumPolizaMatPel = New System.Windows.Forms.TextBox()
+        Me.btnLimpiarCP = New System.Windows.Forms.Button()
+        Me.btnAceptarCP = New System.Windows.Forms.Button()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox20.SuspendLayout()
         Me.gbLE.SuspendLayout()
         Me.GbUUID.SuspendLayout()
         CType(Me.dgUUID, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox9.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.GroupBox22.SuspendLayout()
-        Me.GroupBox19.SuspendLayout()
-        Me.GroupBox12.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
-        Me.GroupBox14.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.GroupBox17.SuspendLayout()
-        CType(Me.dgProductos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox15.SuspendLayout()
-        Me.GroupBox23.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.GroupBox21.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
@@ -431,6 +413,24 @@ Partial Class frmfacturacion
         Me.GBox_.SuspendLayout()
         Me.GroupBox_D_FIS.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox21.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
+        Me.GroupBox23.SuspendLayout()
+        CType(Me.dgProductos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox17.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
+        Me.GroupBox22.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox7
@@ -943,1504 +943,6 @@ Partial Class frmfacturacion
         Me.cboFolio.Name = "cboFolio"
         Me.cboFolio.Size = New System.Drawing.Size(121, 23)
         Me.cboFolio.TabIndex = 0
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.GroupBox9.Controls.Add(Me.btnAceptarCP)
-        Me.GroupBox9.Controls.Add(Me.btnLimpiarCP)
-        Me.GroupBox9.Controls.Add(Me.TabControl1)
-        Me.GroupBox9.Location = New System.Drawing.Point(4, 83)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(987, 596)
-        Me.GroupBox9.TabIndex = 89
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Datos para el Complemento Carta Porte"
-        Me.GroupBox9.Visible = False
-        '
-        'btnAceptarCP
-        '
-        Me.btnAceptarCP.BackColor = System.Drawing.Color.White
-        Me.btnAceptarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptarCP.ForeColor = System.Drawing.Color.Black
-        Me.btnAceptarCP.Image = CType(resources.GetObject("btnAceptarCP.Image"), System.Drawing.Image)
-        Me.btnAceptarCP.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAceptarCP.Location = New System.Drawing.Point(898, 41)
-        Me.btnAceptarCP.Name = "btnAceptarCP"
-        Me.btnAceptarCP.Size = New System.Drawing.Size(75, 73)
-        Me.btnAceptarCP.TabIndex = 2
-        Me.btnAceptarCP.Text = "Aceptar"
-        Me.btnAceptarCP.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAceptarCP.UseVisualStyleBackColor = False
-        '
-        'btnLimpiarCP
-        '
-        Me.btnLimpiarCP.BackColor = System.Drawing.Color.White
-        Me.btnLimpiarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLimpiarCP.Image = CType(resources.GetObject("btnLimpiarCP.Image"), System.Drawing.Image)
-        Me.btnLimpiarCP.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarCP.Location = New System.Drawing.Point(899, 120)
-        Me.btnLimpiarCP.Name = "btnLimpiarCP"
-        Me.btnLimpiarCP.Size = New System.Drawing.Size(75, 79)
-        Me.btnLimpiarCP.TabIndex = 1
-        Me.btnLimpiarCP.Text = "Limpiar"
-        Me.btnLimpiarCP.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiarCP.UseVisualStyleBackColor = False
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(9, 19)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(883, 561)
-        Me.TabControl1.TabIndex = 0
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.TabPage1.Controls.Add(Me.GroupBox22)
-        Me.TabPage1.Controls.Add(Me.GroupBox19)
-        Me.TabPage1.Controls.Add(Me.GroupBox12)
-        Me.TabPage1.Controls.Add(Me.GroupBox11)
-        Me.TabPage1.Controls.Add(Me.GroupBox10)
-        Me.TabPage1.Controls.Add(Me.GroupBox14)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(875, 533)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Datos del Origen, Destino y Autotransporte"
-        '
-        'GroupBox22
-        '
-        Me.GroupBox22.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox22.Controls.Add(Me.txtNumPolizaMatPel)
-        Me.GroupBox22.Controls.Add(Me.Label95)
-        Me.GroupBox22.Controls.Add(Me.txtAseguradoraMatPel)
-        Me.GroupBox22.Controls.Add(Me.Label96)
-        Me.GroupBox22.Location = New System.Drawing.Point(555, 6)
-        Me.GroupBox22.Name = "GroupBox22"
-        Me.GroupBox22.Size = New System.Drawing.Size(312, 70)
-        Me.GroupBox22.TabIndex = 58
-        Me.GroupBox22.TabStop = False
-        Me.GroupBox22.Text = "DATOS DE ASEGURADORA MATERIALES PELIGROSOS"
-        '
-        'txtNumPolizaMatPel
-        '
-        Me.txtNumPolizaMatPel.BackColor = System.Drawing.Color.White
-        Me.txtNumPolizaMatPel.Location = New System.Drawing.Point(89, 41)
-        Me.txtNumPolizaMatPel.Name = "txtNumPolizaMatPel"
-        Me.txtNumPolizaMatPel.Size = New System.Drawing.Size(116, 23)
-        Me.txtNumPolizaMatPel.TabIndex = 33
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Location = New System.Drawing.Point(6, 45)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(74, 15)
-        Me.Label95.TabIndex = 32
-        Me.Label95.Text = "Núm. Poliza:"
-        '
-        'txtAseguradoraMatPel
-        '
-        Me.txtAseguradoraMatPel.BackColor = System.Drawing.Color.White
-        Me.txtAseguradoraMatPel.Location = New System.Drawing.Point(89, 17)
-        Me.txtAseguradoraMatPel.Name = "txtAseguradoraMatPel"
-        Me.txtAseguradoraMatPel.Size = New System.Drawing.Size(215, 23)
-        Me.txtAseguradoraMatPel.TabIndex = 19
-        '
-        'Label96
-        '
-        Me.Label96.AutoSize = True
-        Me.Label96.Location = New System.Drawing.Point(6, 20)
-        Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(77, 15)
-        Me.Label96.TabIndex = 18
-        Me.Label96.Text = "Aseguradora:"
-        '
-        'GroupBox19
-        '
-        Me.GroupBox19.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox19.Controls.Add(Me.Label73)
-        Me.GroupBox19.Controls.Add(Me.Label74)
-        Me.GroupBox19.Controls.Add(Me.Label75)
-        Me.GroupBox19.Controls.Add(Me.Label76)
-        Me.GroupBox19.Controls.Add(Me.txtNumPed4)
-        Me.GroupBox19.Controls.Add(Me.txtNumPed3)
-        Me.GroupBox19.Controls.Add(Me.txtNumPed2)
-        Me.GroupBox19.Controls.Add(Me.txtNumPed1)
-        Me.GroupBox19.Controls.Add(Me.Label77)
-        Me.GroupBox19.Location = New System.Drawing.Point(200, 6)
-        Me.GroupBox19.Name = "GroupBox19"
-        Me.GroupBox19.Size = New System.Drawing.Size(349, 70)
-        Me.GroupBox19.TabIndex = 56
-        Me.GroupBox19.TabStop = False
-        Me.GroupBox19.Text = "NÚMERO DE PEDIMENTO ADUANAL"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(270, 45)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(36, 15)
-        Me.Label73.TabIndex = 22
-        Me.Label73.Text = "7 dig."
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(180, 45)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(36, 15)
-        Me.Label74.TabIndex = 21
-        Me.Label74.Text = "4 dig."
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(119, 45)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(36, 15)
-        Me.Label75.TabIndex = 20
-        Me.Label75.Text = "2 dig."
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(69, 45)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(36, 15)
-        Me.Label76.TabIndex = 19
-        Me.Label76.Text = "2 dig."
-        '
-        'txtNumPed4
-        '
-        Me.txtNumPed4.BackColor = System.Drawing.Color.White
-        Me.txtNumPed4.Location = New System.Drawing.Point(235, 17)
-        Me.txtNumPed4.MaxLength = 7
-        Me.txtNumPed4.Name = "txtNumPed4"
-        Me.txtNumPed4.Size = New System.Drawing.Size(108, 23)
-        Me.txtNumPed4.TabIndex = 18
-        '
-        'txtNumPed3
-        '
-        Me.txtNumPed3.BackColor = System.Drawing.Color.White
-        Me.txtNumPed3.Location = New System.Drawing.Point(164, 17)
-        Me.txtNumPed3.MaxLength = 4
-        Me.txtNumPed3.Name = "txtNumPed3"
-        Me.txtNumPed3.Size = New System.Drawing.Size(65, 23)
-        Me.txtNumPed3.TabIndex = 17
-        '
-        'txtNumPed2
-        '
-        Me.txtNumPed2.BackColor = System.Drawing.Color.White
-        Me.txtNumPed2.Location = New System.Drawing.Point(114, 17)
-        Me.txtNumPed2.MaxLength = 2
-        Me.txtNumPed2.Name = "txtNumPed2"
-        Me.txtNumPed2.Size = New System.Drawing.Size(44, 23)
-        Me.txtNumPed2.TabIndex = 16
-        '
-        'txtNumPed1
-        '
-        Me.txtNumPed1.BackColor = System.Drawing.Color.White
-        Me.txtNumPed1.Location = New System.Drawing.Point(63, 17)
-        Me.txtNumPed1.MaxLength = 2
-        Me.txtNumPed1.Name = "txtNumPed1"
-        Me.txtNumPed1.Size = New System.Drawing.Size(44, 23)
-        Me.txtNumPed1.TabIndex = 3
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(6, 21)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(54, 15)
-        Me.Label77.TabIndex = 15
-        Me.Label77.Text = "Número:"
-        '
-        'GroupBox12
-        '
-        Me.GroupBox12.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox12.Controls.Add(Me.GroupBox13)
-        Me.GroupBox12.Controls.Add(Me.cboDesDestinatario)
-        Me.GroupBox12.Controls.Add(Me.txtDesRFC)
-        Me.GroupBox12.Controls.Add(Me.Label58)
-        Me.GroupBox12.Controls.Add(Me.Label59)
-        Me.GroupBox12.Controls.Add(Me.txtDestinioDist)
-        Me.GroupBox12.Controls.Add(Me.Label60)
-        Me.GroupBox12.Controls.Add(Me.cboDestinoMun)
-        Me.GroupBox12.Controls.Add(Me.Label61)
-        Me.GroupBox12.Controls.Add(Me.cboDestinoEdo)
-        Me.GroupBox12.Controls.Add(Me.Label62)
-        Me.GroupBox12.Controls.Add(Me.txtDestinoNumI)
-        Me.GroupBox12.Controls.Add(Me.Label63)
-        Me.GroupBox12.Controls.Add(Me.cboDestinoColonia)
-        Me.GroupBox12.Controls.Add(Me.Label64)
-        Me.GroupBox12.Controls.Add(Me.txtDestinoCP)
-        Me.GroupBox12.Controls.Add(Me.Label65)
-        Me.GroupBox12.Controls.Add(Me.txtDestinoNumE)
-        Me.GroupBox12.Controls.Add(Me.Label66)
-        Me.GroupBox12.Controls.Add(Me.txtDestinoCalle)
-        Me.GroupBox12.Controls.Add(Me.Label67)
-        Me.GroupBox12.Controls.Add(Me.cboDestinoPais)
-        Me.GroupBox12.Controls.Add(Me.Label68)
-        Me.GroupBox12.Controls.Add(Me.dtpDesHora)
-        Me.GroupBox12.Controls.Add(Me.dtpDesFecha)
-        Me.GroupBox12.Controls.Add(Me.Label69)
-        Me.GroupBox12.Location = New System.Drawing.Point(8, 332)
-        Me.GroupBox12.Name = "GroupBox12"
-        Me.GroupBox12.Size = New System.Drawing.Size(860, 194)
-        Me.GroupBox12.TabIndex = 44
-        Me.GroupBox12.TabStop = False
-        Me.GroupBox12.Text = "DATOS DEL DESTINO"
-        '
-        'GroupBox13
-        '
-        Me.GroupBox13.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.GroupBox13.Controls.Add(Me.txtDestinoLoc)
-        Me.GroupBox13.Location = New System.Drawing.Point(15, 142)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(355, 46)
-        Me.GroupBox13.TabIndex = 54
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Localidad"
-        Me.GroupBox13.Visible = False
-        '
-        'txtDestinoLoc
-        '
-        Me.txtDestinoLoc.BackColor = System.Drawing.Color.White
-        Me.txtDestinoLoc.Location = New System.Drawing.Point(8, 18)
-        Me.txtDestinoLoc.Name = "txtDestinoLoc"
-        Me.txtDestinoLoc.Size = New System.Drawing.Size(341, 23)
-        Me.txtDestinoLoc.TabIndex = 34
-        '
-        'cboDesDestinatario
-        '
-        Me.cboDesDestinatario.BackColor = System.Drawing.Color.White
-        Me.cboDesDestinatario.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDesDestinatario.FormattingEnabled = True
-        Me.cboDesDestinatario.Location = New System.Drawing.Point(83, 20)
-        Me.cboDesDestinatario.Name = "cboDesDestinatario"
-        Me.cboDesDestinatario.Size = New System.Drawing.Size(329, 23)
-        Me.cboDesDestinatario.TabIndex = 53
-        '
-        'txtDesRFC
-        '
-        Me.txtDesRFC.BackColor = System.Drawing.Color.White
-        Me.txtDesRFC.Location = New System.Drawing.Point(555, 20)
-        Me.txtDesRFC.Name = "txtDesRFC"
-        Me.txtDesRFC.Size = New System.Drawing.Size(152, 23)
-        Me.txtDesRFC.TabIndex = 52
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(443, 23)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(116, 15)
-        Me.Label58.TabIndex = 51
-        Me.Label58.Text = "RFC del Destinatario:"
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(12, 23)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(73, 15)
-        Me.Label59.TabIndex = 50
-        Me.Label59.Text = "Destinatario:"
-        '
-        'txtDestinioDist
-        '
-        Me.txtDestinioDist.BackColor = System.Drawing.Color.White
-        Me.txtDestinioDist.Location = New System.Drawing.Point(715, 115)
-        Me.txtDestinioDist.Name = "txtDestinioDist"
-        Me.txtDestinioDist.Size = New System.Drawing.Size(54, 23)
-        Me.txtDestinioDist.TabIndex = 49
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(545, 118)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(184, 15)
-        Me.Label60.TabIndex = 48
-        Me.Label60.Text = "Distancia recorrida en Kilometros:"
-        '
-        'cboDestinoMun
-        '
-        Me.cboDestinoMun.BackColor = System.Drawing.Color.White
-        Me.cboDestinoMun.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDestinoMun.FormattingEnabled = True
-        Me.cboDestinoMun.Location = New System.Drawing.Point(323, 115)
-        Me.cboDestinoMun.Name = "cboDestinoMun"
-        Me.cboDestinoMun.Size = New System.Drawing.Size(212, 23)
-        Me.cboDestinoMun.TabIndex = 47
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(266, 118)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(64, 15)
-        Me.Label61.TabIndex = 46
-        Me.Label61.Text = "Municipio:"
-        '
-        'cboDestinoEdo
-        '
-        Me.cboDestinoEdo.BackColor = System.Drawing.Color.White
-        Me.cboDestinoEdo.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDestinoEdo.FormattingEnabled = True
-        Me.cboDestinoEdo.Location = New System.Drawing.Point(57, 115)
-        Me.cboDestinoEdo.Name = "cboDestinoEdo"
-        Me.cboDestinoEdo.Size = New System.Drawing.Size(199, 23)
-        Me.cboDestinoEdo.TabIndex = 45
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(12, 118)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(45, 15)
-        Me.Label62.TabIndex = 44
-        Me.Label62.Text = "Estado:"
-        '
-        'txtDestinoNumI
-        '
-        Me.txtDestinoNumI.BackColor = System.Drawing.Color.White
-        Me.txtDestinoNumI.Location = New System.Drawing.Point(501, 82)
-        Me.txtDestinoNumI.Name = "txtDestinoNumI"
-        Me.txtDestinoNumI.Size = New System.Drawing.Size(54, 23)
-        Me.txtDestinoNumI.TabIndex = 43
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = True
-        Me.Label63.Location = New System.Drawing.Point(446, 85)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(60, 15)
-        Me.Label63.TabIndex = 42
-        Me.Label63.Text = "Núm. Int.:"
-        '
-        'cboDestinoColonia
-        '
-        Me.cboDestinoColonia.BackColor = System.Drawing.Color.White
-        Me.cboDestinoColonia.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDestinoColonia.FormattingEnabled = True
-        Me.cboDestinoColonia.Location = New System.Drawing.Point(617, 82)
-        Me.cboDestinoColonia.Name = "cboDestinoColonia"
-        Me.cboDestinoColonia.Size = New System.Drawing.Size(247, 23)
-        Me.cboDestinoColonia.TabIndex = 41
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Location = New System.Drawing.Point(567, 85)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(51, 15)
-        Me.Label64.TabIndex = 40
-        Me.Label64.Text = "Colonia:"
-        '
-        'txtDestinoCP
-        '
-        Me.txtDestinoCP.BackColor = System.Drawing.Color.White
-        Me.txtDestinoCP.Location = New System.Drawing.Point(433, 52)
-        Me.txtDestinoCP.Name = "txtDestinoCP"
-        Me.txtDestinoCP.Size = New System.Drawing.Size(59, 23)
-        Me.txtDestinoCP.TabIndex = 37
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(403, 55)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(28, 15)
-        Me.Label65.TabIndex = 36
-        Me.Label65.Text = "CP.:"
-        '
-        'txtDestinoNumE
-        '
-        Me.txtDestinoNumE.BackColor = System.Drawing.Color.White
-        Me.txtDestinoNumE.Location = New System.Drawing.Point(380, 82)
-        Me.txtDestinoNumE.Name = "txtDestinoNumE"
-        Me.txtDestinoNumE.Size = New System.Drawing.Size(54, 23)
-        Me.txtDestinoNumE.TabIndex = 35
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(322, 85)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(62, 15)
-        Me.Label66.TabIndex = 34
-        Me.Label66.Text = "Núm. Ext.:"
-        '
-        'txtDestinoCalle
-        '
-        Me.txtDestinoCalle.BackColor = System.Drawing.Color.White
-        Me.txtDestinoCalle.Location = New System.Drawing.Point(48, 82)
-        Me.txtDestinoCalle.Name = "txtDestinoCalle"
-        Me.txtDestinoCalle.Size = New System.Drawing.Size(248, 23)
-        Me.txtDestinoCalle.TabIndex = 33
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(12, 85)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(36, 15)
-        Me.Label67.TabIndex = 32
-        Me.Label67.Text = "Calle:"
-        '
-        'cboDestinoPais
-        '
-        Me.cboDestinoPais.BackColor = System.Drawing.Color.White
-        Me.cboDestinoPais.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDestinoPais.FormattingEnabled = True
-        Me.cboDestinoPais.Location = New System.Drawing.Point(600, 51)
-        Me.cboDestinoPais.Name = "cboDestinoPais"
-        Me.cboDestinoPais.Size = New System.Drawing.Size(264, 23)
-        Me.cboDestinoPais.TabIndex = 31
-        '
-        'Label68
-        '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(565, 54)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(31, 15)
-        Me.Label68.TabIndex = 30
-        Me.Label68.Text = "País:"
-        '
-        'dtpDesHora
-        '
-        Me.dtpDesHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpDesHora.Location = New System.Drawing.Point(267, 52)
-        Me.dtpDesHora.Name = "dtpDesHora"
-        Me.dtpDesHora.Size = New System.Drawing.Size(103, 23)
-        Me.dtpDesHora.TabIndex = 29
-        '
-        'dtpDesFecha
-        '
-        Me.dtpDesFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDesFecha.Location = New System.Drawing.Point(144, 52)
-        Me.dtpDesFecha.Name = "dtpDesFecha"
-        Me.dtpDesFecha.Size = New System.Drawing.Size(111, 23)
-        Me.dtpDesFecha.TabIndex = 28
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(12, 55)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(139, 15)
-        Me.Label69.TabIndex = 27
-        Me.Label69.Text = "Fecha y Hora de Llegada:"
-        '
-        'GroupBox11
-        '
-        Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox11.Controls.Add(Me.cboOrigMun)
-        Me.GroupBox11.Controls.Add(Me.Label41)
-        Me.GroupBox11.Controls.Add(Me.txtOrigNumInt)
-        Me.GroupBox11.Controls.Add(Me.Label43)
-        Me.GroupBox11.Controls.Add(Me.cboOrigColonia)
-        Me.GroupBox11.Controls.Add(Me.cboOrigEdo)
-        Me.GroupBox11.Controls.Add(Me.Label45)
-        Me.GroupBox11.Controls.Add(Me.txtOrigCP)
-        Me.GroupBox11.Controls.Add(Me.Label51)
-        Me.GroupBox11.Controls.Add(Me.txtOrigNumExt)
-        Me.GroupBox11.Controls.Add(Me.Label52)
-        Me.GroupBox11.Controls.Add(Me.Label53)
-        Me.GroupBox11.Controls.Add(Me.txtOrigCalle)
-        Me.GroupBox11.Controls.Add(Me.Label54)
-        Me.GroupBox11.Controls.Add(Me.dtpOrigHora)
-        Me.GroupBox11.Controls.Add(Me.dtpOrigFecha)
-        Me.GroupBox11.Controls.Add(Me.cboOrigRemitente)
-        Me.GroupBox11.Controls.Add(Me.txtOrigRFC)
-        Me.GroupBox11.Controls.Add(Me.Label55)
-        Me.GroupBox11.Controls.Add(Me.Label56)
-        Me.GroupBox11.Controls.Add(Me.Label57)
-        Me.GroupBox11.Location = New System.Drawing.Point(8, 185)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(859, 139)
-        Me.GroupBox11.TabIndex = 43
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "DATOS DE ORIGEN"
-        '
-        'cboOrigMun
-        '
-        Me.cboOrigMun.BackColor = System.Drawing.Color.White
-        Me.cboOrigMun.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboOrigMun.FormattingEnabled = True
-        Me.cboOrigMun.Location = New System.Drawing.Point(71, 108)
-        Me.cboOrigMun.Name = "cboOrigMun"
-        Me.cboOrigMun.Size = New System.Drawing.Size(212, 23)
-        Me.cboOrigMun.TabIndex = 41
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(11, 111)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(64, 15)
-        Me.Label41.TabIndex = 40
-        Me.Label41.Text = "Municipio:"
-        '
-        'txtOrigNumInt
-        '
-        Me.txtOrigNumInt.BackColor = System.Drawing.Color.White
-        Me.txtOrigNumInt.Location = New System.Drawing.Point(71, 77)
-        Me.txtOrigNumInt.Name = "txtOrigNumInt"
-        Me.txtOrigNumInt.Size = New System.Drawing.Size(61, 23)
-        Me.txtOrigNumInt.TabIndex = 39
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(11, 80)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(60, 15)
-        Me.Label43.TabIndex = 38
-        Me.Label43.Text = "Núm. Int.:"
-        '
-        'cboOrigColonia
-        '
-        Me.cboOrigColonia.BackColor = System.Drawing.Color.White
-        Me.cboOrigColonia.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboOrigColonia.FormattingEnabled = True
-        Me.cboOrigColonia.Location = New System.Drawing.Point(203, 77)
-        Me.cboOrigColonia.Name = "cboOrigColonia"
-        Me.cboOrigColonia.Size = New System.Drawing.Size(367, 23)
-        Me.cboOrigColonia.TabIndex = 37
-        '
-        'cboOrigEdo
-        '
-        Me.cboOrigEdo.BackColor = System.Drawing.Color.White
-        Me.cboOrigEdo.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboOrigEdo.FormattingEnabled = True
-        Me.cboOrigEdo.Location = New System.Drawing.Point(629, 77)
-        Me.cboOrigEdo.Name = "cboOrigEdo"
-        Me.cboOrigEdo.Size = New System.Drawing.Size(236, 23)
-        Me.cboOrigEdo.TabIndex = 34
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(584, 80)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(45, 15)
-        Me.Label45.TabIndex = 33
-        Me.Label45.Text = "Estado:"
-        '
-        'txtOrigCP
-        '
-        Me.txtOrigCP.BackColor = System.Drawing.Color.White
-        Me.txtOrigCP.Location = New System.Drawing.Point(361, 48)
-        Me.txtOrigCP.Name = "txtOrigCP"
-        Me.txtOrigCP.Size = New System.Drawing.Size(59, 23)
-        Me.txtOrigCP.TabIndex = 31
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(331, 51)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(28, 15)
-        Me.Label51.TabIndex = 30
-        Me.Label51.Text = "CP.:"
-        '
-        'txtOrigNumExt
-        '
-        Me.txtOrigNumExt.BackColor = System.Drawing.Color.White
-        Me.txtOrigNumExt.Location = New System.Drawing.Point(804, 47)
-        Me.txtOrigNumExt.Name = "txtOrigNumExt"
-        Me.txtOrigNumExt.Size = New System.Drawing.Size(61, 23)
-        Me.txtOrigNumExt.TabIndex = 28
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(744, 50)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(62, 15)
-        Me.Label52.TabIndex = 27
-        Me.Label52.Text = "Núm. Ext.:"
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(153, 80)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(51, 15)
-        Me.Label53.TabIndex = 25
-        Me.Label53.Text = "Colonia:"
-        '
-        'txtOrigCalle
-        '
-        Me.txtOrigCalle.BackColor = System.Drawing.Color.White
-        Me.txtOrigCalle.Location = New System.Drawing.Point(467, 47)
-        Me.txtOrigCalle.Name = "txtOrigCalle"
-        Me.txtOrigCalle.Size = New System.Drawing.Size(267, 23)
-        Me.txtOrigCalle.TabIndex = 24
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(431, 50)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(36, 15)
-        Me.Label54.TabIndex = 23
-        Me.Label54.Text = "Calle:"
-        '
-        'dtpOrigHora
-        '
-        Me.dtpOrigHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpOrigHora.Location = New System.Drawing.Point(234, 47)
-        Me.dtpOrigHora.Name = "dtpOrigHora"
-        Me.dtpOrigHora.Size = New System.Drawing.Size(89, 23)
-        Me.dtpOrigHora.TabIndex = 22
-        '
-        'dtpOrigFecha
-        '
-        Me.dtpOrigFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpOrigFecha.Location = New System.Drawing.Point(131, 47)
-        Me.dtpOrigFecha.Name = "dtpOrigFecha"
-        Me.dtpOrigFecha.Size = New System.Drawing.Size(97, 23)
-        Me.dtpOrigFecha.TabIndex = 21
-        '
-        'cboOrigRemitente
-        '
-        Me.cboOrigRemitente.BackColor = System.Drawing.Color.White
-        Me.cboOrigRemitente.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboOrigRemitente.FormattingEnabled = True
-        Me.cboOrigRemitente.Location = New System.Drawing.Point(71, 17)
-        Me.cboOrigRemitente.Name = "cboOrigRemitente"
-        Me.cboOrigRemitente.Size = New System.Drawing.Size(329, 23)
-        Me.cboOrigRemitente.TabIndex = 18
-        '
-        'txtOrigRFC
-        '
-        Me.txtOrigRFC.BackColor = System.Drawing.Color.White
-        Me.txtOrigRFC.Location = New System.Drawing.Point(533, 17)
-        Me.txtOrigRFC.Name = "txtOrigRFC"
-        Me.txtOrigRFC.Size = New System.Drawing.Size(152, 23)
-        Me.txtOrigRFC.TabIndex = 17
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(431, 20)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(107, 15)
-        Me.Label55.TabIndex = 16
-        Me.Label55.Text = "RFC del Remitente:"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(11, 20)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(64, 15)
-        Me.Label56.TabIndex = 14
-        Me.Label56.Text = "Remitente:"
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.Location = New System.Drawing.Point(11, 50)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(129, 15)
-        Me.Label57.TabIndex = 13
-        Me.Label57.Text = "Fecha y Hora de Salida:"
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox10.Controls.Add(Me.txtPesoBrutoV)
-        Me.GroupBox10.Controls.Add(Me.Label109)
-        Me.GroupBox10.Controls.Add(Me.txtPlaca)
-        Me.GroupBox10.Controls.Add(Me.cboPermisoSCT)
-        Me.GroupBox10.Controls.Add(Me.txtNumPermisoSCT)
-        Me.GroupBox10.Controls.Add(Me.Label50)
-        Me.GroupBox10.Controls.Add(Me.txtAseguradora)
-        Me.GroupBox10.Controls.Add(Me.Label49)
-        Me.GroupBox10.Controls.Add(Me.Label42)
-        Me.GroupBox10.Controls.Add(Me.cboConfigV)
-        Me.GroupBox10.Controls.Add(Me.txtNumPoliza)
-        Me.GroupBox10.Controls.Add(Me.Label44)
-        Me.GroupBox10.Controls.Add(Me.txtModeloAño)
-        Me.GroupBox10.Controls.Add(Me.Label46)
-        Me.GroupBox10.Controls.Add(Me.Label47)
-        Me.GroupBox10.Controls.Add(Me.Label48)
-        Me.GroupBox10.Location = New System.Drawing.Point(8, 76)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(859, 103)
-        Me.GroupBox10.TabIndex = 42
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "DATOS DEL AUTOTRANSPORTE"
-        '
-        'txtPlaca
-        '
-        Me.txtPlaca.FormattingEnabled = True
-        Me.txtPlaca.Location = New System.Drawing.Point(57, 19)
-        Me.txtPlaca.Name = "txtPlaca"
-        Me.txtPlaca.Size = New System.Drawing.Size(101, 23)
-        Me.txtPlaca.TabIndex = 45
-        '
-        'cboPermisoSCT
-        '
-        Me.cboPermisoSCT.FormattingEnabled = True
-        Me.cboPermisoSCT.Location = New System.Drawing.Point(401, 75)
-        Me.cboPermisoSCT.Name = "cboPermisoSCT"
-        Me.cboPermisoSCT.Size = New System.Drawing.Size(452, 23)
-        Me.cboPermisoSCT.TabIndex = 44
-        '
-        'txtNumPermisoSCT
-        '
-        Me.txtNumPermisoSCT.BackColor = System.Drawing.Color.White
-        Me.txtNumPermisoSCT.Location = New System.Drawing.Point(113, 47)
-        Me.txtNumPermisoSCT.Name = "txtNumPermisoSCT"
-        Me.txtNumPermisoSCT.Size = New System.Drawing.Size(191, 23)
-        Me.txtNumPermisoSCT.TabIndex = 43
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(7, 50)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(106, 15)
-        Me.Label50.TabIndex = 42
-        Me.Label50.Text = "Núm. PermisoSCT:"
-        '
-        'txtAseguradora
-        '
-        Me.txtAseguradora.BackColor = System.Drawing.Color.White
-        Me.txtAseguradora.Location = New System.Drawing.Point(467, 21)
-        Me.txtAseguradora.Name = "txtAseguradora"
-        Me.txtAseguradora.Size = New System.Drawing.Size(197, 23)
-        Me.txtAseguradora.TabIndex = 17
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(391, 24)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(77, 15)
-        Me.Label49.TabIndex = 16
-        Me.Label49.Text = "Aseguradora:"
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(7, 22)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(38, 15)
-        Me.Label42.TabIndex = 38
-        Me.Label42.Text = "Placa:"
-        '
-        'cboConfigV
-        '
-        Me.cboConfigV.BackColor = System.Drawing.Color.White
-        Me.cboConfigV.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboConfigV.FormattingEnabled = True
-        Me.cboConfigV.Location = New System.Drawing.Point(388, 47)
-        Me.cboConfigV.Name = "cboConfigV"
-        Me.cboConfigV.Size = New System.Drawing.Size(465, 23)
-        Me.cboConfigV.TabIndex = 37
-        '
-        'txtNumPoliza
-        '
-        Me.txtNumPoliza.BackColor = System.Drawing.Color.White
-        Me.txtNumPoliza.Location = New System.Drawing.Point(737, 21)
-        Me.txtNumPoliza.Name = "txtNumPoliza"
-        Me.txtNumPoliza.Size = New System.Drawing.Size(116, 23)
-        Me.txtNumPoliza.TabIndex = 31
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(671, 24)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(74, 15)
-        Me.Label44.TabIndex = 30
-        Me.Label44.Text = "Núm. Poliza:"
-        '
-        'txtModeloAño
-        '
-        Me.txtModeloAño.BackColor = System.Drawing.Color.White
-        Me.txtModeloAño.Location = New System.Drawing.Point(254, 19)
-        Me.txtModeloAño.Name = "txtModeloAño"
-        Me.txtModeloAño.Size = New System.Drawing.Size(124, 23)
-        Me.txtModeloAño.TabIndex = 28
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(171, 22)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(86, 15)
-        Me.Label46.TabIndex = 27
-        Me.Label46.Text = "Modelo ""Año"":"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(320, 50)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(74, 15)
-        Me.Label47.TabIndex = 25
-        Me.Label47.Text = "Config. Veh.:"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(328, 78)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(73, 15)
-        Me.Label48.TabIndex = 23
-        Me.Label48.Text = "PermisoSCT:"
-        '
-        'GroupBox14
-        '
-        Me.GroupBox14.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox14.Controls.Add(Me.chkInter)
-        Me.GroupBox14.Controls.Add(Me.Label70)
-        Me.GroupBox14.Location = New System.Drawing.Point(8, 6)
-        Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(186, 70)
-        Me.GroupBox14.TabIndex = 41
-        Me.GroupBox14.TabStop = False
-        Me.GroupBox14.Text = "TRANSPORTE INTERNACIONAL"
-        '
-        'chkInter
-        '
-        Me.chkInter.AutoSize = True
-        Me.chkInter.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkInter.Location = New System.Drawing.Point(110, 29)
-        Me.chkInter.Name = "chkInter"
-        Me.chkInter.Size = New System.Drawing.Size(42, 25)
-        Me.chkInter.TabIndex = 16
-        Me.chkInter.Text = "Si"
-        Me.chkInter.UseVisualStyleBackColor = True
-        '
-        'Label70
-        '
-        Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(34, 34)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(66, 15)
-        Me.Label70.TabIndex = 15
-        Me.Label70.Text = "Seleccione:"
-        '
-        'TabPage2
-        '
-        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.TabPage2.Controls.Add(Me.GroupBox17)
-        Me.TabPage2.Controls.Add(Me.dgProductos)
-        Me.TabPage2.Controls.Add(Me.GroupBox15)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(875, 535)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Datos de la Mercancia y  de la Figura"
-        '
-        'GroupBox17
-        '
-        Me.GroupBox17.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox17.Controls.Add(Me.cboTipoFigura)
-        Me.GroupBox17.Controls.Add(Me.Label83)
-        Me.GroupBox17.Controls.Add(Me.txtOpeLicencia)
-        Me.GroupBox17.Controls.Add(Me.Label82)
-        Me.GroupBox17.Controls.Add(Me.cboOpeNombre)
-        Me.GroupBox17.Controls.Add(Me.txtOpeRFC)
-        Me.GroupBox17.Controls.Add(Me.Label90)
-        Me.GroupBox17.Controls.Add(Me.Label91)
-        Me.GroupBox17.Location = New System.Drawing.Point(11, 433)
-        Me.GroupBox17.Name = "GroupBox17"
-        Me.GroupBox17.Size = New System.Drawing.Size(870, 98)
-        Me.GroupBox17.TabIndex = 43
-        Me.GroupBox17.TabStop = False
-        Me.GroupBox17.Text = "DATOS DE LA FIGURA"
-        '
-        'cboTipoFigura
-        '
-        Me.cboTipoFigura.BackColor = System.Drawing.Color.White
-        Me.cboTipoFigura.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboTipoFigura.FormattingEnabled = True
-        Me.cboTipoFigura.Location = New System.Drawing.Point(93, 26)
-        Me.cboTipoFigura.Name = "cboTipoFigura"
-        Me.cboTipoFigura.Size = New System.Drawing.Size(140, 23)
-        Me.cboTipoFigura.TabIndex = 49
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(10, 29)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(85, 15)
-        Me.Label83.TabIndex = 48
-        Me.Label83.Text = "Tipo de Figura:"
-        '
-        'txtOpeLicencia
-        '
-        Me.txtOpeLicencia.BackColor = System.Drawing.Color.White
-        Me.txtOpeLicencia.Location = New System.Drawing.Point(707, 57)
-        Me.txtOpeLicencia.Name = "txtOpeLicencia"
-        Me.txtOpeLicencia.Size = New System.Drawing.Size(152, 23)
-        Me.txtOpeLicencia.TabIndex = 43
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(655, 60)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(53, 15)
-        Me.Label82.TabIndex = 42
-        Me.Label82.Text = "Licencia:"
-        '
-        'cboOpeNombre
-        '
-        Me.cboOpeNombre.BackColor = System.Drawing.Color.White
-        Me.cboOpeNombre.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboOpeNombre.FormattingEnabled = True
-        Me.cboOpeNombre.Location = New System.Drawing.Point(68, 57)
-        Me.cboOpeNombre.Name = "cboOpeNombre"
-        Me.cboOpeNombre.Size = New System.Drawing.Size(383, 23)
-        Me.cboOpeNombre.TabIndex = 18
-        '
-        'txtOpeRFC
-        '
-        Me.txtOpeRFC.BackColor = System.Drawing.Color.White
-        Me.txtOpeRFC.Location = New System.Drawing.Point(494, 57)
-        Me.txtOpeRFC.Name = "txtOpeRFC"
-        Me.txtOpeRFC.Size = New System.Drawing.Size(152, 23)
-        Me.txtOpeRFC.TabIndex = 17
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(460, 60)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(31, 15)
-        Me.Label90.TabIndex = 16
-        Me.Label90.Text = "RFC:"
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(11, 60)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(54, 15)
-        Me.Label91.TabIndex = 14
-        Me.Label91.Text = "Nombre:"
-        '
-        'dgProductos
-        '
-        Me.dgProductos.AllowUserToAddRows = False
-        Me.dgProductos.BackgroundColor = System.Drawing.Color.White
-        Me.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.Column10, Me.Column12, Me.Column13, Me.Column14, Me.Column15})
-        Me.dgProductos.Location = New System.Drawing.Point(11, 218)
-        Me.dgProductos.Name = "dgProductos"
-        Me.dgProductos.ReadOnly = True
-        Me.dgProductos.Size = New System.Drawing.Size(871, 210)
-        Me.dgProductos.TabIndex = 42
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 94
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn2.HeaderText = "UniMedSAT"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 93
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn3.HeaderText = "ProdServSAT"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 98
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 80
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn5.HeaderText = "ValorMercancia"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 113
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn6.HeaderText = "PesoKg"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 71
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn7.HeaderText = "PedimentoAduanal"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn8.HeaderText = "UUID Comercio E."
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 105
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Frac. Arancelaria"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 109
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column10.HeaderText = "MaterialPel"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 91
-        '
-        'Column12
-        '
-        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column12.HeaderText = "ClaveMaterialPel"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Width = 120
-        '
-        'Column13
-        '
-        Me.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column13.HeaderText = "Embalaje"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        Me.Column13.Width = 80
-        '
-        'Column14
-        '
-        Me.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column14.HeaderText = "ClaveEmbalaje"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        Me.Column14.Width = 109
-        '
-        'Column15
-        '
-        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column15.HeaderText = "DescMatPel"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        Me.Column15.Width = 94
-        '
-        'GroupBox15
-        '
-        Me.GroupBox15.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox15.Controls.Add(Me.GroupBox23)
-        Me.GroupBox15.Controls.Add(Me.cboUniMedSAT)
-        Me.GroupBox15.Controls.Add(Me.Label85)
-        Me.GroupBox15.Controls.Add(Me.Label84)
-        Me.GroupBox15.Controls.Add(Me.cboProdServSAT)
-        Me.GroupBox15.Controls.Add(Me.Label81)
-        Me.GroupBox15.Controls.Add(Me.cboDescripcion)
-        Me.GroupBox15.Controls.Add(Me.txtCantidad)
-        Me.GroupBox15.Controls.Add(Me.txtPartidaNew)
-        Me.GroupBox15.Controls.Add(Me.txtFraccAran)
-        Me.GroupBox15.Controls.Add(Me.Label71)
-        Me.GroupBox15.Controls.Add(Me.txtUUIDComE)
-        Me.GroupBox15.Controls.Add(Me.Label72)
-        Me.GroupBox15.Controls.Add(Me.txtTotalPeso)
-        Me.GroupBox15.Controls.Add(Me.Button9)
-        Me.GroupBox15.Controls.Add(Me.Label78)
-        Me.GroupBox15.Controls.Add(Me.txtPesoKG)
-        Me.GroupBox15.Controls.Add(Me.Label79)
-        Me.GroupBox15.Controls.Add(Me.txtValorMerc)
-        Me.GroupBox15.Controls.Add(Me.Label80)
-        Me.GroupBox15.Location = New System.Drawing.Point(11, 11)
-        Me.GroupBox15.Name = "GroupBox15"
-        Me.GroupBox15.Size = New System.Drawing.Size(871, 201)
-        Me.GroupBox15.TabIndex = 41
-        Me.GroupBox15.TabStop = False
-        Me.GroupBox15.Text = "DATOS DE LA MERCANCIA"
-        '
-        'GroupBox23
-        '
-        Me.GroupBox23.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox23.Controls.Add(Me.cboEmbalaje)
-        Me.GroupBox23.Controls.Add(Me.Label97)
-        Me.GroupBox23.Controls.Add(Me.cboMatPeligroso)
-        Me.GroupBox23.Controls.Add(Me.chkMatPeg)
-        Me.GroupBox23.Controls.Add(Me.Label98)
-        Me.GroupBox23.Location = New System.Drawing.Point(15, 118)
-        Me.GroupBox23.Name = "GroupBox23"
-        Me.GroupBox23.Size = New System.Drawing.Size(845, 75)
-        Me.GroupBox23.TabIndex = 72
-        Me.GroupBox23.TabStop = False
-        Me.GroupBox23.Text = "Material Peligroso"
-        '
-        'cboEmbalaje
-        '
-        Me.cboEmbalaje.BackColor = System.Drawing.Color.White
-        Me.cboEmbalaje.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboEmbalaje.FormattingEnabled = True
-        Me.cboEmbalaje.Location = New System.Drawing.Point(76, 46)
-        Me.cboEmbalaje.Name = "cboEmbalaje"
-        Me.cboEmbalaje.Size = New System.Drawing.Size(759, 23)
-        Me.cboEmbalaje.TabIndex = 69
-        '
-        'Label97
-        '
-        Me.Label97.AutoSize = True
-        Me.Label97.Location = New System.Drawing.Point(11, 49)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(58, 15)
-        Me.Label97.TabIndex = 68
-        Me.Label97.Text = "Embalaje:"
-        '
-        'cboMatPeligroso
-        '
-        Me.cboMatPeligroso.BackColor = System.Drawing.Color.White
-        Me.cboMatPeligroso.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboMatPeligroso.FormattingEnabled = True
-        Me.cboMatPeligroso.Location = New System.Drawing.Point(127, 19)
-        Me.cboMatPeligroso.Name = "cboMatPeligroso"
-        Me.cboMatPeligroso.Size = New System.Drawing.Size(708, 23)
-        Me.cboMatPeligroso.TabIndex = 67
-        '
-        'chkMatPeg
-        '
-        Me.chkMatPeg.AutoSize = True
-        Me.chkMatPeg.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkMatPeg.Location = New System.Drawing.Point(81, 17)
-        Me.chkMatPeg.Name = "chkMatPeg"
-        Me.chkMatPeg.Size = New System.Drawing.Size(42, 24)
-        Me.chkMatPeg.TabIndex = 16
-        Me.chkMatPeg.Text = "Si"
-        Me.chkMatPeg.UseVisualStyleBackColor = True
-        '
-        'Label98
-        '
-        Me.Label98.AutoSize = True
-        Me.Label98.Location = New System.Drawing.Point(11, 21)
-        Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(66, 15)
-        Me.Label98.TabIndex = 15
-        Me.Label98.Text = "Seleccione:"
-        '
-        'cboUniMedSAT
-        '
-        Me.cboUniMedSAT.BackColor = System.Drawing.Color.White
-        Me.cboUniMedSAT.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboUniMedSAT.FormattingEnabled = True
-        Me.cboUniMedSAT.Location = New System.Drawing.Point(558, 20)
-        Me.cboUniMedSAT.Name = "cboUniMedSAT"
-        Me.cboUniMedSAT.Size = New System.Drawing.Size(301, 23)
-        Me.cboUniMedSAT.TabIndex = 71
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.Location = New System.Drawing.Point(501, 23)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(61, 15)
-        Me.Label85.TabIndex = 70
-        Me.Label85.Text = "Uni. Med.:"
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.Location = New System.Drawing.Point(458, 56)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(58, 15)
-        Me.Label84.TabIndex = 69
-        Me.Label84.Text = "Cantidad:"
-        '
-        'cboProdServSAT
-        '
-        Me.cboProdServSAT.BackColor = System.Drawing.Color.White
-        Me.cboProdServSAT.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboProdServSAT.FormattingEnabled = True
-        Me.cboProdServSAT.Location = New System.Drawing.Point(116, 53)
-        Me.cboProdServSAT.Name = "cboProdServSAT"
-        Me.cboProdServSAT.Size = New System.Drawing.Size(319, 23)
-        Me.cboProdServSAT.TabIndex = 68
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(12, 56)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(108, 15)
-        Me.Label81.TabIndex = 67
-        Me.Label81.Text = "Clave Prod. o Serv.:"
-        '
-        'cboDescripcion
-        '
-        Me.cboDescripcion.BackColor = System.Drawing.Color.White
-        Me.cboDescripcion.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.cboDescripcion.FormattingEnabled = True
-        Me.cboDescripcion.Location = New System.Drawing.Point(83, 20)
-        Me.cboDescripcion.Name = "cboDescripcion"
-        Me.cboDescripcion.Size = New System.Drawing.Size(408, 23)
-        Me.cboDescripcion.TabIndex = 66
-        '
-        'txtCantidad
-        '
-        Me.txtCantidad.BackColor = System.Drawing.Color.White
-        Me.txtCantidad.Location = New System.Drawing.Point(512, 53)
-        Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(38, 23)
-        Me.txtCantidad.TabIndex = 63
-        Me.txtCantidad.Text = "1"
-        '
-        'txtPartidaNew
-        '
-        Me.txtPartidaNew.BackColor = System.Drawing.Color.White
-        Me.txtPartidaNew.Location = New System.Drawing.Point(796, 10)
-        Me.txtPartidaNew.Name = "txtPartidaNew"
-        Me.txtPartidaNew.Size = New System.Drawing.Size(29, 23)
-        Me.txtPartidaNew.TabIndex = 62
-        Me.txtPartidaNew.Text = "0"
-        Me.txtPartidaNew.Visible = False
-        '
-        'txtFraccAran
-        '
-        Me.txtFraccAran.BackColor = System.Drawing.Color.White
-        Me.txtFraccAran.Location = New System.Drawing.Point(568, 88)
-        Me.txtFraccAran.Name = "txtFraccAran"
-        Me.txtFraccAran.Size = New System.Drawing.Size(118, 23)
-        Me.txtFraccAran.TabIndex = 61
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(457, 91)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(117, 15)
-        Me.Label71.TabIndex = 60
-        Me.Label71.Text = "Fracción Arancelaria:"
-        '
-        'txtUUIDComE
-        '
-        Me.txtUUIDComE.BackColor = System.Drawing.Color.White
-        Me.txtUUIDComE.Location = New System.Drawing.Point(123, 88)
-        Me.txtUUIDComE.Name = "txtUUIDComE"
-        Me.txtUUIDComE.Size = New System.Drawing.Size(292, 23)
-        Me.txtUUIDComE.TabIndex = 59
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(12, 91)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(114, 15)
-        Me.Label72.TabIndex = 58
-        Me.Label72.Text = "UUID Comercio Ext.:"
-        '
-        'txtTotalPeso
-        '
-        Me.txtTotalPeso.BackColor = System.Drawing.Color.White
-        Me.txtTotalPeso.Location = New System.Drawing.Point(831, 10)
-        Me.txtTotalPeso.Name = "txtTotalPeso"
-        Me.txtTotalPeso.Size = New System.Drawing.Size(29, 23)
-        Me.txtTotalPeso.TabIndex = 57
-        Me.txtTotalPeso.Text = "0"
-        Me.txtTotalPeso.Visible = False
-        '
-        'Button9
-        '
-        Me.Button9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(730, 83)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(130, 28)
-        Me.Button9.TabIndex = 54
-        Me.Button9.Text = "Agregar"
-        Me.Button9.UseVisualStyleBackColor = False
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Location = New System.Drawing.Point(12, 23)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(72, 15)
-        Me.Label78.TabIndex = 50
-        Me.Label78.Text = "Descripción:"
-        '
-        'txtPesoKG
-        '
-        Me.txtPesoKG.BackColor = System.Drawing.Color.White
-        Me.txtPesoKG.Location = New System.Drawing.Point(800, 53)
-        Me.txtPesoKG.Name = "txtPesoKG"
-        Me.txtPesoKG.Size = New System.Drawing.Size(59, 23)
-        Me.txtPesoKG.TabIndex = 43
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(730, 56)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(71, 15)
-        Me.Label79.TabIndex = 42
-        Me.Label79.Text = "Peso en Kg.:"
-        '
-        'txtValorMerc
-        '
-        Me.txtValorMerc.BackColor = System.Drawing.Color.White
-        Me.txtValorMerc.Location = New System.Drawing.Point(653, 53)
-        Me.txtValorMerc.Name = "txtValorMerc"
-        Me.txtValorMerc.Size = New System.Drawing.Size(67, 23)
-        Me.txtValorMerc.TabIndex = 35
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.Location = New System.Drawing.Point(563, 56)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(94, 15)
-        Me.Label80.TabIndex = 34
-        Me.Label80.Text = "Valor Mercancia:"
-        '
-        'TabPage3
-        '
-        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.TabPage3.Controls.Add(Me.GroupBox21)
-        Me.TabPage3.ForeColor = System.Drawing.Color.Black
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(875, 535)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Datos del Remolque o Semiremolque"
-        '
-        'GroupBox21
-        '
-        Me.GroupBox21.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox21.Controls.Add(Me.DataGridView1)
-        Me.GroupBox21.Controls.Add(Me.Button12)
-        Me.GroupBox21.Controls.Add(Me.cboTipoRemolque)
-        Me.GroupBox21.Controls.Add(Me.Label88)
-        Me.GroupBox21.Controls.Add(Me.txtPlacaTipoRemolque)
-        Me.GroupBox21.Controls.Add(Me.Label92)
-        Me.GroupBox21.Location = New System.Drawing.Point(11, 14)
-        Me.GroupBox21.Name = "GroupBox21"
-        Me.GroupBox21.Size = New System.Drawing.Size(870, 224)
-        Me.GroupBox21.TabIndex = 44
-        Me.GroupBox21.TabStop = False
-        Me.GroupBox21.Text = "DATOS DEL REMOLQUE O SEMIREMOLQUE"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.Column11})
-        Me.DataGridView1.Location = New System.Drawing.Point(17, 88)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(839, 123)
-        Me.DataGridView1.TabIndex = 58
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Placas"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 65
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Tipo"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 55
-        '
-        'Column11
-        '
-        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column11.HeaderText = "ClaveRemolque"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        Me.Column11.Width = 115
-        '
-        'Button12
-        '
-        Me.Button12.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.Location = New System.Drawing.Point(726, 48)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(130, 28)
-        Me.Button12.TabIndex = 57
-        Me.Button12.Text = "Agregar"
-        Me.Button12.UseVisualStyleBackColor = False
-        '
-        'cboTipoRemolque
-        '
-        Me.cboTipoRemolque.FormattingEnabled = True
-        Me.cboTipoRemolque.Location = New System.Drawing.Point(280, 19)
-        Me.cboTipoRemolque.Name = "cboTipoRemolque"
-        Me.cboTipoRemolque.Size = New System.Drawing.Size(576, 23)
-        Me.cboTipoRemolque.TabIndex = 44
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.Location = New System.Drawing.Point(14, 22)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(38, 15)
-        Me.Label88.TabIndex = 38
-        Me.Label88.Text = "Placa:"
-        '
-        'txtPlacaTipoRemolque
-        '
-        Me.txtPlacaTipoRemolque.BackColor = System.Drawing.Color.White
-        Me.txtPlacaTipoRemolque.Location = New System.Drawing.Point(63, 19)
-        Me.txtPlacaTipoRemolque.Name = "txtPlacaTipoRemolque"
-        Me.txtPlacaTipoRemolque.Size = New System.Drawing.Size(124, 23)
-        Me.txtPlacaTipoRemolque.TabIndex = 28
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(193, 22)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(90, 15)
-        Me.Label92.TabIndex = 23
-        Me.Label92.Text = "Tipo Remolque:"
         '
         'Button8
         '
@@ -4082,13 +2584,817 @@ Partial Class frmfacturacion
         Me.lblfolioventa.TabIndex = 96
         Me.lblfolioventa.Visible = False
         '
-        'txtPesoBrutoV
+        'TabControl1
         '
-        Me.txtPesoBrutoV.BackColor = System.Drawing.Color.White
-        Me.txtPesoBrutoV.Location = New System.Drawing.Point(226, 75)
-        Me.txtPesoBrutoV.Name = "txtPesoBrutoV"
-        Me.txtPesoBrutoV.Size = New System.Drawing.Size(94, 23)
-        Me.txtPesoBrutoV.TabIndex = 48
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Location = New System.Drawing.Point(9, 19)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(883, 561)
+        Me.TabControl1.TabIndex = 0
+        '
+        'TabPage3
+        '
+        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.GroupBox21)
+        Me.TabPage3.ForeColor = System.Drawing.Color.Black
+        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(875, 533)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Datos del Remolque o Semiremolque"
+        '
+        'GroupBox21
+        '
+        Me.GroupBox21.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox21.Controls.Add(Me.DataGridView1)
+        Me.GroupBox21.Controls.Add(Me.Button12)
+        Me.GroupBox21.Controls.Add(Me.cboTipoRemolque)
+        Me.GroupBox21.Controls.Add(Me.Label88)
+        Me.GroupBox21.Controls.Add(Me.txtPlacaTipoRemolque)
+        Me.GroupBox21.Controls.Add(Me.Label92)
+        Me.GroupBox21.Location = New System.Drawing.Point(11, 14)
+        Me.GroupBox21.Name = "GroupBox21"
+        Me.GroupBox21.Size = New System.Drawing.Size(870, 224)
+        Me.GroupBox21.TabIndex = 44
+        Me.GroupBox21.TabStop = False
+        Me.GroupBox21.Text = "DATOS DEL REMOLQUE O SEMIREMOLQUE"
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Location = New System.Drawing.Point(193, 22)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(90, 15)
+        Me.Label92.TabIndex = 23
+        Me.Label92.Text = "Tipo Remolque:"
+        '
+        'txtPlacaTipoRemolque
+        '
+        Me.txtPlacaTipoRemolque.BackColor = System.Drawing.Color.White
+        Me.txtPlacaTipoRemolque.Location = New System.Drawing.Point(63, 19)
+        Me.txtPlacaTipoRemolque.Name = "txtPlacaTipoRemolque"
+        Me.txtPlacaTipoRemolque.Size = New System.Drawing.Size(124, 23)
+        Me.txtPlacaTipoRemolque.TabIndex = 28
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Location = New System.Drawing.Point(14, 22)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(38, 15)
+        Me.Label88.TabIndex = 38
+        Me.Label88.Text = "Placa:"
+        '
+        'cboTipoRemolque
+        '
+        Me.cboTipoRemolque.FormattingEnabled = True
+        Me.cboTipoRemolque.Location = New System.Drawing.Point(280, 19)
+        Me.cboTipoRemolque.Name = "cboTipoRemolque"
+        Me.cboTipoRemolque.Size = New System.Drawing.Size(576, 23)
+        Me.cboTipoRemolque.TabIndex = 44
+        '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button12.Location = New System.Drawing.Point(726, 48)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(130, 28)
+        Me.Button12.TabIndex = 57
+        Me.Button12.Text = "Agregar"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.Column11})
+        Me.DataGridView1.Location = New System.Drawing.Point(17, 88)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(839, 123)
+        Me.DataGridView1.TabIndex = 58
+        '
+        'Column11
+        '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column11.HeaderText = "ClaveRemolque"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 115
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Tipo"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 55
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Placas"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 65
+        '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.GroupBox17)
+        Me.TabPage2.Controls.Add(Me.dgProductos)
+        Me.TabPage2.Controls.Add(Me.GroupBox15)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(875, 533)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Datos de la Mercancia y  de la Figura"
+        '
+        'GroupBox15
+        '
+        Me.GroupBox15.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox15.Controls.Add(Me.GroupBox23)
+        Me.GroupBox15.Controls.Add(Me.cboUniMedSAT)
+        Me.GroupBox15.Controls.Add(Me.Label85)
+        Me.GroupBox15.Controls.Add(Me.Label84)
+        Me.GroupBox15.Controls.Add(Me.cboProdServSAT)
+        Me.GroupBox15.Controls.Add(Me.Label81)
+        Me.GroupBox15.Controls.Add(Me.cboDescripcion)
+        Me.GroupBox15.Controls.Add(Me.txtCantidad)
+        Me.GroupBox15.Controls.Add(Me.txtPartidaNew)
+        Me.GroupBox15.Controls.Add(Me.txtFraccAran)
+        Me.GroupBox15.Controls.Add(Me.Label71)
+        Me.GroupBox15.Controls.Add(Me.txtUUIDComE)
+        Me.GroupBox15.Controls.Add(Me.Label72)
+        Me.GroupBox15.Controls.Add(Me.txtTotalPeso)
+        Me.GroupBox15.Controls.Add(Me.Button9)
+        Me.GroupBox15.Controls.Add(Me.Label78)
+        Me.GroupBox15.Controls.Add(Me.txtPesoKG)
+        Me.GroupBox15.Controls.Add(Me.Label79)
+        Me.GroupBox15.Controls.Add(Me.txtValorMerc)
+        Me.GroupBox15.Controls.Add(Me.Label80)
+        Me.GroupBox15.Location = New System.Drawing.Point(11, 11)
+        Me.GroupBox15.Name = "GroupBox15"
+        Me.GroupBox15.Size = New System.Drawing.Size(871, 201)
+        Me.GroupBox15.TabIndex = 41
+        Me.GroupBox15.TabStop = False
+        Me.GroupBox15.Text = "DATOS DE LA MERCANCIA"
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Location = New System.Drawing.Point(563, 56)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(94, 15)
+        Me.Label80.TabIndex = 34
+        Me.Label80.Text = "Valor Mercancia:"
+        '
+        'txtValorMerc
+        '
+        Me.txtValorMerc.BackColor = System.Drawing.Color.White
+        Me.txtValorMerc.Location = New System.Drawing.Point(653, 53)
+        Me.txtValorMerc.Name = "txtValorMerc"
+        Me.txtValorMerc.Size = New System.Drawing.Size(67, 23)
+        Me.txtValorMerc.TabIndex = 35
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Location = New System.Drawing.Point(730, 56)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(71, 15)
+        Me.Label79.TabIndex = 42
+        Me.Label79.Text = "Peso en Kg.:"
+        '
+        'txtPesoKG
+        '
+        Me.txtPesoKG.BackColor = System.Drawing.Color.White
+        Me.txtPesoKG.Location = New System.Drawing.Point(800, 53)
+        Me.txtPesoKG.Name = "txtPesoKG"
+        Me.txtPesoKG.Size = New System.Drawing.Size(59, 23)
+        Me.txtPesoKG.TabIndex = 43
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Location = New System.Drawing.Point(12, 23)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(72, 15)
+        Me.Label78.TabIndex = 50
+        Me.Label78.Text = "Descripción:"
+        '
+        'Button9
+        '
+        Me.Button9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(730, 83)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(130, 28)
+        Me.Button9.TabIndex = 54
+        Me.Button9.Text = "Agregar"
+        Me.Button9.UseVisualStyleBackColor = False
+        '
+        'txtTotalPeso
+        '
+        Me.txtTotalPeso.BackColor = System.Drawing.Color.White
+        Me.txtTotalPeso.Location = New System.Drawing.Point(831, 10)
+        Me.txtTotalPeso.Name = "txtTotalPeso"
+        Me.txtTotalPeso.Size = New System.Drawing.Size(29, 23)
+        Me.txtTotalPeso.TabIndex = 57
+        Me.txtTotalPeso.Text = "0"
+        Me.txtTotalPeso.Visible = False
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(12, 91)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(114, 15)
+        Me.Label72.TabIndex = 58
+        Me.Label72.Text = "UUID Comercio Ext.:"
+        '
+        'txtUUIDComE
+        '
+        Me.txtUUIDComE.BackColor = System.Drawing.Color.White
+        Me.txtUUIDComE.Location = New System.Drawing.Point(123, 88)
+        Me.txtUUIDComE.Name = "txtUUIDComE"
+        Me.txtUUIDComE.Size = New System.Drawing.Size(292, 23)
+        Me.txtUUIDComE.TabIndex = 59
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(457, 91)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(117, 15)
+        Me.Label71.TabIndex = 60
+        Me.Label71.Text = "Fracción Arancelaria:"
+        '
+        'txtFraccAran
+        '
+        Me.txtFraccAran.BackColor = System.Drawing.Color.White
+        Me.txtFraccAran.Location = New System.Drawing.Point(568, 88)
+        Me.txtFraccAran.Name = "txtFraccAran"
+        Me.txtFraccAran.Size = New System.Drawing.Size(118, 23)
+        Me.txtFraccAran.TabIndex = 61
+        '
+        'txtPartidaNew
+        '
+        Me.txtPartidaNew.BackColor = System.Drawing.Color.White
+        Me.txtPartidaNew.Location = New System.Drawing.Point(796, 10)
+        Me.txtPartidaNew.Name = "txtPartidaNew"
+        Me.txtPartidaNew.Size = New System.Drawing.Size(29, 23)
+        Me.txtPartidaNew.TabIndex = 62
+        Me.txtPartidaNew.Text = "0"
+        Me.txtPartidaNew.Visible = False
+        '
+        'txtCantidad
+        '
+        Me.txtCantidad.BackColor = System.Drawing.Color.White
+        Me.txtCantidad.Location = New System.Drawing.Point(512, 53)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(38, 23)
+        Me.txtCantidad.TabIndex = 63
+        Me.txtCantidad.Text = "1"
+        '
+        'cboDescripcion
+        '
+        Me.cboDescripcion.BackColor = System.Drawing.Color.White
+        Me.cboDescripcion.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDescripcion.FormattingEnabled = True
+        Me.cboDescripcion.Location = New System.Drawing.Point(83, 20)
+        Me.cboDescripcion.Name = "cboDescripcion"
+        Me.cboDescripcion.Size = New System.Drawing.Size(408, 23)
+        Me.cboDescripcion.TabIndex = 66
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Location = New System.Drawing.Point(12, 56)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(108, 15)
+        Me.Label81.TabIndex = 67
+        Me.Label81.Text = "Clave Prod. o Serv.:"
+        '
+        'cboProdServSAT
+        '
+        Me.cboProdServSAT.BackColor = System.Drawing.Color.White
+        Me.cboProdServSAT.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboProdServSAT.FormattingEnabled = True
+        Me.cboProdServSAT.Location = New System.Drawing.Point(116, 53)
+        Me.cboProdServSAT.Name = "cboProdServSAT"
+        Me.cboProdServSAT.Size = New System.Drawing.Size(319, 23)
+        Me.cboProdServSAT.TabIndex = 68
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Location = New System.Drawing.Point(458, 56)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(58, 15)
+        Me.Label84.TabIndex = 69
+        Me.Label84.Text = "Cantidad:"
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Location = New System.Drawing.Point(501, 23)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(61, 15)
+        Me.Label85.TabIndex = 70
+        Me.Label85.Text = "Uni. Med.:"
+        '
+        'cboUniMedSAT
+        '
+        Me.cboUniMedSAT.BackColor = System.Drawing.Color.White
+        Me.cboUniMedSAT.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboUniMedSAT.FormattingEnabled = True
+        Me.cboUniMedSAT.Location = New System.Drawing.Point(558, 20)
+        Me.cboUniMedSAT.Name = "cboUniMedSAT"
+        Me.cboUniMedSAT.Size = New System.Drawing.Size(301, 23)
+        Me.cboUniMedSAT.TabIndex = 71
+        '
+        'GroupBox23
+        '
+        Me.GroupBox23.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox23.Controls.Add(Me.cboEmbalaje)
+        Me.GroupBox23.Controls.Add(Me.Label97)
+        Me.GroupBox23.Controls.Add(Me.cboMatPeligroso)
+        Me.GroupBox23.Controls.Add(Me.chkMatPeg)
+        Me.GroupBox23.Controls.Add(Me.Label98)
+        Me.GroupBox23.Location = New System.Drawing.Point(15, 118)
+        Me.GroupBox23.Name = "GroupBox23"
+        Me.GroupBox23.Size = New System.Drawing.Size(845, 75)
+        Me.GroupBox23.TabIndex = 72
+        Me.GroupBox23.TabStop = False
+        Me.GroupBox23.Text = "Material Peligroso"
+        '
+        'Label98
+        '
+        Me.Label98.AutoSize = True
+        Me.Label98.Location = New System.Drawing.Point(11, 21)
+        Me.Label98.Name = "Label98"
+        Me.Label98.Size = New System.Drawing.Size(66, 15)
+        Me.Label98.TabIndex = 15
+        Me.Label98.Text = "Seleccione:"
+        '
+        'chkMatPeg
+        '
+        Me.chkMatPeg.AutoSize = True
+        Me.chkMatPeg.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkMatPeg.Location = New System.Drawing.Point(81, 17)
+        Me.chkMatPeg.Name = "chkMatPeg"
+        Me.chkMatPeg.Size = New System.Drawing.Size(42, 24)
+        Me.chkMatPeg.TabIndex = 16
+        Me.chkMatPeg.Text = "Si"
+        Me.chkMatPeg.UseVisualStyleBackColor = True
+        '
+        'cboMatPeligroso
+        '
+        Me.cboMatPeligroso.BackColor = System.Drawing.Color.White
+        Me.cboMatPeligroso.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboMatPeligroso.FormattingEnabled = True
+        Me.cboMatPeligroso.Location = New System.Drawing.Point(127, 19)
+        Me.cboMatPeligroso.Name = "cboMatPeligroso"
+        Me.cboMatPeligroso.Size = New System.Drawing.Size(708, 23)
+        Me.cboMatPeligroso.TabIndex = 67
+        '
+        'Label97
+        '
+        Me.Label97.AutoSize = True
+        Me.Label97.Location = New System.Drawing.Point(11, 49)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(58, 15)
+        Me.Label97.TabIndex = 68
+        Me.Label97.Text = "Embalaje:"
+        '
+        'cboEmbalaje
+        '
+        Me.cboEmbalaje.BackColor = System.Drawing.Color.White
+        Me.cboEmbalaje.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboEmbalaje.FormattingEnabled = True
+        Me.cboEmbalaje.Location = New System.Drawing.Point(76, 46)
+        Me.cboEmbalaje.Name = "cboEmbalaje"
+        Me.cboEmbalaje.Size = New System.Drawing.Size(759, 23)
+        Me.cboEmbalaje.TabIndex = 69
+        '
+        'dgProductos
+        '
+        Me.dgProductos.AllowUserToAddRows = False
+        Me.dgProductos.BackgroundColor = System.Drawing.Color.White
+        Me.dgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.Column10, Me.Column12, Me.Column13, Me.Column14, Me.Column15})
+        Me.dgProductos.Location = New System.Drawing.Point(11, 218)
+        Me.dgProductos.Name = "dgProductos"
+        Me.dgProductos.ReadOnly = True
+        Me.dgProductos.Size = New System.Drawing.Size(871, 210)
+        Me.dgProductos.TabIndex = 42
+        '
+        'Column15
+        '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column15.HeaderText = "DescMatPel"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        Me.Column15.Width = 94
+        '
+        'Column14
+        '
+        Me.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column14.HeaderText = "ClaveEmbalaje"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        Me.Column14.Width = 109
+        '
+        'Column13
+        '
+        Me.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column13.HeaderText = "Embalaje"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        Me.Column13.Width = 80
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column12.HeaderText = "ClaveMaterialPel"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Width = 120
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.HeaderText = "MaterialPel"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 91
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Frac. Arancelaria"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Width = 109
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn8.HeaderText = "UUID Comercio E."
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 105
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn7.HeaderText = "PedimentoAduanal"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn6.HeaderText = "PesoKg"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 71
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn5.HeaderText = "ValorMercancia"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 113
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Cantidad"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 80
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn3.HeaderText = "ProdServSAT"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 98
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn2.HeaderText = "UniMedSAT"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 93
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 94
+        '
+        'GroupBox17
+        '
+        Me.GroupBox17.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox17.Controls.Add(Me.cboTipoFigura)
+        Me.GroupBox17.Controls.Add(Me.Label83)
+        Me.GroupBox17.Controls.Add(Me.txtOpeLicencia)
+        Me.GroupBox17.Controls.Add(Me.Label82)
+        Me.GroupBox17.Controls.Add(Me.cboOpeNombre)
+        Me.GroupBox17.Controls.Add(Me.txtOpeRFC)
+        Me.GroupBox17.Controls.Add(Me.Label90)
+        Me.GroupBox17.Controls.Add(Me.Label91)
+        Me.GroupBox17.Location = New System.Drawing.Point(11, 433)
+        Me.GroupBox17.Name = "GroupBox17"
+        Me.GroupBox17.Size = New System.Drawing.Size(870, 98)
+        Me.GroupBox17.TabIndex = 43
+        Me.GroupBox17.TabStop = False
+        Me.GroupBox17.Text = "DATOS DE LA FIGURA"
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Location = New System.Drawing.Point(11, 60)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(54, 15)
+        Me.Label91.TabIndex = 14
+        Me.Label91.Text = "Nombre:"
+        '
+        'Label90
+        '
+        Me.Label90.AutoSize = True
+        Me.Label90.Location = New System.Drawing.Point(460, 60)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(31, 15)
+        Me.Label90.TabIndex = 16
+        Me.Label90.Text = "RFC:"
+        '
+        'txtOpeRFC
+        '
+        Me.txtOpeRFC.BackColor = System.Drawing.Color.White
+        Me.txtOpeRFC.Location = New System.Drawing.Point(494, 57)
+        Me.txtOpeRFC.Name = "txtOpeRFC"
+        Me.txtOpeRFC.Size = New System.Drawing.Size(152, 23)
+        Me.txtOpeRFC.TabIndex = 17
+        '
+        'cboOpeNombre
+        '
+        Me.cboOpeNombre.BackColor = System.Drawing.Color.White
+        Me.cboOpeNombre.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboOpeNombre.FormattingEnabled = True
+        Me.cboOpeNombre.Location = New System.Drawing.Point(68, 57)
+        Me.cboOpeNombre.Name = "cboOpeNombre"
+        Me.cboOpeNombre.Size = New System.Drawing.Size(383, 23)
+        Me.cboOpeNombre.TabIndex = 18
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Location = New System.Drawing.Point(655, 60)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(53, 15)
+        Me.Label82.TabIndex = 42
+        Me.Label82.Text = "Licencia:"
+        '
+        'txtOpeLicencia
+        '
+        Me.txtOpeLicencia.BackColor = System.Drawing.Color.White
+        Me.txtOpeLicencia.Location = New System.Drawing.Point(707, 57)
+        Me.txtOpeLicencia.Name = "txtOpeLicencia"
+        Me.txtOpeLicencia.Size = New System.Drawing.Size(152, 23)
+        Me.txtOpeLicencia.TabIndex = 43
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Location = New System.Drawing.Point(10, 29)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(85, 15)
+        Me.Label83.TabIndex = 48
+        Me.Label83.Text = "Tipo de Figura:"
+        '
+        'cboTipoFigura
+        '
+        Me.cboTipoFigura.BackColor = System.Drawing.Color.White
+        Me.cboTipoFigura.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboTipoFigura.FormattingEnabled = True
+        Me.cboTipoFigura.Location = New System.Drawing.Point(93, 26)
+        Me.cboTipoFigura.Name = "cboTipoFigura"
+        Me.cboTipoFigura.Size = New System.Drawing.Size(140, 23)
+        Me.cboTipoFigura.TabIndex = 49
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.GroupBox22)
+        Me.TabPage1.Controls.Add(Me.GroupBox19)
+        Me.TabPage1.Controls.Add(Me.GroupBox12)
+        Me.TabPage1.Controls.Add(Me.GroupBox11)
+        Me.TabPage1.Controls.Add(Me.GroupBox10)
+        Me.TabPage1.Controls.Add(Me.GroupBox14)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(875, 533)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Datos del Origen, Destino y Autotransporte"
+        '
+        'GroupBox14
+        '
+        Me.GroupBox14.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox14.Controls.Add(Me.chkInter)
+        Me.GroupBox14.Controls.Add(Me.Label70)
+        Me.GroupBox14.Location = New System.Drawing.Point(8, 6)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(186, 70)
+        Me.GroupBox14.TabIndex = 41
+        Me.GroupBox14.TabStop = False
+        Me.GroupBox14.Text = "TRANSPORTE INTERNACIONAL"
+        '
+        'Label70
+        '
+        Me.Label70.AutoSize = True
+        Me.Label70.Location = New System.Drawing.Point(34, 34)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(66, 15)
+        Me.Label70.TabIndex = 15
+        Me.Label70.Text = "Seleccione:"
+        '
+        'chkInter
+        '
+        Me.chkInter.AutoSize = True
+        Me.chkInter.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkInter.Location = New System.Drawing.Point(110, 29)
+        Me.chkInter.Name = "chkInter"
+        Me.chkInter.Size = New System.Drawing.Size(42, 25)
+        Me.chkInter.TabIndex = 16
+        Me.chkInter.Text = "Si"
+        Me.chkInter.UseVisualStyleBackColor = True
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox10.Controls.Add(Me.txtPesoBrutoV)
+        Me.GroupBox10.Controls.Add(Me.Label109)
+        Me.GroupBox10.Controls.Add(Me.txtPlaca)
+        Me.GroupBox10.Controls.Add(Me.cboPermisoSCT)
+        Me.GroupBox10.Controls.Add(Me.txtNumPermisoSCT)
+        Me.GroupBox10.Controls.Add(Me.Label50)
+        Me.GroupBox10.Controls.Add(Me.txtAseguradora)
+        Me.GroupBox10.Controls.Add(Me.Label49)
+        Me.GroupBox10.Controls.Add(Me.Label42)
+        Me.GroupBox10.Controls.Add(Me.cboConfigV)
+        Me.GroupBox10.Controls.Add(Me.txtNumPoliza)
+        Me.GroupBox10.Controls.Add(Me.Label44)
+        Me.GroupBox10.Controls.Add(Me.txtModeloAño)
+        Me.GroupBox10.Controls.Add(Me.Label46)
+        Me.GroupBox10.Controls.Add(Me.Label47)
+        Me.GroupBox10.Controls.Add(Me.Label48)
+        Me.GroupBox10.Location = New System.Drawing.Point(8, 76)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(859, 103)
+        Me.GroupBox10.TabIndex = 42
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "DATOS DEL AUTOTRANSPORTE"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(328, 78)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(73, 15)
+        Me.Label48.TabIndex = 23
+        Me.Label48.Text = "PermisoSCT:"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(320, 50)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(74, 15)
+        Me.Label47.TabIndex = 25
+        Me.Label47.Text = "Config. Veh.:"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(171, 22)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(86, 15)
+        Me.Label46.TabIndex = 27
+        Me.Label46.Text = "Modelo ""Año"":"
+        '
+        'txtModeloAño
+        '
+        Me.txtModeloAño.BackColor = System.Drawing.Color.White
+        Me.txtModeloAño.Location = New System.Drawing.Point(254, 19)
+        Me.txtModeloAño.Name = "txtModeloAño"
+        Me.txtModeloAño.Size = New System.Drawing.Size(124, 23)
+        Me.txtModeloAño.TabIndex = 28
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(671, 24)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(74, 15)
+        Me.Label44.TabIndex = 30
+        Me.Label44.Text = "Núm. Poliza:"
+        '
+        'txtNumPoliza
+        '
+        Me.txtNumPoliza.BackColor = System.Drawing.Color.White
+        Me.txtNumPoliza.Location = New System.Drawing.Point(737, 21)
+        Me.txtNumPoliza.Name = "txtNumPoliza"
+        Me.txtNumPoliza.Size = New System.Drawing.Size(116, 23)
+        Me.txtNumPoliza.TabIndex = 31
+        '
+        'cboConfigV
+        '
+        Me.cboConfigV.BackColor = System.Drawing.Color.White
+        Me.cboConfigV.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboConfigV.FormattingEnabled = True
+        Me.cboConfigV.Location = New System.Drawing.Point(388, 47)
+        Me.cboConfigV.Name = "cboConfigV"
+        Me.cboConfigV.Size = New System.Drawing.Size(465, 23)
+        Me.cboConfigV.TabIndex = 37
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(7, 22)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(38, 15)
+        Me.Label42.TabIndex = 38
+        Me.Label42.Text = "Placa:"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(391, 24)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(77, 15)
+        Me.Label49.TabIndex = 16
+        Me.Label49.Text = "Aseguradora:"
+        '
+        'txtAseguradora
+        '
+        Me.txtAseguradora.BackColor = System.Drawing.Color.White
+        Me.txtAseguradora.Location = New System.Drawing.Point(467, 21)
+        Me.txtAseguradora.Name = "txtAseguradora"
+        Me.txtAseguradora.Size = New System.Drawing.Size(197, 23)
+        Me.txtAseguradora.TabIndex = 17
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(7, 50)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(106, 15)
+        Me.Label50.TabIndex = 42
+        Me.Label50.Text = "Núm. PermisoSCT:"
+        '
+        'txtNumPermisoSCT
+        '
+        Me.txtNumPermisoSCT.BackColor = System.Drawing.Color.White
+        Me.txtNumPermisoSCT.Location = New System.Drawing.Point(113, 47)
+        Me.txtNumPermisoSCT.Name = "txtNumPermisoSCT"
+        Me.txtNumPermisoSCT.Size = New System.Drawing.Size(191, 23)
+        Me.txtNumPermisoSCT.TabIndex = 43
+        '
+        'cboPermisoSCT
+        '
+        Me.cboPermisoSCT.FormattingEnabled = True
+        Me.cboPermisoSCT.Location = New System.Drawing.Point(401, 75)
+        Me.cboPermisoSCT.Name = "cboPermisoSCT"
+        Me.cboPermisoSCT.Size = New System.Drawing.Size(452, 23)
+        Me.cboPermisoSCT.TabIndex = 44
+        '
+        'txtPlaca
+        '
+        Me.txtPlaca.FormattingEnabled = True
+        Me.txtPlaca.Location = New System.Drawing.Point(57, 19)
+        Me.txtPlaca.Name = "txtPlaca"
+        Me.txtPlaca.Size = New System.Drawing.Size(101, 23)
+        Me.txtPlaca.TabIndex = 45
         '
         'Label109
         '
@@ -4098,6 +3404,700 @@ Partial Class frmfacturacion
         Me.Label109.Size = New System.Drawing.Size(215, 15)
         Me.Label109.TabIndex = 47
         Me.Label109.Text = "Peso Bruto del Vehiculo en ""Toneladas"":"
+        '
+        'txtPesoBrutoV
+        '
+        Me.txtPesoBrutoV.BackColor = System.Drawing.Color.White
+        Me.txtPesoBrutoV.Location = New System.Drawing.Point(226, 75)
+        Me.txtPesoBrutoV.Name = "txtPesoBrutoV"
+        Me.txtPesoBrutoV.Size = New System.Drawing.Size(94, 23)
+        Me.txtPesoBrutoV.TabIndex = 48
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox11.Controls.Add(Me.cboOrigMun)
+        Me.GroupBox11.Controls.Add(Me.Label41)
+        Me.GroupBox11.Controls.Add(Me.txtOrigNumInt)
+        Me.GroupBox11.Controls.Add(Me.Label43)
+        Me.GroupBox11.Controls.Add(Me.cboOrigColonia)
+        Me.GroupBox11.Controls.Add(Me.cboOrigEdo)
+        Me.GroupBox11.Controls.Add(Me.Label45)
+        Me.GroupBox11.Controls.Add(Me.txtOrigCP)
+        Me.GroupBox11.Controls.Add(Me.Label51)
+        Me.GroupBox11.Controls.Add(Me.txtOrigNumExt)
+        Me.GroupBox11.Controls.Add(Me.Label52)
+        Me.GroupBox11.Controls.Add(Me.Label53)
+        Me.GroupBox11.Controls.Add(Me.txtOrigCalle)
+        Me.GroupBox11.Controls.Add(Me.Label54)
+        Me.GroupBox11.Controls.Add(Me.dtpOrigHora)
+        Me.GroupBox11.Controls.Add(Me.dtpOrigFecha)
+        Me.GroupBox11.Controls.Add(Me.cboOrigRemitente)
+        Me.GroupBox11.Controls.Add(Me.txtOrigRFC)
+        Me.GroupBox11.Controls.Add(Me.Label55)
+        Me.GroupBox11.Controls.Add(Me.Label56)
+        Me.GroupBox11.Controls.Add(Me.Label57)
+        Me.GroupBox11.Location = New System.Drawing.Point(8, 185)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(859, 139)
+        Me.GroupBox11.TabIndex = 43
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "DATOS DE ORIGEN"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(11, 50)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(129, 15)
+        Me.Label57.TabIndex = 13
+        Me.Label57.Text = "Fecha y Hora de Salida:"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(11, 20)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(64, 15)
+        Me.Label56.TabIndex = 14
+        Me.Label56.Text = "Remitente:"
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(431, 20)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(107, 15)
+        Me.Label55.TabIndex = 16
+        Me.Label55.Text = "RFC del Remitente:"
+        '
+        'txtOrigRFC
+        '
+        Me.txtOrigRFC.BackColor = System.Drawing.Color.White
+        Me.txtOrigRFC.Location = New System.Drawing.Point(533, 17)
+        Me.txtOrigRFC.Name = "txtOrigRFC"
+        Me.txtOrigRFC.Size = New System.Drawing.Size(152, 23)
+        Me.txtOrigRFC.TabIndex = 17
+        '
+        'cboOrigRemitente
+        '
+        Me.cboOrigRemitente.BackColor = System.Drawing.Color.White
+        Me.cboOrigRemitente.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboOrigRemitente.FormattingEnabled = True
+        Me.cboOrigRemitente.Location = New System.Drawing.Point(71, 17)
+        Me.cboOrigRemitente.Name = "cboOrigRemitente"
+        Me.cboOrigRemitente.Size = New System.Drawing.Size(329, 23)
+        Me.cboOrigRemitente.TabIndex = 18
+        '
+        'dtpOrigFecha
+        '
+        Me.dtpOrigFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpOrigFecha.Location = New System.Drawing.Point(131, 47)
+        Me.dtpOrigFecha.Name = "dtpOrigFecha"
+        Me.dtpOrigFecha.Size = New System.Drawing.Size(97, 23)
+        Me.dtpOrigFecha.TabIndex = 21
+        '
+        'dtpOrigHora
+        '
+        Me.dtpOrigHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpOrigHora.Location = New System.Drawing.Point(234, 47)
+        Me.dtpOrigHora.Name = "dtpOrigHora"
+        Me.dtpOrigHora.Size = New System.Drawing.Size(89, 23)
+        Me.dtpOrigHora.TabIndex = 22
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(431, 50)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(36, 15)
+        Me.Label54.TabIndex = 23
+        Me.Label54.Text = "Calle:"
+        '
+        'txtOrigCalle
+        '
+        Me.txtOrigCalle.BackColor = System.Drawing.Color.White
+        Me.txtOrigCalle.Location = New System.Drawing.Point(467, 47)
+        Me.txtOrigCalle.Name = "txtOrigCalle"
+        Me.txtOrigCalle.Size = New System.Drawing.Size(267, 23)
+        Me.txtOrigCalle.TabIndex = 24
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(153, 80)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(51, 15)
+        Me.Label53.TabIndex = 25
+        Me.Label53.Text = "Colonia:"
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(744, 50)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(62, 15)
+        Me.Label52.TabIndex = 27
+        Me.Label52.Text = "Núm. Ext.:"
+        '
+        'txtOrigNumExt
+        '
+        Me.txtOrigNumExt.BackColor = System.Drawing.Color.White
+        Me.txtOrigNumExt.Location = New System.Drawing.Point(804, 47)
+        Me.txtOrigNumExt.Name = "txtOrigNumExt"
+        Me.txtOrigNumExt.Size = New System.Drawing.Size(61, 23)
+        Me.txtOrigNumExt.TabIndex = 28
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(331, 51)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(28, 15)
+        Me.Label51.TabIndex = 30
+        Me.Label51.Text = "CP.:"
+        '
+        'txtOrigCP
+        '
+        Me.txtOrigCP.BackColor = System.Drawing.Color.White
+        Me.txtOrigCP.Location = New System.Drawing.Point(361, 48)
+        Me.txtOrigCP.Name = "txtOrigCP"
+        Me.txtOrigCP.Size = New System.Drawing.Size(59, 23)
+        Me.txtOrigCP.TabIndex = 31
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(584, 80)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(45, 15)
+        Me.Label45.TabIndex = 33
+        Me.Label45.Text = "Estado:"
+        '
+        'cboOrigEdo
+        '
+        Me.cboOrigEdo.BackColor = System.Drawing.Color.White
+        Me.cboOrigEdo.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboOrigEdo.FormattingEnabled = True
+        Me.cboOrigEdo.Location = New System.Drawing.Point(629, 77)
+        Me.cboOrigEdo.Name = "cboOrigEdo"
+        Me.cboOrigEdo.Size = New System.Drawing.Size(236, 23)
+        Me.cboOrigEdo.TabIndex = 34
+        '
+        'cboOrigColonia
+        '
+        Me.cboOrigColonia.BackColor = System.Drawing.Color.White
+        Me.cboOrigColonia.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboOrigColonia.FormattingEnabled = True
+        Me.cboOrigColonia.Location = New System.Drawing.Point(203, 77)
+        Me.cboOrigColonia.Name = "cboOrigColonia"
+        Me.cboOrigColonia.Size = New System.Drawing.Size(367, 23)
+        Me.cboOrigColonia.TabIndex = 37
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(11, 80)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(60, 15)
+        Me.Label43.TabIndex = 38
+        Me.Label43.Text = "Núm. Int.:"
+        '
+        'txtOrigNumInt
+        '
+        Me.txtOrigNumInt.BackColor = System.Drawing.Color.White
+        Me.txtOrigNumInt.Location = New System.Drawing.Point(71, 77)
+        Me.txtOrigNumInt.Name = "txtOrigNumInt"
+        Me.txtOrigNumInt.Size = New System.Drawing.Size(61, 23)
+        Me.txtOrigNumInt.TabIndex = 39
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(11, 111)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(64, 15)
+        Me.Label41.TabIndex = 40
+        Me.Label41.Text = "Municipio:"
+        '
+        'cboOrigMun
+        '
+        Me.cboOrigMun.BackColor = System.Drawing.Color.White
+        Me.cboOrigMun.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboOrigMun.FormattingEnabled = True
+        Me.cboOrigMun.Location = New System.Drawing.Point(71, 108)
+        Me.cboOrigMun.Name = "cboOrigMun"
+        Me.cboOrigMun.Size = New System.Drawing.Size(212, 23)
+        Me.cboOrigMun.TabIndex = 41
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox12.Controls.Add(Me.GroupBox13)
+        Me.GroupBox12.Controls.Add(Me.cboDesDestinatario)
+        Me.GroupBox12.Controls.Add(Me.txtDesRFC)
+        Me.GroupBox12.Controls.Add(Me.Label58)
+        Me.GroupBox12.Controls.Add(Me.Label59)
+        Me.GroupBox12.Controls.Add(Me.txtDestinioDist)
+        Me.GroupBox12.Controls.Add(Me.Label60)
+        Me.GroupBox12.Controls.Add(Me.cboDestinoMun)
+        Me.GroupBox12.Controls.Add(Me.Label61)
+        Me.GroupBox12.Controls.Add(Me.cboDestinoEdo)
+        Me.GroupBox12.Controls.Add(Me.Label62)
+        Me.GroupBox12.Controls.Add(Me.txtDestinoNumI)
+        Me.GroupBox12.Controls.Add(Me.Label63)
+        Me.GroupBox12.Controls.Add(Me.cboDestinoColonia)
+        Me.GroupBox12.Controls.Add(Me.Label64)
+        Me.GroupBox12.Controls.Add(Me.txtDestinoCP)
+        Me.GroupBox12.Controls.Add(Me.Label65)
+        Me.GroupBox12.Controls.Add(Me.txtDestinoNumE)
+        Me.GroupBox12.Controls.Add(Me.Label66)
+        Me.GroupBox12.Controls.Add(Me.txtDestinoCalle)
+        Me.GroupBox12.Controls.Add(Me.Label67)
+        Me.GroupBox12.Controls.Add(Me.cboDestinoPais)
+        Me.GroupBox12.Controls.Add(Me.Label68)
+        Me.GroupBox12.Controls.Add(Me.dtpDesHora)
+        Me.GroupBox12.Controls.Add(Me.dtpDesFecha)
+        Me.GroupBox12.Controls.Add(Me.Label69)
+        Me.GroupBox12.Location = New System.Drawing.Point(8, 332)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(860, 194)
+        Me.GroupBox12.TabIndex = 44
+        Me.GroupBox12.TabStop = False
+        Me.GroupBox12.Text = "DATOS DEL DESTINO"
+        '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(12, 55)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(139, 15)
+        Me.Label69.TabIndex = 27
+        Me.Label69.Text = "Fecha y Hora de Llegada:"
+        '
+        'dtpDesFecha
+        '
+        Me.dtpDesFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDesFecha.Location = New System.Drawing.Point(144, 52)
+        Me.dtpDesFecha.Name = "dtpDesFecha"
+        Me.dtpDesFecha.Size = New System.Drawing.Size(111, 23)
+        Me.dtpDesFecha.TabIndex = 28
+        '
+        'dtpDesHora
+        '
+        Me.dtpDesHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpDesHora.Location = New System.Drawing.Point(267, 52)
+        Me.dtpDesHora.Name = "dtpDesHora"
+        Me.dtpDesHora.Size = New System.Drawing.Size(103, 23)
+        Me.dtpDesHora.TabIndex = 29
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Location = New System.Drawing.Point(565, 54)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(31, 15)
+        Me.Label68.TabIndex = 30
+        Me.Label68.Text = "País:"
+        '
+        'cboDestinoPais
+        '
+        Me.cboDestinoPais.BackColor = System.Drawing.Color.White
+        Me.cboDestinoPais.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDestinoPais.FormattingEnabled = True
+        Me.cboDestinoPais.Location = New System.Drawing.Point(600, 51)
+        Me.cboDestinoPais.Name = "cboDestinoPais"
+        Me.cboDestinoPais.Size = New System.Drawing.Size(264, 23)
+        Me.cboDestinoPais.TabIndex = 31
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Location = New System.Drawing.Point(12, 85)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(36, 15)
+        Me.Label67.TabIndex = 32
+        Me.Label67.Text = "Calle:"
+        '
+        'txtDestinoCalle
+        '
+        Me.txtDestinoCalle.BackColor = System.Drawing.Color.White
+        Me.txtDestinoCalle.Location = New System.Drawing.Point(48, 82)
+        Me.txtDestinoCalle.Name = "txtDestinoCalle"
+        Me.txtDestinoCalle.Size = New System.Drawing.Size(248, 23)
+        Me.txtDestinoCalle.TabIndex = 33
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(322, 85)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(62, 15)
+        Me.Label66.TabIndex = 34
+        Me.Label66.Text = "Núm. Ext.:"
+        '
+        'txtDestinoNumE
+        '
+        Me.txtDestinoNumE.BackColor = System.Drawing.Color.White
+        Me.txtDestinoNumE.Location = New System.Drawing.Point(380, 82)
+        Me.txtDestinoNumE.Name = "txtDestinoNumE"
+        Me.txtDestinoNumE.Size = New System.Drawing.Size(54, 23)
+        Me.txtDestinoNumE.TabIndex = 35
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(403, 55)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(28, 15)
+        Me.Label65.TabIndex = 36
+        Me.Label65.Text = "CP.:"
+        '
+        'txtDestinoCP
+        '
+        Me.txtDestinoCP.BackColor = System.Drawing.Color.White
+        Me.txtDestinoCP.Location = New System.Drawing.Point(433, 52)
+        Me.txtDestinoCP.Name = "txtDestinoCP"
+        Me.txtDestinoCP.Size = New System.Drawing.Size(59, 23)
+        Me.txtDestinoCP.TabIndex = 37
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(567, 85)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(51, 15)
+        Me.Label64.TabIndex = 40
+        Me.Label64.Text = "Colonia:"
+        '
+        'cboDestinoColonia
+        '
+        Me.cboDestinoColonia.BackColor = System.Drawing.Color.White
+        Me.cboDestinoColonia.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDestinoColonia.FormattingEnabled = True
+        Me.cboDestinoColonia.Location = New System.Drawing.Point(617, 82)
+        Me.cboDestinoColonia.Name = "cboDestinoColonia"
+        Me.cboDestinoColonia.Size = New System.Drawing.Size(247, 23)
+        Me.cboDestinoColonia.TabIndex = 41
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Location = New System.Drawing.Point(446, 85)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(60, 15)
+        Me.Label63.TabIndex = 42
+        Me.Label63.Text = "Núm. Int.:"
+        '
+        'txtDestinoNumI
+        '
+        Me.txtDestinoNumI.BackColor = System.Drawing.Color.White
+        Me.txtDestinoNumI.Location = New System.Drawing.Point(501, 82)
+        Me.txtDestinoNumI.Name = "txtDestinoNumI"
+        Me.txtDestinoNumI.Size = New System.Drawing.Size(54, 23)
+        Me.txtDestinoNumI.TabIndex = 43
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(12, 118)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(45, 15)
+        Me.Label62.TabIndex = 44
+        Me.Label62.Text = "Estado:"
+        '
+        'cboDestinoEdo
+        '
+        Me.cboDestinoEdo.BackColor = System.Drawing.Color.White
+        Me.cboDestinoEdo.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDestinoEdo.FormattingEnabled = True
+        Me.cboDestinoEdo.Location = New System.Drawing.Point(57, 115)
+        Me.cboDestinoEdo.Name = "cboDestinoEdo"
+        Me.cboDestinoEdo.Size = New System.Drawing.Size(199, 23)
+        Me.cboDestinoEdo.TabIndex = 45
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(266, 118)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(64, 15)
+        Me.Label61.TabIndex = 46
+        Me.Label61.Text = "Municipio:"
+        '
+        'cboDestinoMun
+        '
+        Me.cboDestinoMun.BackColor = System.Drawing.Color.White
+        Me.cboDestinoMun.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDestinoMun.FormattingEnabled = True
+        Me.cboDestinoMun.Location = New System.Drawing.Point(323, 115)
+        Me.cboDestinoMun.Name = "cboDestinoMun"
+        Me.cboDestinoMun.Size = New System.Drawing.Size(212, 23)
+        Me.cboDestinoMun.TabIndex = 47
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(545, 118)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(184, 15)
+        Me.Label60.TabIndex = 48
+        Me.Label60.Text = "Distancia recorrida en Kilometros:"
+        '
+        'txtDestinioDist
+        '
+        Me.txtDestinioDist.BackColor = System.Drawing.Color.White
+        Me.txtDestinioDist.Location = New System.Drawing.Point(715, 115)
+        Me.txtDestinioDist.Name = "txtDestinioDist"
+        Me.txtDestinioDist.Size = New System.Drawing.Size(54, 23)
+        Me.txtDestinioDist.TabIndex = 49
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(12, 23)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(73, 15)
+        Me.Label59.TabIndex = 50
+        Me.Label59.Text = "Destinatario:"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(443, 23)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(116, 15)
+        Me.Label58.TabIndex = 51
+        Me.Label58.Text = "RFC del Destinatario:"
+        '
+        'txtDesRFC
+        '
+        Me.txtDesRFC.BackColor = System.Drawing.Color.White
+        Me.txtDesRFC.Location = New System.Drawing.Point(555, 20)
+        Me.txtDesRFC.Name = "txtDesRFC"
+        Me.txtDesRFC.Size = New System.Drawing.Size(152, 23)
+        Me.txtDesRFC.TabIndex = 52
+        '
+        'cboDesDestinatario
+        '
+        Me.cboDesDestinatario.BackColor = System.Drawing.Color.White
+        Me.cboDesDestinatario.ForeColor = System.Drawing.SystemColors.InfoText
+        Me.cboDesDestinatario.FormattingEnabled = True
+        Me.cboDesDestinatario.Location = New System.Drawing.Point(83, 20)
+        Me.cboDesDestinatario.Name = "cboDesDestinatario"
+        Me.cboDesDestinatario.Size = New System.Drawing.Size(329, 23)
+        Me.cboDesDestinatario.TabIndex = 53
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.GroupBox13.Controls.Add(Me.txtDestinoLoc)
+        Me.GroupBox13.Location = New System.Drawing.Point(15, 142)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(355, 46)
+        Me.GroupBox13.TabIndex = 54
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Localidad"
+        Me.GroupBox13.Visible = False
+        '
+        'txtDestinoLoc
+        '
+        Me.txtDestinoLoc.BackColor = System.Drawing.Color.White
+        Me.txtDestinoLoc.Location = New System.Drawing.Point(8, 18)
+        Me.txtDestinoLoc.Name = "txtDestinoLoc"
+        Me.txtDestinoLoc.Size = New System.Drawing.Size(341, 23)
+        Me.txtDestinoLoc.TabIndex = 34
+        '
+        'GroupBox19
+        '
+        Me.GroupBox19.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox19.Controls.Add(Me.Label73)
+        Me.GroupBox19.Controls.Add(Me.Label74)
+        Me.GroupBox19.Controls.Add(Me.Label75)
+        Me.GroupBox19.Controls.Add(Me.Label76)
+        Me.GroupBox19.Controls.Add(Me.txtNumPed4)
+        Me.GroupBox19.Controls.Add(Me.txtNumPed3)
+        Me.GroupBox19.Controls.Add(Me.txtNumPed2)
+        Me.GroupBox19.Controls.Add(Me.txtNumPed1)
+        Me.GroupBox19.Controls.Add(Me.Label77)
+        Me.GroupBox19.Location = New System.Drawing.Point(200, 6)
+        Me.GroupBox19.Name = "GroupBox19"
+        Me.GroupBox19.Size = New System.Drawing.Size(349, 70)
+        Me.GroupBox19.TabIndex = 56
+        Me.GroupBox19.TabStop = False
+        Me.GroupBox19.Text = "NÚMERO DE PEDIMENTO ADUANAL"
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.Location = New System.Drawing.Point(6, 21)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(54, 15)
+        Me.Label77.TabIndex = 15
+        Me.Label77.Text = "Número:"
+        '
+        'txtNumPed1
+        '
+        Me.txtNumPed1.BackColor = System.Drawing.Color.White
+        Me.txtNumPed1.Location = New System.Drawing.Point(63, 17)
+        Me.txtNumPed1.MaxLength = 2
+        Me.txtNumPed1.Name = "txtNumPed1"
+        Me.txtNumPed1.Size = New System.Drawing.Size(44, 23)
+        Me.txtNumPed1.TabIndex = 3
+        '
+        'txtNumPed2
+        '
+        Me.txtNumPed2.BackColor = System.Drawing.Color.White
+        Me.txtNumPed2.Location = New System.Drawing.Point(114, 17)
+        Me.txtNumPed2.MaxLength = 2
+        Me.txtNumPed2.Name = "txtNumPed2"
+        Me.txtNumPed2.Size = New System.Drawing.Size(44, 23)
+        Me.txtNumPed2.TabIndex = 16
+        '
+        'txtNumPed3
+        '
+        Me.txtNumPed3.BackColor = System.Drawing.Color.White
+        Me.txtNumPed3.Location = New System.Drawing.Point(164, 17)
+        Me.txtNumPed3.MaxLength = 4
+        Me.txtNumPed3.Name = "txtNumPed3"
+        Me.txtNumPed3.Size = New System.Drawing.Size(65, 23)
+        Me.txtNumPed3.TabIndex = 17
+        '
+        'txtNumPed4
+        '
+        Me.txtNumPed4.BackColor = System.Drawing.Color.White
+        Me.txtNumPed4.Location = New System.Drawing.Point(235, 17)
+        Me.txtNumPed4.MaxLength = 7
+        Me.txtNumPed4.Name = "txtNumPed4"
+        Me.txtNumPed4.Size = New System.Drawing.Size(108, 23)
+        Me.txtNumPed4.TabIndex = 18
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Location = New System.Drawing.Point(69, 45)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(36, 15)
+        Me.Label76.TabIndex = 19
+        Me.Label76.Text = "2 dig."
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Location = New System.Drawing.Point(119, 45)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(36, 15)
+        Me.Label75.TabIndex = 20
+        Me.Label75.Text = "2 dig."
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Location = New System.Drawing.Point(180, 45)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(36, 15)
+        Me.Label74.TabIndex = 21
+        Me.Label74.Text = "4 dig."
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(270, 45)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(36, 15)
+        Me.Label73.TabIndex = 22
+        Me.Label73.Text = "7 dig."
+        '
+        'GroupBox22
+        '
+        Me.GroupBox22.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox22.Controls.Add(Me.txtNumPolizaMatPel)
+        Me.GroupBox22.Controls.Add(Me.Label95)
+        Me.GroupBox22.Controls.Add(Me.txtAseguradoraMatPel)
+        Me.GroupBox22.Controls.Add(Me.Label96)
+        Me.GroupBox22.Location = New System.Drawing.Point(555, 6)
+        Me.GroupBox22.Name = "GroupBox22"
+        Me.GroupBox22.Size = New System.Drawing.Size(312, 70)
+        Me.GroupBox22.TabIndex = 58
+        Me.GroupBox22.TabStop = False
+        Me.GroupBox22.Text = "DATOS DE ASEGURADORA MATERIALES PELIGROSOS"
+        '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Location = New System.Drawing.Point(6, 20)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(77, 15)
+        Me.Label96.TabIndex = 18
+        Me.Label96.Text = "Aseguradora:"
+        '
+        'txtAseguradoraMatPel
+        '
+        Me.txtAseguradoraMatPel.BackColor = System.Drawing.Color.White
+        Me.txtAseguradoraMatPel.Location = New System.Drawing.Point(89, 17)
+        Me.txtAseguradoraMatPel.Name = "txtAseguradoraMatPel"
+        Me.txtAseguradoraMatPel.Size = New System.Drawing.Size(215, 23)
+        Me.txtAseguradoraMatPel.TabIndex = 19
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Location = New System.Drawing.Point(6, 45)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(74, 15)
+        Me.Label95.TabIndex = 32
+        Me.Label95.Text = "Núm. Poliza:"
+        '
+        'txtNumPolizaMatPel
+        '
+        Me.txtNumPolizaMatPel.BackColor = System.Drawing.Color.White
+        Me.txtNumPolizaMatPel.Location = New System.Drawing.Point(89, 41)
+        Me.txtNumPolizaMatPel.Name = "txtNumPolizaMatPel"
+        Me.txtNumPolizaMatPel.Size = New System.Drawing.Size(116, 23)
+        Me.txtNumPolizaMatPel.TabIndex = 33
+        '
+        'btnLimpiarCP
+        '
+        Me.btnLimpiarCP.BackColor = System.Drawing.Color.White
+        Me.btnLimpiarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLimpiarCP.Image = CType(resources.GetObject("btnLimpiarCP.Image"), System.Drawing.Image)
+        Me.btnLimpiarCP.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiarCP.Location = New System.Drawing.Point(899, 120)
+        Me.btnLimpiarCP.Name = "btnLimpiarCP"
+        Me.btnLimpiarCP.Size = New System.Drawing.Size(75, 79)
+        Me.btnLimpiarCP.TabIndex = 1
+        Me.btnLimpiarCP.Text = "Limpiar"
+        Me.btnLimpiarCP.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiarCP.UseVisualStyleBackColor = False
+        '
+        'btnAceptarCP
+        '
+        Me.btnAceptarCP.BackColor = System.Drawing.Color.White
+        Me.btnAceptarCP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAceptarCP.ForeColor = System.Drawing.Color.Black
+        Me.btnAceptarCP.Image = CType(resources.GetObject("btnAceptarCP.Image"), System.Drawing.Image)
+        Me.btnAceptarCP.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAceptarCP.Location = New System.Drawing.Point(898, 41)
+        Me.btnAceptarCP.Name = "btnAceptarCP"
+        Me.btnAceptarCP.Size = New System.Drawing.Size(75, 73)
+        Me.btnAceptarCP.TabIndex = 2
+        Me.btnAceptarCP.Text = "Aceptar"
+        Me.btnAceptarCP.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAceptarCP.UseVisualStyleBackColor = False
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.GroupBox9.Controls.Add(Me.btnAceptarCP)
+        Me.GroupBox9.Controls.Add(Me.btnLimpiarCP)
+        Me.GroupBox9.Controls.Add(Me.TabControl1)
+        Me.GroupBox9.Location = New System.Drawing.Point(4, 83)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(987, 596)
+        Me.GroupBox9.TabIndex = 89
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Datos para el Complemento Carta Porte"
+        Me.GroupBox9.Visible = False
         '
         'frmfacturacion
         '
@@ -4151,35 +4151,6 @@ Partial Class frmfacturacion
         Me.GbUUID.ResumeLayout(False)
         Me.GbUUID.PerformLayout()
         CType(Me.dgUUID, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.GroupBox22.ResumeLayout(False)
-        Me.GroupBox22.PerformLayout()
-        Me.GroupBox19.ResumeLayout(False)
-        Me.GroupBox19.PerformLayout()
-        Me.GroupBox12.ResumeLayout(False)
-        Me.GroupBox12.PerformLayout()
-        Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox13.PerformLayout()
-        Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox11.PerformLayout()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
-        Me.GroupBox14.ResumeLayout(False)
-        Me.GroupBox14.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.GroupBox17.ResumeLayout(False)
-        Me.GroupBox17.PerformLayout()
-        CType(Me.dgProductos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox15.ResumeLayout(False)
-        Me.GroupBox15.PerformLayout()
-        Me.GroupBox23.ResumeLayout(False)
-        Me.GroupBox23.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.GroupBox21.ResumeLayout(False)
-        Me.GroupBox21.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
@@ -4205,6 +4176,35 @@ Partial Class frmfacturacion
         Me.GroupBox_D_FIS.ResumeLayout(False)
         Me.GroupBox_D_FIS.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        Me.GroupBox21.ResumeLayout(False)
+        Me.GroupBox21.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox15.ResumeLayout(False)
+        Me.GroupBox15.PerformLayout()
+        Me.GroupBox23.ResumeLayout(False)
+        Me.GroupBox23.PerformLayout()
+        CType(Me.dgProductos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox17.ResumeLayout(False)
+        Me.GroupBox17.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox14.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox12.PerformLayout()
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
+        Me.GroupBox19.ResumeLayout(False)
+        Me.GroupBox19.PerformLayout()
+        Me.GroupBox22.ResumeLayout(False)
+        Me.GroupBox22.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4259,156 +4259,6 @@ Partial Class frmfacturacion
     Friend WithEvents Label38 As Label
     Friend WithEvents txtUUID As TextBox
     Friend WithEvents cboFolio As ComboBox
-    Friend WithEvents GroupBox9 As GroupBox
-    Friend WithEvents btnAceptarCP As Button
-    Friend WithEvents btnLimpiarCP As Button
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents GroupBox22 As GroupBox
-    Friend WithEvents txtNumPolizaMatPel As TextBox
-    Friend WithEvents Label95 As Label
-    Friend WithEvents txtAseguradoraMatPel As TextBox
-    Friend WithEvents Label96 As Label
-    Friend WithEvents GroupBox19 As GroupBox
-    Friend WithEvents Label73 As Label
-    Friend WithEvents Label74 As Label
-    Friend WithEvents Label75 As Label
-    Friend WithEvents Label76 As Label
-    Friend WithEvents txtNumPed4 As TextBox
-    Friend WithEvents txtNumPed3 As TextBox
-    Friend WithEvents txtNumPed2 As TextBox
-    Friend WithEvents txtNumPed1 As TextBox
-    Friend WithEvents Label77 As Label
-    Friend WithEvents GroupBox12 As GroupBox
-    Friend WithEvents GroupBox13 As GroupBox
-    Friend WithEvents txtDestinoLoc As TextBox
-    Friend WithEvents cboDesDestinatario As ComboBox
-    Friend WithEvents txtDesRFC As TextBox
-    Friend WithEvents Label58 As Label
-    Friend WithEvents Label59 As Label
-    Friend WithEvents txtDestinioDist As TextBox
-    Friend WithEvents Label60 As Label
-    Friend WithEvents cboDestinoMun As ComboBox
-    Friend WithEvents Label61 As Label
-    Friend WithEvents cboDestinoEdo As ComboBox
-    Friend WithEvents Label62 As Label
-    Friend WithEvents txtDestinoNumI As TextBox
-    Friend WithEvents Label63 As Label
-    Friend WithEvents cboDestinoColonia As ComboBox
-    Friend WithEvents Label64 As Label
-    Friend WithEvents txtDestinoCP As TextBox
-    Friend WithEvents Label65 As Label
-    Friend WithEvents txtDestinoNumE As TextBox
-    Friend WithEvents Label66 As Label
-    Friend WithEvents txtDestinoCalle As TextBox
-    Friend WithEvents Label67 As Label
-    Friend WithEvents cboDestinoPais As ComboBox
-    Friend WithEvents Label68 As Label
-    Friend WithEvents dtpDesHora As DateTimePicker
-    Friend WithEvents dtpDesFecha As DateTimePicker
-    Friend WithEvents Label69 As Label
-    Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents cboOrigMun As ComboBox
-    Friend WithEvents Label41 As Label
-    Friend WithEvents txtOrigNumInt As TextBox
-    Friend WithEvents Label43 As Label
-    Friend WithEvents cboOrigColonia As ComboBox
-    Friend WithEvents cboOrigEdo As ComboBox
-    Friend WithEvents Label45 As Label
-    Friend WithEvents txtOrigCP As TextBox
-    Friend WithEvents Label51 As Label
-    Friend WithEvents txtOrigNumExt As TextBox
-    Friend WithEvents Label52 As Label
-    Friend WithEvents Label53 As Label
-    Friend WithEvents txtOrigCalle As TextBox
-    Friend WithEvents Label54 As Label
-    Friend WithEvents dtpOrigHora As DateTimePicker
-    Friend WithEvents dtpOrigFecha As DateTimePicker
-    Friend WithEvents cboOrigRemitente As ComboBox
-    Friend WithEvents txtOrigRFC As TextBox
-    Friend WithEvents Label55 As Label
-    Friend WithEvents Label56 As Label
-    Friend WithEvents Label57 As Label
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents txtPlaca As ComboBox
-    Friend WithEvents cboPermisoSCT As ComboBox
-    Friend WithEvents txtNumPermisoSCT As TextBox
-    Friend WithEvents Label50 As Label
-    Friend WithEvents txtAseguradora As TextBox
-    Friend WithEvents Label49 As Label
-    Friend WithEvents Label42 As Label
-    Friend WithEvents cboConfigV As ComboBox
-    Friend WithEvents txtNumPoliza As TextBox
-    Friend WithEvents Label44 As Label
-    Friend WithEvents txtModeloAño As TextBox
-    Friend WithEvents Label46 As Label
-    Friend WithEvents Label47 As Label
-    Friend WithEvents Label48 As Label
-    Friend WithEvents GroupBox14 As GroupBox
-    Friend WithEvents chkInter As CheckBox
-    Friend WithEvents Label70 As Label
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents GroupBox17 As GroupBox
-    Friend WithEvents cboTipoFigura As ComboBox
-    Friend WithEvents Label83 As Label
-    Friend WithEvents txtOpeLicencia As TextBox
-    Friend WithEvents Label82 As Label
-    Friend WithEvents cboOpeNombre As ComboBox
-    Friend WithEvents txtOpeRFC As TextBox
-    Friend WithEvents Label90 As Label
-    Friend WithEvents Label91 As Label
-    Friend WithEvents dgProductos As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents GroupBox15 As GroupBox
-    Friend WithEvents GroupBox23 As GroupBox
-    Friend WithEvents cboEmbalaje As ComboBox
-    Friend WithEvents Label97 As Label
-    Friend WithEvents cboMatPeligroso As ComboBox
-    Friend WithEvents chkMatPeg As CheckBox
-    Friend WithEvents Label98 As Label
-    Friend WithEvents cboUniMedSAT As ComboBox
-    Friend WithEvents Label85 As Label
-    Friend WithEvents Label84 As Label
-    Friend WithEvents cboProdServSAT As ComboBox
-    Friend WithEvents Label81 As Label
-    Friend WithEvents cboDescripcion As ComboBox
-    Friend WithEvents txtCantidad As TextBox
-    Friend WithEvents txtPartidaNew As TextBox
-    Friend WithEvents txtFraccAran As TextBox
-    Friend WithEvents Label71 As Label
-    Friend WithEvents txtUUIDComE As TextBox
-    Friend WithEvents Label72 As Label
-    Friend WithEvents txtTotalPeso As TextBox
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Label78 As Label
-    Friend WithEvents txtPesoKG As TextBox
-    Friend WithEvents Label79 As Label
-    Friend WithEvents txtValorMerc As TextBox
-    Friend WithEvents Label80 As Label
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents GroupBox21 As GroupBox
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Button12 As Button
-    Friend WithEvents cboTipoRemolque As ComboBox
-    Friend WithEvents Label88 As Label
-    Friend WithEvents txtPlacaTipoRemolque As TextBox
-    Friend WithEvents Label92 As Label
     Friend WithEvents Button8 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents btnParcialidades As Button
@@ -4576,6 +4426,156 @@ Partial Class frmfacturacion
     Friend WithEvents FactGlobal As DataGridViewTextBoxColumn
     Friend WithEvents FactGlobalIEPS As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents GroupBox22 As GroupBox
+    Friend WithEvents txtNumPolizaMatPel As TextBox
+    Friend WithEvents Label95 As Label
+    Friend WithEvents txtAseguradoraMatPel As TextBox
+    Friend WithEvents Label96 As Label
+    Friend WithEvents GroupBox19 As GroupBox
+    Friend WithEvents Label73 As Label
+    Friend WithEvents Label74 As Label
+    Friend WithEvents Label75 As Label
+    Friend WithEvents Label76 As Label
+    Friend WithEvents txtNumPed4 As TextBox
+    Friend WithEvents txtNumPed3 As TextBox
+    Friend WithEvents txtNumPed2 As TextBox
+    Friend WithEvents txtNumPed1 As TextBox
+    Friend WithEvents Label77 As Label
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents txtDestinoLoc As TextBox
+    Friend WithEvents cboDesDestinatario As ComboBox
+    Friend WithEvents txtDesRFC As TextBox
+    Friend WithEvents Label58 As Label
+    Friend WithEvents Label59 As Label
+    Friend WithEvents txtDestinioDist As TextBox
+    Friend WithEvents Label60 As Label
+    Friend WithEvents cboDestinoMun As ComboBox
+    Friend WithEvents Label61 As Label
+    Friend WithEvents cboDestinoEdo As ComboBox
+    Friend WithEvents Label62 As Label
+    Friend WithEvents txtDestinoNumI As TextBox
+    Friend WithEvents Label63 As Label
+    Friend WithEvents cboDestinoColonia As ComboBox
+    Friend WithEvents Label64 As Label
+    Friend WithEvents txtDestinoCP As TextBox
+    Friend WithEvents Label65 As Label
+    Friend WithEvents txtDestinoNumE As TextBox
+    Friend WithEvents Label66 As Label
+    Friend WithEvents txtDestinoCalle As TextBox
+    Friend WithEvents Label67 As Label
+    Friend WithEvents cboDestinoPais As ComboBox
+    Friend WithEvents Label68 As Label
+    Friend WithEvents dtpDesHora As DateTimePicker
+    Friend WithEvents dtpDesFecha As DateTimePicker
+    Friend WithEvents Label69 As Label
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents cboOrigMun As ComboBox
+    Friend WithEvents Label41 As Label
+    Friend WithEvents txtOrigNumInt As TextBox
+    Friend WithEvents Label43 As Label
+    Friend WithEvents cboOrigColonia As ComboBox
+    Friend WithEvents cboOrigEdo As ComboBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents txtOrigCP As TextBox
+    Friend WithEvents Label51 As Label
+    Friend WithEvents txtOrigNumExt As TextBox
+    Friend WithEvents Label52 As Label
+    Friend WithEvents Label53 As Label
+    Friend WithEvents txtOrigCalle As TextBox
+    Friend WithEvents Label54 As Label
+    Friend WithEvents dtpOrigHora As DateTimePicker
+    Friend WithEvents dtpOrigFecha As DateTimePicker
+    Friend WithEvents cboOrigRemitente As ComboBox
+    Friend WithEvents txtOrigRFC As TextBox
+    Friend WithEvents Label55 As Label
+    Friend WithEvents Label56 As Label
+    Friend WithEvents Label57 As Label
+    Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents txtPesoBrutoV As TextBox
     Friend WithEvents Label109 As Label
+    Friend WithEvents txtPlaca As ComboBox
+    Friend WithEvents cboPermisoSCT As ComboBox
+    Friend WithEvents txtNumPermisoSCT As TextBox
+    Friend WithEvents Label50 As Label
+    Friend WithEvents txtAseguradora As TextBox
+    Friend WithEvents Label49 As Label
+    Friend WithEvents Label42 As Label
+    Friend WithEvents cboConfigV As ComboBox
+    Friend WithEvents txtNumPoliza As TextBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents txtModeloAño As TextBox
+    Friend WithEvents Label46 As Label
+    Friend WithEvents Label47 As Label
+    Friend WithEvents Label48 As Label
+    Friend WithEvents GroupBox14 As GroupBox
+    Friend WithEvents chkInter As CheckBox
+    Friend WithEvents Label70 As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents GroupBox17 As GroupBox
+    Friend WithEvents cboTipoFigura As ComboBox
+    Friend WithEvents Label83 As Label
+    Friend WithEvents txtOpeLicencia As TextBox
+    Friend WithEvents Label82 As Label
+    Friend WithEvents cboOpeNombre As ComboBox
+    Friend WithEvents txtOpeRFC As TextBox
+    Friend WithEvents Label90 As Label
+    Friend WithEvents Label91 As Label
+    Friend WithEvents dgProductos As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox15 As GroupBox
+    Friend WithEvents GroupBox23 As GroupBox
+    Friend WithEvents cboEmbalaje As ComboBox
+    Friend WithEvents Label97 As Label
+    Friend WithEvents cboMatPeligroso As ComboBox
+    Friend WithEvents chkMatPeg As CheckBox
+    Friend WithEvents Label98 As Label
+    Friend WithEvents cboUniMedSAT As ComboBox
+    Friend WithEvents Label85 As Label
+    Friend WithEvents Label84 As Label
+    Friend WithEvents cboProdServSAT As ComboBox
+    Friend WithEvents Label81 As Label
+    Friend WithEvents cboDescripcion As ComboBox
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents txtPartidaNew As TextBox
+    Friend WithEvents txtFraccAran As TextBox
+    Friend WithEvents Label71 As Label
+    Friend WithEvents txtUUIDComE As TextBox
+    Friend WithEvents Label72 As Label
+    Friend WithEvents txtTotalPeso As TextBox
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Label78 As Label
+    Friend WithEvents txtPesoKG As TextBox
+    Friend WithEvents Label79 As Label
+    Friend WithEvents txtValorMerc As TextBox
+    Friend WithEvents Label80 As Label
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents GroupBox21 As GroupBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Button12 As Button
+    Friend WithEvents cboTipoRemolque As ComboBox
+    Friend WithEvents Label88 As Label
+    Friend WithEvents txtPlacaTipoRemolque As TextBox
+    Friend WithEvents Label92 As Label
+    Friend WithEvents btnLimpiarCP As Button
+    Friend WithEvents btnAceptarCP As Button
+    Friend WithEvents GroupBox9 As GroupBox
 End Class

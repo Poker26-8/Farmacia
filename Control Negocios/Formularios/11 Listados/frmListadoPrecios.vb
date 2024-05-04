@@ -1669,8 +1669,8 @@ Public Class frmListadoPrecios
                     For Col As Integer = 0 To NCol - 1
                         exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value
                     Next
-                    'voy = voy + 1
-
+                    voy = voy + 1
+                    txtCod.Text = voy
                     ''ProgressBar1.Value = ProgressBar1.Value + 1
                     'lblprod.Text = "Registros exportados: " & voy
                     My.Application.DoEvents()
