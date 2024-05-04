@@ -834,7 +834,7 @@
                     T_acuenta = T_acuenta + acuenta
                     t_resta = t_resta + resta
 
-                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal + T_descuento + T_iva, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
+                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal + descuento + IVA, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
                     barcarga.Value = barcarga.Value + 1
 
 
