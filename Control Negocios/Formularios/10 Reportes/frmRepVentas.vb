@@ -829,7 +829,7 @@
                     T_descuento = T_descuento + descuento
                     T_ieps = T_ieps + IEPS
                     T_iva = T_iva + IVA
-                    T_subtotal = T_subtotal + subtotal + T_descuento
+                    T_subtotal = T_subtotal + subtotal + descuento
                     T_total = T_total + total
                     T_acuenta = T_acuenta + acuenta
                     t_resta = t_resta + resta
@@ -1063,14 +1063,14 @@
                             grdcaptura.Rows.Add(folio, cliente, codigo, barras, n_parte, descrip, unidad, cantidad, costo, FormatNumber(VarSubtotal, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
                         Else
 
-                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(nuevosubtotal, 2), FormatNumber(nuvaiva, 2), FormatNumber(MyTotalSI, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
+                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(nuevosubtotal - Dscto, 2), FormatNumber(nuvaiva, 2), FormatNumber(MyTotalSI - Dscto, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
 
                         End If
                         T_Costo = T_Costo + sumacosto
                         ' T_descuento = T_descuento + ImpDscto
                         T_ieps = T_ieps + ieps
                         T_iva = T_iva + nuvaiva
-                        T_subtotal = T_subtotal + nuevosubtotal
+                        T_subtotal = T_subtotal + nuevosubtotal - Dscto
                     Loop
                     rd3.Close()
                 End If
@@ -1080,7 +1080,7 @@
             cnn2.Close() : cnn3.Close()
             txtPropina.Text = FormatNumber(T_Propina, 2)
             txtdescuento.Text = FormatNumber(T_descuento, 2)
-            txtsubtotal.Text = FormatNumber(T_subtotal + T_Propina, 2)
+            txtsubtotal.Text = FormatNumber(T_subtotal + T_Propina + T_descuento, 2)
             txtieps.Text = FormatNumber(T_ieps, 2)
             txtiva.Text = FormatNumber(T_iva, 2)
             'txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
