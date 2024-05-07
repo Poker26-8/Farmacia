@@ -749,7 +749,7 @@ Public Class frmClientes
                     rfc = rd1("RFC").ToString
                     telefono = rd1("Telefono1").ToString
                     correo = rd1("Email").ToString
-                    credito = rd1("Credito").ToString
+                    credito = IIf(rd1("Credito").ToString = "", 0, rd1("Credito").ToString)
                     diascred = IIf(rd1("DiasCredito").ToString = "", 0, rd1("DiasCredito").ToString)
                     comisionista = rd1("Comisionista").ToString
                     suspender = rd1("SuspVent").ToString

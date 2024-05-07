@@ -3334,11 +3334,11 @@ doorcita:
                 End If
                 If tLogo = "CUAD" Then
                     e.Graphics.DrawImage(Logotipo, 45, 5, 110, 120)
-                    Y += 115
+                    Y += 120
                 End If
                 If tLogo = "RECT" Then
                     e.Graphics.DrawImage(Logotipo, 12, 5, 160, 110)
-                    Y += 90
+                    Y += 120
                 End If
             Else
                 Y = 0
@@ -3399,7 +3399,7 @@ doorcita:
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 14
-            e.Graphics.DrawString("A B O N O", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            e.Graphics.DrawString("A B O N O", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 90, Y, sc)
             Y += 7
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 12
@@ -3426,23 +3426,25 @@ doorcita:
                     Y += 12
                 End If
                 Y += 3
-                'If txtDireccion.Text <> "" Then
-                '    e.Graphics.DrawString(Mid(txtDireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
-                '    Y += 13.5
-                '    If Mid(txtDireccion.Text, 36, 70) <> "" Then
-                '        e.Graphics.DrawString(Mid(txtDireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
-                '        Y += 13.5
-                '    End If
-                '    If Mid(txtDireccion.Text, 71, 105) <> "" Then
-                '        e.Graphics.DrawString(Mid(txtDireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
-                '        Y += 13.5
-                '    End If
-                'End If
+                If txtdireccion.Text <> "" Then
+                    Dim caracteresPorLinea As Integer = 29
+                    Dim texto As String = txtdireccion.Text
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 12
+                        inicio += caracteresPorLinea
+                    End While
+                End If
                 Y += 8
-                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                Y += 12
-            Else
-                Y += 4
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 12
+                Else
+                    Y += 4
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             End If
@@ -5115,16 +5117,18 @@ doorcita:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 12
-                    If Mid(txtdireccion.Text, 29, 58) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 29, 58), fuente_prods, Brushes.Black, 1, Y)
+                    Dim caracteresPorLinea As Integer = 29
+                    Dim texto As String = txtdireccion.Text
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
                         Y += 12
-                    End If
-                    If Mid(txtdireccion.Text, 59, 88) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 88), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 12
-                    End If
+                        inicio += caracteresPorLinea
+                    End While
                 End If
                 Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)

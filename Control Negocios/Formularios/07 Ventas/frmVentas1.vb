@@ -4124,6 +4124,7 @@ kaka:
 
             Dim cant_lotes As Double = 0
 
+
             If cboLote.Text <> "" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -8498,7 +8499,7 @@ Door:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "update VentasDetalle set Cantidad=Cantidad-" & CANTx & ", TotalSinIVA=TotalSinIVA-" & Totalx & ", Descto=Descto-" & (DescuentoUni * CANTx) & ", Total=Total-" & CDbl(grdcaptura.Rows(mahina).Cells(6).Value.ToString) & " where Codigo='" & CODx & "' and Folio=" & cbonota.Text
+                            "update VentasDetalle set Cantidad=Cantidad-" & CANTx & ", TotalSinIVA=TotalSinIVA-" & Totalx & ", Descto=Descto-" & (DescuentoUni * CANTx) & ", Total=Total-" & CDbl(grdcaptura.Rows(mahina).Cells(5).Value.ToString) & " where Codigo='" & CODx & "' and Folio=" & cbonota.Text
                         cmd1.ExecuteNonQuery() : cnn1.Close()
                     ElseIf TotalCantBase = CANTx Then
                         cnn1.Close() : cnn1.Open()
@@ -12049,26 +12050,47 @@ ecomoda:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
-                    Y += 13
-                    If Mid(txtdireccion.Text, 30, 58) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 30, 58), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13
-                    End If
-                    If Mid(txtdireccion.Text, 59, 87) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 87), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13
-                    End If
-                    If Mid(txtdireccion.Text, 60, 116) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 60, 116), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13
-                    End If
-                    If Mid(txtdireccion.Text, 117, 145) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 117, 145), fuente_prods, Brushes.Black, 1, Y)
-                        Y += 13
-                    End If
+
+                    Dim caracteresPorLinea As Integer = 29
+                    Dim texto As String = txtdireccion.Text
+                    Dim inicio As Integer = 0
+                    Dim longitudTexto As Integer = texto.Length
+
+                    While inicio < longitudTexto
+                        Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                        Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                        e.Graphics.DrawString(bloque, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                        Y += 12
+                        inicio += caracteresPorLinea
+                    End While
+
+                    'e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
+                    'Y += 13
+                    'If Mid(txtdireccion.Text, 30, 58) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 30, 58), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
+                    'If Mid(txtdireccion.Text, 59, 87) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 87), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
+                    'If Mid(txtdireccion.Text, 88, 116) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 88, 116), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
+                    'If Mid(txtdireccion.Text, 117, 145) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 117, 145), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
+                    'If Mid(txtdireccion.Text, 146, 175) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 146, 175), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
+                    'If Mid(txtdireccion.Text, 175, 204) <> "" Then
+                    '    e.Graphics.DrawString(Mid(txtdireccion.Text, 175, 204), fuente_prods, Brushes.Black, 1, Y)
+                    '    Y += 13
+                    'End If
                 End If
-                Y += 8
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 12
             Else
