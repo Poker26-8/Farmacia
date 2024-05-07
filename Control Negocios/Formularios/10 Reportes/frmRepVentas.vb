@@ -823,18 +823,19 @@
                         End If
                     End If
                     rd2.Close()
-
-                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
-                    barcarga.Value = barcarga.Value + 1
-
                     T_Propina = T_Propina + propina
                     T_descuento = T_descuento + descuento
                     T_ieps = T_ieps + IEPS
                     T_iva = T_iva + IVA
-                    T_subtotal = T_subtotal + subtotal
+                    T_subtotal = T_subtotal + subtotal + descuento
                     T_total = T_total + total
                     T_acuenta = T_acuenta + acuenta
                     t_resta = t_resta + resta
+
+                    grdcaptura.Rows.Add(folio, cliente, FormatNumber(subtotal + descuento + IVA, 2), FormatNumber(IVA, 2), FormatNumber(total, 2), FormatNumber(propina, 2), FormatNumber(descuento, 2), FormatNumber(devolucion, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2), FormatNumber(IEPS, 2), formapago, status, Format(fecha, "yyyy-MM-dd"), factura)
+                    barcarga.Value = barcarga.Value + 1
+
+
                 End If
             Loop
             rd1.Close() : cnn1.Close()
@@ -1057,7 +1058,7 @@
                             grdcaptura.Rows.Add(folio, cliente, codigo, barras, n_parte, descrip, unidad, cantidad, costo, FormatNumber(VarSubtotal, 2), FormatNumber(XTem, 2), FormatNumber(MyTotalSI + XTem, 2), FormatNumber(MyTotalSI - ieps, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
                         Else
 
-                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(nuevosubtotal, 2), FormatNumber(nuvaiva, 2), FormatNumber(MyTotalSI, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
+                            grdcaptura.Rows.Add(folio, cliente, codigo, barras, descrip, unidad, cantidad, costo, FormatNumber(precio, 2), FormatNumber(nuevosubtotal - Dscto, 2), FormatNumber(nuvaiva, 2), FormatNumber(MyTotalSI - Dscto, 2), FormatNumber(ImpDscto, 2), FormatNumber(ieps, 2), FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(MyUC2, 2))
 
                         End If
                         T_Costo = T_Costo + sumacosto

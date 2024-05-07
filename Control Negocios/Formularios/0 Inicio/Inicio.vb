@@ -3422,4 +3422,9 @@ Public Class Inicio
         frmVehP.Show()
         frmVehP.BringToFront()
     End Sub
+
+    Private Sub ReporteCOFEPRISToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteCOFEPRISToolStripMenuItem.Click
+        frmcofepris.Show()
+        frmcofepris.BringToFront()
+    End Sub
 End Class

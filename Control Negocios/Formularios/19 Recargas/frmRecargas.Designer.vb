@@ -219,6 +219,7 @@ Partial Class frmRecargas
         Me.Button1.TabIndex = 73
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'frmRecargas
         '

@@ -1641,6 +1641,7 @@ Public Class frmListadoPrecios
             Dim exApp As New Excel.Application
             Dim exBook As Excel.Workbook
             Dim exSheet As Excel.Worksheet
+            Dim voy As Integer = 0
 
             Try
                 exBook = exApp.Workbooks.Add
@@ -1668,9 +1669,10 @@ Public Class frmListadoPrecios
                     For Col As Integer = 0 To NCol - 1
                         exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value
                     Next
-
-                    ProgressBar1.Value = ProgressBar1.Value + 1
-                    lblprod.Text = "Registros exportados: " & ProgressBar1.Value
+                    voy = voy + 1
+                    txtCod.Text = voy
+                    ''ProgressBar1.Value = ProgressBar1.Value + 1
+                    'lblprod.Text = "Registros exportados: " & voy
                     My.Application.DoEvents()
                 Next
 
