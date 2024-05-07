@@ -1028,14 +1028,11 @@
                             unidad = rd3("Unidad").ToString()
                             cantidad = IIf(rd3("Cantidad").ToString() = "", 1, rd3("Cantidad").ToString())
                             precio = IIf(rd3("Precio").ToString() = "", 0, rd3("Precio").ToString())
-                            ' MyTotalSI = IIf(rd3("TotalSinIVA").ToString() = "", 0, rd3("TotalSinIVA").ToString())
                             MyTotalSI = IIf(rd3("Total").ToString() = "", 0, rd3("Total").ToString())
                             ieps = rd3("TotalIEPS").ToString()
                             fecha = rd3("Fecha").ToString()
                             MyUC2 = DameUti(folio, codigo, cantidad)
                             IvaTemp = IvaDSC(codigo)
-                            'YTem = CDbl(rd3("TotalSinIVA").ToString()) - (CDbl(rd3("TotalSinIVA").ToString()) * Desc2)
-                            'XTem = CDbl(rd3("Total").ToString()) * (1 + IvaTemp)
                             XTem = CDbl(rd3("Total").ToString()) / (1 + IvaTemp)
                             nuvaiva = MyTotalSI - CDbl(XTem)
                             nuevosubtotal = MyTotalSI - CDbl(nuvaiva)
@@ -1064,7 +1061,6 @@
 
                         End If
                         T_Costo = T_Costo + sumacosto
-                        ' T_descuento = T_descuento + ImpDscto
                         T_ieps = T_ieps + ieps
                         T_iva = T_iva + nuvaiva
                         T_iva = FormatNumber(T_iva, 2)
@@ -1082,7 +1078,6 @@
             txtsubtotal.Text = FormatNumber(T_subtotal, 2)
             txtieps.Text = FormatNumber(T_ieps, 2)
             txtiva.Text = FormatNumber(T_iva, 2)
-            'txttotal.Text = FormatNumber(txtsubtotal.Text + T_iva - txtdescuento.Text, 2)
             txttotal.Text = FormatNumber(CDbl(T_subtotal) + CDbl(T_iva) + CDbl(T_Propina) - txtdescuento.Text, 2)
             txtCosto.Text = FormatNumber(T_Costo, 2)
             txtutilidad.Text = FormatNumber(CDbl(txttotal.Text) - CDbl(txtCosto.Text), 2)
@@ -4112,5 +4107,369 @@
         '    cmd1.ExecuteNonQuery()
         'Next
         'cnn1.Close()
+    End Sub
+
+    Private Sub btnControlado_Click(sender As Object, e As EventArgs) Handles btnControlado.Click
+        Dim M1 As Date = mCalendar1.SelectionStart.ToShortDateString
+        Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
+        Try
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 11
+            With grdcaptura
+                With .Columns(0)
+                    .HeaderText = "Folio"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Código"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Cantidad"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Existencia"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Fecha Entrada"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(6)
+                    .HeaderText = "Fecha Salida"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(7)
+                    .HeaderText = "N° Receta"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(8)
+                    .HeaderText = "Cedula"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(9)
+                    .HeaderText = "Prescribe"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(10)
+                    .HeaderText = "Domicilio"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+            End With
+
+            Dim cedula, nombre, direccion As String
+            Dim fecha As Date = Nothing
+            Dim fecha2 As Date = Nothing
+            Dim fechanuv As String = ""
+            Dim fechanuv2 As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select VE.Folio,PR.Codigo,PR.Nombre,Sum(VD.Cantidad)as Cantidad,PR.Existencia,VD.Fecha,RAnt.receta ,RAnt.Status,RAnt.me_id From (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo)INNER JOIN Ventas VE ON VD.Folio=VE.Folio)INNER JOIN rep_antib RAnt ON RAnt.Folio=VE.Folio ) Where VD.Grupo='CONTROLADO' AND FVenta >='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND FVenta <='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "'  Group By VE.Folio,PR.Codigo,PR.Nombre,VD.Cantidad,PR.Existencia,VD.Fecha,RAnt.receta ,RAnt.Status,RAnt.me_id"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    If rd1("me_id").ToString = "" Then
+
+                    Else
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select Cedula,Nombre,Domicilio From ctmedicos CM,rep_antib RES Where CM.id=RES.me_id and RES.Folio=" & rd1("Folio") & ""
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                cedula = rd2(0).ToString
+                                nombre = rd2(1).ToString
+                                direccion = rd2(2).ToString
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    End If
+
+                    fecha = rd1("Fecha").ToString
+                    fecha2 = FEntrada(rd1("Codigo").ToString)
+                    fechanuv = Format(fecha, "yyyy-MM-dd")
+                    fechanuv2 = Format(fecha2, "yyyy-MM-dd HH:mm:ss")
+
+                    grdcaptura.Rows.Add(rd1("Folio").ToString,
+                                        rd1("Codigo").ToString,
+                                        rd1("Nombre").ToString,
+                                        rd1("Cantidad").ToString,
+                                        rd1("Existencia").ToString,
+                                        fechanuv2,
+                                        fechanuv,
+                                        rd1("Receta").ToString,
+                                        cedula,
+                                        nombre,
+                                        direccion
+)
+
+
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+
+            Exportar.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+    End Sub
+
+    Public Function FEntrada(ByVal codigo As String)
+
+        Try
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT FechaC FROM comprasdet WHERE Codigo='" & codigo & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    FEntrada = rd3(0).ToString
+                End If
+            Else
+                FEntrada = ""
+            End If
+            rd3.Close()
+            cnn3.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+    End Function
+
+    Private Sub btnAntibiotico_Click(sender As Object, e As EventArgs) Handles btnAntibiotico.Click
+        Dim M1 As Date = mCalendar1.SelectionStart.ToShortDateString
+        Dim M2 As Date = mCalendar2.SelectionStart.ToShortDateString
+        Try
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 13
+            With grdcaptura
+                With .Columns(0)
+                    .HeaderText = "Folio"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Código"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
+                    .HeaderText = "Descripción"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Cantidad"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Existencia"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Fecha Entrada"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(6)
+                    .HeaderText = "Fecha Salida"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(7)
+                    .HeaderText = "N° Receta"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(8)
+                    .HeaderText = "Cedula"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(9)
+                    .HeaderText = "Prescribe"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(10)
+                    .HeaderText = "Domicilio"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(11)
+                    .HeaderText = "Lote"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+
+                With .Columns(12)
+                    .HeaderText = "Caducidad"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+            End With
+
+            Dim cedula, nombre, direccion As String
+            Dim fecha As String = ""
+            Dim fecha2 As String = ""
+            Dim fechanuv As String = ""
+            Dim fechanuv2 As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select VE.Folio,PR.Codigo,PR.Nombre,Sum(VD.Cantidad)as Cantidad,PR.Existencia,VD.Fecha,RAnt.receta ,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad From (((VentasDetalle VD INNER JOIN Productos PR ON VD.Codigo=PR.Codigo)INNER JOIN Ventas VE ON VD.Folio=VE.Folio)INNER JOIN rep_antib RAnt ON RAnt.Folio=VE.Folio ) Where VD.Grupo='ANTIBIOTICO' AND FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "'  Group By VE.Folio,PR.Codigo,PR.Nombre,VD.Cantidad,PR.Existencia,VD.Fecha,RAnt.receta,RAnt.Status,RAnt.me_id,VD.Lote,VD.Caducidad"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    If rd1("me_id").ToString = "" Then
+
+                    Else
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Select Cedula,Nombre,Domicilio From ctmedicos CM,rep_antib RES Where CM.id=RES.me_id and RES.Folio=" & rd1("Folio") & ""
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                cedula = rd2(0).ToString
+                                nombre = rd2(1).ToString
+                                direccion = rd2(2).ToString
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    End If
+
+                    fecha = rd1("Fecha").ToString
+                    fecha2 = FEntrada(rd1("Codigo").ToString)
+                    fechanuv = Format(fecha, "yyyy-MM-dd")
+                    fechanuv2 = Format(fecha2, "yyyy-MM-dd HH:mm:ss")
+
+
+
+                    grdcaptura.Rows.Add(rd1("Folio").ToString,
+                                        rd1("Codigo").ToString,
+                                        rd1("Nombre").ToString,
+                                        rd1("Cantidad").ToString,
+                                        rd1("Existencia").ToString,
+                                        fecha2,
+                                        fecha,
+                                        rd1("Receta").ToString,
+                                        cedula,
+                                        nombre,
+                                        direccion,
+                                        rd1("Lote").ToString,
+                                        rd1("Caducidad").ToString
+)
+
+
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+
+            Exportar.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

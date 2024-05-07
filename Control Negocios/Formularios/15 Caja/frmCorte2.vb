@@ -2503,31 +2503,29 @@ Public Class frmCorte2
             '--------------------------------------------------------Egresos------------------------------------------------------------------------------------
 
             Dim CanceDevo As String = "0"
+            Dim NotaCance As String = "0"
             Dim EgrEfectivo As String = "0"
             'Efectivo
-            'cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText =
-            '    "select sum(Efectivo) from Abono where Concepto='DEVOLUCION' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            'rd2 = cmd2.ExecuteReader
-            'If rd2.HasRows Then
-            '    If rd2.Read Then
-            '        EgrEfectivo = CDec(EgrEfectivo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
-            '        CanceDevo = CDec(CanceDevo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
-            '    End If
-            'End If
-            'rd2.Close()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='DEVOLUCION' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    CanceDevo = CDec(CanceDevo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
 
-            'cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText =
-            '    "select sum(Efectivo) from Abono where Concepto<>'ABONO' and Concepto<>'DEVOLUCION' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            'rd2 = cmd2.ExecuteReader
-            'If rd2.HasRows Then
-            '    If rd2.Read Then
-            '        EgrEfectivo = CDec(EgrEfectivo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
-            '        CanceDevo = CDec(CanceDevo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
-            '    End If
-            'End If
-            'rd2.Close()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    NotaCance = CDec(NotaCance) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
@@ -2561,7 +2559,19 @@ Public Class frmCorte2
                 End If
             End If
             rd2.Close()
-            txtEgrEfectivoG.Text = FormatNumber(EgrEfectivo, 2)
+
+            Dim egrEfectivodevo As Double = 0
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    egrEfectivodevo = CDec(egrEfectivodevo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+            txtEgrEfectivoG.Text = FormatNumber(CDbl(EgrEfectivo + egrEfectivodevo), 2)
 
 
             Dim EgrTarjeta As String = "0"
@@ -2574,7 +2584,7 @@ Public Class frmCorte2
             cnn3.Close() : cnn3.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'DEVOLUCION'and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'DEVOLUCION'and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago<>'EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -2589,7 +2599,7 @@ Public Class frmCorte2
                             If rd3.Read Then
 
                                 montoglobalforma = IIf(rd3(0).ToString = "", "0.00", rd3(0).ToString)
-                                CanceDevo = CDec(CanceDevo) + CDec(IIf(rd3(0).ToString = "", "0.00", rd3(0).ToString))
+                                'CanceDevo = CDec(CanceDevo) + CDec(IIf(rd3(0).ToString = "", "0.00", rd3(0).ToString))
                                 grdegresosglobal.Rows.Add(formaglobalforma, montoglobalforma)
 
                                 totalformaglobal = totalformaglobal + CDec(montoglobalforma)
@@ -2659,11 +2669,11 @@ Public Class frmCorte2
             cnn2.Close()
 
             txtEgrDepositoG.Text = FormatNumber(EgrOtro, 2)
-            txtCanceDevoG.Text = FormatNumber(CanceDevo, 2)
+            txtCanceDevoG.Text = FormatNumber(CDbl(CanceDevo) + CDbl(NotaCance), 2)
 
             Dim Egresos As String = "0"
             ' Egresos = CDec(txtEgrEfectivoG.Text) + CDec(txtegresosforma.Text) + CDec(txtTransporteG.Text) + CDec(txtPrestamoEmpG.Text) + CDec(txtComprasG.Text) + CDec(txtNominaG.Text) + CDec(txtOtrosGastosG.Text)
-            Egresos = CDec(txtComprasG.Text) + +CDec(txtPrestamoEmpG.Text) + CDec(txtNominaG.Text) + CDec(txtTransporteG.Text) + CDec(txtOtrosGastosG.Text)
+            Egresos = CDec(txtComprasG.Text) + +CDec(txtPrestamoEmpG.Text) + CDec(txtNominaG.Text) + CDec(txtTransporteG.Text) + CDec(txtOtrosGastosG.Text) + CDec(txtCanceDevoG.Text)
             txtEgresosGlobal.Text = FormatNumber(Egresos, 2)
             My.Application.DoEvents()
 

@@ -2888,7 +2888,8 @@ deku:
                 Dim MYCODE = Prods(0)
                 Dim MyDes = Prods(1)
                 Dim MYCANT = grdCaptura.Rows(pain).Cells(2).Value.ToString
-                Dim MyPrecio = grdCaptura.Rows(pain).Cells(3).Value.ToString
+                Dim MyPrecio As Double = 0
+                MyPrecio = grdCaptura.Rows(pain).Cells(3).Value.ToString
 
                 MyTotal = grdCaptura.Rows(pain).Cells(4).Value.ToString
                 Dim comensal = IIf(grdCaptura.Rows(pain).Cells(5).Value.ToString = "", "", grdCaptura.Rows(pain).Cells(5).Value.ToString)
@@ -2903,7 +2904,7 @@ deku:
                     If rd2.Read Then
                         unidadv = rd2("UVenta").ToString
                         MYIVA = rd2("IVA").ToString
-                        MyPrecioSin = IIf(MyPrecio = "", 0, MyPrecio) / (1 + MYIVA)
+                        MyPrecioSin = IIf(MyPrecio = 0, 0, MyPrecio) / (1 + MYIVA)
                         MyTotalSin = IIf(MyTotal = 0, 0, MyTotal) / (1 + MYIVA)
                         MyPrecioSin = FormatNumber(MyPrecioSin, 2)
 

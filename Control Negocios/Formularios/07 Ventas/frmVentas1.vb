@@ -3750,10 +3750,29 @@ kaka:
                                 End If
                             End If
 
+                            If Not IsDBNull(rd4("CantLst3").ToString) And Not IsDBNull(rd4("CantLst4").ToString) Then
+                                If CDbl(txtcantidad.Text) >= CDbl(rd4("CantLst3").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantLst4").ToString) Then
+                                    txtprecio.Text = CDbl(IIf(rd4("PrecioVentaIVA2").ToString = "", "0", rd4("PrecioVentaIVA2").ToString))
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    temp = 1
+                                End If
+                            End If
+
                             If Not IsDBNull(rd4("CantEsp1").ToString) And Not IsDBNull(rd4("CantEsp2").ToString) Then
                                 ATemp1 = rd4("CantEsp1").ToString
                                 If CDbl(txtcantidad.Text) >= CDbl(rd4("CantEsp1").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantEsp2").ToString) Then
                                     txtprecio.Text = CDbl(IIf(rd4("PreEsp").ToString = "", "0", rd4("PreEsp").ToString))
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    temp = 1
+                                End If
+                            End If
+
+                            If Not IsDBNull(rd4("CantEsp3").ToString) And Not IsDBNull(rd4("CantEsp4").ToString) Then
+                                ATemp1 = rd4("CantEsp3").ToString
+                                If CDbl(txtcantidad.Text) >= CDbl(rd4("CantEsp3").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantEsp4").ToString) Then
+                                    txtprecio.Text = CDbl(IIf(rd4("PreEsp2").ToString = "", "0", rd4("PreEsp2").ToString))
                                     txtprecio.Text = FormatNumber(txtprecio.Text, 4)
                                     txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
                                     temp = 1
@@ -3770,6 +3789,16 @@ kaka:
                                 End If
                             End If
 
+                            If Not IsDBNull(rd4("CantMM3").ToString) And Not IsDBNull(rd4("CantMM4").ToString) Then
+                                ATemp2 = rd4("CantMM3").ToString
+                                If CDbl(txtcantidad.Text) >= CDbl(rd4("CantMM3").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantMM4").ToString) Then
+                                    txtprecio.Text = CDbl(IIf(rd4("PreMM2").ToString = "", "0", rd4("PreMM2").ToString))
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    temp = 1
+                                End If
+                            End If
+
                             If Not IsDBNull(rd4("CantMay1").ToString) And Not IsDBNull(rd4("CantMay2").ToString) Then
                                 ATemp3 = rd4("CantMay1").ToString
                                 If CDbl(txtcantidad.Text) >= CDbl(rd4("CantMay1").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantMay2").ToString) Then
@@ -3780,10 +3809,30 @@ kaka:
                                 End If
                             End If
 
+                            If Not IsDBNull(rd4("CantMay3").ToString) And Not IsDBNull(rd4("CantMay4").ToString) Then
+                                ATemp3 = rd4("CantMay3").ToString
+                                If CDbl(txtcantidad.Text) >= CDbl(rd4("CantMay3").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantMay4").ToString) Then
+                                    txtprecio.Text = CDbl(IIf(rd4("PreMay2").ToString = "", "0", rd4("PreMay2").ToString))
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    temp = 1
+                                End If
+                            End If
+
                             If Not IsDBNull(rd4("CantMin1").ToString) And Not IsDBNull(rd4("CantMin2").ToString) Then
                                 ATemp4 = rd4("CantMin1").ToString
                                 If CDbl(txtcantidad.Text) >= CDbl(rd4("CantMin1").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantMin2").ToString) Then
                                     txtprecio.Text = CDbl(IIf(rd4("PreMin").ToString = "", "0", rd4("PreMin").ToString))
+                                    txtprecio.Text = FormatNumber(txtprecio.Text, 4)
+                                    txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
+                                    temp = 1
+                                End If
+                            End If
+
+                            If Not IsDBNull(rd4("CantMin3").ToString) And Not IsDBNull(rd4("CantMin4").ToString) Then
+                                ATemp4 = rd4("CantMin3").ToString
+                                If CDbl(txtcantidad.Text) >= CDbl(rd4("CantMin3").ToString) And CDbl(txtcantidad.Text) <= CDbl(rd4("CantMin4").ToString) Then
+                                    txtprecio.Text = CDbl(IIf(rd4("PreMin2").ToString = "", "0", rd4("PreMin2").ToString))
                                     txtprecio.Text = FormatNumber(txtprecio.Text, 4)
                                     txtprecio.Tag = FormatNumber(txtprecio.Text, 4)
                                     temp = 1
@@ -6904,8 +6953,8 @@ doorcita:
                             IVA_Vent = 0
                             SubTotal = FormatNumber(txtPagar.Text, 4)
                         Else
-                            IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
-                            SubTotal = FormatNumber(TotalIVAPrint, 4)
+                            SubTotal = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+                            IVA_Vent = FormatNumber(TotalIVAPrint, 4)
                         End If
                         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
                         Descuento = FormatNumber(txtdescuento2.Text, 4)
@@ -7030,10 +7079,11 @@ doorcita:
 
                 Dim total_venta As Double = 0
                 Dim total_bono As Double = 0
+                Dim total_abonoo As Double = 0
                 'Por venta
                 If tipo_mone = 1 Then
                     total_venta = Total_Ve
-                    Dim total_abonoo As Double = (porcentaje_mone * total_venta) / 100
+                    total_abonoo = (porcentaje_mone * total_venta) / 100
 
                     nvo_saldo = total_abonoo + sal_monedero
                 End If
@@ -7060,7 +7110,7 @@ doorcita:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & ope & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
+                    "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txttel.Text & "','Venta'," & total_abonoo & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MYFOLIO & ")"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             End If
@@ -8454,8 +8504,8 @@ Door:
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
+                        cmd1.CommandText = "select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
+                        '"select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -8499,7 +8549,6 @@ Door:
             Dim IVA As Double = 0
 
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                 "select Subtotal, Descuento from Ventas where Folio=" & cbonota.Text
@@ -8589,6 +8638,31 @@ ecomoda:
                     'ActualizaCosteo(cbonota.Text, mycode, Mycant)
                 End If
                 Dim MyExiste As Double = 0
+
+                'If grdcaptura.Rows(beatriz_pinzon_solano).Cells(0).Value.ToString() <> "" Then
+                '    Dim cantiventa As Double = 0
+                '    cnn2.Close() : cnn2.Open()
+                '    cmd2 = cnn2.CreateCommand
+                '    cmd2.CommandText = "SELECT Cantidad FROM ventasdetalle WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
+                '    rd2 = cmd2.ExecuteReader
+                '    If rd2.HasRows Then
+                '        If rd2.Read Then
+                '            cantiventa = rd2(0).ToString
+                '        End If
+                '    End If
+                '    rd2.Close()
+                '    cnn2.Close()
+
+                '    If cantiventa > 1 Then
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText = "UPDATE ventasdetalle SET Cantidad=" & Mycant & " WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
+                '        cmd1.ExecuteNonQuery()
+                '    Else
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText = "DELETE FROM ventasdetalle WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
+                '        cmd1.ExecuteNonQuery()
+                '    End If
+                'End If
 
                 If MyDepto <> "SERVICIOS" Then
                     cmd1 = cnn1.CreateCommand
@@ -9944,7 +10018,7 @@ ecomoda:
                         Y += 130
                     End If
                     If tLogo = "RECT" Then
-                        e.Graphics.DrawImage(Logotipo, 30, 0, 440, 110)
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 110, 110)
                         Y += 120
                     End If
                 End If
@@ -10015,7 +10089,7 @@ ecomoda:
             e.Graphics.DrawString("Folio: " & cbonota.Text, fuente_datos, Brushes.Black, 280, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 270, Y, sf)
             Y += 19
 
             '[2]. Datos del cliente
@@ -10056,10 +10130,10 @@ ecomoda:
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 11
+            Y += 13
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
-            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 440, Y)
+            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 270, Y, sf)
             Y += 6
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 18
@@ -10086,7 +10160,7 @@ ecomoda:
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
-                e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 270, Y, sf)
                 Y += 21
                 total_prods = total_prods + canti
             Next
@@ -10129,11 +10203,11 @@ ecomoda:
 
             If CDbl(txtdescuento2.Text) > 0 Then
                 e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 4), fuente_prods, Brushes.Black, 270, Y, sf)
                 Y += 13.5
             End If
             e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 4), fuente_prods, Brushes.Black, 270, Y, sf)
             Y += 18
 
             e.Graphics.DrawString(Letras(txtPagar.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
@@ -10145,18 +10219,16 @@ ecomoda:
                     If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
                         Y += 12
                         e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 270, Y, sf)
                         Y += 13.5
                     End If
                 End If
                 If TotalIEPS > 0 Then
                     e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 485, Y, sf)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 4), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 270, Y, sf)
                     Y += 13.5
                 End If
             End If
-
-            Y += 19
 
             'e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 142.5, Y, sc)
             'Y += 13.5
@@ -10168,7 +10240,7 @@ ecomoda:
             '    e.Graphics.DrawString(Mid(Pie, 71, 105), fuente_prods, Brushes.Black, 142.5, Y, sc)
             '    Y += 13.5
             'End If
-            Y += 18
+            Y += 20
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
 
             Dim va_whatsapp As Integer = 0
@@ -11977,14 +12049,22 @@ ecomoda:
                 End If
                 Y += 3
                 If txtdireccion.Text <> "" Then
-                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 29), fuente_prods, Brushes.Black, 1, Y)
                     Y += 13
-                    If Mid(txtdireccion.Text, 36, 70) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
+                    If Mid(txtdireccion.Text, 30, 58) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 30, 58), fuente_prods, Brushes.Black, 1, Y)
                         Y += 13
                     End If
-                    If Mid(txtdireccion.Text, 71, 105) <> "" Then
-                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
+                    If Mid(txtdireccion.Text, 59, 87) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 59, 87), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13
+                    End If
+                    If Mid(txtdireccion.Text, 60, 116) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 60, 116), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13
+                    End If
+                    If Mid(txtdireccion.Text, 117, 145) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 117, 145), fuente_prods, Brushes.Black, 1, Y)
                         Y += 13
                     End If
                 End If

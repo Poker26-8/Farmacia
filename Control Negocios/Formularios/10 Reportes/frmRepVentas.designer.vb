@@ -41,8 +41,7 @@ Partial Class frmRepVentas
         Me.optmasvendidoprov = New System.Windows.Forms.RadioButton()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.opttraspasos = New System.Windows.Forms.RadioButton()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAntibiotico = New System.Windows.Forms.Button()
         Me.txtutilidad = New System.Windows.Forms.TextBox()
         Me.lblutilidad = New System.Windows.Forms.Label()
         Me.txttotal = New System.Windows.Forms.TextBox()
@@ -61,10 +60,7 @@ Partial Class frmRepVentas
         Me.txtsubtotal = New System.Windows.Forms.TextBox()
         Me.lbldescuento = New System.Windows.Forms.Label()
         Me.txtdescuento = New System.Windows.Forms.TextBox()
-        Me.Exportar = New System.Windows.Forms.Button()
-        Me.btnprint = New System.Windows.Forms.Button()
-        Me.btnuevo = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnControlado = New System.Windows.Forms.Button()
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
@@ -81,6 +77,10 @@ Partial Class frmRepVentas
         Me.txtCosto = New System.Windows.Forms.TextBox()
         Me.txtSuma = New System.Windows.Forms.TextBox()
         Me.lblSuma = New System.Windows.Forms.Label()
+        Me.btnuevo = New System.Windows.Forms.Button()
+        Me.Exportar = New System.Windows.Forms.Button()
+        Me.btnprint = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -277,35 +277,20 @@ Partial Class frmRepVentas
         Me.opttraspasos.UseVisualStyleBackColor = True
         Me.opttraspasos.Visible = False
         '
-        'Button2
+        'btnAntibiotico
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(10, 568)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 54)
-        Me.Button2.TabIndex = 180
-        Me.Button2.Text = "Reporte"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(202, 568)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 54)
-        Me.Button1.TabIndex = 179
-        Me.Button1.Text = "Antibióticos"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
+        Me.btnAntibiotico.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAntibiotico.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
+        Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAntibiotico.Location = New System.Drawing.Point(202, 550)
+        Me.btnAntibiotico.Name = "btnAntibiotico"
+        Me.btnAntibiotico.Size = New System.Drawing.Size(90, 63)
+        Me.btnAntibiotico.TabIndex = 179
+        Me.btnAntibiotico.Text = "Antibióticos"
+        Me.btnAntibiotico.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAntibiotico.UseVisualStyleBackColor = True
         '
         'txtutilidad
         '
@@ -487,65 +472,20 @@ Partial Class frmRepVentas
         Me.txtdescuento.Text = "0.00"
         Me.txtdescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Exportar
+        'btnControlado
         '
-        Me.Exportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
-        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Exportar.Location = New System.Drawing.Point(10, 628)
-        Me.Exportar.Name = "Exportar"
-        Me.Exportar.Size = New System.Drawing.Size(90, 54)
-        Me.Exportar.TabIndex = 202
-        Me.Exportar.Text = "Exportar"
-        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Exportar.UseVisualStyleBackColor = True
-        '
-        'btnprint
-        '
-        Me.btnprint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnprint.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnprint.Image = CType(resources.GetObject("btnprint.Image"), System.Drawing.Image)
-        Me.btnprint.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnprint.Location = New System.Drawing.Point(106, 568)
-        Me.btnprint.Name = "btnprint"
-        Me.btnprint.Size = New System.Drawing.Size(90, 54)
-        Me.btnprint.TabIndex = 201
-        Me.btnprint.Text = "Imprimir"
-        Me.btnprint.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnprint.UseVisualStyleBackColor = True
-        Me.btnprint.Visible = False
-        '
-        'btnuevo
-        '
-        Me.btnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnuevo.Image = CType(resources.GetObject("btnuevo.Image"), System.Drawing.Image)
-        Me.btnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnuevo.Location = New System.Drawing.Point(106, 628)
-        Me.btnuevo.Name = "btnuevo"
-        Me.btnuevo.Size = New System.Drawing.Size(90, 54)
-        Me.btnuevo.TabIndex = 204
-        Me.btnuevo.Text = "Nuevo"
-        Me.btnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnuevo.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(202, 628)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 54)
-        Me.Button6.TabIndex = 203
-        Me.Button6.Text = "Controlados"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button6.UseVisualStyleBackColor = True
-        Me.Button6.Visible = False
+        Me.btnControlado.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnControlado.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
+        Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnControlado.Location = New System.Drawing.Point(202, 619)
+        Me.btnControlado.Name = "btnControlado"
+        Me.btnControlado.Size = New System.Drawing.Size(90, 63)
+        Me.btnControlado.TabIndex = 203
+        Me.btnControlado.Text = "Controlados"
+        Me.btnControlado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnControlado.UseVisualStyleBackColor = True
         '
         'barcarga
         '
@@ -709,6 +649,68 @@ Partial Class frmRepVentas
         Me.lblSuma.TabIndex = 222
         Me.lblSuma.Text = "Suma:"
         '
+        'btnuevo
+        '
+        Me.btnuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnuevo.Image = CType(resources.GetObject("btnuevo.Image"), System.Drawing.Image)
+        Me.btnuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnuevo.Location = New System.Drawing.Point(106, 618)
+        Me.btnuevo.Name = "btnuevo"
+        Me.btnuevo.Size = New System.Drawing.Size(90, 64)
+        Me.btnuevo.TabIndex = 204
+        Me.btnuevo.Text = "Nuevo"
+        Me.btnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnuevo.UseVisualStyleBackColor = True
+        '
+        'Exportar
+        '
+        Me.Exportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
+        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Exportar.Location = New System.Drawing.Point(10, 619)
+        Me.Exportar.Name = "Exportar"
+        Me.Exportar.Size = New System.Drawing.Size(90, 63)
+        Me.Exportar.TabIndex = 202
+        Me.Exportar.Text = "Exportar"
+        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Exportar.UseVisualStyleBackColor = True
+        '
+        'btnprint
+        '
+        Me.btnprint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnprint.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnprint.Image = CType(resources.GetObject("btnprint.Image"), System.Drawing.Image)
+        Me.btnprint.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnprint.Location = New System.Drawing.Point(106, 549)
+        Me.btnprint.Name = "btnprint"
+        Me.btnprint.Size = New System.Drawing.Size(90, 63)
+        Me.btnprint.TabIndex = 201
+        Me.btnprint.Text = "Imprimir"
+        Me.btnprint.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnprint.UseVisualStyleBackColor = True
+        Me.btnprint.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(10, 549)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 63)
+        Me.Button2.TabIndex = 180
+        Me.Button2.Text = "Reporte"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -731,7 +733,7 @@ Partial Class frmRepVentas
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.barcarga)
         Me.Controls.Add(Me.btnuevo)
-        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.btnControlado)
         Me.Controls.Add(Me.Exportar)
         Me.Controls.Add(Me.btnprint)
         Me.Controls.Add(Me.lbldescuento)
@@ -753,7 +755,7 @@ Partial Class frmRepVentas
         Me.Controls.Add(Me.lblutilidad)
         Me.Controls.Add(Me.txtutilidad)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAntibiotico)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.optmasvendidoprov)
         Me.Controls.Add(Me.optmasvendido)
@@ -801,7 +803,7 @@ Partial Class frmRepVentas
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents opttraspasos As System.Windows.Forms.RadioButton
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnAntibiotico As System.Windows.Forms.Button
     Friend WithEvents txtutilidad As System.Windows.Forms.TextBox
     Friend WithEvents lblutilidad As System.Windows.Forms.Label
     Friend WithEvents txttotal As System.Windows.Forms.TextBox
@@ -823,7 +825,7 @@ Partial Class frmRepVentas
     Friend WithEvents Exportar As System.Windows.Forms.Button
     Friend WithEvents btnprint As System.Windows.Forms.Button
     Friend WithEvents btnuevo As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents btnControlado As System.Windows.Forms.Button
     Friend WithEvents barcarga As System.Windows.Forms.ProgressBar
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents dtpinicio As DateTimePicker

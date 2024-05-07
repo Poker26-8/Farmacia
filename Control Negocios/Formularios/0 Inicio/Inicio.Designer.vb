@@ -48,6 +48,7 @@ Partial Class Inicio
         Me.pBancos = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormasDePagoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuentasBancariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VehiculosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.pSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAsistencia = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,11 +87,6 @@ Partial Class Inicio
         Me.pZapatería = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaPorModeloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntallarComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentas = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentasM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -110,6 +106,11 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentasM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
@@ -168,7 +169,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.VehiculosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -362,7 +362,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.pFacturacion, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pReportes, Me.pCompras, Me.pVentas, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.pFacturacion, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.ToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1194, 24)
@@ -380,21 +380,21 @@ Partial Class Inicio
         '
         Me.pEmpleados.BackColor = System.Drawing.Color.White
         Me.pEmpleados.Name = "pEmpleados"
-        Me.pEmpleados.Size = New System.Drawing.Size(180, 22)
+        Me.pEmpleados.Size = New System.Drawing.Size(170, 22)
         Me.pEmpleados.Text = "Usuarios"
         '
         'pClientes
         '
         Me.pClientes.BackColor = System.Drawing.Color.White
         Me.pClientes.Name = "pClientes"
-        Me.pClientes.Size = New System.Drawing.Size(180, 22)
+        Me.pClientes.Size = New System.Drawing.Size(170, 22)
         Me.pClientes.Text = "Clientes"
         '
         'GruposToolStripMenuItem
         '
         Me.GruposToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.GruposToolStripMenuItem.Name = "GruposToolStripMenuItem"
-        Me.GruposToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GruposToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.GruposToolStripMenuItem.Text = "Grupos"
         Me.GruposToolStripMenuItem.Visible = False
         '
@@ -402,7 +402,7 @@ Partial Class Inicio
         '
         Me.AlumnosToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.AlumnosToolStripMenuItem.Name = "AlumnosToolStripMenuItem"
-        Me.AlumnosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AlumnosToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.AlumnosToolStripMenuItem.Text = "Alumnos"
         Me.AlumnosToolStripMenuItem.Visible = False
         '
@@ -410,7 +410,7 @@ Partial Class Inicio
         '
         Me.InscripciónToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.InscripciónToolStripMenuItem.Name = "InscripciónToolStripMenuItem"
-        Me.InscripciónToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InscripciónToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.InscripciónToolStripMenuItem.Text = "Inscripción"
         Me.InscripciónToolStripMenuItem.Visible = False
         '
@@ -418,49 +418,55 @@ Partial Class Inicio
         '
         Me.pProveedores.BackColor = System.Drawing.Color.White
         Me.pProveedores.Name = "pProveedores"
-        Me.pProveedores.Size = New System.Drawing.Size(180, 22)
+        Me.pProveedores.Size = New System.Drawing.Size(170, 22)
         Me.pProveedores.Text = "Proveedores"
         '
         'pMonederos
         '
         Me.pMonederos.BackColor = System.Drawing.Color.White
         Me.pMonederos.Name = "pMonederos"
-        Me.pMonederos.Size = New System.Drawing.Size(180, 22)
+        Me.pMonederos.Size = New System.Drawing.Size(170, 22)
         Me.pMonederos.Text = "Monederos"
         '
         'pBancos
         '
         Me.pBancos.BackColor = System.Drawing.Color.White
         Me.pBancos.Name = "pBancos"
-        Me.pBancos.Size = New System.Drawing.Size(180, 22)
+        Me.pBancos.Size = New System.Drawing.Size(170, 22)
         Me.pBancos.Text = "Bancos"
         '
         'FormasDePagoToolStripMenuItem
         '
         Me.FormasDePagoToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.FormasDePagoToolStripMenuItem.Name = "FormasDePagoToolStripMenuItem"
-        Me.FormasDePagoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormasDePagoToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.FormasDePagoToolStripMenuItem.Text = "Formas de pago"
         '
         'CuentasBancariasToolStripMenuItem
         '
         Me.CuentasBancariasToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.CuentasBancariasToolStripMenuItem.Name = "CuentasBancariasToolStripMenuItem"
-        Me.CuentasBancariasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CuentasBancariasToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.CuentasBancariasToolStripMenuItem.Text = "Cuentas bancarias"
+        '
+        'VehiculosToolStripMenuItem
+        '
+        Me.VehiculosToolStripMenuItem.Name = "VehiculosToolStripMenuItem"
+        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.VehiculosToolStripMenuItem.Text = "Vehiculos"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.BackColor = System.Drawing.Color.White
         Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(167, 6)
         '
         'pSalir
         '
         Me.pSalir.BackColor = System.Drawing.Color.White
         Me.pSalir.Name = "pSalir"
-        Me.pSalir.Size = New System.Drawing.Size(180, 22)
+        Me.pSalir.Size = New System.Drawing.Size(170, 22)
         Me.pSalir.Text = "Salir"
         '
         'pAsistencia
@@ -727,42 +733,6 @@ Partial Class Inicio
         Me.EntallarComprasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.EntallarComprasToolStripMenuItem.Text = "Entallar compras"
         '
-        'pVentas
-        '
-        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV})
-        Me.pVentas.Name = "pVentas"
-        Me.pVentas.Size = New System.Drawing.Size(53, 20)
-        Me.pVentas.Text = "Ventas"
-        '
-        'pVentasM
-        '
-        Me.pVentasM.BackColor = System.Drawing.Color.White
-        Me.pVentasM.Name = "pVentasM"
-        Me.pVentasM.Size = New System.Drawing.Size(169, 22)
-        Me.pVentasM.Text = "Ventas mostrador"
-        '
-        'pVentasT
-        '
-        Me.pVentasT.BackColor = System.Drawing.Color.White
-        Me.pVentasT.Name = "pVentasT"
-        Me.pVentasT.Size = New System.Drawing.Size(169, 22)
-        Me.pVentasT.Text = "Ventas touch"
-        '
-        'pcFolios
-        '
-        Me.pcFolios.BackColor = System.Drawing.Color.White
-        Me.pcFolios.Name = "pcFolios"
-        Me.pcFolios.Size = New System.Drawing.Size(169, 22)
-        Me.pcFolios.Text = "Consulta de folios"
-        '
-        'pAbonosV
-        '
-        Me.pAbonosV.BackColor = System.Drawing.Color.White
-        Me.pAbonosV.Name = "pAbonosV"
-        Me.pAbonosV.Size = New System.Drawing.Size(169, 22)
-        Me.pAbonosV.Text = "Abonos a notas"
-        Me.pAbonosV.Visible = False
-        '
         'pReportes
         '
         Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem})
@@ -900,6 +870,42 @@ Partial Class Inicio
         Me.ReporteDeAuditoriaToolStripMenuItem.Name = "ReporteDeAuditoriaToolStripMenuItem"
         Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeAuditoriaToolStripMenuItem.Text = "Reporte de auditoria"
+        '
+        'pVentas
+        '
+        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV})
+        Me.pVentas.Name = "pVentas"
+        Me.pVentas.Size = New System.Drawing.Size(53, 20)
+        Me.pVentas.Text = "Ventas"
+        '
+        'pVentasM
+        '
+        Me.pVentasM.BackColor = System.Drawing.Color.White
+        Me.pVentasM.Name = "pVentasM"
+        Me.pVentasM.Size = New System.Drawing.Size(169, 22)
+        Me.pVentasM.Text = "Ventas mostrador"
+        '
+        'pVentasT
+        '
+        Me.pVentasT.BackColor = System.Drawing.Color.White
+        Me.pVentasT.Name = "pVentasT"
+        Me.pVentasT.Size = New System.Drawing.Size(169, 22)
+        Me.pVentasT.Text = "Ventas touch"
+        '
+        'pcFolios
+        '
+        Me.pcFolios.BackColor = System.Drawing.Color.White
+        Me.pcFolios.Name = "pcFolios"
+        Me.pcFolios.Size = New System.Drawing.Size(169, 22)
+        Me.pcFolios.Text = "Consulta de folios"
+        '
+        'pAbonosV
+        '
+        Me.pAbonosV.BackColor = System.Drawing.Color.White
+        Me.pAbonosV.Name = "pAbonosV"
+        Me.pAbonosV.Size = New System.Drawing.Size(169, 22)
+        Me.pAbonosV.Text = "Abonos a notas"
+        Me.pAbonosV.Visible = False
         '
         'pIngresos
         '
@@ -1409,12 +1415,6 @@ Partial Class Inicio
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
-        '
-        'VehiculosToolStripMenuItem
-        '
-        Me.VehiculosToolStripMenuItem.Name = "VehiculosToolStripMenuItem"
-        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.VehiculosToolStripMenuItem.Text = "Vehiculos"
         '
         'Inicio
         '

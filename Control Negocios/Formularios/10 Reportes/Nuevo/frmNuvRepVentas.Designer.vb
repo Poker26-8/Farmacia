@@ -29,6 +29,18 @@ Partial Class frmNuvRepVentas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.txtAcuenta = New System.Windows.Forms.TextBox()
+        Me.lblAcuenta = New System.Windows.Forms.Label()
+        Me.txtCostoUtilidad = New System.Windows.Forms.TextBox()
+        Me.lblUtilidad = New System.Windows.Forms.Label()
+        Me.txtResta = New System.Windows.Forms.TextBox()
+        Me.lblResta = New System.Windows.Forms.Label()
+        Me.txtCosto = New System.Windows.Forms.TextBox()
+        Me.lblCosto = New System.Windows.Forms.Label()
+        Me.txtSuma = New System.Windows.Forms.TextBox()
+        Me.lblSuma = New System.Windows.Forms.Label()
+        Me.txtPropina = New System.Windows.Forms.TextBox()
+        Me.lblPropina = New System.Windows.Forms.Label()
         Me.txtSubtotal = New System.Windows.Forms.TextBox()
         Me.lblSubtotal = New System.Windows.Forms.Label()
         Me.txtDescuento = New System.Windows.Forms.TextBox()
@@ -68,20 +80,8 @@ Partial Class frmNuvRepVentas
         Me.rbVentasDetalle = New System.Windows.Forms.RadioButton()
         Me.rbVentasTotales = New System.Windows.Forms.RadioButton()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.txtPropina = New System.Windows.Forms.TextBox()
-        Me.lblPropina = New System.Windows.Forms.Label()
-        Me.txtSuma = New System.Windows.Forms.TextBox()
-        Me.lblSuma = New System.Windows.Forms.Label()
-        Me.txtCosto = New System.Windows.Forms.TextBox()
-        Me.lblCosto = New System.Windows.Forms.Label()
-        Me.txtResta = New System.Windows.Forms.TextBox()
-        Me.lblResta = New System.Windows.Forms.Label()
-        Me.txtCostoUtilidad = New System.Windows.Forms.TextBox()
-        Me.lblUtilidad = New System.Windows.Forms.Label()
-        Me.txtAcuenta = New System.Windows.Forms.TextBox()
-        Me.lblAcuenta = New System.Windows.Forms.Label()
         Me.barcarga = New System.Windows.Forms.ProgressBar()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Panel2.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -139,6 +139,126 @@ Partial Class frmNuvRepVentas
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(749, 166)
         Me.Panel7.TabIndex = 17
+        '
+        'txtAcuenta
+        '
+        Me.txtAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAcuenta.Location = New System.Drawing.Point(537, 135)
+        Me.txtAcuenta.Name = "txtAcuenta"
+        Me.txtAcuenta.Size = New System.Drawing.Size(100, 24)
+        Me.txtAcuenta.TabIndex = 37
+        Me.txtAcuenta.Text = "0.00"
+        Me.txtAcuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblAcuenta
+        '
+        Me.lblAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAcuenta.Location = New System.Drawing.Point(537, 112)
+        Me.lblAcuenta.Name = "lblAcuenta"
+        Me.lblAcuenta.Size = New System.Drawing.Size(100, 24)
+        Me.lblAcuenta.TabIndex = 36
+        Me.lblAcuenta.Text = "A Cuenta:"
+        Me.lblAcuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtCostoUtilidad
+        '
+        Me.txtCostoUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCostoUtilidad.Location = New System.Drawing.Point(643, 26)
+        Me.txtCostoUtilidad.Name = "txtCostoUtilidad"
+        Me.txtCostoUtilidad.Size = New System.Drawing.Size(100, 24)
+        Me.txtCostoUtilidad.TabIndex = 35
+        Me.txtCostoUtilidad.Text = "0.00"
+        Me.txtCostoUtilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblUtilidad
+        '
+        Me.lblUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUtilidad.Location = New System.Drawing.Point(410, 27)
+        Me.lblUtilidad.Name = "lblUtilidad"
+        Me.lblUtilidad.Size = New System.Drawing.Size(227, 20)
+        Me.lblUtilidad.TabIndex = 34
+        Me.lblUtilidad.Text = "Utilidad en ralación al método de costeo establecido:"
+        Me.lblUtilidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtResta
+        '
+        Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResta.Location = New System.Drawing.Point(643, 135)
+        Me.txtResta.Name = "txtResta"
+        Me.txtResta.Size = New System.Drawing.Size(100, 24)
+        Me.txtResta.TabIndex = 33
+        Me.txtResta.Text = "0.00"
+        Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblResta
+        '
+        Me.lblResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResta.Location = New System.Drawing.Point(643, 112)
+        Me.lblResta.Name = "lblResta"
+        Me.lblResta.Size = New System.Drawing.Size(100, 24)
+        Me.lblResta.TabIndex = 32
+        Me.lblResta.Text = "Resta:"
+        Me.lblResta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtCosto
+        '
+        Me.txtCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCosto.Location = New System.Drawing.Point(304, 26)
+        Me.txtCosto.Name = "txtCosto"
+        Me.txtCosto.Size = New System.Drawing.Size(100, 24)
+        Me.txtCosto.TabIndex = 31
+        Me.txtCosto.Text = "0.00"
+        Me.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblCosto
+        '
+        Me.lblCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCosto.Location = New System.Drawing.Point(304, 3)
+        Me.lblCosto.Name = "lblCosto"
+        Me.lblCosto.Size = New System.Drawing.Size(100, 24)
+        Me.lblCosto.TabIndex = 30
+        Me.lblCosto.Text = "Costo:"
+        Me.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtSuma
+        '
+        Me.txtSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSuma.Location = New System.Drawing.Point(198, 26)
+        Me.txtSuma.Name = "txtSuma"
+        Me.txtSuma.Size = New System.Drawing.Size(100, 24)
+        Me.txtSuma.TabIndex = 29
+        Me.txtSuma.Text = "0.00"
+        Me.txtSuma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblSuma
+        '
+        Me.lblSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSuma.Location = New System.Drawing.Point(198, 3)
+        Me.lblSuma.Name = "lblSuma"
+        Me.lblSuma.Size = New System.Drawing.Size(100, 24)
+        Me.lblSuma.TabIndex = 28
+        Me.lblSuma.Text = "Suma:"
+        Me.lblSuma.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtPropina
+        '
+        Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPropina.Location = New System.Drawing.Point(92, 26)
+        Me.txtPropina.Name = "txtPropina"
+        Me.txtPropina.Size = New System.Drawing.Size(100, 24)
+        Me.txtPropina.TabIndex = 27
+        Me.txtPropina.Text = "0.00"
+        Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblPropina
+        '
+        Me.lblPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPropina.Location = New System.Drawing.Point(92, 3)
+        Me.lblPropina.Name = "lblPropina"
+        Me.lblPropina.Size = New System.Drawing.Size(100, 24)
+        Me.lblPropina.TabIndex = 26
+        Me.lblPropina.Text = "Propina:"
+        Me.lblPropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtSubtotal
         '
@@ -314,6 +434,7 @@ Partial Class frmNuvRepVentas
         '
         Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAntibiotico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
         Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnAntibiotico.Location = New System.Drawing.Point(195, 6)
         Me.btnAntibiotico.Name = "btnAntibiotico"
@@ -327,6 +448,7 @@ Partial Class frmNuvRepVentas
         '
         Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnControlado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
         Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnControlado.Location = New System.Drawing.Point(195, 86)
         Me.btnControlado.Name = "btnControlado"
@@ -595,6 +717,15 @@ Partial Class frmNuvRepVentas
         Me.Panel4.Size = New System.Drawing.Size(1068, 328)
         Me.Panel4.TabIndex = 3
         '
+        'barcarga
+        '
+        Me.barcarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.barcarga.Location = New System.Drawing.Point(0, 305)
+        Me.barcarga.Name = "barcarga"
+        Me.barcarga.Size = New System.Drawing.Size(1065, 20)
+        Me.barcarga.TabIndex = 206
+        Me.barcarga.Visible = False
+        '
         'grdCaptura
         '
         Me.grdCaptura.AllowUserToAddRows = False
@@ -627,135 +758,6 @@ Partial Class frmNuvRepVentas
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(1068, 328)
         Me.grdCaptura.TabIndex = 0
-        '
-        'txtPropina
-        '
-        Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPropina.Location = New System.Drawing.Point(92, 26)
-        Me.txtPropina.Name = "txtPropina"
-        Me.txtPropina.Size = New System.Drawing.Size(100, 24)
-        Me.txtPropina.TabIndex = 27
-        Me.txtPropina.Text = "0.00"
-        Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblPropina
-        '
-        Me.lblPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPropina.Location = New System.Drawing.Point(92, 3)
-        Me.lblPropina.Name = "lblPropina"
-        Me.lblPropina.Size = New System.Drawing.Size(100, 24)
-        Me.lblPropina.TabIndex = 26
-        Me.lblPropina.Text = "Propina:"
-        Me.lblPropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtSuma
-        '
-        Me.txtSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSuma.Location = New System.Drawing.Point(198, 26)
-        Me.txtSuma.Name = "txtSuma"
-        Me.txtSuma.Size = New System.Drawing.Size(100, 24)
-        Me.txtSuma.TabIndex = 29
-        Me.txtSuma.Text = "0.00"
-        Me.txtSuma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblSuma
-        '
-        Me.lblSuma.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSuma.Location = New System.Drawing.Point(198, 3)
-        Me.lblSuma.Name = "lblSuma"
-        Me.lblSuma.Size = New System.Drawing.Size(100, 24)
-        Me.lblSuma.TabIndex = 28
-        Me.lblSuma.Text = "Suma:"
-        Me.lblSuma.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtCosto
-        '
-        Me.txtCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCosto.Location = New System.Drawing.Point(304, 26)
-        Me.txtCosto.Name = "txtCosto"
-        Me.txtCosto.Size = New System.Drawing.Size(100, 24)
-        Me.txtCosto.TabIndex = 31
-        Me.txtCosto.Text = "0.00"
-        Me.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblCosto
-        '
-        Me.lblCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCosto.Location = New System.Drawing.Point(304, 3)
-        Me.lblCosto.Name = "lblCosto"
-        Me.lblCosto.Size = New System.Drawing.Size(100, 24)
-        Me.lblCosto.TabIndex = 30
-        Me.lblCosto.Text = "Costo:"
-        Me.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtResta
-        '
-        Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResta.Location = New System.Drawing.Point(643, 135)
-        Me.txtResta.Name = "txtResta"
-        Me.txtResta.Size = New System.Drawing.Size(100, 24)
-        Me.txtResta.TabIndex = 33
-        Me.txtResta.Text = "0.00"
-        Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblResta
-        '
-        Me.lblResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResta.Location = New System.Drawing.Point(643, 112)
-        Me.lblResta.Name = "lblResta"
-        Me.lblResta.Size = New System.Drawing.Size(100, 24)
-        Me.lblResta.TabIndex = 32
-        Me.lblResta.Text = "Resta:"
-        Me.lblResta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtCostoUtilidad
-        '
-        Me.txtCostoUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCostoUtilidad.Location = New System.Drawing.Point(643, 26)
-        Me.txtCostoUtilidad.Name = "txtCostoUtilidad"
-        Me.txtCostoUtilidad.Size = New System.Drawing.Size(100, 24)
-        Me.txtCostoUtilidad.TabIndex = 35
-        Me.txtCostoUtilidad.Text = "0.00"
-        Me.txtCostoUtilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblUtilidad
-        '
-        Me.lblUtilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUtilidad.Location = New System.Drawing.Point(410, 27)
-        Me.lblUtilidad.Name = "lblUtilidad"
-        Me.lblUtilidad.Size = New System.Drawing.Size(227, 20)
-        Me.lblUtilidad.TabIndex = 34
-        Me.lblUtilidad.Text = "Utilidad en ralación al método de costeo establecido:"
-        Me.lblUtilidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtAcuenta
-        '
-        Me.txtAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAcuenta.Location = New System.Drawing.Point(537, 135)
-        Me.txtAcuenta.Name = "txtAcuenta"
-        Me.txtAcuenta.Size = New System.Drawing.Size(100, 24)
-        Me.txtAcuenta.TabIndex = 37
-        Me.txtAcuenta.Text = "0.00"
-        Me.txtAcuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblAcuenta
-        '
-        Me.lblAcuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcuenta.Location = New System.Drawing.Point(537, 112)
-        Me.lblAcuenta.Name = "lblAcuenta"
-        Me.lblAcuenta.Size = New System.Drawing.Size(100, 24)
-        Me.lblAcuenta.TabIndex = 36
-        Me.lblAcuenta.Text = "A Cuenta:"
-        Me.lblAcuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'barcarga
-        '
-        Me.barcarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.barcarga.Location = New System.Drawing.Point(0, 305)
-        Me.barcarga.Name = "barcarga"
-        Me.barcarga.Size = New System.Drawing.Size(1065, 20)
-        Me.barcarga.TabIndex = 206
-        Me.barcarga.Visible = False
         '
         'frmNuvRepVentas
         '

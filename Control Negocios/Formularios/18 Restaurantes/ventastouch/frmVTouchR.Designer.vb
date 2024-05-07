@@ -854,7 +854,7 @@ Partial Class frmVTouchR
         Me.pPreferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pPreferencia.Location = New System.Drawing.Point(4, 25)
         Me.pPreferencia.Name = "pPreferencia"
-        Me.pPreferencia.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPreferencia.Padding = New System.Windows.Forms.Padding(3)
         Me.pPreferencia.Size = New System.Drawing.Size(333, 222)
         Me.pPreferencia.TabIndex = 0
         Me.pPreferencia.Text = "    Preferencias    "
@@ -864,7 +864,7 @@ Partial Class frmVTouchR
         Me.pExtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pExtras.Location = New System.Drawing.Point(4, 25)
         Me.pExtras.Name = "pExtras"
-        Me.pExtras.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pExtras.Padding = New System.Windows.Forms.Padding(3)
         Me.pExtras.Size = New System.Drawing.Size(333, 222)
         Me.pExtras.TabIndex = 1
         Me.pExtras.Text = "          Extras          "
@@ -874,7 +874,7 @@ Partial Class frmVTouchR
         Me.pPromociones.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.pPromociones.Location = New System.Drawing.Point(4, 25)
         Me.pPromociones.Name = "pPromociones"
-        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.pPromociones.Padding = New System.Windows.Forms.Padding(3)
         Me.pPromociones.Size = New System.Drawing.Size(333, 222)
         Me.pPromociones.TabIndex = 2
         Me.pPromociones.Text = "    Promociones    "

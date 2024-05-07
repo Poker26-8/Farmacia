@@ -113,6 +113,7 @@
         txtmonedero.Text = ""
         txtsaldomon.Text = ""
         txtcliente.Text = ""
+        btnIntro.Enabled = True
     End Sub
 
     Private Sub txtPropina_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPropina.KeyPress
@@ -524,6 +525,39 @@
             frmVTouchR.lblTelefono.Text = ""
             frmVTouchR.lblDireccion.Text = ""
         Else
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    lblidcliente.Text = rd1("Id").ToString
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,Credito,Telefono,Calle) VALUES('" & cboNombre.Text & "','" & cboNombre.Text & "','Lista',10000,'" & cboTelefono.Text & "','" & rbtDireccion.Text & "')"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Id FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    lblidcliente.Text = rd3(0).ToString
+                End If
+            End If
+            rd3.Close()
+            cnn3.Close()
+
+
             frmVTouchR.lblCliente.Text = cboNombre.Text
             frmVTouchR.lblTelefono.Text = cboTelefono.Text
             frmVTouchR.lblNumCliente.Text = lblidcliente.Text

@@ -42,7 +42,8 @@
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select DISTINCT Nombre FROM Clientes order by Nombre"
+            cmd1.CommandText = "select DISTINCT Cliente FROM monedero order by Cliente"
+            'cmd1.CommandText = "select DISTINCT Nombre FROM Clientes order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -229,17 +230,17 @@
                 If rd1.Read Then
                     query = "update Monedero set Saldo=" & saldo & ", Actualiza='" & Format(Date.Now, "yyyy-MM-dd") & "' where Barras='" & txtTelefono.Text & "'"
                 Else
-                    query = "insert into Monedero(Folio, IdCliente, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "'," & txtidcliente.Text & ",'" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
+                    query = "insert into Monedero(Folio, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "''" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
                 End If
             Else
-                query = "insert into Monedero(Folio, IdCliente, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "'," & txtidcliente.Text & ",'" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
+                query = "insert into Monedero(Folio, Cliente, Saldo, Alta, Barras, Actualiza) values('" & txtFolio.Text & "','" & cboCliente.Text & "'," & saldo & ",'" & Format(Date.Now, "yyy-MM-dd") & "','" & txtTelefono.Text & "','" & Format(fecha, "yyyy-MM-dd") & "')"
             End If
             rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "update Clientes set Telefono='" & txtTelefono.Text & "' where Id=" & txtidcliente.Text
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText =
+            '    "update Clientes set Telefono='" & txtTelefono.Text & "' where Id=" & txtidcliente.Text
+            'cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
