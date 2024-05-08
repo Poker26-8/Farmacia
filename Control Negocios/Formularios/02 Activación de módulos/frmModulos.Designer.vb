@@ -28,6 +28,8 @@ Partial Class frmModulos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button12 = New System.Windows.Forms.Button()
@@ -63,8 +65,8 @@ Partial Class frmModulos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -74,7 +76,7 @@ Partial Class frmModulos
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(281, 16)
+        Me.Label1.Location = New System.Drawing.Point(212, 16)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(663, 28)
         Me.Label1.TabIndex = 1
@@ -88,7 +90,7 @@ Partial Class frmModulos
         Me.Panel1.ForeColor = System.Drawing.Color.White
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1224, 61)
+        Me.Panel1.Size = New System.Drawing.Size(1086, 61)
         Me.Panel1.TabIndex = 3
         '
         'Label2
@@ -96,7 +98,7 @@ Partial Class frmModulos
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(24, 11)
+        Me.Label2.Location = New System.Drawing.Point(27, 4)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 19)
         Me.Label2.TabIndex = 2
@@ -107,7 +109,7 @@ Partial Class frmModulos
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(350, 11)
+        Me.Label3.Location = New System.Drawing.Point(296, 4)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(163, 19)
         Me.Label3.TabIndex = 4
@@ -115,6 +117,8 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button15)
+        Me.Panel2.Controls.Add(Me.Label21)
         Me.Panel2.Controls.Add(Me.Button14)
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Controls.Add(Me.Button13)
@@ -157,8 +161,32 @@ Partial Class frmModulos
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 61)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1224, 357)
+        Me.Panel2.Size = New System.Drawing.Size(1086, 357)
         Me.Panel2.TabIndex = 4
+        '
+        'Button14
+        '
+        Me.Button14.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button14.FlatAppearance.BorderSize = 0
+        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
+        Me.Button14.Location = New System.Drawing.Point(332, 252)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(80, 80)
+        Me.Button14.TabIndex = 205
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(315, 230)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(93, 19)
+        Me.Label20.TabIndex = 204
+        Me.Label20.Text = "Citas Medicas"
         '
         'Button13
         '
@@ -167,7 +195,7 @@ Partial Class frmModulos
         Me.Button13.FlatAppearance.BorderSize = 0
         Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.Location = New System.Drawing.Point(1175, 299)
+        Me.Button13.Location = New System.Drawing.Point(1029, 292)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(37, 46)
         Me.Button13.TabIndex = 203
@@ -179,7 +207,7 @@ Partial Class frmModulos
         Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(176, 237)
+        Me.Label19.Location = New System.Drawing.Point(151, 230)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(121, 19)
         Me.Label19.TabIndex = 202
@@ -192,7 +220,7 @@ Partial Class frmModulos
         Me.Button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
-        Me.Button12.Location = New System.Drawing.Point(188, 259)
+        Me.Button12.Location = New System.Drawing.Point(170, 252)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(80, 80)
         Me.Button12.TabIndex = 201
@@ -205,7 +233,7 @@ Partial Class frmModulos
         Me.Button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
-        Me.Button11.Location = New System.Drawing.Point(34, 259)
+        Me.Button11.Location = New System.Drawing.Point(37, 252)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(80, 80)
         Me.Button11.TabIndex = 200
@@ -216,7 +244,7 @@ Partial Class frmModulos
         Me.Label18.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(52, 237)
+        Me.Label18.Location = New System.Drawing.Point(55, 230)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(39, 19)
         Me.Label18.TabIndex = 199
@@ -229,7 +257,7 @@ Partial Class frmModulos
         Me.BTNPOLO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.BTNPOLO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTNPOLO.Image = CType(resources.GetObject("BTNPOLO.Image"), System.Drawing.Image)
-        Me.BTNPOLO.Location = New System.Drawing.Point(1080, 154)
+        Me.BTNPOLO.Location = New System.Drawing.Point(974, 147)
         Me.BTNPOLO.Name = "BTNPOLO"
         Me.BTNPOLO.Size = New System.Drawing.Size(80, 80)
         Me.BTNPOLO.TabIndex = 198
@@ -240,7 +268,7 @@ Partial Class frmModulos
         Me.Label17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(1076, 132)
+        Me.Label17.Location = New System.Drawing.Point(970, 125)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(96, 19)
         Me.Label17.TabIndex = 197
@@ -253,7 +281,7 @@ Partial Class frmModulos
         Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(963, 33)
+        Me.Button4.Location = New System.Drawing.Point(857, 26)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(80, 80)
         Me.Button4.TabIndex = 195
@@ -264,7 +292,7 @@ Partial Class frmModulos
         Me.Label16.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(975, 11)
+        Me.Label16.Location = New System.Drawing.Point(869, 4)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(55, 19)
         Me.Label16.TabIndex = 196
@@ -278,7 +306,7 @@ Partial Class frmModulos
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
         Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(963, 154)
+        Me.Button9.Location = New System.Drawing.Point(857, 147)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(80, 80)
         Me.Button9.TabIndex = 193
@@ -289,7 +317,7 @@ Partial Class frmModulos
         Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(975, 132)
+        Me.Label15.Location = New System.Drawing.Point(869, 125)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(57, 19)
         Me.Label15.TabIndex = 194
@@ -302,7 +330,7 @@ Partial Class frmModulos
         Me.btncontrol_servicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btncontrol_servicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncontrol_servicios.Image = CType(resources.GetObject("btncontrol_servicios.Image"), System.Drawing.Image)
-        Me.btncontrol_servicios.Location = New System.Drawing.Point(1080, 33)
+        Me.btncontrol_servicios.Location = New System.Drawing.Point(974, 26)
         Me.btncontrol_servicios.Name = "btncontrol_servicios"
         Me.btncontrol_servicios.Size = New System.Drawing.Size(80, 80)
         Me.btncontrol_servicios.TabIndex = 191
@@ -313,7 +341,7 @@ Partial Class frmModulos
         Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(1058, 11)
+        Me.Label14.Location = New System.Drawing.Point(952, 4)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(129, 19)
         Me.Label14.TabIndex = 192
@@ -328,7 +356,7 @@ Partial Class frmModulos
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(838, 162)
+        Me.btnTelefonia.Location = New System.Drawing.Point(732, 155)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(84, 72)
         Me.btnTelefonia.TabIndex = 190
@@ -339,7 +367,7 @@ Partial Class frmModulos
         '
         Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(842, 132)
+        Me.Label13.Location = New System.Drawing.Point(736, 125)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(84, 19)
         Me.Label13.TabIndex = 189
@@ -353,7 +381,7 @@ Partial Class frmModulos
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(841, 33)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(735, 26)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(80, 80)
         Me.btnRefaccionaria.TabIndex = 187
@@ -364,7 +392,7 @@ Partial Class frmModulos
         Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(837, 11)
+        Me.Label12.Location = New System.Drawing.Point(731, 4)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(88, 19)
         Me.Label12.TabIndex = 188
@@ -377,7 +405,7 @@ Partial Class frmModulos
         Me.Button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Image = CType(resources.GetObject("Button10.Image"), System.Drawing.Image)
-        Me.Button10.Location = New System.Drawing.Point(726, 154)
+        Me.Button10.Location = New System.Drawing.Point(620, 147)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(80, 80)
         Me.Button10.TabIndex = 17
@@ -388,7 +416,7 @@ Partial Class frmModulos
         Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(716, 132)
+        Me.Label11.Location = New System.Drawing.Point(610, 125)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(101, 19)
         Me.Label11.TabIndex = 18
@@ -401,7 +429,7 @@ Partial Class frmModulos
         Me.btnRestaurante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRestaurante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRestaurante.Image = CType(resources.GetObject("btnRestaurante.Image"), System.Drawing.Image)
-        Me.btnRestaurante.Location = New System.Drawing.Point(725, 33)
+        Me.btnRestaurante.Location = New System.Drawing.Point(619, 26)
         Me.btnRestaurante.Name = "btnRestaurante"
         Me.btnRestaurante.Size = New System.Drawing.Size(80, 80)
         Me.btnRestaurante.TabIndex = 15
@@ -412,7 +440,7 @@ Partial Class frmModulos
         Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(721, 11)
+        Me.Label10.Location = New System.Drawing.Point(615, 4)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(88, 19)
         Me.Label10.TabIndex = 16
@@ -425,7 +453,7 @@ Partial Class frmModulos
         Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.Location = New System.Drawing.Point(392, 154)
+        Me.Button5.Location = New System.Drawing.Point(338, 147)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(80, 80)
         Me.Button5.TabIndex = 13
@@ -436,7 +464,7 @@ Partial Class frmModulos
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(387, 132)
+        Me.Label6.Location = New System.Drawing.Point(333, 125)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(91, 19)
         Me.Label6.TabIndex = 14
@@ -449,7 +477,7 @@ Partial Class frmModulos
         Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
-        Me.Button6.Location = New System.Drawing.Point(34, 154)
+        Me.Button6.Location = New System.Drawing.Point(37, 147)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(80, 80)
         Me.Button6.TabIndex = 10
@@ -460,7 +488,7 @@ Partial Class frmModulos
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(5, 132)
+        Me.Label7.Location = New System.Drawing.Point(8, 125)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(139, 19)
         Me.Label7.TabIndex = 12
@@ -473,7 +501,7 @@ Partial Class frmModulos
         Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(213, 154)
+        Me.Button7.Location = New System.Drawing.Point(180, 147)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(80, 80)
         Me.Button7.TabIndex = 9
@@ -484,7 +512,7 @@ Partial Class frmModulos
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(184, 132)
+        Me.Label8.Location = New System.Drawing.Point(151, 125)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(139, 19)
         Me.Label8.TabIndex = 11
@@ -497,7 +525,7 @@ Partial Class frmModulos
         Me.Button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.Location = New System.Drawing.Point(571, 154)
+        Me.Button8.Location = New System.Drawing.Point(501, 147)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(80, 80)
         Me.Button8.TabIndex = 7
@@ -508,7 +536,7 @@ Partial Class frmModulos
         Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(564, 132)
+        Me.Label9.Location = New System.Drawing.Point(494, 125)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(94, 19)
         Me.Label9.TabIndex = 8
@@ -521,7 +549,7 @@ Partial Class frmModulos
         Me.btnProduccion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnProduccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProduccion.Image = CType(resources.GetObject("btnProduccion.Image"), System.Drawing.Image)
-        Me.btnProduccion.Location = New System.Drawing.Point(570, 33)
+        Me.btnProduccion.Location = New System.Drawing.Point(500, 26)
         Me.btnProduccion.Name = "btnProduccion"
         Me.btnProduccion.Size = New System.Drawing.Size(80, 80)
         Me.btnProduccion.TabIndex = 5
@@ -532,7 +560,7 @@ Partial Class frmModulos
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(537, 11)
+        Me.Label5.Location = New System.Drawing.Point(467, 4)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(146, 19)
         Me.Label5.TabIndex = 6
@@ -545,7 +573,7 @@ Partial Class frmModulos
         Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(212, 33)
+        Me.Button3.Location = New System.Drawing.Point(179, 26)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(80, 80)
         Me.Button3.TabIndex = 3
@@ -556,7 +584,7 @@ Partial Class frmModulos
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(176, 11)
+        Me.Label4.Location = New System.Drawing.Point(143, 4)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(152, 19)
         Me.Label4.TabIndex = 4
@@ -569,7 +597,7 @@ Partial Class frmModulos
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(391, 33)
+        Me.Button2.Location = New System.Drawing.Point(337, 26)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(80, 80)
         Me.Button2.TabIndex = 3
@@ -582,42 +610,42 @@ Partial Class frmModulos
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(33, 33)
+        Me.Button1.Location = New System.Drawing.Point(36, 26)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(80, 80)
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Label20
+        'Button15
         '
-        Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(316, 237)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(93, 19)
-        Me.Label20.TabIndex = 204
-        Me.Label20.Text = "Citas Medicas"
+        Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button15.FlatAppearance.BorderSize = 0
+        Me.Button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
+        Me.Button15.Location = New System.Drawing.Point(500, 258)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(80, 80)
+        Me.Button15.TabIndex = 207
+        Me.Button15.UseVisualStyleBackColor = True
         '
-        'Button14
+        'Label21
         '
-        Me.Button14.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
-        Me.Button14.Location = New System.Drawing.Point(320, 259)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(80, 80)
-        Me.Button14.TabIndex = 205
-        Me.Button14.UseVisualStyleBackColor = True
+        Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(514, 230)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(63, 19)
+        Me.Label21.TabIndex = 206
+        Me.Label21.Text = "Farmacia"
         '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1224, 418)
+        Me.ClientSize = New System.Drawing.Size(1086, 418)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -677,4 +705,6 @@ Partial Class frmModulos
     Friend WithEvents Button13 As Button
     Friend WithEvents Button14 As Button
     Friend WithEvents Label20 As Label
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Label21 As Label
 End Class

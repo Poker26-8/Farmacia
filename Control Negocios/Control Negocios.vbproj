@@ -289,6 +289,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Escuelas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Farmacia.Designer.vb">
+      <DependentUpon>frmAct_Farmacia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Farmacia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Gym.Designer.vb">
       <DependentUpon>frmAct_Gym.vb</DependentUpon>
     </Compile>
@@ -389,6 +395,12 @@
       <DependentUpon>frmBuscarPrecio.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\07 Ventas\frmBuscarPrecio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentas2.Designer.vb">
+      <DependentUpon>frmVentas2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentas2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.Designer.vb">
@@ -1817,6 +1829,9 @@
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Escuelas.resx">
       <DependentUpon>frmAct_Escuelas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Farmacia.resx">
+      <DependentUpon>frmAct_Farmacia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Gym.resx">
       <DependentUpon>frmAct_Gym.vb</DependentUpon>
     </EmbeddedResource>
@@ -1867,6 +1882,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmBuscarPrecio.resx">
       <DependentUpon>frmBuscarPrecio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas2.resx">
+      <DependentUpon>frmVentas2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.resx">
       <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>

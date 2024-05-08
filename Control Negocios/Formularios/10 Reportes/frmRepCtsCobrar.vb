@@ -485,6 +485,19 @@
                     Dim banco As String = rd1("Banco").ToString
                     Dim refe As String = rd1("Referencia").ToString
                     Dim usuario As String = rd1("Usuario").ToString
+
+                    'cnn2.Close() : cnn2.Open()
+                    'cmd2 = cnn2.CreateCommand
+                    'cmd2.CommandText = "SELECT DiasCred FROM clientes WHERE Nombre='" & MyClien & "'"
+                    'rd2 = cmd2.ExecuteReader
+                    'If rd2.HasRows Then
+                    '    If rd2.Read Then
+                    '        dias = rd2(0).ToString
+                    '    End If
+                    'End If
+                    'rd2.Close()
+                    'cnn2.Close()
+
                     Dim vence As Date = DateAdd(DateInterval.Day, dias, CDate(fecha))
 
                     grdcaptura.Rows.Add(NumNota, cliente, concepto, FormatDateTime(fecha, DateFormat.ShortDate), FormatNumber(cargo, 2), FormatNumber(abono, 2), FormatNumber(saldo, 2), formapago, montoforma, banco, refe, usuario, FormatDateTime(vence, DateFormat.ShortDate))
@@ -597,6 +610,20 @@
                     Dim MyAcuen As Double = rd1("ACuenta").ToString
                     Dim MyResta As Double = rd1("Resta").ToString
                     Dim MyFecha As String = rd1("FVenta").ToString
+
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT DiasCred FROM clientes WHERE Nombre='" & MyClien & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            dias = rd2(0).ToString
+                        End If
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
                     Dim MyVence As Date = DateAdd(DateInterval.Day, dias, CDate(MyFecha))
 
                     grdcaptura.Rows.Add(MyFolio, MyClien, FormatNumber(MyTotal, 2), FormatNumber(MyAcuen, 2), FormatNumber(MyResta, 2), FormatDateTime(MyFecha, DateFormat.ShortDate), FormatDateTime(MyVence, DateFormat.ShortDate))
@@ -604,6 +631,7 @@
                 End If
             Loop
             rd1.Close() : cnn1.Close()
+            cnn2.Close()
             txtcobrar.Text = FormatNumber(debe, 2)
         End If
 

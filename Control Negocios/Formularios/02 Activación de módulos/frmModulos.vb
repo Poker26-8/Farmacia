@@ -202,4 +202,10 @@
         ' frmCitas.Show()
         frmNuevo.Show()
     End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        frmAct_Farmacia.Show()
+        frmAct_Farmacia.BringToFront()
+        Me.Close()
+    End Sub
 End Class

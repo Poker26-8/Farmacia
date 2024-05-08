@@ -1,5 +1,6 @@
 ﻿Public Class frmRepVentas
     Dim Partes As Boolean = False
+    Dim farma As Integer = 0
     Private Sub frmRepVentas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         mCalendar1.SetDate(Now)
         mCalendar2.SetDate(Now)
@@ -25,6 +26,24 @@
                 End If
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NumPart from Formatos where Facturas='Farmacia'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString() = 1 Then
+                        btnAntibiotico.Visible = True
+                        btnControlado.Visible = True
+                    Else
+                        btnAntibiotico.Visible = False
+                        btnControlado.Visible = False
+                    End If
+                End If
+            End If
+            rd1.Close()
+
 
             cnn2.Close() : cnn2.Open()
 

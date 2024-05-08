@@ -30,6 +30,24 @@ Public Class frmNuvRepVentas
                 End If
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NumPart from Formatos where Facturas='Farmacia'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString() = 1 Then
+                        btnAntibiotico.Visible = True
+                        btnControlado.Visible = True
+                    Else
+                        btnAntibiotico.Visible = False
+                        btnControlado.Visible = False
+                    End If
+                End If
+            End If
+            rd1.Close()
+
             cnn1.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)

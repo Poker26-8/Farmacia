@@ -1570,7 +1570,7 @@ kak:
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "select Nombre from Clientes where Nombre<>'' order by Nombre asc"
+                            "select distinct Nombre from Clientes where Nombre<>'' order by Nombre asc"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
@@ -3686,11 +3686,6 @@ kaka:
                 cnn1.Close()
             End Try
 
-
-
-
-
-
         End If
     End Sub
     Private Sub txtcantidad_TextChanged(sender As Object, e As System.EventArgs) Handles txtcantidad.TextChanged
@@ -5473,8 +5468,8 @@ kaka:
         frmPedidosCli.Show()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'frmVentas2.Show()
-        'frmVentas2.BringToFront()
+        frmVentas2.Show()
+        frmVentas2.BringToFront()
 
     End Sub
 
