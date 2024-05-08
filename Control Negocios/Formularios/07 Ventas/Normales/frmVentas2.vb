@@ -597,9 +597,9 @@ Public Class frmVentas2
                         GoTo kak
                     End If
                 Next
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 2), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
             Else
-                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 2), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
+                grdcaptura.Rows.Add(codigo, nombre, unidad, cantid, FormatNumber(precio, 4), FormatNumber(total, 2), existencia, id_lote, lote, fcad, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2), desucentoiva, total1, monedero)
             End If
 
             grdcaptura.FirstDisplayedScrollingRowIndex = grdcaptura.RowCount - 1
@@ -6814,5 +6814,36 @@ Door:
 
     Private Sub btnventa_Click(sender As Object, e As EventArgs) Handles btnventa.Click
 
+        Dim VarUser As String = "", VarIdUsuario As Integer = 0, DsctoProd As Single = 0, PorcentDscto As Single = 0, DsctoProdTod As Single = 0
+        Dim CveLte As Double = 0
+        Dim IdCliente As Integer = 0
+        Dim ConteoXD As Double = 0
+
+        Dim validafranquicia As Integer = 0
+        If franquicia = 1 Then
+            validafranquicia = 0
+        End If
+        If franquicia = 0 Then
+            validafranquicia = 1
+        End If
+
+        Dim TotalIEPSPrint As Double = 0
+        Dim SubtotalPrint As Double = 0
+        Dim MySubtotal As Double = 0
+        Dim TotalIVAPrint As Double = 0
+
+        'Cálculo del subtotal
+        Try
+            For i As Integer = 0 To grdcaptura.Rows.Count - 1
+                If grdcaptura.Rows(i).Cells(0).Value.ToString = "" Then
+                Else
+                    ConteoXD = ConteoXD + CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString)
+                End If
+                txtSubTotal.Text = FormatNumber(ConteoXD, 2)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
     End Sub
 End Class

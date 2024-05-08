@@ -1270,13 +1270,166 @@ Public Class frmCompras
                 If MsgBox("El precio de compra va a cambiar en la base de datos." & vbNewLine & "¿Desea que los porcentajes y precios de venta se modifiquen también?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                     CP = 1
 
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "UPDATE Productos SET PrecioCompra=" & txtprecio.Text & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
-                    cmd1.ExecuteNonQuery()
-                    cnn1.Close()
+                    If (cbonombre.Text <> "" And txtprecio.Text <> 0) Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                Dim xy, xy1, xy2, xy3, xy4, xyy, xy11, xy22, xy33, xy44 As Double
+
+                                If rd1("IVA").ToString <> 0 Then
+                                    xy = 0
+                                    xyy = 0
+                                    xy1 = 0
+                                    xy11 = 0
+                                    xy2 = 0
+                                    xy22 = 0
+                                    xy3 = 0
+                                    xy33 = 0
+                                    xy4 = 0
+                                    xy44 = 0
+
+                                    xy = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("Porcentaje").ToString) / 100, 2)
+                                    xyy = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("Porcentaje2").ToString) / 100, 2)
+                                    xy1 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMin").ToString) / 100, 2)
+                                    xy11 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMin2").ToString) / 100, 2)
+                                    xy2 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMay").ToString) / 100, 2)
+                                    xy22 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMay2").ToString) / 100, 2)
+                                    xy3 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMM").ToString) / 100, 2)
+                                    xy33 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcMM2").ToString) / 100, 2)
+                                    xy4 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcEsp").ToString) / 100, 2)
+                                    xy44 = FormatNumber((CDec(txtprecio.Text) * 1.16) + (CDec(txtprecio.Text) * 1.16) * CDec(rd1("PorcEsp2").ToString) / 100, 2)
+
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE Productos SET Cargado=0, PrecioCompra=" & txtprecio.Text & ",PrecioVentaIVA=" & xy & ",PrecioVentaIVA2=" & xyy & ",PreMin=" & xy1 & ",PreMin2=" & xy11 & ",PreMay=" & xy2 & ",PreMay2=" & xy22 & ",PreMM=" & xy3 & ",PreMM2=" & xy33 & ",PreEsp=" & xy4 & ",PreEsp2=" & xy44 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                    cmd2.ExecuteNonQuery()
+                                    cnn2.Close()
+                                Else
+                                    xy = 0
+                                    xyy = 0
+                                    xy1 = 0
+                                    xy11 = 0
+                                    xy2 = 0
+                                    xy22 = 0
+                                    xy3 = 0
+                                    xy33 = 0
+                                    xy4 = 0
+                                    xy44 = 0
+
+                                    xy = FormatNumber((CDec(txtprecio.Text)) + (CDec(txtprecio.Text)) * CDec(rd1("Porcentaje").ToString) / 100, 2)
+                                    xyy = FormatNumber((CDec(txtprecio.Text)) + (CDec(txtprecio.Text)) * CDec(rd1("Porcentaje2").ToString) / 100, 2)
+                                    xy1 = FormatNumber((CDec(txtprecio.Text)) + (CDec(txtprecio.Text)) * CDec(rd1("PorcMin").ToString) / 100, 2)
+                                    xy11 = FormatNumber((CDec(txtprecio.Text)) + (CDec(txtprecio.Text)) * CDec(rd1("PorcMin2").ToString) / 100, 2)
+                                    xy2 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcMay").ToString) / 100, 2)
+                                    xy22 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcMay2").ToString) / 100, 2)
+                                    xy3 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcMM").ToString / 100), 2)
+                                    xy33 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcMM2").ToString) / 100, 2)
+                                    xy4 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcEsp").ToString) / 100, 2)
+                                    xy44 = FormatNumber((CDec(txtprecio.Text)) * (CDec(txtprecio.Text)) * CDec(rd1("PorcEsp2").ToString) / 100, 2)
+
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "UPDATE Productos SET Cargado=0, PrecioCompra=" & txtprecio.Text & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                    cmd2.ExecuteNonQuery()
+                                    cnn2.Close()
+
+                                    If rd1("Porcentaje").ToString > 0 Then
+
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PrecioVentaIVA=" & xy & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+
+                                    End If
+
+                                    If rd1("Porcentaje2").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PrecioVentaIVA2=" & xyy & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+
+                                    End If
+
+                                    If rd1("PorcMin").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMin=" & xy1 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("PorcMin2").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMin2=" & xy11 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("porcMay").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMay=" & xy2 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("porcMay2").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMay2=" & xy22 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("PorcMM").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMM=" & xy3 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("PorcMM2").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreMM2=" & xy33 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("PorcEsp").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreEsp=" & xy4 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                    If rd1("PorcEsp2").ToString > 0 Then
+                                        cnn2.Close() : cnn2.Open()
+                                        cmd2 = cnn2.CreateCommand
+                                        cmd2.CommandText = "UPDATE Productos SET Cargado=0, PreEsp2=" & xy44 & " WHERE Codigo='" & txtcodigo.Text & "' AND Nombre='" & cbonombre.Text & "'"
+                                        cmd2.ExecuteNonQuery()
+                                        cnn2.Close()
+                                    End If
+
+                                End If
+
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+                    End If
+
+
                 Else
-                    CP = 0
+                        CP = 0
                 End If
 
 
