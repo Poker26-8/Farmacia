@@ -61,7 +61,7 @@
                     "select NumRemision from Compras where Proveedor='" & cbonombre.Text & "' and NumFactura<>''"
             Else
                 cmd1.CommandText =
-                    "select NumRemision from Compras where Proveedor='" & cbonombre.Text & "' and NumFactura=''"
+                    "select NumRemision from Compras where Proveedor='" & cbonombre.Text & "' and NumFactura='' AND Resta<>0"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
