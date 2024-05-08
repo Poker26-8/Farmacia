@@ -96,14 +96,39 @@
                     'HrEntrega = Format(DateAdd("n", minutosTiempo, Date.Now), "HH:mm:ss")
                 End If
 
+                Dim tolerancia As Double = 0
+                Dim fechaentrada As Date = Nothing
+                Dim salida As String = ""
+
+                fechaentrada = Format(Date.Now, "yyyy-MM-dd HH:mm:ss")
+
                 cnn1.Close() : cnn1.Open()
+                cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        tolerancia = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                    End If
+                End If
+                rd1.Close()
+
+                Dim fechasalida As DateTime = fechaentrada.AddHours(lblHoras.Text)
+
+                If tolerancia > 0 Then
+                    Dim fechatolerancia As DateTime = fechasalida.AddMinutes(tolerancia)
+                    salida = Format(fechatolerancia, "yyyy-MM-dd HH:mm:ss")
+                Else
+                    salida = Format(fechasalida, "yyyy-MM-dd HH:mm:ss")
+                End If
+                MsgBox(salida)
+
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO AsigPC(Nombre,Tipo,HorEnt,HorSal,Fecha,Ocupada) VALUES('" & lblhabitacion.Text & "','Habitacion','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "',1)"
+                cmd1.CommandText = "INSERT INTO AsigPC(Nombre,Tipo,HorEnt,HorSal,Fecha,Ocupada,FechaSal) VALUES('" & lblhabitacion.Text & "','Habitacion','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "',1,'" & salida & "')"
                 cmd1.ExecuteNonQuery()
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT MAX(Folio) FROM Comanda1"
+                cmd2.CommandText = "SELECT MAX(Id) FROM Comanda1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -118,7 +143,7 @@
                 cnn2.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO Comanda1(Folio,IdCliente,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales) VALUES(" & cfolio & "," & IIf(lblidcliented.Text = "", "0", lblidcliented.Text) & ",'" & lblhabitacion.Text & "','','" & lblusuario.Text & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','" & Format(Date.Now, "yyyyy-MM-dd HH:mm:ss") & "','','','','',0)"
+                cmd1.CommandText = "INSERT INTO Comanda1(IdCliente,Nombre,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,TComensales) VALUES(" & IIf(lblidcliented.Text = "", "0", lblidcliented.Text) & ",'" & lblhabitacion.Text & "','','" & lblusuario.Text & "','" & Format(Date.Now, "yyyyy-MM-dd") & "','" & Format(Date.Now, "yyyyy-MM-dd HH:mm:ss") & "','','','','',0)"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 

@@ -156,7 +156,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT MAX(Folio) FROM comanda1"
+            cmd2.CommandText = "SELECT MAX(Id) FROM comanda1"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

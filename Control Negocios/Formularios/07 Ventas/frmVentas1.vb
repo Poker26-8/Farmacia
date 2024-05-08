@@ -3657,11 +3657,21 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select PreMin from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select PreMin,PreMin2 from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            If CDbl(txtprecio.Text) < CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) Then
+
+                            Dim premin1 As Double = 0
+                            Dim premin2 As Double = 0
+                            Dim premasbajo As Double = 0
+
+                            premin1 = rd1(0).ToString
+                            premin2 = rd1(1).ToString
+
+                            premasbajo = Math.Min(premin1, premin2)
+                            'CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) 
+                            If CDbl(txtprecio.Text) < CDbl(IIf(premasbajo = "", 0, premasbajo)) Then
                                 MsgBox("El precio de venta mínimo para el producto es de " & FormatNumber(CDbl(rd1(0).ToString), 4) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtprecio.SelectionStart = 0 : txtprecio.SelectionLength = Len(txtprecio.Text) : Exit Sub
                                 rd1.Close() : cnn1.Close()
                                 Exit Sub
@@ -4249,14 +4259,22 @@ kaka:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select PreMin from Productos where Codigo='" & cbocodigo.Text & "'"
+                "select PreMin,PreMin2 from Productos where Codigo='" & cbocodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
                     If Promo = False Then
-                        If CDbl(txtprecio.Text) < CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) Then
+
+                        Dim premin1 As Double = 0
+                        Dim premin2 As Double = 0
+                        Dim premasbajo As Double = 0
+
+                        premin1 = rd1(0).ToString
+                        premin2 = rd1(1).ToString
+                        premasbajo = Math.Min(premin1, premin2)
+                        If CDbl(txtprecio.Text) < CDbl(IIf(premasbajo = 0, 0, premasbajo)) Then
                             If btndevo.Text <> "GUARDAR DEVOLUCIÓN" Then
-                                MsgBox("El precio de venta mínimo establecido es de " & FormatNumber(rd1(0).ToString, 4) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                                MsgBox("El precio de venta mínimo establecido es de " & FormatNumber(premasbajo, 4) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                                 txtprecio.Focus().Equals(True)
                                 rd1.Close() : cnn1.Close()
                                 Exit Sub

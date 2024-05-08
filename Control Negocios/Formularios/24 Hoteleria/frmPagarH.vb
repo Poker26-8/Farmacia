@@ -1455,6 +1455,11 @@ Public Class frmPagarH
         Dim articulos As Integer = 0
         Dim Pie1 As String = ""
 
+        Dim fechaentrada As Date = Nothing
+        Dim fechasalida As Date = Nothing
+        Dim fechaentra As String = ""
+        Dim fechasal As String = ""
+
         Try
 
             If tLogo <> "SIN" Then
@@ -1533,6 +1538,20 @@ Public Class frmPagarH
             End If
             rd2.Close()
 
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT HorEnt,FechaSal FROM asigpc"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    fechaentrada = rd2(0).ToString
+                    fechasalida = rd2(1).ToString
+                End If
+            End If
+            rd2.Close()
+
+            fechaentra = Format(fechaentrada, "yyyy-MM-dd HH:mm:ss")
+            fechasal = Format(fechasalida, "yyyy-MM-dd HH:mm:ss")
+
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("N O T A   D E   V E N T A", fuente_b, Brushes.Black, 135, Y, sc)
@@ -1546,6 +1565,12 @@ Public Class frmPagarH
             Y += 23
             e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/dd"), fuente_r, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & Format(Date.Now, "HH:mm"), fuente_r, Brushes.Black, 270, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("Fecha Entrada: ", fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(fechaentra, fuente_r, Brushes.Black, 270, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("Fecha Salida: ", fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(fechasal, fuente_r, Brushes.Black, 270, Y, derecha)
             Y += 11
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
@@ -1730,6 +1755,12 @@ Public Class frmPagarH
         Dim pie1 As String = ""
         Dim articulos As Integer = 0
 
+
+        Dim fechaentrada As Date = Nothing
+        Dim fechasalida As Date = Nothing
+        Dim fechaentra As String = ""
+        Dim fechasal As String = ""
+
         Try
 
             If tLogo <> "SIN" Then
@@ -1758,6 +1789,19 @@ Public Class frmPagarH
             End If
             rd2.Close()
 
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT HorEnt,FechaSal FROM asigpc"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    fechaentrada = rd2(0).ToString
+                    fechasalida = rd2(1).ToString
+                End If
+            End If
+            rd2.Close()
+
+            fechaentra = Format(fechaentrada, "yyyy-MM-dd HH:mm:ss")
+            fechasal = Format(fechasalida, "yyyy-MM-dd HH:mm:ss")
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
                 "select * from Ticket"
@@ -1821,6 +1865,12 @@ Public Class frmPagarH
             e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/dd"), fuente_r, Brushes.Black, 1, Y)
             e.Graphics.DrawString(Format(Date.Now, "HH:mm"), fuente_r, Brushes.Black, 180, Y, derecha)
             Y += 11
+            e.Graphics.DrawString("Fecha Entrada: ", fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(fechaentra, fuente_r, Brushes.Black, 180, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("Fecha Salida: ", fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(fechasal, fuente_r, Brushes.Black, 180, Y, derecha)
+            Y += 11
             e.Graphics.DrawString("--------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
 
@@ -1848,8 +1898,8 @@ Public Class frmPagarH
                 While inicio3 < longitudTexto3
                     Dim longitudBloque3 As Integer = Math.Min(caracteresPorLinea3, longitudTexto3 - inicio3)
                     Dim bloque3 As String = texto3.Substring(inicio3, longitudBloque3)
-                    e.Graphics.DrawString(bloque3, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 30, Y)
-                    Y += 13
+                    e.Graphics.DrawString(bloque3, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 30, Y)
+                    Y += 14
                     inicio3 += caracteresPorLinea3
                 End While
 
