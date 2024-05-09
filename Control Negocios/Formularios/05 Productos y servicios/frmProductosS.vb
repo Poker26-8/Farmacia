@@ -974,7 +974,7 @@ Public Class frmProductosS
         Dim nombrelargo As String = ""
         Dim provpri As String = ""
         Dim proveme As String = ""
-        Dim provres As Integer = 0
+        Dim provres As Boolean = False
         Dim ucompra As String = ""
         Dim uventa As String = ""
         Dim ventamin As String = ""
