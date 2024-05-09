@@ -2126,7 +2126,7 @@ Public Class Inicio
 
 
         frmRepInventario.Show()
-            frmRepInventario.BringToFront()
+        frmRepInventario.BringToFront()
 
 
 
