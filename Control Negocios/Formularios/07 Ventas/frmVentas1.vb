@@ -4768,8 +4768,6 @@ kaka:
         End If
     End Sub
 
-
-
     'Pagos
     Private Sub txtPagar_DoubleClick(sender As Object, e As System.EventArgs) Handles txtPagar.DoubleClick
         Dim TotalNV As Double = 0

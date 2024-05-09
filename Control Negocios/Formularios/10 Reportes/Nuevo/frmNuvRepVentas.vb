@@ -3234,7 +3234,7 @@ Public Class frmNuvRepVentas
                 barcarga.Maximum = cuantos
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' order by Folio"
+                cmd1.CommandText = "SELECT * FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Status<>'CANCELADA' order by Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then

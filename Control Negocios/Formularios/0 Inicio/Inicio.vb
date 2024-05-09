@@ -1469,6 +1469,24 @@ Public Class Inicio
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FechaSal FROM asigpc"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE asigpc add column FechaSal datetime"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub ActualizaCampos()
@@ -3426,5 +3444,10 @@ Public Class Inicio
     Private Sub ReporteCOFEPRISToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteCOFEPRISToolStripMenuItem.Click
         frmcofepris.Show()
         frmcofepris.BringToFront()
+    End Sub
+
+    Private Sub CorteDeCajaNToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CorteDeCajaNToolStripMenuItem.Click
+        frmCorte3.Show()
+        frmCorte3.BringToFront()
     End Sub
 End Class

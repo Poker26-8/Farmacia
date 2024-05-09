@@ -240,7 +240,7 @@
                     SUMAFORMASINPROPINA = CDbl(SUMAFORMA) - CDbl(SUMAFORMAPRO)
                     TotalForma = CDbl(SUMAFORMASINPROPINA) + CDbl(SUMAFORMAPRO)
 
-                    e.Graphics.DrawString(")+) Ventas:", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString("(+) Ventas:", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & FormatNumber(SUMAFORMASINPROPINA, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                     Y += 20
 
@@ -270,22 +270,22 @@
             e.Graphics.DrawString(simbolo & FormatNumber(SUMATOTAL2, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 11
 
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 13
+            'e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            'Y += 13
 
-            e.Graphics.DrawString("A DEPOSITAR", fuente_b, Brushes.Black, 1, Y)
-            Y += 20
-            e.Graphics.DrawString("Reportado:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("(-)Fondo::", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("----------", fuente_b, Brushes.Black, 200, Y)
-            Y += 11
-            e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 10, Y)
-            e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
+            'e.Graphics.DrawString("A DEPOSITAR", fuente_b, Brushes.Black, 1, Y)
+            'Y += 20
+            'e.Graphics.DrawString("Reportado:", fuente_b, Brushes.Black, 1, Y)
+            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
+            'Y += 20
+            'e.Graphics.DrawString("(-)Fondo::", fuente_b, Brushes.Black, 1, Y)
+            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
+            'Y += 20
+            'e.Graphics.DrawString("----------", fuente_b, Brushes.Black, 200, Y)
+            'Y += 11
+            'e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 10, Y)
+            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
+            'Y += 20
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
@@ -336,7 +336,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    SUMADEVOLUCIONES = rd2(0).ToString
+                    SUMADEVOLUCIONES = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
                 End If
             End If
             rd2.Close()
@@ -345,7 +345,7 @@
 
             If SUMADEVOLUCIONES > 0 Then
                 e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & SUMADEVOLUCIONES, fuente_b, Brushes.Black, 270, Y, derecha)
+                e.Graphics.DrawString(simbolo & FormatNumber(SUMADEVOLUCIONES, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                 Y += 20
             Else
                 e.Graphics.DrawString("No hay devoluciones", fuente_b, Brushes.Black, 1, Y)
@@ -367,7 +367,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    SUMADESCUENTOS = rd2(0).ToString
+                    SUMADESCUENTOS = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
                 End If
             End If
             rd2.Close()
