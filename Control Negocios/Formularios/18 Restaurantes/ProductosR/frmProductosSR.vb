@@ -331,7 +331,7 @@ Public Class frmProductosSR
                 If rd1.Read Then
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE Productos SET CodBarra='" & txtCodBarras.Text & "',Nombre='" & cboDescripcion.Text & "',IVA=" & cboIva.Text & ",UCompra='" & txtUnidad.Text & "',PrecioCompra=" & p_compra & ",PrecioVenta=" & p_venta & ",PrecioVentaIVA=" & p_ventaiva & ",PrecioDomicilio=" & p_domicilio & ",PrecioDomicilioIVA=" & p_domiiva & ",ProvPri='" & cboProveedores.Text & "',Departamento='" & cboDepartamento.Text & "',Grupo='" & cboGrupo.Text & "',GPrint='" & cboComanda.Text & "',Existencia=" & txtExistencia.Text & ",ProvRes=" & IIf(chkKit.Checked, 1, 0) & ",Modo_Almacen=" & modo_almacen & " WHERE Codigo='" & cboCodCorto.Text & "'"
+                    cmd2.CommandText = "UPDATE Productos SET CodBarra='" & txtCodBarras.Text & "',Nombre='" & cboDescripcion.Text & "',IVA=" & cboIva.Text & ",UCompra='" & txtUnidad.Text & "',PrecioCompra=" & p_compra & ",PrecioVenta=" & p_venta & ",PrecioVentaIVA=" & p_ventaiva & ",PrecioDomicilio=" & p_domicilio & ",PrecioDomicilioIVA=" & p_domiiva & ",ProvPri='" & cboProveedores.Text & "',Departamento='" & cboDepartamento.Text & "',Grupo='" & cboGrupo.Text & "',GPrint='" & cboComanda.Text & "',Existencia=" & txtExistencia.Text & ",ProvRes=" & IIf(chkKit.Checked, 1, 0) & ",Modo_Almacen=" & modo_almacen & ",Actu=0 WHERE Codigo='" & cboCodCorto.Text & "'"
                     If cmd2.ExecuteNonQuery() Then
                         My.Application.DoEvents()
 
