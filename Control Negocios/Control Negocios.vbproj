@@ -403,6 +403,12 @@
     <Compile Include="Formularios\07 Ventas\Normales\frmVentas2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentas3.Designer.vb">
+      <DependentUpon>frmVentas3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentas3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.Designer.vb">
       <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>
     </Compile>
@@ -1885,6 +1891,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas2.resx">
       <DependentUpon>frmVentas2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas3.resx">
+      <DependentUpon>frmVentas3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.resx">
       <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>

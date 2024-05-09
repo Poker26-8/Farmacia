@@ -8905,8 +8905,6 @@ ecomoda:
         End If
     End Sub
 
-
-
     'Impresión
     Private Sub pVenta80_PrintPage(sender As System.Object, e As System.Drawing.Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
         'Fuentes prederminadas
