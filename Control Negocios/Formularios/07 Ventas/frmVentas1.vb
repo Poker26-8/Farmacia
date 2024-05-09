@@ -11967,6 +11967,12 @@ ecomoda:
         Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
         Dim saldomonedero As Double = 0
+        Dim ligaqr As String = ""
+        Dim whats As String = DatosRecarga("Whatsapp")
+
+        If whats <> "" Then
+            ligaqr = "http://wa.me/" & whats
+        End If
         Try
             '[°]. Logotipo
             If tLogo <> "SIN" Then
@@ -12349,43 +12355,20 @@ ecomoda:
             End If
 
 
+            If ligaqr <> "" Then
+                Dim entrada As String = ligaqr
+                Dim Gen As New QRCodeGenerator
+                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                Dim Code As New QRCode(data)
 
-            Dim va_whatsapp As Integer = 0
-            Try
-                cnn1.Close() : cnn1.Open()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select NumPart from Formatos where Facturas='Whatsapp'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        va_whatsapp = rd1(0).ToString()
-                    End If
-                End If
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn1.Close()
-            End Try
-
-            If va_whatsapp = 1 Then
-                'Dim numero As String = DatosRecarga("Whatsapp")
-                'Dim liga As String = "http://wa.me/" & numero
-
-                'Y += 15
-                'Dim entrada As String = liga
-                'Dim Gen As New QRCodeGenerator
-                'Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                'Dim Code As New qrcode(data)
-
-                'picQR.Image = Code.GetGraphic(200)
-                'My.Application.DoEvents()
-                'Y += 15
-                'e.Graphics.DrawString("Escríbenos por Whatsapp", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                'Y += 15
-                'e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 425, 425)
+                picQR.Image = Code.GetGraphic(200)
+                My.Application.DoEvents()
+                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 90, Y, sc)
+                Y += 20
+                e.Graphics.DrawImage(picQR.Image, 15, CInt(Y), 160, 160)
             End If
+
+            Y += 20
 
             e.HasMorePages = False
         Catch ex As Exception
