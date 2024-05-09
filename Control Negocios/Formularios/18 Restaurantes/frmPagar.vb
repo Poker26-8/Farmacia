@@ -46,8 +46,6 @@ Public Class frmPagar
 
     Private Sub frmPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        percent_propina = DatosRecarga("Propina")
-
         grdcomanda.Rows.Clear()
         TFolio.Start()
 
@@ -123,7 +121,8 @@ Public Class frmPagar
         If Not IsNumeric(txtSubtotalmapeo.Text) Then txtSubtotalmapeo.Text = "0.00" : Exit Sub
         If Strings.Left(txtSubtotalmapeo.Text, 1) = "," Or Strings.Left(txtSubtotalmapeo.Text, 1) = "." Then Exit Sub
 
-        percent_propina = IIf(percent_propina = "", 0, percent_propina)
+        ' percent_propina = IIf(percent_propina = "", 0, percent_propina)
+        percent_propina = DatosRecarga("Propina")
         propina = CDec(txtSubtotalmapeo.Text) * (percent_propina / 100)
         txtPropina.Text = FormatNumber(propina, 2)
 
@@ -2622,6 +2621,8 @@ Door:
                     cmd4.ExecuteNonQuery()
                     cnn4.Close()
 
+                    Call PRINT1(comandaeliminar, codigoeliminar)
+
                     If cantidadeliminar = CantidadP Then
 
                         cnn2.Close() : cnn2.Open()
@@ -2721,7 +2722,7 @@ Door:
                     cnn2.Close()
 
                     cnn3.Close()
-                    Call PRINT1(comandaeliminar, codigoeliminar)
+
                 Else
                     MsgBox("No es posible cancelar una cantidad mayor a este producto.", vbInformation + vbOKOnly, titulomensajes)
                 End If

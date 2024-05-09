@@ -52,9 +52,9 @@ Module ModGral
             Else
                 respuesta = ""
             End If
-            If siono = 0 Then
-                respuesta = ""
-            End If
+            'If siono = 0 Then
+            '    respuesta = ""
+            'End If
             rd5.Close() : cnn5.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
