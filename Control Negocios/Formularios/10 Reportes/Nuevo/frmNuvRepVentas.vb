@@ -2344,6 +2344,125 @@ Public Class frmNuvRepVentas
 
         grdCaptura.Rows.Clear()
         btnExcel.Enabled = True
+        If (rbFiscal.Checked) Then
+            folio = ""
+            cliente = ""
+            subtotal = 0
+            Iva = 0
+            total = 0
+            descuento = 0
+            devolucion = 0
+            acuenta = 0
+            resta = 0
+            ieps = 0
+            formapago = ""
+            status = ""
+            fecha = Nothing
+            fechanueva = ""
+            facturado = 0
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+
+                If cboDatos.Text = "" Then
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                Else
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
+                End If
+
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cuantos = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
+
+                barcarga.Visible = True
+                barcarga.Value = 0
+                barcarga.Maximum = cuantos
+
+                cnn2.Close() : cnn2.Open()
+                cmd1 = cnn1.CreateCommand
+
+                If cboDatos.Text = "" Then
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                Else
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "' ORDER BY Folio"
+                End If
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        folio = rd1("Folio").ToString
+                        cliente = rd1("Cliente").ToString
+                        subtotal = IIf(rd1("Subtotal").ToString = "", 0, rd1("Subtotal").ToString)
+                        Iva = IIf(rd1("IVA").ToString = "", 0, rd1("IVA").ToString)
+                        total = IIf(rd1("totales").ToString = "", 0, rd1("totales").ToString)
+                        propina = IIf(rd1("Propina").ToString = "", 0, rd1("Propina").ToString)
+                        descuento = IIf(rd1("Descuento").ToString = "", 0, rd1("Descuento").ToString)
+                        devolucion = IIf(rd1("Devolucion").ToString = "", 0, rd1("Devolucion").ToString)
+                        acuenta = IIf(rd1("ACuenta").ToString = "", 0, rd1("ACuenta").ToString)
+                        resta = IIf(rd1("Resta").ToString = "", 0, rd1("Resta").ToString)
+                        status = IIf(rd1("Status").ToString = "", "", rd1("Status").ToString)
+                        fecha = rd1("FVenta").ToString
+                        fechanueva = Format(fecha, "yyyy-MM-dd HH:mm:ss")
+                        facturado = IIf(rd1("Facturado").ToString = "", 0, rd1("Facturado").ToString)
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText =
+                        "select sum(TotalIEPS) as ipes from VentasDetalle where Folio=" & folio
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                ieps = IIf(rd2("ipes").ToString() = "", 0, rd2("ipes").ToString())
+                            End If
+                        End If
+                        rd2.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                formapago = rd2(0).ToString
+                            End If
+                        End If
+                        rd2.Close()
+
+                        grdCaptura.Rows.Add(folio, cliente, total, fechanueva, facturado, formapago)
+
+                        T_Subtotal = T_Subtotal + subtotal
+                        T_IVA = T_IVA + Iva
+                        T_Total = T_Total + total
+                        T_Propina = T_Propina + propina
+                        T_Descuento = T_Descuento + descuento
+                        T_ACuenta = T_ACuenta + acuenta
+                        T_Resta = T_Resta + resta
+                        T_IEPS = T_IEPS + ieps
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+
+                txtSubtotal.Text = FormatNumber(T_Subtotal, 2)
+                txtIVA.Text = FormatNumber(T_IVA, 2)
+                txtTotal.Text = FormatNumber(T_Total, 2)
+                txtPropina.Text = FormatNumber(T_Propina, 2)
+                txtDescuento.Text = FormatNumber(T_Descuento, 2)
+                txtAcuenta.Text = FormatNumber(T_ACuenta, 2)
+                txtResta.Text = FormatNumber(T_Resta, 2)
+
+                barcarga.Visible = False
+                barcarga.Value = 0
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+                cnn2.Close()
+            End Try
+        End If
 
         If (rbVentasTotales.Checked) Then
 
@@ -4296,4 +4415,74 @@ Public Class frmNuvRepVentas
             cnn3.Close()
         End Try
     End Function
+
+    Private Sub rbFiscal_Click(sender As Object, e As EventArgs) Handles rbFiscal.Click
+        If (rbFiscal.Checked) Then
+
+            grdCaptura.Rows.Clear()
+            grdCaptura.ColumnCount = 0
+            cboDatos.Text = ""
+            cboDatos.Items.Clear()
+            cboDatos.Visible = False
+
+            txtPropina.Text = "0.00"
+            txtSuma.Text = "0.00"
+            txtCosto.Text = "0.00"
+            txtCostoUtilidad.Text = "0.00"
+            txtSubtotal.Text = "0.00"
+            txtDescuento.Text = "0.00"
+            txtIeps.Text = "0.00"
+            txtIVA.Text = "0.00"
+            txtTotal.Text = "0.00"
+            txtAcuenta.Text = "0.00"
+            txtResta.Text = "0.00"
+
+            grdCaptura.ColumnCount = 6
+            With grdCaptura
+                With .Columns(0)
+                    .HeaderText = "Nota de Venta"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Cliente"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
+                    .HeaderText = "Total"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Fecha"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Facturado"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Forma de Pago"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+            End With
+
+        End If
+    End Sub
 End Class

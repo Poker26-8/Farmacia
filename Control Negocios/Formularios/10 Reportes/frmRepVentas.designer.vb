@@ -22,7 +22,7 @@ Partial Class frmRepVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepVentas))
         Me.mCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.mCalendar2 = New System.Windows.Forms.MonthCalendar()
@@ -81,6 +81,7 @@ Partial Class frmRepVentas
         Me.Exportar = New System.Windows.Forms.Button()
         Me.btnprint = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.rbFiscal = New System.Windows.Forms.RadioButton()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -120,14 +121,14 @@ Partial Class frmRepVentas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(10, 235)
         Me.grdcaptura.Name = "grdcaptura"
@@ -262,7 +263,7 @@ Partial Class frmRepVentas
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(10, 206)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(252, 23)
+        Me.ComboBox1.Size = New System.Drawing.Size(203, 23)
         Me.ComboBox1.TabIndex = 61
         '
         'opttraspasos
@@ -711,11 +712,23 @@ Partial Class frmRepVentas
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'rbFiscal
+        '
+        Me.rbFiscal.AutoSize = True
+        Me.rbFiscal.Location = New System.Drawing.Point(225, 203)
+        Me.rbFiscal.Name = "rbFiscal"
+        Me.rbFiscal.Size = New System.Drawing.Size(98, 19)
+        Me.rbFiscal.TabIndex = 223
+        Me.rbFiscal.TabStop = True
+        Me.rbFiscal.Text = "Reporte FIscal"
+        Me.rbFiscal.UseVisualStyleBackColor = True
+        '
         'frmRepVentas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1001, 690)
+        Me.Controls.Add(Me.rbFiscal)
         Me.Controls.Add(Me.lblSuma)
         Me.Controls.Add(Me.txtSuma)
         Me.Controls.Add(Me.lblCosto)
@@ -842,4 +855,5 @@ Partial Class frmRepVentas
     Friend WithEvents txtCosto As TextBox
     Friend WithEvents txtSuma As TextBox
     Friend WithEvents lblSuma As Label
+    Friend WithEvents rbFiscal As RadioButton
 End Class
