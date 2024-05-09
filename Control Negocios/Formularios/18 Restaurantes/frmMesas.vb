@@ -568,7 +568,7 @@ Public Class frmMesas
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
-                    tipo = rd2("Tipo").ToString
+
                     id_mesero = IIf(rd2("IdEmpleado").ToString = "", 0, rd2("IdEmpleado").ToString)
 
                     If rd2("TempNom").ToString = "" Then
@@ -620,8 +620,6 @@ Public Class frmMesas
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
-                                'Dim col As String = rd3(0).ToString
-                                'btnMesa.BackColor = Color.FromArgb(col)
                                 btnMesaNM.BackColor = Color.FromArgb(255, 255, 128)
                             End If
 
@@ -653,6 +651,15 @@ Public Class frmMesas
                         ' btnMesa2.BackColor = Color.FromArgb(255, 128, 0)
                     End If
                     rd9.Close()
+
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "SELECT Tipo FROM mesa WHERE Nombre_mesa='" & btnMesaNM.Text & "'"
+                    rd9 = cmd9.ExecuteReader
+                    If rd9.HasRows Then
+                        If rd9.Read Then
+                            tipo = rd9("Tipo").ToString
+                        End If
+                    End If
                     cnn9.Close()
 
                     If tipo = "2" Then
