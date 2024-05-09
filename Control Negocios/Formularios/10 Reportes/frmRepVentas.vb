@@ -754,6 +754,35 @@
 
         grdcaptura.Rows.Clear()
         Exportar.Enabled = True
+        If (rbFiscal.Checked) Then
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+
+            If ComboBox1.Text = "" Then
+
+                cmd1.CommandText =
+              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
+            Else
+                cmd1.CommandText =
+              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
+            End If
+
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cuenta = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            barcarga.Visible = True
+            barcarga.Value = 0
+            barcarga.Maximum = cuenta
+
+            cnn2.Close() : cnn2.Open()
+
+        End If
 
         'Totales
         If (opttotales.Checked) Then
@@ -4495,5 +4524,101 @@
 
     Private Sub btnprint_Click(sender As Object, e As EventArgs) Handles btnprint.Click
 
+    End Sub
+
+    Private Sub rbFiscal_Click(sender As Object, e As EventArgs) Handles rbFiscal.Click
+        If (rbFiscal.Checked) Then
+            grdcaptura.Rows.Clear()
+            grdcaptura.ColumnCount = 0
+            ComboBox1.Items.Clear()
+            ComboBox1.Text = ""
+            ComboBox1.Visible = True
+            txtiva.Text = "0.00"
+            txtdescuento.Text = "0.00"
+            txtsubtotal.Text = "0.00"
+            txtieps.Text = "0.00"
+            txttotal.Text = "0.00"
+            txtutilidad.Text = "0.00"
+            txtpeso.Text = "0.00"
+            txtacuenta.Text = "0.00"
+            txtresta.Text = "0.00"
+            txtPropina.Text = "0.00"
+            txtCosto.Text = "0.00"
+            txtSuma.Text = "0.00"
+
+            grdcaptura.ColumnCount = 6
+            With grdcaptura
+                With .Columns(0)
+                    .HeaderText = "Nota de Venta"
+                    .Width = 70
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Cliente"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
+                    .HeaderText = "Total"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Fecha"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Facturado"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Forma de Pago"
+                    .Width = 75
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+            End With
+
+            Exportar.Enabled = False
+
+            lblacuenta.Visible = True
+            txtacuenta.Visible = True
+            lblresta.Visible = True
+            txtresta.Visible = True
+            lbliva.Visible = True
+            txtiva.Visible = True
+            lblutilidad.Visible = False
+            txtutilidad.Visible = False
+            lblCosto.Visible = False
+            lblCosto.Visible = False
+            lblpeso.Visible = False
+            txtpeso.Visible = False
+            btnprint.Visible = False
+
+            lbldescuento.Visible = True
+            txtdescuento.Visible = True
+            lblsubtotal.Visible = True
+            txtsubtotal.Visible = True
+            lbltotal.Visible = True
+            txttotal.Visible = True
+        End If
     End Sub
 End Class
