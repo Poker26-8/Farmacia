@@ -756,9 +756,9 @@ Public Class frmMesas
         Dim total_billar As Double = 0
 
         Dim totalc As Double = 0
-
         frmPagar.Close()
-        frmCalcula.Close()
+
+            frmCalcula.Close()
 
         If tables.BackColor <> Color.White Then
             Try

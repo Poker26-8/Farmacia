@@ -19,7 +19,7 @@ Public Class frmPagar
     Dim verid As Integer = 0
 
     Dim propina As Double = 0
-    Dim percent_propina As Double = 0
+    Dim percent_propina As String = ""
     Dim Montocobromapeo As Double = 0
     Dim montopropina As Double = 0
 
@@ -42,7 +42,11 @@ Public Class frmPagar
 
     Dim foliomonedero As String = ""
 
+
+
     Private Sub frmPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        percent_propina = DatosRecarga("Propina")
 
         grdcomanda.Rows.Clear()
         TFolio.Start()
@@ -119,7 +123,7 @@ Public Class frmPagar
         If Not IsNumeric(txtSubtotalmapeo.Text) Then txtSubtotalmapeo.Text = "0.00" : Exit Sub
         If Strings.Left(txtSubtotalmapeo.Text, 1) = "," Or Strings.Left(txtSubtotalmapeo.Text, 1) = "." Then Exit Sub
 
-        percent_propina = DatosRecarga("Propina")
+        percent_propina = IIf(percent_propina = "", 0, percent_propina)
         propina = CDec(txtSubtotalmapeo.Text) * (percent_propina / 100)
         txtPropina.Text = FormatNumber(propina, 2)
 
@@ -3086,8 +3090,8 @@ Door:
         Dim nLogo As String = DatosRecarga("LogoG")
         Dim tLogo As String = DatosRecarga("TipoLogo")
         Dim simbolo As String = DatosRecarga("Simbolo")
-        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
-        Dim facLinea As Integer = DatosRecarga("AutoFac")
+        Dim DesglosaIVA As String = IIf(DatosRecarga("Desglosa") = "", 0, DatosRecarga("Desglosa"))
+        Dim facLinea As Integer = IIf(DatosRecarga("AutoFac") = "", 0, DatosRecarga("AutoFac"))
         Dim foliofactura As String = ""
 
         Dim nombrepro As String = ""

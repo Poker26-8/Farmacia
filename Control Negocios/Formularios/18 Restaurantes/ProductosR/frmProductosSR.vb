@@ -608,7 +608,7 @@ Public Class frmProductosSR
             cboGrupo.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Grupo FROM productos where Grupo<>'' ORDER BY Grupo"
+            cmd5.CommandText = "SELECT DISTINCT Grupo FROM productos where Grupo<>'' AND Departamento='" & cboDepartamento.Text & "' ORDER BY Grupo"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then

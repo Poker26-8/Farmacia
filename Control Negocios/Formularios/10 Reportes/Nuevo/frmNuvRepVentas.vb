@@ -2421,7 +2421,7 @@ Public Class frmNuvRepVentas
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "'"
+                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -2542,7 +2542,7 @@ Public Class frmNuvRepVentas
                         rd2.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "'"
+                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -2645,8 +2645,7 @@ Public Class frmNuvRepVentas
                                 descripcion = rd2("Nombre").ToString
                                 uventa = rd2("Unidad").ToString
                                 cantidad = rd2("Cantidad").ToString
-                                costo = rd2("CostoVP").ToString
-                                sumacosto = CDbl(costo) * CDbl(cantidad)
+                                costo = rd2("CostoVUE").ToString
                                 precio = IIf(rd2("Precio").ToString = "", 0, rd2("Precio").ToString)
                                 subtotal = IIf(rd2("TotalSinIva").ToString = "", 0, rd2("TotalSinIva").ToString)
                                 total = IIf(rd2("Total").ToString = "", 0, rd2("Total").ToString)
@@ -2679,7 +2678,7 @@ Public Class frmNuvRepVentas
 
                                 nuevototal = T_Total - CDbl(T_Descuento) + CDbl(T_Propina)
                                 nuevosubtotal = T_Subtotal - CDbl(T_Descuento) + CDbl(T_Propina)
-
+                                T_Costo = T_Costo + costo
                             End If
                         Loop
                         rd2.Close()
@@ -3188,8 +3187,8 @@ Public Class frmNuvRepVentas
                                 cantidad = IIf(rd2("Cantidad").ToString = "", 1, rd2("Cantidad").ToString)
                                 precio = IIf(rd2("Precio").ToString = "", 0, rd2("Precio").ToString)
                                 descu = IIf(rd2("Descto").ToString = "", 0, rd2("Descto").ToString)
-                                ieps = IIf(rd2("TotalIEPS").ToString = "", 0, rd2("TotalIEPS").ToString)
-                                fecha = rd1("Fecha").ToString
+                                ieps = IIf(rd2("TotalIEPS").ToString = 0, 0, rd2("TotalIEPS").ToString)
+                                fecha = rd2("Fecha").ToString
                                 fechanueva = Format(fecha, "yyyy-MM-dd")
                                 utilidad = DameUti(folio, codigo, cantidad)
 
