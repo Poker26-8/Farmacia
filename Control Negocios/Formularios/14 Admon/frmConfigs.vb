@@ -101,6 +101,25 @@ Public Class frmConfigs
             End If
             rd4.Close()
 
+            rd4.Close()
+
+            cmd4 = cnn4.CreateCommand()
+            cmd4.CommandText =
+                 "select NumPart,NotasCred from Formatos where Facturas='Whatsapp'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    If rd4(0).ToString() = 1 Then
+                        chkwhats.Checked = True
+                        txtwhats.Text = rd4(1).ToString
+                    Else
+                        chkwhats.Checked = False
+                        txtwhats.Text = rd4(1).ToString
+                    End If
+                End If
+            End If
+            rd4.Close()
+
             Dim linkau As String = ""
             Dim auto As Integer = 0
 
@@ -2438,6 +2457,22 @@ Public Class frmConfigs
                 End Try
 
             End If
+        Else
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Formatos set NotasCred='" & txtwhats.Text & "', NumPart=0 where Facturas='Whatsapp'"
+                If cmd1.ExecuteNonQuery Then
+                    MsgBox("Configuración actualizada", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                End If
+
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
         End If
     End Sub
 

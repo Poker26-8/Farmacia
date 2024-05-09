@@ -8922,6 +8922,12 @@ ecomoda:
         Dim Pie As String = ""
         Dim pagare As String = ""
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        Dim ligaqr As String = ""
+        Dim whats As String = DatosRecarga("Whatsapp")
+
+        If whats <> "" Then
+            ligaqr = "http://wa.me/" & whats
+        End If
 
         Dim saldomonedero As Double = 0
 
@@ -9339,7 +9345,20 @@ ecomoda:
             rd1.Close()
             cnn1.Close()
 
+            If ligaqr <> "" Then
+                Dim entrada As String = ligaqr
+                Dim Gen As New QRCodeGenerator
+                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                Dim Code As New QRCode(data)
 
+                picQR.Image = Code.GetGraphic(200)
+                My.Application.DoEvents()
+                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
+                Y += 25
+                e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+            End If
+
+            Y += 20
             If autofac = 1 Then
 
                 If linkauto <> "" Then

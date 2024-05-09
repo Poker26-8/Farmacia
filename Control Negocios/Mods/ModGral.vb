@@ -36,6 +36,7 @@ Module ModGral
     'DatosRecarga
     Public Function DatosRecarga(ByVal valor As String) As String
         Dim respuesta As String = ""
+        Dim siono As Integer = 0
         Try
             cnn5.Close() : cnn5.Open()
 
@@ -46,8 +47,12 @@ Module ModGral
             If rd5.HasRows Then
                 If rd5.Read Then
                     respuesta = rd5("NotasCred").ToString
+                    siono = rd5("NumPart").ToString
                 End If
             Else
+                respuesta = ""
+            End If
+            If siono = 0 Then
                 respuesta = ""
             End If
             rd5.Close() : cnn5.Close()
@@ -56,6 +61,7 @@ Module ModGral
             cnn5.Close()
         End Try
         Return respuesta
+
     End Function
 
     Public Function ObtenerNombreEquipo() As String

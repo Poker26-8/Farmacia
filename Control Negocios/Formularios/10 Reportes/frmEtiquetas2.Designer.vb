@@ -68,57 +68,64 @@ Partial Class frmEtiquetas2
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(321, 65)
+        Me.Label5.Location = New System.Drawing.Point(155, 165)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 13)
         Me.Label5.TabIndex = 273
         Me.Label5.Text = "Cantidad:"
+        Me.Label5.Visible = False
         '
         'txtgrupo
         '
-        Me.txtgrupo.Location = New System.Drawing.Point(321, 83)
+        Me.txtgrupo.Location = New System.Drawing.Point(44, 165)
         Me.txtgrupo.Name = "txtgrupo"
         Me.txtgrupo.Size = New System.Drawing.Size(120, 20)
         Me.txtgrupo.TabIndex = 272
+        Me.txtgrupo.Visible = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(117, 65)
+        Me.Label4.Location = New System.Drawing.Point(117, 206)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 13)
         Me.Label4.TabIndex = 271
         Me.Label4.Text = "Código de barras:"
+        Me.Label4.Visible = False
         '
         'txtbarras
         '
-        Me.txtbarras.Location = New System.Drawing.Point(117, 83)
+        Me.txtbarras.Location = New System.Drawing.Point(117, 224)
         Me.txtbarras.Name = "txtbarras"
+        Me.txtbarras.ReadOnly = True
         Me.txtbarras.Size = New System.Drawing.Size(201, 20)
         Me.txtbarras.TabIndex = 270
+        Me.txtbarras.Visible = False
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 65)
+        Me.Label3.Location = New System.Drawing.Point(11, 206)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(43, 13)
         Me.Label3.TabIndex = 269
         Me.Label3.Text = "Código:"
+        Me.Label3.Visible = False
         '
         'txtcodigo
         '
-        Me.txtcodigo.Location = New System.Drawing.Point(14, 83)
+        Me.txtcodigo.Location = New System.Drawing.Point(14, 224)
         Me.txtcodigo.Name = "txtcodigo"
         Me.txtcodigo.ReadOnly = True
         Me.txtcodigo.Size = New System.Drawing.Size(100, 20)
         Me.txtcodigo.TabIndex = 268
         Me.txtcodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtcodigo.Visible = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(338, 18)
+        Me.Label2.Location = New System.Drawing.Point(335, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(62, 13)
         Me.Label2.TabIndex = 267
@@ -126,7 +133,7 @@ Partial Class frmEtiquetas2
         '
         'txtcopias
         '
-        Me.txtcopias.Location = New System.Drawing.Point(338, 36)
+        Me.txtcopias.Location = New System.Drawing.Point(335, 25)
         Me.txtcopias.Name = "txtcopias"
         Me.txtcopias.Size = New System.Drawing.Size(103, 20)
         Me.txtcopias.TabIndex = 266
@@ -136,15 +143,15 @@ Partial Class frmEtiquetas2
         'cbonombre
         '
         Me.cbonombre.FormattingEnabled = True
-        Me.cbonombre.Location = New System.Drawing.Point(14, 36)
+        Me.cbonombre.Location = New System.Drawing.Point(14, 61)
         Me.cbonombre.Name = "cbonombre"
-        Me.cbonombre.Size = New System.Drawing.Size(321, 21)
+        Me.cbonombre.Size = New System.Drawing.Size(424, 21)
         Me.cbonombre.TabIndex = 264
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(12, 18)
+        Me.Label13.Location = New System.Drawing.Point(12, 43)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(66, 13)
         Me.Label13.TabIndex = 265
@@ -193,7 +200,7 @@ Partial Class frmEtiquetas2
         '
         Me.GroupBox1.Controls.Add(Me.cboimpresora)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 107)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 98)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(427, 55)
         Me.GroupBox1.TabIndex = 274
@@ -253,7 +260,7 @@ Partial Class frmEtiquetas2
         Me.btnImprime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImprime.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImprime.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprime.Location = New System.Drawing.Point(309, 184)
+        Me.btnImprime.Location = New System.Drawing.Point(324, 188)
         Me.btnImprime.Name = "btnImprime"
         Me.btnImprime.Size = New System.Drawing.Size(60, 63)
         Me.btnImprime.TabIndex = 263
@@ -268,7 +275,7 @@ Partial Class frmEtiquetas2
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(375, 184)
+        Me.btnnuevo.Location = New System.Drawing.Point(390, 189)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnnuevo.TabIndex = 262
