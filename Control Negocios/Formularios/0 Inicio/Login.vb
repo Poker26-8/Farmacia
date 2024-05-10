@@ -197,6 +197,20 @@ Public Class Login
                 "update Server set IP='" & MyIP & "'"
             comando.ExecuteNonQuery()
 
+            comando = conexion.CreateCommand
+            comando.CommandText =
+                "select Ip from ConfiguracionesTienda where Id=1"
+            lector = comando.ExecuteReader
+            If lector.HasRows Then
+                If lector.Read Then
+                    If lector(0).ToString() <> "" Then
+                        tienda_enlinea = True
+                    End If
+                End If
+                Else
+                tienda_enlinea = False
+            End If
+            lector.Close()
 
 
             conexion.Close()
