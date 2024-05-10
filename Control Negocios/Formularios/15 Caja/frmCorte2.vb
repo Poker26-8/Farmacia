@@ -1874,7 +1874,7 @@ Public Class frmCorte2
                 End If
                 If tLogo = "RECT" Then
                     e.Graphics.DrawImage(Logotipo, 12, 5, 160, 110)
-                    Y += 90
+                    Y += 115
                 End If
             Else
                 Y = 0
@@ -2075,11 +2075,11 @@ Public Class frmCorte2
                 End If
                 If tLogo = "CUAD" Then
                     e.Graphics.DrawImage(Logotipo, 45, 5, 110, 120)
-                    Y += 115
+                    Y += 120
                 End If
                 If tLogo = "RECT" Then
                     e.Graphics.DrawImage(Logotipo, 12, 5, 160, 110)
-                    Y += 90
+                    Y += 120
                 End If
             Else
                 Y = 0
@@ -2156,9 +2156,29 @@ Public Class frmCorte2
             Y += 15
 
             e.Graphics.DrawString("TOTAL DE INGRESOS", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(txtformapago.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtIngresosGlobal.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
             Y += 15
 
+            e.Graphics.DrawString("ING. ENFECTIVO:", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 5, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtIngEfectivoG.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
+            Y += 15
+
+            e.Graphics.DrawString("ING. FORMAS:", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 5, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtingresosformas.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
+            Y += 15
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL DE EGRESOS:", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtEgresosGlobal.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
+            Y += 15
+
+            e.Graphics.DrawString("SALDO FINAL:", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtSaldoFinalG.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("EFECTIVO EN CAJA:", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(EfectivoCajaG.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)
             'Dim lol As Integer = 0
 
             'For lol = 0 To grdIngresos.Rows.Count - 1
