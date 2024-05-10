@@ -96,6 +96,8 @@ Module Module1
 
     Public numero_MAC As String = ""
 
+    Public tienda_enlinea As Boolean = False
+
     Public ipserverF As String = ""
     Public databaseF As String = ""
     Public userbdF As String = ""

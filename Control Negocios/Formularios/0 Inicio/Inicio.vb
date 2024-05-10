@@ -229,6 +229,13 @@ Public Class Inicio
 
         'Validaciones del módulo de asistencia
 
+        If tienda_enlinea = True Then
+            PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
+            pedidos_tienda.Visible = True
+        Else
+            PedidosTiendaEnLíneaToolStripMenuItem.Visible = False
+            pedidos_tienda.Visible = False
+        End If
 
         Try
             cnn1.Close() : cnn1.Open()
