@@ -3321,4 +3321,8 @@ Public Class frmCorte2
             btnSaldoUsuario.Focus().Equals(True)
         End If
     End Sub
+
+    Private Sub pCierreUsuario58_PrintPage(sender As Object, e As PrintPageEventArgs) Handles pCierreUsuario58.PrintPage
+
+    End Sub
 End Class

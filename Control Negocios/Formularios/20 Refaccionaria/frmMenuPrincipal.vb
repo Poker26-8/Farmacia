@@ -14,7 +14,7 @@
 
     Private Sub btnconsultar_Click(sender As Object, e As EventArgs) Handles btnconsultar.Click
         frmConsultaR.Show()
-        ' frmConsultarRefaccion.Show()
+        frmConsultarRefaccion.Show()
         Me.Close()
     End Sub
 

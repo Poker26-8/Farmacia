@@ -2627,7 +2627,7 @@ Door:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE Rep_Comandas SET Status='CANCELADA' WHERE Id=" & ideliminar & " AND IDC=" & comandaeliminar & ""
+                        cmd2.CommandText = "UPDATE Rep_Comandas SET Status='CANCELADA' WHERE Id=" & ideliminar & " AND Codigo='" & codigoeliminar & "' AND Nombre='" & descripcioneliminar & "'"
                         cmd2.ExecuteNonQuery()
 
                         cmd2 = cnn2.CreateCommand

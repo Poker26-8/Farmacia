@@ -440,7 +440,7 @@ Partial Class frmCorte2
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(7, 437)
+        Me.Label14.Location = New System.Drawing.Point(67, 436)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(109, 13)
         Me.Label14.TabIndex = 165
@@ -2454,6 +2454,9 @@ Partial Class frmCorte2
         '
         '
         'pCierreUsuario80
+        '
+        '
+        'pCierreUsuario58
         '
         '
         'frmCorte2
