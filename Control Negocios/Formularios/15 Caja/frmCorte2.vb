@@ -2231,8 +2231,6 @@ Public Class frmCorte2
             'e.Graphics.DrawString("SALDO FINAL", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
             'e.Graphics.DrawString(simbolo & FormatNumber(txtSaldoFinalG.Text, 2), New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 180, Y, sf)
             'Y += 15
-            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-            Y += 15
 
             'e.Graphics.DrawString("EFECTIVO EN CAJA", New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 1, Y)
             'e.Graphics.DrawString(FormatNumber(EfectivoCajaG.Text, 2), New Drawing.Font(tipografia, 7, FontStyle.Bold), Brushes.Black, 180, Y, sf)

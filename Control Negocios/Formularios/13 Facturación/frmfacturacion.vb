@@ -5042,8 +5042,8 @@ malo:
                     Text_nCuenta.Text = dr("nom_numcuenta").ToString
                     Text_MotivoDes.Text = dr("nom_mdescuento").ToString
                     txt_leyenda_add.Text = dr("nom_leyenda").ToString
-                    Text_TOTAL.Text = dr("nom_total_pagado").ToString
-                    Text_IVA.Text = dr("iva").ToString
+                    Text_TOTAL.Text = FormatNumber(dr("nom_total_pagado").ToString, 2)
+                    Text_IVA.Text = FormatNumber(dr("iva").ToString, 2)
                     Select Case dr("nom_status").ToString
                         Case "1"
                             lbl_estatus.Text = "Activa"
