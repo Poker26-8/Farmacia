@@ -1079,26 +1079,9 @@ deku:
             Dim tamimpresion As Integer = 0
             Dim impresora As String = ""
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TamImpre'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    tamimpresion = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
+            tamimpresion = TamImpre()
+            impresora = ImpresoraImprimir()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Impresora FROM rutasimpresion WHERE Tipo='TICKET'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    impresora = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
 
             If tamimpresion = "80" Then
                 Cortesia80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
@@ -4407,14 +4390,15 @@ Door:
         Y += 15
 
         e.Graphics.DrawString("CLIENTE: " & lblCliente.Text, fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString("FOLIO: " & Foliore, fuente_b, Brushes.Black, 270, Y, derecha)
+        e.Graphics.DrawString("FOLIO: " & Foliore, fuente_b, Brushes.Black, 180, Y, derecha)
         Y += 11
         e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
         Y += 15
 
+        e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 90, Y, centro)
+        Y += 10
         e.Graphics.DrawString("CANT", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 30, Y)
-        e.Graphics.DrawString("PRECIO", fuente_b, Brushes.Black, 133, Y, derecha)
+        e.Graphics.DrawString("PRECIO", fuente_b, Brushes.Black, 103, Y, derecha)
         e.Graphics.DrawString("IMPORTE", fuente_b, Brushes.Black, 180, Y, derecha)
         Y += 15
         e.Graphics.DrawString("---------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
@@ -4441,7 +4425,7 @@ Door:
                 While inicio < longitudTexto
                     Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                     Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                    e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 8, FontStyle.Regular), Brushes.Black, 20, Y)
                     Y += 15
                     inicio += caracteresPorLinea
                 End While

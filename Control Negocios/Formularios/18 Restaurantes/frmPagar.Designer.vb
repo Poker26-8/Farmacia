@@ -27,6 +27,9 @@ Partial Class frmPagar
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.txtMonedero = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.lblMesero = New System.Windows.Forms.Label()
         Me.txtPorcentaje = New System.Windows.Forms.TextBox()
@@ -128,9 +131,9 @@ Partial Class frmPagar
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
         Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.txtMonedero = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
+        Me.btnCortesia = New System.Windows.Forms.Button()
+        Me.pCortesia80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCortesia58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -186,6 +189,32 @@ Partial Class frmPagar
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(408, 406)
         Me.Panel7.TabIndex = 7
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(111, 360)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(214, 13)
+        Me.Label25.TabIndex = 38
+        Me.Label25.Text = "Ingresa número telefonico para el monedero"
+        '
+        'txtMonedero
+        '
+        Me.txtMonedero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMonedero.Location = New System.Drawing.Point(114, 335)
+        Me.txtMonedero.Name = "txtMonedero"
+        Me.txtMonedero.Size = New System.Drawing.Size(211, 22)
+        Me.txtMonedero.TabIndex = 37
+        '
+        'Label24
+        '
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(6, 335)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(93, 22)
+        Me.Label24.TabIndex = 36
+        Me.Label24.Text = "Monedero:"
         '
         'Label21
         '
@@ -796,6 +825,7 @@ Partial Class frmPagar
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnCortesia)
         Me.Panel3.Controls.Add(Me.btnDividir)
         Me.Panel3.Controls.Add(Me.btnCancelar)
         Me.Panel3.Controls.Add(Me.btn1000)
@@ -1137,9 +1167,9 @@ Partial Class frmPagar
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
         Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPrecuenta.Location = New System.Drawing.Point(135, 191)
+        Me.btnPrecuenta.Location = New System.Drawing.Point(135, 192)
         Me.btnPrecuenta.Name = "btnPrecuenta"
-        Me.btnPrecuenta.Size = New System.Drawing.Size(92, 62)
+        Me.btnPrecuenta.Size = New System.Drawing.Size(92, 61)
         Me.btnPrecuenta.TabIndex = 26
         Me.btnPrecuenta.Text = "PRECUENTA"
         Me.btnPrecuenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1228,31 +1258,27 @@ Partial Class frmPagar
         'PVentaMapeo58
         '
         '
-        'Label24
+        'btnCortesia
         '
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(6, 335)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(93, 22)
-        Me.Label24.TabIndex = 36
-        Me.Label24.Text = "Monedero:"
+        Me.btnCortesia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnCortesia.FlatAppearance.BorderSize = 0
+        Me.btnCortesia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCortesia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCortesia.Image = CType(resources.GetObject("btnCortesia.Image"), System.Drawing.Image)
+        Me.btnCortesia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCortesia.Location = New System.Drawing.Point(135, 317)
+        Me.btnCortesia.Name = "btnCortesia"
+        Me.btnCortesia.Size = New System.Drawing.Size(92, 75)
+        Me.btnCortesia.TabIndex = 33
+        Me.btnCortesia.Text = "CORTESIA"
+        Me.btnCortesia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCortesia.UseVisualStyleBackColor = False
         '
-        'txtMonedero
+        'pCortesia80
         '
-        Me.txtMonedero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMonedero.Location = New System.Drawing.Point(114, 335)
-        Me.txtMonedero.Name = "txtMonedero"
-        Me.txtMonedero.Size = New System.Drawing.Size(211, 22)
-        Me.txtMonedero.TabIndex = 37
         '
-        'Label25
+        'pCortesia58
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(111, 360)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(214, 13)
-        Me.Label25.TabIndex = 38
-        Me.Label25.Text = "Ingresa número telefonico para el monedero"
         '
         'frmPagar
         '
@@ -1388,4 +1414,7 @@ Partial Class frmPagar
     Friend WithEvents txtMonedero As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
+    Friend WithEvents btnCortesia As Button
+    Friend WithEvents pCortesia80 As Printing.PrintDocument
+    Friend WithEvents pCortesia58 As Printing.PrintDocument
 End Class

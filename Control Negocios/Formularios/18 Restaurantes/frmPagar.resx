@@ -10530,6 +10530,37 @@
   <metadata name="PVentaMapeo58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>700, 30</value>
   </metadata>
+  <data name="btnCortesia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAD8AAAAvCAYAAABUiRJEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAR8SURBVGhD3ZrLbtNAFIZT8wKReAAQT9AHYBHxBBUbxC5C
+        rNgQJCRACBEWBapSSKHc0kQxiUBCIFEBG4QQKUiIcg1sWIBEdkgsIBRooZcM5zce1x6fOLbjC2XxJfax
+        ZzzfmfGMmzojhPgvefv23TCR445J2OB6A5JEkcia+3lCAPt5KmxwvQBZoiVFze0Z2/4MV07CBtcDJIZh
+        3TYlO7Ztic6Vs8MG/3VIDOIQluLYxygoEej5PFdOhQ0mTWZbpUAUe1Cwn2uKOsTtx3tB540QmBc2y5jr
+        pKQhuRIh+mANYVMA4ri/WXGKywnQOI5vQibMWgFcBZOGxPKKKIc1jE0Ra2a3gxjRJCApRwbOleJImFXO
+        UTgtSG6YyGV2NguZPe+Fwa5XuhGjY1wZFUiZclLcngSACdGRMEcFaZM50MkRwqTIncMBKcIubowUfJtx
+        x70uceykTRh5ksJtYF/yfM30gA2mRUh5OQH6nvklbDBpSDRrihdMcaAPHV/YrZ1Y3MSVkZAwljCs7YHE
+        ARuMGxKDbJ6YITqEITx07IfQxhaFVloWGy6srjG10tXOLH3Sxn/d0k4ubuXqDAMbjAsSRO/qUtbg0DdB
+        vSs2nFWEPdBKS18pSY6HnzCwwaghyc0EenlNmhgaXUCvsoJ+MJJwcnEHd00/sMEoIUkMb2toGxyeF9rp
+        JVYoDNqp303u2v1gg1FBos4hTgwdmR+ot3thzAl9JkcVNhgFrPjR77GIW0wuLwRJABscFFY8ph53QQng
+        2sRhbUxOXsyePz+9f3r6SlOlXNZP2At5QaJFVRz3eCLiJtrE7w9c21SMDxIfJjokL3T9Gku12vh6+XLN
+        c0iRqP0JzSLKyc0v2tivvh1mfJB4mxBe8oBGwWu1Ajsk2lbFjeWMaVzs4MGoz/0P8RzE/cjXale7XCWA
+        RLGkOcTxAJPkcFeh4e/dWUHkQffphQLHweqTL3vLT4WdQuOF2HezZcE1MG68ej+w/OqbRmhWWnXx8MFt
+        saXSYRsaB14PQInKS36+qCeXgHMry5w4SEUeJJmAXs//qcmDpBKAP4X/OXkQZwI2XvopttffifL1Ox1x
+        f7RFCPPb+OEjdXkQVQKk7OSNe+LN3WmI9gLJyAaWVyrxRfdxSay2rrDikjAJCCDLkUtE3uDheN8EzD9v
+        sJKSAWVVEpQHPhIwfnfOIbyt9lEcuz4rZm83+DrD0Q51zzMVBaNPAj7PXY1D1o5OGP/ASF4eeCSg+6zM
+        lxkcS1qSjjzokYDuo9P8+eFxSacvD5CAl9W/4q9qUYs3CVZaEka+QBTNytuEetG0Qbs838KSOORBpVpn
+        pSVqBXShLDFCYHjh4YFrUBL4lpa45McnzrHSErUCF/dH82ZDuAbGQWBpiUseTE2VRbmsi0ql7kKtoCdo
+        ULxJCC0tgXyW6NjlPfB8r40l+iQMLC0xPkgqr0hyIEGes6cngychMmmJtUFiGP460WQoEa4XgEIRPAmR
+        S0vYYCL8XSG8lkocG2HLRgQbTBT8sLD27ACwHfgti+CIzB+fALxWuC3a/wAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="pCortesia80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>839, 30</value>
+  </metadata>
+  <metadata name="pCortesia58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>955, 30</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAQUEAAAEAIAA4RQAAFgAAACgAAABBAAAAggAAAAEAIAAAAAAABEIAABILAAASCwAAAAAAAAAA

@@ -1,4 +1,7 @@
 ﻿Public Class frmPermisosRestaurant
+
+    Dim idmesa As Integer = 0
+
     Private Sub frmPermisosRestaurant_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -270,7 +273,7 @@
                             End If
 
                         End If
-                        End If
+                    End If
                     rd1.Close()
 
                     cmd1 = cnn1.CreateCommand
@@ -845,7 +848,7 @@
         cboMesa.Text = ""
         cboUbicacion.Text = ""
         cboPara.Text = ""
-        txtPrecio.Text = ""
+        txtPrecio.Text = "0.00"
         cbTiempo.Checked = False
         cboMesa.Focus.Equals(True)
     End Sub
@@ -859,6 +862,7 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
+                    idmesa = rd1("IdMesa").ToString
                     cboUbicacion.Text = rd1("Ubicacion").ToString
                     cboPara.Text = rd1("Tipo").ToString
                     txtPrecio.Text = rd1("precio").ToString
@@ -911,13 +915,17 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+            cmd1.CommandText = "SELECT * FROM Mesa WHERE IdMesa=" & idmesa & ""
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE mesa SET Temporal=0, Contabiliza=" & TIEMPO & ",Precio=" & txtPrecio.Text & ",Ubicacion='" & cboUbicacion.Text & "',Tipo=" & cboPara.Text & " WHERE Nombre_mesa='" & cboMesa.Text & "'"
+                    cmd2.CommandText = "UPDATE mesa SET Temporal=0, Contabiliza=" & TIEMPO & ",Precio=" & txtPrecio.Text & ",Ubicacion='" & cboUbicacion.Text & "',Tipo=" & cboPara.Text & ",Nombre_mesa='" & cboMesa.Text & "' WHERE IdMesa='" & idmesa & "'"
+                    cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE mesasxempleados SET Mesa='" & cboMesa.Text & "' WHERE IdMesa=" & idmesa & ""
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Mesa actualizada correctamente", vbInformation + vbOKOnly, titulorestaurante)
                     End If
@@ -975,8 +983,8 @@
                 cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+                cnn1.Close()
+            End Try
 
         End If
 

@@ -59,45 +59,45 @@ Partial Class frmNuvRepVentas
         Me.btnAntibiotico = New System.Windows.Forms.Button()
         Me.btnControlado = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.rbVentasTotales = New System.Windows.Forms.RadioButton()
         Me.rbFiscal = New System.Windows.Forms.RadioButton()
+        Me.rbVentasDetalle = New System.Windows.Forms.RadioButton()
         Me.cboDatos = New System.Windows.Forms.ComboBox()
+        Me.rbVentasClientes = New System.Windows.Forms.RadioButton()
+        Me.rbVentasCliDetalle = New System.Windows.Forms.RadioButton()
+        Me.rbVentasPorcentaje = New System.Windows.Forms.RadioButton()
+        Me.rbVentasDepa = New System.Windows.Forms.RadioButton()
+        Me.rbVentasFormato = New System.Windows.Forms.RadioButton()
+        Me.rbVentasGrupo = New System.Windows.Forms.RadioButton()
+        Me.rbVendidoProveedor = New System.Windows.Forms.RadioButton()
+        Me.rbVentasPago = New System.Windows.Forms.RadioButton()
+        Me.rbProductoVendido = New System.Windows.Forms.RadioButton()
+        Me.rbVentasProducto = New System.Windows.Forms.RadioButton()
+        Me.rbDevoluciones = New System.Windows.Forms.RadioButton()
+        Me.rbVentasVendedor = New System.Windows.Forms.RadioButton()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.rbCortesias = New System.Windows.Forms.RadioButton()
+        Me.rbComandasCance = New System.Windows.Forms.RadioButton()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
         Me.mcDesde = New System.Windows.Forms.MonthCalendar()
         Me.mcHasta = New System.Windows.Forms.MonthCalendar()
         Me.dtpFin = New System.Windows.Forms.DateTimePicker()
-        Me.rbVentasPorcentaje = New System.Windows.Forms.RadioButton()
-        Me.rbVentasFormato = New System.Windows.Forms.RadioButton()
-        Me.rbVendidoProveedor = New System.Windows.Forms.RadioButton()
-        Me.rbProductoVendido = New System.Windows.Forms.RadioButton()
-        Me.rbDevoluciones = New System.Windows.Forms.RadioButton()
-        Me.rbVentasVendedor = New System.Windows.Forms.RadioButton()
-        Me.rbVentasProducto = New System.Windows.Forms.RadioButton()
-        Me.rbVentasPago = New System.Windows.Forms.RadioButton()
-        Me.rbVentasGrupo = New System.Windows.Forms.RadioButton()
-        Me.rbVentasDepa = New System.Windows.Forms.RadioButton()
-        Me.rbVentasCliDetalle = New System.Windows.Forms.RadioButton()
-        Me.rbVentasClientes = New System.Windows.Forms.RadioButton()
-        Me.rbVentasDetalle = New System.Windows.Forms.RadioButton()
-        Me.rbVentasTotales = New System.Windows.Forms.RadioButton()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.rbComandasCance = New System.Windows.Forms.RadioButton()
-        Me.rbCortesias = New System.Windows.Forms.RadioButton()
         Me.Panel2.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -480,6 +480,54 @@ Partial Class frmNuvRepVentas
         Me.Panel3.Size = New System.Drawing.Size(1051, 261)
         Me.Panel3.TabIndex = 2
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 6)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(521, 249)
+        Me.TabControl1.TabIndex = 220
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.White
+        Me.TabPage1.Controls.Add(Me.rbVentasTotales)
+        Me.TabPage1.Controls.Add(Me.rbFiscal)
+        Me.TabPage1.Controls.Add(Me.rbVentasDetalle)
+        Me.TabPage1.Controls.Add(Me.cboDatos)
+        Me.TabPage1.Controls.Add(Me.rbVentasClientes)
+        Me.TabPage1.Controls.Add(Me.rbVentasCliDetalle)
+        Me.TabPage1.Controls.Add(Me.rbVentasPorcentaje)
+        Me.TabPage1.Controls.Add(Me.rbVentasDepa)
+        Me.TabPage1.Controls.Add(Me.rbVentasFormato)
+        Me.TabPage1.Controls.Add(Me.rbVentasGrupo)
+        Me.TabPage1.Controls.Add(Me.rbVendidoProveedor)
+        Me.TabPage1.Controls.Add(Me.rbVentasPago)
+        Me.TabPage1.Controls.Add(Me.rbProductoVendido)
+        Me.TabPage1.Controls.Add(Me.rbVentasProducto)
+        Me.TabPage1.Controls.Add(Me.rbDevoluciones)
+        Me.TabPage1.Controls.Add(Me.rbVentasVendedor)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(513, 223)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "          Ventas           "
+        '
+        'rbVentasTotales
+        '
+        Me.rbVentasTotales.AutoSize = True
+        Me.rbVentasTotales.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasTotales.Location = New System.Drawing.Point(6, 6)
+        Me.rbVentasTotales.Name = "rbVentasTotales"
+        Me.rbVentasTotales.Size = New System.Drawing.Size(119, 22)
+        Me.rbVentasTotales.TabIndex = 0
+        Me.rbVentasTotales.TabStop = True
+        Me.rbVentasTotales.Text = "Ventas totales"
+        Me.rbVentasTotales.UseVisualStyleBackColor = True
+        '
         'rbFiscal
         '
         Me.rbFiscal.AutoSize = True
@@ -492,6 +540,18 @@ Partial Class frmNuvRepVentas
         Me.rbFiscal.Text = "Reporte Fiscal"
         Me.rbFiscal.UseVisualStyleBackColor = True
         '
+        'rbVentasDetalle
+        '
+        Me.rbVentasDetalle.AutoSize = True
+        Me.rbVentasDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasDetalle.Location = New System.Drawing.Point(6, 30)
+        Me.rbVentasDetalle.Name = "rbVentasDetalle"
+        Me.rbVentasDetalle.Size = New System.Drawing.Size(178, 22)
+        Me.rbVentasDetalle.TabIndex = 1
+        Me.rbVentasDetalle.TabStop = True
+        Me.rbVentasDetalle.Text = "Ventas totales (Detalle)"
+        Me.rbVentasDetalle.UseVisualStyleBackColor = True
+        '
         'cboDatos
         '
         Me.cboDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -500,6 +560,186 @@ Partial Class frmNuvRepVentas
         Me.cboDatos.Name = "cboDatos"
         Me.cboDatos.Size = New System.Drawing.Size(215, 24)
         Me.cboDatos.TabIndex = 218
+        '
+        'rbVentasClientes
+        '
+        Me.rbVentasClientes.AutoSize = True
+        Me.rbVentasClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasClientes.Location = New System.Drawing.Point(6, 55)
+        Me.rbVentasClientes.Name = "rbVentasClientes"
+        Me.rbVentasClientes.Size = New System.Drawing.Size(143, 22)
+        Me.rbVentasClientes.TabIndex = 2
+        Me.rbVentasClientes.TabStop = True
+        Me.rbVentasClientes.Text = "Ventas por cliente"
+        Me.rbVentasClientes.UseVisualStyleBackColor = True
+        '
+        'rbVentasCliDetalle
+        '
+        Me.rbVentasCliDetalle.AutoSize = True
+        Me.rbVentasCliDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasCliDetalle.Location = New System.Drawing.Point(6, 83)
+        Me.rbVentasCliDetalle.Name = "rbVentasCliDetalle"
+        Me.rbVentasCliDetalle.Size = New System.Drawing.Size(202, 22)
+        Me.rbVentasCliDetalle.TabIndex = 3
+        Me.rbVentasCliDetalle.TabStop = True
+        Me.rbVentasCliDetalle.Text = "Ventas por cliente (Detalle)"
+        Me.rbVentasCliDetalle.UseVisualStyleBackColor = True
+        '
+        'rbVentasPorcentaje
+        '
+        Me.rbVentasPorcentaje.AutoSize = True
+        Me.rbVentasPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasPorcentaje.Location = New System.Drawing.Point(232, 166)
+        Me.rbVentasPorcentaje.Name = "rbVentasPorcentaje"
+        Me.rbVentasPorcentaje.Size = New System.Drawing.Size(258, 22)
+        Me.rbVentasPorcentaje.TabIndex = 216
+        Me.rbVentasPorcentaje.TabStop = True
+        Me.rbVentasPorcentaje.Text = "Ventas de derivados por porcentaje"
+        Me.rbVentasPorcentaje.UseVisualStyleBackColor = True
+        '
+        'rbVentasDepa
+        '
+        Me.rbVentasDepa.AutoSize = True
+        Me.rbVentasDepa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasDepa.Location = New System.Drawing.Point(6, 110)
+        Me.rbVentasDepa.Name = "rbVentasDepa"
+        Me.rbVentasDepa.Size = New System.Drawing.Size(192, 22)
+        Me.rbVentasDepa.TabIndex = 4
+        Me.rbVentasDepa.TabStop = True
+        Me.rbVentasDepa.Text = "Ventas por departamento"
+        Me.rbVentasDepa.UseVisualStyleBackColor = True
+        '
+        'rbVentasFormato
+        '
+        Me.rbVentasFormato.AutoSize = True
+        Me.rbVentasFormato.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasFormato.Location = New System.Drawing.Point(232, 138)
+        Me.rbVentasFormato.Name = "rbVentasFormato"
+        Me.rbVentasFormato.Size = New System.Drawing.Size(153, 22)
+        Me.rbVentasFormato.TabIndex = 215
+        Me.rbVentasFormato.TabStop = True
+        Me.rbVentasFormato.Text = "Ventas por formato"
+        Me.rbVentasFormato.UseVisualStyleBackColor = True
+        '
+        'rbVentasGrupo
+        '
+        Me.rbVentasGrupo.AutoSize = True
+        Me.rbVentasGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasGrupo.Location = New System.Drawing.Point(6, 138)
+        Me.rbVentasGrupo.Name = "rbVentasGrupo"
+        Me.rbVentasGrupo.Size = New System.Drawing.Size(139, 22)
+        Me.rbVentasGrupo.TabIndex = 5
+        Me.rbVentasGrupo.TabStop = True
+        Me.rbVentasGrupo.Text = "Ventas por grupo"
+        Me.rbVentasGrupo.UseVisualStyleBackColor = True
+        '
+        'rbVendidoProveedor
+        '
+        Me.rbVendidoProveedor.AutoSize = True
+        Me.rbVendidoProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVendidoProveedor.Location = New System.Drawing.Point(232, 110)
+        Me.rbVendidoProveedor.Name = "rbVendidoProveedor"
+        Me.rbVendidoProveedor.Size = New System.Drawing.Size(257, 22)
+        Me.rbVendidoProveedor.TabIndex = 214
+        Me.rbVendidoProveedor.TabStop = True
+        Me.rbVendidoProveedor.Text = "Producto más vendido x proveedor"
+        Me.rbVendidoProveedor.UseVisualStyleBackColor = True
+        '
+        'rbVentasPago
+        '
+        Me.rbVentasPago.AutoSize = True
+        Me.rbVentasPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasPago.Location = New System.Drawing.Point(6, 166)
+        Me.rbVentasPago.Name = "rbVentasPago"
+        Me.rbVentasPago.Size = New System.Drawing.Size(215, 22)
+        Me.rbVentasPago.TabIndex = 6
+        Me.rbVentasPago.TabStop = True
+        Me.rbVentasPago.Text = "Ventas totales (Detalle pago)"
+        Me.rbVentasPago.UseVisualStyleBackColor = True
+        '
+        'rbProductoVendido
+        '
+        Me.rbProductoVendido.AutoSize = True
+        Me.rbProductoVendido.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbProductoVendido.Location = New System.Drawing.Point(232, 83)
+        Me.rbProductoVendido.Name = "rbProductoVendido"
+        Me.rbProductoVendido.Size = New System.Drawing.Size(175, 22)
+        Me.rbProductoVendido.TabIndex = 213
+        Me.rbProductoVendido.TabStop = True
+        Me.rbProductoVendido.Text = "Producto más vendido"
+        Me.rbProductoVendido.UseVisualStyleBackColor = True
+        '
+        'rbVentasProducto
+        '
+        Me.rbVentasProducto.AutoSize = True
+        Me.rbVentasProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasProducto.Location = New System.Drawing.Point(232, 6)
+        Me.rbVentasProducto.Name = "rbVentasProducto"
+        Me.rbVentasProducto.Size = New System.Drawing.Size(160, 22)
+        Me.rbVentasProducto.TabIndex = 210
+        Me.rbVentasProducto.TabStop = True
+        Me.rbVentasProducto.Text = "Ventas por producto"
+        Me.rbVentasProducto.UseVisualStyleBackColor = True
+        '
+        'rbDevoluciones
+        '
+        Me.rbDevoluciones.AutoSize = True
+        Me.rbDevoluciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbDevoluciones.Location = New System.Drawing.Point(232, 55)
+        Me.rbDevoluciones.Name = "rbDevoluciones"
+        Me.rbDevoluciones.Size = New System.Drawing.Size(116, 22)
+        Me.rbDevoluciones.TabIndex = 212
+        Me.rbDevoluciones.TabStop = True
+        Me.rbDevoluciones.Text = "Devoluciones"
+        Me.rbDevoluciones.UseVisualStyleBackColor = True
+        '
+        'rbVentasVendedor
+        '
+        Me.rbVentasVendedor.AutoSize = True
+        Me.rbVentasVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbVentasVendedor.Location = New System.Drawing.Point(232, 30)
+        Me.rbVentasVendedor.Name = "rbVentasVendedor"
+        Me.rbVentasVendedor.Size = New System.Drawing.Size(162, 22)
+        Me.rbVentasVendedor.TabIndex = 211
+        Me.rbVentasVendedor.TabStop = True
+        Me.rbVentasVendedor.Text = "Ventas por vendedor"
+        Me.rbVentasVendedor.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.rbCortesias)
+        Me.TabPage2.Controls.Add(Me.rbComandasCance)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(513, 223)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "            Ventas 2             "
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'rbCortesias
+        '
+        Me.rbCortesias.AutoSize = True
+        Me.rbCortesias.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbCortesias.Location = New System.Drawing.Point(10, 39)
+        Me.rbCortesias.Name = "rbCortesias"
+        Me.rbCortesias.Size = New System.Drawing.Size(90, 22)
+        Me.rbCortesias.TabIndex = 1
+        Me.rbCortesias.Text = "Cortesias"
+        Me.rbCortesias.UseVisualStyleBackColor = True
+        '
+        'rbComandasCance
+        '
+        Me.rbComandasCance.AutoSize = True
+        Me.rbComandasCance.Checked = True
+        Me.rbComandasCance.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbComandasCance.Location = New System.Drawing.Point(10, 14)
+        Me.rbComandasCance.Name = "rbComandasCance"
+        Me.rbComandasCance.Size = New System.Drawing.Size(181, 22)
+        Me.rbComandasCance.TabIndex = 0
+        Me.rbComandasCance.TabStop = True
+        Me.rbComandasCance.Text = "Comandas Canceladas"
+        Me.rbComandasCance.UseVisualStyleBackColor = True
         '
         'Panel5
         '
@@ -548,174 +788,6 @@ Partial Class frmNuvRepVentas
         Me.dtpFin.ShowUpDown = True
         Me.dtpFin.Size = New System.Drawing.Size(100, 26)
         Me.dtpFin.TabIndex = 209
-        '
-        'rbVentasPorcentaje
-        '
-        Me.rbVentasPorcentaje.AutoSize = True
-        Me.rbVentasPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasPorcentaje.Location = New System.Drawing.Point(232, 166)
-        Me.rbVentasPorcentaje.Name = "rbVentasPorcentaje"
-        Me.rbVentasPorcentaje.Size = New System.Drawing.Size(258, 22)
-        Me.rbVentasPorcentaje.TabIndex = 216
-        Me.rbVentasPorcentaje.TabStop = True
-        Me.rbVentasPorcentaje.Text = "Ventas de derivados por porcentaje"
-        Me.rbVentasPorcentaje.UseVisualStyleBackColor = True
-        '
-        'rbVentasFormato
-        '
-        Me.rbVentasFormato.AutoSize = True
-        Me.rbVentasFormato.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasFormato.Location = New System.Drawing.Point(232, 138)
-        Me.rbVentasFormato.Name = "rbVentasFormato"
-        Me.rbVentasFormato.Size = New System.Drawing.Size(153, 22)
-        Me.rbVentasFormato.TabIndex = 215
-        Me.rbVentasFormato.TabStop = True
-        Me.rbVentasFormato.Text = "Ventas por formato"
-        Me.rbVentasFormato.UseVisualStyleBackColor = True
-        '
-        'rbVendidoProveedor
-        '
-        Me.rbVendidoProveedor.AutoSize = True
-        Me.rbVendidoProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVendidoProveedor.Location = New System.Drawing.Point(232, 110)
-        Me.rbVendidoProveedor.Name = "rbVendidoProveedor"
-        Me.rbVendidoProveedor.Size = New System.Drawing.Size(257, 22)
-        Me.rbVendidoProveedor.TabIndex = 214
-        Me.rbVendidoProveedor.TabStop = True
-        Me.rbVendidoProveedor.Text = "Producto más vendido x proveedor"
-        Me.rbVendidoProveedor.UseVisualStyleBackColor = True
-        '
-        'rbProductoVendido
-        '
-        Me.rbProductoVendido.AutoSize = True
-        Me.rbProductoVendido.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbProductoVendido.Location = New System.Drawing.Point(232, 83)
-        Me.rbProductoVendido.Name = "rbProductoVendido"
-        Me.rbProductoVendido.Size = New System.Drawing.Size(175, 22)
-        Me.rbProductoVendido.TabIndex = 213
-        Me.rbProductoVendido.TabStop = True
-        Me.rbProductoVendido.Text = "Producto más vendido"
-        Me.rbProductoVendido.UseVisualStyleBackColor = True
-        '
-        'rbDevoluciones
-        '
-        Me.rbDevoluciones.AutoSize = True
-        Me.rbDevoluciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbDevoluciones.Location = New System.Drawing.Point(232, 55)
-        Me.rbDevoluciones.Name = "rbDevoluciones"
-        Me.rbDevoluciones.Size = New System.Drawing.Size(116, 22)
-        Me.rbDevoluciones.TabIndex = 212
-        Me.rbDevoluciones.TabStop = True
-        Me.rbDevoluciones.Text = "Devoluciones"
-        Me.rbDevoluciones.UseVisualStyleBackColor = True
-        '
-        'rbVentasVendedor
-        '
-        Me.rbVentasVendedor.AutoSize = True
-        Me.rbVentasVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasVendedor.Location = New System.Drawing.Point(232, 30)
-        Me.rbVentasVendedor.Name = "rbVentasVendedor"
-        Me.rbVentasVendedor.Size = New System.Drawing.Size(162, 22)
-        Me.rbVentasVendedor.TabIndex = 211
-        Me.rbVentasVendedor.TabStop = True
-        Me.rbVentasVendedor.Text = "Ventas por vendedor"
-        Me.rbVentasVendedor.UseVisualStyleBackColor = True
-        '
-        'rbVentasProducto
-        '
-        Me.rbVentasProducto.AutoSize = True
-        Me.rbVentasProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasProducto.Location = New System.Drawing.Point(232, 6)
-        Me.rbVentasProducto.Name = "rbVentasProducto"
-        Me.rbVentasProducto.Size = New System.Drawing.Size(160, 22)
-        Me.rbVentasProducto.TabIndex = 210
-        Me.rbVentasProducto.TabStop = True
-        Me.rbVentasProducto.Text = "Ventas por producto"
-        Me.rbVentasProducto.UseVisualStyleBackColor = True
-        '
-        'rbVentasPago
-        '
-        Me.rbVentasPago.AutoSize = True
-        Me.rbVentasPago.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasPago.Location = New System.Drawing.Point(6, 166)
-        Me.rbVentasPago.Name = "rbVentasPago"
-        Me.rbVentasPago.Size = New System.Drawing.Size(215, 22)
-        Me.rbVentasPago.TabIndex = 6
-        Me.rbVentasPago.TabStop = True
-        Me.rbVentasPago.Text = "Ventas totales (Detalle pago)"
-        Me.rbVentasPago.UseVisualStyleBackColor = True
-        '
-        'rbVentasGrupo
-        '
-        Me.rbVentasGrupo.AutoSize = True
-        Me.rbVentasGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasGrupo.Location = New System.Drawing.Point(6, 138)
-        Me.rbVentasGrupo.Name = "rbVentasGrupo"
-        Me.rbVentasGrupo.Size = New System.Drawing.Size(139, 22)
-        Me.rbVentasGrupo.TabIndex = 5
-        Me.rbVentasGrupo.TabStop = True
-        Me.rbVentasGrupo.Text = "Ventas por grupo"
-        Me.rbVentasGrupo.UseVisualStyleBackColor = True
-        '
-        'rbVentasDepa
-        '
-        Me.rbVentasDepa.AutoSize = True
-        Me.rbVentasDepa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasDepa.Location = New System.Drawing.Point(6, 110)
-        Me.rbVentasDepa.Name = "rbVentasDepa"
-        Me.rbVentasDepa.Size = New System.Drawing.Size(192, 22)
-        Me.rbVentasDepa.TabIndex = 4
-        Me.rbVentasDepa.TabStop = True
-        Me.rbVentasDepa.Text = "Ventas por departamento"
-        Me.rbVentasDepa.UseVisualStyleBackColor = True
-        '
-        'rbVentasCliDetalle
-        '
-        Me.rbVentasCliDetalle.AutoSize = True
-        Me.rbVentasCliDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasCliDetalle.Location = New System.Drawing.Point(6, 83)
-        Me.rbVentasCliDetalle.Name = "rbVentasCliDetalle"
-        Me.rbVentasCliDetalle.Size = New System.Drawing.Size(202, 22)
-        Me.rbVentasCliDetalle.TabIndex = 3
-        Me.rbVentasCliDetalle.TabStop = True
-        Me.rbVentasCliDetalle.Text = "Ventas por cliente (Detalle)"
-        Me.rbVentasCliDetalle.UseVisualStyleBackColor = True
-        '
-        'rbVentasClientes
-        '
-        Me.rbVentasClientes.AutoSize = True
-        Me.rbVentasClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasClientes.Location = New System.Drawing.Point(6, 55)
-        Me.rbVentasClientes.Name = "rbVentasClientes"
-        Me.rbVentasClientes.Size = New System.Drawing.Size(143, 22)
-        Me.rbVentasClientes.TabIndex = 2
-        Me.rbVentasClientes.TabStop = True
-        Me.rbVentasClientes.Text = "Ventas por cliente"
-        Me.rbVentasClientes.UseVisualStyleBackColor = True
-        '
-        'rbVentasDetalle
-        '
-        Me.rbVentasDetalle.AutoSize = True
-        Me.rbVentasDetalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasDetalle.Location = New System.Drawing.Point(6, 30)
-        Me.rbVentasDetalle.Name = "rbVentasDetalle"
-        Me.rbVentasDetalle.Size = New System.Drawing.Size(178, 22)
-        Me.rbVentasDetalle.TabIndex = 1
-        Me.rbVentasDetalle.TabStop = True
-        Me.rbVentasDetalle.Text = "Ventas totales (Detalle)"
-        Me.rbVentasDetalle.UseVisualStyleBackColor = True
-        '
-        'rbVentasTotales
-        '
-        Me.rbVentasTotales.AutoSize = True
-        Me.rbVentasTotales.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbVentasTotales.Location = New System.Drawing.Point(6, 6)
-        Me.rbVentasTotales.Name = "rbVentasTotales"
-        Me.rbVentasTotales.Size = New System.Drawing.Size(119, 22)
-        Me.rbVentasTotales.TabIndex = 0
-        Me.rbVentasTotales.TabStop = True
-        Me.rbVentasTotales.Text = "Ventas totales"
-        Me.rbVentasTotales.UseVisualStyleBackColor = True
         '
         'Panel4
         '
@@ -769,78 +841,6 @@ Partial Class frmNuvRepVentas
         Me.grdCaptura.Size = New System.Drawing.Size(1051, 295)
         Me.grdCaptura.TabIndex = 0
         '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 6)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(521, 249)
-        Me.TabControl1.TabIndex = 220
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.White
-        Me.TabPage1.Controls.Add(Me.rbVentasTotales)
-        Me.TabPage1.Controls.Add(Me.rbFiscal)
-        Me.TabPage1.Controls.Add(Me.rbVentasDetalle)
-        Me.TabPage1.Controls.Add(Me.cboDatos)
-        Me.TabPage1.Controls.Add(Me.rbVentasClientes)
-        Me.TabPage1.Controls.Add(Me.rbVentasCliDetalle)
-        Me.TabPage1.Controls.Add(Me.rbVentasPorcentaje)
-        Me.TabPage1.Controls.Add(Me.rbVentasDepa)
-        Me.TabPage1.Controls.Add(Me.rbVentasFormato)
-        Me.TabPage1.Controls.Add(Me.rbVentasGrupo)
-        Me.TabPage1.Controls.Add(Me.rbVendidoProveedor)
-        Me.TabPage1.Controls.Add(Me.rbVentasPago)
-        Me.TabPage1.Controls.Add(Me.rbProductoVendido)
-        Me.TabPage1.Controls.Add(Me.rbVentasProducto)
-        Me.TabPage1.Controls.Add(Me.rbDevoluciones)
-        Me.TabPage1.Controls.Add(Me.rbVentasVendedor)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(513, 223)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "          Ventas           "
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.rbCortesias)
-        Me.TabPage2.Controls.Add(Me.rbComandasCance)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(513, 223)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "            Ventas 2             "
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'rbComandasCance
-        '
-        Me.rbComandasCance.AutoSize = True
-        Me.rbComandasCance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbComandasCance.Location = New System.Drawing.Point(10, 14)
-        Me.rbComandasCance.Name = "rbComandasCance"
-        Me.rbComandasCance.Size = New System.Drawing.Size(153, 19)
-        Me.rbComandasCance.TabIndex = 0
-        Me.rbComandasCance.TabStop = True
-        Me.rbComandasCance.Text = "Comandas Canceladas"
-        Me.rbComandasCance.UseVisualStyleBackColor = True
-        '
-        'rbCortesias
-        '
-        Me.rbCortesias.AutoSize = True
-        Me.rbCortesias.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbCortesias.Location = New System.Drawing.Point(10, 39)
-        Me.rbCortesias.Name = "rbCortesias"
-        Me.rbCortesias.Size = New System.Drawing.Size(76, 19)
-        Me.rbCortesias.TabIndex = 1
-        Me.rbCortesias.TabStop = True
-        Me.rbCortesias.Text = "Cortesias"
-        Me.rbCortesias.UseVisualStyleBackColor = True
-        '
         'frmNuvRepVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -860,14 +860,14 @@ Partial Class frmNuvRepVentas
         Me.Panel7.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
