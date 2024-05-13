@@ -39,9 +39,9 @@ Partial Class frmPedidos_Tienda
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtdireccion = New System.Windows.Forms.RichTextBox()
         Me.btnVentas = New System.Windows.Forms.Button()
-        Me.txtvendedor = New System.Windows.Forms.TextBox()
+        Me.txt_referencia = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txt_metodo_pago = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,6 +57,14 @@ Partial Class frmPedidos_Tienda
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtacuenta = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtresta = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtsubtotal = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,7 +77,7 @@ Partial Class frmPedidos_Tienda
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(988, 34)
+        Me.Label1.Size = New System.Drawing.Size(1001, 34)
         Me.Label1.TabIndex = 5
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -78,7 +86,7 @@ Partial Class frmPedidos_Tienda
         Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtusuario.BackColor = System.Drawing.Color.White
         Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(778, 6)
+        Me.txtusuario.Location = New System.Drawing.Point(791, 6)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtusuario.Size = New System.Drawing.Size(98, 23)
@@ -90,7 +98,7 @@ Partial Class frmPedidos_Tienda
         Me.lblusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
         Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(882, 6)
+        Me.lblusuario.Location = New System.Drawing.Point(895, 6)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(98, 23)
         Me.lblusuario.TabIndex = 231
@@ -112,7 +120,7 @@ Partial Class frmPedidos_Tienda
         Me.cbofolio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbofolio.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofolio.FormattingEnabled = True
-        Me.cbofolio.Location = New System.Drawing.Point(539, 44)
+        Me.cbofolio.Location = New System.Drawing.Point(562, 44)
         Me.cbofolio.Name = "cbofolio"
         Me.cbofolio.Size = New System.Drawing.Size(131, 25)
         Me.cbofolio.TabIndex = 238
@@ -168,13 +176,14 @@ Partial Class frmPedidos_Tienda
         '
         'btnVentas
         '
+        Me.btnVentas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnVentas.BackColor = System.Drawing.Color.White
         Me.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVentas.Image = CType(resources.GetObject("btnVentas.Image"), System.Drawing.Image)
         Me.btnVentas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnVentas.Location = New System.Drawing.Point(905, 44)
+        Me.btnVentas.Location = New System.Drawing.Point(918, 44)
         Me.btnVentas.Name = "btnVentas"
         Me.btnVentas.Size = New System.Drawing.Size(71, 83)
         Me.btnVentas.TabIndex = 239
@@ -182,16 +191,16 @@ Partial Class frmPedidos_Tienda
         Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnVentas.UseVisualStyleBackColor = False
         '
-        'txtvendedor
+        'txt_referencia
         '
-        Me.txtvendedor.BackColor = System.Drawing.Color.White
-        Me.txtvendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtvendedor.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvendedor.Location = New System.Drawing.Point(539, 73)
-        Me.txtvendedor.Name = "txtvendedor"
-        Me.txtvendedor.ReadOnly = True
-        Me.txtvendedor.Size = New System.Drawing.Size(131, 25)
-        Me.txtvendedor.TabIndex = 240
+        Me.txt_referencia.BackColor = System.Drawing.Color.White
+        Me.txt_referencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_referencia.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_referencia.Location = New System.Drawing.Point(562, 73)
+        Me.txt_referencia.Name = "txt_referencia"
+        Me.txt_referencia.ReadOnly = True
+        Me.txt_referencia.Size = New System.Drawing.Size(131, 25)
+        Me.txt_referencia.TabIndex = 240
         '
         'Label4
         '
@@ -203,16 +212,16 @@ Partial Class frmPedidos_Tienda
         Me.Label4.TabIndex = 241
         Me.Label4.Text = "Referencia:"
         '
-        'TextBox1
+        'txt_metodo_pago
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(562, 102)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(337, 25)
-        Me.TextBox1.TabIndex = 242
+        Me.txt_metodo_pago.BackColor = System.Drawing.Color.White
+        Me.txt_metodo_pago.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_metodo_pago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_metodo_pago.Location = New System.Drawing.Point(562, 102)
+        Me.txt_metodo_pago.Name = "txt_metodo_pago"
+        Me.txt_metodo_pago.ReadOnly = True
+        Me.txt_metodo_pago.Size = New System.Drawing.Size(337, 25)
+        Me.txt_metodo_pago.TabIndex = 242
         '
         'Label5
         '
@@ -230,6 +239,9 @@ Partial Class frmPedidos_Tienda
         Me.grdcaptura.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -240,7 +252,7 @@ Partial Class frmPedidos_Tienda
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 25
-        Me.grdcaptura.Size = New System.Drawing.Size(966, 198)
+        Me.grdcaptura.Size = New System.Drawing.Size(979, 316)
         Me.grdcaptura.TabIndex = 244
         '
         'Column1
@@ -302,11 +314,12 @@ Partial Class frmPedidos_Tienda
         '
         'Label9
         '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(891, 134)
+        Me.Label9.Location = New System.Drawing.Point(904, 134)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(85, 19)
         Me.Label9.TabIndex = 250
@@ -315,11 +328,12 @@ Partial Class frmPedidos_Tienda
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(806, 134)
+        Me.Label8.Location = New System.Drawing.Point(819, 134)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(86, 19)
         Me.Label8.TabIndex = 249
@@ -328,11 +342,12 @@ Partial Class frmPedidos_Tienda
         '
         'Label6
         '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(701, 134)
+        Me.Label6.Location = New System.Drawing.Point(714, 134)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 19)
         Me.Label6.TabIndex = 247
@@ -341,13 +356,15 @@ Partial Class frmPedidos_Tienda
         '
         'Label7
         '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(68, 134)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(634, 19)
+        Me.Label7.Size = New System.Drawing.Size(647, 19)
         Me.Label7.TabIndex = 246
         Me.Label7.Text = "Descripción"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -367,22 +384,131 @@ Partial Class frmPedidos_Tienda
         '
         'Label11
         '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label11.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(750, 134)
+        Me.Label11.Location = New System.Drawing.Point(763, 134)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(57, 19)
         Me.Label11.TabIndex = 248
         Me.Label11.Text = "Cantidad"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label16
+        '
+        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(601, 477)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(69, 19)
+        Me.Label16.TabIndex = 258
+        Me.Label16.Text = "Subtotal:"
+        '
+        'txtacuenta
+        '
+        Me.txtacuenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtacuenta.BackColor = System.Drawing.Color.White
+        Me.txtacuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtacuenta.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtacuenta.Location = New System.Drawing.Point(877, 474)
+        Me.txtacuenta.Name = "txtacuenta"
+        Me.txtacuenta.ReadOnly = True
+        Me.txtacuenta.Size = New System.Drawing.Size(112, 25)
+        Me.txtacuenta.TabIndex = 251
+        Me.txtacuenta.Text = "0.00"
+        Me.txtacuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(798, 477)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(71, 19)
+        Me.Label12.TabIndex = 252
+        Me.Label12.Text = "A cuenta:"
+        '
+        'txtresta
+        '
+        Me.txtresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtresta.BackColor = System.Drawing.Color.White
+        Me.txtresta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtresta.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtresta.Location = New System.Drawing.Point(877, 503)
+        Me.txtresta.Name = "txtresta"
+        Me.txtresta.ReadOnly = True
+        Me.txtresta.Size = New System.Drawing.Size(112, 25)
+        Me.txtresta.TabIndex = 253
+        Me.txtresta.Text = "0.00"
+        Me.txtresta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(798, 506)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(49, 19)
+        Me.Label13.TabIndex = 254
+        Me.Label13.Text = "Resta:"
+        '
+        'txttotal
+        '
+        Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txttotal.BackColor = System.Drawing.Color.White
+        Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotal.Location = New System.Drawing.Point(680, 503)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.ReadOnly = True
+        Me.txttotal.Size = New System.Drawing.Size(112, 25)
+        Me.txttotal.TabIndex = 255
+        Me.txttotal.Text = "0.00"
+        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(601, 506)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(46, 19)
+        Me.Label14.TabIndex = 256
+        Me.Label14.Text = "Total:"
+        '
+        'txtsubtotal
+        '
+        Me.txtsubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtsubtotal.BackColor = System.Drawing.Color.White
+        Me.txtsubtotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsubtotal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsubtotal.Location = New System.Drawing.Point(680, 474)
+        Me.txtsubtotal.Name = "txtsubtotal"
+        Me.txtsubtotal.ReadOnly = True
+        Me.txtsubtotal.Size = New System.Drawing.Size(112, 25)
+        Me.txtsubtotal.TabIndex = 257
+        Me.txtsubtotal.Text = "0.00"
+        Me.txtsubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmPedidos_Tienda
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(988, 541)
+        Me.ClientSize = New System.Drawing.Size(1001, 539)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.txtacuenta)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.txtresta)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.txttotal)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.txtsubtotal)
         Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -391,9 +517,9 @@ Partial Class frmPedidos_Tienda
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txt_metodo_pago)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtvendedor)
+        Me.Controls.Add(Me.txt_referencia)
         Me.Controls.Add(Me.cbofolio)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.cbonombre)
@@ -407,6 +533,7 @@ Partial Class frmPedidos_Tienda
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(1017, 578)
         Me.Name = "frmPedidos_Tienda"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pedidos tienda"
@@ -427,9 +554,9 @@ Partial Class frmPedidos_Tienda
     Friend WithEvents Label3 As Label
     Friend WithEvents txtdireccion As RichTextBox
     Friend WithEvents btnVentas As Button
-    Friend WithEvents txtvendedor As TextBox
+    Friend WithEvents txt_referencia As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txt_metodo_pago As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents grdcaptura As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -445,4 +572,12 @@ Partial Class frmPedidos_Tienda
     Friend WithEvents Label7 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtacuenta As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtresta As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txttotal As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtsubtotal As TextBox
 End Class

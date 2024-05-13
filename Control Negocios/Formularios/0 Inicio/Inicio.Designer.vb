@@ -1442,6 +1442,7 @@ Partial Class Inicio
         '
         'pedidos_tienda
         '
+        Me.pedidos_tienda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pedidos_tienda.Location = New System.Drawing.Point(1020, 125)
         Me.pedidos_tienda.Name = "pedidos_tienda"
         Me.pedidos_tienda.Size = New System.Drawing.Size(163, 25)
