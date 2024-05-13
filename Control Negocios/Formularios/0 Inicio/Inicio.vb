@@ -3495,4 +3495,9 @@ Public Class Inicio
         frmCorte3.Show()
         frmCorte3.BringToFront()
     End Sub
+
+    Private Sub PedidosTiendaEnLíneaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PedidosTiendaEnLíneaToolStripMenuItem.Click
+        frmPedidos_Tienda.Show()
+        frmPedidos_Tienda.BringToFront()
+    End Sub
 End Class
