@@ -2201,7 +2201,7 @@ doorcita:
                     cbocodigo.Text = ""
                     cbodesc.Text = ""
                     txtunidad.Text = ""
-                    txtcantidad.Text = ""
+                    txtcantidad.Text = "1"
                     txtprecio.Text = "0.00"
                     txtprecio.Tag = 0
                     txttotal.Text = "0.00"
@@ -13385,27 +13385,27 @@ ecomoda:
                 rd2.Close()
                 cnn2.Close()
 
-                If lblNumCliente.Text <> "MOSTRADOR" Then
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtPagar.Text)
-                        End If
-                    Else
-                        MySaldo = MyTotVenta
-                    End If
-                    rd1.Close()
-                    cnn1.Close()
+                'If lblNumCliente.Text <> "MOSTRADOR" Then
+                '    cnn1.Close() : cnn1.Open()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                '    rd1 = cmd1.ExecuteReader
+                '    If rd1.HasRows Then
+                '        If rd1.Read Then
+                '            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtPagar.Text)
+                '        End If
+                '    Else
+                '        MySaldo = MyTotVenta
+                '    End If
+                '    rd1.Close()
+                '    cnn1.Close()
 
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','PEDIDO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyTotVenta & ",0," & MySaldo & ",'',0,'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,'',0)"
-                    cmd1.ExecuteNonQuery()
-                    cnn1.Close()
-                End If
+                '    cnn1.Close() : cnn1.Open()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','PEDIDO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyTotVenta & ",0," & MySaldo & ",'',0,'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,'',0)"
+                '    cmd1.ExecuteNonQuery()
+                '    cnn1.Close()
+                'End If
 
                 ACuenta = FormatNumber((CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 4)
 
@@ -13421,7 +13421,8 @@ ecomoda:
                                 MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString - ACuenta), 4)
                             End If
                         Else
-                            MySaldo = FormatNumber(txtPagar.Text, 4)
+                            'MySaldo = FormatNumber(txtPagar.Text, 4)
+                            MySaldo = 0.0000
                         End If
                         rd1.Close()
                         cnn1.Close()
@@ -13435,6 +13436,9 @@ ecomoda:
                         cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyEfectivo & "," & MySaldo & ",'EFECTIVO'," & MyEfectivo & ",'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,''," & MyDescuento & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
+
+
+
                     End If
 
                     If grdpago.Rows.Count > 0 Then
@@ -13468,6 +13472,26 @@ ecomoda:
 
                         Next
                     End If
+
+                    Dim saldofav As Double = 0
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT SaldoFavor FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            saldofav = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE clientes SET SaldoFavor=SaldoFavor+" & ACuenta & " WHERE Nombre='" & cboNombre.Text & "'"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
 
                 End If
 

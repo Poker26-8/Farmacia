@@ -95,12 +95,12 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select * from Clientes where Nombre='" & cboCliente.Text & "'"
+                 "select * from monedero where Cliente='" & cboCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
                     txtidcliente.Text = rd1("Id").ToString()
-                    txtTelefono.Text = rd1("Telefono").ToString()
+                    txtTelefono.Text = rd1("Barras").ToString()
                 End If
             End If
             rd1.Close() : cnn1.Close()

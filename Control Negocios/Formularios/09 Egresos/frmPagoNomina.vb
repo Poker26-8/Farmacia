@@ -84,17 +84,21 @@ Public Class frmPagoNomina
     Private Sub cbofolio_DropDown(sender As System.Object, e As System.EventArgs) Handles cbofolio.DropDown
         cbofolio.Items.Clear()
         Try
-            cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Folio from SaldosEmpleados where Concepto='PRESTAMO' and Estado=0 and IdEmpleado=" & lblid_usu.Text
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cbofolio.Items.Add(rd1(0).ToString())
-            Loop
-            rd1.Close()
-            cnn1.Close()
+            If lblid_usu.Text <> "" Then
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select distinct Folio from SaldosEmpleados where Concepto='PRESTAMO' and Estado=0 and IdEmpleado=" & lblid_usu.Text
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbofolio.Items.Add(rd1(0).ToString())
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            End If
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
@@ -204,6 +208,7 @@ Public Class frmPagoNomina
     End Sub
 
     Private Sub txthoras_TextChanged(sender As Object, e As System.EventArgs) Handles txthoras.TextChanged
+        If Not IsNumeric(txthoras.Text) Then txthoras.Text = "0.00" : Exit Sub
         If txtmonto.Text = "" Then Exit Sub
         If txtsueldo.Text = "" Then Exit Sub
         If txthoras.Text = "" Then Exit Sub
@@ -232,6 +237,8 @@ Public Class frmPagoNomina
     End Sub
 
     Private Sub txtotros_p_TextChanged(sender As Object, e As System.EventArgs) Handles txtotros_p.TextChanged
+
+        If Not IsNumeric(txtotros_p.Text) Then txtotros_p.Text = "0.00" : Exit Sub
         If txtmonto.Text = "" Then Exit Sub
         If txtsueldo.Text = "" Then Exit Sub
         If txthoras.Text = "" Then Exit Sub
@@ -260,13 +267,17 @@ Public Class frmPagoNomina
     End Sub
 
     Private Sub txtotros_d_TextChanged(sender As Object, e As System.EventArgs) Handles txtotros_d.TextChanged
+
+        If Not IsNumeric(txtotros_d.Text) Then txtotros_d.Text = "0.00" : Exit Sub
+        '  If Strings.Left(txtefectivo.Text, 1) = "," Or Strings.Left(txtefectivo.Text, 1) = "." Then Exit Sub
+
         If txtmonto.Text = "" Then Exit Sub
         If txtsueldo.Text = "" Then Exit Sub
         If txthoras.Text = "" Then Exit Sub
         If txtotros_p.Text = "" Then Exit Sub
         If txtotros_d.Text = "" Then Exit Sub
         If txtsueldo_neta.Text = "" Then Exit Sub
-        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) + CDbl(txtotros_d.Text)
+        txtsueldo_neta.Text = (CDbl(txtsueldo.Text) - CDbl(txtmonto.Text)) + CDbl(txthoras.Text) + CDbl(txtotros_p.Text) - CDbl(txtotros_d.Text)
         txtsueldo_neta.Text = FormatNumber(txtsueldo_neta.Text, 2)
     End Sub
 

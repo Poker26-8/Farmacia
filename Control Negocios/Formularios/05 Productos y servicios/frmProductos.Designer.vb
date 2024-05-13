@@ -824,11 +824,12 @@ Partial Class frmProductos
         Me.grdcaptura.AllowUserToDeleteRows = False
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdcaptura.Location = New System.Drawing.Point(257, 409)
+        Me.grdcaptura.Location = New System.Drawing.Point(257, 499)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.Size = New System.Drawing.Size(203, 144)
         Me.grdcaptura.TabIndex = 227
+        Me.grdcaptura.Visible = False
         '
         'txtrutaimagen
         '

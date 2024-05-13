@@ -217,8 +217,8 @@ Public Class frmConsultaNotas
                             txtvendedor.Text = rd1("Usuario").ToString()
                             txtacuenta.Text = FormatNumber(IIf(rd1("ACuenta").ToString() = "", 0, rd1("ACuenta").ToString()), 2)
                             txtresta.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
-                            txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()), 2)
-                            If (optcobrar.Checked) Then
+                        txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()) - CDbl(txtacuenta.Text), 2)
+                        If (optcobrar.Checked) Then
                                 txtrestaabono.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
                             End If
                             cnn2.Close() : cnn2.Open()
@@ -830,7 +830,7 @@ Public Class frmConsultaNotas
 
                     .txtSubTotal.Text = FormatNumber(txtsubtotal.Text, 2)
                     .txtdescuento2.Text = FormatNumber(txtdescuento.Text, 2)
-                    .txtdescuento1.Text = FormatNumber(((CDbl(txtdescuento.Text) * 100) / CDbl(txtsubtotal.Text)), 2)
+                    .txtdescu.Text = FormatNumber(((CDbl(txtdescuento.Text) * 100) / CDbl(txtsubtotal.Text)), 2)
                     .txtPagar.Text = FormatNumber(txttotal.Text, 2)
                     .txtResta.Text = FormatNumber(txttotal.Text)
 

@@ -9,6 +9,11 @@ Public Class frmProductos
 
     Private Sub TraeDatos(ByVal vemos As String)
         Try
+
+            txtMinima.Text = ""
+            txtActual.Text = ""
+            txtMaxima.Text = ""
+
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
@@ -50,6 +55,8 @@ Public Class frmProductos
                     txtMaxima.Text = rd1("UCompra").ToString
                     txtActual.Text = rd1("UVenta").ToString
                     txtMinima.Text = rd1("UMinima").ToString
+                    ' AddHandler txtMinima.TextChanged, AddressOf txtMinima_TextChanged
+
                     txtmcd.Text = rd1("MCD").ToString
                     txtmultiplo.Text = rd1("Multiplo").ToString
                     txtMinimo.Text = rd1("Min").ToString
@@ -472,11 +479,7 @@ Public Class frmProductos
         End If
     End Sub
 
-    Private Sub txtMinima_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtMinima.TextChanged
-        If txtMaxima.Text <> "" And txtActual.Text <> "" Then
-            lblConv2.Text = "¿Cuantos(as) " & txtMinima.Text & " hay por cada " & txtActual.Text & "?"
-        End If
-    End Sub
+
 
     Private Sub txtMinima_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtMinima.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -1673,7 +1676,10 @@ Public Class frmProductos
         End Try
     End Sub
 
-    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
-
+    Private Sub txtMinima_TextChanged(sender As Object, e As EventArgs) Handles txtMinima.TextChanged
+        If txtMaxima.Text <> "" And txtActual.Text <> "" Then
+            lblConv2.Text = "¿Cuantos(as) " & txtMinima.Text & " hay por cada " & txtActual.Text & "?"
+            Exit Sub
+        End If
     End Sub
 End Class

@@ -61,6 +61,7 @@ Partial Class frmProductosS
         Me.tip = New System.Windows.Forms.ToolTip(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.txtutilidad = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -92,7 +93,6 @@ Partial Class frmProductosS
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -550,6 +550,23 @@ Partial Class frmProductosS
         Me.tip.SetToolTip(Me.Button2, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'Button3
+        '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.White
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Location = New System.Drawing.Point(175, 270)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(114, 30)
+        Me.Button3.TabIndex = 252
+        Me.Button3.Text = "Cantidades"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.tip.SetToolTip(Me.Button3, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
+        Me.Button3.UseVisualStyleBackColor = False
+        '
         'txtutilidad
         '
         Me.txtutilidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -927,23 +944,6 @@ Partial Class frmProductosS
         Me.Label21.TabIndex = 249
         Me.Label21.Text = "Código de barras"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(175, 270)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(114, 30)
-        Me.Button3.TabIndex = 252
-        Me.Button3.Text = "Cantidades"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.tip.SetToolTip(Me.Button3, "En esta pantalla se importa el archivo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "'Importar productos sencillo'")
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'frmProductosS
         '
