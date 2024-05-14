@@ -2428,9 +2428,9 @@ Public Class frmNuvRepVentas
                         cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
-                            If rd2.Read Then
-                                formapago = rd2(0).ToString
-                            End If
+                            Do While rd2.Read
+                                formapago = formapago & " " & rd2(0).ToString
+                            Loop
                         End If
                         rd2.Close()
 
