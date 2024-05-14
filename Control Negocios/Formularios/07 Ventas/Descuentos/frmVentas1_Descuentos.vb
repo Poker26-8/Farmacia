@@ -10529,4 +10529,8 @@ ecomoda:
             dtpFecha_P.Focus().Equals(True)
         End If
     End Sub
+
+    Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
+
+    End Sub
 End Class

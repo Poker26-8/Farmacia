@@ -3666,8 +3666,8 @@ kaka:
                             Dim premin2 As Double = 0
                             Dim premasbajo As Double = 0
 
-                            premin1 = rd1(0).ToString
-                            premin2 = rd1(1).ToString
+                            premin1 = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                            premin2 = IIf(rd1(1).ToString = "", 0, rd1(1).ToString)
 
                             premasbajo = Math.Min(premin1, premin2)
                             'CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) 
@@ -13445,8 +13445,6 @@ ecomoda:
     End Sub
 
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
-
-
         Try
             Me.Text = "Pedidos (1)"
             If Me.Text = "Ventas (1)" Then

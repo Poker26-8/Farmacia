@@ -4500,6 +4500,8 @@ Public Class frmNuvRepVentas
     Public Function FEntrada(ByVal codigo As String)
 
         Try
+            Dim fecha As Date = Nothing
+
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText = "SELECT FechaC FROM comprasdet WHERE Codigo='" & codigo & "'"
@@ -4509,11 +4511,15 @@ Public Class frmNuvRepVentas
                     FEntrada = rd3(0).ToString
                 End If
             Else
+                ' FEntrada = IIf(rd3(0).ToString = "", Date.Now, rd3(0).ToString)
                 FEntrada = ""
             End If
             rd3.Close()
             cnn3.Close()
 
+            If FEntrada = "" Then
+                FEntrada = Date.Now
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn3.Close()

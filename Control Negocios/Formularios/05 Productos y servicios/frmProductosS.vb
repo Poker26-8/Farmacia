@@ -729,7 +729,7 @@ Public Class frmProductosS
                 grupo = NulCad(DataGridView1.Rows(zef).Cells(9).Value.ToString())
                 prod_sat = NulCad(DataGridView1.Rows(zef).Cells(10).Value.ToString())
                 unidad_sat = NulCad(DataGridView1.Rows(zef).Cells(11).Value.ToString())
-                existencia = NulVa(DataGridView1.Rows(zef).Cells(12).Value.ToString())
+                existencia = IIf(DataGridView1.Rows(zef).Cells(12).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(12).Value.ToString())
                 ieps = IIf(DataGridView1.Rows(zef).Cells(13).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(13).Value.ToString())
                 numparte = IIf(DataGridView1.Rows(zef).Cells(14).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(14).Value.ToString())
 

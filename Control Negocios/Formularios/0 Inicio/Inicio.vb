@@ -3500,4 +3500,9 @@ Public Class Inicio
         frmPedidos_Tienda.Show()
         frmPedidos_Tienda.BringToFront()
     End Sub
+
+    Private Sub SubeMonederosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubeMonederosToolStripMenuItem.Click
+        frmSubeMonedero.Show()
+        frmSubeMonedero.BringToFront()
+    End Sub
 End Class

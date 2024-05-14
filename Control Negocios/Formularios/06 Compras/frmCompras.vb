@@ -5253,7 +5253,7 @@ quepasowey:
     End Sub
 
     Private Sub btnPagar_Click(sender As System.Object, e As System.EventArgs) Handles btnPagar.Click
-        If MsgBox("¿Deseas abonar a la compra?", vbInformation + vbOKCancel) = vbOK Then
+        If MsgBox("¿Deseas guardar la compra?", vbInformation + vbOKCancel) = vbOK Then
             txtpc_apagar.Text = FormatNumber(txtapagar.Text, 2)
             txtpc_anticipo.Text = FormatNumber(txtanticipo.Text, 2)
             txtpc_resta.Text = FormatNumber(txtresta.Text, 2)
@@ -5895,7 +5895,7 @@ quepasowey:
                 If (existe_lote) Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "update LoteCaducidad set Cantidad=" & CDbl(cantidad_lote + (cantid * mymultiplo)) & " where Lote='" & lote & "' and Codigo='" & codigo & "'"
+                            "update LoteCaducidad set Cantidad=" & CDbl(cantidad_lote + cantid) & " where Lote='" & lote & "' and Codigo='" & codigo & "'"
                     cmd1.ExecuteNonQuery()
                 Else
                     cmd1 = cnn1.CreateCommand

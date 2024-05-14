@@ -1192,6 +1192,55 @@ kak:
                         cbocomisionista.Enabled = True
                     End If
 
+                    Dim dire(9) As String
+                    Dim direccion As String = ""
+
+                    dire(0) = rd1("Calle").ToString()       'Calle
+                    dire(1) = rd1("NInterior").ToString()   'Numero Int
+                    dire(2) = rd1("NExterior").ToString()   'Numero Ext
+                    dire(3) = rd1("Colonia").ToString()     'Colonia
+                    dire(4) = rd1("Delegacion").ToString()  'Delegacion
+                    dire(5) = rd1("Entidad").ToString()     'Entidad
+                    dire(6) = rd1("Pais").ToString()        'Pais
+                    dire(7) = rd1("CP").ToString()          'CP
+
+                    'Calle
+                    If Trim(dire(0)) <> "" Then
+                        direccion = direccion & dire(0) & " "
+                    End If
+                    'Numero Int
+                    If Trim(dire(1)) <> "" Then
+                        direccion = direccion & dire(1) & " "
+                    End If
+                    'Numero Ext
+                    If Trim(dire(2)) <> "" Then
+                        direccion = direccion & dire(2) & " "
+                    End If
+                    'Colonia
+                    If Trim(dire(3)) <> "" Then
+                        direccion = direccion & dire(3) & " "
+                    End If
+                    'Delegacion
+                    If Trim(dire(4)) <> "" Then
+                        direccion = direccion & dire(4) & " "
+                    End If
+                    'Entidad
+                    If Trim(dire(5)) <> "" Then
+                        direccion = direccion & dire(5) & " "
+                    End If
+                    'Pais
+                    If Trim(dire(6)) <> "" Then
+                        direccion = direccion & dire(6) & " "
+                    End If
+                    'CP
+                    If Trim(dire(7)) <> "" Then
+                        direccion = direccion & "CP " & dire(7) & " "
+                    End If
+
+                    txtdireccion.Text = ""
+                    txtdireccion.Text = direccion
+                    txtdireccion.Focus().Equals(True)
+
                     txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
                     Label1.Visible = True
                     cboDomi.Visible = True
@@ -6374,501 +6423,419 @@ doorcita:
 
     Private Sub btnpedido_Click(sender As Object, e As EventArgs) Handles btnpedido.Click
 
-        Me.Text = "Pedidos Refaccionaria"
-        If Me.Text = "Ventas Refaccionaria" Or Me.Text = "Cotización Refaccionaria" Then
-            btnnuevo.PerformClick()
+        Try
+            Me.Text = "Pedidos Refaccionaria"
+            If Me.Text = "Ventas Refaccionaria" Then
 
+                btnnuevo.PerformClick()
+                btndevo.Enabled = False
+                btnventa.Enabled = False
+                Button3.Enabled = True
 
-            btndevo.Enabled = False
-            btnventa.Enabled = False
-            btnpedido.Enabled = True
-            Button3.Enabled = False
+                txtefectivo.ReadOnly = True
+                txtCambio.ReadOnly = True
+                txtResta.ReadOnly = True
+                cbotpago.Enabled = False
+                cbobanco.Enabled = False
+                txtnumref.Enabled = False
+                txtmonto.Enabled = False
+                dtpFecha_P.Enabled = False
+                Button9.Enabled = False
+                grdpago.Enabled = False
+                cboNombre.Focus().Equals(True)
 
-            txtefectivo.ReadOnly = False
-            txtCambio.ReadOnly = False
-            txtResta.ReadOnly = False
-            cbotpago.Enabled = True
-            cbobanco.Enabled = True
-            txtnumref.Enabled = True
-            txtmonto.Enabled = True
-            dtpFecha_P.Enabled = True
-            Button9.Enabled = True
-            grdpago.Enabled = True
-            'txtMonedero.ReadOnly = True
-            cboNombre.Focus().Equals(True)
-        ElseIf Me.Text = "Pedidos Refaccionaria" Then
-            If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar el pedido.", vbInformation + vbOKOnly, titulorefaccionaria) : cbocodigo.Focus().Equals(True) : Exit Sub
-            If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con el pedido.", vbInformation + vbOKOnly, titulorefaccionaria) : txtcontraseña.Focus().Equals(True) : Exit Sub
-            If cboNombre.Text = "" Then MsgBox("Escribe/Selecciona un cliente para realizar el pedido.", vbInformation + vbOKOnly, titulorefaccionaria) : cboNombre.Focus().Equals(True) : Exit Sub
+            ElseIf Me.Text = "Pedidos Refaccionaria" Then
 
-            Dim VarUser As String = "", VarIdUsuario As Integer = 0
-            Dim DsctoProd As Single = 0, PorcentDscto As Single = 0, DsctoProdTot As Single = 0
-            Dim CvlLote As Double = 0
-            Dim idCliente As Integer = 0
-            Dim conteoXD As Double = 0
-            Dim MySubtotal As Double = 0
+                If grdcaptura.Rows.Count = 0 Then MsgBox("Captura productos para guardar el pedido.", vbInformation + vbOKOnly, titulocentral) : cbocodigo.Focus().Equals(True) : Exit Sub
+                If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar con el pedido.", vbInformation + vbOKOnly, titulocentral) : txtcontraseña.Focus().Equals(True) : DondeVoy = "Cotiza" : Exit Sub
+                If cboNombre.Text = "" Then MsgBox("Escribe/Selecciona un cliente para realizar el pedido.", vbInformation + vbOKOnly, titulocentral) : cboNombre.Focus().Equals(True) : Exit Sub
 
-            Dim IVAPRODUCTO As Double = 0
-            Dim ivasobrante As Double = 0
-            Dim sumadeivas As Double = 0
+                Dim VarUser As String = "", VarIdUsuario As Integer = 0
+                Dim DsctoProd As Single = 0, PorcentDscto As Single = 0, DsctoProdTod As Single = 0
+                Dim CveLte As Double = 0
+                Dim IdCliente As Integer = 0
+                Dim ConteoXD As Double = 0
 
-            Dim per_venta As Boolean = False
-            Dim Cliente As String = cboNombre.Text
+                Dim IVAPRODUCTO As Double = 0
+                Dim ivasobrante As Double = 0
+                Dim sumadeivas As Double = 0
 
-            If cboNombre.Text = "" Then
-                cboNombre.Text = "PUBLICO EN GENERAL"
-            End If
+                Dim per_venta As Boolean = False
+                Dim Cliente As String = cboNombre.Text
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
+                If cboNombre.Text = "" Then
+                    cboNombre.Text = "PUBLICO EN GENERAL"
+                End If
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
                 "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    lblusuario.Text = rd1("Alias").ToString
-                    VarUser = rd1("Alias").ToString
-                    VarIdUsuario = rd1("IdEmpleado").ToString
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        lblusuario.Text = rd1("Alias").ToString
+                        VarUser = rd1("Alias").ToString
+                        VarIdUsuario = rd1("IdEmpleado").ToString
+                    End If
+                Else
+                    MsgBox("Escribe/Revisa tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    cnn1.Close()
+                    DondeVoy = "Cotiza"
+                    txtcontraseña.Focus().Equals(True) : Exit Sub
                 End If
-            Else
-                MsgBox("Escribe/Revisa tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                cnn1.Close()
-                DondeVoy = "Cotiza"
-                txtcontraseña.Focus().Equals(True) : Exit Sub
-            End If
-            rd1.Close()
+                rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
                 "select * from Permisos where IdEmpleado= " & VarIdUsuario
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    per_venta = rd1("Vent_Coti").ToString
-                End If
-            End If
-            rd1.Close()
-
-            If Not (per_venta) Then
-                MsgBox("No cuentas con permiso para realizar el pedido.", vbInformation + vbOKOnly, titulocentral)
-                Exit Sub
-            End If
-
-            If cboNombre.Text = "" Then
-                idCliente = 0
-                Cliente = ""
-            Else
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-                        idCliente = rd1("Id").ToString
+                        per_venta = rd1("Vent_Coti").ToString
                     End If
+                End If
+                rd1.Close()
+
+                If Not (per_venta) Then
+                    MsgBox("No cuentas con permiso para realizar el pedido.", vbInformation + vbOKOnly, titulocentral)
+                    Exit Sub
+                End If
+
+
+                If cboNombre.Text = "" Then
+                    IdCliente = 0
+                    Cliente = ""
                 Else
-                    idCliente = 0
-                End If
-                rd1.Close()
-            End If
-            cnn1.Close()
-
-            If MsgBox("¿Deseas guardar los datos de esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
-
-            cnn1.Close() : cnn1.Open()
-            For i As Integer = 0 To grdcaptura.Rows.Count - 1
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select IVA from Productos where Codigo='" & grdcaptura.Rows(i).Cells(0).Value.ToString() & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        If rd1(0).ToString > 0 Then
-                            IVAPRODUCTO = (CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString) / (1 + CDbl(rd1(0).ToString)))
-
-                            ivasobrante = CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString) - CDbl(FormatNumber(IVAPRODUCTO, 2))
-
-                            sumadeivas = sumadeivas + ivasobrante
-                        End If
-                    End If
-                End If
-                rd1.Close()
-            Next
-            cnn1.Close()
-            sumadeivas = FormatNumber(sumadeivas, 2)
-
-            Dim MyTotVenta As Double = 0
-            Dim MyPago As Double = 0
-            Dim MyResta As Double = 0
-            Dim MyDescuento As Double = 0
-            Dim MyPorcDesc As Double = 0
-
-            Dim ACuenta As Double = 0
-            Dim MyEfectivo As Double = 0
-            Dim MySaldo As Double = 0
-
-            Dim FormaPago As String = ""
-            Dim TotFormaPago As Double = 0
-            Dim BancoFP As String = ""
-            Dim ReferenciaFP As String = ""
-            Dim CmentarioFP As String = ""
-            Dim cuentac As String = ""
-            Dim brecepcion As String = ""
-            Dim TotSaldo As Double = 0
-
-            MyPago = CDbl(txtefectivo.Text) + CDbl(txtMontoP.Text)
-            MyResta = CDbl(txtResta.Text)
-            MyDescuento = CDbl(txtdescuento2.Text)
-            MyPorcDesc = CDbl(txtdescuento1.Text)
-            MyTotVenta = CDbl(txtPagar.Text)
-            MyEfectivo = CDbl(txtefectivo.Text)
-            If sumadeivas > 0 Then
-                MySubtotal = CDbl(MyTotVenta) - CDbl(sumadeivas)
-            Else
-                MySubtotal = CDbl(MyTotVenta)
-            End If
-            MyResta = FormatNumber(MyResta, 2)
-            MyDescuento = FormatNumber(MyDescuento, 2)
-            MyPorcDesc = FormatNumber(MyPorcDesc, 2)
-            MySubtotal = FormatNumber(MySubtotal, 2)
-            MyTotVenta = FormatNumber(MyTotVenta, 2)
-
-            MyFolio = 0
-
-
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "insert into pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,PorcentajeDesc,MontoSinDesc,IP) values(" & idCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','','" & cboimpresion.Text & "'," & MyDescuento & "," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "')"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select MAX(Folio) from pedidosven where Tipo='PEDIDO' AND IP='" & dameIP2() & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    MyFolio = rd2(0).ToString
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-
-            If lblNumCliente.Text <> "MOSTRADOR" Then
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtPagar.Text)
-                    End If
-                Else
-                    MySaldo = MyTotVenta
-                End If
-                rd1.Close()
-                cnn1.Close()
-
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MyFolio & "," & idCliente & ",'" & Cliente & "','PEDIDO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyTotVenta & ",0," & MySaldo & ",'',0,'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,'',0)"
-                cmd1.ExecuteNonQuery()
-                cnn1.Close()
-            End If
-
-            ACuenta = FormatNumber((CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 4)
-            If ACuenta > 0 Then
-                If lblNumCliente.Text <> "MOSTRADOR" Then
-                    cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString - ACuenta), 4)
+                            IdCliente = rd1("Id").ToString
                         End If
                     Else
-                        MySaldo = FormatNumber(txtPagar.Text, 4)
+                        IdCliente = 0
                     End If
                     rd1.Close()
-                    cnn1.Close()
-                Else
-                    MySaldo = 0
                 End If
+                cnn1.Close()
 
-                If MyEfectivo > 0 Then
-                    cnn1.Close() : cnn1.Open()
+                If MsgBox("¿Deseas guardar los datos de esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+
+                cnn1.Close() : cnn1.Open()
+                For i As Integer = 0 To grdcaptura.Rows.Count - 1
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MyFolio & "," & idCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyEfectivo & "," & MySaldo & ",'EFECTIVO'," & MyEfectivo & ",'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,''," & MyDescuento & ")"
-                    cmd1.ExecuteNonQuery()
-                    cnn1.Close()
-                End If
+                    cmd1.CommandText = "SELECT IVA FROM Productos where Codigo='" & grdcaptura.Rows(i).Cells(0).Value.ToString() & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If rd1(0).ToString > 0 Then
+                                IVAPRODUCTO = (CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString) / (1 + CDbl(rd1(0).ToString)))
 
-                If grdpago.Rows.Count > 0 Then
-                    For R As Integer = 0 To grdpago.Rows.Count - 1
+                                ivasobrante = CDbl(grdcaptura.Rows(i).Cells(5).Value.ToString) - CDbl(FormatNumber(IVAPRODUCTO, 2))
 
-                        FormaPago = grdpago.Rows(R).Cells(0).Value.ToString()
-                        If CStr(grdpago.Rows(R).Cells(0).Value.ToString()) = FormaPago Then
-                            TotFormaPago = CDbl(grdpago.Rows(R).Cells(3).Value.ToString())
-                            BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
-                            ReferenciaFP = grdpago.Rows(R).Cells(2).Value.ToString()
-                            CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
-                            cuentac = grdpago.Rows(R).Cells(6).Value.ToString()
-                            brecepcion = grdpago.Rows(R).Cells(7).Value.ToString()
-                        End If
-
-
-                        If FormaPago = "SALDO FAVOR" Then
-                            If TotFormaPago > 0 Then
-                                TotSaldo = TotFormaPago
+                                sumadeivas = sumadeivas + ivasobrante
                             End If
 
                         End If
+                    End If
+                    rd1.Close()
+                Next
+                cnn1.Close()
+                sumadeivas = FormatNumber(sumadeivas, 2)
 
-                        If TotFormaPago > 0 Then
-                            cnn1.Close() : cnn1.Open()
-                            cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MyFolio & "," & idCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & MySaldo & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "',0,0,0,0,0,'','" & CmentarioFP & "','" & cuentac & "','" & brecepcion & "',0,0,''," & MyDescuento & ")"
-                            cmd1.ExecuteNonQuery()
-                            cnn1.Close()
-                        End If
+                Dim MySubtotal As Double = 0
+                Dim MyTotVenta As Double = 0
+                Dim MyPago As Double = 0
+                Dim MyResta As Double = 0
+                Dim MyDescuento As Double = 0
+                Dim MyPorcDesc As Double = 0
 
-                    Next
+                Dim ACuenta As Double = 0
+                Dim MyEfectivo As Double = 0
+                Dim MySaldo As Double = 0
+
+                Dim FormaPago As String = ""
+                Dim TotFormaPago As Double = 0
+                Dim BancoFP As String = ""
+                Dim ReferenciaFP As String = ""
+                Dim CmentarioFP As String = ""
+                Dim cuentac As String = ""
+                Dim brecepcion As String = ""
+                Dim TotSaldo As Double = 0
+
+                MyPago = CDbl(txtefectivo.Text) + CDbl(txtMontoP.Text)
+                MyResta = CDbl(txtResta.Text)
+                MyDescuento = CDbl(txtdescuento2.Text)
+                MyPorcDesc = CDbl(txtdescuento1.Text)
+                MyTotVenta = CDbl(txtPagar.Text)
+                MyEfectivo = CDbl(txtefectivo.Text)
+                If sumadeivas > 0 Then
+                    MySubtotal = CDbl(MyTotVenta) - CDbl(sumadeivas)
+                Else
+                    MySubtotal = CDbl(MyTotVenta)
                 End If
+                MyResta = FormatNumber(MyResta, 2)
+                MyDescuento = FormatNumber(MyDescuento, 2)
+                MyPorcDesc = FormatNumber(MyPorcDesc, 2)
+                MySubtotal = FormatNumber(MySubtotal, 2)
+                MyTotVenta = FormatNumber(MyTotVenta, 2)
 
-            End If
-            'Actualiza tablas de pago
-            If grdpago.Rows.Count > 0 Then
+                MyFolio = 0
+
                 cnn1.Close() : cnn1.Open()
-                For T As Integer = 0 To grdpago.Rows.Count - 1
-                    Dim FormaP As String = grdpago.Rows(T).Cells(0).Value.ToString()
-                    Dim BancoP As String = grdpago.Rows(T).Cells(1).Value.ToString()
-                    Dim MontoP As Double = grdpago.Rows(T).Cells(3).Value.ToString()
-                    Dim RefeP As String = grdpago.Rows(T).Cells(2).Value.ToString()
-                    Dim FechaP As String = grdpago.Rows(T).Cells(4).Value.ToString()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,FPago,PorcentajeDesc,MontoSinDesc,IP,Descto) VALUES(" & IdCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','','" & cboimpresion.Text & "'," & MyDescuento & ",''," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "','0')"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
 
-                    If FormaP = "MONEDERO" Then
-                        Dim SaldoMone As Double = 0
-                        Dim NuveoSald As Double = 0
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT MAX(Folio) FROM pedidosven WHERE Tipo='PEDIDO' AND IP='" & dameIP2() & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        MyFolio = rd2(0).ToString
+                    End If
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+                'If lblNumCliente.Text <> "MOSTRADOR" Then
+                '    cnn1.Close() : cnn1.Open()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
+                '    rd1 = cmd1.ExecuteReader
+                '    If rd1.HasRows Then
+                '        If rd1.Read Then
+                '            MySaldo = CDbl(IIf(rd1(0).ToString = "", 0, rd1(0).ToString)) + CDbl(txtPagar.Text)
+                '        End If
+                '    Else
+                '        MySaldo = MyTotVenta
+                '    End If
+                '    rd1.Close()
+                '    cnn1.Close()
+
+                '    cnn1.Close() : cnn1.Open()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MYFOLIO & "," & IdCliente & ",'" & Cliente & "','PEDIDO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyTotVenta & ",0," & MySaldo & ",'',0,'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,'',0)"
+                '    cmd1.ExecuteNonQuery()
+                '    cnn1.Close()
+                'End If
+
+                ACuenta = FormatNumber((CDbl(txtefectivo.Text) - CDbl(txtCambio.Text)) + CDbl(txtMontoP.Text), 4)
+
+                If ACuenta > 0 Then
+                    If lblNumCliente.Text <> "MOSTRADOR" Then
+                        cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "select Saldo from MovMonedero where Id=(select MAX(Id) from MovMonedero where Monedero='" & RefeP & "')"
+                            "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cboNombre.Text & "')"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
-                                SaldoMone = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                                MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString - ACuenta), 4)
                             End If
+                        Else
+                            'MySaldo = FormatNumber(txtPagar.Text, 4)
+                            MySaldo = 0.0000
                         End If
                         rd1.Close()
-                        NuveoSald = SaldoMone - MontoP
-
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & RefeP & "','Venta',0," & MontoP & "," & NuveoSald & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
-                        cmd1.ExecuteNonQuery()
-
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "update Monedero set Saldo=" & NuveoSald & " where Barras='" & RefeP & "'"
-                        cmd1.ExecuteNonQuery()
-                    End If
-                    If FormaP = "TARJETA" Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio) values('TARJETA','" & BancoP & "','" & RefeP & ",'Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "')"
-                        cmd1.ExecuteNonQuery()
-                    End If
-                    If FormaP = "TRANSFERENCIA" Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio) values('TRANSFERENCIA','" & BancoP & "','" & RefeP & ",'Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "')"
-                        cmd1.ExecuteNonQuery()
-                    End If
-                    If FormaP = "OTROS" Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio) values('OTRO','" & BancoP & "','" & RefeP & ",'Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "')"
-                        cmd1.ExecuteNonQuery()
-                    End If
-                Next
-                cnn1.Close()
-            End If
-
-            cnn1.Close() : cnn1.Open()
-            For T As Integer = 0 To grdcaptura.Rows.Count - 1
-                If grdcaptura.Rows(T).Cells(0).Value.ToString = "" Then GoTo Door
-
-                Dim mycode As String = grdcaptura.Rows(T).Cells(0).Value.ToString
-                Dim mydesc As String = grdcaptura.Rows(T).Cells(1).Value.ToString
-                Dim myunid As String = grdcaptura.Rows(T).Cells(2).Value.ToString
-                Dim mycant As Double = grdcaptura.Rows(T).Cells(3).Value.ToString
-                Dim myprecio As Double = grdcaptura.Rows(T).Cells(4).Value.ToString
-                Dim caduca As String = grdcaptura.Rows(T).Cells(9).Value.ToString
-                Dim lote As String = grdcaptura.Rows(T).Cells(8).Value.ToString
-                Dim mytotal As Double = FormatNumber(mycant * myprecio, 2)
-
-                Dim ieps As Double = grdcaptura.Rows(T).Cells(10).Value.ToString
-                Dim tasaieps As Double = grdcaptura.Rows(T).Cells(11).Value.ToString
-
-                Dim MyMCD As Double = 0
-                Dim MyIVA As Double = 0
-                Dim MyDepto As String = ""
-                Dim MyGrupo As String = ""
-                Dim Pre_Comp As Double = 0
-
-                Dim MyCostVUE As Double = 0
-                Dim MyProm As Double = 0
-
-                Dim myprecioS As Double = 0
-                Dim mytotalS As Double = 0
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select IVA from Productos where Codigo='" & mycode & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MyIVA = rd1(0).ToString
-                    End If
-                End If
-                rd1.Close()
-
-                myprecioS = FormatNumber(myprecio / (1 + MyIVA), 6)
-                mytotalS = FormatNumber(mytotal / (1 + MyIVA), 6)
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Productos where Codigo='" & mycode & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MyCostVUE = 0
-                        MyProm = 0
-                        MyDepto = rd1("Departamento").ToString
-                        MyGrupo = rd1("Grupo").ToString
-                        MyMCD = rd1("MCD").ToString
-                        If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
-                            rd1.Close() : cnn1.Close()
-                            GoTo Door
-                        End If
-                    End If
-                End If
-                rd1.Close()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        If rd1("Departamento").ToString <> "SERVICIOS" Then
-                            Pre_Comp = rd1("PrecioCompra").ToString
-                            MyCostVUE = Pre_Comp * (mycant / MyMCD)
-                        End If
-                    End If
-                End If
-                rd1.Close()
-Door:
-                If grdcaptura.Rows(T).Cells(0).Value.ToString <> "" Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                       "insert into pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo) values(" & MyFolio & ",'" & mycode & "','" & mydesc & "'," & mycant & ",'" & myunid & "'," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepto & "','" & MyGrupo & "','0','PEDIDO')"
-                    cmd1.ExecuteNonQuery()
-                End If
-
-                If grdcaptura.Rows(T).Cells(0).Value.ToString = "" And grdcaptura.Rows(T).Cells(1).Value.ToString <> "" Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "update pedidosvendet set CostVR='" & grdcaptura.Rows(T).Cells(1).Value.ToString & "' where CostVR='' and Tipo='PEDIDO' and Codigo='" & mycode & "' and Folio=" & MyFolio
-                    cmd1.ExecuteNonQuery()
-                End If
-            Next
-            cnn1.Close()
-
-            '----------------------------------------------------------AGREGAR CLIENTES DESDE VENTAS---------------------------------------------------------------------
-
-            Dim agregarcli As Integer = 0
-
-            cnn1.Close() : cnn1.Open()
-            cnn2.Close() : cnn2.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Ad_Cli FROM Permisos WHERE IdEmpleado=" & VarIdUsuario
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-
-                    agregarcli = rd1(0).ToString
-
-                    If agregarcli = "1" Then
-
-                        If cboNombre.Text <> "" Then
-
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "Select * from Clientes where Nombre='" & cboNombre.Text & "' AND Telefono='" & txttel.Text & "'"
-                            rd2 = cmd2.ExecuteReader
-                            If rd2.Read Then
-                                rd2.Close()
-                            Else
-                                rd2.Close()
-                                cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista')"
-                                If cmd2.ExecuteNonQuery() Then
-                                    MsgBox("Cliente registrado correctamente", vbInformation + vbOKOnly, titulorefaccionaria)
-                                End If
-                            End If
-                            rd2.Close()
-                        End If
-
+                        cnn1.Close()
                     Else
+                        MySaldo = 0
                     End If
 
+                    If MyEfectivo > 0 Then
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MyFolio & "," & IdCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MyEfectivo & "," & MySaldo & ",'EFECTIVO'," & MyEfectivo & ",'','','" & lblusuario.Text & "',0,0,0,0,0,'','','','',0,0,''," & MyDescuento & ")"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+
+
+
+                    End If
+
+                    If grdpago.Rows.Count > 0 Then
+                        For R As Integer = 0 To grdpago.Rows.Count - 1
+
+                            FormaPago = grdpago.Rows(R).Cells(0).Value.ToString()
+                            If CStr(grdpago.Rows(R).Cells(0).Value.ToString()) = FormaPago Then
+                                TotFormaPago = CDbl(grdpago.Rows(R).Cells(3).Value.ToString())
+                                BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
+                                ReferenciaFP = grdpago.Rows(R).Cells(2).Value.ToString()
+                                CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
+                                cuentac = grdpago.Rows(R).Cells(6).Value.ToString()
+                                brecepcion = grdpago.Rows(R).Cells(7).Value.ToString()
+                            End If
+
+
+                            If FormaPago = "SALDO FAVOR" Then
+                                If TotFormaPago > 0 Then
+                                    TotSaldo = TotFormaPago
+                                End If
+
+                            End If
+
+                            If TotFormaPago > 0 Then
+                                cnn1.Close() : cnn1.Open()
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,CargadoAndroid,FolioAndroid,Comentario,CuentaC,BRecepcion,Propina,Comisiones,Mesero,Descuento) VALUES(" & MyFolio & "," & IdCliente & ",'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & MySaldo & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "',0,0,0,0,0,'','" & CmentarioFP & "','" & cuentac & "','" & brecepcion & "',0,0,''," & MyDescuento & ")"
+                                cmd1.ExecuteNonQuery()
+                                cnn1.Close()
+                            End If
+
+                        Next
+                    End If
+
+                    Dim saldofav As Double = 0
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT SaldoFavor FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            saldofav = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE clientes SET SaldoFavor=SaldoFavor+" & ACuenta & " WHERE Nombre='" & cboNombre.Text & "'"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+
                 End If
-            End If
-            cnn2.Close()
-            rd1.Close()
-            cnn1.Close()
-            '-------------------------------------------------------------------------------------------------------------------------------------------------------
-
-            Dim pide As String = "", contra As String = txtcontraseña.Text, usu As String = lblusuario.Text
-
-            Dim Imprime As Boolean = False
-            Dim TPrint As String = ""
-            Dim Imprime_En As String = ""
-            Dim Impresora As String = ""
-            Dim Tamaño As String = ""
-            Dim Pasa_Print As Boolean = False
-
-            cnn1.Close() : cnn1.Open()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-            "select NoPrint from Ticket"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    Imprime = rd1(0).ToString
-                End If
-            End If
-            rd1.Close() : cnn1.Close()
-
-            If (Imprime) Then
-                If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, titulorefaccionaria) = vbOK Then
-                    Pasa_Print = True
-                Else
-                    Pasa_Print = False
-                End If
-            Else
-                Pasa_Print = True
-            End If
-
-            If (Pasa_Print) Then
-
-                TPrint = cboimpresion.Text
 
                 cnn1.Close() : cnn1.Open()
+                For monkey As Integer = 0 To grdcaptura.Rows.Count - 1
+                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then GoTo rayos
+
+                    Dim MyCodigo As String = grdcaptura.Rows(monkey).Cells(0).Value.ToString
+                    Dim MyNombre As String = grdcaptura.Rows(monkey).Cells(1).Value.ToString
+                    Dim MYUnidad As String = grdcaptura.Rows(monkey).Cells(2).Value.ToString
+                    Dim MyCantidad As Double = grdcaptura.Rows(monkey).Cells(3).Value.ToString
+                    Dim MyPrecio As Double = grdcaptura.Rows(monkey).Cells(4).Value.ToString
+                    Dim MyTotal As Double = grdcaptura.Rows(monkey).Cells(5).Value.ToString
+
+                    Dim MyCostVUE As Double = 0
+                    Dim MyDepa As String = ""
+                    Dim MyGrupo As String = ""
+                    Dim MyMCD As Double = 0
+                    Dim MyIVA As Double = 0
+                    Dim PrecioCompra As Double = 0
+                    Dim PrecioSinIVA As Double = 0
+                    Dim TotalSinIVA As Double = 0
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & MyCodigo & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MyIVA = rd1("IVA").ToString
+                            MyCostVUE = 0
+                            MyDepa = rd1("Departamento").ToString
+                            MyGrupo = rd1("Grupo").ToString
+                            MyMCD = rd1("MCD").ToString
+                            If CStr(rd1("Departamento").ToString) = "SERVICIOS" Then
+                                rd1.Close()
+                                GoTo rayos
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                    PrecioSinIVA = FormatNumber(MyPrecio / (1 + MyIVA), 2)
+                    TotalSinIVA = FormatNumber(MyTotal / (1 + MyIVA), 2)
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(MyCodigo, 6) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If rd1("Departamento").ToString <> "SERVICIOS" Then
+                                PrecioCompra = rd1("PrecioCompra").ToString
+                                MyCostVUE = PrecioCompra * (MyCantidad / MyMCD)
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+rayos:
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo,Comisionista,Descuento,Descto,Porc_Descuento) VALUES(" & MyFolio & ",'" & MyCodigo & "','" & MyNombre & "'," & MyCantidad & ",'" & MYUnidad & "'," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & PrecioSinIVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepa & "','" & MyGrupo & "','0','PEDIDO','',0,0,0)"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                Next
+                cnn1.Close()
+
+                '--------------------------------AGREGAR CLIENTES DESDE VENTAS----------------------------------
+
+                Dim agregarcli As Integer = 0
+
+                cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Ad_Cli FROM Permisos WHERE IdEmpleado=" & VarIdUsuario
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        agregarcli = rd1(0).ToString
+
+                        If agregarcli = "1" Then
+
+                            If cboNombre.Text <> "" Then
+
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                                rd2 = cmd2.ExecuteReader
+                                If rd2.Read Then
+                                    rd2.Close()
+                                Else
+                                    rd2.Close()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "Insert into Clientes(Nombre,RazonSocial,Telefono,Tipo) values('" & cboNombre.Text & "','" & cboNombre.Text & "','" & txttel.Text & "','Lista')"
+                                    If cmd2.ExecuteNonQuery() Then
+                                        MsgBox("Cliente registrado correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
+                                    End If
+                                End If
+                                rd2.Close()
+                            End If
+
+                        Else
+                        End If
+
+                    End If
+                End If
+                cnn2.Close()
+                rd1.Close()
+                cnn1.Close()
+
+                Dim pide As String = "", contra As String = txtcontraseña.Text, usu As String = lblusuario.Text
+                Dim TPrint As String = ""
+                Dim Pasa_Print As Boolean = False
+                Dim Imprime As Boolean = False
+                Dim Tamaño As String = ""
+                Dim img_pdf As String = DatosRecarga("IMG_PDF")
+                Dim impresora As String = ""
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT NoPrint FROM Ticket"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        Imprime = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -6880,116 +6847,208 @@ Door:
                     End If
                 End If
                 rd1.Close()
+                cnn1.Close()
+
+                If (Imprime) Then
+                    If MsgBox("¿Deseas imprimir esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                        Pasa_Print = True
+                    Else
+                        Pasa_Print = False
+                    End If
+                Else
+                    Pasa_Print = True
+                End If
+
+                TPrint = cboimpresion.Text
 
                 If TPrint = "PDF - CARTA" Then
 
                     Panel6.Visible = True
                     My.Application.DoEvents()
                     Insert_Pedido()
-                    PDF_Pedido()
+                    If img_pdf = "1" Then
+                        PDF_Cotizacion_Img()
+                    Else
+                        PDF_Cotizacion()
+                    End If
                     Panel6.Visible = False
                     My.Application.DoEvents()
 
                 Else
 
+                    cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                    cmd1.CommandText = "SELECT Impresora FROM RutasImpresion WHERE Equipo='" & ObtenerNombreEquipo() & "' AND Tipo='" & TPrint & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            Impresora = rd1(0).ToString
+                            impresora = rd1(0).ToString
                         End If
                     Else
                         If TPrint = "MEDIA CARTA" Then
-                            cnn2.Close() : cnn2.Open()
-                            cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText =
-                                "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
-                            rd2 = cmd2.ExecuteReader
-                            If rd2.HasRows Then
-                                If rd2.Read Then
-                                    Impresora = rd2(0).ToString()
-                                End If
-                            Else
-                                MsgBox("No tienes una impresora configurada para imprimir en formato " & TPrint & ".", vbInformation + vbOKOnly, titulorefaccionaria)
-                                rd2.Close() : cnn2.Close()
-                                rd1.Close() : cnn1.Close()
 
-                                cnn1.Close() : cnn1.Open()
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "select NotasCred from Formatos where Facturas='PedirContra'"
-                                rd1 = cmd1.ExecuteReader
-                                If rd1.HasRows Then
-                                    If rd1.Read Then
-                                        pide = rd1(0).ToString
-                                    End If
-                                End If
-                                rd1.Close()
-                                cnn1.Close()
-
-                                btnnuevo.PerformClick()
-                                If pide = "1" Then
-                                    lblusuario.Text = usu
-                                    txtcontraseña.Text = contra
-                                End If
-                                cbodesc.Focus().Equals(True)
-                                MyFolio = 0
-                                Exit Sub
-                            End If
-                            rd2.Close() : cnn2.Close()
                         End If
-                        cnn1.Close()
                     End If
-                    rd1.Close() : cnn1.Close()
+                    rd1.Close()
+                    cnn1.Close()
 
                 End If
 
                 If TPrint = "TICKET" Then
-                    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulorefaccionaria) : Termina_Error_Pedido() : Exit Sub
+                    If impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulocentral) : Termina_Error_Coti() : Exit Sub
                     If Tamaño = "80" Then
-                        pPedido80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pPedido80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                         pPedido80.Print()
                     End If
                     If Tamaño = "58" Then
-                        pPedido58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                        pPedido58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                         pPedido58.Print()
                     End If
                 Else
-                    'If TPrint = "MEDIA CARTA" Then
-                    '    pVentaMediaCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                    '    pVentaMediaCarta.Print()
-                    'End If                
-                    If TPrint = "CARTA" Then
-                        If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, titulorefaccionaria) : Termina_Error_Pedido() : Exit Sub
-                        pPedidoCarta.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pPedidoCarta.Print()
+
+                End If
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='PedirContra'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        pide = rd1(0).ToString
                     End If
                 End If
+                rd1.Close()
+                cnn1.Close()
+
+
+                btnnuevo.PerformClick()
+                If pide = "1" Then
+                    lblusuario.Text = usu
+                    txtcontraseña.Text = contra
+                End If
+
+                MyFolio = 0
+                cbodesc.Focus().Equals(True)
+
             End If
 
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            Me.Text = "Ventas Refaccionaria"
+            btnnuevo.PerformClick()
+            cnn1.Close()
+        End Try
+
+    End Sub
+
+    Public Sub PDF_Cotizacion_Img()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+
+        'Nombre del CrystalReport
+        Dim FileNta As New Cotización_Img
+
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\")
+        root_name_recibo = My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf"
+
+        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf") Then
+            File.Delete(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = My.Application.Info.DirectoryPath & "\DL1.mdb"
+            .DatabaseName = My.Application.Info.DirectoryPath & "\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        Dim PieNota As String = ""
+
+        Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='PedirContra'"
+                "select Pie2 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    pide = rd1(0).ToString
+                    PieNota = rd1(0).ToString()
                 End If
             End If
             rd1.Close()
             cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
 
-            btnnuevo.PerformClick()
-            If pide = "1" Then
-                lblusuario.Text = usu
-                txtcontraseña.Text = contra
-            End If
-            cbodesc.Focus().Equals(True)
+        FileNta.SetDatabaseLogon("", "jipl22")
+        FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & MyFolio & "'"
+        FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
+        FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txtPagar.Text) & "'"
+
+        If PieNota <> "" Then
+            FileNta.DataDefinition.FormulaFields("pieNota").Text = "'" & PieNota & "'"          'Pie de nota
         End If
 
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Process.Start(FileOpen)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+            System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MyFolio & ".pdf")
+        End If
     End Sub
 
     Public Sub PDF_Pedido()
@@ -9872,6 +9931,8 @@ ecomoda:
             Dim MySubtotal As Double = 0
             Dim TotalIVAPrint As Double = 0
             Dim TotalIEPS As Double = 0
+            Dim ivaproducto As Double = 0
+            Dim ivapro As Double = 0
 
             cnn1.Close() : cnn1.Open()
             For N As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -9882,9 +9943,11 @@ ecomoda:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            If CDbl(grdcaptura.Rows(N).Cells(8).Value.ToString) <> 0 Then
-                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(7).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(6).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(7).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(6).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                            If rd1(0).ToString > 0 Then
+                                MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                ivaproducto = MySubtotal / (1 + rd1(0).ToString)
+                                ivapro = MySubtotal - ivaproducto
+                                TotalIVAPrint = TotalIVAPrint + ivapro
                             End If
                             If CDbl(grdcaptura.Rows(N).Cells(6).Value.ToString) <> 0 Then
                                 TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString)

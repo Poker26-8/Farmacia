@@ -47,16 +47,20 @@ Partial Class frmsubeProveedores
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(701, 33)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 49)
+        Me.Button1.Size = New System.Drawing.Size(79, 64)
         Me.Button1.TabIndex = 228
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
         'barsube
         '
-        Me.barsube.Location = New System.Drawing.Point(72, 49)
+        Me.barsube.Location = New System.Drawing.Point(72, 34)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 227
@@ -70,7 +74,7 @@ Partial Class frmsubeProveedores
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Location = New System.Drawing.Point(4, 34)
         Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(62, 49)
+        Me.btnImportar.Size = New System.Drawing.Size(62, 63)
         Me.btnImportar.TabIndex = 226
         Me.btnImportar.Text = "Importar"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -82,11 +86,11 @@ Partial Class frmsubeProveedores
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(4, 88)
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 103)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(776, 138)
+        Me.DataGridView1.Size = New System.Drawing.Size(776, 123)
         Me.DataGridView1.TabIndex = 225
         '
         'frmsubeProveedores

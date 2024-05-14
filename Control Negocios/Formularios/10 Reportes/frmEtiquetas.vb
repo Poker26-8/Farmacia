@@ -324,6 +324,15 @@ Public Class frmEtiquetas
             Next
             Exit Sub
         End If
+
+        If Medida = "2.5x3.8" Then
+            For t As Integer = 1 To txtcopias.Text
+                pPCP25x38.PrinterSettings.PrinterName = cboimpresora.Text
+                pPCP25x38.Print()
+            Next
+            Exit Sub
+        End If
+
         For t As Integer = 1 To txtcopias.Text
             pPCP.PrinterSettings.PrinterName = cboimpresora.Text
             pPCP.Print()
@@ -2025,5 +2034,151 @@ Public Class frmEtiquetas
             e.HasMorePages = False
         End If
 
+    End Sub
+
+    Private Sub pPCP25x38_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pPCP25x38.PrintPage
+        Dim fuentita As New Drawing.Font("Lucida Sans Typewriter", 5, FontStyle.Bold)
+        Dim Y As Double = 0
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim bm As New Bitmap(PictureBox1.Width, PictureBox1.Height)
+        Dim bme As New Bitmap(piclogo.Width, piclogo.Height)
+
+        piclogo.DrawToBitmap(bme, New Rectangle(0, 0, bm.Width, bm.Height))
+        PictureBox1.DrawToBitmap(bm, New Rectangle(0, 0, bm.Width, bm.Height))
+        'x,Y,ANCHO,ALTO
+
+        If orientacionlogo = "ARRIBA" Then
+            e.Graphics.DrawImage(bme, 10, 5, 110, 30)
+            Y = 35
+
+            Dim caracteresPorLinea As Integer = 28
+            Dim texto As String = cbonombre.Text
+            Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 5, Y)
+                Y += 8
+                inicio += caracteresPorLinea
+            End While
+
+            e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), fuentita, Brushes.Black, 65, Y, sc)
+            Y += 8
+
+            e.Graphics.DrawImage(bm, 5, 63, 100, 30)
+            e.Graphics.DrawImage(PictureBox2.Image, 9, 84, 93, 10) 'LA CAJA DE TEXTO
+            e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 50, 85, sc) 'CODIGO DE BARRAS
+            e.HasMorePages = False
+        End If
+
+        If orientacionlogo = "IZQUIERDA" Then
+            Y += 10
+            'GIRARA EL LOGO IZQUIERDA
+            Dim imagenRotada As Image = New Bitmap(bme.Height, bme.Width)
+
+            ' Crear un objeto Graphics basado en la imagen rotada
+            Using g As Graphics = Graphics.FromImage(imagenRotada)
+                ' Rotar la imagen original 90 grados en sentido antihorario
+                g.TranslateTransform(bme.Height / 2, bme.Width / 2)
+                g.RotateTransform(-90)
+                g.TranslateTransform(-bme.Width / 2, -bme.Height / 2)
+                g.DrawImage(bme, New System.Drawing.Point(0, 0))
+            End Using
+
+            ' Dibujar la imagen rotada en el gráfico con el tamaño ajustado
+            e.Graphics.DrawImage(imagenRotada, 1, 28, 40, 60)
+
+
+            Dim caracteresPorLinea As Integer = 28
+            Dim texto As String = cbonombre.Text
+            Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 3, Y)
+                Y += 8
+                inicio += caracteresPorLinea
+            End While
+
+            e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), fuentita, Brushes.Black, 70, Y, sc)
+            Y += 7
+
+            e.Graphics.DrawImage(bm, 45, 40, 82, 35)
+            e.Graphics.DrawImage(PictureBox2.Image, 50, 66, 72, 10) 'LA CAJA DE TEXTO
+            e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 85, 67, sc) 'CODIGO DE BARRAS
+            e.HasMorePages = False
+        End If
+
+
+        If orientacionlogo = "DERECHA" Then
+
+            'GIRARA EL LOGO IZQUIERDA
+            Dim imagenRotada As Image = New Bitmap(bme.Height, bme.Width)
+
+            ' Crear un objeto Graphics basado en la imagen rotada
+            Using g As Graphics = Graphics.FromImage(imagenRotada)
+                ' Rotar la imagen original 90 grados en sentido antihorario
+                g.TranslateTransform(bme.Height / 2, bme.Width / 2)
+                g.RotateTransform(-90)
+                g.TranslateTransform(-bme.Width / 2, -bme.Height / 2)
+                g.DrawImage(bme, New System.Drawing.Point(0, 0))
+            End Using
+
+            ' Dibujar la imagen rotada en el gráfico con el tamaño ajustado
+            e.Graphics.DrawImage(imagenRotada, 90, 25, 40, 70)
+
+            Y += 10
+            Dim caracteresPorLinea As Integer = 28
+            Dim texto As String = cbonombre.Text
+            Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 4, Y)
+                Y += 8
+                inicio += caracteresPorLinea
+            End While
+
+            e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), fuentita, Brushes.Black, 65, Y, sc)
+            Y += 7
+
+            e.Graphics.DrawImage(bm, 3, 37, 82, 35)
+            e.Graphics.DrawImage(PictureBox2.Image, 10, 63, 70, 10) 'LA CAJA DE TEXTO
+            e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 42, 65, sc) 'CODIGO DE BARRAS
+            e.HasMorePages = False
+
+        End If
+
+        If orientacionlogo = "S/ETI" Then
+
+            Y += 10
+            Dim caracteresPorLinea As Integer = 28
+            Dim texto As String = cbonombre.Text
+            Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 3, Y)
+                Y += 8
+                inicio += caracteresPorLinea
+            End While
+
+            e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), fuentita, Brushes.Black, 57, Y, sc)
+            Y += 8
+
+            e.Graphics.DrawImage(bm, 5, 35, 100, 50)
+            e.Graphics.DrawImage(PictureBox2.Image, 10, 76, 90, 10) 'LA CAJA DE TEXTO
+            e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 55, 77, sc) 'CODIGO DE BARRAS
+            e.HasMorePages = False
+
+        End If
     End Sub
 End Class

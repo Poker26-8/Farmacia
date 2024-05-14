@@ -32,6 +32,34 @@ Public Class frmConfigs
             cnn1.Close()
         End Try
 
+        Try
+            Dim porcentaje As String = ""
+            Dim opt As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='Porc_Mone'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    porcentaje = rd1(0).ToString
+                    opt = rd1(1).ToString
+
+                    If opt = 1 Then
+                        optmone_ven.Checked = True
+                        txtporc_venta.Text = porcentaje
+                    Else
+                        optmone_prod.Checked = False
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
         'Try
         '    cnn1.Close()
         '    cnn1.Open()
@@ -459,11 +487,14 @@ Public Class frmConfigs
                         optEM_5x25.Checked = True
                     ElseIf medeti = "5x3" Then
                         optEM5X3.Checked = True
+                    ElseIf medeti = "2.5x3.8" Then
+                        optEM25X38.Checked = True
+
                     Else
                         optEM_65x27.Checked = False
                         optEM_2x4.Checked = False
                         optEM_5x25.Checked = False
-
+                        optEM25X38.Checked = False
                     End If
 
 
@@ -2952,6 +2983,10 @@ Public Class frmConfigs
 
             If (optEM5X3.Checked) Then
                 medida = "5x3"
+            End If
+
+            If optEM25X38.Checked Then
+                medida = "2.5x3.8"
             End If
 
 

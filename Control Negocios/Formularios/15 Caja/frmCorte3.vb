@@ -107,6 +107,11 @@
             Dim SUMATOTALEGRESOS As Double = 0
 
 
+            'EGRESOS------------------------
+            Dim SUMACOMPRAS As Double = 0
+            Dim SUMANOMINA As Double = 0
+            Dim SUMAEGRESOS As Double = 0
+
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
 
@@ -180,12 +185,12 @@
             e.Graphics.DrawString("(+) Propinas:", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(propinas, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
-            e.Graphics.DrawString("(-) Retiros:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("(+) Depositos:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
+            'e.Graphics.DrawString("(-) Retiros:", fuente_b, Brushes.Black, 1, Y)
+            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
+            'Y += 20
+            'e.Graphics.DrawString("(+) Depositos:", fuente_b, Brushes.Black, 1, Y)
+            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
+            'Y += 20
 
             e.Graphics.DrawString("----------", fuente_b, Brushes.Black, 200, Y)
             Y += 11
@@ -270,22 +275,47 @@
             e.Graphics.DrawString(simbolo & FormatNumber(SUMATOTAL2, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 11
 
-            'e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            'Y += 13
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 13
+            e.Graphics.DrawString("E G R E S O S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
 
-            'e.Graphics.DrawString("A DEPOSITAR", fuente_b, Brushes.Black, 1, Y)
-            'Y += 20
-            'e.Graphics.DrawString("Reportado:", fuente_b, Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            'Y += 20
-            'e.Graphics.DrawString("(-)Fondo::", fuente_b, Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            'Y += 20
-            'e.Graphics.DrawString("----------", fuente_b, Brushes.Black, 200, Y)
-            'Y += 11
-            'e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 10, Y)
-            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            'Y += 20
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMACOMPRAS = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMANOMINA = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            e.Graphics.DrawString("(-) Compras:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMACOMPRAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("(-) Nomina:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMANOMINA, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            SUMAEGRESOS = CDbl(SUMACOMPRAS) + CDbl(SUMANOMINA)
+            e.Graphics.DrawString("SUMA GENERAL DE EGRESOS:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMAEGRESOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 11
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
@@ -386,7 +416,8 @@
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
 
-            ACUMULADO = CDbl(SUMATOTAL2) + CDbl(txtInicial.Text) - (CDbl(SUMACANCELACIONES) + CDbl(SUMADEVOLUCIONES))
+
+            ' ACUMULADO = CDbl(SUMATOTAL2) + CDbl(txtInicial.Text) - (CDbl(SUMACANCELACIONES) + CDbl(SUMADEVOLUCIONES))
             ACUMULADO2 = CDbl(SUMATOTAL2) - (CDbl(SUMACANCELACIONES) + CDbl(SUMADEVOLUCIONES))
 
             e.Graphics.DrawString("Fondo:", fuente_b, Brushes.Black, 10, Y)
@@ -396,14 +427,14 @@
             e.Graphics.DrawString(simbolo & FormatNumber(ACUMULADO2, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
             e.Graphics.DrawString("TOTAL CON FONDO INICIAL", fuente_b, Brushes.Black, 10, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(ACUMULADO, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(simbolo & FormatNumber(CDbl(ACUMULADO2 + txtInicial.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
 
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("ACUMULADO DIARIO Z", fuente_b, Brushes.Black, 10, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(ACUMULADO, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(simbolo & FormatNumber(CDbl(ACUMULADO2 - SUMAEGRESOS)+txtInicial.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
 
             cnn1.Close() : cnn1.Open()

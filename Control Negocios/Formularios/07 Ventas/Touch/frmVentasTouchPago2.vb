@@ -604,6 +604,56 @@
                 txtafavor.Visible = True
                 Label18.Visible = True
                 txtadeuda.Visible = True
+
+                Dim dire(9) As String
+                Dim direccion As String = ""
+
+                dire(0) = rd1("Calle").ToString()       'Calle
+                dire(1) = rd1("NInterior").ToString()   'Numero Int
+                dire(2) = rd1("NExterior").ToString()   'Numero Ext
+                dire(3) = rd1("Colonia").ToString()     'Colonia
+                dire(4) = rd1("Delegacion").ToString()  'Delegacion
+                dire(5) = rd1("Entidad").ToString()     'Entidad
+                dire(6) = rd1("Pais").ToString()        'Pais
+                dire(7) = rd1("CP").ToString()          'CP
+
+                'Calle
+                If Trim(dire(0)) <> "" Then
+                    direccion = direccion & dire(0) & " "
+                End If
+                'Numero Int
+                If Trim(dire(1)) <> "" Then
+                    direccion = direccion & dire(1) & " "
+                End If
+                'Numero Ext
+                If Trim(dire(2)) <> "" Then
+                    direccion = direccion & dire(2) & " "
+                End If
+                'Colonia
+                If Trim(dire(3)) <> "" Then
+                    direccion = direccion & dire(3) & " "
+                End If
+                'Delegacion
+                If Trim(dire(4)) <> "" Then
+                    direccion = direccion & dire(4) & " "
+                End If
+                'Entidad
+                If Trim(dire(5)) <> "" Then
+                    direccion = direccion & dire(5) & " "
+                End If
+                'Pais
+                If Trim(dire(6)) <> "" Then
+                    direccion = direccion & dire(6) & " "
+                End If
+                'CP
+                If Trim(dire(7)) <> "" Then
+                    direccion = direccion & "CP " & dire(7) & " "
+                End If
+
+                txtDireccion.Text = ""
+                txtDireccion.Text = direccion
+                txtDireccion.Focus().Equals(True)
+
             End If
         End If
         rd1.Close()

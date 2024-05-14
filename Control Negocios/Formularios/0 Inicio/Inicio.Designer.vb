@@ -95,11 +95,6 @@ Partial Class Inicio
         Me.EntallarComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pNomina = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pTransporte = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -120,6 +115,11 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pNomina = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pTransporte = New System.Windows.Forms.ToolStripMenuItem()
         Me.pListados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pLisPrecios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pLisProductos = New System.Windows.Forms.ToolStripMenuItem()
@@ -173,6 +173,7 @@ Partial Class Inicio
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
+        Me.SubeMonederosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -366,7 +367,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pIngresos, Me.pReportes, Me.pEgresos, Me.pListados, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.pFacturacion, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pIngresos, Me.pReportes, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.ToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1194, 24)
@@ -791,44 +792,8 @@ Partial Class Inicio
         '
         Me.pCEmpleado.BackColor = System.Drawing.Color.White
         Me.pCEmpleado.Name = "pCEmpleado"
-        Me.pCEmpleado.Size = New System.Drawing.Size(180, 22)
+        Me.pCEmpleado.Size = New System.Drawing.Size(177, 22)
         Me.pCEmpleado.Text = "Cobro a empleados"
-        '
-        'pEgresos
-        '
-        Me.pEgresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pPEmpleados, Me.pOtros, Me.pNomina, Me.pTransporte})
-        Me.pEgresos.Name = "pEgresos"
-        Me.pEgresos.Size = New System.Drawing.Size(59, 20)
-        Me.pEgresos.Text = "Egresos"
-        '
-        'pPEmpleados
-        '
-        Me.pPEmpleados.BackColor = System.Drawing.Color.White
-        Me.pPEmpleados.Name = "pPEmpleados"
-        Me.pPEmpleados.Size = New System.Drawing.Size(194, 22)
-        Me.pPEmpleados.Text = "Préstamo a empleados"
-        '
-        'pOtros
-        '
-        Me.pOtros.BackColor = System.Drawing.Color.White
-        Me.pOtros.Name = "pOtros"
-        Me.pOtros.Size = New System.Drawing.Size(194, 22)
-        Me.pOtros.Text = "Otros gastos"
-        '
-        'pNomina
-        '
-        Me.pNomina.BackColor = System.Drawing.Color.White
-        Me.pNomina.Name = "pNomina"
-        Me.pNomina.Size = New System.Drawing.Size(194, 22)
-        Me.pNomina.Text = "Nómina"
-        '
-        'pTransporte
-        '
-        Me.pTransporte.BackColor = System.Drawing.Color.White
-        Me.pTransporte.Name = "pTransporte"
-        Me.pTransporte.Size = New System.Drawing.Size(194, 22)
-        Me.pTransporte.Text = "Transporte"
-        Me.pTransporte.Visible = False
         '
         'pReportes
         '
@@ -975,6 +940,42 @@ Partial Class Inicio
         Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeAuditoriaToolStripMenuItem.Text = "Reporte de auditoria"
         '
+        'pEgresos
+        '
+        Me.pEgresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pPEmpleados, Me.pOtros, Me.pNomina, Me.pTransporte})
+        Me.pEgresos.Name = "pEgresos"
+        Me.pEgresos.Size = New System.Drawing.Size(59, 20)
+        Me.pEgresos.Text = "Egresos"
+        '
+        'pPEmpleados
+        '
+        Me.pPEmpleados.BackColor = System.Drawing.Color.White
+        Me.pPEmpleados.Name = "pPEmpleados"
+        Me.pPEmpleados.Size = New System.Drawing.Size(194, 22)
+        Me.pPEmpleados.Text = "Préstamo a empleados"
+        '
+        'pOtros
+        '
+        Me.pOtros.BackColor = System.Drawing.Color.White
+        Me.pOtros.Name = "pOtros"
+        Me.pOtros.Size = New System.Drawing.Size(194, 22)
+        Me.pOtros.Text = "Otros gastos"
+        '
+        'pNomina
+        '
+        Me.pNomina.BackColor = System.Drawing.Color.White
+        Me.pNomina.Name = "pNomina"
+        Me.pNomina.Size = New System.Drawing.Size(194, 22)
+        Me.pNomina.Text = "Nómina"
+        '
+        'pTransporte
+        '
+        Me.pTransporte.BackColor = System.Drawing.Color.White
+        Me.pTransporte.Name = "pTransporte"
+        Me.pTransporte.Size = New System.Drawing.Size(194, 22)
+        Me.pTransporte.Text = "Transporte"
+        Me.pTransporte.Visible = False
+        '
         'pListados
         '
         Me.pListados.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pLisPrecios, Me.pLisProductos, Me.pFaltantes})
@@ -1027,7 +1028,7 @@ Partial Class Inicio
         'pUtilerias
         '
         Me.pUtilerias.BackColor = System.Drawing.Color.White
-        Me.pUtilerias.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pMigracion, Me.SubeClientesToolStripMenuItem, Me.SubeProveedoresToolStripMenuItem, Me.SubeUsuariosToolStripMenuItem})
+        Me.pUtilerias.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pMigracion, Me.SubeClientesToolStripMenuItem, Me.SubeProveedoresToolStripMenuItem, Me.SubeUsuariosToolStripMenuItem, Me.SubeMonederosToolStripMenuItem})
         Me.pUtilerias.Name = "pUtilerias"
         Me.pUtilerias.Size = New System.Drawing.Size(180, 22)
         Me.pUtilerias.Text = "Utilerías"
@@ -1036,25 +1037,25 @@ Partial Class Inicio
         '
         Me.pMigracion.BackColor = System.Drawing.Color.White
         Me.pMigracion.Name = "pMigracion"
-        Me.pMigracion.Size = New System.Drawing.Size(176, 22)
+        Me.pMigracion.Size = New System.Drawing.Size(180, 22)
         Me.pMigracion.Text = "Migración de datos"
         '
         'SubeClientesToolStripMenuItem
         '
         Me.SubeClientesToolStripMenuItem.Name = "SubeClientesToolStripMenuItem"
-        Me.SubeClientesToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SubeClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SubeClientesToolStripMenuItem.Text = "Sube Clientes"
         '
         'SubeProveedoresToolStripMenuItem
         '
         Me.SubeProveedoresToolStripMenuItem.Name = "SubeProveedoresToolStripMenuItem"
-        Me.SubeProveedoresToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SubeProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SubeProveedoresToolStripMenuItem.Text = "Sube Proveedores"
         '
         'SubeUsuariosToolStripMenuItem
         '
         Me.SubeUsuariosToolStripMenuItem.Name = "SubeUsuariosToolStripMenuItem"
-        Me.SubeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SubeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SubeUsuariosToolStripMenuItem.Text = "Sube Usuarios"
         '
         'TransportistasToolStripMenuItem
@@ -1132,19 +1133,19 @@ Partial Class Inicio
         'CorteDeCajaToolStripMenuItem
         '
         Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
         'CORTEMESERO
         '
         Me.CORTEMESERO.Name = "CORTEMESERO"
-        Me.CORTEMESERO.Size = New System.Drawing.Size(166, 22)
+        Me.CORTEMESERO.Size = New System.Drawing.Size(180, 22)
         Me.CORTEMESERO.Text = "Corte por mesero"
         '
         'CorteDeCajaNToolStripMenuItem
         '
         Me.CorteDeCajaNToolStripMenuItem.Name = "CorteDeCajaNToolStripMenuItem"
-        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CorteDeCajaNToolStripMenuItem.Text = "Corte de Caja N"
         '
         'GimnasiosToolStripMenuItem
@@ -1451,6 +1452,12 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
+        'SubeMonederosToolStripMenuItem
+        '
+        Me.SubeMonederosToolStripMenuItem.Name = "SubeMonederosToolStripMenuItem"
+        Me.SubeMonederosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SubeMonederosToolStripMenuItem.Text = "Sube Monederos"
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1632,4 +1639,5 @@ Partial Class Inicio
     Friend WithEvents CorteDeCajaNToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosTiendaEnLíneaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pedidos_tienda As Label
+    Friend WithEvents SubeMonederosToolStripMenuItem As ToolStripMenuItem
 End Class

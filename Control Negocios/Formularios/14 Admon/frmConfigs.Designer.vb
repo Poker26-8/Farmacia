@@ -349,6 +349,7 @@ Partial Class frmConfigs
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
+        Me.optEM25X38 = New System.Windows.Forms.RadioButton()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -431,9 +432,9 @@ Partial Class frmConfigs
         Me.tabCFDI.Controls.Add(Me.GroupBox13)
         Me.tabCFDI.Controls.Add(Me.GroupBox14)
         Me.tabCFDI.Controls.Add(Me.GroupBox15)
-        Me.tabCFDI.Location = New System.Drawing.Point(4, 44)
+        Me.tabCFDI.Location = New System.Drawing.Point(4, 58)
         Me.tabCFDI.Name = "tabCFDI"
-        Me.tabCFDI.Size = New System.Drawing.Size(478, 477)
+        Me.tabCFDI.Size = New System.Drawing.Size(478, 463)
         Me.tabCFDI.TabIndex = 5
         Me.tabCFDI.Text = "Certificado CFDI"
         Me.tabCFDI.UseVisualStyleBackColor = True
@@ -760,9 +761,9 @@ Partial Class frmConfigs
         '
         Me.tabFactura.Controls.Add(Me.Label40)
         Me.tabFactura.Controls.Add(Me.GroupBox10)
-        Me.tabFactura.Location = New System.Drawing.Point(4, 44)
+        Me.tabFactura.Location = New System.Drawing.Point(4, 58)
         Me.tabFactura.Name = "tabFactura"
-        Me.tabFactura.Size = New System.Drawing.Size(478, 477)
+        Me.tabFactura.Size = New System.Drawing.Size(478, 463)
         Me.tabFactura.TabIndex = 3
         Me.tabFactura.Text = "Configuración de factura"
         Me.tabFactura.UseVisualStyleBackColor = True
@@ -1185,9 +1186,9 @@ Partial Class frmConfigs
         Me.tabCorreo.Controls.Add(Me.Button12)
         Me.tabCorreo.Controls.Add(Me.GroupBox12)
         Me.tabCorreo.Controls.Add(Me.GroupBox11)
-        Me.tabCorreo.Location = New System.Drawing.Point(4, 44)
+        Me.tabCorreo.Location = New System.Drawing.Point(4, 58)
         Me.tabCorreo.Name = "tabCorreo"
-        Me.tabCorreo.Size = New System.Drawing.Size(478, 477)
+        Me.tabCorreo.Size = New System.Drawing.Size(478, 463)
         Me.tabCorreo.TabIndex = 6
         Me.tabCorreo.Text = "Configuración de correo"
         Me.tabCorreo.UseVisualStyleBackColor = True
@@ -1488,9 +1489,9 @@ Partial Class frmConfigs
         Me.tabMoneda.Controls.Add(Me.GroupBox8)
         Me.tabMoneda.Controls.Add(Me.GroupBox6)
         Me.tabMoneda.Controls.Add(Me.GroupBox7)
-        Me.tabMoneda.Location = New System.Drawing.Point(4, 44)
+        Me.tabMoneda.Location = New System.Drawing.Point(4, 58)
         Me.tabMoneda.Name = "tabMoneda"
-        Me.tabMoneda.Size = New System.Drawing.Size(478, 477)
+        Me.tabMoneda.Size = New System.Drawing.Size(478, 463)
         Me.tabMoneda.TabIndex = 2
         Me.tabMoneda.Text = "Tipo de moneda"
         Me.tabMoneda.UseVisualStyleBackColor = True
@@ -1900,9 +1901,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 24)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 497)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -1911,7 +1912,7 @@ Partial Class frmConfigs
         '
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Location = New System.Drawing.Point(377, 359)
+        Me.Button4.Location = New System.Drawing.Point(375, 392)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(93, 33)
         Me.Button4.TabIndex = 7
@@ -1920,7 +1921,7 @@ Partial Class frmConfigs
         '
         'Label59
         '
-        Me.Label59.Location = New System.Drawing.Point(268, 301)
+        Me.Label59.Location = New System.Drawing.Point(266, 334)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(202, 55)
         Me.Label59.TabIndex = 6
@@ -2057,13 +2058,14 @@ Partial Class frmConfigs
         '
         'GroupBox22
         '
+        Me.GroupBox22.Controls.Add(Me.optEM25X38)
         Me.GroupBox22.Controls.Add(Me.optEM5X3)
         Me.GroupBox22.Controls.Add(Me.optEM_2x4)
         Me.GroupBox22.Controls.Add(Me.optEM_5x25)
         Me.GroupBox22.Controls.Add(Me.optEM_65x27)
         Me.GroupBox22.Location = New System.Drawing.Point(271, 174)
         Me.GroupBox22.Name = "GroupBox22"
-        Me.GroupBox22.Size = New System.Drawing.Size(202, 124)
+        Me.GroupBox22.Size = New System.Drawing.Size(202, 157)
         Me.GroupBox22.TabIndex = 5
         Me.GroupBox22.TabStop = False
         '
@@ -2110,7 +2112,7 @@ Partial Class frmConfigs
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(272, 317)
+        Me.TextBox2.Location = New System.Drawing.Point(270, 350)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(188, 23)
         Me.TextBox2.TabIndex = 13
@@ -2124,10 +2126,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 24)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 497)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3227,9 +3229,9 @@ Partial Class frmConfigs
         Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
-        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 64)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
-        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 457)
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades1.TabIndex = 7
         Me.tabFuncionalidades1.Text = "Funcionalidades 1"
         Me.tabFuncionalidades1.UseVisualStyleBackColor = True
@@ -3528,9 +3530,9 @@ Partial Class frmConfigs
         'tabFuncionalidades2
         '
         Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
-        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
-        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades2.TabIndex = 11
         Me.tabFuncionalidades2.Text = " Funcionalidades 2"
         Me.tabFuncionalidades2.UseVisualStyleBackColor = True
@@ -3616,9 +3618,9 @@ Partial Class frmConfigs
         Me.tabMigracion.Controls.Add(Me.chkProductos)
         Me.tabMigracion.Controls.Add(Me.Label72)
         Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 64)
+        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
         Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 457)
+        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
         Me.tabMigracion.TabIndex = 8
         Me.tabMigracion.Text = "Migración de datos"
         Me.tabMigracion.UseVisualStyleBackColor = True
@@ -3739,10 +3741,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 64)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 457)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3770,7 +3772,7 @@ Partial Class frmConfigs
         Me.Label76.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label76.Location = New System.Drawing.Point(92, 83)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(311, 32)
+        Me.Label76.Size = New System.Drawing.Size(310, 32)
         Me.Label76.TabIndex = 27
         Me.Label76.Text = "Configuración de Accesos"
         '
@@ -3844,10 +3846,10 @@ Partial Class frmConfigs
         Me.TabPage3.Controls.Add(Me.Label86)
         Me.TabPage3.Controls.Add(Me.Label85)
         Me.TabPage3.Controls.Add(Me.Label84)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 58)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(478, 437)
+        Me.TabPage3.Size = New System.Drawing.Size(478, 463)
         Me.TabPage3.TabIndex = 10
         Me.TabPage3.Text = "Configuración de Prosepago"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3962,6 +3964,17 @@ Partial Class frmConfigs
         Me.Label84.TabIndex = 0
         Me.Label84.Text = "Configuración de Prosepago"
         Me.Label84.Visible = False
+        '
+        'optEM25X38
+        '
+        Me.optEM25X38.AutoSize = True
+        Me.optEM25X38.Location = New System.Drawing.Point(9, 124)
+        Me.optEM25X38.Name = "optEM25X38"
+        Me.optEM25X38.Size = New System.Drawing.Size(67, 19)
+        Me.optEM25X38.TabIndex = 5
+        Me.optEM25X38.TabStop = True
+        Me.optEM25X38.Text = "2.5 x 3.8"
+        Me.optEM25X38.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '
@@ -4401,4 +4414,5 @@ Partial Class frmConfigs
     Friend WithEvents optmone_prod As RadioButton
     Friend WithEvents txtporc_venta As TextBox
     Friend WithEvents Label89 As Label
+    Friend WithEvents optEM25X38 As RadioButton
 End Class

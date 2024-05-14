@@ -61,6 +61,8 @@ Partial Class frmEtiquetas
         Me.pPCP5x3 = New System.Drawing.Printing.PrintDocument()
         Me.pPC5x3 = New System.Drawing.Printing.PrintDocument()
         Me.pPP5x3 = New System.Drawing.Printing.PrintDocument()
+        Me.pPCP25x38 = New System.Drawing.Printing.PrintDocument()
+        Me.pPC25X38 = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -343,6 +345,9 @@ Partial Class frmEtiquetas
         'pPP5x3
         '
         '
+        'pPCP25x38
+        '
+        '
         'frmEtiquetas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -425,4 +430,6 @@ Partial Class frmEtiquetas
     Friend WithEvents pPCP5x3 As Printing.PrintDocument
     Friend WithEvents pPC5x3 As Printing.PrintDocument
     Friend WithEvents pPP5x3 As Printing.PrintDocument
+    Friend WithEvents pPCP25x38 As Printing.PrintDocument
+    Friend WithEvents pPC25X38 As Printing.PrintDocument
 End Class
