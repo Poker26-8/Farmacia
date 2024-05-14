@@ -181,6 +181,27 @@ Public Class Inicio
         'End Try
     End Sub
 
+    Private Sub Nuevos_Pedidos()
+        Try
+            cnn4.Close() : cnn4.Open()
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText =
+                "select COUNT(Id_Orden) from Pedidos_Tienda where Status=0"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    pedidos_tienda.Text = "Nuevos pedidos: " & rd4(0).ToString()
+                End If
+            End If
+            rd4.Close()
+            cnn4.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn4.Close()
+        End Try
+    End Sub
+
     Private Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         PrimeraConfig = ""
         Login.Hide()
@@ -223,6 +244,10 @@ Public Class Inicio
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+
+        If tienda_enlinea = True Then
+            Nuevos_Pedidos()
+        End If
 
         'ActualizaCampos()
         'Validaciones del módulo de trasporte
