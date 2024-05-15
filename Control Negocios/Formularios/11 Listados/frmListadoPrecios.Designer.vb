@@ -22,7 +22,7 @@ Partial Class frmListadoPrecios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmListadoPrecios))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -43,10 +43,16 @@ Partial Class frmListadoPrecios
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.lblprod = New System.Windows.Forms.Label()
         Me.grdimporta = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupBox1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.grdimporta, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -68,7 +74,7 @@ Partial Class frmListadoPrecios
         Me.GroupBox1.Controls.Add(Me.optgrupo)
         Me.GroupBox1.Controls.Add(Me.optdepto)
         Me.GroupBox1.Controls.Add(Me.optproveedores)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 34)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 0)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(215, 113)
         Me.GroupBox1.TabIndex = 231
@@ -122,7 +128,7 @@ Partial Class frmListadoPrecios
         '
         Me.cbofiltro.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofiltro.FormattingEnabled = True
-        Me.cbofiltro.Location = New System.Drawing.Point(230, 121)
+        Me.cbofiltro.Location = New System.Drawing.Point(266, 88)
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(215, 25)
         Me.cbofiltro.TabIndex = 238
@@ -131,27 +137,25 @@ Partial Class frmListadoPrecios
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdcaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdcaptura.GridColor = System.Drawing.Color.White
-        Me.grdcaptura.Location = New System.Drawing.Point(9, 153)
+        Me.grdcaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 25
-        Me.grdcaptura.Size = New System.Drawing.Size(848, 304)
+        Me.grdcaptura.Size = New System.Drawing.Size(867, 378)
         Me.grdcaptura.TabIndex = 239
         '
         'optord_nombre
         '
         Me.optord_nombre.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.optord_nombre.AutoSize = True
-        Me.optord_nombre.Location = New System.Drawing.Point(141, 466)
+        Me.optord_nombre.Location = New System.Drawing.Point(52, 7)
         Me.optord_nombre.Name = "optord_nombre"
         Me.optord_nombre.Size = New System.Drawing.Size(134, 19)
         Me.optord_nombre.TabIndex = 240
@@ -163,7 +167,7 @@ Partial Class frmListadoPrecios
         '
         Me.optord_depto.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.optord_depto.AutoSize = True
-        Me.optord_depto.Location = New System.Drawing.Point(355, 466)
+        Me.optord_depto.Location = New System.Drawing.Point(314, 7)
         Me.optord_depto.Name = "optord_depto"
         Me.optord_depto.Size = New System.Drawing.Size(167, 19)
         Me.optord_depto.TabIndex = 241
@@ -175,7 +179,7 @@ Partial Class frmListadoPrecios
         '
         Me.optord_grupo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.optord_grupo.AutoSize = True
-        Me.optord_grupo.Location = New System.Drawing.Point(602, 466)
+        Me.optord_grupo.Location = New System.Drawing.Point(659, 3)
         Me.optord_grupo.Name = "optord_grupo"
         Me.optord_grupo.Size = New System.Drawing.Size(124, 19)
         Me.optord_grupo.TabIndex = 242
@@ -187,7 +191,7 @@ Partial Class frmListadoPrecios
         '
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Controls.Add(Me.txtCod)
-        Me.GroupBox3.Location = New System.Drawing.Point(230, 34)
+        Me.GroupBox3.Location = New System.Drawing.Point(266, 7)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(104, 66)
         Me.GroupBox3.TabIndex = 243
@@ -218,7 +222,7 @@ Partial Class frmListadoPrecios
         Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexportar.Location = New System.Drawing.Point(687, 45)
+        Me.btnexportar.Location = New System.Drawing.Point(687, 10)
         Me.btnexportar.Name = "btnexportar"
         Me.btnexportar.Size = New System.Drawing.Size(82, 63)
         Me.btnexportar.TabIndex = 247
@@ -233,7 +237,7 @@ Partial Class frmListadoPrecios
         Me.btnimportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnimportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnimportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnimportar.Location = New System.Drawing.Point(775, 45)
+        Me.btnimportar.Location = New System.Drawing.Point(775, 10)
         Me.btnimportar.Name = "btnimportar"
         Me.btnimportar.Size = New System.Drawing.Size(82, 63)
         Me.btnimportar.TabIndex = 246
@@ -245,16 +249,16 @@ Partial Class frmListadoPrecios
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(9, 434)
+        Me.ProgressBar1.Location = New System.Drawing.Point(3, 352)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(848, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(849, 23)
         Me.ProgressBar1.TabIndex = 248
         Me.ProgressBar1.Visible = False
         '
         'lblprod
         '
         Me.lblprod.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblprod.Location = New System.Drawing.Point(11, 416)
+        Me.lblprod.Location = New System.Drawing.Point(4, 336)
         Me.lblprod.Name = "lblprod"
         Me.lblprod.Size = New System.Drawing.Size(436, 18)
         Me.lblprod.TabIndex = 249
@@ -275,29 +279,54 @@ Partial Class frmListadoPrecios
         Me.grdimporta.Size = New System.Drawing.Size(386, 188)
         Me.grdimporta.TabIndex = 250
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.GroupBox3)
+        Me.Panel1.Controls.Add(Me.cbofiltro)
+        Me.Panel1.Controls.Add(Me.btnimportar)
+        Me.Panel1.Controls.Add(Me.btnexportar)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 31)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(867, 127)
+        Me.Panel1.TabIndex = 251
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.optord_nombre)
+        Me.Panel2.Controls.Add(Me.optord_depto)
+        Me.Panel2.Controls.Add(Me.optord_grupo)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 536)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(867, 29)
+        Me.Panel2.TabIndex = 252
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.ProgressBar1)
+        Me.Panel3.Controls.Add(Me.lblprod)
+        Me.Panel3.Controls.Add(Me.grdcaptura)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(0, 158)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(867, 378)
+        Me.Panel3.TabIndex = 253
+        '
         'frmListadoPrecios
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(867, 492)
-        Me.Controls.Add(Me.lblprod)
-        Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.btnexportar)
-        Me.Controls.Add(Me.btnimportar)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.optord_grupo)
-        Me.Controls.Add(Me.optord_depto)
-        Me.Controls.Add(Me.optord_nombre)
-        Me.Controls.Add(Me.grdcaptura)
-        Me.Controls.Add(Me.cbofiltro)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(867, 565)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.grdimporta)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "frmListadoPrecios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Listado de precios"
@@ -307,8 +336,11 @@ Partial Class frmListadoPrecios
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.grdimporta, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -330,4 +362,7 @@ Partial Class frmListadoPrecios
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents lblprod As System.Windows.Forms.Label
     Friend WithEvents grdimporta As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class

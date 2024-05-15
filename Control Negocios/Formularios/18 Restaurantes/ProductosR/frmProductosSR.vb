@@ -1569,10 +1569,16 @@ nopasowey:
                     clavesat = rd1("ClaveSat").ToString
                     unidadsat = rd1("ClaveUnidadSat").ToString
                     statuspromo = IIf(rd1("Status_Promocion").ToString = "", 0, rd1("Status_Promocion").ToString)
-                    porcentajePromo = rd1("Porcentaje_Promo").ToString
+                    porcentajePromo = IIf(rd1("Porcentaje_Promo").ToString = "", 0, rd1("Porcentaje_Promo").ToString)
                     e1 = IIf(rd1("E1").ToString = "", 0, rd1("E1").ToString)
                     e2 = IIf(rd1("E2").ToString = "", 0, rd1("E2").ToString)
                     f44 = IIf(rd1("F44").ToString = "", 0, rd1("F44").ToString)
+
+                    nombre = Trim(Replace(nombre, "‘", ""))
+                    nombre = Trim(Replace(nombre, "'", "''"))
+
+                    nombrelargo = Trim(Replace(nombre, "‘", ""))
+                    nombrelargo = Trim(Replace(nombre, "'", "''"))
 
                     If IVA > 0 Then
                         precioDomicilioIVA = CDbl(precioDomicilio) * CDbl(1 + IVA)

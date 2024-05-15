@@ -767,6 +767,12 @@ Public Class frmClientes
                         nombre = razonsocial
                     End If
 
+                    nombre = Trim(Replace(nombre, "‘", ""))
+                    nombre = Trim(Replace(nombre, "'", "''"))
+
+                    razonsocial = Trim(Replace(nombre, "‘", ""))
+                    razonsocial = Trim(Replace(nombre, "'", "''"))
+
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "'," & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & regfis & "','" & ninterior & "','" & nexterior & "',0,0,0)"
