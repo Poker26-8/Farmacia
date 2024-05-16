@@ -762,10 +762,10 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
             Else
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -793,10 +793,10 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA'"
             Else
                 cmd1.CommandText =
-              "select count(Folio) from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
+              "select count(Folio) from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "'"
             End If
 
 
@@ -819,10 +819,10 @@
             If ComboBox1.Text = "" Then
 
                 cmd1.CommandText =
-                    "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             Else
                 cmd1.CommandText =
-                    "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
+                    "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status='" & ComboBox1.Text & "' order by Folio"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -1038,7 +1038,7 @@
             Dim nuevosubtotal As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -1051,7 +1051,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ventas where FVenta>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
+            cmd2.CommandText = "select * from Ventas where Fecha>='" & Format(M1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and FVenta<='" & Format(M2, "yyyy-MM-dd") & " " & Format(dtpfin.Value, "HH:mm:ss") & "' and Status<>'CANCELADA' order by Folio"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then

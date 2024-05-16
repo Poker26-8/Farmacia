@@ -805,6 +805,7 @@
     End Sub
 
     Private Sub cboUbicacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboUbicacion.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cboPara.Focus.Equals(True)
         End If
@@ -905,12 +906,12 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    ORDEN = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                    ORDEN = IIf(rd1(0).ToString = "", 0, rd1(0).ToString) + 1
                 Else
-                    ORDEN = "1"
+                    ORDEN = 1
                 End If
             Else
-                ORDEN = "1"
+                ORDEN = 1
             End If
             rd1.Close()
 

@@ -226,7 +226,8 @@ Public Class Inicio
         SFormatos("PrecioDia", "")
         SFormatos("Cuartos", "")
         SFormatos("CobroExacto", "")
-        'Licencia()
+
+        Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
@@ -612,58 +613,6 @@ Public Class Inicio
         Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
         Dim coma As OleDbCommand = New OleDbCommand
         Dim lect As OleDbDataReader = Nothing
-
-
-        'cias.Close()
-        'cias.Open()
-        'coma = cias.CreateCommand
-        'coma.CommandText = "Select Zink from Server"
-        'lect = coma.ExecuteReader
-        'If lect.Read Then
-        '    zinc = lect(0).ToString
-        'End If
-        'lect.Close()
-        'cias.Close()
-
-        'Valida sincronizador
-        'If zinc = 1 Then
-        '    If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
-
-        '        filenum = FreeFile()
-        '        FileOpen(filenum, ARCHIVO_DE_CONFIGURACION, OpenMode.Random, OpenAccess.ReadWrite)
-
-        '        recordLen = Len(config)
-
-        '        FileGet(filenum, config, 1)
-
-        '        ipserver = Trim(config.ipr)
-        '        database = Trim(config.baser)
-        '        userbd = Trim(config.usuarior)
-        '        passbd = Trim(config.passr)
-        '        If IsNumeric(Trim(config.sucursalr)) Then
-        '            susursalr = Trim(config.sucursalr)
-        '        End If
-
-        '        sTargetdSincro = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
-
-        '        FileClose()
-
-        '        sTargetdAutoFac = ""
-
-
-        '        If Not IsNumeric(susursalr) Then
-        '            frmConfigSincro.Show()
-        '        Else
-        '            frmSincro.Show()
-        '            'frmSincro.BringToFront()
-        '            Me.WindowState = FormWindowState.Minimized
-        '        End If
-        '    Else
-        '        'Se configuran los datos porque no está activado
-        '        frmConfigSincro.Show()
-        '        Me.WindowState = FormWindowState.Minimized
-        '    End If
-        'End If
 
         VieneDe_Compras = ""
         VieneDe_Folios = ""
@@ -1875,10 +1824,13 @@ Public Class Inicio
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem1.Click
+
+        'crea_dir(My.Computer.FileSystem.SpecialDirectories.Programs & "\ControlNegocios")
+
         Dim FileSerie As String
         Dim SerieLib As String
         Dim SFile As String
-        FileSerie = My.Computer.FileSystem.SpecialDirectories.Programs & "\ControlNegocios\Lib3r4c10n.dll"
+        FileSerie = My.Computer.FileSystem.SpecialDirectories.Programs & "\DelsscomControlNegocios\Lib3r4c10n.dll"
         If System.IO.File.Exists(FileSerie) Then
             SerieLib = frmPagado.GenLicencia(MyNumPC)
             SFile = redSerie(FileSerie)

@@ -2369,9 +2369,9 @@ Public Class frmNuvRepVentas
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 Else
-                    cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -2390,9 +2390,9 @@ Public Class frmNuvRepVentas
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 Else
-                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "' ORDER BY Folio"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -2490,9 +2490,9 @@ Public Class frmNuvRepVentas
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 Else
-                    cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -2511,9 +2511,9 @@ Public Class frmNuvRepVentas
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 Else
-                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "' ORDER BY Folio"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -2616,7 +2616,7 @@ Public Class frmNuvRepVentas
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2630,7 +2630,7 @@ Public Class frmNuvRepVentas
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                cmd1.CommandText = "SELECT * FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2728,7 +2728,7 @@ Public Class frmNuvRepVentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' and Cliente='" & cboDatos.Text & "'"
+                cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' and Cliente='" & cboDatos.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2744,7 +2744,7 @@ Public Class frmNuvRepVentas
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' AND Cliente='" & cboDatos.Text & "' ORDER BY Folio"
+                cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' AND Cliente='" & cboDatos.Text & "' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2832,7 +2832,7 @@ Public Class frmNuvRepVentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select count(Ventas.Folio) from Ventas INNER JOIN VentasDetalle ON Ventas.Folio=VentasDetalle.Folio where Ventas.FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' and Ventas.Cliente='" & cboDatos.Text & "'"
+                cmd1.CommandText = "select count(Ventas.Folio) from Ventas INNER JOIN VentasDetalle ON Ventas.Folio=VentasDetalle.Folio where Ventas.Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' and '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' and Ventas.Cliente='" & cboDatos.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2849,7 +2849,7 @@ Public Class frmNuvRepVentas
 
                 cnn2.Close() : cnn2.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH.mm:ss") & "' AND Cliente='" & cboDatos.Text & "'"
+                cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH.mm:ss") & "' AND Cliente='" & cboDatos.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3150,7 +3150,7 @@ Public Class frmNuvRepVentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fventa BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA'"
+                cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3164,7 +3164,7 @@ Public Class frmNuvRepVentas
                 barcarga.Maximum = cuantos
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM ventas WHERE FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Status<>'CANCELADA' order by Folio"
+                cmd1.CommandText = "SELECT * FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Status<>'CANCELADA' order by Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3342,7 +3342,7 @@ Public Class frmNuvRepVentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT count(Folio) FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Folio <>0"
+                cmd1.CommandText = "SELECT count(Folio) FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Folio <>0"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3356,7 +3356,7 @@ Public Class frmNuvRepVentas
                 barcarga.Maximum = cuantos
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Status<>'CANCELADA' order by Folio"
+                cmd1.CommandText = "SELECT * FROM Ventas WHERE Usuario='" & cboDatos.Text & "' AND Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' AND Status<>'CANCELADA' order by Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3647,7 +3647,7 @@ Public Class frmNuvRepVentas
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select count(Folio) from Ventas where FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Status<>'CANCELADA'"
+                    "select count(Folio) from Ventas where Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Status<>'CANCELADA'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3663,7 +3663,7 @@ Public Class frmNuvRepVentas
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ventas where FVenta between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Status<>'CANCELADA' order by Folio"
+                    "select * from Ventas where Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Status<>'CANCELADA' order by Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3678,7 +3678,7 @@ Public Class frmNuvRepVentas
                         fechanueva = Format(fecha, "yyyy-MM-dd HH:mm:ss")
                         status = rd1("Status").ToString
                         acuenta = rd1("Acuenta").ToString
-                        propina = rd1("Porpina").ToString
+                        propina = rd1("Propina").ToString
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
@@ -3762,7 +3762,7 @@ Public Class frmNuvRepVentas
 
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas WHERE Fventa between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' ORDER BY FOLIO"
+                cmd1.CommandText = "SELECT * FROM Ventas WHERE Fecha between '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "' ORDER BY FOLIO"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -3896,7 +3896,7 @@ Public Class frmNuvRepVentas
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas V INNER JOIN VentasDetalle VD On V.Folio=VD.Folio WHERE V.Concepto='CORTESIA' AND V.Fventa BETWEEN  '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "'  and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
+                cmd1.CommandText = "SELECT * FROM Ventas V INNER JOIN VentasDetalle VD On V.Folio=VD.Folio WHERE V.Concepto='CORTESIA' AND V.Fecha BETWEEN  '" & Format(m1, "yyyy-MM-dd") & " " & dtpinicio.Text & "'  and '" & Format(m2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -4029,15 +4029,15 @@ Public Class frmNuvRepVentas
             cmd5 = cnn5.CreateCommand
 
             If (rbVentasTotales.Checked) Then
-                querry = "SELECT DISTINCT Status FROM ventas WHERE FVenta BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' "
+                querry = "SELECT DISTINCT Status FROM ventas WHERE Fecha BETWEEN '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' AND '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' "
             End If
 
             If (rbVentasClientes.Checked) Then
-                querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Cliente<>'' order by Cliente"
+                querry = "select distinct Cliente from Ventas where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Cliente<>'' order by Cliente"
             End If
 
             If (rbVentasCliDetalle.Checked) Then
-                querry = "select distinct Cliente from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Cliente<>'' order by Cliente"
+                querry = "select distinct Cliente from Ventas where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Cliente<>'' order by Cliente"
             End If
             If (rbVentasDepa.Checked) Then
                 querry = "select distinct Depto from VentasDetalle where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Depto<>'' order by Depto"
@@ -4049,7 +4049,7 @@ Public Class frmNuvRepVentas
                 querry = "select distinct Nombre from VentasDetalle where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Nombre<>'' order by Nombre"
             End If
             If (rbVentasVendedor.Checked) Then
-                querry = "select distinct Usuario from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Usuario<>''"
+                querry = "select distinct Usuario from Ventas where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "' and Usuario<>''"
             End If
 
             If (rbVendidoProveedor.Checked) Then
@@ -4057,7 +4057,7 @@ Public Class frmNuvRepVentas
             End If
 
             If (rbVentasFormato.Checked) Then
-                querry = "select distinct Formato from Ventas where FVenta between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
+                querry = "select distinct Formato from Ventas where Fecha between '" & Format(M1, "yyyy-MM-dd") & " " & dtpinicio.Text & "' and '" & Format(M2, "yyyy-MM-dd") & " " & dtpFin.Text & "'"
             End If
 
             If (rbVentasPorcentaje.Checked) Then

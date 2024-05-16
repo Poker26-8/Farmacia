@@ -174,6 +174,7 @@ Partial Class frmCompras
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.btnprod = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -184,6 +185,7 @@ Partial Class frmCompras
         Me.Panel1.SuspendLayout()
         Me.panpago_compra.SuspendLayout()
         Me.boxPago.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -195,7 +197,7 @@ Partial Class frmCompras
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(916, 31)
+        Me.Label1.Size = New System.Drawing.Size(918, 31)
         Me.Label1.TabIndex = 4
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -216,7 +218,7 @@ Partial Class frmCompras
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 26
-        Me.grdcaptura.Size = New System.Drawing.Size(836, 286)
+        Me.grdcaptura.Size = New System.Drawing.Size(836, 310)
         Me.grdcaptura.TabIndex = 5
         '
         'Column1
@@ -752,7 +754,7 @@ Partial Class frmCompras
         Me.txtusuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtusuario.BackColor = System.Drawing.Color.White
         Me.txtusuario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(811, 68)
+        Me.txtusuario.Location = New System.Drawing.Point(813, 68)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtusuario.Size = New System.Drawing.Size(98, 23)
@@ -788,9 +790,9 @@ Partial Class frmCompras
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.txtapagar)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 466)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(836, 100)
+        Me.GroupBox2.Size = New System.Drawing.Size(905, 98)
         Me.GroupBox2.TabIndex = 141
         Me.GroupBox2.TabStop = False
         '
@@ -1277,7 +1279,7 @@ Partial Class frmCompras
         '
         'barraExcel
         '
-        Me.barraExcel.Location = New System.Drawing.Point(7, 446)
+        Me.barraExcel.Location = New System.Drawing.Point(7, 470)
         Me.barraExcel.Name = "barraExcel"
         Me.barraExcel.Size = New System.Drawing.Size(836, 19)
         Me.barraExcel.TabIndex = 181
@@ -1703,18 +1705,28 @@ Partial Class frmCompras
         Me.btnprod.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnprod.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnprod.Location = New System.Drawing.Point(811, 93)
+        Me.btnprod.Location = New System.Drawing.Point(813, 93)
         Me.btnprod.Name = "btnprod"
         Me.btnprod.Size = New System.Drawing.Size(99, 36)
         Me.btnprod.TabIndex = 230
         Me.btnprod.Text = "Productos"
         Me.btnprod.UseVisualStyleBackColor = False
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.GroupBox2)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 496)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(918, 111)
+        Me.Panel2.TabIndex = 88
+        '
         'frmCompras
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(916, 570)
+        Me.ClientSize = New System.Drawing.Size(918, 607)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnprod)
         Me.Controls.Add(Me.panpago_compra)
         Me.Controls.Add(Me.btnPagar)
@@ -1754,7 +1766,6 @@ Partial Class frmCompras
         Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1780,6 +1791,7 @@ Partial Class frmCompras
         Me.panpago_compra.PerformLayout()
         Me.boxPago.ResumeLayout(False)
         Me.boxPago.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1929,4 +1941,5 @@ Partial Class frmCompras
       Friend WithEvents Label41 As System.Windows.Forms.Label
       Friend WithEvents txtpc_efectivo As System.Windows.Forms.TextBox
     Friend WithEvents btnprod As Button
+    Friend WithEvents Panel2 As Panel
 End Class

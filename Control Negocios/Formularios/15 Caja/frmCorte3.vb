@@ -470,7 +470,13 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE cortecaja SET Saldo_Ini=" & txtInicial.Text & " WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                    If cmd2.ExecuteNonQuery() Then
+                        MsgBox("Saldo inicial actualizado correctamente", vbInformation + vbOKOnly, titulocentral)
+                    End If
+                    cnn2.Close()
                 End If
             Else
                 cnn2.Close() : cnn2.Open()
