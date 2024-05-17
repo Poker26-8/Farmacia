@@ -112,8 +112,7 @@
             Dim SUMANOMINA As Double = 0
             Dim SUMAEGRESOS As Double = 0
 
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            Dim folio As Integer = 0
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -164,6 +163,17 @@
                 Y += 0
             End If
             rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Id FROM cortecaja WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    folio = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
             cnn2.Close()
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
@@ -174,7 +184,14 @@
             Y += 11
 
             e.Graphics.DrawString("Fecha: " & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            e.Graphics.DrawString("Folio: " & folio, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+
+            If cboCajero.Text <> "" Then
+                e.Graphics.DrawString("Cajero: " & cboCajero.Text, fuente_b, Brushes.Black, 1, Y)
+                Y += 12
+            End If
+
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("EFECTIVO", fuente_b, Brushes.Black, 1, Y)
@@ -405,7 +422,7 @@
             Y += 17
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
-            e.Graphics.DrawString("v E N T A S  C L A S I F I C A C I O N", fuente_b, Brushes.Black, 135, Y, centro)
+            e.Graphics.DrawString("V E N T A S  C L A S I F I C A C I O N", fuente_b, Brushes.Black, 135, Y, centro)
             Y += 11
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
@@ -432,7 +449,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -442,7 +459,7 @@
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -457,6 +474,7 @@
 
                     sumatotalgrupo = sumatotalgrupo + sumagrupo
                     sumatotalsiniva = sumatotalsiniva + sumasiniva
+
                 End If
             Loop
             rd1.Close()
@@ -478,8 +496,80 @@
             Y += 15
             e.Graphics.DrawString("* Con Impuesto", fuente_b, Brushes.Black, 100, Y)
             Y += 15
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            '-------------------------------------------------------------------------------------------------------------------------
+
+            If cboCajero.Text <> "" Then
+                grupo = ""
+                folio = 0
+                sumasiniva = 0
+                sumatotalsiniva = 0
+                impuesto = 0
+                sumatotalgrupo = 0
+
+                Dim totalsiniva As Double = 0
+                Dim tot As Double = 0
+
+                e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+                Y += 11
+                e.Graphics.DrawString("VENTAS POR MESERO/CLASIFICACION", fuente_b, Brushes.Black, 135, Y, centro)
+                Y += 11
+                e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+                Y += 11
+
+                cnn1.Close() : cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND FVenta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        folio = rd1(0).ToString
+
+                        sumasiniva = 0
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM ventasdetalle WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Folio=" & folio & ""
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                grupo = rd2("Grupo").ToString
+                                totalsiniva = rd2("TotalSinIVA").ToString
+                                tot = rd2("Total").ToString
+
+                                sumasiniva = sumasiniva + totalsiniva
+
+                            End If
+                        End If
+                        rd2.Close()
+
+                        e.Graphics.DrawString(grupo & ":", fuente_b, Brushes.Black, 10, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(sumasiniva, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                        Y += 20
+
+                        sumatotalsiniva = sumatotalsiniva + sumasiniva
+                        sumatotalgrupo = sumatotalgrupo + tot
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+                cnn2.Close()
+
+                impuesto = sumatotalgrupo - sumatotalsiniva
+
+                e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(sumatotalsiniva, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 15
+                e.Graphics.DrawString("* Sin Impuesto", fuente_b, Brushes.Black, 100, Y)
+                Y += 15
+                e.Graphics.DrawString("Impuesto:", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(impuesto, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 15
+                e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(sumatotalgrupo, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 15
+                e.Graphics.DrawString("* Con Impuesto", fuente_b, Brushes.Black, 100, Y)
+                Y += 15
+            End If
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
@@ -594,5 +684,26 @@
 
     Private Sub dtpFecha_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha.ValueChanged
         C_Global()
+    End Sub
+
+    Private Sub cboCajero_DropDown(sender As Object, e As EventArgs) Handles cboCajero.DropDown
+        Try
+            cboCajero.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Usuario FROM Ventas WHERE FVenta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboCajero.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
     End Sub
 End Class
