@@ -3670,8 +3670,9 @@ kaka:
                             premin2 = IIf(rd1(1).ToString = "", 0, rd1(1).ToString)
 
                             premasbajo = Math.Min(premin1, premin2)
+                            Dim precioxd As Double = txtprecio.Text
                             'CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString)) 
-                            If CDbl(txtprecio.Text) < CDbl(IIf(premasbajo = "", 0, premasbajo)) Then
+                            If CDbl(precioxd) < CDbl(premasbajo) Then
                                 MsgBox("El precio de venta mínimo para el producto es de " & FormatNumber(CDbl(rd1(0).ToString), 4) & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtprecio.SelectionStart = 0 : txtprecio.SelectionLength = Len(txtprecio.Text) : Exit Sub
                                 rd1.Close() : cnn1.Close()
                                 Exit Sub
