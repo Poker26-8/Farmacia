@@ -199,9 +199,6 @@
             e.Graphics.DrawString(simbolo & FormatNumber(SUMATOTALEFECTIVO, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
 
-
-
-
             cnn2.Close() : cnn2.Open()
             cnn3.Close() : cnn3.Open()
             cnn4.Close() : cnn4.Open()
@@ -406,6 +403,83 @@
             e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(SUMADESCUENTOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 17
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("v E N T A S  C L A S I F I C A C I O N", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            Dim grupo As String = ""
+            Dim sumagrupo As Double = 0
+            Dim sumatotalgrupo As Double = 0
+
+            Dim sumasiniva As Double = 0
+            Dim sumatotalsiniva As Double = 0
+            Dim totalconimpuesto As Double = 0
+            Dim impuesto As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT DISTINCT(Grupo) FROM ventasdetalle WHERE Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    grupo = rd1("Grupo").ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' GROUP BY Grupo"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            sumagrupo = rd2(0).ToString
+                        End If
+                    End If
+                    rd2.Close()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' GROUP BY Grupo"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            sumasiniva = rd2(0).ToString
+                        End If
+                    End If
+                    rd2.Close()
+
+                    e.Graphics.DrawString(grupo & ":", fuente_b, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(sumasiniva, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+
+                    sumatotalgrupo = sumatotalgrupo + sumagrupo
+                    sumatotalsiniva = sumatotalsiniva + sumasiniva
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+            cnn2.Close()
+
+            impuesto = sumatotalgrupo - sumatotalsiniva
+
+            e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(sumatotalsiniva, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("* Sin Impuesto", fuente_b, Brushes.Black, 100, Y)
+            Y += 15
+            e.Graphics.DrawString("Impuesto:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(impuesto, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("TOTAL:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(sumatotalgrupo, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("* Con Impuesto", fuente_b, Brushes.Black, 100, Y)
+            Y += 15
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
 
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11

@@ -154,7 +154,7 @@ Public Class Login
 
         Try
             conexion.Close() : conexion.Open()
-            ' "Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22"
+            '"Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22"
             comando = conexion.CreateCommand
             comando.CommandText =
                 "select * from Server"
@@ -169,7 +169,7 @@ Public Class Login
                         txtRuta.Text = servidor
                     End If
                     base = lector("base").ToString()
-                    zinc = lector("Zink").ToString()
+                    ' zinc = lector("Zink").ToString()
                 Loop
             End If
             lector.Close()

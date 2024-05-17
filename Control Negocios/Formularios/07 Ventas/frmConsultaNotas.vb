@@ -217,7 +217,8 @@ Public Class frmConsultaNotas
                             txtvendedor.Text = rd1("Usuario").ToString()
                             txtacuenta.Text = FormatNumber(IIf(rd1("ACuenta").ToString() = "", 0, rd1("ACuenta").ToString()), 2)
                             txtresta.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
-                        txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()) - CDbl(txtacuenta.Text), 2)
+                        '  txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()) - CDbl(txtacuenta.Text), 2)
+                        txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()), 2)
                         If (optcobrar.Checked) Then
                                 txtrestaabono.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
                             End If
@@ -3807,9 +3808,6 @@ doorcita:
             e.Graphics.DrawString(convLetras(txttotal.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
             Y += 18
 
-
-
-            Y += 19
 
             e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 142.5, Y, sc)
             Y += 13.5
