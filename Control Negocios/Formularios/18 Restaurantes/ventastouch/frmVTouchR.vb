@@ -430,6 +430,7 @@ nopaso:
                                     Else
                                         dosxuno = 0
                                     End If
+
                                 Case Else
                                     dosxuno = 0
                             End Select

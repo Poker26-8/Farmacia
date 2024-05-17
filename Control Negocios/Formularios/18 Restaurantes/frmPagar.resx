@@ -196,6 +196,31 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCortesia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAD8AAAAvCAYAAABUiRJEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAABHxJREFUaEPdmstu00AUhlPzApF4ABBP0AdgEfEEFRvELkKs2BAkJEAIERYFqlJI
+        odzSRDGJQEIgUQEbhBApSIhyDWxYgER2SCwgFGihlwznNx7XHp84tuMLZfEl9rFnPN+Z8YybOiOE+C95
+        +/bdMJHjjknY4HoDkkSRyJr7eUIA+3kqbHC9AFmiJUXN7Rnb/gxXTsIG1wMkhmHdNiU7tm2JzpWzwwb/
+        dUgM4hCW4tjHKCgR6Pk8V06FDSZNZlulQBR7ULCfa4o6xO3He0HnjRCYFzbLmOukpCG5EiH6YA1hUwDi
+        uL9ZcYrLCdA4jm9CJsxaAVwFk4bE8ooohzWMTRFrZreDGNEkIClHBs6V4kiYVc5ROC1IbpjIZXY2C5k9
+        74XBrle6EaNjXBkVSJlyUtyeBIAJ0ZEwRwVpkznQyRHCpMidwwEpwi5ujBR8m3HHvS5x7KRNGHmSwm1g
+        X/J8zfSADaZFSHk5Afqe+SVsMGlINGuKF0xxoA8dX9itnVjcxJWRkDCWMKztgcQBG4wbEoNsnpghOoQh
+        PHTsh9DGFoVWWhYbLqyuMbXS1c4sfdLGf93STi5u5eoMAxuMCxJE7+pS1uDQN0G9KzacVYQ90EpLXylJ
+        joefMLDBqCHJzQR6eU2aGBpdQK+ygn4wknBycQd3TT+wwSghSQxva2gbHJ4X2uklVigM2qnfTe7a/WCD
+        UUGiziFODB2ZH6i3e2HMCX0mRxU2GAWs+NHvsYhbTC4vBEkAGxwUVjymHndBCeDaxGFtTE5ezJ4/P71/
+        evpKU6Vc1k/YC3lBokVVHPd4IuIm2sTvD1zbVIwPEh8mOiQvdP0aS7Xa+Hr5cs1zSJGo/QnNIsrJzS/a
+        2K++HWZ8kHibEF7ygEbBa7UCOyTaVsWN5YxpXOzgwajP/Q/xHMT9yNdqV7tcJYBEsaQ5xPEAk+RwV6Hh
+        791ZQeRB9+mFAsfB6pMve8tPhZ1C44XYd7NlwTUwbrx6P7D86ptGaFZadfHwwW2xpdJhGxoHXg9AicpL
+        fr6oJ5eAcyvLnDhIRR4kmYBez/+pyYOkEoA/hf85eRBnAjZe+im219+J8vU7HXF/tEUI89v44SN1eRBV
+        AqTs5I174s3daYj2AsnIBpZXKvFF93FJrLausOKSMAkIIMuRS0Te4OF43wTMP2+wkpIBZVUSlAc+EjB+
+        d84hvK32URy7Pitmbzf4OsPRDnXPMxUFo08CPs9djUPWjk4Y/8BIXh54JKD7rMyXGRxLWpKOPOiRgO6j
+        0/z54XFJpy8PkICX1b/ir2pRizcJVloSRr5AFM3K24R60bRBuzzfwpI45EGlWmelJWoFdKEsMUJgeOHh
+        gWtQEviWlrjkxyfOsdIStQIX90fzZkO4BsZBYGmJSx5MTZVFuayLSqXuQq2gJ2hQvEkILS2BfJbo2OU9
+        8HyvjSX6JAwsLTE+SCqvSHIgQZ6zpyeDJyEyaYm1QWIY/jrRZCgRrheAQhE8CZFLS9hgIvxdIbyWShwb
+        YctGBBtMFPywsPbsALAd+C2L4IjMH58AvFa4Ldr/AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnDividir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -10530,31 +10555,6 @@
   <metadata name="PVentaMapeo58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>700, 30</value>
   </metadata>
-  <data name="btnCortesia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAD8AAAAvCAYAAABUiRJEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAR8SURBVGhD3ZrLbtNAFIZT8wKReAAQT9AHYBHxBBUbxC5C
-        rNgQJCRACBEWBapSSKHc0kQxiUBCIFEBG4QQKUiIcg1sWIBEdkgsIBRooZcM5zce1x6fOLbjC2XxJfax
-        ZzzfmfGMmzojhPgvefv23TCR445J2OB6A5JEkcia+3lCAPt5KmxwvQBZoiVFze0Z2/4MV07CBtcDJIZh
-        3TYlO7Ztic6Vs8MG/3VIDOIQluLYxygoEej5PFdOhQ0mTWZbpUAUe1Cwn2uKOsTtx3tB540QmBc2y5jr
-        pKQhuRIh+mANYVMA4ri/WXGKywnQOI5vQibMWgFcBZOGxPKKKIc1jE0Ra2a3gxjRJCApRwbOleJImFXO
-        UTgtSG6YyGV2NguZPe+Fwa5XuhGjY1wZFUiZclLcngSACdGRMEcFaZM50MkRwqTIncMBKcIubowUfJtx
-        x70uceykTRh5ksJtYF/yfM30gA2mRUh5OQH6nvklbDBpSDRrihdMcaAPHV/YrZ1Y3MSVkZAwljCs7YHE
-        ARuMGxKDbJ6YITqEITx07IfQxhaFVloWGy6srjG10tXOLH3Sxn/d0k4ubuXqDAMbjAsSRO/qUtbg0DdB
-        vSs2nFWEPdBKS18pSY6HnzCwwaghyc0EenlNmhgaXUCvsoJ+MJJwcnEHd00/sMEoIUkMb2toGxyeF9rp
-        JVYoDNqp303u2v1gg1FBos4hTgwdmR+ot3thzAl9JkcVNhgFrPjR77GIW0wuLwRJABscFFY8ph53QQng
-        2sRhbUxOXsyePz+9f3r6SlOlXNZP2At5QaJFVRz3eCLiJtrE7w9c21SMDxIfJjokL3T9Gku12vh6+XLN
-        c0iRqP0JzSLKyc0v2tivvh1mfJB4mxBe8oBGwWu1Ajsk2lbFjeWMaVzs4MGoz/0P8RzE/cjXale7XCWA
-        RLGkOcTxAJPkcFeh4e/dWUHkQffphQLHweqTL3vLT4WdQuOF2HezZcE1MG68ej+w/OqbRmhWWnXx8MFt
-        saXSYRsaB14PQInKS36+qCeXgHMry5w4SEUeJJmAXs//qcmDpBKAP4X/OXkQZwI2XvopttffifL1Ox1x
-        f7RFCPPb+OEjdXkQVQKk7OSNe+LN3WmI9gLJyAaWVyrxRfdxSay2rrDikjAJCCDLkUtE3uDheN8EzD9v
-        sJKSAWVVEpQHPhIwfnfOIbyt9lEcuz4rZm83+DrD0Q51zzMVBaNPAj7PXY1D1o5OGP/ASF4eeCSg+6zM
-        lxkcS1qSjjzokYDuo9P8+eFxSacvD5CAl9W/4q9qUYs3CVZaEka+QBTNytuEetG0Qbs838KSOORBpVpn
-        pSVqBXShLDFCYHjh4YFrUBL4lpa45McnzrHSErUCF/dH82ZDuAbGQWBpiUseTE2VRbmsi0ql7kKtoCdo
-        ULxJCC0tgXyW6NjlPfB8r40l+iQMLC0xPkgqr0hyIEGes6cngychMmmJtUFiGP460WQoEa4XgEIRPAmR
-        S0vYYCL8XSG8lkocG2HLRgQbTBT8sLD27ACwHfgti+CIzB+fALxWuC3a/wAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="pCortesia80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>839, 30</value>
   </metadata>

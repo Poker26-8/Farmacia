@@ -7,6 +7,8 @@
 
     Dim myope As Double = 0
     Dim NewPos As String = ""
+
+    Public dato As Integer = 0
     Private Sub frmPagarTouch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpfechapago.Value = Format(Date.Now, "yyyy-MM-dd")
     End Sub
@@ -114,6 +116,7 @@
         txtsaldomon.Text = ""
         txtcliente.Text = ""
         btnIntro.Enabled = True
+        lblidcliente.Text = ""
     End Sub
 
     Private Sub txtPropina_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPropina.KeyPress
@@ -1074,5 +1077,24 @@
         cboTelefono_KeyPress(cboTelefono, New KeyPressEventArgs(ControlChars.Cr))
     End Sub
 
+    Private Sub btnTel_Click(sender As Object, e As EventArgs) Handles btnTel.Click
+        frmTecladoPagar.telefono = 1
+        dato = 1
+        frmTecladoPagar.Show()
+        frmTecladoPagar.BringToFront()
+    End Sub
 
+    Private Sub btnTecNombre_Click(sender As Object, e As EventArgs) Handles btnTecNombre.Click
+        frmTecladoPagar.nombre = 1
+        dato = 2
+        frmTecladoPagar.Show()
+        frmTecladoPagar.BringToFront()
+    End Sub
+
+    Private Sub btnDir_Click(sender As Object, e As EventArgs) Handles btnDir.Click
+        frmTecladoPagar.direccion = 1
+        dato = 3
+        frmTecladoPagar.Show()
+        frmTecladoPagar.BringToFront()
+    End Sub
 End Class

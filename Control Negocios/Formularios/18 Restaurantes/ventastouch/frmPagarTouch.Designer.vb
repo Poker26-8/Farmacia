@@ -22,13 +22,13 @@ Partial Class frmPagarTouch
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarTouch))
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.lblfolio = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtpagos = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtResta = New System.Windows.Forms.TextBox()
@@ -85,9 +85,9 @@ Partial Class frmPagarTouch
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtAdeuda = New System.Windows.Forms.TextBox()
         Me.txtMaxCredito = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnDir = New System.Windows.Forms.Button()
         Me.btnTecNombre = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnTel = New System.Windows.Forms.Button()
         Me.rbtDireccion = New System.Windows.Forms.RichTextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cboNombre = New System.Windows.Forms.ComboBox()
@@ -158,17 +158,6 @@ Partial Class frmPagarTouch
         Me.lblfolio.TabIndex = 32
         Me.lblfolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label25
-        '
-        Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(3, 4)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(214, 21)
-        Me.Label25.TabIndex = 31
-        Me.Label25.Text = "Folio Venta"
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -190,6 +179,17 @@ Partial Class frmPagarTouch
         Me.txtpagos.TabIndex = 15
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label25
+        '
+        Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(3, 4)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(214, 21)
+        Me.Label25.TabIndex = 31
+        Me.Label25.Text = "Folio Venta"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label2
         '
@@ -419,8 +419,8 @@ Partial Class frmPagarTouch
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdPagos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
@@ -671,9 +671,9 @@ Partial Class frmPagarTouch
         Me.GroupBox5.Controls.Add(Me.Label12)
         Me.GroupBox5.Controls.Add(Me.txtAdeuda)
         Me.GroupBox5.Controls.Add(Me.txtMaxCredito)
-        Me.GroupBox5.Controls.Add(Me.Button3)
+        Me.GroupBox5.Controls.Add(Me.btnDir)
         Me.GroupBox5.Controls.Add(Me.btnTecNombre)
-        Me.GroupBox5.Controls.Add(Me.Button1)
+        Me.GroupBox5.Controls.Add(Me.btnTel)
         Me.GroupBox5.Controls.Add(Me.rbtDireccion)
         Me.GroupBox5.Controls.Add(Me.Label11)
         Me.GroupBox5.Controls.Add(Me.cboNombre)
@@ -747,16 +747,16 @@ Partial Class frmPagarTouch
         Me.txtMaxCredito.TabIndex = 1
         Me.txtMaxCredito.Text = "0.00"
         '
-        'Button3
+        'btnDir
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(578, 47)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(48, 26)
-        Me.Button3.TabIndex = 9
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnDir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDir.Image = CType(resources.GetObject("btnDir.Image"), System.Drawing.Image)
+        Me.btnDir.Location = New System.Drawing.Point(578, 47)
+        Me.btnDir.Name = "btnDir"
+        Me.btnDir.Size = New System.Drawing.Size(48, 26)
+        Me.btnDir.TabIndex = 9
+        Me.btnDir.UseVisualStyleBackColor = False
         '
         'btnTecNombre
         '
@@ -769,16 +769,16 @@ Partial Class frmPagarTouch
         Me.btnTecNombre.TabIndex = 8
         Me.btnTecNombre.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnTel
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(257, 55)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(47, 26)
-        Me.Button1.TabIndex = 7
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnTel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnTel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTel.Image = CType(resources.GetObject("btnTel.Image"), System.Drawing.Image)
+        Me.btnTel.Location = New System.Drawing.Point(257, 55)
+        Me.btnTel.Name = "btnTel"
+        Me.btnTel.Size = New System.Drawing.Size(47, 26)
+        Me.btnTel.TabIndex = 7
+        Me.btnTel.UseVisualStyleBackColor = False
         '
         'rbtDireccion
         '
@@ -1198,9 +1198,9 @@ Partial Class frmPagarTouch
     Friend WithEvents Label12 As Label
     Friend WithEvents txtAdeuda As TextBox
     Friend WithEvents txtMaxCredito As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnDir As Button
     Friend WithEvents btnTecNombre As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnTel As Button
     Friend WithEvents rbtDireccion As RichTextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents cboNombre As ComboBox

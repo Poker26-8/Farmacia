@@ -3219,7 +3219,7 @@ Door:
             e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 35, Y)
             e.Graphics.DrawString("PRECIO", fuente_b, Brushes.Black, 215, Y, derecha)
             e.Graphics.DrawString("IMPORTE", fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
+            Y += 5
             traernumerocomensal()
 
             If SinNumComensal = 1 Then
@@ -3250,7 +3250,7 @@ Door:
 
                         e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                        Dim caracteresPorLinea As Integer = 40
+                        Dim caracteresPorLinea As Integer = 30
                         Dim texto As String = nombrepro
                         Dim inicio As Integer = 0
                         Dim longitudTexto As Integer = texto.Length
@@ -3332,7 +3332,7 @@ Door:
 
                                 e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                                Dim caracteresPorLinea As Integer = 40
+                                Dim caracteresPorLinea As Integer = 30
                                 Dim texto As String = nombrepro
                                 Dim inicio As Integer = 0
                                 Dim longitudTexto As Integer = texto.Length
