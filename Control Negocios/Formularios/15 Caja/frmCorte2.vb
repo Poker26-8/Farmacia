@@ -2412,7 +2412,7 @@ Public Class frmCorte2
             'Efectivo
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select sum(Monto) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and FormaPago='EFECTIVO'"
+                "select sum(Abono) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and FormaPago='EFECTIVO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
