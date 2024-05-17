@@ -2348,6 +2348,7 @@ Public Class frmNuvRepVentas
 
         grdCaptura.Rows.Clear()
         btnExcel.Enabled = True
+
         If (rbFiscal.Checked) Then
             folio = ""
             cliente = ""
@@ -2409,7 +2410,7 @@ Public Class frmNuvRepVentas
                         acuenta = IIf(rd1("ACuenta").ToString = "", 0, rd1("ACuenta").ToString)
                         resta = IIf(rd1("Resta").ToString = "", 0, rd1("Resta").ToString)
                         status = IIf(rd1("Status").ToString = "", "", rd1("Status").ToString)
-                        fecha = rd1("FVenta").ToString
+                        fecha = rd1("Fecha").ToString
                         fechanueva = Format(fecha, "yyyy-MM-dd HH:mm:ss")
                         facturado = IIf(rd1("Facturado").ToString = "", 0, rd1("Facturado").ToString)
 
@@ -2423,7 +2424,7 @@ Public Class frmNuvRepVentas
                             End If
                         End If
                         rd2.Close()
-
+                        formapago = ""
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
