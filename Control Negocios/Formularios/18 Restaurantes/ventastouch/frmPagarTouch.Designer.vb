@@ -683,7 +683,7 @@ Partial Class frmPagarTouch
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.Location = New System.Drawing.Point(12, 351)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(695, 167)
+        Me.GroupBox5.Size = New System.Drawing.Size(696, 167)
         Me.GroupBox5.TabIndex = 26
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Cliente"
@@ -1085,7 +1085,7 @@ Partial Class frmPagarTouch
         Me.btn50.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn50.Location = New System.Drawing.Point(858, 355)
         Me.btn50.Name = "btn50"
-        Me.btn50.Size = New System.Drawing.Size(131, 48)
+        Me.btn50.Size = New System.Drawing.Size(131, 49)
         Me.btn50.TabIndex = 30
         Me.btn50.UseVisualStyleBackColor = False
         '
@@ -1107,7 +1107,7 @@ Partial Class frmPagarTouch
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1007, 527)
+        Me.ClientSize = New System.Drawing.Size(1001, 527)
         Me.Controls.Add(Me.btn1000)
         Me.Controls.Add(Me.btn20)
         Me.Controls.Add(Me.btn200)

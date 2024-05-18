@@ -632,7 +632,7 @@ Public Class frmNuvRepVentas
             txtResta.Text = "0.00"
 
             If (Partes) Then
-                grdCaptura.ColumnCount = 15
+                grdCaptura.ColumnCount = 14
                 With grdCaptura
                     With .Columns(0)
                         .HeaderText = "Folio"
@@ -742,17 +742,10 @@ Public Class frmNuvRepVentas
                         .Visible = True
                         .Resizable = DataGridViewTriState.False
                     End With
-                    With .Columns(14)
-                        .HeaderText = "Ult. Costo"
-                        .Width = 75
-                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                        .Visible = True
-                        .Resizable = DataGridViewTriState.False
-                    End With
+
                 End With
             Else
-                grdCaptura.ColumnCount = 14
+                grdCaptura.ColumnCount = 13
                 With grdCaptura
                     With .Columns(0)
                         .HeaderText = "Folio"
@@ -850,14 +843,6 @@ Public Class frmNuvRepVentas
                     With .Columns(12)
                         .HeaderText = "Fecha"
                         .Width = 110
-                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-                        .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                        .Visible = True
-                        .Resizable = DataGridViewTriState.False
-                    End With
-                    With .Columns(13)
-                        .HeaderText = "Ult. Costo"
-                        .Width = 75
                         .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                         .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                         .Visible = True
@@ -2667,9 +2652,9 @@ Public Class frmNuvRepVentas
                                 parte = Saca_NumParte(codigo)
 
                                 If (Partes) Then
-                                    grdCaptura.Rows.Add(folio, cliente, codigo, barras, parte, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(costo, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), FormatNumber(descuento, 2), FormatNumber(ieps, 2), fechanueva, FormatNumber(utilidad, 2))
+                                    grdCaptura.Rows.Add(folio, cliente, codigo, IIf(barras = "", "", barras), parte, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(costo, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), FormatNumber(descuento, 2), FormatNumber(ieps, 2), fechanueva, FormatNumber(utilidad, 2))
                                 Else
-                                    grdCaptura.Rows.Add(folio, cliente, codigo, barras, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(costo, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), FormatNumber(descuento, 2), FormatNumber(ieps, 2), fechanueva, FormatNumber(utilidad, 2))
+                                    grdCaptura.Rows.Add(folio, cliente, codigo, IIf(barras = "", "", barras), descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(costo, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), FormatNumber(descuento, 2), FormatNumber(ieps, 2), fechanueva, FormatNumber(utilidad, 2))
                                 End If
 
                                 T_Costo = T_Costo + sumacosto
@@ -2898,7 +2883,7 @@ Public Class frmNuvRepVentas
 
                                 If (Partes) Then
                                 Else
-                                    grdCaptura.Rows.Add(folio, codigo, barras, descripcion, uventa, cantidad, precio, FormatNumber(subtotal, 2), "0.00", FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva)
+                                    grdCaptura.Rows.Add(folio, codigo, IIf(barras = "", "", barras), descripcion, uventa, cantidad, precio, FormatNumber(subtotal, 2), "0.00", FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva)
                                 End If
 
                                 If codigo <> "xc3" Then
@@ -3006,7 +2991,7 @@ Public Class frmNuvRepVentas
                     T_Total = T_Total + total
                     Iva = CDbl(T_Total) - CDbl(T_Subtotal)
 
-                    grdCaptura.Rows.Add(folio, codigo, barras, descripcion, uventa, cantidad, precio, descuento, subtotal, ieps, Iva, total, fechanueva, utilidad)
+                    grdCaptura.Rows.Add(folio, codigo, IIf(barras = "", "", barras), descripcion, uventa, cantidad, precio, descuento, subtotal, ieps, Iva, total, fechanueva, utilidad)
 
                     If codigo <> "xc3" Then
                         T_Suma = T_Suma + cantidad
@@ -3092,7 +3077,7 @@ Public Class frmNuvRepVentas
 
                         Iva = CDbl(total) - CDbl(subtotal)
 
-                        grdCaptura.Rows.Add(folio, codigo, barras, descripcion, uventa, cantidad, precio, descuento, subtotal, ieps, Iva, total, fecha, utilidad)
+                        grdCaptura.Rows.Add(folio, codigo, IIf(barras = "", "", barras), descripcion, uventa, cantidad, precio, descuento, subtotal, ieps, Iva, total, fecha, utilidad)
 
                         T_Subtotal = T_Subtotal + subtotal
                         T_Total = T_Total + total
@@ -3207,9 +3192,9 @@ Public Class frmNuvRepVentas
                                 parte = Saca_NumParte(codigo)
 
                                 If (Partes) Then
-                                    grdCaptura.Rows.Add(folio, cliente, codigo, barras, parte, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(descu, 2), FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva, FormatNumber(utilidad, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2))
+                                    grdCaptura.Rows.Add(folio, cliente, codigo, IIf(barras = "", "", barras), parte, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(descu, 2), FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva, FormatNumber(utilidad, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2))
                                 Else
-                                    grdCaptura.Rows.Add(folio, cliente, codigo, barras, descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(descu, 2), FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva, FormatNumber(utilidad, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2))
+                                    grdCaptura.Rows.Add(folio, cliente, codigo, IIf(barras = "", "", barras), descripcion, uventa, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(subtotal, 2), FormatNumber(descu, 2), FormatNumber(ieps, 2), FormatNumber(Iva, 2), FormatNumber(total, 2), fechanueva, FormatNumber(utilidad, 2), FormatNumber(acuenta, 2), FormatNumber(resta, 2))
                                 End If
 
 
@@ -4098,6 +4083,14 @@ Public Class frmNuvRepVentas
             exLibro = exApp.Workbooks.Add
             exHoja = exLibro.Worksheets.Application.ActiveSheet
 
+            'exHoja.Columns("A").NumberFormat = "@"
+            'exHoja.Columns("B").NumberFormat = "@"
+            'exHoja.Columns("C").NumberFormat = "@"
+            'exHoja.Columns("D").NumberFormat = "@"
+            'exHoja.Columns("I").NumberFormat = "@"
+            'exHoja.Columns("G").NumberFormat = "@"
+            'exHoja.Columns("K").NumberFormat = "@"
+
             Dim Fila As Integer = 0
             Dim Col As Integer = 0
 
@@ -4105,13 +4098,6 @@ Public Class frmNuvRepVentas
             Dim NCol As Integer = grdCaptura.ColumnCount
             Dim NRow As Integer = grdCaptura.RowCount
 
-            exHoja.Columns("A").NumberFormat = "@"
-            exHoja.Columns("B").NumberFormat = "@"
-            exHoja.Columns("C").NumberFormat = "@"
-            exHoja.Columns("D").NumberFormat = "@"
-            exHoja.Columns("I").NumberFormat = "@"
-            exHoja.Columns("G").NumberFormat = "@"
-            exHoja.Columns("K").NumberFormat = "@"
             'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
             For i As Integer = 1 To NCol
                 exHoja.Cells.Item(1, i) = grdCaptura.Columns(i - 1).HeaderText.ToString
@@ -4121,11 +4107,9 @@ Public Class frmNuvRepVentas
             For Fila = 0 To NRow - 1
                 For Col = 0 To NCol - 1
                     exHoja.Cells.Item(Fila + 2, Col + 1) = grdCaptura.Rows(Fila).Cells(Col).Value.ToString
+
                 Next
             Next
-
-            Dim Fila2 As Integer = Fila + 2
-            Dim Col2 As Integer = Col
 
             'Titulo en negrita, Alineado al centro y que el tamaño de la columna se
             exHoja.Rows.Item(1).Font.Bold = 1

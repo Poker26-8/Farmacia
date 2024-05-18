@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.IO
 Imports Core.DAL.DE
 
+
 Public Class frmAgregarProducto
 
     Dim fecha As Date = Nothing
@@ -213,11 +214,7 @@ Public Class frmAgregarProducto
         Dim deptos As Integer = 0
 
         Try
-            If TotDeptos <= 10 Then
-                pDepartamento.AutoScroll = False
-            Else
-                pDepartamento.AutoScroll = True
-            End If
+
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -232,7 +229,7 @@ Public Class frmAgregarProducto
                     btnDepto.Text = departamento
                     btnDepto.Name = "btnDepto(" & deptos & ")"
                     btnDepto.Left = 0
-                    btnDepto.Height = 55
+                    btnDepto.Height = 40
 
                     If TotDeptos <= 10 Then
                         btnDepto.Width = pDepartamento.Width
@@ -298,11 +295,11 @@ Public Class frmAgregarProducto
             Loop
             rd2.Close()
 
-            If TotGrupo <= 10 Then
-                pgrupo.AutoScroll = False
-            Else
-                pgrupo.AutoScroll = True
-            End If
+            'If TotGrupo <= 10 Then
+            '    pgrupo.AutoScroll = False
+            'Else
+            '    pgrupo.AutoScroll = True
+            'End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Departamento<>'INGREDIENTES' AND Departamento<>'SERVICIOS' AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' order by Grupo asc"
@@ -315,7 +312,7 @@ Public Class frmAgregarProducto
                     btnGrupo.Tag = depto
                     btnGrupo.Name = "btnGrupo(" & grupos & ")"
                     btnGrupo.Left = 0
-                    btnGrupo.Height = 55
+                    btnGrupo.Height = 40
 
                     If TotGrupo <= 10 Then
                         btnGrupo.Width = pgrupo.Width
@@ -360,13 +357,13 @@ Public Class frmAgregarProducto
 
     End Sub
 
+
+
     Public Sub Productos(ByVal depto As String, ByVal grupo As String)
         Dim prods As Integer = 1
         Dim cuantos As Integer = Math.Truncate(pProductos.Height / 70)
 
         Try
-
-
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand

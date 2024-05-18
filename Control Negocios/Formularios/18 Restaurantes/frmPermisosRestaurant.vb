@@ -221,6 +221,12 @@
             Else
                 cbPrecuentas.Checked = False
                 cbCambioM.Checked = False
+                cbCancelarComanda.Checked = False
+                cbCortesia.Checked = False
+                cbJuntar.Checked = False
+                cbCobrar.Checked = False
+                cbmesas.Checked = False
+
             End If
             rd1.Close()
             cnn1.Close()

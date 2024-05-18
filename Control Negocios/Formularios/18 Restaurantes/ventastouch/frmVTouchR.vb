@@ -2526,6 +2526,7 @@ deku:
 
             If MsgBox("Desea guardar los datos de esta venta", vbInformation + vbOKCancel, "Delsscom® Restaurant") = vbCancel Then
                 Exit Sub
+                frmPagarTouch.btnIntro.Enabled = True
             End If
 
             Dim Credito_Cliente As Double = 0

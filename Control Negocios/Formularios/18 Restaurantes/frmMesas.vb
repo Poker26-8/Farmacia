@@ -1246,6 +1246,9 @@ Public Class frmMesas
         lbltotalmesa.Text = ""
         montomapeo = 0
 
+        frmCorreciones.Show()
+        frmCorreciones.BringToFront()
+
     End Sub
 
     Private Sub btnMesa_MouseMove(sender As Object, e As MouseEventArgs)

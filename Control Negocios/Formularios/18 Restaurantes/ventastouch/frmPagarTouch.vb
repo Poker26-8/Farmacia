@@ -48,11 +48,11 @@
 
     Private Sub txtEfectivo_TextChanged(sender As Object, e As EventArgs) Handles txtEfectivo.TextChanged
 
-        If Not IsNumeric(txtEfectivo.Text) Then txtEfectivo.Text = "0.00" : Exit Sub
+        '  If Not IsNumeric(txtEfectivo.Text) Then txtEfectivo.Text = "0.00" : Exit Sub
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
 
-        myope = Montocobromapeo - (CDbl(txtEfectivo.Text) + CDbl(txtpagos.Text))
+        myope = Montocobromapeo - (CDbl(IIf(txtEfectivo.Text = "", 0, txtEfectivo.Text)) + CDbl(txtpagos.Text))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -645,13 +645,18 @@
     End Sub
 
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+
         Select Case focomapeo
+
             Case Is = 1 'efectivo
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + btn1.Text
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtEfectivo.Text = txtEfectivo.Text + btn1.Text
+                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                'Dim nuevo = monto + btn1.Text
+                'txtEfectivo.Text = FormatNumber(nuevo, 2)
+                'txtEfectivo.Focus.Equals(True)
+
             Case Is = 2 'descuento
+
                 Dim MONTO As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim NUEVO = MONTO + btn1.Text
                 txtDescuento.Text = FormatNumber(NUEVO, 2)
