@@ -3,6 +3,8 @@ Imports System.Net
 Imports System.IO
 Public Class frmMesas
 
+    Dim tim As New Timer()
+
     Friend WithEvents btnArea As System.Windows.Forms.Button
     Friend WithEvents btnMesa As System.Windows.Forms.Button
     Friend WithEvents btnMesaNM As System.Windows.Forms.Button
@@ -21,11 +23,6 @@ Public Class frmMesas
 
     Dim nombreubicacion As String = ""
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
-        'If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-        '    frmMesas.ActiveForm.Close()
-
-        'End If
         Me.Close()
     End Sub
 
@@ -34,7 +31,24 @@ Public Class frmMesas
         frmPasa_Mesa.BringToFront()
     End Sub
 
+    Private Sub Timer_Tick(sender As Object, e As EventArgs)
+        tim.Stop()
+
+        If mapearmesas = 1 Then
+            TRAERLUGAR()
+        Else
+            CrearBD_MesaNM()
+        End If
+        tim.Start()
+    End Sub
+
     Private Sub frmMesas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        tim.Interval = 15000
+        AddHandler tim.Tick, AddressOf Timer_Tick
+        tim.Start()
+
         txtUsuario.Focus.Equals(True)
 
         Me.Text = "Mesas mapeables" & Strings.Space(55) & "COMANDERO"
@@ -74,6 +88,7 @@ Public Class frmMesas
         rd1.Close()
         cnn2.Close()
 
+        cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Mapeo'"
         rd1 = cmd1.ExecuteReader
@@ -87,30 +102,29 @@ Public Class frmMesas
 
         ' If lblusuario.Text <> "" Then
         If mapearmesas = 1 Then
-                TRAERLUGAR()
-                primerBoton()
+            TRAERLUGAR()
+            primerBoton()
 
-                pmesas.Visible = True
-                pmesaNM.Visible = False
+            pmesas.Visible = True
+            pmesaNM.Visible = False
 
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                    pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                    pmesas.BackgroundImageLayout = ImageLayout.Stretch
-                End If
-
-            Else
-                pmesaNM.Visible = True
-                pmesas.Visible = False
-                CrearBD_MesaNM()
-
-
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                    pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                    pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
-                End If
+            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                pmesas.BackgroundImageLayout = ImageLayout.Stretch
             End If
-        'End If
 
+        Else
+            pmesaNM.Visible = True
+            pmesas.Visible = False
+            CrearBD_MesaNM()
+
+
+            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+            End If
+        End If
+        'End If
     End Sub
 
     Public Sub primerBoton()
@@ -765,7 +779,7 @@ Public Class frmMesas
         Dim totalc As Double = 0
         frmPagar.Close()
 
-            frmCalcula.Close()
+        frmCalcula.Close()
 
         If tables.BackColor <> Color.White Then
             Try
@@ -960,58 +974,78 @@ Public Class frmMesas
 
         If AscW(e.KeyChar) = Keys.Enter Then
             Try
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Alias,Status,IdEmpleado FROM Usuarios WHERE Clave='" & txtUsuario.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        lblusuario.Text = rd1(0).ToString
-                        idempleado = rd1(2).ToString
-                        id_usu_log = rd1(2).ToString
 
-                        If rd1(1).ToString Then
-                            KeyOP(foco)
-
-                            If mapearmesas = 1 Then
-                                TRAERLUGAR()
-                                primerBoton()
-
-                                pmesas.Visible = True
-                                pmesaNM.Visible = False
-
-                                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                                    pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                                    pmesas.BackgroundImageLayout = ImageLayout.Stretch
-                                End If
-                            Else
-                                pmesaNM.Visible = True
-                                pmesas.Visible = False
-                                CrearBD_MesaNM()
-                                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
-                                    pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
-                                    pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
-                                End If
-                            End If
-
-                        Else
-                            MsgBox("El usuario no esta activo contacte a su administrador", vbInformation + vbOKOnly, titulomensajes)
-                            rd1.Close()
-                            cnn1.Close()
-                        End If
-                    Else
-                        MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulomensajes)
-                        cnn1.Close()
-                        Exit Sub
-                    End If
-                Else
-                    lblusuario.Text = ""
-                    txtUsuario.Text = ""
-                    txtMesa.Text = ""
+                If lblusuario.Text = "" And txtUsuario.Text = "" Then
+                    MsgBox("Ingresa la contraseña", vbInformation + vbOKOnly)
                     Exit Sub
+                Else
+
+                    If txtMesa.Text = "" Then
+                        MsgBox("Seleeciona una mesa", vbInformation + vbOKOnly, titulorestaurante)
+                        Exit Sub
+                    Else
+                        frmAgregarProducto.lblatiende.Text = lblusuario.Text
+                        frmAgregarProducto.lblmesa.Text = txtMesa.Text
+                        frmAgregarProducto.lblNcomensales.Text = txtNComensales.Text
+                        frmAgregarProducto.Show()
+                        frmAgregarProducto.BringToFront()
+                        Me.Close()
+                    End If
+
                 End If
-                rd1.Close()
-                cnn1.Close()
+
+                '        cnn1.Close() : cnn1.Open()
+                '        cmd1 = cnn1.CreateCommand
+                '        cmd1.CommandText = "SELECT Alias,Status,IdEmpleado FROM Usuarios WHERE Clave='" & txtUsuario.Text & "'"
+                '        rd1 = cmd1.ExecuteReader
+                '        If rd1.HasRows Then
+                '            If rd1.Read Then
+                '                lblusuario.Text = rd1(0).ToString
+                '                idempleado = rd1(2).ToString
+                '                id_usu_log = rd1(2).ToString
+
+                '                If rd1(1).ToString Then
+                ' KeyOP(foco)
+
+                '                    If mapearmesas = 1 Then
+                '                        TRAERLUGAR()
+                '                        primerBoton()
+
+                '                        pmesas.Visible = True
+                '                        pmesaNM.Visible = False
+
+                '                        If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                '                            pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                '                            pmesas.BackgroundImageLayout = ImageLayout.Stretch
+                '                        End If
+                '                    Else
+                '                        pmesaNM.Visible = True
+                '                        pmesas.Visible = False
+                '                        CrearBD_MesaNM()
+                '                        If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                '                            pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                '                            pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+                '                        End If
+                '                    End If
+
+                '                Else
+                '                    MsgBox("El usuario no esta activo contacte a su administrador", vbInformation + vbOKOnly, titulomensajes)
+                '                    rd1.Close()
+                '                    cnn1.Close()
+                '                End If
+                '            Else
+                '                MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulomensajes)
+                '                cnn1.Close()
+                '                Exit Sub
+                '            End If
+                '        Else
+                '            lblusuario.Text = ""
+                '            txtUsuario.Text = ""
+                '            txtMesa.Text = ""
+                '            Exit Sub
+                '        End If
+                '        rd1.Close()
+                '        cnn1.Close()
 
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
@@ -1246,8 +1280,8 @@ Public Class frmMesas
         lbltotalmesa.Text = ""
         montomapeo = 0
 
-        frmCorreciones.Show()
-        frmCorreciones.BringToFront()
+        ' frmCorreciones.Show()
+        'frmCorreciones.BringToFront()
 
     End Sub
 
@@ -1527,6 +1561,73 @@ Public Class frmMesas
     Private Sub frmMesas_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         CrearBD_MesaNM()
         AjustarTamañoFuenteBotones()
+    End Sub
+
+    Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
+        Try
+            If txtUsuario.Text = "" Then Exit Sub
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Alias,Status FROM usuarios WHERE Clave='" & txtUsuario.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(1).ToString = 1 Then
+                        lblusuario.Text = rd1(0).ToString
+
+                        If mapearmesas = 1 Then
+                            TRAERLUGAR()
+                            primerBoton()
+
+                            pmesas.Visible = True
+                            pmesaNM.Visible = False
+
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                                pmesas.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                                pmesas.BackgroundImageLayout = ImageLayout.Stretch
+                            End If
+                        Else
+                            pmesaNM.Visible = True
+                            pmesas.Visible = False
+                            CrearBD_MesaNM()
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
+                                pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
+                                pmesaNM.BackgroundImageLayout = ImageLayout.Stretch
+                            End If
+                        End If
+
+                    Else
+                        MsgBox("El usuario no esta activo contacte a su administrador")
+                        txtUsuario.Text = ""
+                        lblusuario.Text = ""
+                        Exit Sub
+                    End If
+                End If
+            Else
+                MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulorestaurante)
+                txtUsuario.Text = ""
+                lblusuario.Text = ""
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub frmMesas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        'tim.Stop()
+
+        'If mapearmesas = 1 Then
+        '    TRAERLUGAR()
+        'Else
+        '    CrearBD_MesaNM()
+        'End If
+        'tim.Start()
     End Sub
 
     Public Function CutCad(VAL As String) As String
