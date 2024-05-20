@@ -120,7 +120,6 @@
                 Else
                     salida = Format(fechasalida, "yyyy-MM-dd HH:mm:ss")
                 End If
-                MsgBox(salida)
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "INSERT INTO AsigPC(Nombre,Tipo,HorEnt,HorSal,Fecha,Ocupada,FechaSal) VALUES('" & lblhabitacion.Text & "','Habitacion','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "',1,'" & salida & "')"
