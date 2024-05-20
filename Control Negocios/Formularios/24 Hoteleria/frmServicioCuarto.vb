@@ -737,7 +737,7 @@ Public Class frmServicioCuarto
         TFolio.Interval = 5000
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT Max(Folio) FROM Comanda1"
+        cmd1.CommandText = "SELECT Max(Id) FROM Comanda1"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1380,7 +1380,7 @@ nopaso:
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT MAX(Folio) FROM Comanda1"
+                cmd2.CommandText = "SELECT MAX(Id) FROM Comanda1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then

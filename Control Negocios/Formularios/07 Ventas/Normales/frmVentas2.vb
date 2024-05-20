@@ -6944,7 +6944,7 @@ Door:
                     rd1.Close()
                 End If
             Next
-            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 6)
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -7607,6 +7607,9 @@ Door:
 
                 myprecioS = FormatNumber(myprecio / (1 + MyIVA), 6)
                 mytotalS = FormatNumber(mytotal / (1 + MyIVA), 6)
+
+                myprecioS = FormatNumber(myprecioS, 6)
+                mytotalS = FormatNumber(mytotalS, 6)
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =

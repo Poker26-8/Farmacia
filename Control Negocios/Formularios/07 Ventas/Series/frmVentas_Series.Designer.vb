@@ -1876,7 +1876,7 @@ Partial Class frmVentas_Series
         Me.GroupBox5.Controls.Add(Me.Label31)
         Me.GroupBox5.Controls.Add(Me.txtResta)
         Me.GroupBox5.Controls.Add(Me.Label29)
-        Me.GroupBox5.Location = New System.Drawing.Point(755, 608)
+        Me.GroupBox5.Location = New System.Drawing.Point(825, 607)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(212, 145)
         Me.GroupBox5.TabIndex = 178

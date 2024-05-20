@@ -5929,6 +5929,11 @@ doorcita:
         End Try
 
         'Cálculo de Subtotal e IVA
+
+        Dim ivaproducto As Double = 0
+        Dim mysubtotali As Double = 0
+        Dim ivapro As Double = 0
+        Dim productoiva As Double = 0
         Try
             txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
 
@@ -5943,16 +5948,21 @@ doorcita:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
-                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+
+                            If rd1(0).ToString > 0 Then
+
+                                mysubtotali = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                ivapro = mysubtotali / (1 + rd1(0).ToString)
+                                productoiva = CDbl(mysubtotali) - CDbl(ivapro)
+
+                                TotalIVAPrint = TotalIVAPrint + productoiva
                             End If
                         End If
                     End If
                     rd1.Close()
                 End If
             Next
-            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 6)
             MySubtotal = FormatNumber(MySubtotal, 4)
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -6145,7 +6155,7 @@ doorcita:
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Fecha) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Fecha) values(" & IdCliente & ",'" & cboNombre.Text & "','" & txtdireccion.Text & "'," & IVA_Vent & "," & SubTotal & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "'," & IIf(Entrega = True, 1, 0) & ",'',0,'" & txtMonedero.Text & "','" & CodCadena & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If

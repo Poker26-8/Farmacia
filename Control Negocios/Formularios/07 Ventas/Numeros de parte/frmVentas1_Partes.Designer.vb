@@ -23,20 +23,20 @@ Partial Class frmVentas1_Partes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas1_Partes))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -405,6 +405,7 @@ Partial Class frmVentas1_Partes
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(69, 28)
         Me.txtcantidad.TabIndex = 91
+        Me.txtcantidad.Text = "1"
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtunidad
@@ -434,9 +435,9 @@ Partial Class frmVentas1_Partes
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.AliceBlue
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle14
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -455,9 +456,9 @@ Partial Class frmVentas1_Partes
         '
         'Column1
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -466,17 +467,17 @@ Partial Class frmVentas1_Partes
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle16
         Me.Column2.HeaderText = "Descipcion"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
         'Column3
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle17
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -484,9 +485,9 @@ Partial Class frmVentas1_Partes
         '
         'Column4
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle18
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -494,9 +495,9 @@ Partial Class frmVentas1_Partes
         '
         'Column5
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle19
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -504,9 +505,9 @@ Partial Class frmVentas1_Partes
         '
         'Column6
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle20
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -514,9 +515,9 @@ Partial Class frmVentas1_Partes
         '
         'Column7
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle21
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -531,8 +532,8 @@ Partial Class frmVentas1_Partes
         '
         'Column20
         '
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column20.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column20.DefaultCellStyle = DataGridViewCellStyle22
         Me.Column20.HeaderText = "Lote"
         Me.Column20.Name = "Column20"
         Me.Column20.ReadOnly = True
@@ -2012,8 +2013,8 @@ Partial Class frmVentas1_Partes
         '
         'Column24
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column24.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column24.DefaultCellStyle = DataGridViewCellStyle23
         Me.Column24.HeaderText = "Unidad"
         Me.Column24.Name = "Column24"
         Me.Column24.ReadOnly = True
@@ -2021,8 +2022,8 @@ Partial Class frmVentas1_Partes
         '
         'Column23
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column23.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column23.DefaultCellStyle = DataGridViewCellStyle24
         Me.Column23.HeaderText = "Cant"
         Me.Column23.Name = "Column23"
         Me.Column23.ReadOnly = True
@@ -2030,8 +2031,8 @@ Partial Class frmVentas1_Partes
         '
         'Column22
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column22.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column22.DefaultCellStyle = DataGridViewCellStyle25
         Me.Column22.HeaderText = "Precio"
         Me.Column22.Name = "Column22"
         Me.Column22.ReadOnly = True
@@ -2039,8 +2040,8 @@ Partial Class frmVentas1_Partes
         '
         'Column25
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column25.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column25.DefaultCellStyle = DataGridViewCellStyle26
         Me.Column25.HeaderText = "Total"
         Me.Column25.Name = "Column25"
         Me.Column25.ReadOnly = True

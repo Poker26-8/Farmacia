@@ -3175,10 +3175,13 @@ Public Class Inicio
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         frmNuvRepVentas.Show()
         frmNuvRepVentas.BringToFront()
+
+
         'frmRepVentas.Show()
         'frmRepVentas.BringToFront()
+
         'frmEtiquetas2.Show()
-        'frmEtiquetas2.BringToFront()
+        ' frmEtiquetas2.BringToFront()
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click

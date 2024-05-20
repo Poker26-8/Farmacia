@@ -688,7 +688,7 @@ Public Class frmPagarH
             Exit Sub
         End If
 
-        If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : Exit Sub
+        If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : btnPagar.Enabled = True : Exit Sub
 
         If grdpago.Rows.Count > 0 Then
             For dekua As Integer = 0 To grdpago.Rows.Count - 1

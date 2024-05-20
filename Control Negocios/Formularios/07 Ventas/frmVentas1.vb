@@ -6674,6 +6674,7 @@ doorcita:
             If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
 
             cnn1.Close() : cnn1.Open()
+
             For N As Integer = 0 To grdcaptura.Rows.Count - 1
                 If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
                     cmd1 = cnn1.CreateCommand
@@ -6685,7 +6686,9 @@ doorcita:
                             If rd1(0).ToString > 0 Then
 
                                 ivaporproducto = CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) / (1 + rd1(0).ToString)
+                                ivaporproducto = FormatNumber(ivaporproducto, 2)
                                 ivaporproda = CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) - CDbl(ivaporproducto)
+                                ivaporproda = FormatNumber(ivaporproda, 2)
 
                                 TotalIVAPrint = TotalIVAPrint + CDbl(ivaporproda)
                             End If
@@ -6695,7 +6698,7 @@ doorcita:
                     rd1.Close()
                 End If
             Next
-            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 6)
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -7361,6 +7364,10 @@ doorcita:
 
                 myprecioS = FormatNumber(myprecio / (1 + MyIVA), 6)
                 mytotalS = FormatNumber(mytotal / (1 + MyIVA), 6)
+
+
+                myprecioS = FormatNumber(myprecioS, 6)
+                mytotalS = FormatNumber(mytotalS, 6)
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
