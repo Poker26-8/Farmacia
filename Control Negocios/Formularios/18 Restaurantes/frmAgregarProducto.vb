@@ -1678,10 +1678,11 @@ Public Class frmAgregarProducto
                     If rd2("Grupo").ToString() = "PROMOCIONES" Then
                         MyPrecio = 0
                     Else
-                        MyPrecio = rd2("PecioVentaMinIVA").ToString()
+                        'MyPrecio = rd2("PrecioVentaMinIVA").ToString()
+                        MyPrecio = rd2("PrecioVentaIVA").ToString()
                     End If
                 End If
-                PU = FormatNumber(MyPrecio, 2)
+                PU = MyPrecio
             End If
         End If
         rd2.Close() : cnn2.Close()

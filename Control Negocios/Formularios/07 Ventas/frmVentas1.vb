@@ -13414,10 +13414,6 @@ ecomoda:
         End Try
     End Sub
 
-    Private Sub grdcaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdcaptura.CellPainting
-        '  e.CellStyle.BackColor = Color.Transparent
-    End Sub
-
     Private Sub grdcaptura_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles grdcaptura.RowPrePaint
 
         If e.RowIndex Mod 2 = 0 Then

@@ -988,7 +988,7 @@ Public Class frmProductosDR
             End If
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cboCodCortoNormal.Text & "' AND Nombre='" & cboDescripcionTicketNormal.Text & "'"
+            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cboCodCortoNormal.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1154,5 +1154,26 @@ Public Class frmProductosDR
                 txtcopas.Text = ""
             End If
         End If
+    End Sub
+
+    Private Sub cboDepartamentoNormal_DropDown(sender As Object, e As EventArgs) Handles cboDepartamentoNormal.DropDown
+        Try
+            cboDepartamentoNormal.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Departamento FROM productos WHERE Departamento<>'' ORDER BY Departamento"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboDepartamentoNormal.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
     End Sub
 End Class

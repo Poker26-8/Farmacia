@@ -2785,7 +2785,7 @@ Partial Class frmVentas1
         Me.Controls.Add(Me.txtfechacad)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1293, 766)
+        Me.MinimumSize = New System.Drawing.Size(1185, 718)
         Me.Name = "frmVentas1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas (1)"

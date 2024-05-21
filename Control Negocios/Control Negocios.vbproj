@@ -499,28 +499,16 @@
     <Compile Include="Formularios\18 Restaurantes\frmRepetirProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.Designer.vb">
-      <DependentUpon>frmAgregarM.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesasNueva.Designer.vb">
-      <DependentUpon>frmMesasNueva.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesasNueva.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmPasa_Mesa.Designer.vb">
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmPasa_Mesa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesero.Designer.vb">
-      <DependentUpon>frmMesero.vb</DependentUpon>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagar.Designer.vb">
+      <DependentUpon>frmNuevoPagar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\18 Restaurantes\nuevos\frmMesero.vb">
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.Designer.vb">
@@ -539,6 +527,12 @@
       <DependentUpon>frmTecladoPagar.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTePreCant.Designer.vb">
+      <DependentUpon>frmTePreCant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTePreCant.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.Designer.vb">
@@ -1964,17 +1958,11 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmRepetirProducto.resx">
       <DependentUpon>frmRepetirProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmAgregarM.resx">
-      <DependentUpon>frmAgregarM.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmMesasNueva.resx">
-      <DependentUpon>frmMesasNueva.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPasa_Mesa.resx">
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmMesero.resx">
-      <DependentUpon>frmMesero.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagar.resx">
+      <DependentUpon>frmNuevoPagar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.resx">
       <DependentUpon>frmPagarComanda.vb</DependentUpon>
@@ -1984,6 +1972,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.resx">
       <DependentUpon>frmTecladoPagar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTePreCant.resx">
+      <DependentUpon>frmTePreCant.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTeTemp.resx">
       <DependentUpon>frmTeTemp.vb</DependentUpon>

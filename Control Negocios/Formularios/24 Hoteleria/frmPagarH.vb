@@ -162,6 +162,7 @@ Public Class frmPagarH
         txtEfectivo.Text = "0.00"
         txtdescuento1.Text = "0"
         txtMontoP.Text = "0.00"
+        btnPagar.Enabled = True
     End Sub
 
     Private Sub txtdescuento1_Click(sender As Object, e As EventArgs) Handles txtdescuento1.Click
@@ -688,7 +689,11 @@ Public Class frmPagarH
             Exit Sub
         End If
 
-        If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : btnPagar.Enabled = True : Exit Sub
+        If txtContra.Text = "" Then
+            btnCobrar.Enabled = True
+        End If
+
+        If txtContra.Text = "" Then MsgBox("Debe ingresar la contraseña de usuario") : txtContra.Focus.Equals(True) : Exit Sub
 
         If grdpago.Rows.Count > 0 Then
             For dekua As Integer = 0 To grdpago.Rows.Count - 1

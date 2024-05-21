@@ -66,18 +66,21 @@ Public Class frmMesas
 
                 If tomacontralog = "1" Then
 
+                    cnn2.Close() : cnn2.Open()
+
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
                             txtUsuario.Text = rd2(0).ToString
-                            lblusuario.Text = rd2(1).ToString
+                            ' lblusuario.Text = rd2(1).ToString
                             txtUsuario.PasswordChar = "*"
                             txtUsuario.ForeColor = Color.Black
                         End If
                     End If
                     rd2.Close()
+                    cnn2.Close()
                 Else
                     lblusuario.Text = ""
                     txtUsuario.Text = ""
@@ -1280,9 +1283,6 @@ Public Class frmMesas
         lbltotalmesa.Text = ""
         montomapeo = 0
 
-        ' frmCorreciones.Show()
-        'frmCorreciones.BringToFront()
-
     End Sub
 
     Private Sub btnMesa_MouseMove(sender As Object, e As MouseEventArgs)
@@ -1457,7 +1457,6 @@ Public Class frmMesas
     End Sub
 
     Private Sub btncobro_Click(sender As Object, e As EventArgs) Handles btncobro.Click
-
         If lbltotalmesa.Text = "0.00" Then
             Exit Sub
 
@@ -1505,6 +1504,16 @@ Public Class frmMesas
                                                 frmPagar.COMENSALES = txtNComensales.Text
                                                 frmPagar.Show()
 
+
+                                                frmNuevoPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
+                                                frmNuevoPagar.subtotalmapeo = lbltotalmesa.Text
+                                                frmNuevoPagar.focomapeo = 1
+                                                frmNuevoPagar.txtEfectivo.Focus.Equals(True)
+                                                frmNuevoPagar.lblmesa.Text = txtMesa.Text
+                                                frmNuevoPagar.lblusuario2.Text = lblusuario.Text
+                                                frmNuevoPagar.contraseñamesero = txtUsuario.Text
+                                                frmNuevoPagar.COMENSALES = txtNComensales.Text
+                                                frmNuevoPagar.Show()
 
                                             End If
                                         Else

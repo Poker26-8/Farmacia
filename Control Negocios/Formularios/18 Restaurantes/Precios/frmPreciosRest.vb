@@ -98,7 +98,7 @@
                     txtPCI.Text = IIf(txtPC.Text = "", 0, txtPC.Text) * (1 + rd1("IVA").ToString)
                     txtPCI.Text = FormatNumber(txtPCI.Text, 2)
                     txtUtiM.Text = IIf(rd1("PorcMin").ToString = "", 0, rd1("PorcMin").ToString)
-                    txtPMI.Text = rd1("PreMin").ToString
+                    txtPMI.Text = rd1("PrecioDomicilioIVA").ToString
                     txtUti.Text = rd1("Porcentaje").ToString
                     txtUti.Text = FormatNumber(txtUti.Text, 2)
                     txtPV.Text = rd1("PrecioVenta").ToString
@@ -327,7 +327,7 @@
                 If rd2.Read Then
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "update Productos SET PorcMin = '" & txtUtiM.Text & "',Porcentaje = '" & txtUti.Text & "',PrecioCompra ='" & txtPC.Text & "',PrecioVentaIVA ='" & txtPVI.Text & "',PrecioVenta ='" & txtPV.Text & "',PreMin ='" & txtPMI.Text & "' WHERE  Codigo ='" & cboCodigo.Text & "' AND Nombre='" & cboNombre.Text & "'"
+                    cmd1.CommandText = "update Productos SET PorcMin = '" & txtUtiM.Text & "',Porcentaje = '" & txtUti.Text & "',PrecioCompra ='" & txtPC.Text & "',PrecioVentaIVA ='" & txtPVI.Text & "',PrecioVenta ='" & txtPV.Text & "',PrecioDomicilio=" & txtPMI.Text & ",PrecioDomicilioIVA ='" & txtPMI.Text & "' WHERE  Codigo ='" & cboCodigo.Text & "' AND Nombre='" & cboNombre.Text & "'"
                     If cmd1.ExecuteNonQuery() Then
                         MsgBox("Precios actualizados correctamente", vbInformation + vbOKOnly, titulorestaurante)
                     End If

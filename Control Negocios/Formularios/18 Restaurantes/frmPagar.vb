@@ -68,7 +68,7 @@ Public Class frmPagar
                     verid = rd2("Id").ToString
                     lblMesero.Text = rd2("CUsuario").ToString
 
-                    grdcomanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, verprecio, vertotal, vercomensal, vermesero, verid)
+                    grdcomanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
 
                     Montocobromapeo = Montocobromapeo + vertotal
                 End If
