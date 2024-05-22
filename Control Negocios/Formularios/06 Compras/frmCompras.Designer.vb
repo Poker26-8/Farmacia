@@ -175,6 +175,7 @@ Partial Class frmCompras
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.btnprod = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -1373,6 +1374,7 @@ Partial Class frmCompras
         '
         Me.panpago_compra.BackColor = System.Drawing.Color.Coral
         Me.panpago_compra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panpago_compra.Controls.Add(Me.Button4)
         Me.panpago_compra.Controls.Add(Me.btnpc_aceptar)
         Me.panpago_compra.Controls.Add(Me.Label43)
         Me.panpago_compra.Controls.Add(Me.boxPago)
@@ -1721,6 +1723,19 @@ Partial Class frmCompras
         Me.Panel2.Size = New System.Drawing.Size(918, 111)
         Me.Panel2.TabIndex = 88
         '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(8, 307)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(99, 36)
+        Me.Button4.TabIndex = 159
+        Me.Button4.Text = "Cancelar"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'frmCompras
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1942,4 +1957,5 @@ Partial Class frmCompras
       Friend WithEvents txtpc_efectivo As System.Windows.Forms.TextBox
     Friend WithEvents btnprod As Button
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Button4 As Button
 End Class
