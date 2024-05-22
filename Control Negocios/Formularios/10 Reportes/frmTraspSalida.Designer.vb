@@ -59,11 +59,6 @@ Partial Class frmTraspSalida
         Me.cbodesc = New System.Windows.Forms.ComboBox()
         Me.cbocodigo = New System.Windows.Forms.TextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.txtcoment = New System.Windows.Forms.RichTextBox()
-        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -71,6 +66,11 @@ Partial Class frmTraspSalida
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtcoment = New System.Windows.Forms.RichTextBox()
+        Me.pSalida80 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalida58 = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pSalidaCarta = New System.Drawing.Printing.PrintDocument()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -433,20 +433,6 @@ Partial Class frmTraspSalida
         Me.grdcaptura.Size = New System.Drawing.Size(788, 263)
         Me.grdcaptura.TabIndex = 291
         '
-        'txtcoment
-        '
-        Me.txtcoment.BackColor = System.Drawing.Color.Pink
-        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
-        Me.txtcoment.Name = "txtcoment"
-        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
-        Me.txtcoment.TabIndex = 319
-        Me.txtcoment.Text = ""
-        Me.txtcoment.Visible = False
-        '
-        'pSalida80
-        '
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Codigo"
@@ -507,6 +493,23 @@ Partial Class frmTraspSalida
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         Me.Column7.Width = 65
+        '
+        'txtcoment
+        '
+        Me.txtcoment.BackColor = System.Drawing.Color.Pink
+        Me.txtcoment.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtcoment.Location = New System.Drawing.Point(9, 139)
+        Me.txtcoment.Name = "txtcoment"
+        Me.txtcoment.Size = New System.Drawing.Size(431, 91)
+        Me.txtcoment.TabIndex = 319
+        Me.txtcoment.Text = ""
+        Me.txtcoment.Visible = False
+        '
+        'pSalida80
+        '
+        '
+        'pSalida58
+        '
         '
         'frmTraspSalida
         '
