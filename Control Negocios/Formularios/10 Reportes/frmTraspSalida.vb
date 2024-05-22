@@ -568,7 +568,7 @@ Public Class frmTraspSalida
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select MAX(Folio) from Traslados"
+                "select MAX(Folio) from Traslados where Concepto='SALIDA'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
