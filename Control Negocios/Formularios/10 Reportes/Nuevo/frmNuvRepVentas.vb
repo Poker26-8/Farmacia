@@ -2376,6 +2376,59 @@ Public Class frmNuvRepVentas
         grdCaptura.Rows.Clear()
         btnExcel.Enabled = True
 
+        If (rbTraspasos.Checked) Then
+            Try
+                If cboDatos.Text = "" Then
+                    MsgBox("Selecciona una opción para continuar", vbExclamation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Exit Sub
+                End If
+
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+
+                If cboDatos.Text = "SALIDA" Then
+                    cmd1.CommandText = "Select * from Traslados where Concepto='SALIDA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
+                Else
+                    cmd1.CommandText = "Select * from Traslados where Concepto='ENTRADA' and FVenta BETWEEN '" & Format(m1, "yyyy-MM-dd") & "' AND '" & Format(m2, "yyyy-MM-dd") & "'"
+                End If
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    Dim idtraspaso As Integer = rd1("Folio").ToString
+                    Dim fechatraspaso As Date = rd1("FVenta").ToString
+
+                    fechanueva = Format(fechatraspaso, "dd-MM-yyyy")
+
+                    cnn2.Close()
+                    cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "Select * from TrasladosDet where Folio=" & idtraspaso & " and Concepto='" & cboDatos.Text & "'"
+                    rd2 = cmd2.ExecuteReader
+                    Do While rd2.Read
+                        codigo = rd2("Codigo").ToString
+                        descripcion = rd2("Nombre").ToString
+                        cantidad = rd2("Cantidad").ToString
+                        uventa = rd2("Unidad").ToString
+                        precio = rd2("Precio").ToString
+                        total = rd2("Total").ToString
+
+                        grdCaptura.Rows.Add(codigo, descripcion, cantidad & " " & uventa, precio, total, fechanueva)
+                        subtotal = subtotal + total
+                    Loop
+                    rd2.Close()
+                    cnn2.Close()
+                Loop
+                rd1.Close()
+                cnn1.Close()
+                cnn2.Close()
+                txtTotal.Text = FormatNumber(subtotal, 2)
+                txtSubtotal.Text = FormatNumber(subtotal, 2)
+            Catch ex As Exception
+                cnn1.Close()
+                MessageBox.Show(ex.ToString)
+            End Try
+        End If
+
         If (rbFiscal.Checked) Then
             folio = ""
             cliente = ""
@@ -4104,6 +4157,15 @@ Public Class frmNuvRepVentas
                     "select Codigo from Productos where LENGTH(Codigo)=6 order by Codigo"
             End If
 
+            If (rbTraspasos.Checked) Then
+                cboDatos.Items.Add("ENTRADA")
+                cboDatos.Items.Add("SALIDA")
+                grdCaptura.Rows.Clear()
+                txtTotal.Text = "0.00"
+                txtSubtotal.Text = "0.00"
+                Exit Sub
+            End If
+
             cmd5.CommandText = querry
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
@@ -4862,5 +4924,78 @@ Public Class frmNuvRepVentas
         End If
     End Sub
 
+    Private Sub rbFiscal_CheckedChanged(sender As Object, e As EventArgs) Handles rbFiscal.CheckedChanged
 
+    End Sub
+
+    Private Sub rbTraspasos_Click(sender As Object, e As EventArgs) Handles rbTraspasos.Click
+        If rbTraspasos.Checked = True Then
+            grdCaptura.Rows.Clear()
+            grdCaptura.ColumnCount = 0
+            cboDatos.Text = ""
+            cboDatos.Items.Clear()
+            cboDatos.Visible = True
+
+            txtPropina.Text = "0.00"
+            txtSuma.Text = "0.00"
+            txtCosto.Text = "0.00"
+            txtCostoUtilidad.Text = "0.00"
+            txtSubtotal.Text = "0.00"
+            txtDescuento.Text = "0.00"
+            txtIeps.Text = "0.00"
+            txtIVA.Text = "0.00"
+            txtTotal.Text = "0.00"
+            txtAcuenta.Text = "0.00"
+            txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
+            grdCaptura.ColumnCount = 6
+            With grdCaptura
+                With .Columns(0)
+                    .HeaderText = "Codigo"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(1)
+                    .HeaderText = "Descripcion"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(2)
+                    .HeaderText = "Cantidad"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(3)
+                    .HeaderText = "Precio"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(4)
+                    .HeaderText = "Total"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(5)
+                    .HeaderText = "Fecha"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+            End With
+        End If
+    End Sub
 End Class
