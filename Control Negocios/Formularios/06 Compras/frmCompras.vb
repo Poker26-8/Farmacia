@@ -6097,4 +6097,14 @@ quepasowey:
         frmProductosS.Show()
         frmProductosS.BringToFront()
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        txtpc_efectivo.Text = "0.00"
+        txtpc_transfe.Text = "0.00"
+        txtpc_tarjeta.Text = "0.00"
+        txtpc_otro.Text = "0.00"
+        txtpc_resta.Text = txtpc_apagar.Text
+        pasa_pago = False
+        panpago_compra.Visible = False
+    End Sub
 End Class
