@@ -1245,4 +1245,148 @@
             cnn5.Close()
         End Try
     End Sub
+
+    Private Sub btnMesa_Click(sender As Object, e As EventArgs) Handles btnMesa.Click
+        Try
+
+            Dim tam As Integer = 0
+            Dim impre As String = ""
+
+            tam = TamImpre()
+            impre = ImpresoraImprimir()
+
+
+            If tam = 80 Then
+                pMesa80.DefaultPageSettings.PrinterSettings.PrinterName = impre
+                pMesa80.Print()
+            Else
+                pMesa58.DefaultPageSettings.PrinterSettings.PrinterName = impre
+                pMesa58.Print()
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub pMesa80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pMesa80.PrintPage
+        Try
+
+            Dim tipografia As String = "Lucida Sans Typewriter"
+            Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
+            Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+            Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+
+            Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+            Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
+            Dim hoja As New Pen(Brushes.Black, 1)
+            Dim Y As Double = 0
+
+            Dim folio As Integer = 0
+
+            Dim suma As Double = 0
+            Dim SUMAEFECTIVO As Double = 0
+            Dim SUMAFORMAS As Double = 0
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Id FROM cortecaja WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    folio = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("C O R T E  D E  C A J A", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("Folio:" & folio, fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Fecha:" & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("FOLIO", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("MESA", fuente_b, Brushes.Black, 100, Y, derecha)
+            e.Graphics.DrawString("MONTO", fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumFolio,Cliente,Abono FROM abonoi WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO'"
+            'cmd1.CommandText = "SELECT Folio,Cliente,Totales FROM ventas WHERE FVenta='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    e.Graphics.DrawString(rd1(0).ToString, fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(rd1(1).ToString, fuente_b, Brushes.Black, 100, Y, derecha)
+                    e.Graphics.DrawString(FormatNumber(rd1(2).ToString, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+                    suma = suma + rd1(2).ToString
+                End If
+            Loop
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago='EFECTIVO'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMAEFECTIVO = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMAFORMAS = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cnn1.Close()
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("TOTAL COBRADO POR VENTAS:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(suma, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL DE EFECTIVO:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(SUMAEFECTIVO, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            If SUMAFORMAS > 0 Then
+                e.Graphics.DrawString("TOTAL DE FORMAS:", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(SUMAFORMAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
+            End If
+
+
+            cnn2.Close()
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+
+    End Sub
+
+    Private Sub pMesa58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pMesa58.PrintPage
+
+    End Sub
 End Class

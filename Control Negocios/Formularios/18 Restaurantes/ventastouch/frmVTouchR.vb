@@ -1139,12 +1139,14 @@ deku:
                     btnGrupo.Tag = depto
                     btnGrupo.Name = "btnGrupo(" & grupos & ")"
                     btnGrupo.Height = 55
+                    btnGrupo.Width = 110
                     btnGrupo.Left = 0
-                    If TotGrupos <= 9 Then
-                        btnGrupo.Width = PGrupo.Width
-                    Else
-                        btnGrupo.Width = PGrupo.Width - 17
-                    End If
+
+                    'If TotGrupos <= 9 Then
+                    '    btnGrupo.Width = PGrupo.Width
+                    'Else
+                    '    btnGrupo.Width = PGrupo.Width - 17
+                    'End If
                     btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
                     btnGrupo.BackColor = PGrupo.BackColor
                     btnGrupo.FlatStyle = FlatStyle.Popup

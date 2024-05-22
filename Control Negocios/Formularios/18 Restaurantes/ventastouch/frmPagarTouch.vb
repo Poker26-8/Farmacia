@@ -703,7 +703,7 @@
                 txtDescuento.Text = FormatNumber(NUEVO, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina)
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + btn1.Text
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)

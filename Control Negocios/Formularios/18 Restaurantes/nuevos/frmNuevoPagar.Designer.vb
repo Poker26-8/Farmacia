@@ -23,6 +23,8 @@ Partial Class frmNuevoPagar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblMesero = New System.Windows.Forms.Label()
@@ -98,6 +100,7 @@ Partial Class frmNuevoPagar
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PIZQUIERDACENTRAL = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.txtSaldoM = New System.Windows.Forms.TextBox()
         Me.btn1000 = New System.Windows.Forms.Button()
         Me.btn500 = New System.Windows.Forms.Button()
         Me.btn200 = New System.Windows.Forms.Button()
@@ -133,6 +136,14 @@ Partial Class frmNuevoPagar
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Precuenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.Cancelacion80 = New System.Drawing.Printing.PrintDocument()
+        Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
+        Me.PVentaMapeo80 = New System.Drawing.Printing.PrintDocument()
+        Me.PVentaMapeo58 = New System.Drawing.Printing.PrintDocument()
+        Me.pCortesia80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCortesia58 = New System.Drawing.Printing.PrintDocument()
+        Me.Precuenta58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -152,7 +163,7 @@ Partial Class frmNuevoPagar
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel1.Controls.Add(Me.lblMesero)
         Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.lblfolio)
@@ -169,7 +180,7 @@ Partial Class frmNuevoPagar
         '
         'lblMesero
         '
-        Me.lblMesero.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblMesero.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMesero.Location = New System.Drawing.Point(664, 10)
         Me.lblMesero.Name = "lblMesero"
@@ -191,7 +202,7 @@ Partial Class frmNuevoPagar
         '
         'lblfolio
         '
-        Me.lblfolio.BackColor = System.Drawing.Color.Gainsboro
+        Me.lblfolio.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblfolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.Location = New System.Drawing.Point(471, 10)
         Me.lblfolio.Name = "lblfolio"
@@ -829,6 +840,8 @@ Partial Class frmNuevoPagar
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -837,6 +850,8 @@ Partial Class frmNuevoPagar
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -891,6 +906,7 @@ Partial Class frmNuevoPagar
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.txtSaldoM)
         Me.Panel8.Controls.Add(Me.btn1000)
         Me.Panel8.Controls.Add(Me.btn500)
         Me.Panel8.Controls.Add(Me.btn200)
@@ -902,6 +918,14 @@ Partial Class frmNuevoPagar
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(259, 236)
         Me.Panel8.TabIndex = 67
+        '
+        'txtSaldoM
+        '
+        Me.txtSaldoM.Location = New System.Drawing.Point(173, 216)
+        Me.txtSaldoM.Name = "txtSaldoM"
+        Me.txtSaldoM.Size = New System.Drawing.Size(76, 20)
+        Me.txtSaldoM.TabIndex = 47
+        Me.txtSaldoM.Visible = False
         '
         'btn1000
         '
@@ -1226,7 +1250,6 @@ Partial Class frmNuevoPagar
         Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Image = CType(resources.GetObject("btnIntro.Image"), System.Drawing.Image)
-        Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnIntro.Location = New System.Drawing.Point(0, 3)
         Me.btnIntro.Name = "btnIntro"
         Me.btnIntro.Size = New System.Drawing.Size(75, 75)
@@ -1242,7 +1265,6 @@ Partial Class frmNuevoPagar
         Me.btnPrecuenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
-        Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPrecuenta.Location = New System.Drawing.Point(76, 4)
         Me.btnPrecuenta.Name = "btnPrecuenta"
         Me.btnPrecuenta.Size = New System.Drawing.Size(92, 74)
@@ -1349,6 +1371,30 @@ Partial Class frmNuevoPagar
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'Precuenta80
+        '
+        '
+        'Cancelacion80
+        '
+        '
+        'Cancelacion58
+        '
+        '
+        'PVentaMapeo80
+        '
+        '
+        'PVentaMapeo58
+        '
+        '
+        'pCortesia80
+        '
+        '
+        'pCortesia58
+        '
+        '
+        'Precuenta58
+        '
+        '
         'frmNuevoPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1364,6 +1410,7 @@ Partial Class frmNuevoPagar
         Me.Name = "frmNuevoPagar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pagar"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
@@ -1376,6 +1423,7 @@ Partial Class frmNuevoPagar
         Me.Panel4.ResumeLayout(False)
         Me.PIZQUIERDACENTRAL.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.PIZQUIERDOSUPERIOR.ResumeLayout(False)
         Me.PIZQUIERDAABAJO.ResumeLayout(False)
@@ -1480,6 +1528,19 @@ Partial Class frmNuevoPagar
     Friend WithEvents btn50 As Button
     Friend WithEvents btn20 As Button
     Friend WithEvents TFolio As Timer
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents lblTotal As Label
+    Friend WithEvents txtSaldoM As TextBox
+    Friend WithEvents Precuenta80 As Printing.PrintDocument
+    Friend WithEvents Cancelacion80 As Printing.PrintDocument
+    Friend WithEvents Cancelacion58 As Printing.PrintDocument
+    Friend WithEvents PVentaMapeo80 As Printing.PrintDocument
+    Friend WithEvents PVentaMapeo58 As Printing.PrintDocument
+    Friend WithEvents pCortesia80 As Printing.PrintDocument
+    Friend WithEvents pCortesia58 As Printing.PrintDocument
+    Friend WithEvents Precuenta58 As Printing.PrintDocument
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -1490,8 +1551,4 @@ Partial Class frmNuevoPagar
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label26 As Label
-    Friend WithEvents lblTotal As Label
 End Class

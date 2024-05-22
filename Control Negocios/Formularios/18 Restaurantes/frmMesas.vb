@@ -1494,15 +1494,15 @@ Public Class frmMesas
 
                                             If lbltotalmesa.Text > 0 Then
 
-                                                frmPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
-                                                frmPagar.subtotalmapeo = lbltotalmesa.Text
-                                                frmPagar.focomapeo = 1
-                                                frmPagar.txtEfectivo.Focus.Equals(True)
-                                                frmPagar.lblmesa.Text = txtMesa.Text
-                                                frmPagar.lblusuario2.Text = lblusuario.Text
-                                                frmPagar.contraseñamesero = txtUsuario.Text
-                                                frmPagar.COMENSALES = txtNComensales.Text
-                                                frmPagar.Show()
+                                                'frmPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
+                                                'frmPagar.subtotalmapeo = lbltotalmesa.Text
+                                                'frmPagar.focomapeo = 1
+                                                'frmPagar.txtEfectivo.Focus.Equals(True)
+                                                'frmPagar.lblmesa.Text = txtMesa.Text
+                                                'frmPagar.lblusuario2.Text = lblusuario.Text
+                                                'frmPagar.contraseñamesero = txtUsuario.Text
+                                                'frmPagar.COMENSALES = txtNComensales.Text
+                                                'frmPagar.Show()
 
 
                                                 frmNuevoPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text

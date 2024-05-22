@@ -1718,7 +1718,7 @@ Door:
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Impresora FROM rutasimpresion WHERE Tipo='TICKET'"
+            cmd1.CommandText = "SELECT Impresora FROM rutasimpresion WHERE Tipo='TICKET' AND Equipo='" & ObtenerNombreEquipo() & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -4039,8 +4039,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "1"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
 
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
@@ -4065,8 +4065,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "2"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "2"
@@ -4090,8 +4090,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "3"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "3"
@@ -4115,8 +4115,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "4"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "4"
@@ -4140,8 +4140,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "5"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "5"
@@ -4165,8 +4165,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "6"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "6"
@@ -4190,8 +4190,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "7"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "7"
@@ -4215,8 +4215,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "8"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "8"
@@ -4240,8 +4240,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "9"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "9"
@@ -4265,8 +4265,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "0"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "0"
@@ -4290,8 +4290,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "20"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "20"
@@ -4315,8 +4315,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "50"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "50"
@@ -4340,8 +4340,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "100"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "100"
@@ -4365,8 +4365,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "200"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "200"
@@ -4390,8 +4390,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "500"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "500"
@@ -4415,8 +4415,8 @@ Door:
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "1000"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
-                txtEfectivo.Focus.Equals(True)
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
             Case Is = 3
                 Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
                 Dim nuevo = monto + "1000"

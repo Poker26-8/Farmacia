@@ -79,6 +79,9 @@ Public Class frmNuvRepVentas
 
             grdCaptura.ColumnCount = 15
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -230,6 +233,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 17
@@ -522,6 +528,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 10
             With grdCaptura
                 With .Columns(0)
@@ -630,6 +639,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 14
@@ -876,6 +888,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 14
             With grdCaptura
                 With .Columns(0)
@@ -1014,6 +1029,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 14
             With grdCaptura
                 With .Columns(0)
@@ -1151,6 +1169,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 18
@@ -1458,6 +1479,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 13
             With grdCaptura
                 With .Columns(0)
@@ -1588,6 +1612,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 8
             With grdCaptura
                 With .Columns(0)
@@ -1682,6 +1709,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 6
             With grdCaptura
                 With .Columns(0)
@@ -1758,6 +1788,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 4
             With grdCaptura
                 With .Columns(0)
@@ -1817,6 +1850,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             grdCaptura.ColumnCount = 4
             With grdCaptura
@@ -1878,6 +1914,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             grdCaptura.ColumnCount = 11
             With grdCaptura
@@ -1993,6 +2032,9 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 17
@@ -2471,12 +2513,22 @@ Public Class frmNuvRepVentas
             fecha = Nothing
             fechanueva = ""
             facturado = 0
+
+            T_Subtotal = 0
+            T_IVA = 0
+            T_Total = 0
+            T_Propina = 0
+            T_Descuento = 0
+            T_ACuenta = 0
+            T_Resta = 0
+            T_IEPS = 0
+
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                    cmd1.CommandText = "SELECT COUNT(Folio) FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA'"
                 Else
                     cmd1.CommandText = "SELECT COUNT(Folio) FROM ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status='" & cboDatos.Text & "'"
                 End If
@@ -2516,7 +2568,7 @@ Public Class frmNuvRepVentas
                         acuenta = IIf(rd1("ACuenta").ToString = "", 0, rd1("ACuenta").ToString)
                         resta = IIf(rd1("Resta").ToString = "", 0, rd1("Resta").ToString)
                         status = IIf(rd1("Status").ToString = "", "", rd1("Status").ToString)
-                        fecha = rd1("FVenta").ToString
+                        fecha = rd1("Fecha").ToString
                         fechanueva = Format(fecha, "yyyy-MM-dd HH:mm:ss")
                         facturado = IIf(rd1("Facturado").ToString = "", 0, rd1("Facturado").ToString)
 
@@ -2556,6 +2608,7 @@ Public Class frmNuvRepVentas
                 Loop
                 rd1.Close()
                 cnn1.Close()
+                cnn2.Close()
 
                 txtSubtotal.Text = FormatNumber(T_Subtotal, 2)
                 txtIVA.Text = FormatNumber(T_IVA, 2)
@@ -2742,7 +2795,7 @@ Public Class frmNuvRepVentas
                         acuenta = IIf(rd1("ACuenta").ToString = "", 0, rd1("ACuenta").ToString)
                         resta = IIf(rd1("Resta").ToString = "", 0, rd1("Resta").ToString)
                         status = rd1("Status").ToString
-                        fecha = rd1("FVenta").ToString
+                        fecha = rd1("Fecha").ToString
                         fechanueva = Format(fecha, "yyyy-MM-dd HH:mm:ss")
                         acuenta = IIf(rd1("ACuenta").ToString = "", 0, rd1("ACuenta").ToString)
                         resta = IIf(rd1("Resta").ToString = "", 0, rd1("Resta").ToString)
@@ -4532,6 +4585,9 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbComandasCance.Checked = False
+            rbCortesias.Checked = False
+
             grdCaptura.ColumnCount = 6
             With grdCaptura
                 With .Columns(0)
@@ -4603,6 +4659,22 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+
+            rbVentasTotales.Checked = False
+            rbVentasDetalle.Checked = False
+            rbVentasClientes.Checked = False
+            rbVentasCliDetalle.Checked = False
+            rbVentasDepa.Checked = False
+            rbVentasGrupo.Checked = False
+            rbVentasPago.Checked = False
+            rbVentasProducto.Checked = False
+            rbVentasVendedor.Checked = False
+            rbDevoluciones.Checked = False
+            rbProductoVendido.Checked = False
+            rbVendidoProveedor.Checked = False
+            rbVentasFormato.Checked = False
+            rbVentasPorcentaje.Checked = False
+            rbFiscal.Checked = False
 
             grdCaptura.ColumnCount = 9
             With grdCaptura
@@ -4697,6 +4769,22 @@ Public Class frmNuvRepVentas
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
 
+            rbVentasTotales.Checked = False
+            rbVentasDetalle.Checked = False
+            rbVentasClientes.Checked = False
+            rbVentasCliDetalle.Checked = False
+            rbVentasDepa.Checked = False
+            rbVentasGrupo.Checked = False
+            rbVentasPago.Checked = False
+            rbVentasProducto.Checked = False
+            rbVentasVendedor.Checked = False
+            rbDevoluciones.Checked = False
+            rbProductoVendido.Checked = False
+            rbVendidoProveedor.Checked = False
+            rbVentasFormato.Checked = False
+            rbVentasPorcentaje.Checked = False
+            rbFiscal.Checked = False
+
             grdCaptura.ColumnCount = 10
             With grdCaptura
                 With .Columns(0)
@@ -4773,4 +4861,6 @@ Public Class frmNuvRepVentas
 
         End If
     End Sub
+
+
 End Class

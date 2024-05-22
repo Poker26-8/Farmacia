@@ -1643,11 +1643,11 @@ Public Class frmAgregarProducto
             If GRUPO = "PROMOCIONES" Then
                 UpGridCaptura()
             Else
-                If Importe <> 0 Then
-                    UpGridCaptura()
-                Else
-                    MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
-                End If
+                ' If Importe <> 0 Then
+                UpGridCaptura()
+                ' Else
+                ' MsgBox("Este producto no tiene precio de venta, no se agregara en la comanda", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                'End If
             End If
 
         Catch ex As Exception

@@ -181,6 +181,7 @@ Module Module1
     Public ARCHIVO_DE_CONFIGURACION_F = My.Application.Info.DirectoryPath & "\Configurapdvfac.dat"
 
     Public sTargetdSincro As String = ""
+
     Public sTargetdWaht As String = "server=" & ipserverW & ";uid=" & userbdW & ";password=" & passbdW & ";database=" & databaseW & ";persist security info=false;connect timeout=30"
     Public sTargetMYSQL As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"
     Public sTargetdAutoFac As String = "server=" & ipserver & ";uid=" & userbd & ";password=" & passbd & ";database=" & database & ";persist security info=false;connect timeout=300"

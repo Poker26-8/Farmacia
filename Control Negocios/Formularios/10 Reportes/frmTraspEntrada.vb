@@ -41,7 +41,7 @@ Public Class frmTraspEntrada
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Sincronizador'"
+            cmd2.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Sincronizador'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

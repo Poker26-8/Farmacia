@@ -24,6 +24,9 @@ Partial Class frmCorte3
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCorte3))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnMesa = New System.Windows.Forms.Button()
+        Me.cboCajero = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSalIni = New System.Windows.Forms.Button()
         Me.txtInicial = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -32,13 +35,14 @@ Partial Class frmCorte3
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PCorte80 = New System.Drawing.Printing.PrintDocument()
         Me.pCorte58 = New System.Drawing.Printing.PrintDocument()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cboCajero = New System.Windows.Forms.ComboBox()
+        Me.pMesa80 = New System.Drawing.Printing.PrintDocument()
+        Me.pMesa58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnMesa)
         Me.Panel1.Controls.Add(Me.cboCajero)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.btnSalIni)
@@ -50,8 +54,40 @@ Partial Class frmCorte3
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(370, 102)
+        Me.Panel1.Size = New System.Drawing.Size(452, 102)
         Me.Panel1.TabIndex = 0
+        '
+        'btnMesa
+        '
+        Me.btnMesa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMesa.Image = CType(resources.GetObject("btnMesa.Image"), System.Drawing.Image)
+        Me.btnMesa.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnMesa.Location = New System.Drawing.Point(369, 3)
+        Me.btnMesa.Name = "btnMesa"
+        Me.btnMesa.Size = New System.Drawing.Size(75, 89)
+        Me.btnMesa.TabIndex = 8
+        Me.btnMesa.Text = "Corte Mesas"
+        Me.btnMesa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnMesa.UseVisualStyleBackColor = True
+        '
+        'cboCajero
+        '
+        Me.cboCajero.FormattingEnabled = True
+        Me.cboCajero.Location = New System.Drawing.Point(101, 71)
+        Me.cboCajero.Name = "cboCajero"
+        Me.cboCajero.Size = New System.Drawing.Size(100, 21)
+        Me.cboCajero.TabIndex = 7
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(9, 71)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 21)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Cajero:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnSalIni
         '
@@ -61,7 +97,7 @@ Partial Class frmCorte3
         Me.btnSalIni.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalIni.Location = New System.Drawing.Point(207, 3)
         Me.btnSalIni.Name = "btnSalIni"
-        Me.btnSalIni.Size = New System.Drawing.Size(75, 78)
+        Me.btnSalIni.Size = New System.Drawing.Size(75, 89)
         Me.btnSalIni.TabIndex = 5
         Me.btnSalIni.Text = "Saldo Inicial"
         Me.btnSalIni.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -95,7 +131,7 @@ Partial Class frmCorte3
         Me.btnCorteZ.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnCorteZ.Location = New System.Drawing.Point(288, 3)
         Me.btnCorteZ.Name = "btnCorteZ"
-        Me.btnCorteZ.Size = New System.Drawing.Size(75, 78)
+        Me.btnCorteZ.Size = New System.Drawing.Size(75, 89)
         Me.btnCorteZ.TabIndex = 2
         Me.btnCorteZ.Text = "Corte Z"
         Me.btnCorteZ.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -126,30 +162,18 @@ Partial Class frmCorte3
         'pCorte58
         '
         '
-        'Label3
+        'pMesa80
         '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 71)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 21)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Cajero:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'cboCajero
+        'pMesa58
         '
-        Me.cboCajero.FormattingEnabled = True
-        Me.cboCajero.Location = New System.Drawing.Point(101, 71)
-        Me.cboCajero.Name = "cboCajero"
-        Me.cboCajero.Size = New System.Drawing.Size(100, 21)
-        Me.cboCajero.TabIndex = 7
         '
         'frmCorte3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(370, 106)
+        Me.ClientSize = New System.Drawing.Size(452, 106)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCorte3"
@@ -172,4 +196,7 @@ Partial Class frmCorte3
     Friend WithEvents txtInicial As TextBox
     Friend WithEvents cboCajero As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnMesa As Button
+    Friend WithEvents pMesa80 As Printing.PrintDocument
+    Friend WithEvents pMesa58 As Printing.PrintDocument
 End Class

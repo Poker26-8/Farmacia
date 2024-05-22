@@ -118,10 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMesa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAuCAYAAABEbmvDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAA2hJREFUWEft2d9PUmEYwHH+CkvNOVcXddMf0NZq87ILr7zoopSateXIlHQuk6Yy
+        RqgIAoGKIr/8saVyyBQUtDGLmWv+SFM2L8qZo27b2lgXT7ynHXeAhwPvgTZqXHxxE+bz2fu+57B5JABw
+        WnNzc0DT23soNpPJNC629vb2p3wL+9LSIr9idzh+ff5yBLkUi8VyimGYwziwkoURFON9FcMG0YYNoy0U
+        CkUITtKjVO5gQ8SEDRKTVqs1SsZstp/YEDFhQ8Q0MzOzVZCwkZGR3eKK0VSE0VaE0VaE0fZ/wYZcs6AZ
+        97LVK0xQ3+eBFuMszAXD6BB+dqcLBgYNYLIMgXf+NUSjUfRzVDC9wwPyYR/o3sdOuyozQtWLH2wVPXtQ
+        2+eD0GYEHUZQK2vvYGP7I9jdE3Ac/Q6zHi+Kywr2YWcPOqwLCSAMxnVRvQfql+spw/zLy+Bd9CfAAqtv
+        xMEIqmsyjKJIGIxU2X+cFpeXrewem0dBXOlgJLJyC+v4tmZKEKaxTkOjeQkFcQnBSNe7FxMG5mXF6p5Z
+        oNW9AVL1NDSPrYmCkQuCuxjydsZuK53Q6YmwpQNmgpEemHzssLxclUrdKIvhYOmA2cBuqP/ASDnfx2Sd
+        vSkofhzwUo0MxfBLPmfZJBpGuqmcgIpHHihrDaIgrrzCRqcYkA2voCASQVUpwvHDvQvlHWEofRxAUSTy
+        bcAN1BmMYDBboFerhTnGC5/29xNAXIKH/1aPPSOKi+BK7k+hMIXNzw7T6vXswecf/qXgKuwfHNDByO0i
+        GxS/kntuqOw7OkWVP3kLh8ff2GEHkQg4JqcSYIx3PgVFEoQlb2cmFNfZhwyc69pmYfxtJBFcv3YAnC4X
+        LPoS3+MnCCM1KAapUFyl8mW40Og8XS3aMsJI16QKKhSpTO4HlSuYMtARX6mcDz+/yw36+Cr4UURypdIR
+        FIXd+UUd/uSe2zxw/q4JSu7YUjFx9BmpFaqbBlOGcGHflaIOv1C1bXqoaVJDdV0b+5Ogye+xIfyWAgH2
+        8JstltwOP23YEDH9m7DNrR0wDFupGnW6qfp6ckIHIyiVzgjT/tW/msZoRnGCML11HP1j+cw07qKDcThs
+        u4TCtkso6q0UGzZETCysYP+dXrAPIAr2kQ154cr1IZdKpZrAHmBlU+JDLpD8BnwYKxvgYvO1AAAAAElF
+        TkSuQmCC
+</value>
+  </data>
   <data name="btnSalIni.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACwAAAAbCAYAAAAH+20UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAs1JREFUWEfVmMtqFEEUhmvlwpXiRqIiagzBKIw6JpOZXNSIEoNIRAmCgqCgxNtM
+        DAAACwwBP0AiyAAAAs1JREFUWEfVmMtqFEEUhmvlwpXiRqIiagzBKIw6JpOZXNSIEoNIRAmCgqCgxNtM
         LmM0cyFCdBQRxexEcenCnRsfwAfwjY7nL61JdfWpnlTTMuPih0ml6vRXp/46XdWKiJSaOdhS1wa+9LQu
         HrijWdX1wW/q7Wnqea2PkbpyuKLUfE7ucPcYqfLx7ugxS2K6NfRTBm4USL0ukfo81R0tn4gzQbeP/pKB
         F3iGUqBOagyTqliZQpwPk3LfJG3wmCen4lwiMB6EAVIgn1pFUg95HHxmx4IW839ihoK/4hV2oSPA99iz
@@ -139,7 +160,7 @@
   <data name="btnCorteZ.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACYAAAAuCAYAAABEbmvDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAA2hJREFUWEft2d9PUmEYwHH+CkvNOVcXddMf0NZq87ILr7zoopSateXIlHQuk6Yy
+        DAAACwwBP0AiyAAAA2hJREFUWEft2d9PUmEYwHH+CkvNOVcXddMf0NZq87ILr7zoopSateXIlHQuk6Yy
         RqgIAoGKIr/8saVyyBQUtDGLmWv+SFM2L8qZo27b2lgXT7ynHXeAhwPvgTZqXHxxE+bz2fu+57B5JABw
         WnNzc0DT23soNpPJNC629vb2p3wL+9LSIr9idzh+ff5yBLkUi8VyimGYwziwkoURFON9FcMG0YYNoy0U
         CkUITtKjVO5gQ8SEDRKTVqs1SsZstp/YEDFhQ8Q0MzOzVZCwkZGR3eKK0VSE0VaE0VaE0fZ/wYZcs6AZ
@@ -162,6 +183,12 @@
   </metadata>
   <metadata name="pCorte58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>119, 17</value>
+  </metadata>
+  <metadata name="pMesa80.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
+  </metadata>
+  <metadata name="pMesa58.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>322, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

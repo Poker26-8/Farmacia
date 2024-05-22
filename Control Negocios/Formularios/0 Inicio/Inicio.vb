@@ -2101,7 +2101,7 @@ Public Class Inicio
 
     Private Sub ReporteDeVentasToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pRepVentas.Click
         'frmRepVentas.Show()
-        'frmRepVentas.BringToFront()
+        ' frmRepVentas.BringToFront()
 
         frmNuvRepVentas.Show()
         frmNuvRepVentas.BringToFront()
@@ -3457,8 +3457,11 @@ Public Class Inicio
     End Sub
 
     Private Sub btnPagarComandas_Click(sender As Object, e As EventArgs) Handles btnPagarComandas.Click
-        frmPagarComanda.Show()
-        frmPagarComanda.BringToFront()
+        'frmPagarComanda.Show()
+        'frmPagarComanda.BringToFront()
+
+        frmNuevoPagarComandas.Show()
+        frmNuevoPagarComandas.BringToFront()
     End Sub
 
     Private Sub VehiculosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VehiculosToolStripMenuItem.Click
