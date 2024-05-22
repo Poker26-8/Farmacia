@@ -2412,7 +2412,7 @@ Public Class frmNuvRepVentas
                         precio = rd2("Precio").ToString
                         total = rd2("Total").ToString
 
-                        grdCaptura.Rows.Add(codigo, descripcion, cantidad, precio, total, fechanueva)
+                        grdCaptura.Rows.Add(codigo, descripcion, cantidad & " " & uventa, precio, total, fechanueva)
                         subtotal = subtotal + total
                     Loop
                     rd2.Close()
