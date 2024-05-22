@@ -241,6 +241,10 @@ Public Class frmMesas
         Dim simesaspropusuario As Integer = 0
         Dim totaldepotos As Integer = 0
 
+        If idempleado = 0 Then
+            pmesas.Controls.Clear()
+            Exit Sub
+        End If
 
         Try
             cnn2.Close() : cnn2.Open()
@@ -298,9 +302,16 @@ Public Class frmMesas
             cmd2 = cnn2.CreateCommand
             If simesaspropia = 1 Then
                 If simesaspropusuario = 1 Then
+
                     cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa  WHERE Ubicacion='" & ubicacion & "' order by Orden"
+
                 Else
-                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                    If tomacontralog = 1 Then
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                    Else
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                    End If
+
                 End If
             Else
                 cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa WHERE Ubicacion='" & ubicacion & "' ORDER BY Orden"
@@ -513,7 +524,14 @@ Public Class frmMesas
             If simesaspropusuarionm = 1 Then
                 cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
             Else
-                cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
+
+                If tomacontralog = 1 Then
+                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
+                Else
+                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & idempleado & ""
+                End If
+
+
             End If
         Else
             cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
@@ -535,8 +553,13 @@ Public Class frmMesas
         Dim mesa As Integer = 1
         Dim messa As New List(Of String)()
 
-        Try
+        Dim usua As Integer = 0
 
+        Try
+            If idempleado = 0 Then
+                pmesaNM.Controls.Clear()
+                Exit Sub
+            End If
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -574,10 +597,22 @@ Public Class frmMesas
             cmd2 = cnn2.CreateCommand
             If simesaspropianm = 1 Then
                 If simesaspropusuarionm = 0 Then
-                    'cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa order by Orden"
-                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+
+                    If tomacontralog = "1" Then
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                    Else
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " order by Orden"
+                    End If
+
                 Else
-                    cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+
+                    If tomacontralog = "1" Then
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                    Else
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " order by Orden"
+                    End If
+
+
                 End If
             Else
                 cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa order by Orden"
@@ -1575,15 +1610,18 @@ Public Class frmMesas
     Private Sub txtUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtUsuario.TextChanged
         Try
             If txtUsuario.Text = "" Then Exit Sub
+            idempleado = 0
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Alias,Status FROM usuarios WHERE Clave='" & txtUsuario.Text & "'"
+            cmd1.CommandText = "SELECT IdEmpleado,Alias,Status FROM usuarios WHERE Clave='" & txtUsuario.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    If rd1(1).ToString = 1 Then
-                        lblusuario.Text = rd1(0).ToString
+                    If rd1(2).ToString = 1 Then
+
+                        idempleado = rd1(0).ToString
+                        lblusuario.Text = rd1(1).ToString
 
                         If mapearmesas = 1 Then
                             TRAERLUGAR()
