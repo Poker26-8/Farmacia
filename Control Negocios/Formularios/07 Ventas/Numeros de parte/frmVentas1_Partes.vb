@@ -2476,7 +2476,8 @@ kaka:
                         cbocodigo.Text = rd1("Codigo").ToString()
                         cbodesc.Text = rd1("Nombre").ToString()
                         txtunidad.Text = rd1("UVenta").ToString()
-                        Multiplo = rd1("MCD").ToString()
+                        'Multiplo = rd1("MCD").ToString()
+                        Multiplo = rd1("Multiplo").ToString()
                         Minimo = rd1("Min").ToString()
                         txtubicacion.Text = rd1("Ubicacion").ToString()
 
@@ -2486,7 +2487,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * Multiplo
+                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                             End If
                         End If
                         rd2.Close()
@@ -2628,7 +2629,8 @@ kaka:
                         cbocodigo.Text = rd1("Codigo").ToString()
                         cbodesc.Text = rd1("Nombre").ToString()
                         txtunidad.Text = rd1("UVenta").ToString()
-                        Multiplo = rd1("MCD").ToString()
+                        'Multiplo = rd1("MCD").ToString()
+                        Multiplo = rd1("Multiplo").ToString()
                         Minimo = rd1("Min").ToString()
                         txtubicacion.Text = rd1("Ubicacion").ToString()
 
@@ -2638,7 +2640,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * Multiplo
+                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                             End If
                         End If
                         rd2.Close()
@@ -2876,7 +2878,8 @@ kaka:
                                 cbocodigo.Text = rd2("Codigo").ToString()
                                 cbodesc.Text = rd2("Nombre").ToString()
                                 txtunidad.Text = rd2("UVenta").ToString()
-                                Multiplo = rd2("MCD").ToString()
+                                '  Multiplo = rd2("MCD").ToString()
+                                Multiplo = rd2("Multiplo").ToString()
                                 Minimo = rd2("Min").ToString()
                                 txtubicacion.Text = rd2("Ubicacion").ToString()
 
@@ -2886,7 +2889,7 @@ kaka:
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
-                                        txtexistencia.Text = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString)) * Multiplo
+                                        txtexistencia.Text = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString)) / Multiplo
                                     End If
                                 End If
                                 rd3.Close()
@@ -3194,7 +3197,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * MCD
+                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                                 End If
                             End If
                             rd2.Close()

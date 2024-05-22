@@ -2465,13 +2465,16 @@ kak:
                             Minimo = rd1("Min").ToString()
                             txtubicacion.Text = rd1("Ubicacion").ToString()
 
+
+
                             cnn2.Close() : cnn2.Open() : cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
                                 "select Existencia from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * Multiplo
+
+                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                                 End If
                             End If
                             rd2.Close()
@@ -2691,7 +2694,7 @@ kaka:
                         cbocodigo.Text = rd1("Codigo").ToString()
                         cbodesc.Text = rd1("Nombre").ToString()
                         txtunidad.Text = rd1("UVenta").ToString()
-                        Multiplo = rd1("MCD").ToString()
+                        Multiplo = rd1("Multiplo").ToString()
                         Minimo = rd1("Min").ToString()
                         txtubicacion.Text = rd1("Ubicacion").ToString()
 
@@ -2701,7 +2704,7 @@ kaka:
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * Multiplo
+                                txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                             End If
                         End If
                         rd2.Close()
@@ -3408,7 +3411,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) * MCD
+                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
                                 End If
                             End If
                             rd2.Close()

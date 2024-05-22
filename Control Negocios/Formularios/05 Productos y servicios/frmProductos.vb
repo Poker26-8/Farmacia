@@ -10,9 +10,9 @@ Public Class frmProductos
     Private Sub TraeDatos(ByVal vemos As String)
         Try
 
-            txtMinima.Text = ""
+            ' txtMinima.Text = ""
             txtActual.Text = ""
-            txtMaxima.Text = ""
+            ' txtMaxima.Text = ""
 
             cnn1.Close() : cnn1.Open()
 
