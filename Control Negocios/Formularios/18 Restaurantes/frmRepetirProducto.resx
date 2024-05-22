@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAnCAYAAACFSPFPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAHqSURBVFhH7de9SwJhHMBx/wT/g4TGhpRACoQc8i0SLKiI
+        IGyRXujNQoOGBKmWBqEGR4OGGipJAvMFjoYmoSBocnBzKRSDGoJ+/Z7w5Emfh/PO83C44QPec/D8vvCc
+        cGd42+s3FUJDF6mgvXS4OlMIBAKCSpLICACGdpGYCAJRcXcAMts2iK1NAm7WqQRrKE9LTLOHnWGIr3sh
+        vLzAGiZFYA3lkYyhvYQH4WzDA/src6zBLN2LoZHjvA3apY5TmxgaOUZGCKF9zOXWGCuE0GNYIYQewwoh
+        9BhWCNG7McePoyYUQXZ6XaR1TAJBnZ++R2gdI1AxRIS+r0pM+tQK0WtPi4OUq1IPEFURHUM0XjNUickl
+        LM0D5CKhxl6JIfyqxJzErTByN96R2azzRlFM9XQCaudLjetOY5xp9+di3tGnKObnq4bPGzSCOokRQxQ/
+        wB9XIfguv8J71PJ33e5f25N2V+gQX8ZVpO+r8sy0G+O9d5XFkKmM64m+R2ga4887bNNZpzCfcx7R6yJN
+        Y6ToMTx6DI8ew9PtmCRrKA+JsaMqvblcnJgqMrOG8jR+4KYkKoZK4hAZ/r0+KsVcxM1NaBM914dJ6V4M
+        DQcZkR8lEe84tYlphoN9KIHo42z57FCCudgujDAj5geZfGD4BXtEtFUmOpjWAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -132,7 +147,6 @@
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAQAEBAAAAAAIABoBAAARgAAACAgAAAAACAAqBAAAK4EAAAwMAAAAAAgAKglAABWFQAAQEAAAAAA

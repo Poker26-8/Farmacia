@@ -51,14 +51,6 @@ Partial Class frmPagarTouch
         Me.cboCuenta = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.grdPagos = New System.Windows.Forms.DataGridView()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnagregarpago = New System.Windows.Forms.Button()
         Me.dtpfechapago = New System.Windows.Forms.DateTimePicker()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -115,6 +107,14 @@ Partial Class frmPagarTouch
         Me.btn500 = New System.Windows.Forms.Button()
         Me.btn50 = New System.Windows.Forms.Button()
         Me.btn100 = New System.Windows.Forms.Button()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -338,7 +338,7 @@ Partial Class frmPagarTouch
         '
         'Panel8
         '
-        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel8.Controls.Add(Me.txtComentario)
         Me.Panel8.Controls.Add(Me.Label7)
         Me.Panel8.Controls.Add(Me.Label18)
@@ -432,62 +432,6 @@ Partial Class frmPagarTouch
         Me.grdPagos.RowHeadersVisible = False
         Me.grdPagos.Size = New System.Drawing.Size(462, 99)
         Me.grdPagos.TabIndex = 10
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Tipo"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Banco"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 80
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Ref"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 80
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Monto"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        Me.Column11.Width = 75
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "Fecha"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Width = 70
-        '
-        'Column18
-        '
-        Me.Column18.HeaderText = "Comentario"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "CuentaRef"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        Me.Column16.Visible = False
-        Me.Column16.Width = 80
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "BancoRef"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        Me.Column17.Visible = False
-        Me.Column17.Width = 80
         '
         'btnagregarpago
         '
@@ -663,7 +607,7 @@ Partial Class frmPagarTouch
         '
         'GroupBox5
         '
-        Me.GroupBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox5.Controls.Add(Me.lblidcliente)
         Me.GroupBox5.Controls.Add(Me.txtAfavor)
         Me.GroupBox5.Controls.Add(Me.Label14)
@@ -830,7 +774,7 @@ Partial Class frmPagarTouch
         '
         'GroupBox6
         '
-        Me.GroupBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox6.Controls.Add(Me.btnsalir)
         Me.GroupBox6.Controls.Add(Me.btn6)
         Me.GroupBox6.Controls.Add(Me.btn5)
@@ -856,7 +800,7 @@ Partial Class frmPagarTouch
         '
         Me.btnsalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnsalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsalir.Image = CType(resources.GetObject("btnsalir.Image"), System.Drawing.Image)
         Me.btnsalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnsalir.Location = New System.Drawing.Point(6, 290)
@@ -978,14 +922,15 @@ Partial Class frmPagarTouch
         '
         Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Image = CType(resources.GetObject("btnIntro.Image"), System.Drawing.Image)
-        Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnIntro.Location = New System.Drawing.Point(213, 19)
         Me.btnIntro.Name = "btnIntro"
         Me.btnIntro.Size = New System.Drawing.Size(63, 267)
         Me.btnIntro.TabIndex = 5
         Me.btnIntro.Text = "A" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "C" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "E" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "P" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "T" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "A" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "R"
+        Me.btnIntro.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnIntro.UseVisualStyleBackColor = False
         '
         'btn3
@@ -1102,11 +1047,75 @@ Partial Class frmPagarTouch
         Me.btn100.TabIndex = 31
         Me.btn100.UseVisualStyleBackColor = False
         '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column8.HeaderText = "Tipo"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 53
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.HeaderText = "Banco"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 63
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.HeaderText = "Ref"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 49
+        '
+        'Column11
+        '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column11.HeaderText = "Monto"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 62
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column12.HeaderText = "Fecha"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Width = 62
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column18.HeaderText = "Comentario"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        Me.Column18.Width = 85
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "CuentaRef"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Visible = False
+        Me.Column16.Width = 80
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "BancoRef"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        Me.Column17.Visible = False
+        Me.Column17.Width = 80
+        '
         'frmPagarTouch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1001, 527)
         Me.Controls.Add(Me.btn1000)
         Me.Controls.Add(Me.btn20)
@@ -1164,14 +1173,6 @@ Partial Class frmPagarTouch
     Friend WithEvents cboCuenta As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents grdPagos As DataGridView
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents btnagregarpago As Button
     Friend WithEvents dtpfechapago As DateTimePicker
     Friend WithEvents Label16 As Label
@@ -1228,4 +1229,12 @@ Partial Class frmPagarTouch
     Friend WithEvents btn500 As Button
     Friend WithEvents btn50 As Button
     Friend WithEvents btn100 As Button
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
 End Class

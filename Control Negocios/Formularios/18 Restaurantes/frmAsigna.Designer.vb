@@ -23,7 +23,6 @@ Partial Class frmAsigna
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAsigna))
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.EntradaBillar80 = New System.Drawing.Printing.PrintDocument()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblpc = New System.Windows.Forms.Label()
@@ -35,20 +34,12 @@ Partial Class frmAsigna
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
-        '
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(219, 20)
-        Me.Panel1.TabIndex = 0
-        '
         'EntradaBillar80
         '
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel2.Controls.Add(Me.lblpc)
         Me.Panel2.Controls.Add(Me.txtHora)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -56,15 +47,15 @@ Partial Class frmAsigna
         Me.Panel2.Controls.Add(Me.btnSalir)
         Me.Panel2.Controls.Add(Me.btnIniciarTiempo)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 20)
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(219, 142)
+        Me.Panel2.Size = New System.Drawing.Size(219, 130)
         Me.Panel2.TabIndex = 2
         '
         'lblpc
         '
         Me.lblpc.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpc.Location = New System.Drawing.Point(72, 12)
+        Me.lblpc.Location = New System.Drawing.Point(63, 9)
         Me.lblpc.Name = "lblpc"
         Me.lblpc.Size = New System.Drawing.Size(135, 26)
         Me.lblpc.TabIndex = 6
@@ -72,7 +63,7 @@ Partial Class frmAsigna
         'txtHora
         '
         Me.txtHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHora.Location = New System.Drawing.Point(72, 44)
+        Me.txtHora.Location = New System.Drawing.Point(63, 41)
         Me.txtHora.Name = "txtHora"
         Me.txtHora.Size = New System.Drawing.Size(135, 24)
         Me.txtHora.TabIndex = 5
@@ -81,7 +72,7 @@ Partial Class frmAsigna
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 44)
+        Me.Label2.Location = New System.Drawing.Point(3, 41)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(50, 18)
         Me.Label2.TabIndex = 4
@@ -91,7 +82,7 @@ Partial Class frmAsigna
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 12)
+        Me.Label1.Location = New System.Drawing.Point(3, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 18)
         Me.Label1.TabIndex = 3
@@ -103,7 +94,7 @@ Partial Class frmAsigna
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(124, 78)
+        Me.btnSalir.Location = New System.Drawing.Point(115, 75)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(87, 38)
         Me.btnSalir.TabIndex = 2
@@ -116,7 +107,7 @@ Partial Class frmAsigna
         Me.btnIniciarTiempo.FlatAppearance.BorderSize = 0
         Me.btnIniciarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnIniciarTiempo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIniciarTiempo.Location = New System.Drawing.Point(12, 78)
+        Me.btnIniciarTiempo.Location = New System.Drawing.Point(3, 75)
         Me.btnIniciarTiempo.Name = "btnIniciarTiempo"
         Me.btnIniciarTiempo.Size = New System.Drawing.Size(106, 39)
         Me.btnIniciarTiempo.TabIndex = 1
@@ -128,9 +119,8 @@ Partial Class frmAsigna
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(219, 162)
+        Me.ClientSize = New System.Drawing.Size(219, 130)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAsigna"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -140,8 +130,6 @@ Partial Class frmAsigna
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents EntradaBillar80 As Printing.PrintDocument
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblpc As Label

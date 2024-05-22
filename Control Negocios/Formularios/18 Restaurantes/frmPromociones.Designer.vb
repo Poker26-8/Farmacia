@@ -33,27 +33,6 @@ Partial Class frmPromociones
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.dtpFinDomingo2 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioDomingo2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.dtpFinSabado2 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioSabado2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.dtpFinViernes2 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioViernes2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.dtpFinJueves2 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioJueves2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
         Me.chkDomingo = New System.Windows.Forms.CheckBox()
         Me.chkSabado = New System.Windows.Forms.CheckBox()
         Me.chkViernes = New System.Windows.Forms.CheckBox()
@@ -122,78 +101,32 @@ Partial Class frmPromociones
         Me.dtpInicioMiercoles2 = New System.Windows.Forms.DateTimePicker()
         Me.dtpFinMiercoles2 = New System.Windows.Forms.DateTimePicker()
         Me.Label31 = New System.Windows.Forms.Label()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.dtpInicioJueves2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinJueves2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.dtpInicioViernes2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinViernes2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.dtpInicioSabado2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinSabado2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.dtpFinDomingo2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.dtpInicioDomingo2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dtpFinDomingo33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioDomingo33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.dtpFinSabado33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioSabado33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.dtpFinViernes33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioViernes33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.dtpFinJueves33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioJueves33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.dtpFinMiercoles33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioMiercoles33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.dtpFinMartes33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioMartes33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.Label63 = New System.Windows.Forms.Label()
-        Me.dtpFinLunes33 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioLunes33 = New System.Windows.Forms.DateTimePicker()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.dtpFinDomingo3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioDomingo3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.dtpFinSabado3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioSabdo3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.Label70 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.dtpFinViernes3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioViernes3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.dtpFinJueves3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioJueves3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.dtpFinMiercoles3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioMiercoles3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.dtpFinMartes3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioMartes3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.dtpFinLunes3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpInicioLunes3 = New System.Windows.Forms.DateTimePicker()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label87 = New System.Windows.Forms.Label()
         Me.chkDomingo3 = New System.Windows.Forms.CheckBox()
         Me.chkSabado3 = New System.Windows.Forms.CheckBox()
         Me.chkViernes3 = New System.Windows.Forms.CheckBox()
@@ -202,30 +135,96 @@ Partial Class frmPromociones
         Me.chkMartes3 = New System.Windows.Forms.CheckBox()
         Me.chkLunes3 = New System.Windows.Forms.CheckBox()
         Me.cbPromocion3 = New System.Windows.Forms.CheckBox()
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.dtpInicioLunes3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinLunes3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Panel18 = New System.Windows.Forms.Panel()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.dtpInicioMartes3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinMartes3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.dtpInicioMiercoles3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinMiercoles3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.dtpInicioJueves3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinJueves3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.dtpInicioViernes3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinViernes3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.Label70 = New System.Windows.Forms.Label()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.dtpInicioSabdo3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinSabado3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.Panel23 = New System.Windows.Forms.Panel()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.dtpInicioDomingo3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinDomingo3 = New System.Windows.Forms.DateTimePicker()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.Panel24 = New System.Windows.Forms.Panel()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.dtpInicioLunes33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinLunes33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Panel25 = New System.Windows.Forms.Panel()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.dtpInicioMartes33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinMartes33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Panel26 = New System.Windows.Forms.Panel()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.dtpInicioMiercoles33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinMiercoles33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Panel27 = New System.Windows.Forms.Panel()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.dtpInicioJueves33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinJueves33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Panel28 = New System.Windows.Forms.Panel()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.dtpInicioViernes33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinViernes33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Panel29 = New System.Windows.Forms.Panel()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.dtpInicioSabado33 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFinSabado33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Panel30 = New System.Windows.Forms.Panel()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.dtpFinDomingo33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.dtpInicioDomingo33 = New System.Windows.Forms.DateTimePicker()
+        Me.Label48 = New System.Windows.Forms.Label()
         Me.Label88 = New System.Windows.Forms.Label()
         Me.Label89 = New System.Windows.Forms.Label()
         Me.Label90 = New System.Windows.Forms.Label()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.Panel17 = New System.Windows.Forms.Panel()
-        Me.Panel18 = New System.Windows.Forms.Panel()
-        Me.Panel19 = New System.Windows.Forms.Panel()
-        Me.Panel20 = New System.Windows.Forms.Panel()
-        Me.Panel21 = New System.Windows.Forms.Panel()
-        Me.Panel22 = New System.Windows.Forms.Panel()
-        Me.Panel23 = New System.Windows.Forms.Panel()
-        Me.Panel24 = New System.Windows.Forms.Panel()
-        Me.Panel25 = New System.Windows.Forms.Panel()
-        Me.Panel26 = New System.Windows.Forms.Panel()
-        Me.Panel27 = New System.Windows.Forms.Panel()
-        Me.Panel28 = New System.Windows.Forms.Panel()
-        Me.Panel29 = New System.Windows.Forms.Panel()
-        Me.Panel30 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -236,11 +235,12 @@ Partial Class frmPromociones
         Me.Panel10.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.Panel12.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.Panel13.SuspendLayout()
         Me.Panel14.SuspendLayout()
         Me.Panel15.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.Panel17.SuspendLayout()
         Me.Panel18.SuspendLayout()
         Me.Panel19.SuspendLayout()
@@ -405,246 +405,6 @@ Partial Class frmPromociones
         Me.GroupBox1.Size = New System.Drawing.Size(658, 654)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        '
-        'Panel3
-        '
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.dtpFinDomingo2)
-        Me.Panel3.Controls.Add(Me.Label45)
-        Me.Panel3.Controls.Add(Me.dtpInicioDomingo2)
-        Me.Panel3.Controls.Add(Me.Label44)
-        Me.Panel3.Location = New System.Drawing.Point(400, 586)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(250, 59)
-        Me.Panel3.TabIndex = 146
-        '
-        'dtpFinDomingo2
-        '
-        Me.dtpFinDomingo2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo2.Enabled = False
-        Me.dtpFinDomingo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinDomingo2.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinDomingo2.Name = "dtpFinDomingo2"
-        Me.dtpFinDomingo2.ShowUpDown = True
-        Me.dtpFinDomingo2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinDomingo2.TabIndex = 144
-        '
-        'dtpInicioDomingo2
-        '
-        Me.dtpInicioDomingo2.Enabled = False
-        Me.dtpInicioDomingo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioDomingo2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioDomingo2.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioDomingo2.Name = "dtpInicioDomingo2"
-        Me.dtpInicioDomingo2.ShowUpDown = True
-        Me.dtpInicioDomingo2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioDomingo2.TabIndex = 143
-        '
-        'Label44
-        '
-        Me.Label44.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(127, 4)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(118, 20)
-        Me.Label44.TabIndex = 142
-        Me.Label44.Text = "HORA FIN"
-        Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label45
-        '
-        Me.Label45.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.Location = New System.Drawing.Point(3, 4)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(118, 20)
-        Me.Label45.TabIndex = 141
-        Me.Label45.Text = "HORA INICIO"
-        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label43
-        '
-        Me.Label43.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label43.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(400, 562)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(250, 25)
-        Me.Label43.TabIndex = 140
-        Me.Label43.Text = "SEGUNDO HORARIO DOMINGO"
-        Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinSabado2
-        '
-        Me.dtpFinSabado2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinSabado2.Enabled = False
-        Me.dtpFinSabado2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinSabado2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinSabado2.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinSabado2.Name = "dtpFinSabado2"
-        Me.dtpFinSabado2.ShowUpDown = True
-        Me.dtpFinSabado2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinSabado2.TabIndex = 139
-        '
-        'dtpInicioSabado2
-        '
-        Me.dtpInicioSabado2.Enabled = False
-        Me.dtpInicioSabado2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioSabado2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioSabado2.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioSabado2.Name = "dtpInicioSabado2"
-        Me.dtpInicioSabado2.ShowUpDown = True
-        Me.dtpInicioSabado2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioSabado2.TabIndex = 138
-        '
-        'Label41
-        '
-        Me.Label41.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(127, 4)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(118, 20)
-        Me.Label41.TabIndex = 137
-        Me.Label41.Text = "HORA FIN"
-        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label42
-        '
-        Me.Label42.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(3, 4)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(118, 20)
-        Me.Label42.TabIndex = 136
-        Me.Label42.Text = "HORA INICIO"
-        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label40
-        '
-        Me.Label40.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label40.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.Location = New System.Drawing.Point(400, 476)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(250, 25)
-        Me.Label40.TabIndex = 135
-        Me.Label40.Text = "SEGUNDO HORARIO SABADO"
-        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinViernes2
-        '
-        Me.dtpFinViernes2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinViernes2.Enabled = False
-        Me.dtpFinViernes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinViernes2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinViernes2.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinViernes2.Name = "dtpFinViernes2"
-        Me.dtpFinViernes2.ShowUpDown = True
-        Me.dtpFinViernes2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinViernes2.TabIndex = 134
-        '
-        'dtpInicioViernes2
-        '
-        Me.dtpInicioViernes2.Enabled = False
-        Me.dtpInicioViernes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioViernes2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioViernes2.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioViernes2.Name = "dtpInicioViernes2"
-        Me.dtpInicioViernes2.ShowUpDown = True
-        Me.dtpInicioViernes2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioViernes2.TabIndex = 133
-        '
-        'Label38
-        '
-        Me.Label38.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.Location = New System.Drawing.Point(127, 4)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(118, 20)
-        Me.Label38.TabIndex = 132
-        Me.Label38.Text = "HORA FIN"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label39
-        '
-        Me.Label39.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(3, 4)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(118, 20)
-        Me.Label39.TabIndex = 131
-        Me.Label39.Text = "HORA INICIO"
-        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label37
-        '
-        Me.Label37.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(400, 390)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(250, 25)
-        Me.Label37.TabIndex = 130
-        Me.Label37.Text = "SEGUNDO HORARIO VIERNES"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinJueves2
-        '
-        Me.dtpFinJueves2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves2.Enabled = False
-        Me.dtpFinJueves2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinJueves2.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinJueves2.Name = "dtpFinJueves2"
-        Me.dtpFinJueves2.ShowUpDown = True
-        Me.dtpFinJueves2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinJueves2.TabIndex = 129
-        '
-        'dtpInicioJueves2
-        '
-        Me.dtpInicioJueves2.Enabled = False
-        Me.dtpInicioJueves2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioJueves2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioJueves2.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioJueves2.Name = "dtpInicioJueves2"
-        Me.dtpInicioJueves2.ShowUpDown = True
-        Me.dtpInicioJueves2.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioJueves2.TabIndex = 128
-        '
-        'Label35
-        '
-        Me.Label35.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(127, 4)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(118, 20)
-        Me.Label35.TabIndex = 127
-        Me.Label35.Text = "HORA FIN"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label36
-        '
-        Me.Label36.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(3, 4)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(118, 20)
-        Me.Label36.TabIndex = 126
-        Me.Label36.Text = "HORA INICIO"
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label34
-        '
-        Me.Label34.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label34.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(400, 304)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(250, 25)
-        Me.Label34.TabIndex = 125
-        Me.Label34.Text = "SEGUNDO HORARIO JUEVES"
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'chkDomingo
         '
@@ -1427,6 +1187,282 @@ Partial Class frmPromociones
         Me.Label31.Text = "SEGUNDO HORARIO MIERCOLES"
         Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Panel13
+        '
+        Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel13.Controls.Add(Me.Label36)
+        Me.Panel13.Controls.Add(Me.Label35)
+        Me.Panel13.Controls.Add(Me.dtpInicioJueves2)
+        Me.Panel13.Controls.Add(Me.dtpFinJueves2)
+        Me.Panel13.Location = New System.Drawing.Point(400, 328)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(250, 59)
+        Me.Panel13.TabIndex = 154
+        '
+        'Label36
+        '
+        Me.Label36.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(3, 4)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(118, 20)
+        Me.Label36.TabIndex = 126
+        Me.Label36.Text = "HORA INICIO"
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label35
+        '
+        Me.Label35.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(127, 4)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(118, 20)
+        Me.Label35.TabIndex = 127
+        Me.Label35.Text = "HORA FIN"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioJueves2
+        '
+        Me.dtpInicioJueves2.Enabled = False
+        Me.dtpInicioJueves2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioJueves2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioJueves2.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioJueves2.Name = "dtpInicioJueves2"
+        Me.dtpInicioJueves2.ShowUpDown = True
+        Me.dtpInicioJueves2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioJueves2.TabIndex = 128
+        '
+        'dtpFinJueves2
+        '
+        Me.dtpFinJueves2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves2.Enabled = False
+        Me.dtpFinJueves2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinJueves2.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinJueves2.Name = "dtpFinJueves2"
+        Me.dtpFinJueves2.ShowUpDown = True
+        Me.dtpFinJueves2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinJueves2.TabIndex = 129
+        '
+        'Label34
+        '
+        Me.Label34.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label34.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(400, 304)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(250, 25)
+        Me.Label34.TabIndex = 125
+        Me.Label34.Text = "SEGUNDO HORARIO JUEVES"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel14
+        '
+        Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel14.Controls.Add(Me.Label39)
+        Me.Panel14.Controls.Add(Me.Label38)
+        Me.Panel14.Controls.Add(Me.dtpInicioViernes2)
+        Me.Panel14.Controls.Add(Me.dtpFinViernes2)
+        Me.Panel14.Location = New System.Drawing.Point(400, 414)
+        Me.Panel14.Name = "Panel14"
+        Me.Panel14.Size = New System.Drawing.Size(250, 59)
+        Me.Panel14.TabIndex = 155
+        '
+        'Label39
+        '
+        Me.Label39.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(3, 4)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(118, 20)
+        Me.Label39.TabIndex = 131
+        Me.Label39.Text = "HORA INICIO"
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label38
+        '
+        Me.Label38.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(127, 4)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(118, 20)
+        Me.Label38.TabIndex = 132
+        Me.Label38.Text = "HORA FIN"
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioViernes2
+        '
+        Me.dtpInicioViernes2.Enabled = False
+        Me.dtpInicioViernes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioViernes2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioViernes2.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioViernes2.Name = "dtpInicioViernes2"
+        Me.dtpInicioViernes2.ShowUpDown = True
+        Me.dtpInicioViernes2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioViernes2.TabIndex = 133
+        '
+        'dtpFinViernes2
+        '
+        Me.dtpFinViernes2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinViernes2.Enabled = False
+        Me.dtpFinViernes2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinViernes2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinViernes2.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinViernes2.Name = "dtpFinViernes2"
+        Me.dtpFinViernes2.ShowUpDown = True
+        Me.dtpFinViernes2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinViernes2.TabIndex = 134
+        '
+        'Label37
+        '
+        Me.Label37.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(400, 390)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(250, 25)
+        Me.Label37.TabIndex = 130
+        Me.Label37.Text = "SEGUNDO HORARIO VIERNES"
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel15
+        '
+        Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel15.Controls.Add(Me.Label42)
+        Me.Panel15.Controls.Add(Me.Label41)
+        Me.Panel15.Controls.Add(Me.dtpInicioSabado2)
+        Me.Panel15.Controls.Add(Me.dtpFinSabado2)
+        Me.Panel15.Location = New System.Drawing.Point(400, 500)
+        Me.Panel15.Name = "Panel15"
+        Me.Panel15.Size = New System.Drawing.Size(250, 59)
+        Me.Panel15.TabIndex = 156
+        '
+        'Label42
+        '
+        Me.Label42.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(3, 4)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(118, 20)
+        Me.Label42.TabIndex = 136
+        Me.Label42.Text = "HORA INICIO"
+        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label41
+        '
+        Me.Label41.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(127, 4)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(118, 20)
+        Me.Label41.TabIndex = 137
+        Me.Label41.Text = "HORA FIN"
+        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioSabado2
+        '
+        Me.dtpInicioSabado2.Enabled = False
+        Me.dtpInicioSabado2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioSabado2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioSabado2.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioSabado2.Name = "dtpInicioSabado2"
+        Me.dtpInicioSabado2.ShowUpDown = True
+        Me.dtpInicioSabado2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioSabado2.TabIndex = 138
+        '
+        'dtpFinSabado2
+        '
+        Me.dtpFinSabado2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinSabado2.Enabled = False
+        Me.dtpFinSabado2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinSabado2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinSabado2.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinSabado2.Name = "dtpFinSabado2"
+        Me.dtpFinSabado2.ShowUpDown = True
+        Me.dtpFinSabado2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinSabado2.TabIndex = 139
+        '
+        'Label40
+        '
+        Me.Label40.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label40.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.Location = New System.Drawing.Point(400, 476)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(250, 25)
+        Me.Label40.TabIndex = 135
+        Me.Label40.Text = "SEGUNDO HORARIO SABADO"
+        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.dtpFinDomingo2)
+        Me.Panel3.Controls.Add(Me.Label45)
+        Me.Panel3.Controls.Add(Me.dtpInicioDomingo2)
+        Me.Panel3.Controls.Add(Me.Label44)
+        Me.Panel3.Location = New System.Drawing.Point(400, 586)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(250, 59)
+        Me.Panel3.TabIndex = 146
+        '
+        'dtpFinDomingo2
+        '
+        Me.dtpFinDomingo2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo2.Enabled = False
+        Me.dtpFinDomingo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinDomingo2.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinDomingo2.Name = "dtpFinDomingo2"
+        Me.dtpFinDomingo2.ShowUpDown = True
+        Me.dtpFinDomingo2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinDomingo2.TabIndex = 144
+        '
+        'Label45
+        '
+        Me.Label45.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(3, 4)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(118, 20)
+        Me.Label45.TabIndex = 141
+        Me.Label45.Text = "HORA INICIO"
+        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioDomingo2
+        '
+        Me.dtpInicioDomingo2.Enabled = False
+        Me.dtpInicioDomingo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioDomingo2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioDomingo2.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioDomingo2.Name = "dtpInicioDomingo2"
+        Me.dtpInicioDomingo2.ShowUpDown = True
+        Me.dtpInicioDomingo2.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioDomingo2.TabIndex = 143
+        '
+        'Label44
+        '
+        Me.Label44.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(127, 4)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(118, 20)
+        Me.Label44.TabIndex = 142
+        Me.Label44.Text = "HORA FIN"
+        Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label43
+        '
+        Me.Label43.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label43.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(400, 562)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(250, 25)
+        Me.Label43.TabIndex = 140
+        Me.Label43.Text = "SEGUNDO HORARIO DOMINGO"
+        Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
@@ -1481,807 +1517,6 @@ Partial Class frmPromociones
         Me.GroupBox2.Size = New System.Drawing.Size(658, 654)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        '
-        'dtpFinDomingo33
-        '
-        Me.dtpFinDomingo33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo33.Enabled = False
-        Me.dtpFinDomingo33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinDomingo33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinDomingo33.Name = "dtpFinDomingo33"
-        Me.dtpFinDomingo33.ShowUpDown = True
-        Me.dtpFinDomingo33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinDomingo33.TabIndex = 144
-        '
-        'dtpInicioDomingo33
-        '
-        Me.dtpInicioDomingo33.Enabled = False
-        Me.dtpInicioDomingo33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioDomingo33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioDomingo33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioDomingo33.Name = "dtpInicioDomingo33"
-        Me.dtpInicioDomingo33.ShowUpDown = True
-        Me.dtpInicioDomingo33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioDomingo33.TabIndex = 143
-        '
-        'Label46
-        '
-        Me.Label46.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(127, 4)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(118, 20)
-        Me.Label46.TabIndex = 142
-        Me.Label46.Text = "HORA FIN"
-        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label47
-        '
-        Me.Label47.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(3, 4)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(118, 20)
-        Me.Label47.TabIndex = 141
-        Me.Label47.Text = "HORA INICIO"
-        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label48
-        '
-        Me.Label48.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label48.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label48.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.Location = New System.Drawing.Point(400, 562)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(250, 25)
-        Me.Label48.TabIndex = 140
-        Me.Label48.Text = "SEGUNDO HORARIO DOMINGO"
-        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinSabado33
-        '
-        Me.dtpFinSabado33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinSabado33.Enabled = False
-        Me.dtpFinSabado33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinSabado33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinSabado33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinSabado33.Name = "dtpFinSabado33"
-        Me.dtpFinSabado33.ShowUpDown = True
-        Me.dtpFinSabado33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinSabado33.TabIndex = 139
-        '
-        'dtpInicioSabado33
-        '
-        Me.dtpInicioSabado33.Enabled = False
-        Me.dtpInicioSabado33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioSabado33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioSabado33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioSabado33.Name = "dtpInicioSabado33"
-        Me.dtpInicioSabado33.ShowUpDown = True
-        Me.dtpInicioSabado33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioSabado33.TabIndex = 138
-        '
-        'Label49
-        '
-        Me.Label49.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label49.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label49.Location = New System.Drawing.Point(127, 4)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(118, 20)
-        Me.Label49.TabIndex = 137
-        Me.Label49.Text = "HORA FIN"
-        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label50
-        '
-        Me.Label50.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.Location = New System.Drawing.Point(3, 4)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(118, 20)
-        Me.Label50.TabIndex = 136
-        Me.Label50.Text = "HORA INICIO"
-        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label51
-        '
-        Me.Label51.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label51.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label51.Location = New System.Drawing.Point(400, 476)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(250, 25)
-        Me.Label51.TabIndex = 135
-        Me.Label51.Text = "SEGUNDO HORARIO SABADO"
-        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinViernes33
-        '
-        Me.dtpFinViernes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinViernes33.Enabled = False
-        Me.dtpFinViernes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinViernes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinViernes33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinViernes33.Name = "dtpFinViernes33"
-        Me.dtpFinViernes33.ShowUpDown = True
-        Me.dtpFinViernes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinViernes33.TabIndex = 134
-        '
-        'dtpInicioViernes33
-        '
-        Me.dtpInicioViernes33.Enabled = False
-        Me.dtpInicioViernes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioViernes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioViernes33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioViernes33.Name = "dtpInicioViernes33"
-        Me.dtpInicioViernes33.ShowUpDown = True
-        Me.dtpInicioViernes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioViernes33.TabIndex = 133
-        '
-        'Label52
-        '
-        Me.Label52.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.Location = New System.Drawing.Point(127, 4)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(118, 20)
-        Me.Label52.TabIndex = 132
-        Me.Label52.Text = "HORA FIN"
-        Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label53
-        '
-        Me.Label53.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label53.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label53.Location = New System.Drawing.Point(3, 4)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(118, 20)
-        Me.Label53.TabIndex = 131
-        Me.Label53.Text = "HORA INICIO"
-        Me.Label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label54
-        '
-        Me.Label54.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label54.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label54.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label54.Location = New System.Drawing.Point(400, 390)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(250, 25)
-        Me.Label54.TabIndex = 130
-        Me.Label54.Text = "SEGUNDO HORARIO VIERNES"
-        Me.Label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinJueves33
-        '
-        Me.dtpFinJueves33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves33.Enabled = False
-        Me.dtpFinJueves33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinJueves33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinJueves33.Name = "dtpFinJueves33"
-        Me.dtpFinJueves33.ShowUpDown = True
-        Me.dtpFinJueves33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinJueves33.TabIndex = 129
-        '
-        'dtpInicioJueves33
-        '
-        Me.dtpInicioJueves33.Enabled = False
-        Me.dtpInicioJueves33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioJueves33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioJueves33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioJueves33.Name = "dtpInicioJueves33"
-        Me.dtpInicioJueves33.ShowUpDown = True
-        Me.dtpInicioJueves33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioJueves33.TabIndex = 128
-        '
-        'Label55
-        '
-        Me.Label55.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label55.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label55.Location = New System.Drawing.Point(127, 4)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(118, 20)
-        Me.Label55.TabIndex = 127
-        Me.Label55.Text = "HORA FIN"
-        Me.Label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label56
-        '
-        Me.Label56.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label56.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label56.Location = New System.Drawing.Point(3, 4)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(118, 20)
-        Me.Label56.TabIndex = 126
-        Me.Label56.Text = "HORA INICIO"
-        Me.Label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label57
-        '
-        Me.Label57.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label57.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label57.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label57.Location = New System.Drawing.Point(400, 304)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(250, 25)
-        Me.Label57.TabIndex = 125
-        Me.Label57.Text = "SEGUNDO HORARIO JUEVES"
-        Me.Label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinMiercoles33
-        '
-        Me.dtpFinMiercoles33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMiercoles33.Enabled = False
-        Me.dtpFinMiercoles33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMiercoles33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinMiercoles33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinMiercoles33.Name = "dtpFinMiercoles33"
-        Me.dtpFinMiercoles33.ShowUpDown = True
-        Me.dtpFinMiercoles33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinMiercoles33.TabIndex = 124
-        '
-        'dtpInicioMiercoles33
-        '
-        Me.dtpInicioMiercoles33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMiercoles33.Enabled = False
-        Me.dtpInicioMiercoles33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMiercoles33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioMiercoles33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioMiercoles33.Name = "dtpInicioMiercoles33"
-        Me.dtpInicioMiercoles33.ShowUpDown = True
-        Me.dtpInicioMiercoles33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioMiercoles33.TabIndex = 123
-        '
-        'Label58
-        '
-        Me.Label58.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label58.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label58.Location = New System.Drawing.Point(127, 4)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(118, 20)
-        Me.Label58.TabIndex = 122
-        Me.Label58.Text = "HORA FIN"
-        Me.Label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label59
-        '
-        Me.Label59.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label59.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label59.Location = New System.Drawing.Point(3, 4)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(118, 20)
-        Me.Label59.TabIndex = 121
-        Me.Label59.Text = "HORA INICIO"
-        Me.Label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label60
-        '
-        Me.Label60.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label60.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label60.Location = New System.Drawing.Point(400, 218)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(250, 25)
-        Me.Label60.TabIndex = 120
-        Me.Label60.Text = "SEGUNDO HORARIO MIERCOLES"
-        Me.Label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinMartes33
-        '
-        Me.dtpFinMartes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMartes33.Enabled = False
-        Me.dtpFinMartes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMartes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinMartes33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinMartes33.Name = "dtpFinMartes33"
-        Me.dtpFinMartes33.ShowUpDown = True
-        Me.dtpFinMartes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinMartes33.TabIndex = 119
-        '
-        'dtpInicioMartes33
-        '
-        Me.dtpInicioMartes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMartes33.Enabled = False
-        Me.dtpInicioMartes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMartes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioMartes33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioMartes33.Name = "dtpInicioMartes33"
-        Me.dtpInicioMartes33.ShowUpDown = True
-        Me.dtpInicioMartes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioMartes33.TabIndex = 118
-        '
-        'Label61
-        '
-        Me.Label61.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label61.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label61.Location = New System.Drawing.Point(127, 4)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(118, 20)
-        Me.Label61.TabIndex = 117
-        Me.Label61.Text = "HORA FIN"
-        Me.Label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label62
-        '
-        Me.Label62.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label62.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label62.Location = New System.Drawing.Point(3, 4)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(118, 20)
-        Me.Label62.TabIndex = 116
-        Me.Label62.Text = "HORA INICIO"
-        Me.Label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label63
-        '
-        Me.Label63.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label63.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label63.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label63.Location = New System.Drawing.Point(400, 132)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(250, 25)
-        Me.Label63.TabIndex = 115
-        Me.Label63.Text = "SEGUNDO HORARIO MARTES"
-        Me.Label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinLunes33
-        '
-        Me.dtpFinLunes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinLunes33.Enabled = False
-        Me.dtpFinLunes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinLunes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinLunes33.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinLunes33.Name = "dtpFinLunes33"
-        Me.dtpFinLunes33.ShowUpDown = True
-        Me.dtpFinLunes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinLunes33.TabIndex = 114
-        '
-        'dtpInicioLunes33
-        '
-        Me.dtpInicioLunes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioLunes33.Enabled = False
-        Me.dtpInicioLunes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioLunes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioLunes33.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioLunes33.Name = "dtpInicioLunes33"
-        Me.dtpInicioLunes33.ShowUpDown = True
-        Me.dtpInicioLunes33.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioLunes33.TabIndex = 113
-        '
-        'Label64
-        '
-        Me.Label64.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label64.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.Location = New System.Drawing.Point(127, 4)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(118, 20)
-        Me.Label64.TabIndex = 112
-        Me.Label64.Text = "HORA FIN"
-        Me.Label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label65
-        '
-        Me.Label65.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label65.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label65.Location = New System.Drawing.Point(3, 4)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(118, 20)
-        Me.Label65.TabIndex = 111
-        Me.Label65.Text = "HORA INICIO"
-        Me.Label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinDomingo3
-        '
-        Me.dtpFinDomingo3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo3.Enabled = False
-        Me.dtpFinDomingo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinDomingo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinDomingo3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinDomingo3.Name = "dtpFinDomingo3"
-        Me.dtpFinDomingo3.ShowUpDown = True
-        Me.dtpFinDomingo3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinDomingo3.TabIndex = 110
-        '
-        'dtpInicioDomingo3
-        '
-        Me.dtpInicioDomingo3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioDomingo3.Enabled = False
-        Me.dtpInicioDomingo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioDomingo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioDomingo3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioDomingo3.Name = "dtpInicioDomingo3"
-        Me.dtpInicioDomingo3.ShowUpDown = True
-        Me.dtpInicioDomingo3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioDomingo3.TabIndex = 109
-        '
-        'Label66
-        '
-        Me.Label66.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.Location = New System.Drawing.Point(127, 4)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(118, 20)
-        Me.Label66.TabIndex = 108
-        Me.Label66.Text = "HORA FIN"
-        Me.Label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label67
-        '
-        Me.Label67.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label67.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label67.Location = New System.Drawing.Point(3, 4)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(118, 20)
-        Me.Label67.TabIndex = 107
-        Me.Label67.Text = "HORA INICIO"
-        Me.Label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label68
-        '
-        Me.Label68.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label68.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label68.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.Location = New System.Drawing.Point(144, 562)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(250, 25)
-        Me.Label68.TabIndex = 106
-        Me.Label68.Text = "PRIMER HORARIO DOMINGO"
-        Me.Label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinSabado3
-        '
-        Me.dtpFinSabado3.Enabled = False
-        Me.dtpFinSabado3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinSabado3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinSabado3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinSabado3.Name = "dtpFinSabado3"
-        Me.dtpFinSabado3.ShowUpDown = True
-        Me.dtpFinSabado3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinSabado3.TabIndex = 105
-        '
-        'dtpInicioSabdo3
-        '
-        Me.dtpInicioSabdo3.Enabled = False
-        Me.dtpInicioSabdo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioSabdo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioSabdo3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioSabdo3.Name = "dtpInicioSabdo3"
-        Me.dtpInicioSabdo3.ShowUpDown = True
-        Me.dtpInicioSabdo3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioSabdo3.TabIndex = 104
-        '
-        'Label69
-        '
-        Me.Label69.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label69.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label69.Location = New System.Drawing.Point(127, 4)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(118, 20)
-        Me.Label69.TabIndex = 103
-        Me.Label69.Text = "HORA FIN"
-        Me.Label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label70
-        '
-        Me.Label70.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label70.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label70.Location = New System.Drawing.Point(3, 4)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(118, 20)
-        Me.Label70.TabIndex = 102
-        Me.Label70.Text = "HORA INICIO"
-        Me.Label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label71
-        '
-        Me.Label71.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label71.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(144, 476)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(250, 25)
-        Me.Label71.TabIndex = 101
-        Me.Label71.Text = "PRIMER HORARIO SABADO"
-        Me.Label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinViernes3
-        '
-        Me.dtpFinViernes3.Enabled = False
-        Me.dtpFinViernes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinViernes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinViernes3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinViernes3.Name = "dtpFinViernes3"
-        Me.dtpFinViernes3.ShowUpDown = True
-        Me.dtpFinViernes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinViernes3.TabIndex = 100
-        '
-        'dtpInicioViernes3
-        '
-        Me.dtpInicioViernes3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioViernes3.Enabled = False
-        Me.dtpInicioViernes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioViernes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioViernes3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioViernes3.Name = "dtpInicioViernes3"
-        Me.dtpInicioViernes3.ShowUpDown = True
-        Me.dtpInicioViernes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioViernes3.TabIndex = 99
-        '
-        'Label72
-        '
-        Me.Label72.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label72.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.Location = New System.Drawing.Point(127, 4)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(118, 20)
-        Me.Label72.TabIndex = 98
-        Me.Label72.Text = "HORA FIN"
-        Me.Label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label73
-        '
-        Me.Label73.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label73.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label73.Location = New System.Drawing.Point(3, 4)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(118, 20)
-        Me.Label73.TabIndex = 97
-        Me.Label73.Text = "HORA INICIO"
-        Me.Label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label74
-        '
-        Me.Label74.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label74.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label74.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label74.Location = New System.Drawing.Point(144, 390)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(250, 25)
-        Me.Label74.TabIndex = 96
-        Me.Label74.Text = "PRIMER HORARIO VIERNES"
-        Me.Label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinJueves3
-        '
-        Me.dtpFinJueves3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves3.Enabled = False
-        Me.dtpFinJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinJueves3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinJueves3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinJueves3.Name = "dtpFinJueves3"
-        Me.dtpFinJueves3.ShowUpDown = True
-        Me.dtpFinJueves3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinJueves3.TabIndex = 95
-        '
-        'dtpInicioJueves3
-        '
-        Me.dtpInicioJueves3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioJueves3.Enabled = False
-        Me.dtpInicioJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioJueves3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioJueves3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioJueves3.Name = "dtpInicioJueves3"
-        Me.dtpInicioJueves3.ShowUpDown = True
-        Me.dtpInicioJueves3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioJueves3.TabIndex = 94
-        '
-        'Label75
-        '
-        Me.Label75.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label75.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label75.Location = New System.Drawing.Point(127, 4)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(118, 20)
-        Me.Label75.TabIndex = 93
-        Me.Label75.Text = "HORA FIN"
-        Me.Label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label76
-        '
-        Me.Label76.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label76.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label76.Location = New System.Drawing.Point(3, 4)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(118, 20)
-        Me.Label76.TabIndex = 92
-        Me.Label76.Text = "HORA INICIO"
-        Me.Label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label77
-        '
-        Me.Label77.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label77.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label77.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label77.Location = New System.Drawing.Point(144, 304)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(250, 25)
-        Me.Label77.TabIndex = 91
-        Me.Label77.Text = "PRIMER HORARIO JUEVES"
-        Me.Label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinMiercoles3
-        '
-        Me.dtpFinMiercoles3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMiercoles3.Enabled = False
-        Me.dtpFinMiercoles3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMiercoles3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinMiercoles3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinMiercoles3.Name = "dtpFinMiercoles3"
-        Me.dtpFinMiercoles3.ShowUpDown = True
-        Me.dtpFinMiercoles3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinMiercoles3.TabIndex = 90
-        '
-        'dtpInicioMiercoles3
-        '
-        Me.dtpInicioMiercoles3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMiercoles3.Enabled = False
-        Me.dtpInicioMiercoles3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMiercoles3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioMiercoles3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioMiercoles3.Name = "dtpInicioMiercoles3"
-        Me.dtpInicioMiercoles3.ShowUpDown = True
-        Me.dtpInicioMiercoles3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioMiercoles3.TabIndex = 89
-        '
-        'Label78
-        '
-        Me.Label78.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(127, 4)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(118, 20)
-        Me.Label78.TabIndex = 88
-        Me.Label78.Text = "HORA FIN"
-        Me.Label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label79
-        '
-        Me.Label79.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label79.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label79.Location = New System.Drawing.Point(3, 4)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(118, 20)
-        Me.Label79.TabIndex = 87
-        Me.Label79.Text = "HORA INICIO"
-        Me.Label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label80
-        '
-        Me.Label80.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label80.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label80.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label80.Location = New System.Drawing.Point(144, 218)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(250, 25)
-        Me.Label80.TabIndex = 86
-        Me.Label80.Text = "PRIMER HORARIO MIERCOLES"
-        Me.Label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinMartes3
-        '
-        Me.dtpFinMartes3.Enabled = False
-        Me.dtpFinMartes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinMartes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinMartes3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinMartes3.Name = "dtpFinMartes3"
-        Me.dtpFinMartes3.ShowUpDown = True
-        Me.dtpFinMartes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinMartes3.TabIndex = 85
-        '
-        'dtpInicioMartes3
-        '
-        Me.dtpInicioMartes3.Enabled = False
-        Me.dtpInicioMartes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioMartes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioMartes3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioMartes3.Name = "dtpInicioMartes3"
-        Me.dtpInicioMartes3.ShowUpDown = True
-        Me.dtpInicioMartes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioMartes3.TabIndex = 84
-        '
-        'Label81
-        '
-        Me.Label81.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.Location = New System.Drawing.Point(127, 4)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(118, 20)
-        Me.Label81.TabIndex = 83
-        Me.Label81.Text = "HORA FIN"
-        Me.Label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label82
-        '
-        Me.Label82.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label82.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label82.Location = New System.Drawing.Point(3, 4)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(118, 20)
-        Me.Label82.TabIndex = 82
-        Me.Label82.Text = "HORA INICIO"
-        Me.Label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label83
-        '
-        Me.Label83.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label83.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label83.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label83.Location = New System.Drawing.Point(144, 132)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(250, 25)
-        Me.Label83.TabIndex = 81
-        Me.Label83.Text = "PRIMER HORARIO MARTES"
-        Me.Label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dtpFinLunes3
-        '
-        Me.dtpFinLunes3.Enabled = False
-        Me.dtpFinLunes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFinLunes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpFinLunes3.Location = New System.Drawing.Point(127, 27)
-        Me.dtpFinLunes3.Name = "dtpFinLunes3"
-        Me.dtpFinLunes3.ShowUpDown = True
-        Me.dtpFinLunes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpFinLunes3.TabIndex = 80
-        '
-        'dtpInicioLunes3
-        '
-        Me.dtpInicioLunes3.Enabled = False
-        Me.dtpInicioLunes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpInicioLunes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpInicioLunes3.Location = New System.Drawing.Point(3, 27)
-        Me.dtpInicioLunes3.Name = "dtpInicioLunes3"
-        Me.dtpInicioLunes3.ShowUpDown = True
-        Me.dtpInicioLunes3.Size = New System.Drawing.Size(118, 26)
-        Me.dtpInicioLunes3.TabIndex = 79
-        '
-        'Label84
-        '
-        Me.Label84.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label84.Location = New System.Drawing.Point(127, 4)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(118, 20)
-        Me.Label84.TabIndex = 11
-        Me.Label84.Text = "HORA FIN"
-        Me.Label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label85
-        '
-        Me.Label85.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Label85.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label85.Location = New System.Drawing.Point(3, 4)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(118, 20)
-        Me.Label85.TabIndex = 10
-        Me.Label85.Text = "HORA INICIO"
-        Me.Label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label86
-        '
-        Me.Label86.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label86.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label86.Location = New System.Drawing.Point(400, 46)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(250, 25)
-        Me.Label86.TabIndex = 9
-        Me.Label86.Text = "SEGUNDO HORARIO LUNES"
-        Me.Label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label87
-        '
-        Me.Label87.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label87.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label87.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(144, 46)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(250, 25)
-        Me.Label87.TabIndex = 8
-        Me.Label87.Text = "PRIMER HORARIO LUNES"
-        Me.Label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'chkDomingo3
         '
@@ -2371,6 +1606,975 @@ Partial Class frmPromociones
         Me.cbPromocion3.Text = "Activar promoción"
         Me.cbPromocion3.UseVisualStyleBackColor = True
         '
+        'Panel17
+        '
+        Me.Panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel17.Controls.Add(Me.Label85)
+        Me.Panel17.Controls.Add(Me.Label84)
+        Me.Panel17.Controls.Add(Me.dtpInicioLunes3)
+        Me.Panel17.Controls.Add(Me.dtpFinLunes3)
+        Me.Panel17.Location = New System.Drawing.Point(144, 70)
+        Me.Panel17.Name = "Panel17"
+        Me.Panel17.Size = New System.Drawing.Size(250, 59)
+        Me.Panel17.TabIndex = 148
+        '
+        'Label85
+        '
+        Me.Label85.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label85.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(3, 4)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(118, 20)
+        Me.Label85.TabIndex = 10
+        Me.Label85.Text = "HORA INICIO"
+        Me.Label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label84
+        '
+        Me.Label84.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label84.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label84.Location = New System.Drawing.Point(127, 4)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(118, 20)
+        Me.Label84.TabIndex = 11
+        Me.Label84.Text = "HORA FIN"
+        Me.Label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioLunes3
+        '
+        Me.dtpInicioLunes3.Enabled = False
+        Me.dtpInicioLunes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioLunes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioLunes3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioLunes3.Name = "dtpInicioLunes3"
+        Me.dtpInicioLunes3.ShowUpDown = True
+        Me.dtpInicioLunes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioLunes3.TabIndex = 79
+        '
+        'dtpFinLunes3
+        '
+        Me.dtpFinLunes3.Enabled = False
+        Me.dtpFinLunes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinLunes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinLunes3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinLunes3.Name = "dtpFinLunes3"
+        Me.dtpFinLunes3.ShowUpDown = True
+        Me.dtpFinLunes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinLunes3.TabIndex = 80
+        '
+        'Label87
+        '
+        Me.Label87.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label87.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label87.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(144, 46)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(250, 25)
+        Me.Label87.TabIndex = 8
+        Me.Label87.Text = "PRIMER HORARIO LUNES"
+        Me.Label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel18
+        '
+        Me.Panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel18.Controls.Add(Me.Label82)
+        Me.Panel18.Controls.Add(Me.Label81)
+        Me.Panel18.Controls.Add(Me.dtpInicioMartes3)
+        Me.Panel18.Controls.Add(Me.dtpFinMartes3)
+        Me.Panel18.Location = New System.Drawing.Point(144, 156)
+        Me.Panel18.Name = "Panel18"
+        Me.Panel18.Size = New System.Drawing.Size(250, 59)
+        Me.Panel18.TabIndex = 149
+        '
+        'Label82
+        '
+        Me.Label82.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label82.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label82.Location = New System.Drawing.Point(3, 4)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(118, 20)
+        Me.Label82.TabIndex = 82
+        Me.Label82.Text = "HORA INICIO"
+        Me.Label82.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label81
+        '
+        Me.Label81.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.Location = New System.Drawing.Point(127, 4)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(118, 20)
+        Me.Label81.TabIndex = 83
+        Me.Label81.Text = "HORA FIN"
+        Me.Label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioMartes3
+        '
+        Me.dtpInicioMartes3.Enabled = False
+        Me.dtpInicioMartes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMartes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioMartes3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioMartes3.Name = "dtpInicioMartes3"
+        Me.dtpInicioMartes3.ShowUpDown = True
+        Me.dtpInicioMartes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioMartes3.TabIndex = 84
+        '
+        'dtpFinMartes3
+        '
+        Me.dtpFinMartes3.Enabled = False
+        Me.dtpFinMartes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMartes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinMartes3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinMartes3.Name = "dtpFinMartes3"
+        Me.dtpFinMartes3.ShowUpDown = True
+        Me.dtpFinMartes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinMartes3.TabIndex = 85
+        '
+        'Label83
+        '
+        Me.Label83.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label83.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label83.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(144, 132)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(250, 25)
+        Me.Label83.TabIndex = 81
+        Me.Label83.Text = "PRIMER HORARIO MARTES"
+        Me.Label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel19
+        '
+        Me.Panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel19.Controls.Add(Me.Label79)
+        Me.Panel19.Controls.Add(Me.Label78)
+        Me.Panel19.Controls.Add(Me.dtpInicioMiercoles3)
+        Me.Panel19.Controls.Add(Me.dtpFinMiercoles3)
+        Me.Panel19.Location = New System.Drawing.Point(144, 242)
+        Me.Panel19.Name = "Panel19"
+        Me.Panel19.Size = New System.Drawing.Size(250, 59)
+        Me.Panel19.TabIndex = 150
+        '
+        'Label79
+        '
+        Me.Label79.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label79.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label79.Location = New System.Drawing.Point(3, 4)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(118, 20)
+        Me.Label79.TabIndex = 87
+        Me.Label79.Text = "HORA INICIO"
+        Me.Label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label78
+        '
+        Me.Label78.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label78.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label78.Location = New System.Drawing.Point(127, 4)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(118, 20)
+        Me.Label78.TabIndex = 88
+        Me.Label78.Text = "HORA FIN"
+        Me.Label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioMiercoles3
+        '
+        Me.dtpInicioMiercoles3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMiercoles3.Enabled = False
+        Me.dtpInicioMiercoles3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMiercoles3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioMiercoles3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioMiercoles3.Name = "dtpInicioMiercoles3"
+        Me.dtpInicioMiercoles3.ShowUpDown = True
+        Me.dtpInicioMiercoles3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioMiercoles3.TabIndex = 89
+        '
+        'dtpFinMiercoles3
+        '
+        Me.dtpFinMiercoles3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMiercoles3.Enabled = False
+        Me.dtpFinMiercoles3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMiercoles3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinMiercoles3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinMiercoles3.Name = "dtpFinMiercoles3"
+        Me.dtpFinMiercoles3.ShowUpDown = True
+        Me.dtpFinMiercoles3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinMiercoles3.TabIndex = 90
+        '
+        'Label80
+        '
+        Me.Label80.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label80.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label80.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label80.Location = New System.Drawing.Point(144, 218)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(250, 25)
+        Me.Label80.TabIndex = 86
+        Me.Label80.Text = "PRIMER HORARIO MIERCOLES"
+        Me.Label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel20
+        '
+        Me.Panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel20.Controls.Add(Me.Label76)
+        Me.Panel20.Controls.Add(Me.Label75)
+        Me.Panel20.Controls.Add(Me.dtpInicioJueves3)
+        Me.Panel20.Controls.Add(Me.dtpFinJueves3)
+        Me.Panel20.Location = New System.Drawing.Point(144, 328)
+        Me.Panel20.Name = "Panel20"
+        Me.Panel20.Size = New System.Drawing.Size(250, 59)
+        Me.Panel20.TabIndex = 151
+        '
+        'Label76
+        '
+        Me.Label76.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label76.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label76.Location = New System.Drawing.Point(3, 4)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(118, 20)
+        Me.Label76.TabIndex = 92
+        Me.Label76.Text = "HORA INICIO"
+        Me.Label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label75
+        '
+        Me.Label75.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label75.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label75.Location = New System.Drawing.Point(127, 4)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(118, 20)
+        Me.Label75.TabIndex = 93
+        Me.Label75.Text = "HORA FIN"
+        Me.Label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioJueves3
+        '
+        Me.dtpInicioJueves3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioJueves3.Enabled = False
+        Me.dtpInicioJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioJueves3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioJueves3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioJueves3.Name = "dtpInicioJueves3"
+        Me.dtpInicioJueves3.ShowUpDown = True
+        Me.dtpInicioJueves3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioJueves3.TabIndex = 94
+        '
+        'dtpFinJueves3
+        '
+        Me.dtpFinJueves3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves3.Enabled = False
+        Me.dtpFinJueves3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinJueves3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinJueves3.Name = "dtpFinJueves3"
+        Me.dtpFinJueves3.ShowUpDown = True
+        Me.dtpFinJueves3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinJueves3.TabIndex = 95
+        '
+        'Label77
+        '
+        Me.Label77.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label77.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label77.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label77.Location = New System.Drawing.Point(144, 304)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(250, 25)
+        Me.Label77.TabIndex = 91
+        Me.Label77.Text = "PRIMER HORARIO JUEVES"
+        Me.Label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel21
+        '
+        Me.Panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel21.Controls.Add(Me.Label73)
+        Me.Panel21.Controls.Add(Me.Label72)
+        Me.Panel21.Controls.Add(Me.dtpInicioViernes3)
+        Me.Panel21.Controls.Add(Me.dtpFinViernes3)
+        Me.Panel21.Location = New System.Drawing.Point(144, 414)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(250, 59)
+        Me.Panel21.TabIndex = 152
+        '
+        'Label73
+        '
+        Me.Label73.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label73.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.Location = New System.Drawing.Point(3, 4)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(118, 20)
+        Me.Label73.TabIndex = 97
+        Me.Label73.Text = "HORA INICIO"
+        Me.Label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label72
+        '
+        Me.Label72.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label72.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.Location = New System.Drawing.Point(127, 4)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(118, 20)
+        Me.Label72.TabIndex = 98
+        Me.Label72.Text = "HORA FIN"
+        Me.Label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioViernes3
+        '
+        Me.dtpInicioViernes3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioViernes3.Enabled = False
+        Me.dtpInicioViernes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioViernes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioViernes3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioViernes3.Name = "dtpInicioViernes3"
+        Me.dtpInicioViernes3.ShowUpDown = True
+        Me.dtpInicioViernes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioViernes3.TabIndex = 99
+        '
+        'dtpFinViernes3
+        '
+        Me.dtpFinViernes3.Enabled = False
+        Me.dtpFinViernes3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinViernes3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinViernes3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinViernes3.Name = "dtpFinViernes3"
+        Me.dtpFinViernes3.ShowUpDown = True
+        Me.dtpFinViernes3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinViernes3.TabIndex = 100
+        '
+        'Label74
+        '
+        Me.Label74.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label74.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label74.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.Location = New System.Drawing.Point(144, 390)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(250, 25)
+        Me.Label74.TabIndex = 96
+        Me.Label74.Text = "PRIMER HORARIO VIERNES"
+        Me.Label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel22
+        '
+        Me.Panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel22.Controls.Add(Me.Label70)
+        Me.Panel22.Controls.Add(Me.Label69)
+        Me.Panel22.Controls.Add(Me.dtpInicioSabdo3)
+        Me.Panel22.Controls.Add(Me.dtpFinSabado3)
+        Me.Panel22.Location = New System.Drawing.Point(144, 500)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(250, 59)
+        Me.Panel22.TabIndex = 153
+        '
+        'Label70
+        '
+        Me.Label70.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label70.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label70.Location = New System.Drawing.Point(3, 4)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(118, 20)
+        Me.Label70.TabIndex = 102
+        Me.Label70.Text = "HORA INICIO"
+        Me.Label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label69
+        '
+        Me.Label69.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label69.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label69.Location = New System.Drawing.Point(127, 4)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(118, 20)
+        Me.Label69.TabIndex = 103
+        Me.Label69.Text = "HORA FIN"
+        Me.Label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioSabdo3
+        '
+        Me.dtpInicioSabdo3.Enabled = False
+        Me.dtpInicioSabdo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioSabdo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioSabdo3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioSabdo3.Name = "dtpInicioSabdo3"
+        Me.dtpInicioSabdo3.ShowUpDown = True
+        Me.dtpInicioSabdo3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioSabdo3.TabIndex = 104
+        '
+        'dtpFinSabado3
+        '
+        Me.dtpFinSabado3.Enabled = False
+        Me.dtpFinSabado3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinSabado3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinSabado3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinSabado3.Name = "dtpFinSabado3"
+        Me.dtpFinSabado3.ShowUpDown = True
+        Me.dtpFinSabado3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinSabado3.TabIndex = 105
+        '
+        'Label71
+        '
+        Me.Label71.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label71.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(144, 476)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(250, 25)
+        Me.Label71.TabIndex = 101
+        Me.Label71.Text = "PRIMER HORARIO SABADO"
+        Me.Label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel23
+        '
+        Me.Panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel23.Controls.Add(Me.Label67)
+        Me.Panel23.Controls.Add(Me.Label66)
+        Me.Panel23.Controls.Add(Me.dtpInicioDomingo3)
+        Me.Panel23.Controls.Add(Me.dtpFinDomingo3)
+        Me.Panel23.Location = New System.Drawing.Point(144, 586)
+        Me.Panel23.Name = "Panel23"
+        Me.Panel23.Size = New System.Drawing.Size(250, 59)
+        Me.Panel23.TabIndex = 154
+        '
+        'Label67
+        '
+        Me.Label67.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label67.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label67.Location = New System.Drawing.Point(3, 4)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(118, 20)
+        Me.Label67.TabIndex = 107
+        Me.Label67.Text = "HORA INICIO"
+        Me.Label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label66
+        '
+        Me.Label66.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label66.Location = New System.Drawing.Point(127, 4)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(118, 20)
+        Me.Label66.TabIndex = 108
+        Me.Label66.Text = "HORA FIN"
+        Me.Label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioDomingo3
+        '
+        Me.dtpInicioDomingo3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioDomingo3.Enabled = False
+        Me.dtpInicioDomingo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioDomingo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioDomingo3.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioDomingo3.Name = "dtpInicioDomingo3"
+        Me.dtpInicioDomingo3.ShowUpDown = True
+        Me.dtpInicioDomingo3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioDomingo3.TabIndex = 109
+        '
+        'dtpFinDomingo3
+        '
+        Me.dtpFinDomingo3.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo3.Enabled = False
+        Me.dtpFinDomingo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo3.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinDomingo3.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinDomingo3.Name = "dtpFinDomingo3"
+        Me.dtpFinDomingo3.ShowUpDown = True
+        Me.dtpFinDomingo3.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinDomingo3.TabIndex = 110
+        '
+        'Label68
+        '
+        Me.Label68.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label68.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label68.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label68.Location = New System.Drawing.Point(144, 562)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(250, 25)
+        Me.Label68.TabIndex = 106
+        Me.Label68.Text = "PRIMER HORARIO DOMINGO"
+        Me.Label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel24
+        '
+        Me.Panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel24.Controls.Add(Me.Label65)
+        Me.Panel24.Controls.Add(Me.Label64)
+        Me.Panel24.Controls.Add(Me.dtpInicioLunes33)
+        Me.Panel24.Controls.Add(Me.dtpFinLunes33)
+        Me.Panel24.Location = New System.Drawing.Point(400, 70)
+        Me.Panel24.Name = "Panel24"
+        Me.Panel24.Size = New System.Drawing.Size(250, 59)
+        Me.Panel24.TabIndex = 155
+        '
+        'Label65
+        '
+        Me.Label65.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label65.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label65.Location = New System.Drawing.Point(3, 4)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(118, 20)
+        Me.Label65.TabIndex = 111
+        Me.Label65.Text = "HORA INICIO"
+        Me.Label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label64
+        '
+        Me.Label64.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label64.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label64.Location = New System.Drawing.Point(127, 4)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(118, 20)
+        Me.Label64.TabIndex = 112
+        Me.Label64.Text = "HORA FIN"
+        Me.Label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioLunes33
+        '
+        Me.dtpInicioLunes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioLunes33.Enabled = False
+        Me.dtpInicioLunes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioLunes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioLunes33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioLunes33.Name = "dtpInicioLunes33"
+        Me.dtpInicioLunes33.ShowUpDown = True
+        Me.dtpInicioLunes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioLunes33.TabIndex = 113
+        '
+        'dtpFinLunes33
+        '
+        Me.dtpFinLunes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinLunes33.Enabled = False
+        Me.dtpFinLunes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinLunes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinLunes33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinLunes33.Name = "dtpFinLunes33"
+        Me.dtpFinLunes33.ShowUpDown = True
+        Me.dtpFinLunes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinLunes33.TabIndex = 114
+        '
+        'Label86
+        '
+        Me.Label86.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label86.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label86.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(400, 46)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(250, 25)
+        Me.Label86.TabIndex = 9
+        Me.Label86.Text = "SEGUNDO HORARIO LUNES"
+        Me.Label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel25
+        '
+        Me.Panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel25.Controls.Add(Me.Label62)
+        Me.Panel25.Controls.Add(Me.Label61)
+        Me.Panel25.Controls.Add(Me.dtpInicioMartes33)
+        Me.Panel25.Controls.Add(Me.dtpFinMartes33)
+        Me.Panel25.Location = New System.Drawing.Point(400, 156)
+        Me.Panel25.Name = "Panel25"
+        Me.Panel25.Size = New System.Drawing.Size(250, 59)
+        Me.Panel25.TabIndex = 156
+        '
+        'Label62
+        '
+        Me.Label62.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label62.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label62.Location = New System.Drawing.Point(3, 4)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(118, 20)
+        Me.Label62.TabIndex = 116
+        Me.Label62.Text = "HORA INICIO"
+        Me.Label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label61
+        '
+        Me.Label61.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label61.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label61.Location = New System.Drawing.Point(127, 4)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(118, 20)
+        Me.Label61.TabIndex = 117
+        Me.Label61.Text = "HORA FIN"
+        Me.Label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioMartes33
+        '
+        Me.dtpInicioMartes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMartes33.Enabled = False
+        Me.dtpInicioMartes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMartes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioMartes33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioMartes33.Name = "dtpInicioMartes33"
+        Me.dtpInicioMartes33.ShowUpDown = True
+        Me.dtpInicioMartes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioMartes33.TabIndex = 118
+        '
+        'dtpFinMartes33
+        '
+        Me.dtpFinMartes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMartes33.Enabled = False
+        Me.dtpFinMartes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMartes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinMartes33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinMartes33.Name = "dtpFinMartes33"
+        Me.dtpFinMartes33.ShowUpDown = True
+        Me.dtpFinMartes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinMartes33.TabIndex = 119
+        '
+        'Label63
+        '
+        Me.Label63.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label63.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label63.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.Location = New System.Drawing.Point(400, 132)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(250, 25)
+        Me.Label63.TabIndex = 115
+        Me.Label63.Text = "SEGUNDO HORARIO MARTES"
+        Me.Label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel26
+        '
+        Me.Panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel26.Controls.Add(Me.Label59)
+        Me.Panel26.Controls.Add(Me.Label58)
+        Me.Panel26.Controls.Add(Me.dtpInicioMiercoles33)
+        Me.Panel26.Controls.Add(Me.dtpFinMiercoles33)
+        Me.Panel26.Location = New System.Drawing.Point(400, 242)
+        Me.Panel26.Name = "Panel26"
+        Me.Panel26.Size = New System.Drawing.Size(250, 59)
+        Me.Panel26.TabIndex = 157
+        '
+        'Label59
+        '
+        Me.Label59.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label59.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.Location = New System.Drawing.Point(3, 4)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(118, 20)
+        Me.Label59.TabIndex = 121
+        Me.Label59.Text = "HORA INICIO"
+        Me.Label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label58
+        '
+        Me.Label58.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label58.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label58.Location = New System.Drawing.Point(127, 4)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(118, 20)
+        Me.Label58.TabIndex = 122
+        Me.Label58.Text = "HORA FIN"
+        Me.Label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioMiercoles33
+        '
+        Me.dtpInicioMiercoles33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMiercoles33.Enabled = False
+        Me.dtpInicioMiercoles33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioMiercoles33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioMiercoles33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioMiercoles33.Name = "dtpInicioMiercoles33"
+        Me.dtpInicioMiercoles33.ShowUpDown = True
+        Me.dtpInicioMiercoles33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioMiercoles33.TabIndex = 123
+        '
+        'dtpFinMiercoles33
+        '
+        Me.dtpFinMiercoles33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMiercoles33.Enabled = False
+        Me.dtpFinMiercoles33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinMiercoles33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinMiercoles33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinMiercoles33.Name = "dtpFinMiercoles33"
+        Me.dtpFinMiercoles33.ShowUpDown = True
+        Me.dtpFinMiercoles33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinMiercoles33.TabIndex = 124
+        '
+        'Label60
+        '
+        Me.Label60.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label60.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label60.Location = New System.Drawing.Point(400, 218)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(250, 25)
+        Me.Label60.TabIndex = 120
+        Me.Label60.Text = "SEGUNDO HORARIO MIERCOLES"
+        Me.Label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel27
+        '
+        Me.Panel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel27.Controls.Add(Me.Label56)
+        Me.Panel27.Controls.Add(Me.Label55)
+        Me.Panel27.Controls.Add(Me.dtpInicioJueves33)
+        Me.Panel27.Controls.Add(Me.dtpFinJueves33)
+        Me.Panel27.Location = New System.Drawing.Point(400, 328)
+        Me.Panel27.Name = "Panel27"
+        Me.Panel27.Size = New System.Drawing.Size(250, 59)
+        Me.Panel27.TabIndex = 158
+        '
+        'Label56
+        '
+        Me.Label56.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label56.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label56.Location = New System.Drawing.Point(3, 4)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(118, 20)
+        Me.Label56.TabIndex = 126
+        Me.Label56.Text = "HORA INICIO"
+        Me.Label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label55
+        '
+        Me.Label55.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label55.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label55.Location = New System.Drawing.Point(127, 4)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(118, 20)
+        Me.Label55.TabIndex = 127
+        Me.Label55.Text = "HORA FIN"
+        Me.Label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioJueves33
+        '
+        Me.dtpInicioJueves33.Enabled = False
+        Me.dtpInicioJueves33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioJueves33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioJueves33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioJueves33.Name = "dtpInicioJueves33"
+        Me.dtpInicioJueves33.ShowUpDown = True
+        Me.dtpInicioJueves33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioJueves33.TabIndex = 128
+        '
+        'dtpFinJueves33
+        '
+        Me.dtpFinJueves33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves33.Enabled = False
+        Me.dtpFinJueves33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinJueves33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinJueves33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinJueves33.Name = "dtpFinJueves33"
+        Me.dtpFinJueves33.ShowUpDown = True
+        Me.dtpFinJueves33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinJueves33.TabIndex = 129
+        '
+        'Label57
+        '
+        Me.Label57.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label57.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label57.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label57.Location = New System.Drawing.Point(400, 304)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(250, 25)
+        Me.Label57.TabIndex = 125
+        Me.Label57.Text = "SEGUNDO HORARIO JUEVES"
+        Me.Label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel28
+        '
+        Me.Panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel28.Controls.Add(Me.Label53)
+        Me.Panel28.Controls.Add(Me.Label52)
+        Me.Panel28.Controls.Add(Me.dtpInicioViernes33)
+        Me.Panel28.Controls.Add(Me.dtpFinViernes33)
+        Me.Panel28.Location = New System.Drawing.Point(400, 414)
+        Me.Panel28.Name = "Panel28"
+        Me.Panel28.Size = New System.Drawing.Size(250, 59)
+        Me.Panel28.TabIndex = 159
+        '
+        'Label53
+        '
+        Me.Label53.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label53.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label53.Location = New System.Drawing.Point(3, 4)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(118, 20)
+        Me.Label53.TabIndex = 131
+        Me.Label53.Text = "HORA INICIO"
+        Me.Label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label52
+        '
+        Me.Label52.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label52.Location = New System.Drawing.Point(127, 4)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(118, 20)
+        Me.Label52.TabIndex = 132
+        Me.Label52.Text = "HORA FIN"
+        Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioViernes33
+        '
+        Me.dtpInicioViernes33.Enabled = False
+        Me.dtpInicioViernes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioViernes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioViernes33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioViernes33.Name = "dtpInicioViernes33"
+        Me.dtpInicioViernes33.ShowUpDown = True
+        Me.dtpInicioViernes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioViernes33.TabIndex = 133
+        '
+        'dtpFinViernes33
+        '
+        Me.dtpFinViernes33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinViernes33.Enabled = False
+        Me.dtpFinViernes33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinViernes33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinViernes33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinViernes33.Name = "dtpFinViernes33"
+        Me.dtpFinViernes33.ShowUpDown = True
+        Me.dtpFinViernes33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinViernes33.TabIndex = 134
+        '
+        'Label54
+        '
+        Me.Label54.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label54.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label54.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label54.Location = New System.Drawing.Point(400, 390)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(250, 25)
+        Me.Label54.TabIndex = 130
+        Me.Label54.Text = "SEGUNDO HORARIO VIERNES"
+        Me.Label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel29
+        '
+        Me.Panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel29.Controls.Add(Me.Label50)
+        Me.Panel29.Controls.Add(Me.Label49)
+        Me.Panel29.Controls.Add(Me.dtpInicioSabado33)
+        Me.Panel29.Controls.Add(Me.dtpFinSabado33)
+        Me.Panel29.Location = New System.Drawing.Point(400, 500)
+        Me.Panel29.Name = "Panel29"
+        Me.Panel29.Size = New System.Drawing.Size(250, 59)
+        Me.Panel29.TabIndex = 160
+        '
+        'Label50
+        '
+        Me.Label50.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label50.Location = New System.Drawing.Point(3, 4)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(118, 20)
+        Me.Label50.TabIndex = 136
+        Me.Label50.Text = "HORA INICIO"
+        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label49
+        '
+        Me.Label49.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label49.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.Location = New System.Drawing.Point(127, 4)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(118, 20)
+        Me.Label49.TabIndex = 137
+        Me.Label49.Text = "HORA FIN"
+        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioSabado33
+        '
+        Me.dtpInicioSabado33.Enabled = False
+        Me.dtpInicioSabado33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioSabado33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioSabado33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioSabado33.Name = "dtpInicioSabado33"
+        Me.dtpInicioSabado33.ShowUpDown = True
+        Me.dtpInicioSabado33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioSabado33.TabIndex = 138
+        '
+        'dtpFinSabado33
+        '
+        Me.dtpFinSabado33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinSabado33.Enabled = False
+        Me.dtpFinSabado33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinSabado33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinSabado33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinSabado33.Name = "dtpFinSabado33"
+        Me.dtpFinSabado33.ShowUpDown = True
+        Me.dtpFinSabado33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinSabado33.TabIndex = 139
+        '
+        'Label51
+        '
+        Me.Label51.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label51.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label51.Location = New System.Drawing.Point(400, 476)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(250, 25)
+        Me.Label51.TabIndex = 135
+        Me.Label51.Text = "SEGUNDO HORARIO SABADO"
+        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel30
+        '
+        Me.Panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel30.Controls.Add(Me.Label47)
+        Me.Panel30.Controls.Add(Me.dtpFinDomingo33)
+        Me.Panel30.Controls.Add(Me.Label46)
+        Me.Panel30.Controls.Add(Me.dtpInicioDomingo33)
+        Me.Panel30.Location = New System.Drawing.Point(400, 586)
+        Me.Panel30.Name = "Panel30"
+        Me.Panel30.Size = New System.Drawing.Size(250, 59)
+        Me.Panel30.TabIndex = 161
+        '
+        'Label47
+        '
+        Me.Label47.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(3, 4)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(118, 20)
+        Me.Label47.TabIndex = 141
+        Me.Label47.Text = "HORA INICIO"
+        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpFinDomingo33
+        '
+        Me.dtpFinDomingo33.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo33.Enabled = False
+        Me.dtpFinDomingo33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFinDomingo33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpFinDomingo33.Location = New System.Drawing.Point(127, 27)
+        Me.dtpFinDomingo33.Name = "dtpFinDomingo33"
+        Me.dtpFinDomingo33.ShowUpDown = True
+        Me.dtpFinDomingo33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpFinDomingo33.TabIndex = 144
+        '
+        'Label46
+        '
+        Me.Label46.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.Location = New System.Drawing.Point(127, 4)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(118, 20)
+        Me.Label46.TabIndex = 142
+        Me.Label46.Text = "HORA FIN"
+        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpInicioDomingo33
+        '
+        Me.dtpInicioDomingo33.Enabled = False
+        Me.dtpInicioDomingo33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpInicioDomingo33.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtpInicioDomingo33.Location = New System.Drawing.Point(3, 27)
+        Me.dtpInicioDomingo33.Name = "dtpInicioDomingo33"
+        Me.dtpInicioDomingo33.ShowUpDown = True
+        Me.dtpInicioDomingo33.Size = New System.Drawing.Size(118, 26)
+        Me.dtpInicioDomingo33.TabIndex = 143
+        '
+        'Label48
+        '
+        Me.Label48.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label48.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label48.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.Location = New System.Drawing.Point(400, 562)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(250, 25)
+        Me.Label48.TabIndex = 140
+        Me.Label48.Text = "SEGUNDO HORARIO DOMINGO"
+        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label88
         '
         Me.Label88.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -2407,215 +2611,11 @@ Partial Class frmPromociones
         Me.Label90.Text = "Unidad"
         Me.Label90.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Panel13
-        '
-        Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel13.Controls.Add(Me.Label36)
-        Me.Panel13.Controls.Add(Me.Label35)
-        Me.Panel13.Controls.Add(Me.dtpInicioJueves2)
-        Me.Panel13.Controls.Add(Me.dtpFinJueves2)
-        Me.Panel13.Location = New System.Drawing.Point(400, 328)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(250, 59)
-        Me.Panel13.TabIndex = 154
-        '
-        'Panel14
-        '
-        Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel14.Controls.Add(Me.Label39)
-        Me.Panel14.Controls.Add(Me.Label38)
-        Me.Panel14.Controls.Add(Me.dtpInicioViernes2)
-        Me.Panel14.Controls.Add(Me.dtpFinViernes2)
-        Me.Panel14.Location = New System.Drawing.Point(400, 414)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(250, 59)
-        Me.Panel14.TabIndex = 155
-        '
-        'Panel15
-        '
-        Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel15.Controls.Add(Me.Label42)
-        Me.Panel15.Controls.Add(Me.Label41)
-        Me.Panel15.Controls.Add(Me.dtpInicioSabado2)
-        Me.Panel15.Controls.Add(Me.dtpFinSabado2)
-        Me.Panel15.Location = New System.Drawing.Point(400, 500)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(250, 59)
-        Me.Panel15.TabIndex = 156
-        '
-        'Panel17
-        '
-        Me.Panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel17.Controls.Add(Me.Label85)
-        Me.Panel17.Controls.Add(Me.Label84)
-        Me.Panel17.Controls.Add(Me.dtpInicioLunes3)
-        Me.Panel17.Controls.Add(Me.dtpFinLunes3)
-        Me.Panel17.Location = New System.Drawing.Point(144, 70)
-        Me.Panel17.Name = "Panel17"
-        Me.Panel17.Size = New System.Drawing.Size(250, 59)
-        Me.Panel17.TabIndex = 148
-        '
-        'Panel18
-        '
-        Me.Panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel18.Controls.Add(Me.Label82)
-        Me.Panel18.Controls.Add(Me.Label81)
-        Me.Panel18.Controls.Add(Me.dtpInicioMartes3)
-        Me.Panel18.Controls.Add(Me.dtpFinMartes3)
-        Me.Panel18.Location = New System.Drawing.Point(144, 156)
-        Me.Panel18.Name = "Panel18"
-        Me.Panel18.Size = New System.Drawing.Size(250, 59)
-        Me.Panel18.TabIndex = 149
-        '
-        'Panel19
-        '
-        Me.Panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel19.Controls.Add(Me.Label79)
-        Me.Panel19.Controls.Add(Me.Label78)
-        Me.Panel19.Controls.Add(Me.dtpInicioMiercoles3)
-        Me.Panel19.Controls.Add(Me.dtpFinMiercoles3)
-        Me.Panel19.Location = New System.Drawing.Point(144, 242)
-        Me.Panel19.Name = "Panel19"
-        Me.Panel19.Size = New System.Drawing.Size(250, 59)
-        Me.Panel19.TabIndex = 150
-        '
-        'Panel20
-        '
-        Me.Panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel20.Controls.Add(Me.Label76)
-        Me.Panel20.Controls.Add(Me.Label75)
-        Me.Panel20.Controls.Add(Me.dtpInicioJueves3)
-        Me.Panel20.Controls.Add(Me.dtpFinJueves3)
-        Me.Panel20.Location = New System.Drawing.Point(144, 328)
-        Me.Panel20.Name = "Panel20"
-        Me.Panel20.Size = New System.Drawing.Size(250, 59)
-        Me.Panel20.TabIndex = 151
-        '
-        'Panel21
-        '
-        Me.Panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel21.Controls.Add(Me.Label73)
-        Me.Panel21.Controls.Add(Me.Label72)
-        Me.Panel21.Controls.Add(Me.dtpInicioViernes3)
-        Me.Panel21.Controls.Add(Me.dtpFinViernes3)
-        Me.Panel21.Location = New System.Drawing.Point(144, 414)
-        Me.Panel21.Name = "Panel21"
-        Me.Panel21.Size = New System.Drawing.Size(250, 59)
-        Me.Panel21.TabIndex = 152
-        '
-        'Panel22
-        '
-        Me.Panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel22.Controls.Add(Me.Label70)
-        Me.Panel22.Controls.Add(Me.Label69)
-        Me.Panel22.Controls.Add(Me.dtpInicioSabdo3)
-        Me.Panel22.Controls.Add(Me.dtpFinSabado3)
-        Me.Panel22.Location = New System.Drawing.Point(144, 500)
-        Me.Panel22.Name = "Panel22"
-        Me.Panel22.Size = New System.Drawing.Size(250, 59)
-        Me.Panel22.TabIndex = 153
-        '
-        'Panel23
-        '
-        Me.Panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel23.Controls.Add(Me.Label67)
-        Me.Panel23.Controls.Add(Me.Label66)
-        Me.Panel23.Controls.Add(Me.dtpInicioDomingo3)
-        Me.Panel23.Controls.Add(Me.dtpFinDomingo3)
-        Me.Panel23.Location = New System.Drawing.Point(144, 586)
-        Me.Panel23.Name = "Panel23"
-        Me.Panel23.Size = New System.Drawing.Size(250, 59)
-        Me.Panel23.TabIndex = 154
-        '
-        'Panel24
-        '
-        Me.Panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel24.Controls.Add(Me.Label65)
-        Me.Panel24.Controls.Add(Me.Label64)
-        Me.Panel24.Controls.Add(Me.dtpInicioLunes33)
-        Me.Panel24.Controls.Add(Me.dtpFinLunes33)
-        Me.Panel24.Location = New System.Drawing.Point(400, 70)
-        Me.Panel24.Name = "Panel24"
-        Me.Panel24.Size = New System.Drawing.Size(250, 59)
-        Me.Panel24.TabIndex = 155
-        '
-        'Panel25
-        '
-        Me.Panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel25.Controls.Add(Me.Label62)
-        Me.Panel25.Controls.Add(Me.Label61)
-        Me.Panel25.Controls.Add(Me.dtpInicioMartes33)
-        Me.Panel25.Controls.Add(Me.dtpFinMartes33)
-        Me.Panel25.Location = New System.Drawing.Point(400, 156)
-        Me.Panel25.Name = "Panel25"
-        Me.Panel25.Size = New System.Drawing.Size(250, 59)
-        Me.Panel25.TabIndex = 156
-        '
-        'Panel26
-        '
-        Me.Panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel26.Controls.Add(Me.Label59)
-        Me.Panel26.Controls.Add(Me.Label58)
-        Me.Panel26.Controls.Add(Me.dtpInicioMiercoles33)
-        Me.Panel26.Controls.Add(Me.dtpFinMiercoles33)
-        Me.Panel26.Location = New System.Drawing.Point(400, 242)
-        Me.Panel26.Name = "Panel26"
-        Me.Panel26.Size = New System.Drawing.Size(250, 59)
-        Me.Panel26.TabIndex = 157
-        '
-        'Panel27
-        '
-        Me.Panel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel27.Controls.Add(Me.Label56)
-        Me.Panel27.Controls.Add(Me.Label55)
-        Me.Panel27.Controls.Add(Me.dtpInicioJueves33)
-        Me.Panel27.Controls.Add(Me.dtpFinJueves33)
-        Me.Panel27.Location = New System.Drawing.Point(400, 328)
-        Me.Panel27.Name = "Panel27"
-        Me.Panel27.Size = New System.Drawing.Size(250, 59)
-        Me.Panel27.TabIndex = 158
-        '
-        'Panel28
-        '
-        Me.Panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel28.Controls.Add(Me.Label53)
-        Me.Panel28.Controls.Add(Me.Label52)
-        Me.Panel28.Controls.Add(Me.dtpInicioViernes33)
-        Me.Panel28.Controls.Add(Me.dtpFinViernes33)
-        Me.Panel28.Location = New System.Drawing.Point(400, 414)
-        Me.Panel28.Name = "Panel28"
-        Me.Panel28.Size = New System.Drawing.Size(250, 59)
-        Me.Panel28.TabIndex = 159
-        '
-        'Panel29
-        '
-        Me.Panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel29.Controls.Add(Me.Label50)
-        Me.Panel29.Controls.Add(Me.Label49)
-        Me.Panel29.Controls.Add(Me.dtpInicioSabado33)
-        Me.Panel29.Controls.Add(Me.dtpFinSabado33)
-        Me.Panel29.Location = New System.Drawing.Point(400, 500)
-        Me.Panel29.Name = "Panel29"
-        Me.Panel29.Size = New System.Drawing.Size(250, 59)
-        Me.Panel29.TabIndex = 160
-        '
-        'Panel30
-        '
-        Me.Panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel30.Controls.Add(Me.Label47)
-        Me.Panel30.Controls.Add(Me.dtpFinDomingo33)
-        Me.Panel30.Controls.Add(Me.Label46)
-        Me.Panel30.Controls.Add(Me.dtpInicioDomingo33)
-        Me.Panel30.Location = New System.Drawing.Point(400, 586)
-        Me.Panel30.Name = "Panel30"
-        Me.Panel30.Size = New System.Drawing.Size(250, 59)
-        Me.Panel30.TabIndex = 161
-        '
         'frmPromociones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(698, 790)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGuardar)
@@ -2636,7 +2636,6 @@ Partial Class frmPromociones
         Me.TabPage1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
@@ -2647,12 +2646,13 @@ Partial Class frmPromociones
         Me.Panel10.ResumeLayout(False)
         Me.Panel11.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.Panel13.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
         Me.Panel15.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel18.ResumeLayout(False)
         Me.Panel19.ResumeLayout(False)

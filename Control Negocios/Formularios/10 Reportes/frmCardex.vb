@@ -17,7 +17,7 @@ Public Class frmCardex
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Nombre from Cardex where Fecha between'" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' ORDER BY Nombre"
+                "select distinct Nombre from Cardex where Fecha between'" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Nombre<>'' ORDER BY Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cbonombre.Items.Add(
@@ -44,10 +44,11 @@ Public Class frmCardex
             If rd1.HasRows Then
                 If rd1.Read Then
                     txtcodigo.Text = rd1("Codigo").ToString
+                    cboCodigo.Text = rd1("Codigo").ToString
                 End If
             End If
             rd1.Close() : cnn1.Close()
-            cboCodigo.Text = ""
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -267,7 +268,7 @@ Public Class frmCardex
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "SELECT DISTINCT Codigo FROM Cardex WHERE Fecha between'" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "'"
+                "SELECT DISTINCT Codigo FROM Cardex WHERE Fecha between'" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' AND Codigo<>'' order by Codigo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cboCodigo.Items.Add(
@@ -282,7 +283,26 @@ Public Class frmCardex
     End Sub
 
     Private Sub cboCodigo_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodigo.SelectedValueChanged
+        txtcodigo.Text = ""
+        lblExistencia.Text = ""
+        Try
+            cnn1.Close() : cnn1.Open()
 
-        cbonombre.Text = ""
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtcodigo.Text = rd1("Codigo").ToString
+                    cbonombre.Text = rd1("Nombre").ToString
+                End If
+            End If
+            rd1.Close() : cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

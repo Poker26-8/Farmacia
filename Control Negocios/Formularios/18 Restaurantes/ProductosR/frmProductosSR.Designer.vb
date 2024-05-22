@@ -111,22 +111,23 @@ Partial Class frmProductosSR
         Me.Label17.Location = New System.Drawing.Point(0, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label17.Size = New System.Drawing.Size(856, 31)
+        Me.Label17.Size = New System.Drawing.Size(849, 31)
         Me.Label17.TabIndex = 226
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BTNpORMOCIONES
         '
+        Me.BTNpORMOCIONES.BackColor = System.Drawing.Color.White
         Me.BTNpORMOCIONES.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BTNpORMOCIONES.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTNpORMOCIONES.Image = CType(resources.GetObject("BTNpORMOCIONES.Image"), System.Drawing.Image)
-        Me.BTNpORMOCIONES.Location = New System.Drawing.Point(707, 387)
+        Me.BTNpORMOCIONES.Location = New System.Drawing.Point(705, 374)
         Me.BTNpORMOCIONES.Name = "BTNpORMOCIONES"
         Me.BTNpORMOCIONES.Size = New System.Drawing.Size(136, 67)
         Me.BTNpORMOCIONES.TabIndex = 233
         Me.BTNpORMOCIONES.Text = "Promociones"
         Me.BTNpORMOCIONES.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BTNpORMOCIONES.UseVisualStyleBackColor = True
+        Me.BTNpORMOCIONES.UseVisualStyleBackColor = False
         '
         'txtrutaimagen
         '
@@ -134,9 +135,9 @@ Partial Class frmProductosSR
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(568, 546)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(563, 512)
         Me.txtrutaimagen.Name = "txtrutaimagen"
-        Me.txtrutaimagen.Size = New System.Drawing.Size(77, 23)
+        Me.txtrutaimagen.Size = New System.Drawing.Size(65, 23)
         Me.txtrutaimagen.TabIndex = 232
         Me.txtrutaimagen.Visible = False
         '
@@ -144,7 +145,7 @@ Partial Class frmProductosSR
         '
         Me.GroupBox2.Controls.Add(Me.rboDescProductos)
         Me.GroupBox2.Controls.Add(Me.rboDescIngredientes)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 276)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 263)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(548, 36)
         Me.GroupBox2.TabIndex = 222
@@ -177,7 +178,7 @@ Partial Class frmProductosSR
         'pbimportar
         '
         Me.pbimportar.BackColor = System.Drawing.Color.White
-        Me.pbimportar.Location = New System.Drawing.Point(565, 457)
+        Me.pbimportar.Location = New System.Drawing.Point(563, 444)
         Me.pbimportar.Name = "pbimportar"
         Me.pbimportar.Size = New System.Drawing.Size(65, 12)
         Me.pbimportar.TabIndex = 219
@@ -185,13 +186,14 @@ Partial Class frmProductosSR
         '
         'btnImportar
         '
+        Me.btnImportar.BackColor = System.Drawing.Color.White
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatAppearance.BorderSize = 0
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
         Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImportar.Location = New System.Drawing.Point(565, 387)
+        Me.btnImportar.Location = New System.Drawing.Point(563, 374)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(65, 67)
         Me.btnImportar.TabIndex = 218
@@ -203,7 +205,7 @@ Partial Class frmProductosSR
         '
         Me.txtExistencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtExistencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtExistencia.Location = New System.Drawing.Point(565, 228)
+        Me.txtExistencia.Location = New System.Drawing.Point(563, 215)
         Me.txtExistencia.Name = "txtExistencia"
         Me.txtExistencia.Size = New System.Drawing.Size(278, 22)
         Me.txtExistencia.TabIndex = 38
@@ -215,7 +217,7 @@ Partial Class frmProductosSR
         Me.lblexistencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblexistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblexistencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblexistencia.Location = New System.Drawing.Point(565, 202)
+        Me.lblexistencia.Location = New System.Drawing.Point(563, 189)
         Me.lblexistencia.Name = "lblexistencia"
         Me.lblexistencia.Size = New System.Drawing.Size(278, 23)
         Me.lblexistencia.TabIndex = 36
@@ -226,7 +228,7 @@ Partial Class frmProductosSR
         '
         Me.chkKit.AutoSize = True
         Me.chkKit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkKit.Location = New System.Drawing.Point(609, 254)
+        Me.chkKit.Location = New System.Drawing.Point(607, 241)
         Me.chkKit.Name = "chkKit"
         Me.chkKit.Size = New System.Drawing.Size(191, 24)
         Me.chkKit.TabIndex = 35
@@ -235,12 +237,13 @@ Partial Class frmProductosSR
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(636, 387)
+        Me.Button1.Location = New System.Drawing.Point(634, 374)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(65, 67)
         Me.Button1.TabIndex = 34
@@ -250,7 +253,7 @@ Partial Class frmProductosSR
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(636, 457)
+        Me.PictureBox1.Location = New System.Drawing.Point(634, 444)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(65, 67)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -260,7 +263,7 @@ Partial Class frmProductosSR
         'txtCodBarras
         '
         Me.txtCodBarras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodBarras.Location = New System.Drawing.Point(141, 45)
+        Me.txtCodBarras.Location = New System.Drawing.Point(139, 32)
         Me.txtCodBarras.Name = "txtCodBarras"
         Me.txtCodBarras.Size = New System.Drawing.Size(421, 22)
         Me.txtCodBarras.TabIndex = 32
@@ -270,7 +273,7 @@ Partial Class frmProductosSR
         Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Controls.Add(Me.TabPage5)
-        Me.TabControl2.Location = New System.Drawing.Point(14, 318)
+        Me.TabControl2.Location = New System.Drawing.Point(12, 305)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
         Me.TabControl2.Size = New System.Drawing.Size(548, 248)
@@ -477,12 +480,13 @@ Partial Class frmProductosSR
         '
         'btnSalir
         '
+        Me.btnSalir.BackColor = System.Drawing.Color.White
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(707, 314)
+        Me.btnSalir.Location = New System.Drawing.Point(705, 301)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(65, 67)
         Me.btnSalir.TabIndex = 30
@@ -492,12 +496,13 @@ Partial Class frmProductosSR
         '
         'btnGuardar
         '
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
         Me.btnGuardar.FlatAppearance.BorderSize = 0
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(636, 314)
+        Me.btnGuardar.Location = New System.Drawing.Point(634, 301)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(65, 67)
         Me.btnGuardar.TabIndex = 29
@@ -507,12 +512,13 @@ Partial Class frmProductosSR
         '
         'btnEliminar
         '
+        Me.btnEliminar.BackColor = System.Drawing.Color.White
         Me.btnEliminar.FlatAppearance.BorderSize = 0
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(778, 314)
+        Me.btnEliminar.Location = New System.Drawing.Point(776, 301)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(65, 67)
         Me.btnEliminar.TabIndex = 28
@@ -522,12 +528,13 @@ Partial Class frmProductosSR
         '
         'btnNuevo
         '
+        Me.btnNuevo.BackColor = System.Drawing.Color.White
         Me.btnNuevo.FlatAppearance.BorderSize = 0
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(565, 314)
+        Me.btnNuevo.Location = New System.Drawing.Point(563, 301)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(65, 67)
         Me.btnNuevo.TabIndex = 27
@@ -537,10 +544,10 @@ Partial Class frmProductosSR
         '
         'Label15
         '
-        Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(565, 282)
+        Me.Label15.Location = New System.Drawing.Point(563, 269)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(278, 29)
         Me.Label15.TabIndex = 26
@@ -552,7 +559,7 @@ Partial Class frmProductosSR
         Me.cboComanda.BackColor = System.Drawing.Color.White
         Me.cboComanda.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboComanda.FormattingEnabled = True
-        Me.cboComanda.Location = New System.Drawing.Point(565, 175)
+        Me.cboComanda.Location = New System.Drawing.Point(563, 162)
         Me.cboComanda.Name = "cboComanda"
         Me.cboComanda.Size = New System.Drawing.Size(278, 24)
         Me.cboComanda.TabIndex = 25
@@ -562,7 +569,7 @@ Partial Class frmProductosSR
         Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(565, 149)
+        Me.Label14.Location = New System.Drawing.Point(563, 136)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(278, 23)
         Me.Label14.TabIndex = 24
@@ -574,7 +581,7 @@ Partial Class frmProductosSR
         Me.cboGrupo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGrupo.FormattingEnabled = True
-        Me.cboGrupo.Location = New System.Drawing.Point(565, 122)
+        Me.cboGrupo.Location = New System.Drawing.Point(563, 109)
         Me.cboGrupo.Name = "cboGrupo"
         Me.cboGrupo.Size = New System.Drawing.Size(278, 24)
         Me.cboGrupo.TabIndex = 23
@@ -584,7 +591,7 @@ Partial Class frmProductosSR
         Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(565, 96)
+        Me.Label13.Location = New System.Drawing.Point(563, 83)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(278, 23)
         Me.Label13.TabIndex = 22
@@ -596,7 +603,7 @@ Partial Class frmProductosSR
         Me.cboDepartamento.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboDepartamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepartamento.FormattingEnabled = True
-        Me.cboDepartamento.Location = New System.Drawing.Point(565, 69)
+        Me.cboDepartamento.Location = New System.Drawing.Point(563, 56)
         Me.cboDepartamento.Name = "cboDepartamento"
         Me.cboDepartamento.Size = New System.Drawing.Size(278, 24)
         Me.cboDepartamento.TabIndex = 21
@@ -606,7 +613,7 @@ Partial Class frmProductosSR
         Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(565, 44)
+        Me.Label12.Location = New System.Drawing.Point(563, 31)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(278, 23)
         Me.Label12.TabIndex = 20
@@ -618,7 +625,7 @@ Partial Class frmProductosSR
         Me.cboProveedores.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboProveedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboProveedores.FormattingEnabled = True
-        Me.cboProveedores.Location = New System.Drawing.Point(14, 254)
+        Me.cboProveedores.Location = New System.Drawing.Point(12, 241)
         Me.cboProveedores.Name = "cboProveedores"
         Me.cboProveedores.Size = New System.Drawing.Size(548, 24)
         Me.cboProveedores.TabIndex = 19
@@ -628,7 +635,7 @@ Partial Class frmProductosSR
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(14, 228)
+        Me.Label11.Location = New System.Drawing.Point(12, 215)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(548, 23)
         Me.Label11.TabIndex = 18
@@ -637,10 +644,10 @@ Partial Class frmProductosSR
         '
         'Label10
         '
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(14, 202)
+        Me.Label10.Location = New System.Drawing.Point(12, 189)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(548, 23)
         Me.Label10.TabIndex = 17
@@ -651,7 +658,7 @@ Partial Class frmProductosSR
         '
         Me.txtPrecioDomicilio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPrecioDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecioDomicilio.Location = New System.Drawing.Point(436, 175)
+        Me.txtPrecioDomicilio.Location = New System.Drawing.Point(434, 162)
         Me.txtPrecioDomicilio.Name = "txtPrecioDomicilio"
         Me.txtPrecioDomicilio.Size = New System.Drawing.Size(126, 24)
         Me.txtPrecioDomicilio.TabIndex = 16
@@ -662,7 +669,7 @@ Partial Class frmProductosSR
         '
         Me.txtPrecioLocal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPrecioLocal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecioLocal.Location = New System.Drawing.Point(334, 175)
+        Me.txtPrecioLocal.Location = New System.Drawing.Point(332, 162)
         Me.txtPrecioLocal.Name = "txtPrecioLocal"
         Me.txtPrecioLocal.Size = New System.Drawing.Size(99, 24)
         Me.txtPrecioLocal.TabIndex = 15
@@ -673,7 +680,7 @@ Partial Class frmProductosSR
         '
         Me.txtPrecioCompra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPrecioCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecioCompra.Location = New System.Drawing.Point(214, 175)
+        Me.txtPrecioCompra.Location = New System.Drawing.Point(212, 162)
         Me.txtPrecioCompra.Name = "txtPrecioCompra"
         Me.txtPrecioCompra.Size = New System.Drawing.Size(117, 24)
         Me.txtPrecioCompra.TabIndex = 14
@@ -684,7 +691,7 @@ Partial Class frmProductosSR
         '
         Me.txtUnidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUnidad.Location = New System.Drawing.Point(141, 175)
+        Me.txtUnidad.Location = New System.Drawing.Point(139, 162)
         Me.txtUnidad.Name = "txtUnidad"
         Me.txtUnidad.Size = New System.Drawing.Size(70, 24)
         Me.txtUnidad.TabIndex = 13
@@ -694,7 +701,7 @@ Partial Class frmProductosSR
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(436, 149)
+        Me.Label9.Location = New System.Drawing.Point(434, 136)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(126, 23)
         Me.Label9.TabIndex = 12
@@ -706,7 +713,7 @@ Partial Class frmProductosSR
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(334, 149)
+        Me.Label8.Location = New System.Drawing.Point(332, 136)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(99, 23)
         Me.Label8.TabIndex = 11
@@ -718,7 +725,7 @@ Partial Class frmProductosSR
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(214, 149)
+        Me.Label7.Location = New System.Drawing.Point(212, 136)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(117, 23)
         Me.Label7.TabIndex = 10
@@ -730,7 +737,7 @@ Partial Class frmProductosSR
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(141, 149)
+        Me.Label6.Location = New System.Drawing.Point(139, 136)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(70, 23)
         Me.Label6.TabIndex = 9
@@ -742,7 +749,7 @@ Partial Class frmProductosSR
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(14, 123)
+        Me.Label5.Location = New System.Drawing.Point(12, 110)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(548, 23)
         Me.Label5.TabIndex = 8
@@ -755,7 +762,7 @@ Partial Class frmProductosSR
         Me.cboIva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboIva.FormattingEnabled = True
         Me.cboIva.Items.AddRange(New Object() {"0", "16"})
-        Me.cboIva.Location = New System.Drawing.Point(14, 175)
+        Me.cboIva.Location = New System.Drawing.Point(12, 162)
         Me.cboIva.Name = "cboIva"
         Me.cboIva.Size = New System.Drawing.Size(124, 24)
         Me.cboIva.TabIndex = 7
@@ -765,7 +772,7 @@ Partial Class frmProductosSR
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(14, 149)
+        Me.Label4.Location = New System.Drawing.Point(12, 136)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(124, 23)
         Me.Label4.TabIndex = 6
@@ -777,7 +784,7 @@ Partial Class frmProductosSR
         Me.cboDescripcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDescripcion.FormattingEnabled = True
-        Me.cboDescripcion.Location = New System.Drawing.Point(141, 96)
+        Me.cboDescripcion.Location = New System.Drawing.Point(139, 83)
         Me.cboDescripcion.Name = "cboDescripcion"
         Me.cboDescripcion.Size = New System.Drawing.Size(421, 24)
         Me.cboDescripcion.TabIndex = 5
@@ -787,7 +794,7 @@ Partial Class frmProductosSR
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(141, 70)
+        Me.Label3.Location = New System.Drawing.Point(139, 57)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(421, 23)
         Me.Label3.TabIndex = 4
@@ -799,7 +806,7 @@ Partial Class frmProductosSR
         Me.cboCodCorto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboCodCorto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCodCorto.FormattingEnabled = True
-        Me.cboCodCorto.Location = New System.Drawing.Point(14, 96)
+        Me.cboCodCorto.Location = New System.Drawing.Point(12, 83)
         Me.cboCodCorto.Name = "cboCodCorto"
         Me.cboCodCorto.Size = New System.Drawing.Size(124, 24)
         Me.cboCodCorto.TabIndex = 3
@@ -809,7 +816,7 @@ Partial Class frmProductosSR
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(14, 70)
+        Me.Label2.Location = New System.Drawing.Point(12, 57)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(124, 23)
         Me.Label2.TabIndex = 2
@@ -821,7 +828,7 @@ Partial Class frmProductosSR
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 44)
+        Me.Label1.Location = New System.Drawing.Point(12, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(124, 23)
         Me.Label1.TabIndex = 0
@@ -842,12 +849,13 @@ Partial Class frmProductosSR
         '
         'btnMigrar
         '
+        Me.btnMigrar.BackColor = System.Drawing.Color.White
         Me.btnMigrar.FlatAppearance.BorderSize = 0
         Me.btnMigrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMigrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMigrar.Image = CType(resources.GetObject("btnMigrar.Image"), System.Drawing.Image)
         Me.btnMigrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnMigrar.Location = New System.Drawing.Point(778, 457)
+        Me.btnMigrar.Location = New System.Drawing.Point(776, 444)
         Me.btnMigrar.Name = "btnMigrar"
         Me.btnMigrar.Size = New System.Drawing.Size(65, 67)
         Me.btnMigrar.TabIndex = 234
@@ -859,8 +867,8 @@ Partial Class frmProductosSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(856, 581)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(849, 560)
         Me.Controls.Add(Me.btnMigrar)
         Me.Controls.Add(Me.TabControl2)
         Me.Controls.Add(Me.txtrutaimagen)

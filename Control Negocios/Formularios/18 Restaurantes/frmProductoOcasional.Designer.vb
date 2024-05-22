@@ -45,7 +45,7 @@ Partial Class frmProductoOcasional
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(321, 45)
+        Me.Panel1.Size = New System.Drawing.Size(321, 35)
         Me.Panel1.TabIndex = 33
         '
         'Label4
@@ -76,7 +76,7 @@ Partial Class frmProductoOcasional
         Me.btnsaliroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsaliroca.Image = CType(resources.GetObject("btnsaliroca.Image"), System.Drawing.Image)
         Me.btnsaliroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnsaliroca.Location = New System.Drawing.Point(240, 179)
+        Me.btnsaliroca.Location = New System.Drawing.Point(234, 169)
         Me.btnsaliroca.Name = "btnsaliroca"
         Me.btnsaliroca.Size = New System.Drawing.Size(75, 73)
         Me.btnsaliroca.TabIndex = 42
@@ -92,7 +92,7 @@ Partial Class frmProductoOcasional
         Me.btnlimpiaroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpiaroca.Image = CType(resources.GetObject("btnlimpiaroca.Image"), System.Drawing.Image)
         Me.btnlimpiaroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnlimpiaroca.Location = New System.Drawing.Point(159, 179)
+        Me.btnlimpiaroca.Location = New System.Drawing.Point(153, 169)
         Me.btnlimpiaroca.Name = "btnlimpiaroca"
         Me.btnlimpiaroca.Size = New System.Drawing.Size(75, 73)
         Me.btnlimpiaroca.TabIndex = 41
@@ -108,7 +108,7 @@ Partial Class frmProductoOcasional
         Me.btnagregaroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnagregaroca.Image = CType(resources.GetObject("btnagregaroca.Image"), System.Drawing.Image)
         Me.btnagregaroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnagregaroca.Location = New System.Drawing.Point(78, 179)
+        Me.btnagregaroca.Location = New System.Drawing.Point(72, 169)
         Me.btnagregaroca.Name = "btnagregaroca"
         Me.btnagregaroca.Size = New System.Drawing.Size(75, 73)
         Me.btnagregaroca.TabIndex = 40
@@ -119,7 +119,7 @@ Partial Class frmProductoOcasional
         'txtcantidadocasional
         '
         Me.txtcantidadocasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidadocasional.Location = New System.Drawing.Point(134, 141)
+        Me.txtcantidadocasional.Location = New System.Drawing.Point(128, 131)
         Me.txtcantidadocasional.Name = "txtcantidadocasional"
         Me.txtcantidadocasional.Size = New System.Drawing.Size(181, 22)
         Me.txtcantidadocasional.TabIndex = 39
@@ -129,7 +129,7 @@ Partial Class frmProductoOcasional
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 141)
+        Me.Label3.Location = New System.Drawing.Point(6, 131)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(116, 22)
         Me.Label3.TabIndex = 38
@@ -138,7 +138,7 @@ Partial Class frmProductoOcasional
         'txtprecioocasional
         '
         Me.txtprecioocasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecioocasional.Location = New System.Drawing.Point(134, 99)
+        Me.txtprecioocasional.Location = New System.Drawing.Point(128, 89)
         Me.txtprecioocasional.Name = "txtprecioocasional"
         Me.txtprecioocasional.Size = New System.Drawing.Size(181, 22)
         Me.txtprecioocasional.TabIndex = 37
@@ -148,7 +148,7 @@ Partial Class frmProductoOcasional
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 99)
+        Me.Label2.Location = New System.Drawing.Point(6, 89)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(116, 22)
         Me.Label2.TabIndex = 36
@@ -157,7 +157,7 @@ Partial Class frmProductoOcasional
         'txtdescripcionocasional
         '
         Me.txtdescripcionocasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdescripcionocasional.Location = New System.Drawing.Point(134, 60)
+        Me.txtdescripcionocasional.Location = New System.Drawing.Point(128, 50)
         Me.txtdescripcionocasional.Name = "txtdescripcionocasional"
         Me.txtdescripcionocasional.Size = New System.Drawing.Size(181, 22)
         Me.txtdescripcionocasional.TabIndex = 35
@@ -165,7 +165,7 @@ Partial Class frmProductoOcasional
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 60)
+        Me.Label1.Location = New System.Drawing.Point(6, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(116, 22)
         Me.Label1.TabIndex = 34
@@ -175,8 +175,8 @@ Partial Class frmProductoOcasional
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(321, 263)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(321, 250)
         Me.Controls.Add(Me.lblcodigo)
         Me.Controls.Add(Me.btnsaliroca)
         Me.Controls.Add(Me.btnlimpiaroca)

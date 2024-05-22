@@ -1208,7 +1208,7 @@ Partial Class frmPagar
         '
         'Panel9
         '
-        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel9.Controls.Add(Me.cboComanda)
         Me.Panel9.Controls.Add(Me.Label17)
         Me.Panel9.Controls.Add(Me.cboComensal)

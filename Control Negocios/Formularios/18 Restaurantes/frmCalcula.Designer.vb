@@ -41,7 +41,6 @@ Partial Class frmCalcula
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.BillarCobro80 = New System.Drawing.Printing.PrintDocument()
         Me.BillarCobro58 = New System.Drawing.Printing.PrintDocument()
         Me.SuspendLayout()
@@ -49,7 +48,7 @@ Partial Class frmCalcula
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 42)
+        Me.Label1.Location = New System.Drawing.Point(10, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(148, 38)
         Me.Label1.TabIndex = 3
@@ -61,7 +60,7 @@ Partial Class frmCalcula
         Me.lblpc.BackColor = System.Drawing.Color.White
         Me.lblpc.Enabled = False
         Me.lblpc.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpc.Location = New System.Drawing.Point(166, 42)
+        Me.lblpc.Location = New System.Drawing.Point(164, 9)
         Me.lblpc.Name = "lblpc"
         Me.lblpc.Size = New System.Drawing.Size(184, 38)
         Me.lblpc.TabIndex = 2
@@ -71,7 +70,7 @@ Partial Class frmCalcula
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(283, 222)
+        Me.Label8.Location = New System.Drawing.Point(281, 189)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(57, 20)
         Me.Label8.TabIndex = 34
@@ -80,7 +79,7 @@ Partial Class frmCalcula
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(18, 217)
+        Me.Label9.Location = New System.Drawing.Point(16, 184)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(142, 24)
         Me.Label9.TabIndex = 33
@@ -92,7 +91,7 @@ Partial Class frmCalcula
         Me.txtHoras.BackColor = System.Drawing.Color.White
         Me.txtHoras.Enabled = False
         Me.txtHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHoras.Location = New System.Drawing.Point(166, 216)
+        Me.txtHoras.Location = New System.Drawing.Point(164, 183)
         Me.txtHoras.Name = "txtHoras"
         Me.txtHoras.Size = New System.Drawing.Size(111, 24)
         Me.txtHoras.TabIndex = 32
@@ -104,7 +103,7 @@ Partial Class frmCalcula
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(275, 335)
+        Me.btnSalir.Location = New System.Drawing.Point(273, 302)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 60)
         Me.btnSalir.TabIndex = 31
@@ -117,7 +116,7 @@ Partial Class frmCalcula
         Me.btnDesocupar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnDesocupar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnDesocupar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesocupar.Location = New System.Drawing.Point(139, 335)
+        Me.btnDesocupar.Location = New System.Drawing.Point(137, 302)
         Me.btnDesocupar.Name = "btnDesocupar"
         Me.btnDesocupar.Size = New System.Drawing.Size(130, 60)
         Me.btnDesocupar.TabIndex = 30
@@ -129,7 +128,7 @@ Partial Class frmCalcula
         Me.txtHorFin.BackColor = System.Drawing.Color.White
         Me.txtHorFin.Enabled = False
         Me.txtHorFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHorFin.Location = New System.Drawing.Point(166, 136)
+        Me.txtHorFin.Location = New System.Drawing.Point(164, 103)
         Me.txtHorFin.Name = "txtHorFin"
         Me.txtHorFin.Size = New System.Drawing.Size(184, 24)
         Me.txtHorFin.TabIndex = 29
@@ -137,7 +136,7 @@ Partial Class frmCalcula
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(5, 137)
+        Me.Label7.Location = New System.Drawing.Point(3, 104)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(155, 23)
         Me.Label7.TabIndex = 28
@@ -148,7 +147,7 @@ Partial Class frmCalcula
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(283, 181)
+        Me.Label6.Location = New System.Drawing.Point(281, 148)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(72, 20)
         Me.Label6.TabIndex = 27
@@ -159,7 +158,7 @@ Partial Class frmCalcula
         Me.txtTotalPag.BackColor = System.Drawing.Color.White
         Me.txtTotalPag.Enabled = False
         Me.txtTotalPag.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalPag.Location = New System.Drawing.Point(166, 296)
+        Me.txtTotalPag.Location = New System.Drawing.Point(164, 263)
         Me.txtTotalPag.Name = "txtTotalPag"
         Me.txtTotalPag.Size = New System.Drawing.Size(111, 24)
         Me.txtTotalPag.TabIndex = 26
@@ -169,7 +168,7 @@ Partial Class frmCalcula
         Me.txtPrecioHora.BackColor = System.Drawing.Color.White
         Me.txtPrecioHora.Enabled = False
         Me.txtPrecioHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecioHora.Location = New System.Drawing.Point(166, 256)
+        Me.txtPrecioHora.Location = New System.Drawing.Point(164, 223)
         Me.txtPrecioHora.Name = "txtPrecioHora"
         Me.txtPrecioHora.Size = New System.Drawing.Size(111, 24)
         Me.txtPrecioHora.TabIndex = 25
@@ -179,7 +178,7 @@ Partial Class frmCalcula
         Me.txtTiempoUso.BackColor = System.Drawing.Color.White
         Me.txtTiempoUso.Enabled = False
         Me.txtTiempoUso.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTiempoUso.Location = New System.Drawing.Point(166, 176)
+        Me.txtTiempoUso.Location = New System.Drawing.Point(164, 143)
         Me.txtTiempoUso.Name = "txtTiempoUso"
         Me.txtTiempoUso.Size = New System.Drawing.Size(111, 24)
         Me.txtTiempoUso.TabIndex = 24
@@ -189,7 +188,7 @@ Partial Class frmCalcula
         Me.txtHorIni.BackColor = System.Drawing.Color.White
         Me.txtHorIni.Enabled = False
         Me.txtHorIni.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHorIni.Location = New System.Drawing.Point(166, 96)
+        Me.txtHorIni.Location = New System.Drawing.Point(164, 63)
         Me.txtHorIni.Name = "txtHorIni"
         Me.txtHorIni.Size = New System.Drawing.Size(184, 24)
         Me.txtHorIni.TabIndex = 23
@@ -197,7 +196,7 @@ Partial Class frmCalcula
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(5, 298)
+        Me.Label5.Location = New System.Drawing.Point(3, 265)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(155, 23)
         Me.Label5.TabIndex = 22
@@ -207,7 +206,7 @@ Partial Class frmCalcula
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1, 258)
+        Me.Label4.Location = New System.Drawing.Point(-1, 225)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(159, 23)
         Me.Label4.TabIndex = 21
@@ -217,7 +216,7 @@ Partial Class frmCalcula
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(18, 177)
+        Me.Label3.Location = New System.Drawing.Point(16, 144)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(142, 23)
         Me.Label3.TabIndex = 20
@@ -227,25 +226,12 @@ Partial Class frmCalcula
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 97)
+        Me.Label2.Location = New System.Drawing.Point(11, 64)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(147, 23)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Hora Inicial:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'Label14
-        '
-        Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label14.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(0, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(360, 31)
-        Me.Label14.TabIndex = 224
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BillarCobro80
         '
@@ -257,9 +243,8 @@ Partial Class frmCalcula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(360, 407)
-        Me.Controls.Add(Me.Label14)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(360, 379)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtHoras)
@@ -305,7 +290,6 @@ Partial Class frmCalcula
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label14 As Label
     Friend WithEvents BillarCobro80 As Printing.PrintDocument
     Friend WithEvents BillarCobro58 As Printing.PrintDocument
 End Class

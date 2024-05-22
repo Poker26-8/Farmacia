@@ -22,15 +22,15 @@ Partial Class frmRepetirProducto
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepetirProducto))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepetirProducto))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pAbajo = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.pCentral = New System.Windows.Forms.Panel()
         Me.grdComandas = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,27 +46,44 @@ Partial Class frmRepetirProducto
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(502, 43)
         Me.Panel1.TabIndex = 0
         '
         'pAbajo
         '
+        Me.pAbajo.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pAbajo.Controls.Add(Me.Button1)
         Me.pAbajo.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pAbajo.Location = New System.Drawing.Point(0, 386)
-        Me.pAbajo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pAbajo.Margin = New System.Windows.Forms.Padding(2)
         Me.pAbajo.Name = "pAbajo"
         Me.pAbajo.Size = New System.Drawing.Size(502, 61)
         Me.pAbajo.TabIndex = 1
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(363, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(127, 50)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'pCentral
         '
         Me.pCentral.Controls.Add(Me.grdComandas)
         Me.pCentral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pCentral.Location = New System.Drawing.Point(0, 43)
-        Me.pCentral.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pCentral.Margin = New System.Windows.Forms.Padding(2)
         Me.pCentral.Name = "pCentral"
         Me.pCentral.Size = New System.Drawing.Size(502, 343)
         Me.pCentral.TabIndex = 2
@@ -99,7 +116,7 @@ Partial Class frmRepetirProducto
         Me.grdComandas.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdComandas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdComandas.Location = New System.Drawing.Point(0, 0)
-        Me.grdComandas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.grdComandas.Margin = New System.Windows.Forms.Padding(2)
         Me.grdComandas.Name = "grdComandas"
         Me.grdComandas.ReadOnly = True
         Me.grdComandas.RowHeadersVisible = False
@@ -107,18 +124,6 @@ Partial Class frmRepetirProducto
         Me.grdComandas.RowTemplate.Height = 28
         Me.grdComandas.Size = New System.Drawing.Size(502, 343)
         Me.grdComandas.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(363, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(127, 50)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Salir"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Column4
         '
@@ -169,7 +174,7 @@ Partial Class frmRepetirProducto
         Me.Controls.Add(Me.pAbajo)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmRepetirProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Repetir Producto"

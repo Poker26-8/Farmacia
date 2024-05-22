@@ -41,6 +41,7 @@ Public Class frmNuevoPagar
 
 
     Dim cortesia_venta As Integer = 0
+    Dim NewPos As String = ""
     Private Sub frmNuevoPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         grdComanda.Rows.Clear()
         TFolio.Start()
@@ -4064,13 +4065,41 @@ Door:
         End If
     End Sub
 
+    Private Function PosCad(CadOrg As String, Car As String, Pos As Integer, TamCad As Integer) As String
+
+        Dim Part1 As String
+        Dim NewPart1 As String
+
+        If CadOrg = "0.00" Or CadOrg = 0 Or CadOrg = "" Then
+            PosCad = Car
+        ElseIf Pos = 0 Then
+            PosCad = CDec(CadOrg) + CDec(Car)
+        ElseIf Pos <> TamCad Then
+            Part1 = Strings.Left(CadOrg, Pos)
+            NewPart1 = Part1 & Car
+            PosCad = Replace(CadOrg, Part1, NewPart1)
+        Else
+            PosCad = CadOrg & Car
+        End If
+
+    End Function
+
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "1"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn1.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "1"
@@ -4093,10 +4122,18 @@ Door:
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "2"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn2.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "2"
@@ -4118,10 +4155,18 @@ Door:
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "3"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn3.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "3"
@@ -4143,10 +4188,18 @@ Door:
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "4"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn4.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "4"
@@ -4168,10 +4221,18 @@ Door:
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "5"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn5.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "5"
@@ -4193,10 +4254,18 @@ Door:
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "6"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn6.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "6"
@@ -4218,10 +4287,18 @@ Door:
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "7"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn7.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "7"
@@ -4243,10 +4320,18 @@ Door:
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "8"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn8.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "8"
@@ -4268,10 +4353,18 @@ Door:
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "9"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn9.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "9"
@@ -4293,10 +4386,18 @@ Door:
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         Select Case focomapeo
             Case Is = 1
-                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                Dim nuevo = monto + "0"
-                txtEfectivo.Text = FormatNumber(nuevo, 2)
+
                 txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn0.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "0"

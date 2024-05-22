@@ -23,7 +23,6 @@ Partial Class frmConsultaMapeo
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaMapeo))
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lbltotal = New System.Windows.Forms.Label()
@@ -42,29 +41,16 @@ Partial Class frmConsultaMapeo
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label14
-        '
-        Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label14.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(0, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(803, 31)
-        Me.Label14.TabIndex = 226
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.lbltotal)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.lblmesa)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 31)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(803, 72)
         Me.Panel1.TabIndex = 227
@@ -131,11 +117,11 @@ Partial Class frmConsultaMapeo
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
         Me.grdcaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdcaptura.Location = New System.Drawing.Point(0, 103)
+        Me.grdcaptura.Location = New System.Drawing.Point(0, 72)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(803, 347)
+        Me.grdcaptura.Size = New System.Drawing.Size(803, 378)
         Me.grdcaptura.TabIndex = 228
         '
         'Column1
@@ -189,11 +175,10 @@ Partial Class frmConsultaMapeo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(803, 450)
         Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label14)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmConsultaMapeo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -204,8 +189,6 @@ Partial Class frmConsultaMapeo
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Label14 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents lbltotal As Label
