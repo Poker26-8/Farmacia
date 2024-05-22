@@ -54,6 +54,7 @@ Public Class frmVentas1
     Private currentRecord As Long
     Private lastRecord As Long
     Public franquicia As Integer = 0
+    Public cadenafact As String = ""
 
     Private Sub frmVentas1_Activated(sender As Object, e As System.EventArgs) Handles Me.Activated
         txtdia.Text = Weekday(Date.Now)
@@ -6893,6 +6894,7 @@ doorcita:
         Next
         lic = Strings.Left(lic, Len(lic) - 1)
         CodCadena = lic
+        cadenafact = Trim(CodCadena)
 
 
         'Inserción en [Ventas]
@@ -8931,6 +8933,9 @@ ecomoda:
         Dim ligaqr As String = ""
         Dim whats As String = DatosRecarga("Whatsapp")
 
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim siqr As String = DatosRecarga2("LinkAuto")
+
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
         End If
@@ -9341,33 +9346,55 @@ ecomoda:
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
                     linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
                 End If
             End If
             rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
             cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim entrada As String = ligaqr
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 200, 200)
+                    Y += 200
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                End If
 
-            If ligaqr <> "" Then
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
-
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
-                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
-                Y += 25
-                e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
             End If
 
-            Y += 20
+            Y += 35
             If autofac = 1 Then
 
-                If linkauto <> "" Then
+                If siqr = "1" Then
                     Dim entrada As String = linkauto
                     Dim Gen As New QRCodeGenerator
                     Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -9377,16 +9404,20 @@ ecomoda:
                     If picQR.Image IsNot Nothing Then
                         picQR.Image.Dispose()
                     End If
-
                     ' Asigna la nueva imagen al PictureBox
                     picQR.Image = Code.GetGraphic(200)
                     My.Application.DoEvents()
-
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
+                    Y += 30
                     ' Usa Using para garantizar la liberación de recursos de la fuente
-                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
-                    Y += 15
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 20), 200, 200)
+                    Y += 20
+
                 End If
 
             Else

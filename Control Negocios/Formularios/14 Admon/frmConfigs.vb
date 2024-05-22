@@ -148,6 +148,23 @@ Public Class frmConfigs
             End If
             rd4.Close()
 
+            cmd4 = cnn4.CreateCommand()
+            cmd4.CommandText =
+                 "select NumPart,NotasCred from Formatos where Facturas='LinkAuto'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    If rd4(0).ToString() = 1 Then
+                        chkauto.Checked = True
+                        txtlink.Text = rd4(1).ToString
+                    Else
+                        chkauto.Checked = False
+                        txtlink.Text = rd4(1).ToString
+                    End If
+                End If
+            End If
+            rd4.Close()
+
             Dim linkau As String = ""
             Dim auto As Integer = 0
 
@@ -3135,6 +3152,12 @@ Public Class frmConfigs
 
     Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
         Try
+            Dim soy As Integer = 0
+            If chkauto.Checked = True Then
+                soy = 1
+            Else
+                soy = 0
+            End If
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
@@ -3143,15 +3166,19 @@ Public Class frmConfigs
                 If rd1.Read Then
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE formatos SET NotasCred='" & txtlink.Text & "' WHERE Facturas='LinkAuto'"
-                    cmd2.ExecuteNonQuery()
+                    cmd2.CommandText = "UPDATE formatos SET NotasCred='" & txtlink.Text & "', NumPart=" & soy & " WHERE Facturas='LinkAuto'"
+                    If cmd2.ExecuteNonQuery Then
+                        MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    End If
                     cnn2.Close()
                 End If
             Else
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO formatos(Facturas,NotasCred,NumPart) VALUES('LinkAuto','" & txtlink.Text & "','0')"
-                cmd2.ExecuteNonQuery()
+                cmd2.CommandText = "INSERT INTO formatos(Facturas,NotasCred,NumPart) VALUES('LinkAuto','" & txtlink.Text & "'," & soy & ")"
+                If cmd2.ExecuteNonQuery Then
+                    MsgBox("Datos registrados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                End If
                 cnn2.Close()
             End If
             rd1.Close()

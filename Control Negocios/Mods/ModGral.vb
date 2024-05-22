@@ -63,6 +63,35 @@ Module ModGral
         Return respuesta
 
     End Function
+    Public Function DatosRecarga2(ByVal valor As String) As String
+        Dim respuesta As String = ""
+        Dim siono As Integer = 0
+        Try
+            cnn5.Close() : cnn5.Open()
+
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText =
+                "select Facturas, NotasCred, NumPart from Formatos where NumPart='" & valor & "'"
+            rd5 = cmd5.ExecuteReader
+            If rd5.HasRows Then
+                If rd5.Read Then
+                    respuesta = rd5("NotasCred").ToString
+                    siono = rd5("NumPart").ToString
+                End If
+            Else
+                siono = ""
+            End If
+            'If siono = 0 Then
+            '    respuesta = ""
+            'End If
+            rd5.Close() : cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+        Return siono
+
+    End Function
 
     Public Function ObtenerNombreEquipo() As String
         Dim nombrePC As String

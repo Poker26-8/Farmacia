@@ -172,6 +172,7 @@ Partial Class frmConfigs
         Me.optE_Arriba = New System.Windows.Forms.RadioButton()
         Me.optE_Sin = New System.Windows.Forms.RadioButton()
         Me.GroupBox22 = New System.Windows.Forms.GroupBox()
+        Me.optEM25X38 = New System.Windows.Forms.RadioButton()
         Me.optEM5X3 = New System.Windows.Forms.RadioButton()
         Me.optEM_2x4 = New System.Windows.Forms.RadioButton()
         Me.optEM_5x25 = New System.Windows.Forms.RadioButton()
@@ -349,7 +350,7 @@ Partial Class frmConfigs
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
-        Me.optEM25X38 = New System.Windows.Forms.RadioButton()
+        Me.chkauto = New System.Windows.Forms.CheckBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -1901,9 +1902,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2068,6 +2069,17 @@ Partial Class frmConfigs
         Me.GroupBox22.Size = New System.Drawing.Size(202, 157)
         Me.GroupBox22.TabIndex = 5
         Me.GroupBox22.TabStop = False
+        '
+        'optEM25X38
+        '
+        Me.optEM25X38.AutoSize = True
+        Me.optEM25X38.Location = New System.Drawing.Point(9, 124)
+        Me.optEM25X38.Name = "optEM25X38"
+        Me.optEM25X38.Size = New System.Drawing.Size(67, 19)
+        Me.optEM25X38.TabIndex = 5
+        Me.optEM25X38.TabStop = True
+        Me.optEM25X38.Text = "2.5 x 3.8"
+        Me.optEM25X38.UseVisualStyleBackColor = True
         '
         'optEM5X3
         '
@@ -3229,15 +3241,16 @@ Partial Class frmConfigs
         Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
-        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 58)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 84)
         Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
-        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 463)
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 437)
         Me.tabFuncionalidades1.TabIndex = 7
         Me.tabFuncionalidades1.Text = "Funcionalidades 1"
         Me.tabFuncionalidades1.UseVisualStyleBackColor = True
         '
         'pauto
         '
+        Me.pauto.Controls.Add(Me.chkauto)
         Me.pauto.Controls.Add(Me.Button27)
         Me.pauto.Controls.Add(Me.Label80)
         Me.pauto.Controls.Add(Me.txtlink)
@@ -3255,7 +3268,7 @@ Partial Class frmConfigs
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button27.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button27.Location = New System.Drawing.Point(401, 31)
+        Me.Button27.Location = New System.Drawing.Point(401, 17)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(60, 63)
         Me.Button27.TabIndex = 250
@@ -3385,7 +3398,7 @@ Partial Class frmConfigs
         Me.GroupBox23.Controls.Add(Me.chkCodAuto)
         Me.GroupBox23.Location = New System.Drawing.Point(252, 12)
         Me.GroupBox23.Name = "GroupBox23"
-        Me.GroupBox23.Size = New System.Drawing.Size(222, 198)
+        Me.GroupBox23.Size = New System.Drawing.Size(222, 203)
         Me.GroupBox23.TabIndex = 15
         Me.GroupBox23.TabStop = False
         Me.GroupBox23.Text = "Únicos"
@@ -3965,16 +3978,17 @@ Partial Class frmConfigs
         Me.Label84.Text = "Configuración de Prosepago"
         Me.Label84.Visible = False
         '
-        'optEM25X38
+        'chkauto
         '
-        Me.optEM25X38.AutoSize = True
-        Me.optEM25X38.Location = New System.Drawing.Point(9, 124)
-        Me.optEM25X38.Name = "optEM25X38"
-        Me.optEM25X38.Size = New System.Drawing.Size(67, 19)
-        Me.optEM25X38.TabIndex = 5
-        Me.optEM25X38.TabStop = True
-        Me.optEM25X38.Text = "2.5 x 3.8"
-        Me.optEM25X38.UseVisualStyleBackColor = True
+        Me.chkauto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkauto.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkauto.Location = New System.Drawing.Point(45, 58)
+        Me.chkauto.Name = "chkauto"
+        Me.chkauto.Size = New System.Drawing.Size(91, 22)
+        Me.chkauto.TabIndex = 251
+        Me.chkauto.Text = "Mostrar QR"
+        Me.chkauto.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '
@@ -4415,4 +4429,5 @@ Partial Class frmConfigs
     Friend WithEvents txtporc_venta As TextBox
     Friend WithEvents Label89 As Label
     Friend WithEvents optEM25X38 As RadioButton
+    Friend WithEvents chkauto As CheckBox
 End Class
