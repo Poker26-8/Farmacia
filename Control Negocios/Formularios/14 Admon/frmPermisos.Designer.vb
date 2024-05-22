@@ -144,6 +144,7 @@ Partial Class frmPermisos
         Me.txt1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button13 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1492,11 +1493,27 @@ Partial Class frmPermisos
         Me.Label3.TabIndex = 48
         Me.Label3.Text = "Pregunta 1:"
         '
+        'Button13
+        '
+        Me.Button13.FlatAppearance.BorderSize = 0
+        Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button13.Location = New System.Drawing.Point(387, 559)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(90, 67)
+        Me.Button13.TabIndex = 232
+        Me.Button13.Text = "Restaurantes y Billares"
+        Me.Button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button13.UseVisualStyleBackColor = True
+        '
         'frmPermisos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(654, 630)
+        Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.cbContraInicio)
         Me.Controls.Add(Me.cb_Add_Cli)
@@ -1689,4 +1706,5 @@ Partial Class frmPermisos
     Friend WithEvents cat_Formas As CheckBox
     Friend WithEvents cat_Bancos As CheckBox
     Friend WithEvents cat_cuentas As CheckBox
+    Friend WithEvents Button13 As Button
 End Class

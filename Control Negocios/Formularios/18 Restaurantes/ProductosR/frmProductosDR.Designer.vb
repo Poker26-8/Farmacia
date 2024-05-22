@@ -261,8 +261,8 @@ Partial Class frmProductosDR
         Me.rboDescProductos.AutoSize = True
         Me.rboDescProductos.BackColor = System.Drawing.Color.White
         Me.rboDescProductos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rboDescProductos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rboDescProductos.Location = New System.Drawing.Point(241, 12)
+        Me.rboDescProductos.ForeColor = System.Drawing.Color.Black
+        Me.rboDescProductos.Location = New System.Drawing.Point(6, 11)
         Me.rboDescProductos.Name = "rboDescProductos"
         Me.rboDescProductos.Size = New System.Drawing.Size(206, 21)
         Me.rboDescProductos.TabIndex = 1
@@ -275,8 +275,8 @@ Partial Class frmProductosDR
         Me.rboDescIngredientes.AutoSize = True
         Me.rboDescIngredientes.BackColor = System.Drawing.Color.White
         Me.rboDescIngredientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rboDescIngredientes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rboDescIngredientes.Location = New System.Drawing.Point(12, 12)
+        Me.rboDescIngredientes.ForeColor = System.Drawing.Color.Black
+        Me.rboDescIngredientes.Location = New System.Drawing.Point(227, 11)
         Me.rboDescIngredientes.Name = "rboDescIngredientes"
         Me.rboDescIngredientes.Size = New System.Drawing.Size(220, 21)
         Me.rboDescIngredientes.TabIndex = 0

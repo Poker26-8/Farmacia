@@ -78,7 +78,7 @@ Partial Class frmVentaTouchT
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.framecampo)
@@ -91,7 +91,7 @@ Partial Class frmVentaTouchT
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(6, 12)
@@ -104,7 +104,7 @@ Partial Class frmVentaTouchT
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.GroupBox3.Controls.Add(Me.btnEspacio)
         Me.GroupBox3.Controls.Add(Me.btnGuion)
         Me.GroupBox3.Controls.Add(Me.btnPunto)
@@ -156,7 +156,7 @@ Partial Class frmVentaTouchT
         '
         'btnEspacio
         '
-        Me.btnEspacio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEspacio.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnEspacio.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnEspacio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEspacio.Location = New System.Drawing.Point(128, 319)
@@ -168,7 +168,7 @@ Partial Class frmVentaTouchT
         '
         'btnGuion
         '
-        Me.btnGuion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnGuion.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnGuion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnGuion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuion.Location = New System.Drawing.Point(553, 262)
@@ -180,7 +180,7 @@ Partial Class frmVentaTouchT
         '
         'btnPunto
         '
-        Me.btnPunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnPunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnPunto.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnPunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPunto.Location = New System.Drawing.Point(492, 262)
@@ -192,7 +192,7 @@ Partial Class frmVentaTouchT
         '
         'btnComa
         '
-        Me.btnComa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnComa.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnComa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnComa.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnComa.Location = New System.Drawing.Point(431, 262)
@@ -204,7 +204,7 @@ Partial Class frmVentaTouchT
         '
         'btnM
         '
-        Me.btnM.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnM.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnM.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnM.Location = New System.Drawing.Point(370, 262)
@@ -216,7 +216,7 @@ Partial Class frmVentaTouchT
         '
         'btnN
         '
-        Me.btnN.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnN.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnN.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnN.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnN.Location = New System.Drawing.Point(309, 262)
@@ -228,7 +228,7 @@ Partial Class frmVentaTouchT
         '
         'btnB
         '
-        Me.btnB.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnB.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnB.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnB.Location = New System.Drawing.Point(250, 262)
@@ -240,7 +240,7 @@ Partial Class frmVentaTouchT
         '
         'btnV
         '
-        Me.btnV.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnV.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnV.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnV.Location = New System.Drawing.Point(189, 262)
@@ -252,7 +252,7 @@ Partial Class frmVentaTouchT
         '
         'btnC
         '
-        Me.btnC.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnC.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnC.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnC.Location = New System.Drawing.Point(128, 262)
@@ -264,7 +264,7 @@ Partial Class frmVentaTouchT
         '
         'btnX
         '
-        Me.btnX.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnX.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnX.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnX.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnX.Location = New System.Drawing.Point(67, 262)
@@ -276,7 +276,7 @@ Partial Class frmVentaTouchT
         '
         'btnZ
         '
-        Me.btnZ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnZ.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnZ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnZ.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnZ.Location = New System.Drawing.Point(6, 262)
@@ -288,7 +288,7 @@ Partial Class frmVentaTouchT
         '
         'btnÑ
         '
-        Me.btnÑ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnÑ.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnÑ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnÑ.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnÑ.Location = New System.Drawing.Point(553, 205)
@@ -300,7 +300,7 @@ Partial Class frmVentaTouchT
         '
         'btnL
         '
-        Me.btnL.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnL.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnL.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnL.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnL.Location = New System.Drawing.Point(492, 205)
@@ -312,7 +312,7 @@ Partial Class frmVentaTouchT
         '
         'btnK
         '
-        Me.btnK.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnK.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnK.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnK.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnK.Location = New System.Drawing.Point(430, 205)
@@ -324,7 +324,7 @@ Partial Class frmVentaTouchT
         '
         'btnJ
         '
-        Me.btnJ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnJ.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnJ.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnJ.Location = New System.Drawing.Point(370, 205)
@@ -336,7 +336,7 @@ Partial Class frmVentaTouchT
         '
         'btnH
         '
-        Me.btnH.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnH.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnH.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnH.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnH.Location = New System.Drawing.Point(309, 205)
@@ -348,7 +348,7 @@ Partial Class frmVentaTouchT
         '
         'btnG
         '
-        Me.btnG.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnG.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnG.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnG.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnG.Location = New System.Drawing.Point(250, 205)
@@ -360,7 +360,7 @@ Partial Class frmVentaTouchT
         '
         'btnF
         '
-        Me.btnF.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnF.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnF.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnF.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnF.Location = New System.Drawing.Point(189, 205)
@@ -372,7 +372,7 @@ Partial Class frmVentaTouchT
         '
         'btnD
         '
-        Me.btnD.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnD.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnD.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnD.Location = New System.Drawing.Point(128, 205)
@@ -384,7 +384,7 @@ Partial Class frmVentaTouchT
         '
         'btnS
         '
-        Me.btnS.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnS.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnS.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnS.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnS.Location = New System.Drawing.Point(67, 205)
@@ -396,7 +396,7 @@ Partial Class frmVentaTouchT
         '
         'btnA
         '
-        Me.btnA.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnA.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnA.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnA.Location = New System.Drawing.Point(6, 205)
@@ -408,7 +408,7 @@ Partial Class frmVentaTouchT
         '
         'btnP
         '
-        Me.btnP.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnP.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnP.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnP.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnP.Location = New System.Drawing.Point(553, 148)
@@ -420,7 +420,7 @@ Partial Class frmVentaTouchT
         '
         'btnO
         '
-        Me.btnO.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnO.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnO.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnO.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnO.Location = New System.Drawing.Point(492, 148)
@@ -432,7 +432,7 @@ Partial Class frmVentaTouchT
         '
         'btnI
         '
-        Me.btnI.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnI.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnI.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnI.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnI.Location = New System.Drawing.Point(430, 148)
@@ -444,7 +444,7 @@ Partial Class frmVentaTouchT
         '
         'btnU
         '
-        Me.btnU.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnU.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnU.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnU.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnU.Location = New System.Drawing.Point(370, 148)
@@ -456,7 +456,7 @@ Partial Class frmVentaTouchT
         '
         'btnY
         '
-        Me.btnY.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnY.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnY.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnY.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnY.Location = New System.Drawing.Point(309, 148)
@@ -468,7 +468,7 @@ Partial Class frmVentaTouchT
         '
         'btnT
         '
-        Me.btnT.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnT.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnT.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnT.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnT.Location = New System.Drawing.Point(250, 148)
@@ -480,7 +480,7 @@ Partial Class frmVentaTouchT
         '
         'btnR
         '
-        Me.btnR.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnR.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnR.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnR.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnR.Location = New System.Drawing.Point(189, 148)
@@ -492,7 +492,7 @@ Partial Class frmVentaTouchT
         '
         'btnE
         '
-        Me.btnE.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnE.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnE.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnE.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnE.Location = New System.Drawing.Point(128, 148)
@@ -504,7 +504,7 @@ Partial Class frmVentaTouchT
         '
         'btnW
         '
-        Me.btnW.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnW.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnW.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnW.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnW.Location = New System.Drawing.Point(67, 148)
@@ -516,7 +516,7 @@ Partial Class frmVentaTouchT
         '
         'btnQ
         '
-        Me.btnQ.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnQ.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnQ.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnQ.Location = New System.Drawing.Point(6, 148)
@@ -528,7 +528,7 @@ Partial Class frmVentaTouchT
         '
         'btnIntro
         '
-        Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnIntro.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Location = New System.Drawing.Point(446, 82)
@@ -540,7 +540,7 @@ Partial Class frmVentaTouchT
         '
         'btnRetro
         '
-        Me.btnRetro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnRetro.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btnRetro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnRetro.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRetro.Location = New System.Drawing.Point(446, 10)
@@ -552,7 +552,7 @@ Partial Class frmVentaTouchT
         '
         'btn0
         '
-        Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.Location = New System.Drawing.Point(358, 82)
@@ -564,7 +564,7 @@ Partial Class frmVentaTouchT
         '
         'btn9
         '
-        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.Location = New System.Drawing.Point(270, 82)
@@ -576,7 +576,7 @@ Partial Class frmVentaTouchT
         '
         'btn8
         '
-        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.Location = New System.Drawing.Point(182, 82)
@@ -588,7 +588,7 @@ Partial Class frmVentaTouchT
         '
         'btn7
         '
-        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.Location = New System.Drawing.Point(94, 82)
@@ -600,7 +600,7 @@ Partial Class frmVentaTouchT
         '
         'btn6
         '
-        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.Location = New System.Drawing.Point(6, 82)
@@ -612,7 +612,7 @@ Partial Class frmVentaTouchT
         '
         'btn5
         '
-        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.Location = New System.Drawing.Point(358, 10)
@@ -624,7 +624,7 @@ Partial Class frmVentaTouchT
         '
         'btn4
         '
-        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.Location = New System.Drawing.Point(270, 10)
@@ -636,7 +636,7 @@ Partial Class frmVentaTouchT
         '
         'btn3
         '
-        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.Location = New System.Drawing.Point(182, 10)
@@ -648,7 +648,7 @@ Partial Class frmVentaTouchT
         '
         'btn2
         '
-        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.Location = New System.Drawing.Point(94, 10)
@@ -660,7 +660,7 @@ Partial Class frmVentaTouchT
         '
         'btn1
         '
-        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.Location = New System.Drawing.Point(6, 10)
@@ -693,7 +693,7 @@ Partial Class frmVentaTouchT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(637, 510)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

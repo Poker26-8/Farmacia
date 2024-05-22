@@ -32,7 +32,44 @@
     Private Sub btnCambiar_Click(sender As Object, e As EventArgs) Handles btnCambiar.Click
         Try
             If cbomesa.Text = "" Then MsgBox("Necesita seleccionar la mesa de destino", vbInformation + vbOKOnly, titulorestaurante) : Exit Sub : cbomesa.Focus.Equals(True)
+
             Dim varconta As Integer = 0
+            Dim idemp As Integer = 0
+
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT IdEmpleado FROM usuarios WHERE Alias='" & frmMesas.lblusuario.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    idemp = rd1(0).ToString
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT CambioM FROM permisosm WHERE IdEmpleado=" & idemp
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            If rd2(0).ToString = 1 Then
+                            Else
+                                MsgBox("No cuentas con permiso para cambiar de mesa", vbInformation + vbOKOnly, titulorestaurante)
+                                Exit Sub
+                            End If
+                        End If
+                    Else
+                        MsgBox("No tienes asignados permisos contacta a tu administrador", vbInformation + vbOKOnly, titulorestaurante)
+                        Exit Sub
+                    End If
+                    rd2.Close()
+
+                End If
+            Else
+                MsgBox("El usuario no esta registrado", vbInformation + vbOKOnly, titulorestaurante)
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn2.Close()
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand

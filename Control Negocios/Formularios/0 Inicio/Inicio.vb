@@ -496,7 +496,7 @@ Public Class Inicio
                     restaurante = rd1(0).ToString
                     If restaurante = 1 Then
                         Button12.Visible = True
-                        Button13.Visible = True
+                        ' Button13.Visible = True
                         btnPagarComandas.Visible = True
                         btnvtatouch.Visible = True
                         CORTEMESERO.Visible = True
@@ -504,7 +504,7 @@ Public Class Inicio
                         pMod_Produccion.Enabled = True
                     Else
                         Button12.Visible = False
-                        Button13.Visible = False
+                        ' Button13.Visible = False
                         btnPagarComandas.Visible = False
                         btnvtatouch.Visible = False
                         CORTEMESERO.Visible = False
@@ -3234,7 +3234,7 @@ Public Class Inicio
         ' frmMesero.Show()
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+    Private Sub Button13_Click(sender As Object, e As EventArgs)
         frmPermisosRestaurant.Show()
         frmPermisosRestaurant.BringToFront()
     End Sub

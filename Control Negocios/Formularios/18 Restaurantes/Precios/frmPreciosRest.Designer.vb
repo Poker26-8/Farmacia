@@ -62,6 +62,7 @@ Partial Class frmPreciosRest
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnSalir)
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnNuevo)
@@ -74,7 +75,7 @@ Partial Class frmPreciosRest
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(701, 87)
+        Me.Panel1.Size = New System.Drawing.Size(733, 87)
         Me.Panel1.TabIndex = 29
         '
         'btnSalir
@@ -84,7 +85,7 @@ Partial Class frmPreciosRest
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(629, 9)
+        Me.btnSalir.Location = New System.Drawing.Point(659, 9)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(65, 68)
         Me.btnSalir.TabIndex = 34
@@ -99,7 +100,7 @@ Partial Class frmPreciosRest
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(558, 9)
+        Me.btnGuardar.Location = New System.Drawing.Point(588, 9)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(65, 68)
         Me.btnGuardar.TabIndex = 33
@@ -114,7 +115,7 @@ Partial Class frmPreciosRest
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(487, 9)
+        Me.btnNuevo.Location = New System.Drawing.Point(517, 9)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(65, 68)
         Me.btnNuevo.TabIndex = 32
@@ -129,7 +130,7 @@ Partial Class frmPreciosRest
         Me.Label88.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label88.Location = New System.Drawing.Point(12, 9)
         Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(69, 23)
+        Me.Label88.Size = New System.Drawing.Size(96, 23)
         Me.Label88.TabIndex = 35
         Me.Label88.Text = "Código"
         Me.Label88.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -139,7 +140,7 @@ Partial Class frmPreciosRest
         Me.Label89.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label89.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label89.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label89.Location = New System.Drawing.Point(84, 9)
+        Me.Label89.Location = New System.Drawing.Point(114, 9)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(334, 23)
         Me.Label89.TabIndex = 36
@@ -151,7 +152,7 @@ Partial Class frmPreciosRest
         Me.Label90.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label90.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label90.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label90.Location = New System.Drawing.Point(421, 9)
+        Me.Label90.Location = New System.Drawing.Point(451, 9)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(63, 23)
         Me.Label90.TabIndex = 37
@@ -162,16 +163,17 @@ Partial Class frmPreciosRest
         '
         Me.txtUnidad.Enabled = False
         Me.txtUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUnidad.Location = New System.Drawing.Point(421, 35)
+        Me.txtUnidad.Location = New System.Drawing.Point(451, 35)
         Me.txtUnidad.Name = "txtUnidad"
         Me.txtUnidad.Size = New System.Drawing.Size(63, 24)
         Me.txtUnidad.TabIndex = 31
+        Me.txtUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cboNombre
         '
         Me.cboNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboNombre.FormattingEnabled = True
-        Me.cboNombre.Location = New System.Drawing.Point(84, 35)
+        Me.cboNombre.Location = New System.Drawing.Point(114, 35)
         Me.cboNombre.Name = "cboNombre"
         Me.cboNombre.Size = New System.Drawing.Size(334, 24)
         Me.cboNombre.TabIndex = 30
@@ -182,11 +184,12 @@ Partial Class frmPreciosRest
         Me.cboCodigo.FormattingEnabled = True
         Me.cboCodigo.Location = New System.Drawing.Point(12, 35)
         Me.cboCodigo.Name = "cboCodigo"
-        Me.cboCodigo.Size = New System.Drawing.Size(69, 24)
+        Me.cboCodigo.Size = New System.Drawing.Size(96, 24)
         Me.cboCodigo.TabIndex = 29
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.Panel2.Controls.Add(Me.txtPorcientoProd)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.txtFacUtil)
@@ -196,7 +199,7 @@ Partial Class frmPreciosRest
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 87)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(701, 202)
+        Me.Panel2.Size = New System.Drawing.Size(733, 202)
         Me.Panel2.TabIndex = 30
         '
         'txtPorcientoProd
@@ -432,7 +435,7 @@ Partial Class frmPreciosRest
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(701, 289)
+        Me.ClientSize = New System.Drawing.Size(733, 289)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

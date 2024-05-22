@@ -93,8 +93,6 @@ Partial Class Inicio
         Me.pZapatería = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaPorModeloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntallarComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -115,6 +113,8 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
@@ -163,7 +163,6 @@ Partial Class Inicio
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
         Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
@@ -781,20 +780,6 @@ Partial Class Inicio
         Me.EntallarComprasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.EntallarComprasToolStripMenuItem.Text = "Entallar compras"
         '
-        'pIngresos
-        '
-        Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado})
-        Me.pIngresos.Name = "pIngresos"
-        Me.pIngresos.Size = New System.Drawing.Size(63, 20)
-        Me.pIngresos.Text = "Ingresos"
-        '
-        'pCEmpleado
-        '
-        Me.pCEmpleado.BackColor = System.Drawing.Color.White
-        Me.pCEmpleado.Name = "pCEmpleado"
-        Me.pCEmpleado.Size = New System.Drawing.Size(177, 22)
-        Me.pCEmpleado.Text = "Cobro a empleados"
-        '
         'pReportes
         '
         Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem})
@@ -939,6 +924,20 @@ Partial Class Inicio
         Me.ReporteDeAuditoriaToolStripMenuItem.Name = "ReporteDeAuditoriaToolStripMenuItem"
         Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeAuditoriaToolStripMenuItem.Text = "Reporte de auditoria"
+        '
+        'pIngresos
+        '
+        Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado})
+        Me.pIngresos.Name = "pIngresos"
+        Me.pIngresos.Size = New System.Drawing.Size(63, 20)
+        Me.pIngresos.Text = "Ingresos"
+        '
+        'pCEmpleado
+        '
+        Me.pCEmpleado.BackColor = System.Drawing.Color.White
+        Me.pCEmpleado.Name = "pCEmpleado"
+        Me.pCEmpleado.Size = New System.Drawing.Size(177, 22)
+        Me.pCEmpleado.Text = "Cobro a empleados"
         '
         'pEgresos
         '
@@ -1220,7 +1219,6 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
         Me.Panel2.Controls.Add(Me.Button6)
-        Me.Panel2.Controls.Add(Me.Button13)
         Me.Panel2.Controls.Add(Me.btnPagarComandas)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
         Me.Panel2.Controls.Add(Me.Button12)
@@ -1237,7 +1235,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 612)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 522)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1250,7 +1248,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 522)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 432)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1264,7 +1262,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 432)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 342)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 90)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1280,7 +1278,7 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 360)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 270)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
@@ -1300,23 +1298,6 @@ Partial Class Inicio
         Me.Button6.Size = New System.Drawing.Size(90, 24)
         Me.Button6.TabIndex = 9
         Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Button13
-        '
-        Me.Button13.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button13.FlatAppearance.BorderSize = 0
-        Me.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
-        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button13.Location = New System.Drawing.Point(0, 270)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(90, 90)
-        Me.Button13.TabIndex = 8
-        Me.Button13.Text = "PERMISOS"
-        Me.Button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button13.UseVisualStyleBackColor = True
-        Me.Button13.Visible = False
         '
         'btnPagarComandas
         '
@@ -1604,7 +1585,6 @@ Partial Class Inicio
     Friend WithEvents FormasDePagoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CuentasBancariasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button12 As Button
-    Friend WithEvents Button13 As Button
     Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlumnosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InscripciónToolStripMenuItem As ToolStripMenuItem

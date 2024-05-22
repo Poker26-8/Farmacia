@@ -607,7 +607,7 @@ Public Class frmProductosDR
         cboUnidadSat.Text = ""
         txtUnidadSat.Text = ""
         rboDescIngredientes.Checked = False
-        rboDescProductos.Checked = False
+        rboDescProductos.Checked = True
 
         cbopreferencia.Text = ""
         cboextras.Text = ""

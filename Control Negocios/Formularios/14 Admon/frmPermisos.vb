@@ -280,6 +280,21 @@
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
+            "select NumPart from Formatos where Facturas='Restaurante'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1(0).ToString = "1" Then
+                    Button13.Visible = True
+                Else
+                    Button13.Visible = False
+                End If
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
             "select VSE from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
@@ -918,5 +933,10 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        frmPermisosRestaurant.Show()
+        frmPermisosRestaurant.BringToFront()
     End Sub
 End Class

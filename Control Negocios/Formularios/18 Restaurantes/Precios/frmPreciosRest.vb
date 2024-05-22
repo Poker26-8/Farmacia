@@ -92,6 +92,7 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
+                    cboNombre.Text = rd1("Nombre").ToString
                     ivaproducto = rd1("IVA").ToString
                     txtUnidad.Text = rd1("UVenta").ToString
                     txtPC.Text = rd1("PrecioCompra").ToString

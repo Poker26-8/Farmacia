@@ -527,7 +527,7 @@ Partial Class frmCorte2
         Me.grdegresosglobal.Name = "grdegresosglobal"
         Me.grdegresosglobal.ReadOnly = True
         Me.grdegresosglobal.RowHeadersVisible = False
-        Me.grdegresosglobal.Size = New System.Drawing.Size(275, 97)
+        Me.grdegresosglobal.Size = New System.Drawing.Size(275, 130)
         Me.grdegresosglobal.TabIndex = 2
         '
         'DataGridViewTextBoxColumn3

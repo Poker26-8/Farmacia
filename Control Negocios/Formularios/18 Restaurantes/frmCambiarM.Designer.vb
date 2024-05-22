@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmCambiarM
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmCambiarM
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCambiarM))
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -29,7 +29,6 @@ Partial Class frmCambiarM
         Me.lblmesa = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnSalir
@@ -39,7 +38,7 @@ Partial Class frmCambiarM
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(149, 186)
+        Me.btnSalir.Location = New System.Drawing.Point(149, 150)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 63)
         Me.btnSalir.TabIndex = 12
@@ -54,7 +53,7 @@ Partial Class frmCambiarM
         Me.btnCambiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCambiar.Image = CType(resources.GetObject("btnCambiar.Image"), System.Drawing.Image)
         Me.btnCambiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCambiar.Location = New System.Drawing.Point(38, 186)
+        Me.btnCambiar.Location = New System.Drawing.Point(38, 150)
         Me.btnCambiar.Name = "btnCambiar"
         Me.btnCambiar.Size = New System.Drawing.Size(75, 63)
         Me.btnCambiar.TabIndex = 11
@@ -66,7 +65,7 @@ Partial Class frmCambiarM
         '
         Me.cbomesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbomesa.FormattingEnabled = True
-        Me.cbomesa.Location = New System.Drawing.Point(7, 150)
+        Me.cbomesa.Location = New System.Drawing.Point(7, 114)
         Me.cbomesa.Name = "cbomesa"
         Me.cbomesa.Size = New System.Drawing.Size(217, 24)
         Me.cbomesa.TabIndex = 10
@@ -75,7 +74,7 @@ Partial Class frmCambiarM
         '
         Me.lblmesa.BackColor = System.Drawing.Color.White
         Me.lblmesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesa.Location = New System.Drawing.Point(7, 78)
+        Me.lblmesa.Location = New System.Drawing.Point(7, 42)
         Me.lblmesa.Name = "lblmesa"
         Me.lblmesa.Size = New System.Drawing.Size(217, 23)
         Me.lblmesa.TabIndex = 9
@@ -83,9 +82,9 @@ Partial Class frmCambiarM
         '
         'Label2
         '
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(7, 114)
+        Me.Label2.Location = New System.Drawing.Point(7, 78)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(217, 23)
         Me.Label2.TabIndex = 8
@@ -94,35 +93,21 @@ Partial Class frmCambiarM
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(7, 45)
+        Me.Label1.Location = New System.Drawing.Point(7, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(217, 23)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Mesa Actual:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label14
-        '
-        Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label14.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(0, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(236, 28)
-        Me.Label14.TabIndex = 224
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'frmCambiarM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(236, 261)
-        Me.Controls.Add(Me.Label14)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(236, 225)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnCambiar)
         Me.Controls.Add(Me.cbomesa)
@@ -143,5 +128,4 @@ Partial Class frmCambiarM
     Friend WithEvents lblmesa As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label14 As Label
 End Class

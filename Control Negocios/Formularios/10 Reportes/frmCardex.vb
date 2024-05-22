@@ -130,7 +130,7 @@ Public Class frmCardex
                 If Len(grdcaptura.Rows(RT).Cells(0).Value.ToString) > 6 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Existencia  from Productos where Codigo='" & Mid(grdcaptura.Rows(RT).Cells(0).Value.ToString, 1, 6) & "'"
+                        "select Existencia,Multiplo from Productos where Codigo='" & Mid(grdcaptura.Rows(RT).Cells(0).Value.ToString, 1, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

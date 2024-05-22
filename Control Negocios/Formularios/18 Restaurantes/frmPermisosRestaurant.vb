@@ -1,7 +1,7 @@
 ﻿Public Class frmPermisosRestaurant
 
     Dim idmesa As Integer = 0
-
+    Dim contraa As String = ""
     Private Sub frmPermisosRestaurant_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
@@ -198,7 +198,8 @@
                 If rd1.Read Then
                     lblid_usu.Text = rd1(0).ToString
                     txtarea.Text = rd1(1).ToString
-                    txtcontra.Text = rd1(2).ToString
+                    txtcontraR.Text = rd1(2).ToString
+                    contraa = txtcontraR.Text
                 End If
             End If
             rd1.Close()
@@ -216,7 +217,6 @@
                     If rd1("CortesiaM").ToString = True Then cbCortesia.Checked = True Else cbCortesia.Checked = False
                     If rd1("JuntarM").ToString = True Then cbJuntar.Checked = True Else cbJuntar.Checked = False
                     If rd1("CobrarM").ToString = True Then cbCobrar.Checked = True Else cbCobrar.Checked = False
-                    If rd1("Mesas").ToString = True Then cbmesas.Checked = True Else cbmesas.Checked = False
                 End If
             Else
                 cbPrecuentas.Checked = False
@@ -225,7 +225,6 @@
                 cbCortesia.Checked = False
                 cbJuntar.Checked = False
                 cbCobrar.Checked = False
-                cbmesas.Checked = False
 
             End If
             rd1.Close()
@@ -239,11 +238,11 @@
     End Sub
 
     Private Sub Label12_MouseHover(sender As Object, e As EventArgs) Handles Label12.MouseHover
-        txtcontra.PasswordChar = ""
+        txtcontraR.PasswordChar = ""
     End Sub
 
     Private Sub Label12_MouseLeave(sender As Object, e As EventArgs) Handles Label12.MouseLeave
-        txtcontra.PasswordChar = "*"
+        txtcontraR.PasswordChar = "*"
     End Sub
 
     Private Sub txtcontraseña_Click(sender As Object, e As EventArgs) Handles txtcontraseña.Click
@@ -273,8 +272,8 @@
                                 lblusuario.Text = rd1("Alias").ToString
                             Else
                                 MsgBox("Solo los administradores pueden modificar los permisos", vbInformation + vbOKOnly, titulorestaurante)
-                                txtcontra.Text = ""
-                                txtcontra.Focus.Equals(True)
+                                txtcontraR.Text = ""
+                                txtcontraR.Focus.Equals(True)
                                 Exit Sub
                             End If
 
@@ -311,9 +310,11 @@
     End Sub
 
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
+
+        contraa = ""
         cboNombre.Text = ""
         txtarea.Text = ""
-        txtcontra.Text = ""
+        txtcontraR.Text = ""
         lblusuario.Text = ""
         cbCambioM.Checked = False
         cbPrecuentas.Checked = False
@@ -321,7 +322,6 @@
         cbCortesia.Checked = False
         cbJuntar.Checked = False
         cbCobrar.Checked = False
-        cbmesas.Checked = False
         cbSeparadas.Checked = False
         chkSinComensal.Checked = False
         cbCopas.Checked = False
@@ -329,7 +329,7 @@
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If cboNombre.Text = "" Then MsgBox("Selecciona un usuario para poder asignarle permisos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboNombre.Focus().Equals(True) : Exit Sub
-        If txtcontra.Text = "" Then MsgBox("Asígnale una contraseña al usuario para continuar.", vbInformation + vbOK, "Delsscom Control Negocios Pro") : txtcontra.Focus().Equals(True) : Exit Sub
+        If txtcontraR.Text = "" Then MsgBox("Asígnale una contraseña al usuario para continuar.", vbInformation + vbOK, "Delsscom Control Negocios Pro") : txtcontraR.Focus().Equals(True) : Exit Sub
 
         If lblusuario.Text = "" Then MsgBox("Debe ingresar una contraseña para continuar.", vbInformation + vbOKOnly, titulomensajes) : lblusuario.Focus.Equals(True) : Exit Sub
 
@@ -342,7 +342,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "SELECT * FROM Usuarios WHERE Clave='" & txtcontra.Text & "'"
+                    "SELECT * FROM Usuarios WHERE Clave='" & txtcontraR.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -350,7 +350,7 @@
                         Else
                             MsgBox("Ya cuentas con un usuario registrado bajo esa contraseña.", vbInformation + vbOKOnly, titulomensajes)
                             rd1.Close() : cnn1.Close()
-                            txtcontra.SelectAll()
+                            txtcontraR.SelectAll()
                             Exit Sub
                         End If
                     End If
@@ -376,7 +376,7 @@
                     If rd1.Read Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & ",Mesas=" & IIf(cbmesas.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
+                        cmd2.CommandText = "UPDATE PermisosM set Precuenta=" & IIf(cbPrecuentas.Checked = True, 1, 0) & ",CambioM=" & IIf(cbCambioM.Checked = True, 1, 0) & ",CancelarM=" & IIf(cbCancelarComanda.Checked = True, 1, 0) & ",CortesiaM=" & IIf(cbCortesia.Checked = True, 1, 0) & ",JuntarM=" & IIf(cbJuntar.Checked = True, 1, 0) & ",CobrarM=" & IIf(cbCobrar.Checked = True, 1, 0) & " WHERE IdEmpleado=" & id_emp
 
                         If cmd2.ExecuteNonQuery() Then
                             MsgBox("Permisos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
@@ -384,7 +384,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update Usuarios set Clave='" & txtcontra.Text & "' where IdEmpleado=" & lblid_usu.Text
+                            "update Usuarios set Clave='" & txtcontraR.Text & "' where IdEmpleado=" & lblid_usu.Text
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
 
@@ -392,14 +392,14 @@
                 Else
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM,Mesas) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & "," & IIf(cbmesas.Checked = True, 1, 0) & ")"
+                    cmd2.CommandText = "INSERT INTO PermisosM(IdEmpleado,Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM) VALUES(" & id_emp & "," & IIf(cbPrecuentas.Checked = True, 1, 0) & "," & IIf(cbCambioM.Checked = True, 1, 0) & "," & IIf(cbCancelarComanda.Checked = True, 1, 0) & "," & IIf(cbCortesia.Checked = True, 1, 0) & "," & IIf(cbJuntar.Checked = True, 1, 0) & "," & IIf(cbCobrar.Checked = True, 1, 0) & ")"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Permisos insertados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "update Usuarios set Clave='" & txtcontra.Text & "' where IdEmpleado=" & lblid_usu.Text
+                        "update Usuarios set Clave='" & txtcontraR.Text & "' where IdEmpleado=" & lblid_usu.Text
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If

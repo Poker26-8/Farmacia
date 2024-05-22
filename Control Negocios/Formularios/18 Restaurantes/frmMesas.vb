@@ -225,6 +225,8 @@ Public Class frmMesas
                 Else
                     mesa.BackColor = Color.FromArgb(255, 255, 128)
                     boton.BackColor = Color.FromArgb(255, 192, 128)
+
+
                 End If
             End If
         Next
@@ -233,6 +235,7 @@ Public Class frmMesas
     End Sub
 
     Public Sub Crea_Mesas(ByVal ubicacion As String)
+
         Dim tables As Integer = 0
         Dim tipo As String = ""
         Dim id_mesero As Integer = 0
@@ -1497,26 +1500,26 @@ Public Class frmMesas
 
         Else
             Try
-                Dim idemp As Integer = 0
+                'Dim idemp As Integer = 0
 
-                cnn2.Close() : cnn2.Open()
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtUsuario.Text & "' AND Alias='" & lblusuario.Text & "'"
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        idemp = rd2(0).ToString
+                'cnn2.Close() : cnn2.Open()
+                'cmd2 = cnn2.CreateCommand
+                'cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtUsuario.Text & "' AND Alias='" & lblusuario.Text & "'"
+                'rd2 = cmd2.ExecuteReader
+                'If rd2.HasRows Then
+                '    If rd2.Read Then
+                '        idemp = rd2(0).ToString
 
-                        cnn3.Close() : cnn3.Open()
-                        cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
-                        rd3 = cmd3.ExecuteReader
-                        If rd3.HasRows Then
-                            If rd3.Read Then
+                '        cnn3.Close() : cnn3.Open()
+                '        cmd3 = cnn3.CreateCommand
+                '        cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
+                '        rd3 = cmd3.ExecuteReader
+                '        If rd3.HasRows Then
+                '            If rd3.Read Then
 
-                                If rd3(0).ToString = 1 Then
+                '                If rd3(0).ToString = 1 Then
 
-                                    montomapeo = 0
+                montomapeo = 0
 
                                     cnn1.Close() : cnn1.Open()
                                     cmd1 = cnn1.CreateCommand
@@ -1559,26 +1562,26 @@ Public Class frmMesas
                                     rd1.Close()
                                     cnn1.Close()
 
-                                Else
-                                    MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
-                                    Exit Sub
-                                End If
+                '                Else
+                '                    MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
+                '                    Exit Sub
+                '                End If
 
-                            End If
-                        Else
-                            MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
-                            Exit Sub
-                        End If
-                        rd3.Close()
-                        cnn3.Close()
+                '            End If
+                '        Else
+                '            MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
+                '            Exit Sub
+                '        End If
+                '        rd3.Close()
+                '        cnn3.Close()
 
-                    End If
-                Else
-                    MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
-                    Exit Sub
-                End If
-                rd2.Close()
-                cnn2.Close()
+                '    End If
+                'Else
+                '    MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
+                '    Exit Sub
+                'End If
+                'rd2.Close()
+                'cnn2.Close()
 
 
 
@@ -1652,9 +1655,9 @@ Public Class frmMesas
                     End If
                 End If
             Else
-                MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulorestaurante)
-                txtUsuario.Text = ""
-                lblusuario.Text = ""
+                'MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulorestaurante)
+                'txtUsuario.Text = ""
+                'lblusuario.Text = ""
                 Exit Sub
             End If
             rd1.Close()

@@ -278,6 +278,12 @@ Public Class frmRepInventario
             If rd1.HasRows Then
                 If rd1.Read Then
                     restaurante = rd1(0).ToString
+
+                    If restaurante = 1 Then
+                        Button1.Visible = True
+                    Else
+                        Button1.Visible = False
+                    End If
                 End If
             End If
             rd1.Close()

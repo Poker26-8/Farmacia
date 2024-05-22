@@ -535,6 +535,12 @@
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoVtaTouchEntrada.Designer.vb">
+      <DependentUpon>frmTecladoVtaTouchEntrada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoVtaTouchEntrada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTePreCant.Designer.vb">
       <DependentUpon>frmTePreCant.vb</DependentUpon>
     </Compile>
@@ -1981,6 +1987,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.resx">
       <DependentUpon>frmTecladoPagar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTecladoVtaTouchEntrada.resx">
+      <DependentUpon>frmTecladoVtaTouchEntrada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTePreCant.resx">
       <DependentUpon>frmTePreCant.vb</DependentUpon>

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmTeTemp
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frmTecladoVtaTouchEntrada
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,27 +20,11 @@ Partial Class frmTeTemp
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTeTemp))
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTecladoVtaTouchEntrada))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.txtNombre = New System.Windows.Forms.RichTextBox()
-        Me.btnBorrar = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btn0 = New System.Windows.Forms.Button()
-        Me.btn3 = New System.Windows.Forms.Button()
-        Me.btn2 = New System.Windows.Forms.Button()
-        Me.btn1 = New System.Windows.Forms.Button()
-        Me.btn6 = New System.Windows.Forms.Button()
-        Me.btn5 = New System.Windows.Forms.Button()
-        Me.btn4 = New System.Windows.Forms.Button()
-        Me.btn9 = New System.Windows.Forms.Button()
-        Me.btn8 = New System.Windows.Forms.Button()
-        Me.btn7 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BTNESP = New System.Windows.Forms.Button()
         Me.btnGuion = New System.Windows.Forms.Button()
@@ -73,9 +57,24 @@ Partial Class frmTeTemp
         Me.btnE = New System.Windows.Forms.Button()
         Me.btnW = New System.Windows.Forms.Button()
         Me.btnQ = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnBorrar = New System.Windows.Forms.Button()
+        Me.btn0 = New System.Windows.Forms.Button()
+        Me.btn3 = New System.Windows.Forms.Button()
+        Me.btn2 = New System.Windows.Forms.Button()
+        Me.btn1 = New System.Windows.Forms.Button()
+        Me.btn6 = New System.Windows.Forms.Button()
+        Me.btn5 = New System.Windows.Forms.Button()
+        Me.btn4 = New System.Windows.Forms.Button()
+        Me.btn9 = New System.Windows.Forms.Button()
+        Me.btn8 = New System.Windows.Forms.Button()
+        Me.btn7 = New System.Windows.Forms.Button()
+        Me.txtNombre = New System.Windows.Forms.RichTextBox()
         Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
@@ -86,7 +85,7 @@ Partial Class frmTeTemp
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(840, 36)
-        Me.Panel2.TabIndex = 2
+        Me.Panel2.TabIndex = 3
         '
         'lblTitulo
         '
@@ -96,202 +95,8 @@ Partial Class frmTeTemp
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(840, 36)
         Me.lblTitulo.TabIndex = 0
-        Me.lblTitulo.Text = "Mesas Temporales"
+        Me.lblTitulo.Text = "Ventas Touch"
         Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtNombre
-        '
-        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(3, 46)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(418, 321)
-        Me.txtNombre.TabIndex = 3
-        Me.txtNombre.Text = ""
-        '
-        'btnBorrar
-        '
-        Me.btnBorrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnBorrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBorrar.Image = CType(resources.GetObject("btnBorrar.Image"), System.Drawing.Image)
-        Me.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBorrar.Location = New System.Drawing.Point(288, 6)
-        Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(122, 325)
-        Me.btnBorrar.TabIndex = 14
-        Me.btnBorrar.Text = "B" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "O" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "R" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "R" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "A" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "R"
-        Me.btnBorrar.UseVisualStyleBackColor = False
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.btnCancelar)
-        Me.Panel1.Controls.Add(Me.btnAceptar)
-        Me.Panel1.Controls.Add(Me.btnBorrar)
-        Me.Panel1.Controls.Add(Me.btn0)
-        Me.Panel1.Controls.Add(Me.btn3)
-        Me.Panel1.Controls.Add(Me.btn2)
-        Me.Panel1.Controls.Add(Me.btn1)
-        Me.Panel1.Controls.Add(Me.btn6)
-        Me.Panel1.Controls.Add(Me.btn5)
-        Me.Panel1.Controls.Add(Me.btn4)
-        Me.Panel1.Controls.Add(Me.btn9)
-        Me.Panel1.Controls.Add(Me.btn8)
-        Me.Panel1.Controls.Add(Me.btn7)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(427, 36)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(413, 332)
-        Me.Panel1.TabIndex = 13
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(193, 256)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(89, 76)
-        Me.btnCancelar.TabIndex = 11
-        Me.btnCancelar.Text = "CANCELAR"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCancelar.UseVisualStyleBackColor = False
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
-        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAceptar.Location = New System.Drawing.Point(98, 256)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(89, 76)
-        Me.btnAceptar.TabIndex = 10
-        Me.btnAceptar.Text = "ACEPTAR"
-        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAceptar.UseVisualStyleBackColor = False
-        '
-        'btn0
-        '
-        Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn0.Location = New System.Drawing.Point(3, 256)
-        Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(89, 76)
-        Me.btn0.TabIndex = 9
-        Me.btn0.Text = "0"
-        Me.btn0.UseVisualStyleBackColor = False
-        '
-        'btn3
-        '
-        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(193, 174)
-        Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(89, 76)
-        Me.btn3.TabIndex = 8
-        Me.btn3.Text = "3"
-        Me.btn3.UseVisualStyleBackColor = False
-        '
-        'btn2
-        '
-        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(98, 174)
-        Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(89, 76)
-        Me.btn2.TabIndex = 7
-        Me.btn2.Text = "2"
-        Me.btn2.UseVisualStyleBackColor = False
-        '
-        'btn1
-        '
-        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(3, 174)
-        Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(89, 76)
-        Me.btn1.TabIndex = 6
-        Me.btn1.Text = "1"
-        Me.btn1.UseVisualStyleBackColor = False
-        '
-        'btn6
-        '
-        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn6.Location = New System.Drawing.Point(193, 92)
-        Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(89, 76)
-        Me.btn6.TabIndex = 5
-        Me.btn6.Text = "6"
-        Me.btn6.UseVisualStyleBackColor = False
-        '
-        'btn5
-        '
-        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn5.Location = New System.Drawing.Point(98, 92)
-        Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(89, 76)
-        Me.btn5.TabIndex = 4
-        Me.btn5.Text = "5"
-        Me.btn5.UseVisualStyleBackColor = False
-        '
-        'btn4
-        '
-        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn4.Location = New System.Drawing.Point(3, 92)
-        Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(89, 76)
-        Me.btn4.TabIndex = 3
-        Me.btn4.Text = "4"
-        Me.btn4.UseVisualStyleBackColor = False
-        '
-        'btn9
-        '
-        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(193, 10)
-        Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(89, 76)
-        Me.btn9.TabIndex = 2
-        Me.btn9.Text = "9"
-        Me.btn9.UseVisualStyleBackColor = False
-        '
-        'btn8
-        '
-        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(98, 10)
-        Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(89, 76)
-        Me.btn8.TabIndex = 1
-        Me.btn8.Text = "8"
-        Me.btn8.UseVisualStyleBackColor = False
-        '
-        'btn7
-        '
-        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
-        Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn7.Location = New System.Drawing.Point(3, 10)
-        Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(89, 76)
-        Me.btn7.TabIndex = 0
-        Me.btn7.Text = "7"
-        Me.btn7.UseVisualStyleBackColor = False
         '
         'Panel3
         '
@@ -327,10 +132,10 @@ Partial Class frmTeTemp
         Me.Panel3.Controls.Add(Me.btnW)
         Me.Panel3.Controls.Add(Me.btnQ)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 368)
+        Me.Panel3.Location = New System.Drawing.Point(0, 370)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(840, 303)
-        Me.Panel3.TabIndex = 15
+        Me.Panel3.TabIndex = 16
         '
         'BTNESP
         '
@@ -706,46 +511,226 @@ Partial Class frmTeTemp
         Me.btnQ.Text = "Q"
         Me.btnQ.UseVisualStyleBackColor = False
         '
-        'frmTeTemp
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.btnCancelar)
+        Me.Panel1.Controls.Add(Me.btnAceptar)
+        Me.Panel1.Controls.Add(Me.btnBorrar)
+        Me.Panel1.Controls.Add(Me.btn0)
+        Me.Panel1.Controls.Add(Me.btn3)
+        Me.Panel1.Controls.Add(Me.btn2)
+        Me.Panel1.Controls.Add(Me.btn1)
+        Me.Panel1.Controls.Add(Me.btn6)
+        Me.Panel1.Controls.Add(Me.btn5)
+        Me.Panel1.Controls.Add(Me.btn4)
+        Me.Panel1.Controls.Add(Me.btn9)
+        Me.Panel1.Controls.Add(Me.btn8)
+        Me.Panel1.Controls.Add(Me.btn7)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(427, 36)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(413, 334)
+        Me.Panel1.TabIndex = 17
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(193, 256)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(89, 76)
+        Me.btnCancelar.TabIndex = 11
+        Me.btnCancelar.Text = "CANCELAR"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCancelar.UseVisualStyleBackColor = False
+        '
+        'btnAceptar
+        '
+        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
+        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAceptar.Location = New System.Drawing.Point(288, 10)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(122, 321)
+        Me.btnAceptar.TabIndex = 10
+        Me.btnAceptar.Text = "A" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "C" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "E" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "P" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "T" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "A" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "R"
+        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAceptar.UseVisualStyleBackColor = False
+        '
+        'btnBorrar
+        '
+        Me.btnBorrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnBorrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBorrar.Image = CType(resources.GetObject("btnBorrar.Image"), System.Drawing.Image)
+        Me.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBorrar.Location = New System.Drawing.Point(98, 257)
+        Me.btnBorrar.Name = "btnBorrar"
+        Me.btnBorrar.Size = New System.Drawing.Size(89, 75)
+        Me.btnBorrar.TabIndex = 14
+        Me.btnBorrar.Text = "BORRAR"
+        Me.btnBorrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBorrar.UseVisualStyleBackColor = False
+        '
+        'btn0
+        '
+        Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn0.Location = New System.Drawing.Point(3, 256)
+        Me.btn0.Name = "btn0"
+        Me.btn0.Size = New System.Drawing.Size(89, 76)
+        Me.btn0.TabIndex = 9
+        Me.btn0.Text = "0"
+        Me.btn0.UseVisualStyleBackColor = False
+        '
+        'btn3
+        '
+        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn3.Location = New System.Drawing.Point(193, 174)
+        Me.btn3.Name = "btn3"
+        Me.btn3.Size = New System.Drawing.Size(89, 76)
+        Me.btn3.TabIndex = 8
+        Me.btn3.Text = "3"
+        Me.btn3.UseVisualStyleBackColor = False
+        '
+        'btn2
+        '
+        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn2.Location = New System.Drawing.Point(98, 174)
+        Me.btn2.Name = "btn2"
+        Me.btn2.Size = New System.Drawing.Size(89, 76)
+        Me.btn2.TabIndex = 7
+        Me.btn2.Text = "2"
+        Me.btn2.UseVisualStyleBackColor = False
+        '
+        'btn1
+        '
+        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1.Location = New System.Drawing.Point(3, 174)
+        Me.btn1.Name = "btn1"
+        Me.btn1.Size = New System.Drawing.Size(89, 76)
+        Me.btn1.TabIndex = 6
+        Me.btn1.Text = "1"
+        Me.btn1.UseVisualStyleBackColor = False
+        '
+        'btn6
+        '
+        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn6.Location = New System.Drawing.Point(193, 92)
+        Me.btn6.Name = "btn6"
+        Me.btn6.Size = New System.Drawing.Size(89, 76)
+        Me.btn6.TabIndex = 5
+        Me.btn6.Text = "6"
+        Me.btn6.UseVisualStyleBackColor = False
+        '
+        'btn5
+        '
+        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn5.Location = New System.Drawing.Point(98, 92)
+        Me.btn5.Name = "btn5"
+        Me.btn5.Size = New System.Drawing.Size(89, 76)
+        Me.btn5.TabIndex = 4
+        Me.btn5.Text = "5"
+        Me.btn5.UseVisualStyleBackColor = False
+        '
+        'btn4
+        '
+        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn4.Location = New System.Drawing.Point(3, 92)
+        Me.btn4.Name = "btn4"
+        Me.btn4.Size = New System.Drawing.Size(89, 76)
+        Me.btn4.TabIndex = 3
+        Me.btn4.Text = "4"
+        Me.btn4.UseVisualStyleBackColor = False
+        '
+        'btn9
+        '
+        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn9.Location = New System.Drawing.Point(193, 10)
+        Me.btn9.Name = "btn9"
+        Me.btn9.Size = New System.Drawing.Size(89, 76)
+        Me.btn9.TabIndex = 2
+        Me.btn9.Text = "9"
+        Me.btn9.UseVisualStyleBackColor = False
+        '
+        'btn8
+        '
+        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn8.Location = New System.Drawing.Point(98, 10)
+        Me.btn8.Name = "btn8"
+        Me.btn8.Size = New System.Drawing.Size(89, 76)
+        Me.btn8.TabIndex = 1
+        Me.btn8.Text = "8"
+        Me.btn8.UseVisualStyleBackColor = False
+        '
+        'btn7
+        '
+        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn7.Location = New System.Drawing.Point(3, 10)
+        Me.btn7.Name = "btn7"
+        Me.btn7.Size = New System.Drawing.Size(89, 76)
+        Me.btn7.TabIndex = 0
+        Me.btn7.Text = "7"
+        Me.btn7.UseVisualStyleBackColor = False
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(6, 42)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(418, 321)
+        Me.txtNombre.TabIndex = 18
+        Me.txtNombre.Text = ""
+        '
+        'frmTecladoVtaTouchEntrada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(840, 671)
+        Me.ClientSize = New System.Drawing.Size(840, 673)
+        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Panel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmTeTemp"
+        Me.Name = "frmTecladoVtaTouchEntrada"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Mesa Temporal"
+        Me.Text = "Ventas Touch"
         Me.Panel2.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblTitulo As Label
-    Friend WithEvents txtNombre As RichTextBox
-    Friend WithEvents btnBorrar As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnCancelar As Button
-    Friend WithEvents btnAceptar As Button
-    Friend WithEvents btn0 As Button
-    Friend WithEvents btn3 As Button
-    Friend WithEvents btn2 As Button
-    Friend WithEvents btn1 As Button
-    Friend WithEvents btn6 As Button
-    Friend WithEvents btn5 As Button
-    Friend WithEvents btn4 As Button
-    Friend WithEvents btn9 As Button
-    Friend WithEvents btn8 As Button
-    Friend WithEvents btn7 As Button
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents btnQ As Button
+    Friend WithEvents BTNESP As Button
     Friend WithEvents btnGuion As Button
     Friend WithEvents btnPunto As Button
     Friend WithEvents btnComa As Button
@@ -775,5 +760,20 @@ Partial Class frmTeTemp
     Friend WithEvents btnR As Button
     Friend WithEvents btnE As Button
     Friend WithEvents btnW As Button
-    Friend WithEvents BTNESP As Button
+    Friend WithEvents btnQ As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnBorrar As Button
+    Friend WithEvents btn0 As Button
+    Friend WithEvents btn3 As Button
+    Friend WithEvents btn2 As Button
+    Friend WithEvents btn1 As Button
+    Friend WithEvents btn6 As Button
+    Friend WithEvents btn5 As Button
+    Friend WithEvents btn4 As Button
+    Friend WithEvents btn9 As Button
+    Friend WithEvents btn8 As Button
+    Friend WithEvents btn7 As Button
+    Friend WithEvents txtNombre As RichTextBox
 End Class
