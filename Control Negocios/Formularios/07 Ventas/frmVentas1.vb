@@ -12371,6 +12371,25 @@ ecomoda:
                 Y += 12
             End If
             Y += 3
+
+            If txtcomentario.Text <> "" Then
+                Dim caracteresPorLinea As Integer = 29
+                Dim texto As String = txtcomentario.Text
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+                e.Graphics.DrawString("Comentario: ", New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 12
+                    inicio += caracteresPorLinea
+                End While
+            End If
+            Y += 10
+
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 90, Y, sc)
             Y += 20
 
