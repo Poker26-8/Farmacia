@@ -3412,7 +3412,7 @@ kaka:
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
-                                    txtexistencia.Text = CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo
+                                    txtexistencia.Text = FormatNumber(CDbl(IIf(rd2(0).ToString = "", "0", rd2(0).ToString)) / Multiplo, 2)
                                 End If
                             End If
                             rd2.Close()
@@ -7406,7 +7406,7 @@ doorcita:
                 If rd1.HasRows Then
                     If rd1.Read Then
                         existe = rd1("Existencia").ToString()
-                        MyMultiplo = rd1("MCD").ToString()
+                        MyMultiplo = rd1("Multiplo").ToString()
                         Existencia = existe / MyMultiplo
                         If rd1("Departamento").ToString() <> "SERVICIOS" Then
                             Pre_Comp = rd1("PrecioCompra").ToString()
@@ -7433,80 +7433,47 @@ Door:
                     Dim v_venta As Double = 0
 
                     If MyDepto <> "SERVICIOS" And Kit = False Then
-                        'Cálculos de PePs
-                        Do While necesito > 0
-                            cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText =
-                                "select Id,Saldo,Costo from Costeo where Id=(select MIN(Id) from Costeo where (Concepto='COMPRA' or Concepto='ENTRADA') and Saldo>0 and Codigo='" & Strings.Left(mycode, 6) & "')"
-                            rd1 = cmd1.ExecuteReader
-                            If rd1.HasRows Then
-                                If rd1.Read Then
-                                    id_peps = rd1("Id").ToString()
-                                    tengo = rd1("Saldo").ToString()
-                                    cuanto_cuestan = rd1("Costo").ToString()
-                                End If
-                            Else
-                                'Esto para evitar un bucle cuando no hay una compra previa
-                                rd1.Close()
-                                Exit Do
-                            End If
-                            rd1.Close()
-
-                            'En todo va a hacer los cálculos de la utilidad
-                            If tengo >= necesito Then
-                                quedan = tengo - necesito
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "update Costeo set Saldo=" & quedan & " where Id=" & id_peps
-                                cmd1.ExecuteNonQuery()
-
-                                v_costo = necesito * cuanto_cuestan
-                                v_venta = necesito * myprecio
-                                utilidad = utilidad + (v_venta - v_costo)
-
-                                Exit Do
-                            ElseIf tengo < necesito Then
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "update Costeo set Saldo=0 where Id=" & id_peps
-                                cmd1.ExecuteNonQuery()
-
-                                v_costo = tengo * cuanto_cuestan
-                                v_venta = tengo * myprecio
-                                utilidad = (v_venta - v_costo)
-                                necesito = necesito - tengo
-
-                                cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText =
-                                    "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MYFOLIO & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (tengo * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
-                                cmd1.ExecuteNonQuery()
-                                utilidad = 0
-                            End If
-                        Loop
-
-                        'Sí alcanzan las que tengo en el primer registro, entonces guarda y avanza
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into Costeo(Fecha,Hora,Concepto,Referencia,Codigo,Descripcion,Unidad,Entrada,Salida,Saldo,Costo,Precio,Utilidad,Usuario) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','VENTA','" & MYFOLIO & "','" & Strings.Left(mycode, 6) & "','" & mydesc & "','" & myunid & "',0," & (necesito * MyMultiplo) & ",0," & cuanto_cuestan & "," & myprecio & "," & utilidad & ",'" & lblusuario.Text & "')"
-                        cmd1.ExecuteNonQuery()
 
                         Dim nueva_existe As Double = 0
-                        nueva_existe = Existencia - (mycant / MyMCD)
+
+                        If MyMulti2 > 1 And MyMCD = 1 Then
+                            nueva_existe = FormatNumber(CDec(mycant) * CDec(MyMulti2), 0)
+                        Else
+                            nueva_existe = CDec(mycant) * CDec(MyMulti2)
+                        End If
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "update Productos set CargadoInv=0, Cargado=0, Existencia=" & nueva_existe & " where Codigo='" & Strings.Left(mycode, 6) & "'"
+                            "update Productos set CargadoInv=0, Cargado=0, Existencia=Existencia - " & nueva_existe & " where Codigo='" & Strings.Left(mycode, 6) & "'"
                         cmd1.ExecuteNonQuery()
 
+                        Dim MyExiste As Double = 0
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select Existencia from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                MyExiste = rd1(0).ToString()
+                            End If
+                        End If
+                        rd1.Close()
+
                         If Len(mycode) = 6 Then
+
+                            MyExiste = FormatNumber(MyExiste / MyMultiplo, 2)
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & Existencia & "," & mycant & "," & nueva_existe & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
+                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
                             cmd1.ExecuteNonQuery()
                         Else
+                            Existencia = FormatNumber((MyExiste + nueva_existe) / MyMulti2, 2)
+                            MyExiste = MyExiste / MyMulti2
+
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & existe & "," & mycant & "," & nueva_existe & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
+                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
                             cmd1.ExecuteNonQuery()
                         End If
                     End If

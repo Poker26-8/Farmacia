@@ -67,19 +67,12 @@ Public Class frmCardex
 
 
 
-            If cbonombre.Text = "" And cboCodigo.Text = "" Then
+            If cbonombre.Text = "" Then
                 cmd1.CommandText =
                     "select * from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
             Else
                 cmd1.CommandText =
                     "select * from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Nombre='" & cbonombre.Text & "' order by Id"
-            End If
-
-            If cboCodigo.Text = "" Then
-
-            Else
-                cmd1.CommandText =
-                    "select * from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Codigo='" & cboCodigo.Text & "' order by Id"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -151,7 +144,7 @@ Public Class frmCardex
             cnn1.Close()
         End If
 
-        If cboCodigo.Text <> "" Then
+        If cbonombre.Text <> "" Then
             Dim vas As Integer = grdcaptura.Rows.Count - 1
 
             cnn1.Close() : cnn1.Open()
@@ -179,17 +172,14 @@ Public Class frmCardex
                 If Len(grdcaptura.Rows(RT).Cells(0).Value.ToString) > 6 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Existencia  from Productos where Codigo='" & Mid(grdcaptura.Rows(RT).Cells(0).Value.ToString, 1, 6) & "'"
+                        "select Existencia, Multiplo  from Productos where Codigo='" & Mid(grdcaptura.Rows(RT).Cells(0).Value.ToString, 1, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            existencia = rd1(0).ToString
-                            multiplo = rd1(1).ToString
-                            If Len(grdcaptura.Rows(RT).Cells(0).Value.ToString) <= 6 Then
-                                exist = CDbl(rd1(0).ToString) / multiplo
-                                lblExistencia.Text = FormatNumber(exist, 2)
+                            existencia = CDbl(rd1(0).ToString) / multiplo
+                            lblExistencia.Text = FormatNumber(exist, 2)
+
                             End If
-                        End If
                     Else
                         lblExistencia.Text = "0.00"
                     End If
