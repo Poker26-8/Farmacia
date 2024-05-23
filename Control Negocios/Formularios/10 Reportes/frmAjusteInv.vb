@@ -38,7 +38,7 @@
                     If IsNumeric(cbodesc.Text) Then
                         query = "SELECT * FROM Productos WHERE CodBarra='" & cbodesc.Text & "'"
                     Else
-                        query = "SELECT * FROM Productos WHERE Nombre='" & cbodesc.Text & "'"
+                        query = "SELECT * FROM Productos WHERE Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "'"
                     End If
 
                     cmd1.CommandText = query
