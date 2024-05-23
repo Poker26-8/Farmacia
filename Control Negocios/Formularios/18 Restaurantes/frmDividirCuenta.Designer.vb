@@ -229,9 +229,9 @@ Partial Class frmDividirCuenta
         Me.btnguardard.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardard.Image = CType(resources.GetObject("btnguardard.Image"), System.Drawing.Image)
         Me.btnguardard.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardard.Location = New System.Drawing.Point(794, 162)
+        Me.btnguardard.Location = New System.Drawing.Point(794, 156)
         Me.btnguardard.Name = "btnguardard"
-        Me.btnguardard.Size = New System.Drawing.Size(75, 67)
+        Me.btnguardard.Size = New System.Drawing.Size(75, 73)
         Me.btnguardard.TabIndex = 3
         Me.btnguardard.Text = "Guardar"
         Me.btnguardard.TextAlign = System.Drawing.ContentAlignment.BottomCenter

@@ -1253,4 +1253,50 @@
         frmTecladoPagar.Show()
         frmTecladoPagar.BringToFront()
     End Sub
+
+    Private Sub txtPorcentaje_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPorcentaje.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtPorcentaje.Text) Then
+
+                If txtPorcentaje.Text > 100 Then
+                    txtPorcentaje.Text = "0"
+                    Exit Sub
+                End If
+
+                Dim SALDO As Double = IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)
+                Dim PORCENTAJE As Double = (txtPorcentaje.Text / 100)
+                Dim porcentajetot As Double = CDbl(SALDO) * CDbl(PORCENTAJE)
+                txtDescuento.Text = FormatNumber(porcentajetot, 2)
+
+                Dim subtotal As Double = 0
+                subtotal = CDbl(txtSubtotalmapeo.Text) - CDbl(porcentajetot)
+                txtTotal.Text = FormatNumber(subtotal, 2)
+                txtResta.Text = FormatNumber(txtTotal.Text, 2)
+
+                Dim propina As Double = 0
+                Dim porcpropina As Double = 0
+                Dim totalpropina As Double = 0
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Propina'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        propina = rd1(0).ToString
+                        If propina > 0 Then
+                            porcpropina = propina / 100
+                            totalpropina = CDbl(subtotal) * CDbl(porcpropina)
+                            txtPropina.Text = FormatNumber(totalpropina, 2)
+                            txtResta.Text = FormatNumber(CDbl(txtTotal.Text) + CDbl(txtPropina.Text), 2)
+                            txtTotal.Text = FormatNumber(txtResta.Text, 2)
+                        End If
+
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            End If
+        End If
+    End Sub
 End Class

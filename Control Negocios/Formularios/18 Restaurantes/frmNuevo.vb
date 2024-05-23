@@ -10,11 +10,15 @@ Public Class frmNuevo
     Private Sub frmNuevo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mesa()
 
+        Dim btnEliminar As New DataGridViewButtonColumn()
+        btnEliminar.HeaderText = "Eliminar"
+        btnEliminar.Text = "Eliminar"
+        btnEliminar.UseColumnTextForButtonValue = True
 
-        ' btnaccion.Name = "Eliminar"
-        btnaccion2.value = "Inventario Fisico"
 
-        ' grdCaptura.Columns.Add(btnaccion2)
+        ' Agregar el botón a la DataGridView
+        grdCaptura.Columns.Add(btnEliminar)
+
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
@@ -23,16 +27,14 @@ Public Class frmNuevo
         Do While rd1.Read
             If rd1.HasRows Then
 
-                grdCaptura2.Rows.Add(rd1(0).ToString, "222")
-                ' Agregar la celda a una fila específica en el control DataGridView
-                'grdCaptura.Rows(rowIndex).Cells.Add(btnaccion2)
+                grdCaptura.Rows.Add(rd1(0).ToString(), " ")
+
+                ' Agregar el botón a la celda correspondiente en la fila actual
+                'grdCaptura.Rows(rowIndex).Cells("Eliminar").Value = "Eliminar"
             End If
         Loop
         rd1.Close()
         cnn1.Close()
-
-
-
     End Sub
 
     Private Sub grdCaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs)
@@ -318,5 +320,13 @@ Public Class frmNuevo
         End If
 
 
+    End Sub
+
+    Private Sub grdCaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellContentClick
+        ' Verificar si se hizo clic en la columna del botón "Eliminar"
+        If e.ColumnIndex = grdCaptura.Columns(1).Index AndAlso e.RowIndex >= 0 Then
+            ' Cambiar el color de fondo de toda la fila
+            grdCaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Red ' Cambia el color a rojo, puedes ajustarlo según tu preferencia
+        End If
     End Sub
 End Class

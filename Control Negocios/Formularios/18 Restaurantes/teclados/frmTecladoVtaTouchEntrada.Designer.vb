@@ -26,6 +26,7 @@ Partial Class frmTecladoVtaTouchEntrada
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.txtcontra = New System.Windows.Forms.TextBox()
         Me.BTNESP = New System.Windows.Forms.Button()
         Me.btnGuion = New System.Windows.Forms.Button()
         Me.btnPunto = New System.Windows.Forms.Button()
@@ -100,6 +101,7 @@ Partial Class frmTecladoVtaTouchEntrada
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.txtcontra)
         Me.Panel3.Controls.Add(Me.BTNESP)
         Me.Panel3.Controls.Add(Me.btnGuion)
         Me.Panel3.Controls.Add(Me.btnPunto)
@@ -136,6 +138,14 @@ Partial Class frmTecladoVtaTouchEntrada
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(840, 303)
         Me.Panel3.TabIndex = 16
+        '
+        'txtcontra
+        '
+        Me.txtcontra.Location = New System.Drawing.Point(17, 258)
+        Me.txtcontra.Name = "txtcontra"
+        Me.txtcontra.Size = New System.Drawing.Size(64, 20)
+        Me.txtcontra.TabIndex = 32
+        Me.txtcontra.Visible = False
         '
         'BTNESP
         '
@@ -722,6 +732,7 @@ Partial Class frmTecladoVtaTouchEntrada
         Me.Text = "Ventas Touch"
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -776,4 +787,5 @@ Partial Class frmTecladoVtaTouchEntrada
     Friend WithEvents btn8 As Button
     Friend WithEvents btn7 As Button
     Friend WithEvents txtNombre As RichTextBox
+    Friend WithEvents txtcontra As TextBox
 End Class

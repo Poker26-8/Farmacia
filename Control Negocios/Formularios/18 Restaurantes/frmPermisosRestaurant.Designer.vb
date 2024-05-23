@@ -72,6 +72,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnEM = New System.Windows.Forms.Button()
         Me.btnGM = New System.Windows.Forms.Button()
         Me.btnNM = New System.Windows.Forms.Button()
@@ -238,7 +239,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox7.Location = New System.Drawing.Point(321, 360)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(252, 57)
+        Me.GroupBox7.Size = New System.Drawing.Size(295, 57)
         Me.GroupBox7.TabIndex = 236
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Tiempo de tolerancia mesa billar"
@@ -272,7 +273,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox19.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox19.Location = New System.Drawing.Point(321, 233)
         Me.GroupBox19.Name = "GroupBox19"
-        Me.GroupBox19.Size = New System.Drawing.Size(252, 121)
+        Me.GroupBox19.Size = New System.Drawing.Size(295, 121)
         Me.GroupBox19.TabIndex = 237
         Me.GroupBox19.TabStop = False
         Me.GroupBox19.Text = "Tipo de cobro billar"
@@ -328,7 +329,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox20.Location = New System.Drawing.Point(321, 103)
         Me.GroupBox20.Name = "GroupBox20"
-        Me.GroupBox20.Size = New System.Drawing.Size(252, 55)
+        Me.GroupBox20.Size = New System.Drawing.Size(295, 55)
         Me.GroupBox20.TabIndex = 238
         Me.GroupBox20.TabStop = False
         Me.GroupBox20.Text = "Porcentage de propinas"
@@ -588,7 +589,7 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(321, 157)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(252, 79)
+        Me.GroupBox1.Size = New System.Drawing.Size(295, 79)
         Me.GroupBox1.TabIndex = 243
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Producto ocasional"
@@ -630,7 +631,7 @@ Partial Class frmPermisosRestaurant
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(0, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(578, 37)
+        Me.Label6.Size = New System.Drawing.Size(616, 37)
         Me.Label6.TabIndex = 244
         Me.Label6.Text = "Permisos y funciones para restaurantes y billares"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -642,11 +643,12 @@ Partial Class frmPermisosRestaurant
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(578, 37)
+        Me.Panel3.Size = New System.Drawing.Size(616, 37)
         Me.Panel3.TabIndex = 245
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.btnEM)
         Me.GroupBox3.Controls.Add(Me.btnGM)
         Me.GroupBox3.Controls.Add(Me.btnNM)
@@ -662,10 +664,21 @@ Partial Class frmPermisosRestaurant
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(321, 429)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(252, 309)
+        Me.GroupBox3.Size = New System.Drawing.Size(295, 309)
         Me.GroupBox3.TabIndex = 248
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Agregar mesas fijas"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(250, 147)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(39, 28)
+        Me.Button1.TabIndex = 251
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'btnEM
         '
@@ -820,7 +833,7 @@ Partial Class frmPermisosRestaurant
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 37)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(578, 66)
+        Me.Panel1.Size = New System.Drawing.Size(616, 66)
         Me.Panel1.TabIndex = 250
         '
         'frmPermisosRestaurant
@@ -828,7 +841,7 @@ Partial Class frmPermisosRestaurant
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(578, 742)
+        Me.ClientSize = New System.Drawing.Size(616, 742)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox3)
@@ -928,4 +941,5 @@ Partial Class frmPermisosRestaurant
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button1 As Button
 End Class

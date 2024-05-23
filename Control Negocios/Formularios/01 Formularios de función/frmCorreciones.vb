@@ -484,13 +484,13 @@ Public Class frmCorreciones
         cnn1.Close() : cnn1.Open()
         If celda.ColumnIndex = 2 Then
 
-            frmTePreCant.txtrespuesta.Text = ""
-            frmTePreCant.txtrespuesta.Focus.Equals(True)
+            'frmTePreCant.txtrespuesta.Text = ""
+            'frmTePreCant.txtrespuesta.Focus.Equals(True)
 
-            ' CodigoProducto = grdCaptura.Rows(index).Cells(0).Value.ToString
+            '' CodigoProducto = grdCaptura.Rows(index).Cells(0).Value.ToString
 
-            frmTePreCant.Show()
-            frmTePreCant.BringToFront()
+            'frmTePreCant.Show()
+            'frmTePreCant.BringToFront()
         End If
     End Sub
 

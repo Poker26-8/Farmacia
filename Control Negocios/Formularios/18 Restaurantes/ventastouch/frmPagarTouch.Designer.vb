@@ -22,7 +22,7 @@ Partial Class frmPagarTouch
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarTouch))
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.lblfolio = New System.Windows.Forms.Label()
@@ -51,6 +51,14 @@ Partial Class frmPagarTouch
         Me.cboCuenta = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.grdPagos = New System.Windows.Forms.DataGridView()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnagregarpago = New System.Windows.Forms.Button()
         Me.dtpfechapago = New System.Windows.Forms.DateTimePicker()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -107,14 +115,8 @@ Partial Class frmPagarTouch
         Me.btn500 = New System.Windows.Forms.Button()
         Me.btn50 = New System.Windows.Forms.Button()
         Me.btn100 = New System.Windows.Forms.Button()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.txtPorcentaje = New System.Windows.Forms.TextBox()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,6 +127,8 @@ Partial Class frmPagarTouch
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.Label27)
+        Me.Panel7.Controls.Add(Me.txtPorcentaje)
         Me.Panel7.Controls.Add(Me.lblfolio)
         Me.Panel7.Controls.Add(Me.Label1)
         Me.Panel7.Controls.Add(Me.txtpagos)
@@ -143,9 +147,9 @@ Partial Class frmPagarTouch
         Me.Panel7.Controls.Add(Me.Label23)
         Me.Panel7.Controls.Add(Me.txtSubtotalmapeo)
         Me.Panel7.Controls.Add(Me.Label24)
-        Me.Panel7.Location = New System.Drawing.Point(12, 12)
+        Me.Panel7.Location = New System.Drawing.Point(-1, 12)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(219, 332)
+        Me.Panel7.Size = New System.Drawing.Size(254, 332)
         Me.Panel7.TabIndex = 15
         '
         'lblfolio
@@ -154,7 +158,7 @@ Partial Class frmPagarTouch
         Me.lblfolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfolio.Location = New System.Drawing.Point(3, 26)
         Me.lblfolio.Name = "lblfolio"
-        Me.lblfolio.Size = New System.Drawing.Size(214, 21)
+        Me.lblfolio.Size = New System.Drawing.Size(248, 21)
         Me.lblfolio.TabIndex = 32
         Me.lblfolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -172,10 +176,10 @@ Partial Class frmPagarTouch
         Me.txtpagos.BackColor = System.Drawing.Color.White
         Me.txtpagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpagos.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtpagos.Location = New System.Drawing.Point(116, 227)
+        Me.txtpagos.Location = New System.Drawing.Point(112, 227)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
-        Me.txtpagos.Size = New System.Drawing.Size(100, 21)
+        Me.txtpagos.Size = New System.Drawing.Size(140, 21)
         Me.txtpagos.TabIndex = 15
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -186,7 +190,7 @@ Partial Class frmPagarTouch
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.Location = New System.Drawing.Point(3, 4)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(214, 21)
+        Me.Label25.Size = New System.Drawing.Size(248, 21)
         Me.Label25.TabIndex = 31
         Me.Label25.Text = "Folio Venta"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -214,10 +218,10 @@ Partial Class frmPagarTouch
         Me.txtResta.BackColor = System.Drawing.Color.White
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
-        Me.txtResta.Location = New System.Drawing.Point(116, 293)
+        Me.txtResta.Location = New System.Drawing.Point(112, 293)
         Me.txtResta.Name = "txtResta"
         Me.txtResta.ReadOnly = True
-        Me.txtResta.Size = New System.Drawing.Size(100, 21)
+        Me.txtResta.Size = New System.Drawing.Size(140, 21)
         Me.txtResta.TabIndex = 12
         Me.txtResta.Text = "0.00"
         Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -227,10 +231,10 @@ Partial Class frmPagarTouch
         Me.txtCambio.BackColor = System.Drawing.Color.White
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
-        Me.txtCambio.Location = New System.Drawing.Point(116, 260)
+        Me.txtCambio.Location = New System.Drawing.Point(112, 260)
         Me.txtCambio.Name = "txtCambio"
         Me.txtCambio.ReadOnly = True
-        Me.txtCambio.Size = New System.Drawing.Size(100, 21)
+        Me.txtCambio.Size = New System.Drawing.Size(140, 21)
         Me.txtCambio.TabIndex = 11
         Me.txtCambio.Text = "0.00"
         Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -239,9 +243,9 @@ Partial Class frmPagarTouch
         '
         Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescuento.ForeColor = System.Drawing.Color.Orange
-        Me.txtDescuento.Location = New System.Drawing.Point(116, 161)
+        Me.txtDescuento.Location = New System.Drawing.Point(195, 158)
         Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.Size = New System.Drawing.Size(100, 21)
+        Me.txtDescuento.Size = New System.Drawing.Size(56, 21)
         Me.txtDescuento.TabIndex = 10
         Me.txtDescuento.Text = "0.00"
         Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -268,9 +272,9 @@ Partial Class frmPagarTouch
         '
         Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEfectivo.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtEfectivo.Location = New System.Drawing.Point(116, 194)
+        Me.txtEfectivo.Location = New System.Drawing.Point(112, 194)
         Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(100, 21)
+        Me.txtEfectivo.Size = New System.Drawing.Size(140, 21)
         Me.txtEfectivo.TabIndex = 7
         Me.txtEfectivo.Text = "0.00"
         Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -287,9 +291,9 @@ Partial Class frmPagarTouch
         'txtPropina
         '
         Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPropina.Location = New System.Drawing.Point(116, 95)
+        Me.txtPropina.Location = New System.Drawing.Point(112, 95)
         Me.txtPropina.Name = "txtPropina"
-        Me.txtPropina.Size = New System.Drawing.Size(100, 21)
+        Me.txtPropina.Size = New System.Drawing.Size(139, 21)
         Me.txtPropina.TabIndex = 5
         Me.txtPropina.Text = "0.00"
         Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -298,10 +302,10 @@ Partial Class frmPagarTouch
         '
         Me.txtTotal.BackColor = System.Drawing.Color.White
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(116, 128)
+        Me.txtTotal.Location = New System.Drawing.Point(112, 128)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
-        Me.txtTotal.Size = New System.Drawing.Size(100, 21)
+        Me.txtTotal.Size = New System.Drawing.Size(139, 21)
         Me.txtTotal.TabIndex = 4
         Me.txtTotal.Text = "0.00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -319,10 +323,10 @@ Partial Class frmPagarTouch
         '
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotalmapeo.Location = New System.Drawing.Point(116, 62)
+        Me.txtSubtotalmapeo.Location = New System.Drawing.Point(112, 62)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
         Me.txtSubtotalmapeo.ReadOnly = True
-        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(100, 21)
+        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(139, 21)
         Me.txtSubtotalmapeo.TabIndex = 2
         Me.txtSubtotalmapeo.Text = "0.00"
         Me.txtSubtotalmapeo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -357,7 +361,7 @@ Partial Class frmPagarTouch
         Me.Panel8.Controls.Add(Me.Label20)
         Me.Panel8.Controls.Add(Me.cboforma)
         Me.Panel8.Controls.Add(Me.Label21)
-        Me.Panel8.Location = New System.Drawing.Point(237, 12)
+        Me.Panel8.Location = New System.Drawing.Point(269, 12)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(471, 264)
         Me.Panel8.TabIndex = 16
@@ -419,8 +423,8 @@ Partial Class frmPagarTouch
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grdPagos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
@@ -432,6 +436,70 @@ Partial Class frmPagarTouch
         Me.grdPagos.RowHeadersVisible = False
         Me.grdPagos.Size = New System.Drawing.Size(462, 99)
         Me.grdPagos.TabIndex = 10
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column8.HeaderText = "Tipo"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 53
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.HeaderText = "Banco"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 63
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.HeaderText = "Ref"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 49
+        '
+        'Column11
+        '
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column11.HeaderText = "Monto"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 62
+        '
+        'Column12
+        '
+        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column12.HeaderText = "Fecha"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Width = 62
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column18.HeaderText = "Comentario"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        Me.Column18.Width = 85
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "CuentaRef"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Visible = False
+        Me.Column16.Width = 80
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "BancoRef"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        Me.Column17.Visible = False
+        Me.Column17.Width = 80
         '
         'btnagregarpago
         '
@@ -545,7 +613,7 @@ Partial Class frmPagarTouch
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.txtmonedero)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Location = New System.Drawing.Point(237, 280)
+        Me.Panel1.Location = New System.Drawing.Point(269, 280)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(471, 50)
         Me.Panel1.TabIndex = 25
@@ -790,7 +858,7 @@ Partial Class frmPagarTouch
         Me.GroupBox6.Controls.Add(Me.btn2)
         Me.GroupBox6.Controls.Add(Me.btn1)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.Location = New System.Drawing.Point(713, -3)
+        Me.GroupBox6.Location = New System.Drawing.Point(745, -3)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(286, 348)
         Me.GroupBox6.TabIndex = 27
@@ -1047,76 +1115,34 @@ Partial Class frmPagarTouch
         Me.btn100.TabIndex = 31
         Me.btn100.UseVisualStyleBackColor = False
         '
-        'Column8
+        'Label27
         '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column8.HeaderText = "Tipo"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Width = 53
+        Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(166, 159)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(23, 20)
+        Me.Label27.TabIndex = 41
+        Me.Label27.Text = "%"
         '
-        'Column9
+        'txtPorcentaje
         '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column9.HeaderText = "Banco"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 63
-        '
-        'Column10
-        '
-        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column10.HeaderText = "Ref"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Width = 49
-        '
-        'Column11
-        '
-        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column11.HeaderText = "Monto"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        Me.Column11.Width = 62
-        '
-        'Column12
-        '
-        Me.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column12.HeaderText = "Fecha"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Width = 62
-        '
-        'Column18
-        '
-        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column18.HeaderText = "Comentario"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        Me.Column18.Width = 85
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "CuentaRef"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        Me.Column16.Visible = False
-        Me.Column16.Width = 80
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "BancoRef"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        Me.Column17.Visible = False
-        Me.Column17.Width = 80
+        Me.txtPorcentaje.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
+        Me.txtPorcentaje.Location = New System.Drawing.Point(112, 158)
+        Me.txtPorcentaje.Name = "txtPorcentaje"
+        Me.txtPorcentaje.Size = New System.Drawing.Size(48, 21)
+        Me.txtPorcentaje.TabIndex = 40
+        Me.txtPorcentaje.Text = "0"
+        Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmPagarTouch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1001, 527)
+        Me.ClientSize = New System.Drawing.Size(1036, 527)
         Me.Controls.Add(Me.btn1000)
         Me.Controls.Add(Me.btn20)
         Me.Controls.Add(Me.btn200)
@@ -1237,4 +1263,6 @@ Partial Class frmPagarTouch
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Label27 As Label
+    Friend WithEvents txtPorcentaje As TextBox
 End Class

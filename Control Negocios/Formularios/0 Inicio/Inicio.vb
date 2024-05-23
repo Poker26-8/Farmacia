@@ -3301,9 +3301,9 @@ Public Class Inicio
 
 
                     Else
-                        With frmVentaTouchT
+                        With frmTecladoVtaTouchEntrada
 
-                            frmVentaTouchT.Show()
+                            frmTecladoVtaTouchEntrada.Show()
                             CONTRASEÑAA = .Respuesta
                             frmVTouchR.txtUsuario.Text = CONTRASEÑAA
 
