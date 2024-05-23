@@ -38,7 +38,7 @@
                     If IsNumeric(cbodesc.Text) Then
                         query = "SELECT * FROM Productos WHERE CodBarra='" & cbodesc.Text & "'"
                     Else
-                        query = "SELECT * FROM Productos WHERE Nombre='" & cbodesc.Text & "'"
+                        query = "SELECT * FROM Productos WHERE Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "'"
                     End If
 
                     cmd1.CommandText = query
@@ -157,11 +157,11 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select MCD,UVenta,Nombre from Productos where Codigo='" & cbocodigo.Text & "'"
+                        "select Multiplo,UVenta,Nombre from Productos where Codigo='" & cbocodigo.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            factor = IIf(rd1("MCD").ToString = "", 0, rd1("MCD").ToString)
+                            factor = IIf(rd1("Multiplo").ToString = "", 0, rd1("Multiplo").ToString)
                             txtunidad.Text = rd1("UVenta").ToString
                             cbodesc.Text = rd1("Nombre").ToString
                         End If
@@ -181,7 +181,7 @@
                     cnn1.Close()
 
                     If factor > 0 Then
-                        txtsistema.Text = operad * factor
+                        txtsistema.Text = operad / factor
                     End If
                     If txtsistema.Text <> "" Then
                         txtsistema.Text = FormatNumber(txtsistema.Text, 2)
@@ -489,7 +489,7 @@
                 End If
 
                 Dim existemmmmmmmcias As Double = 0
-                existemmmmmmmcias = CDbl(txtfisica.Text) / MyMCD
+                existemmmmmmmcias = CDbl(txtfisica.Text) * MyMult2
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "update Productos set Cargado=0, CargadoInv=0, Existencia=" & existemmmmmmmcias & " where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"

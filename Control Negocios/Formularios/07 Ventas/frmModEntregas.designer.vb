@@ -50,6 +50,8 @@ Partial Class frmModEntregas
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtNombreClave = New System.Windows.Forms.TextBox()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -261,11 +263,14 @@ Partial Class frmModEntregas
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Panel2)
+        Me.GroupBox1.Controls.Add(Me.dtpFecha)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.cboFolio)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Location = New System.Drawing.Point(481, 34)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(443, 84)
@@ -286,7 +291,7 @@ Partial Class frmModEntregas
         Me.Panel2.BackColor = System.Drawing.Color.DodgerBlue
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.txtNombreClave)
-        Me.Panel2.Location = New System.Drawing.Point(548, 78)
+        Me.Panel2.Location = New System.Drawing.Point(67, 8)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(348, 66)
         Me.Panel2.TabIndex = 213
@@ -314,12 +319,29 @@ Partial Class frmModEntregas
         Me.txtNombreClave.Size = New System.Drawing.Size(320, 29)
         Me.txtNombreClave.TabIndex = 0
         '
+        'dtpFecha
+        '
+        Me.dtpFecha.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecha.Location = New System.Drawing.Point(329, 51)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(107, 23)
+        Me.dtpFecha.TabIndex = 85
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(223, 55)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(100, 15)
+        Me.Label6.TabIndex = 86
+        Me.Label6.Text = "Fecha de Entrega:"
+        '
         'frmModEntregas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1102, 611)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnEntrega)
@@ -373,4 +395,6 @@ Partial Class frmModEntregas
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents txtNombreClave As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtpFecha As DateTimePicker
 End Class

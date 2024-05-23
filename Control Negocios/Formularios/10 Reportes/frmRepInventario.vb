@@ -979,8 +979,8 @@ Public Class frmRepInventario
                     Dim n_parte As String = IIf(rd1("N_Serie").ToString() = "", "", rd1("N_Serie").ToString())
                     Dim copas As Double = IIf(rd1("Copas").ToString() = 0, 1, rd1("Copas").ToString())
 
-                    Dim vcompra As Double = pcompra * existe
-                    Dim vventa As Double = pventa * existe
+                    Dim vcompra As Double = pcompra * exitencia
+                    Dim vventa As Double = pventa * exitencia
                     vcompra = IIf(vcompra < 0, 0, vcompra)
                     vventa = IIf(vventa < 0, 0, vventa)
 
@@ -1001,16 +1001,16 @@ Public Class frmRepInventario
                             rd3.Close()
                     cnn3.Close()
 
-                    diferencia = CDbl(existe) - CDbl(sumapedidos)
+                    diferencia = CDbl(exitencia) - CDbl(sumapedidos)
 
                     If (Libreria) Then
 
         Else
             If (Partes) Then
-                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                            grdcaptura.Rows.Add(codigo, barras, n_parte, nombre, unidad, exitencia, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                         Else
                             If restaurante = 1 And copeo = 1 Then
-                                Dim existe_temp As Double = existe
+                                Dim existe_temp As Double = exitencia
                                 Dim nueva_existe As Double = 0
                                 If copas > 1 Then
 
@@ -1020,25 +1020,25 @@ Public Class frmRepInventario
 
                                     Dim decimaal_db As Double = 0
 
-                                    posicion = InStr(CStr(existe), ".")
+                                    posicion = InStr(CStr(exitencia), ".")
                                     If posicion = 0 Then
-                                        nueva_existe = existe
+                                        nueva_existe = exitencia
                                     Else
-                                        entero = Mid(CStr(existe), 1, posicion - 1)
-                                        decimaaal = "0" & Mid(CStr(existe), posicion, 200)
+                                        entero = Mid(CStr(exitencia), 1, posicion - 1)
+                                        decimaaal = "0" & Mid(CStr(exitencia), posicion, 200)
 
                                         decimaal_db = FormatNumber(CDbl(decimaaal) * copas, 0)
                                         nueva_existe = entero & "." & decimaal_db
                                     End If
 
                                 Else
-                                    nueva_existe = existe
+                                    nueva_existe = exitencia
                                 End If
 
 
                                 grdcaptura.Rows.Add(codigo, barras, nombre, unidad, nueva_existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             Else
-                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, existe, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
+                                grdcaptura.Rows.Add(codigo, barras, nombre, unidad, exitencia, sumapedidos, diferencia, FormatNumber(pcompra, 2), FormatNumber(pventa, 2), FormatNumber(vcompra, 2), FormatNumber(vventa, 2))
                             End If
                         End If
                     End If

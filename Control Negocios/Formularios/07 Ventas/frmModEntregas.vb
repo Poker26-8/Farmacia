@@ -742,6 +742,7 @@
 
     Private Sub btnEntrega_Click(sender As Object, e As EventArgs) Handles btnEntrega.Click
         If (rbEntrega.Checked) Then
+            Dim fecha As String = Format(dtpFecha.Value, "yyyy-MM-dd")
             cnn2.Close() : cnn2.Open()
 
             cmd2 = cnn2.CreateCommand
@@ -753,7 +754,7 @@
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "UPDATE Ventas SET Entrega=1 WHERE Folio=" & cboFolio.Text & ""
+                        "UPDATE Ventas SET Entrega=1,FEntrega='" & fecha & "' WHERE Folio=" & cboFolio.Text & ""
                     If cmd3.ExecuteNonQuery Then
 
                         cnn4.Close() : cnn4.Open()
