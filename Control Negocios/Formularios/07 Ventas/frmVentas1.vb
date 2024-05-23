@@ -13873,7 +13873,9 @@ ecomoda:
 
                 cnn1.Close() : cnn1.Open()
                 For monkey As Integer = 0 To grdcaptura.Rows.Count - 1
-                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then GoTo rayos
+                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then
+                        GoTo rayos2
+                    End If
 
                     Dim MyCodigo As String = grdcaptura.Rows(monkey).Cells(0).Value.ToString
                     Dim MyNombre As String = grdcaptura.Rows(monkey).Cells(1).Value.ToString
@@ -13930,6 +13932,15 @@ rayos:
                     cmd2.CommandText = "INSERT INTO pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo,Comisionista,Descuento,Descto,Porc_Descuento) VALUES(" & MYFOLIO & ",'" & MyCodigo & "','" & MyNombre & "'," & MyCantidad & ",'" & MYUnidad & "'," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & PrecioSinIVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepa & "','" & MyGrupo & "','0','PEDIDO','',0,0,0)"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
+
+rayos2:
+                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" And grdcaptura.Rows(monkey).Cells(1).Value.ToString <> "" Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update pedidosvendet set Comisionista='" & grdcaptura.Rows(monkey).Cells(1).Value.ToString & "' where Codigo='" & MyCodigo & "' and Folio=" & MYFOLIO
+                        cmd1.ExecuteNonQuery()
+                    End If
+
                 Next
                 cnn1.Close()
 
