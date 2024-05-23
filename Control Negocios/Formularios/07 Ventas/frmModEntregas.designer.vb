@@ -291,7 +291,7 @@ Partial Class frmModEntregas
         Me.Panel2.BackColor = System.Drawing.Color.DodgerBlue
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.txtNombreClave)
-        Me.Panel2.Location = New System.Drawing.Point(67, 22)
+        Me.Panel2.Location = New System.Drawing.Point(67, 8)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(348, 66)
         Me.Panel2.TabIndex = 213
