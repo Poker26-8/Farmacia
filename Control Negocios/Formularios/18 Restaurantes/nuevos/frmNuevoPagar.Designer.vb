@@ -302,6 +302,7 @@ Partial Class frmNuevoPagar
         '
         'Label25
         '
+        Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
         Me.Label25.Location = New System.Drawing.Point(349, 250)
         Me.Label25.Name = "Label25"
