@@ -3316,6 +3316,7 @@ doorcita:
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 8, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 7, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 6, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -3399,16 +3400,16 @@ doorcita:
 
             '[1]. Datos de la venta
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-            Y += 14
+            Y += 12
             e.Graphics.DrawString("A B O N O", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 90, Y, sc)
-            Y += 7
+            Y += 12
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 12
 
             e.Graphics.DrawString("Folio: " & cbofolio.Text, fuente_datos, Brushes.Black, 180, Y, sf)
             Y += 15
-            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 180, Y, sf)
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 180, Y, sf)
             Y += 15
 
             '[2]. Datos del cliente
@@ -3477,14 +3478,14 @@ doorcita:
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
 
-                e.Graphics.DrawString(Mid(nombre, 1, 25), fuente_prods, Brushes.Black, 33, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 25), fuente_prods, Brushes.Black, 40, Y)
                 Y += 12
                 If Mid(nombre, 26, 50) <> "" Then
-                    e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 If Mid(nombre, 51, 76) <> "" Then
-                    e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 ' e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)

@@ -12222,9 +12222,9 @@ ecomoda:
                 'e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 33, Y)
                 Y += 5
                 e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 7, Y)
-                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 35, Y)
-                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 60, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 100, Y, sf)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 30, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 115, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 180, Y, sf)
                 Y += 15
                 'If descuento <> 0 Then
