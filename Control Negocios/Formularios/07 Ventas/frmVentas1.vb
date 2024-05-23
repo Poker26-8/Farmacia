@@ -3648,6 +3648,7 @@ kaka:
                         Edita = rd1("Vent_EPrec").ToString
                     End If
                 End If
+
                 rd1.Close()
 
                 If Edita = False Then
