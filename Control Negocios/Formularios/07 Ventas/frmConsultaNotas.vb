@@ -5752,14 +5752,14 @@ doorcita:
                 Dim total As Double = FormatNumber(canti * precio, 2)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(Mid(nombre, 1, 25), fuente_prods, Brushes.Black, 33, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 25), fuente_prods, Brushes.Black, 40, Y)
                 Y += 12
                 If Mid(nombre, 26, 50) <> "" Then
-                    e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(nombre, 26, 50), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 If Mid(nombre, 51, 76) <> "" Then
-                    e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(nombre, 51, 76), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 '  e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 52, Y)
