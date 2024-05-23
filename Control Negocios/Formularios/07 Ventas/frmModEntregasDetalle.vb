@@ -2103,14 +2103,14 @@ Public Class frmModEntregasDetalle
             If valito = "" Then
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
 
-                e.Graphics.DrawString(Mid(producto, 1, 25), fuente_prods, Brushes.Black, 33, Y)
+                e.Graphics.DrawString(Mid(producto, 1, 25), fuente_prods, Brushes.Black, 40, Y)
                 Y += 12
                 If Mid(producto, 26, 50) <> "" Then
-                    e.Graphics.DrawString(Mid(producto, 26, 50), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(producto, 26, 50), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 If Mid(producto, 51, 76) <> "" Then
-                    e.Graphics.DrawString(Mid(producto, 51, 76), fuente_prods, Brushes.Black, 33, Y)
+                    e.Graphics.DrawString(Mid(producto, 51, 76), fuente_prods, Brushes.Black, 40, Y)
                     Y += 12
                 End If
                 'e.Graphics.DrawString(producto, fuente_prods, Brushes.Black, 58, Y)
@@ -2173,7 +2173,7 @@ Public Class frmModEntregasDetalle
             Y += 10
         End If
         Y += 35
-        e.Graphics.DrawLine(New Pen(Brushes.Black, 1), 40, CInt(Y), 229, CInt(Y))
+        e.Graphics.DrawLine(New Pen(Brushes.Black, 1), 1, CInt(Y), 229, CInt(Y))
         Y += 10
         e.Graphics.DrawString("Firma", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 90, Y, sc)
         e.HasMorePages = False
