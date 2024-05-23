@@ -24,8 +24,8 @@ Partial Class frmAgregarProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarProducto))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblpromo = New System.Windows.Forms.Label()
@@ -198,7 +198,7 @@ Partial Class frmAgregarProducto
         Me.lblFecha.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblFecha.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFecha.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.ForeColor = System.Drawing.Color.White
+        Me.lblFecha.ForeColor = System.Drawing.Color.Black
         Me.lblFecha.Location = New System.Drawing.Point(444, 12)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(141, 18)
@@ -210,7 +210,7 @@ Partial Class frmAgregarProducto
         Me.lblFolio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblFolio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblFolio.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFolio.ForeColor = System.Drawing.Color.White
+        Me.lblFolio.ForeColor = System.Drawing.Color.Black
         Me.lblFolio.Location = New System.Drawing.Point(591, 42)
         Me.lblFolio.Name = "lblFolio"
         Me.lblFolio.Size = New System.Drawing.Size(141, 19)
@@ -221,7 +221,7 @@ Partial Class frmAgregarProducto
         '
         Me.lblNcomensales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblNcomensales.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNcomensales.ForeColor = System.Drawing.Color.White
+        Me.lblNcomensales.ForeColor = System.Drawing.Color.Black
         Me.lblNcomensales.Location = New System.Drawing.Point(297, 42)
         Me.lblNcomensales.Name = "lblNcomensales"
         Me.lblNcomensales.Size = New System.Drawing.Size(141, 19)
@@ -233,7 +233,7 @@ Partial Class frmAgregarProducto
         Me.lblmesa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.lblmesa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblmesa.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesa.ForeColor = System.Drawing.Color.White
+        Me.lblmesa.ForeColor = System.Drawing.Color.Black
         Me.lblmesa.Location = New System.Drawing.Point(3, 42)
         Me.lblmesa.Name = "lblmesa"
         Me.lblmesa.Size = New System.Drawing.Size(141, 19)
@@ -246,7 +246,7 @@ Partial Class frmAgregarProducto
         Me.TableLayoutPanel1.SetColumnSpan(Me.lblatiende, 2)
         Me.lblatiende.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblatiende.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblatiende.ForeColor = System.Drawing.Color.White
+        Me.lblatiende.ForeColor = System.Drawing.Color.Black
         Me.lblatiende.Location = New System.Drawing.Point(3, 12)
         Me.lblatiende.Name = "lblatiende"
         Me.lblatiende.Size = New System.Drawing.Size(288, 18)
@@ -258,7 +258,7 @@ Partial Class frmAgregarProducto
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.ForeColor = System.Drawing.Color.Black
         Me.Label5.Location = New System.Drawing.Point(591, 30)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(141, 12)
@@ -271,7 +271,7 @@ Partial Class frmAgregarProducto
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Location = New System.Drawing.Point(444, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(141, 12)
@@ -283,7 +283,7 @@ Partial Class frmAgregarProducto
         '
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(297, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(141, 12)
@@ -296,7 +296,7 @@ Partial Class frmAgregarProducto
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.ForeColor = System.Drawing.Color.Black
         Me.Label2.Location = New System.Drawing.Point(3, 30)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(141, 12)
@@ -309,7 +309,7 @@ Partial Class frmAgregarProducto
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(141, 12)
@@ -354,22 +354,22 @@ Partial Class frmAgregarProducto
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.grdCaptura.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle4
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.GridColor = System.Drawing.Color.White
         Me.grdCaptura.Location = New System.Drawing.Point(0, 73)
