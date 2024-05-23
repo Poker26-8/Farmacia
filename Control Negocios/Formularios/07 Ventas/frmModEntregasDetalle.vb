@@ -2067,20 +2067,27 @@ Public Class frmModEntregasDetalle
             Dim zu As Integer = 1
 
             MyNota = txtdireccion.Text
-            Do While Trim(MyNota) <> ""
-                MyNota = Mid(txtdireccion.Text, zu, 38)
-                If Trim(MyNota) <> "" Then
-                    e.Graphics.DrawString(MyNota, fuente_prods, Brushes.Black, 1, Y)
+            If MyNota <> "" Then
+                Dim caracteresPorLinea As Integer = 29
+                Dim texto As String = txtdireccion.Text
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
                     Y += 12
-                End If
-                zu = zu + 38
-            Loop
+                    inicio += caracteresPorLinea
+                End While
+            End If
+
             Y += 4
-            Y += 8
-            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-            Y += 12
-        Else
-            Y += 4
+                Y += 8
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            Else
+                Y += 4
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 12
         End If
