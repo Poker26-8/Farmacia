@@ -76,6 +76,75 @@ Public Class frmProductosS
         End Try
     End Sub
 
+    Private Sub ShowData2(ByVal tipo As String)
+        Try
+            cnn2.Close() : cnn2.Open()
+
+            cmd2 = cnn2.CreateCommand
+            If tipo = "BARRAS" Then
+                cmd2.CommandText =
+                    "select * from Productos where CodBarra='" & txtbarras.Text & "'"
+            End If
+
+            If tipo = "BARRAS1" Then
+                cmd2.CommandText =
+                    "select * from Productos where CodBarra1='" & txtBarras1.Text & "'"
+            End If
+
+            If tipo = "BARRAS2" Then
+                cmd2.CommandText =
+                    "select * from Productos where CodBarra2='" & txtBarras2.Text & "'"
+            End If
+
+            If tipo = "CODIGO" Then
+                cmd2.CommandText =
+                    "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+            End If
+            If tipo = "PRODU" Then
+                cmd2.CommandText =
+                    "select * from Productos where Nombre='" & cboNombre.Text & "' and Length(Codigo)<=6"
+            End If
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    txtbarras.Text = rd2("CodBarra").ToString()
+                    txtBarras1.Text = rd2("CodBarra1").ToString
+                    txtBarras2.Text = rd2("CodBarra2").ToString
+                    cboCodigo.Text = rd2("Codigo").ToString()
+                    cboNombre.Text = rd2("Nombre").ToString()
+                    cboIVA.Text = rd2("IVA").ToString()
+                    txtUnidad.Text = rd2("UVenta").ToString()
+                    txtpcompra.Text = FormatNumber(rd2("PrecioCompra").ToString(), 2)
+                    txtpcompra2.Text = FormatNumber(CDbl(txtpcompra.Text) * (1 + CDbl(cboIVA.Text)), 2)
+                    txtpventa.Text = FormatNumber(rd2("PrecioVentaIVA").ToString(), 2)
+                    cboProvP.Text = rd2("ProvPri").ToString()
+                    cboDepto.Text = rd2("Departamento").ToString()
+                    cboGrupo.Text = rd2("Grupo").ToString()
+                    cboubicacion.Text = rd2("Ubicacion").ToString()
+                    chkKIT.Checked = IIf(rd2("ProvRes").ToString() = True, True, False)
+                    txtClaveSAT.Text = rd2("UnidadSat").ToString()
+                    txtCodigoSAT.Text = rd2("ClaveSat").ToString()
+                    txtutilidad.Text = rd2("Porcentaje").ToString()
+                    chkUnico.Checked = IIf(rd2("Unico").ToString() = True, True, False)
+                    cboComanda.Text = rd2("GPrint").ToString
+                    txtpcompra.Enabled = False
+                    txtpventa.Enabled = False
+                    txtpcompra2.Enabled = False
+                    txtutilidad.Enabled = False
+                End If
+            End If
+            rd2.Close()
+
+            If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg") Then
+                picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & cboCodigo.Text & ".jpg")
+                txtrutaimagen.Text = ""
+            End If
+            cnn2.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+    End Sub
     Private Sub txtbarras_GotFocus(sender As Object, e As System.EventArgs) Handles txtbarras.GotFocus
         txtbarras.SelectionStart = 0
         txtbarras.SelectionLength = Len(txtbarras.Text)
@@ -193,7 +262,7 @@ Public Class frmProductosS
     End Sub
 
     Private Sub cboNombre_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cboNombre.SelectedValueChanged
-        ShowData("PRODU")
+        ShowData2("PRODU")
     End Sub
 
     Private Sub cboIVA_DropDown(sender As System.Object, e As System.EventArgs) Handles cboIVA.DropDown

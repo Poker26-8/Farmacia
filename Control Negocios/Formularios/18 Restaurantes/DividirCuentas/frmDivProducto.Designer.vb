@@ -24,15 +24,15 @@ Partial Class frmDivProducto
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDivProducto))
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDivProducto))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -42,93 +42,94 @@ Partial Class frmDivProducto
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.lblorigen = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.grd1 = New System.Windows.Forms.DataGridView()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.btnAdd1 = New System.Windows.Forms.Button()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblTotal1 = New System.Windows.Forms.Label()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.lblTotal2 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.grd2 = New System.Windows.Forms.DataGridView()
-        Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.btnAdd2 = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.Panel17 = New System.Windows.Forms.Panel()
-        Me.lblTotal3 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.grd3 = New System.Windows.Forms.DataGridView()
-        Me.Panel18 = New System.Windows.Forms.Panel()
-        Me.btnAdd3 = New System.Windows.Forms.Button()
         Me.Panel19 = New System.Windows.Forms.Panel()
         Me.lblTotalVenta = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Panel20 = New System.Windows.Forms.Panel()
-        Me.Panel21 = New System.Windows.Forms.Panel()
-        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.txtabcd = New System.Windows.Forms.TextBox()
+        Me.lblorigen = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.lblTotal2 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.grd2 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.btnAdd2 = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.Panel16 = New System.Windows.Forms.Panel()
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.lblTotal3 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.grd3 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtabcd = New System.Windows.Forms.TextBox()
+        Me.Panel18 = New System.Windows.Forms.Panel()
+        Me.btnAdd3 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.lblTotal1 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.grd1 = New System.Windows.Forms.DataGridView()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.btnAdd1 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.lblmesero = New System.Windows.Forms.Label()
+        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.Panel19.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.Panel22.SuspendLayout()
+        Me.Panel13.SuspendLayout()
+        Me.Panel14.SuspendLayout()
+        CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel15.SuspendLayout()
+        Me.Panel21.SuspendLayout()
+        Me.Panel16.SuspendLayout()
+        Me.Panel17.SuspendLayout()
+        CType(Me.grd3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel18.SuspendLayout()
+        Me.Panel20.SuspendLayout()
         Me.Panel10.SuspendLayout()
         Me.Panel12.SuspendLayout()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel11.SuspendLayout()
         Me.Panel8.SuspendLayout()
-        Me.Panel13.SuspendLayout()
-        Me.Panel14.SuspendLayout()
-        CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel15.SuspendLayout()
-        Me.Panel16.SuspendLayout()
-        Me.Panel17.SuspendLayout()
-        CType(Me.grd3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel18.SuspendLayout()
-        Me.Panel19.SuspendLayout()
-        Me.Panel20.SuspendLayout()
-        Me.Panel21.SuspendLayout()
-        Me.Panel22.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -224,6 +225,39 @@ Partial Class frmDivProducto
         Me.Panel7.Size = New System.Drawing.Size(558, 674)
         Me.Panel7.TabIndex = 1
         '
+        'Panel19
+        '
+        Me.Panel19.Controls.Add(Me.lblTotalVenta)
+        Me.Panel19.Controls.Add(Me.Label14)
+        Me.Panel19.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel19.Location = New System.Drawing.Point(0, 628)
+        Me.Panel19.Name = "Panel19"
+        Me.Panel19.Size = New System.Drawing.Size(558, 46)
+        Me.Panel19.TabIndex = 2
+        '
+        'lblTotalVenta
+        '
+        Me.lblTotalVenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalVenta.Location = New System.Drawing.Point(453, 8)
+        Me.lblTotalVenta.Name = "lblTotalVenta"
+        Me.lblTotalVenta.Size = New System.Drawing.Size(99, 23)
+        Me.lblTotalVenta.TabIndex = 3
+        Me.lblTotalVenta.Text = "0.00"
+        Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(393, 9)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(54, 20)
+        Me.Label14.TabIndex = 2
+        Me.Label14.Text = "Total:"
+        '
         'grdCaptura
         '
         Me.grdCaptura.AllowUserToAddRows = False
@@ -249,6 +283,59 @@ Partial Class frmDivProducto
         Me.grdCaptura.Size = New System.Drawing.Size(558, 638)
         Me.grdCaptura.TabIndex = 1
         '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Cant"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 59
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 76
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column3.HeaderText = "Descripción"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Column4.HeaderText = "Precio"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 71
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Column5.HeaderText = "Total"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 63
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Traspasar"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Column6.Width = 95
+        '
         'Panel9
         '
         Me.Panel9.Controls.Add(Me.txtabcd)
@@ -259,6 +346,13 @@ Partial Class frmDivProducto
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(558, 36)
         Me.Panel9.TabIndex = 0
+        '
+        'txtabcd
+        '
+        Me.txtabcd.Location = New System.Drawing.Point(397, 8)
+        Me.txtabcd.Name = "txtabcd"
+        Me.txtabcd.Size = New System.Drawing.Size(100, 20)
+        Me.txtabcd.TabIndex = 2
         '
         'lblorigen
         '
@@ -292,152 +386,15 @@ Partial Class frmDivProducto
         Me.Panel6.Size = New System.Drawing.Size(474, 674)
         Me.Panel6.TabIndex = 0
         '
-        'Panel10
+        'Panel22
         '
-        Me.Panel10.Controls.Add(Me.Panel12)
-        Me.Panel10.Controls.Add(Me.grd1)
-        Me.Panel10.Controls.Add(Me.Panel11)
-        Me.Panel10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel10.Location = New System.Drawing.Point(0, 23)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(474, 163)
-        Me.Panel10.TabIndex = 1
-        '
-        'Panel12
-        '
-        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel12.Controls.Add(Me.lblTotal1)
-        Me.Panel12.Controls.Add(Me.Label4)
-        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel12.Location = New System.Drawing.Point(74, 132)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(400, 31)
-        Me.Panel12.TabIndex = 3
-        '
-        'grd1
-        '
-        Me.grd1.AllowUserToAddRows = False
-        Me.grd1.AllowUserToDeleteRows = False
-        Me.grd1.BackgroundColor = System.Drawing.Color.White
-        Me.grd1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grd1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column7, Me.Column8, Me.Column9, Me.Column11, Me.Column12})
-        Me.grd1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grd1.Location = New System.Drawing.Point(74, 0)
-        Me.grd1.Name = "grd1"
-        Me.grd1.ReadOnly = True
-        Me.grd1.RowHeadersVisible = False
-        Me.grd1.Size = New System.Drawing.Size(400, 163)
-        Me.grd1.TabIndex = 2
-        '
-        'Panel11
-        '
-        Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel11.Controls.Add(Me.btnAdd1)
-        Me.Panel11.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel11.Location = New System.Drawing.Point(0, 0)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(74, 163)
-        Me.Panel11.TabIndex = 1
-        '
-        'btnAdd1
-        '
-        Me.btnAdd1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnAdd1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAdd1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAdd1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd1.Image = Global.Control_Negocios.My.Resources.Resources.DEVO1Recurso_78
-        Me.btnAdd1.Location = New System.Drawing.Point(0, 0)
-        Me.btnAdd1.Name = "btnAdd1"
-        Me.btnAdd1.Size = New System.Drawing.Size(74, 163)
-        Me.btnAdd1.TabIndex = 0
-        Me.btnAdd1.Text = "Agregar a cuenta 1"
-        Me.btnAdd1.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAdd1.UseVisualStyleBackColor = False
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel8.Controls.Add(Me.btnAceptar)
-        Me.Panel8.Controls.Add(Me.btnImprimir)
-        Me.Panel8.Controls.Add(Me.Button1)
-        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel8.Location = New System.Drawing.Point(0, 0)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(474, 84)
-        Me.Panel8.TabIndex = 0
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnAceptar.Enabled = False
-        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
-        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAceptar.Location = New System.Drawing.Point(216, 6)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(81, 73)
-        Me.btnAceptar.TabIndex = 2
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAceptar.UseVisualStyleBackColor = False
-        '
-        'btnImprimir
-        '
-        Me.btnImprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnImprimir.Enabled = False
-        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimir.Location = New System.Drawing.Point(303, 6)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(81, 73)
-        Me.btnImprimir.TabIndex = 1
-        Me.btnImprimir.Text = "imprimir"
-        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnImprimir.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(390, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 73)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Cancelar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(240, 3)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 20)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Total:"
-        '
-        'lblTotal1
-        '
-        Me.lblTotal1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotal1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.lblTotal1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal1.Location = New System.Drawing.Point(300, 0)
-        Me.lblTotal1.Name = "lblTotal1"
-        Me.lblTotal1.Size = New System.Drawing.Size(91, 23)
-        Me.lblTotal1.TabIndex = 1
-        Me.lblTotal1.Text = "0.00"
-        Me.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Panel22.Controls.Add(Me.Panel13)
+        Me.Panel22.Controls.Add(Me.Label9)
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel22.Location = New System.Drawing.Point(0, 271)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(474, 206)
+        Me.Panel22.TabIndex = 9
         '
         'Panel13
         '
@@ -499,6 +456,49 @@ Partial Class frmDivProducto
         Me.grd2.Size = New System.Drawing.Size(400, 183)
         Me.grd2.TabIndex = 2
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Cant"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 54
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Codigo"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 65
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 62
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 56
+        '
         'Panel15
         '
         Me.Panel15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -524,17 +524,6 @@ Partial Class frmDivProducto
         Me.btnAdd2.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnAdd2.UseVisualStyleBackColor = False
         '
-        'Label8
-        '
-        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(0, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(474, 23)
-        Me.Label8.TabIndex = 3
-        Me.Label8.Text = "Cuenta 1"
-        '
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -546,16 +535,15 @@ Partial Class frmDivProducto
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Cuenta 2"
         '
-        'Label10
+        'Panel21
         '
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(0, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(474, 23)
-        Me.Label10.TabIndex = 5
-        Me.Label10.Text = "Cuenta 3"
+        Me.Panel21.Controls.Add(Me.Panel16)
+        Me.Panel21.Controls.Add(Me.Label10)
+        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel21.Location = New System.Drawing.Point(0, 477)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(474, 197)
+        Me.Panel21.TabIndex = 8
         '
         'Panel16
         '
@@ -617,6 +605,49 @@ Partial Class frmDivProducto
         Me.grd3.Size = New System.Drawing.Size(400, 174)
         Me.grd3.TabIndex = 2
         '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Cant"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 54
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Codigo"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 65
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Descripción"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Precio"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 62
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Width = 56
+        '
         'Panel18
         '
         Me.Panel18.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -642,38 +673,16 @@ Partial Class frmDivProducto
         Me.btnAdd3.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnAdd3.UseVisualStyleBackColor = False
         '
-        'Panel19
+        'Label10
         '
-        Me.Panel19.Controls.Add(Me.lblTotalVenta)
-        Me.Panel19.Controls.Add(Me.Label14)
-        Me.Panel19.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel19.Location = New System.Drawing.Point(0, 628)
-        Me.Panel19.Name = "Panel19"
-        Me.Panel19.Size = New System.Drawing.Size(558, 46)
-        Me.Panel19.TabIndex = 2
-        '
-        'lblTotalVenta
-        '
-        Me.lblTotalVenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalVenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalVenta.Location = New System.Drawing.Point(453, 8)
-        Me.lblTotalVenta.Name = "lblTotalVenta"
-        Me.lblTotalVenta.Size = New System.Drawing.Size(99, 23)
-        Me.lblTotalVenta.TabIndex = 3
-        Me.lblTotalVenta.Text = "0.00"
-        Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label14
-        '
-        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(393, 9)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(54, 20)
-        Me.Label14.TabIndex = 2
-        Me.Label14.Text = "Total:"
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(0, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(474, 23)
+        Me.Label10.TabIndex = 5
+        Me.Label10.Text = "Cuenta 3"
         '
         'Panel20
         '
@@ -685,78 +694,65 @@ Partial Class frmDivProducto
         Me.Panel20.Size = New System.Drawing.Size(474, 187)
         Me.Panel20.TabIndex = 7
         '
-        'Panel21
+        'Panel10
         '
-        Me.Panel21.Controls.Add(Me.Panel16)
-        Me.Panel21.Controls.Add(Me.Label10)
-        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel21.Location = New System.Drawing.Point(0, 477)
-        Me.Panel21.Name = "Panel21"
-        Me.Panel21.Size = New System.Drawing.Size(474, 197)
-        Me.Panel21.TabIndex = 8
+        Me.Panel10.Controls.Add(Me.Panel12)
+        Me.Panel10.Controls.Add(Me.grd1)
+        Me.Panel10.Controls.Add(Me.Panel11)
+        Me.Panel10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel10.Location = New System.Drawing.Point(0, 23)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(474, 163)
+        Me.Panel10.TabIndex = 1
         '
-        'Panel22
+        'Panel12
         '
-        Me.Panel22.Controls.Add(Me.Panel13)
-        Me.Panel22.Controls.Add(Me.Label9)
-        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel22.Location = New System.Drawing.Point(0, 271)
-        Me.Panel22.Name = "Panel22"
-        Me.Panel22.Size = New System.Drawing.Size(474, 206)
-        Me.Panel22.TabIndex = 9
+        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel12.Controls.Add(Me.lblTotal1)
+        Me.Panel12.Controls.Add(Me.Label4)
+        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel12.Location = New System.Drawing.Point(74, 132)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(400, 31)
+        Me.Panel12.TabIndex = 3
         '
-        'Column2
+        'lblTotal1
         '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column2.HeaderText = "Cant"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 59
+        Me.lblTotal1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotal1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.lblTotal1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal1.Location = New System.Drawing.Point(300, 0)
+        Me.lblTotal1.Name = "lblTotal1"
+        Me.lblTotal1.Size = New System.Drawing.Size(91, 23)
+        Me.lblTotal1.TabIndex = 1
+        Me.lblTotal1.Text = "0.00"
+        Me.lblTotal1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Column1
+        'Label4
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 76
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(240, 3)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(54, 20)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Total:"
         '
-        'Column3
+        'grd1
         '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column3.HeaderText = "Descripción"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column4.HeaderText = "Precio"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 71
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column5.HeaderText = "Total"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 63
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "Traspasar"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column6.Width = 95
+        Me.grd1.AllowUserToAddRows = False
+        Me.grd1.AllowUserToDeleteRows = False
+        Me.grd1.BackgroundColor = System.Drawing.Color.White
+        Me.grd1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grd1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column7, Me.Column8, Me.Column9, Me.Column11, Me.Column12})
+        Me.grd1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd1.Location = New System.Drawing.Point(74, 0)
+        Me.grd1.Name = "grd1"
+        Me.grd1.ReadOnly = True
+        Me.grd1.RowHeadersVisible = False
+        Me.grd1.Size = New System.Drawing.Size(400, 163)
+        Me.grd1.TabIndex = 2
         '
         'Column7
         '
@@ -801,98 +797,115 @@ Partial Class frmDivProducto
         Me.Column12.ReadOnly = True
         Me.Column12.Width = 56
         '
-        'DataGridViewTextBoxColumn1
+        'Panel11
         '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Cant"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 54
+        Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel11.Controls.Add(Me.btnAdd1)
+        Me.Panel11.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel11.Location = New System.Drawing.Point(0, 0)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(74, 163)
+        Me.Panel11.TabIndex = 1
         '
-        'DataGridViewTextBoxColumn2
+        'btnAdd1
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Codigo"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 65
+        Me.btnAdd1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnAdd1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAdd1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAdd1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd1.Image = Global.Control_Negocios.My.Resources.Resources.DEVO1Recurso_78
+        Me.btnAdd1.Location = New System.Drawing.Point(0, 0)
+        Me.btnAdd1.Name = "btnAdd1"
+        Me.btnAdd1.Size = New System.Drawing.Size(74, 163)
+        Me.btnAdd1.TabIndex = 0
+        Me.btnAdd1.Text = "Agregar a cuenta 1"
+        Me.btnAdd1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAdd1.UseVisualStyleBackColor = False
         '
-        'DataGridViewTextBoxColumn3
+        'Label8
         '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(474, 23)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "Cuenta 1"
         '
-        'DataGridViewTextBoxColumn5
+        'Panel8
         '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 62
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.lblmesero)
+        Me.Panel8.Controls.Add(Me.btnAceptar)
+        Me.Panel8.Controls.Add(Me.btnImprimir)
+        Me.Panel8.Controls.Add(Me.Button1)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(474, 84)
+        Me.Panel8.TabIndex = 0
         '
-        'DataGridViewTextBoxColumn6
+        'lblmesero
         '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 56
+        Me.lblmesero.BackColor = System.Drawing.Color.Bisque
+        Me.lblmesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmesero.Location = New System.Drawing.Point(6, 6)
+        Me.lblmesero.Name = "lblmesero"
+        Me.lblmesero.Size = New System.Drawing.Size(96, 23)
+        Me.lblmesero.TabIndex = 3
+        Me.lblmesero.Visible = False
         '
-        'DataGridViewTextBoxColumn7
+        'btnAceptar
         '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Cant"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 54
+        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnAceptar.Enabled = False
+        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
+        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAceptar.Location = New System.Drawing.Point(303, 6)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(81, 73)
+        Me.btnAceptar.TabIndex = 2
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAceptar.UseVisualStyleBackColor = False
         '
-        'DataGridViewTextBoxColumn8
+        'btnImprimir
         '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Codigo"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 65
+        Me.btnImprimir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnImprimir.Enabled = False
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimir.Location = New System.Drawing.Point(129, 6)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(81, 73)
+        Me.btnImprimir.TabIndex = 1
+        Me.btnImprimir.Text = "imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.UseVisualStyleBackColor = False
+        Me.btnImprimir.Visible = False
         '
-        'DataGridViewTextBoxColumn9
+        'Button1
         '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Descripción"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Precio"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Width = 62
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 56
-        '
-        'txtabcd
-        '
-        Me.txtabcd.Location = New System.Drawing.Point(397, 8)
-        Me.txtabcd.Name = "txtabcd"
-        Me.txtabcd.Size = New System.Drawing.Size(100, 20)
-        Me.txtabcd.TabIndex = 2
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(390, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(81, 73)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Cancelar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'frmDivProducto
         '
@@ -911,31 +924,31 @@ Partial Class frmDivProducto
         Me.Panel2.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
+        Me.Panel19.ResumeLayout(False)
+        Me.Panel19.PerformLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        Me.Panel22.ResumeLayout(False)
+        Me.Panel13.ResumeLayout(False)
+        Me.Panel14.ResumeLayout(False)
+        Me.Panel14.PerformLayout()
+        CType(Me.grd2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel15.ResumeLayout(False)
+        Me.Panel21.ResumeLayout(False)
+        Me.Panel16.ResumeLayout(False)
+        Me.Panel17.ResumeLayout(False)
+        Me.Panel17.PerformLayout()
+        CType(Me.grd3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel18.ResumeLayout(False)
+        Me.Panel20.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel11.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
-        Me.Panel13.ResumeLayout(False)
-        Me.Panel14.ResumeLayout(False)
-        Me.Panel14.PerformLayout()
-        CType(Me.grd2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel15.ResumeLayout(False)
-        Me.Panel16.ResumeLayout(False)
-        Me.Panel17.ResumeLayout(False)
-        Me.Panel17.PerformLayout()
-        CType(Me.grd3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel18.ResumeLayout(False)
-        Me.Panel19.ResumeLayout(False)
-        Me.Panel19.PerformLayout()
-        Me.Panel20.ResumeLayout(False)
-        Me.Panel21.ResumeLayout(False)
-        Me.Panel22.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1010,4 +1023,5 @@ Partial Class frmDivProducto
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents txtabcd As TextBox
+    Friend WithEvents lblmesero As Label
 End Class

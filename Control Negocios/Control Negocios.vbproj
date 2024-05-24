@@ -481,6 +481,12 @@
     <Compile Include="Formularios\18 Restaurantes\DividirCuentas\frmDividir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\DividirCuentas\frmDivPartes.Designer.vb">
+      <DependentUpon>frmDivPartes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\DividirCuentas\frmDivPartes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\DividirCuentas\frmDivProducto.Designer.vb">
       <DependentUpon>frmDivProducto.vb</DependentUpon>
     </Compile>
@@ -569,6 +575,12 @@
       <DependentUpon>frmTeTemp.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTeTemp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\Traspasar\frmTraspasarProducto.Designer.vb">
+      <DependentUpon>frmTraspasarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\Traspasar\frmTraspasarProducto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.Designer.vb">
@@ -1979,6 +1991,9 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\DividirCuentas\frmDividir.resx">
       <DependentUpon>frmDividir.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\DividirCuentas\frmDivPartes.resx">
+      <DependentUpon>frmDivPartes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\DividirCuentas\frmDivProducto.resx">
       <DependentUpon>frmDivProducto.vb</DependentUpon>
     </EmbeddedResource>
@@ -2023,6 +2038,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTeTemp.resx">
       <DependentUpon>frmTeTemp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\Traspasar\frmTraspasarProducto.resx">
+      <DependentUpon>frmTraspasarProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\20 Refaccionaria\frmConsultarRefaccion.resx">
       <DependentUpon>frmConsultarRefaccion.vb</DependentUpon>

@@ -307,18 +307,45 @@ Public Class frmDivProducto
                     cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoEfecCanc,Status,Comisionista,Facturado,TComensales,Domi) VALUES(0,'" & nuevonombre & "',''," & lblTotal1.Text & ",0," & lblTotal1.Text & ",0,0,0," & lblTotal1.Text & ",'" & frmNuevoPagar.lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','',0,'','',0,'',0)"
                     cmd2.ExecuteNonQuery()
 
+
+
                     For LUFFY As Integer = 0 To grd1.Rows.Count - 1
 
                         Dim cant As Double = grd1.Rows(LUFFY).Cells(0).Value.ToString
                         Dim cod As String = grd1.Rows(LUFFY).Cells(1).Value.ToString
                         Dim nom As String = grd1.Rows(LUFFY).Cells(2).Value.ToString
+                        Dim precio As Double = grd1.Rows(LUFFY).Cells(3).Value.ToString
+                        Dim total As Double = grd1.Rows(LUFFY).Cells(4).Value.ToString
+
+                        Dim unidad As String = ""
+                        Dim depa As String = ""
+                        Dim grupo As String = ""
+                        Dim gprint As String = ""
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                unidad = rd1("UVenta").ToString
+                                depa = rd1("Departamento").ToString
+                                grupo = rd1("Grupo").ToString
+                                gprint = rd1("GPrint").ToString
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre) VALUES(" & NUEVOFOLIO & ",'" & nuevonombre & "','" & cod & "','" & nom & "')"
+                        cmd2.CommandText = "UPDATE comandas SET Nmesa='" & nuevonombre & "' WHERE Nmesa='" & lblorigen.Text & "' AND Codigo='" & cod & "' AND Nombre='" & nom & "'"
                         cmd2.ExecuteNonQuery()
+
+                        'cmd2 = cnn2.CreateCommand
+                        'cmd2.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre,UVenta,Cantidad,CostVR,CostVP,CostVUE,Descuento,Precio,Total,PrecioSinIva,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,Comensal,Status,Comentario,GPrint,CUsuario,Total_comensales,EstatusT,Hr,EntregaT,Estado) VALUES(" & NUEVOFOLIO & ",'" & nuevonombre & "','" & cod & "','" & nom & "','" & unidad & "'," & cant & ",0,0,0,0," & precio & "," & total & ",0,0,'" & Format(Date.Now, "yyyy-MM-dd") & "','',0,'" & depa & "','" & grupo & "','1','RESTA','','','" & lblmesero.Text & "','1',1,'" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "HH:mm:ss") & "',0)"
+                        'cmd2.ExecuteNonQuery()
                     Next
                     cnn2.Close()
-
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
@@ -367,6 +394,44 @@ Public Class frmDivProducto
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal,Letra) VALUES('" & nuevonombre & "',0,'',1,'')"
                     cmd2.ExecuteNonQuery()
+
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoEfecCanc,Status,Comisionista,Facturado,TComensales,Domi) VALUES(0,'" & nuevonombre & "',''," & lblTotal2.Text & ",0," & lblTotal2.Text & ",0,0,0," & lblTotal2.Text & ",'" & frmNuevoPagar.lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','',0,'','',0,'',0)"
+                    cmd2.ExecuteNonQuery()
+
+                    For LUFFY As Integer = 0 To grd2.Rows.Count - 1
+
+                        Dim cant As Double = grd2.Rows(LUFFY).Cells(0).Value.ToString
+                        Dim cod As String = grd2.Rows(LUFFY).Cells(1).Value.ToString
+                        Dim nom As String = grd2.Rows(LUFFY).Cells(2).Value.ToString
+                        Dim precio As Double = grd2.Rows(LUFFY).Cells(3).Value.ToString
+                        Dim total As Double = grd2.Rows(LUFFY).Cells(4).Value.ToString
+
+                        Dim unidad As String = ""
+                        Dim depa As String = ""
+                        Dim grupo As String = ""
+                        Dim gprint As String = ""
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                unidad = rd1("UVenta").ToString
+                                depa = rd1("Departamento").ToString
+                                grupo = rd1("Grupo").ToString
+                                gprint = rd1("GPrint").ToString
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE comandas SET Nmesa='" & nuevonombre & "' WHERE Nmesa='" & lblorigen.Text & "' AND Codigo='" & cod & "' AND Nombre='" & nom & "'"
+                        cmd2.ExecuteNonQuery()
+                    Next
                     cnn2.Close()
 
                     cnn3.Close() : cnn3.Open()
@@ -403,7 +468,6 @@ Public Class frmDivProducto
                     End If
                 Else
 
-
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE Mesasxempleados SET Letra='" & txtabcd.Text & "' WHERE Mesa='" & lblorigen.Text & "'"
@@ -416,6 +480,43 @@ Public Class frmDivProducto
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal,Letra) VALUES('" & nuevonombre & "',0,'',1,'')"
                     cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoEfecCanc,Status,Comisionista,Facturado,TComensales,Domi) VALUES(0,'" & nuevonombre & "',''," & lblTotal3.Text & ",0," & lblTotal3.Text & ",0,0,0," & lblTotal3.Text & ",'" & frmNuevoPagar.lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','',0,'','',0,'',0)"
+                    cmd2.ExecuteNonQuery()
+
+                    For LUFFY As Integer = 0 To grd3.Rows.Count - 1
+
+                        Dim cant As Double = grd3.Rows(LUFFY).Cells(0).Value.ToString
+                        Dim cod As String = grd3.Rows(LUFFY).Cells(1).Value.ToString
+                        Dim nom As String = grd3.Rows(LUFFY).Cells(2).Value.ToString
+                        Dim precio As Double = grd3.Rows(LUFFY).Cells(3).Value.ToString
+                        Dim total As Double = grd3.Rows(LUFFY).Cells(4).Value.ToString
+
+                        Dim unidad As String = ""
+                        Dim depa As String = ""
+                        Dim grupo As String = ""
+                        Dim gprint As String = ""
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+                                unidad = rd1("UVenta").ToString
+                                depa = rd1("Departamento").ToString
+                                grupo = rd1("Grupo").ToString
+                                gprint = rd1("GPrint").ToString
+                            End If
+                        End If
+                        rd1.Close()
+                        cnn1.Close()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE comandas SET Nmesa='" & nuevonombre & "' WHERE Nmesa='" & lblorigen.Text & "' AND Codigo='" & cod & "' AND Nombre='" & nom & "'"
+                        cmd2.ExecuteNonQuery()
+                    Next
                     cnn2.Close()
 
                     cnn3.Close() : cnn3.Open()
@@ -425,9 +526,7 @@ Public Class frmDivProducto
                     If rd3.HasRows Then
                         If rd3.Read Then
 
-
                             txtabcd.Text = ObtenerSiguienteLetra(rd3(0).ToString)
-
                         End If
                     End If
                     rd3.Close()
@@ -436,8 +535,9 @@ Public Class frmDivProducto
                 End If
                 rd1.Close()
                 cnn1.Close()
-
             End If
+            Me.Close()
+            frmNuevoPagar.Close()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -486,32 +586,6 @@ Public Class frmDivProducto
                     cnn2.Close()
 
                 End If
-
-
-
-
-                'cnn2.Close() : cnn2.Open()
-                'cmd2 = cnn2.CreateCommand
-                'cmd2.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & nuevoNombre & "'"
-                'rd2 = cmd2.ExecuteReader
-                'If rd2.HasRows Then
-                '    If rd2.Read Then
-
-                '    End If
-                'Else
-                '    indice += 1
-                '    If indice >= abecedario.Count Then
-                '        ' Si se agotan las letras del abecedario, añadir un sufijo numérico
-                '        nuevoNombre = $"{nombreBase}_{indice}"
-                '    Else
-                '        ' Agregar una letra del abecedario
-                '        letra = abecedario(indice)
-                '        nuevoNombre = $"{nombreBase}_{letra}"
-                '    End If
-                'End If
-                'rd2.Close()
-
-
             End If
         End While
         rd1.Close()
@@ -521,6 +595,10 @@ Public Class frmDivProducto
         Return nuevoNombre
     End Function
 
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
 
 
+
+
+    End Sub
 End Class

@@ -1561,7 +1561,6 @@ Door:
             'cnn1.Close()
         Next
 
-
         If CDec(txtResta.Text) > 0 Then
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
@@ -1597,6 +1596,33 @@ Door:
             rd1.Close()
             cnn1.Close()
         End If
+
+
+
+        '--------------------REINICIAR LA LETRA SI YA NO HAY DEPENDENCIAS DE ESA MESA---------------------------------------------------
+
+        Dim cadena As String = lblmesa.Text
+
+        Dim partes() As String = cadena.Split("_"c)
+        Dim parteDeseada As String = partes(0)
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT  * from mesa WHERE Nombre_mesa LIKE '%" & parteDeseada & "_" & "%'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+            End If
+        Else
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "UPDATE mesasxempleados SET Letra='' WHERE Mesa='" & parteDeseada & "'"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+        End If
+        rd1.Close()
+        cnn1.Close()
 
 #Region "TICKET"
 
@@ -4668,9 +4694,6 @@ Door:
     End Sub
 
     Private Sub btnDividir_Click(sender As Object, e As EventArgs) Handles btnDividir.Click
-        frmDividirCuenta.mesa = lblmesa.Text
-        frmDividirCuenta.Show()
-
         frmDividir.Show()
         frmDividir.BringToFront()
     End Sub
