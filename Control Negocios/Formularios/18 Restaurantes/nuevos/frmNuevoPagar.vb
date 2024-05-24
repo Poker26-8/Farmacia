@@ -256,7 +256,7 @@ Public Class frmNuevoPagar
                 lblTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text))
                 lblTotal.Text = FormatNumber(txtTotal.Text, 2)
             Else
-                txtTotal.Text = CDec(IIf(txtTotal.Text = "", "0", txtTotal.Text)) + CDec(txtPropina.Text)
+                txtTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) + CDec(txtPropina.Text)
                 txtTotal.Text = FormatNumber(txtTotal.Text, 2)
 
                 lblTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) + CDec(txtPropina.Text)
@@ -280,6 +280,9 @@ Public Class frmNuevoPagar
     Private Sub btnlimpiar_Click(sender As Object, e As EventArgs) Handles btnlimpiar.Click
 
         txtSubtotalmapeo.Text = FormatNumber(subtotalmapeo, 2)
+        txtTotal.Text = FormatNumber(txtSubtotalmapeo.Text, 2)
+        lblTotal.Text = FormatNumber(txtTotal.Text, 2)
+
         txtEfectivo.Text = "0.00"
         txtpagos.Text = "0.00"
         txtDescuento.Text = "0.00"
@@ -287,7 +290,7 @@ Public Class frmNuevoPagar
         txtCambio.Text = "0.00"
         grdPagos.Rows.Clear()
         txtPropina.Text = "0.00"
-        txtTotal.Text = FormatNumber(lblTotal.Text, 2)
+
 
         cboComensal.Text = ""
         cboComanda.Text = ""
@@ -4082,12 +4085,14 @@ Door:
         If CadOrg = "0.00" Or CadOrg = 0 Or CadOrg = "" Then
             PosCad = Car
         ElseIf Pos = 0 Then
+            txtEfectivo.Focus.Equals(True)
             PosCad = CDec(CadOrg) + CDec(Car)
         ElseIf Pos <> TamCad Then
             Part1 = Strings.Left(CadOrg, Pos)
             NewPart1 = Part1 & Car
             PosCad = Replace(CadOrg, Part1, NewPart1)
         Else
+            txtEfectivo.Focus.Equals(True)
             PosCad = CadOrg & Car
         End If
 
@@ -4097,7 +4102,7 @@ Door:
         Select Case focomapeo
             Case Is = 1
 
-                txtEfectivo.Focus.Equals(True)
+
                 NewPos = txtEfectivo.SelectionStart
                 txtEfectivo.Text = PosCad(txtEfectivo.Text, btn1.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
 
@@ -4108,7 +4113,7 @@ Door:
                 End If
 
                 txtEfectivo.SelectionStart = NewPos
-
+                txtEfectivo.Focus.Equals(True)
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "1"
@@ -4609,11 +4614,13 @@ Door:
                 txtDescuento.Text = FormatNumber(porcentajetot, 2)
 
                 If txtDescuento.Text = "0.00" Then
-                    MyOpe = CDbl(subtotalmapeo) + (CDbl(efectivo) + CDbl(pagos) + CDec(txtPropina.Text))
-                    txtTotal.Text = FormatNumber(MyOpe, 2)
+                    MyOpe = CDbl(subtotalmapeo) - (CDbl(efectivo) + CDbl(pagos))
+                    txtResta.Text = FormatNumber(MyOpe, 2)
+                    txtTotal.Text = CDbl(txtSubtotalmapeo.Text) - CDbl(txtDescuento.Text)
                 Else
-                    MyOpe = (CDec(subtotalmapeo) + CDbl(propina)) - (CDbl(efectivo) + CDbl(pagos)) - CDbl(txtDescuento.Text)
-                    txtTotal.Text = FormatNumber(MyOpe, 2)
+                    MyOpe = (CDec(subtotalmapeo) - CDbl(txtDescuento.Text)) - (CDbl(efectivo) + CDbl(pagos))
+                    txtResta.Text = FormatNumber(MyOpe, 2)
+                    txtTotal.Text = CDbl(txtSubtotalmapeo.Text) - CDbl(txtDescuento.Text)
                 End If
 
                 If MyOpe = 0 Then
@@ -5194,5 +5201,42 @@ Door:
 
 
         e.HasMorePages = False
+    End Sub
+
+    Private Sub txtEfectivo_Enter(sender As Object, e As EventArgs) Handles txtEfectivo.Enter
+        focomapeo = 1
+    End Sub
+
+    Private Sub Panel7_Click(sender As Object, e As EventArgs) Handles Panel7.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btnpunto.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "."
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                Dim nuevo = monto + "."
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "."
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+        End Select
     End Sub
 End Class

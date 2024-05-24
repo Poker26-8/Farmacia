@@ -284,12 +284,17 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'" & frmNuevoPagar.lblMesero.Text & "','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal,Letra) VALUES('" & nuevonombre & "',0,'',1,'')"
                     cmd2.ExecuteNonQuery()
+
+                    'cmd2 = cnn2.CreateCommand
+                    'cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,) VALUES(0,'" & nuevonombre & "','',)"
+                    'cmd2.ExecuteNonQuery()
+
                     cnn2.Close()
 
 
@@ -299,10 +304,7 @@ Public Class frmDivProducto
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
-
-
                             txtabcd.Text = ObtenerSiguienteLetra(rd3(0).ToString)
-
                         End If
                     End If
                     rd3.Close()
@@ -337,7 +339,7 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'" & frmNuevoPagar.lblMesero.Text & "','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
@@ -351,10 +353,7 @@ Public Class frmDivProducto
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
-
-
                             txtabcd.Text = ObtenerSiguienteLetra(rd3(0).ToString)
-
                         End If
                     End If
                     rd3.Close()
@@ -389,7 +388,7 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'" & frmNuevoPagar.lblMesero.Text & "','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
