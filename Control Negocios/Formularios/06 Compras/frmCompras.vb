@@ -5461,6 +5461,7 @@ quepasowey:
             txtusuario.SelectionStart = 0
             txtusuario.SelectionLength = Len(txtusuario.Text)
             txtusuario.Focus().Equals(True)
+            pasa_pago = False
             Exit Sub
         End If
         rd1.Close()
