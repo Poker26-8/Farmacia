@@ -5867,7 +5867,7 @@ quepasowey:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Ingreso por compra'," & existe & "," & CDbl(cantid * mymultiplo) & "," & CDbl(existe + (cantid * mymultiplo)) & "," & pcompra & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & alias_compras & "','" & cboremision.Text & "','" & tipo_anti & "','','','','')"
+                    "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & nombre & "','Ingreso por compra'," & existe & "," & CDbl(cantid) & "," & CDbl(existe + (cantid)) & "," & pcompra & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & alias_compras & "','" & cboremision.Text & "','" & tipo_anti & "','','','','')"
             cmd1.ExecuteNonQuery()
 
             If lote <> "" Then
