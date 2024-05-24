@@ -523,7 +523,7 @@ perra:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select Consignacion from Ventas where Folio=" & ComboBox1.Text & ""
+            cmd1.CommandText = "Select Consignar from Ventas where Folio=" & ComboBox1.Text & ""
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 voy = rd1(0).ToString
