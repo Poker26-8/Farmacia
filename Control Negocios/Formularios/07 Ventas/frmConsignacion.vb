@@ -12,7 +12,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select distinct Folio from Ventas where status='RESTA' and Folio <> ''"
+            cmd1.CommandText = "Select distinct Folio from Ventas where status='RESTA' and Folio <> '' and Consignar=1"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cbofolio.Items.Add(rd1(0).ToString)
@@ -78,11 +78,12 @@ perra:
         calculaAbono()
     End Sub
     Public Sub calculaAbono()
-        If txtefectivo.Text = "" Then
+        If txtefectivo.Text = "" Or txtPagos.Text = "" Then
         Else
-            txtrestaabono.Text = CDec(txtresta.Text) - CDec(txtefectivo.Text)
+            txtrestaabono.Text = CDec(txtresta.Text) - CDec(txtefectivo.Text) - CDec(txtPagos.Text)
             txtrestaabono.Text = FormatNumber(txtrestaabono.Text, 2)
         End If
+
     End Sub
     Public Sub limpiaDatos()
         grdcaptura.Rows.Clear()
@@ -169,7 +170,7 @@ perra:
             boxcantidad.Visible = False
             txtcodigo.Tag = ""
             txtcantidad.Tag = ""
-            CalculaDatos()
+            'CalculaDatos()
             My.Application.DoEvents()
         End If
     End Sub
@@ -198,6 +199,10 @@ perra:
         txtacuenta.Text = "0.00"
         cbofolio.Focused.Equals(True)
         lblid.Text = ""
+        boxcantidad.Visible = False
+        txtcantidad.Text = ""
+        chkConsignar.Checked = False
+        ComboBox1.Text = ""
     End Sub
 
     Private Sub btnAbono_Click(sender As Object, e As EventArgs)
@@ -317,5 +322,143 @@ perra:
             cnn1.Close()
             cnn2.Close()
         End Try
+    End Sub
+
+    Private Sub ComboBox1_DropDown(sender As Object, e As EventArgs) Handles ComboBox1.DropDown
+        Try
+            ComboBox1.Items.Clear()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select distinct Folio from Ventas where status='RESTA' and Folio <> '' and Consignar=0"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                ComboBox1.Items.Add(rd1(0).ToString)
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Try
+            If MsgBox("¿Deseas enviar a consignación el folio: " & ComboBox1.Text & "?", vbQuestion + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                Exit Sub
+            End If
+
+            Dim soy As Integer = 0
+
+            If chkConsignar.Checked = True Then
+                soy = 1
+            Else
+                soy = 0
+            End If
+
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Update Ventas set Consignar=" & soy & " where Folio=" & ComboBox1.Text & ""
+            If cmd1.ExecuteNonQuery Then
+                MsgBox("Folio enviado a consignación correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                cnn1.Close()
+            Else
+                MsgBox("Ocurrio un error al enviar el folio a consignación", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
+                cnn1.Close()
+            End If
+            chkConsignar.Checked = False
+            ComboBox1.Text = 0
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbotipo_DropDown(sender As Object, e As EventArgs) Handles cbotipo.DropDown
+        cbotipo.Items.Clear()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select distinct FormaPago from FormasPago where FormaPago<>''"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then cbotipo.Items.Add(rd1(0).ToString())
+            Loop
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cbobanco_DropDown(sender As Object, e As EventArgs) Handles cbobanco.DropDown
+        cbobanco.Items.Clear()
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                 "select Banco from Bancos"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then cbobanco.Items.Add(rd1(0).ToString())
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cboCunetaRep_DropDown(sender As Object, e As EventArgs) Handles cboCunetaRep.DropDown
+        Try
+            cboCunetaRep.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT CuentaBan FROM cuentasbancarias WHERE CuentaBan<>'' ORDER BY CuentaBan"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboCunetaRep.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub btnPago_Click(sender As Object, e As EventArgs) Handles btnPago.Click
+        If cbotipo.Text = "" Then MsgBox("Falta el tipo de pago", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbotipo.Focus().Equals(True) : Exit Sub
+        If cbobanco.Text = "" Then MsgBox("Falta el banco", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbobanco.Focus().Equals(True) : Exit Sub
+        If txtnumero.Text = "" Then MsgBox("Falta el numero de referencia", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtnumero.Focus().Equals(True) : Exit Sub
+        If txtmonto.Text = "" Or CDbl(txtmonto.Text) = 0 Then MsgBox("Ingresa un monto válido", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtmonto.Focus().Equals(True) : Exit Sub
+
+        grdpagos.Rows.Add(cbotipo.Text, cbobanco.Text, txtnumero.Text, FormatNumber(txtmonto.Text, 2), FormatDateTime(dtpfecha.Value, DateFormat.ShortDate), "", cboCunetaRep.Text, txtBancoRep.Text)
+
+        cbotipo.Text = ""
+        cbobanco.Text = ""
+        dtpfecha.Value = Now
+        txtnumero.Text = ""
+        txtmonto.Text = "0.00"
+        Dim total_pagos As Double = 0
+        For t1 As Integer = 0 To grdpagos.Rows.Count - 1
+            total_pagos = total_pagos + CDbl(grdpagos.Rows(t1).Cells(3).Value.ToString())
+        Next
+        txtPagos.Text = FormatNumber(total_pagos, 2)
+        cbotipo.Focus().Equals(True)
+    End Sub
+
+    Private Sub txtPagos_TextChanged(sender As Object, e As EventArgs) Handles txtPagos.TextChanged
+        calculaAbono()
     End Sub
 End Class
