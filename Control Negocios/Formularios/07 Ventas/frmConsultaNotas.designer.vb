@@ -23,18 +23,18 @@ Partial Class frmConsultaNotas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultaNotas))
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.optdevos = New System.Windows.Forms.RadioButton()
         Me.optcotiz = New System.Windows.Forms.RadioButton()
@@ -127,6 +127,7 @@ Partial Class frmConsultaNotas
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.boxpagos = New System.Windows.Forms.GroupBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.txtdescu_porc = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -170,12 +171,12 @@ Partial Class frmConsultaNotas
         Me.lblhoraventa = New System.Windows.Forms.Label()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel8 = New System.Windows.Forms.Panel()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.boxpagos.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -183,7 +184,6 @@ Partial Class frmConsultaNotas
         Me.Panel5.SuspendLayout()
         Me.ContextMenuStrip3.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -275,8 +275,8 @@ Partial Class frmConsultaNotas
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
@@ -308,8 +308,8 @@ Partial Class frmConsultaNotas
         '
         'Column3
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -317,8 +317,8 @@ Partial Class frmConsultaNotas
         '
         'Column4
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -326,8 +326,8 @@ Partial Class frmConsultaNotas
         '
         'Column5
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -335,8 +335,8 @@ Partial Class frmConsultaNotas
         '
         'Total
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle5
         Me.Total.HeaderText = "Total"
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
@@ -891,8 +891,8 @@ Partial Class frmConsultaNotas
         '
         'Column10
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column10.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column10.HeaderText = "Monto"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
@@ -1157,6 +1157,39 @@ Partial Class frmConsultaNotas
         Me.boxpagos.TabStop = False
         Me.boxpagos.Text = "Pago"
         '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.btnAbono)
+        Me.Panel8.Controls.Add(Me.Label16)
+        Me.Panel8.Controls.Add(Me.Label15)
+        Me.Panel8.Controls.Add(Me.Label35)
+        Me.Panel8.Controls.Add(Me.txtvence)
+        Me.Panel8.Controls.Add(Me.txtsubtotal)
+        Me.Panel8.Controls.Add(Me.txtcambio)
+        Me.Panel8.Controls.Add(Me.txtdescu_porc)
+        Me.Panel8.Controls.Add(Me.Label26)
+        Me.Panel8.Controls.Add(Me.txtacuenta)
+        Me.Panel8.Controls.Add(Me.Label18)
+        Me.Panel8.Controls.Add(Me.Label27)
+        Me.Panel8.Controls.Add(Me.Label33)
+        Me.Panel8.Controls.Add(Me.txtrestaabono)
+        Me.Panel8.Controls.Add(Me.Label11)
+        Me.Panel8.Controls.Add(Me.txtdescuento)
+        Me.Panel8.Controls.Add(Me.Label25)
+        Me.Panel8.Controls.Add(Me.Label14)
+        Me.Panel8.Controls.Add(Me.txtresta)
+        Me.Panel8.Controls.Add(Me.txtpagos)
+        Me.Panel8.Controls.Add(Me.txtdescu)
+        Me.Panel8.Controls.Add(Me.Label24)
+        Me.Panel8.Controls.Add(Me.txttotal)
+        Me.Panel8.Controls.Add(Me.Label12)
+        Me.Panel8.Controls.Add(Me.txtefectivo)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel8.Location = New System.Drawing.Point(762, 19)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(437, 227)
+        Me.Panel8.TabIndex = 159
+        '
         'Label35
         '
         Me.Label35.AutoSize = True
@@ -1207,8 +1240,8 @@ Partial Class frmConsultaNotas
         '
         Me.grdAbonos.AllowUserToAddRows = False
         Me.grdAbonos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdAbonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdAbonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.grdAbonos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1226,18 +1259,18 @@ Partial Class frmConsultaNotas
         '
         'Column15
         '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black
-        Me.Column15.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        Me.Column15.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column15.HeaderText = "Fecha"
         Me.Column15.Name = "Column15"
         Me.Column15.ReadOnly = True
         '
         'Column16
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
-        Me.Column16.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        Me.Column16.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column16.HeaderText = "Hora"
         Me.Column16.Name = "Column16"
         Me.Column16.ReadOnly = True
@@ -1245,9 +1278,9 @@ Partial Class frmConsultaNotas
         '
         'Column17
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Column17.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Column17.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column17.HeaderText = "Abono"
         Me.Column17.Name = "Column17"
         Me.Column17.ReadOnly = True
@@ -1255,8 +1288,8 @@ Partial Class frmConsultaNotas
         '
         'Column18
         '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.Column18.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.Column18.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column18.HeaderText = "Forma de pago"
         Me.Column18.Name = "Column18"
         Me.Column18.ReadOnly = True
@@ -1587,39 +1620,6 @@ Partial Class frmConsultaNotas
         Me.Panel1.Size = New System.Drawing.Size(1202, 249)
         Me.Panel1.TabIndex = 263
         '
-        'Panel8
-        '
-        Me.Panel8.Controls.Add(Me.btnAbono)
-        Me.Panel8.Controls.Add(Me.Label16)
-        Me.Panel8.Controls.Add(Me.Label15)
-        Me.Panel8.Controls.Add(Me.Label35)
-        Me.Panel8.Controls.Add(Me.txtvence)
-        Me.Panel8.Controls.Add(Me.txtsubtotal)
-        Me.Panel8.Controls.Add(Me.txtcambio)
-        Me.Panel8.Controls.Add(Me.txtdescu_porc)
-        Me.Panel8.Controls.Add(Me.Label26)
-        Me.Panel8.Controls.Add(Me.txtacuenta)
-        Me.Panel8.Controls.Add(Me.Label18)
-        Me.Panel8.Controls.Add(Me.Label27)
-        Me.Panel8.Controls.Add(Me.Label33)
-        Me.Panel8.Controls.Add(Me.txtrestaabono)
-        Me.Panel8.Controls.Add(Me.Label11)
-        Me.Panel8.Controls.Add(Me.txtdescuento)
-        Me.Panel8.Controls.Add(Me.Label25)
-        Me.Panel8.Controls.Add(Me.Label14)
-        Me.Panel8.Controls.Add(Me.txtresta)
-        Me.Panel8.Controls.Add(Me.txtpagos)
-        Me.Panel8.Controls.Add(Me.txtdescu)
-        Me.Panel8.Controls.Add(Me.Label24)
-        Me.Panel8.Controls.Add(Me.txttotal)
-        Me.Panel8.Controls.Add(Me.Label12)
-        Me.Panel8.Controls.Add(Me.txtefectivo)
-        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel8.Location = New System.Drawing.Point(762, 19)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(437, 227)
-        Me.Panel8.TabIndex = 159
-        '
         'frmConsultaNotas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1669,6 +1669,8 @@ Partial Class frmConsultaNotas
         Me.Panel7.PerformLayout()
         Me.boxpagos.ResumeLayout(False)
         Me.boxpagos.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -1678,8 +1680,6 @@ Partial Class frmConsultaNotas
         Me.Panel5.PerformLayout()
         Me.ContextMenuStrip3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
