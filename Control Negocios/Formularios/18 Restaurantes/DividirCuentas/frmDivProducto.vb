@@ -261,7 +261,21 @@ Public Class frmDivProducto
         Try
 
             Dim nuevonombre As String = ""
+            Dim NUEVOFOLIO As Integer = 0
 
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT MAX(Id) FROM comanda1"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    NUEVOFOLIO = IIf(rd3(0).ToString = "", 0, rd3(0).ToString) + 1
+                End If
+            Else
+                NUEVOFOLIO = 1
+            End If
+            rd3.Close()
+            cnn3.Close()
 
             If grd1.Rows.Count <> 0 Then
 
@@ -276,8 +290,6 @@ Public Class frmDivProducto
 
                     End If
                 Else
-
-
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE Mesasxempleados SET Letra='" & txtabcd.Text & "' WHERE Mesa='" & lblorigen.Text & "'"
@@ -291,10 +303,20 @@ Public Class frmDivProducto
                     cmd2.CommandText = "INSERT INTO mesasxempleados(Mesa,IdEmpleado,Grupo,Temporal,Letra) VALUES('" & nuevonombre & "',0,'',1,'')"
                     cmd2.ExecuteNonQuery()
 
-                    'cmd2 = cnn2.CreateCommand
-                    'cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,) VALUES(0,'" & nuevonombre & "','',)"
-                    'cmd2.ExecuteNonQuery()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO comanda1(IdCliente,Nombre,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoEfecCanc,Status,Comisionista,Facturado,TComensales,Domi) VALUES(0,'" & nuevonombre & "',''," & lblTotal1.Text & ",0," & lblTotal1.Text & ",0,0,0," & lblTotal1.Text & ",'" & frmNuevoPagar.lblusuario2.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','',0,'','',0,'',0)"
+                    cmd2.ExecuteNonQuery()
 
+                    For LUFFY As Integer = 0 To grd1.Rows.Count - 1
+
+                        Dim cant As Double = grd1.Rows(LUFFY).Cells(0).Value.ToString
+                        Dim cod As String = grd1.Rows(LUFFY).Cells(1).Value.ToString
+                        Dim nom As String = grd1.Rows(LUFFY).Cells(2).Value.ToString
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "INSERT INTO comandas(Id,NMESA,Codigo,Nombre) VALUES(" & NUEVOFOLIO & ",'" & nuevonombre & "','" & cod & "','" & nom & "')"
+                        cmd2.ExecuteNonQuery()
+                    Next
                     cnn2.Close()
 
 
