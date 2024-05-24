@@ -1,4 +1,5 @@
-﻿Public Class frmConsignacion
+﻿Imports Microsoft.Office.Interop.Excel
+Public Class frmConsignacion
     Public id As Integer = 0
     Public folio As Integer = 0
     Public precio As Double = 0
@@ -278,15 +279,15 @@ perra:
 
             cnn1.Close() : cnn1.Open()
 
-                Dim MyAcuent As Double = 0
+            Dim MyAcuent As Double = 0
             Dim efectivo As Double = 0
             Dim BancoP As String = ""
-                Dim MontoP As Double = 0
-                Dim RefeP As String = ""
-                Dim FechaP As String = ""
-                Dim comentario As String = ""
-                Dim cuentarep As String = ""
-                Dim bancorep As String = ""
+            Dim MontoP As Double = 0
+            Dim RefeP As String = ""
+            Dim FechaP As String = ""
+            Dim comentario As String = ""
+            Dim cuentarep As String = ""
+            Dim bancorep As String = ""
 
             MyAcuent = CDbl(txtefectivo.Text)
 
@@ -543,17 +544,15 @@ perra:
 
     Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
         If grdcaptura.Rows.Count = 0 Then
-            MsgBox("Selecciona un folio consignado para exportar la información a excel", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             Exit Sub
         End If
 
         If MsgBox("¿Desea exportar la información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
-        Exportar.Enabled = False
 
         'Creamos las variables
-        Dim exApp As New Microsoft.Office.Interop.Excel.Application
-        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
-        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
+        Dim exApp As New Application
+        Dim exLibro As Workbook
+        Dim exHoja As Worksheet
 
         Try
             'Añadimos el Libro al programa, y la hoja al libro
@@ -567,13 +566,7 @@ perra:
             Dim NCol As Integer = grdcaptura.ColumnCount
             Dim NRow As Integer = grdcaptura.RowCount
 
-            exHoja.Columns("A").NumberFormat = "@"
-            exHoja.Columns("B").NumberFormat = "@"
-            exHoja.Columns("C").NumberFormat = "@"
-            exHoja.Columns("D").NumberFormat = "@"
-            exHoja.Columns("I").NumberFormat = "@"
-            exHoja.Columns("G").NumberFormat = "@"
-            exHoja.Columns("K").NumberFormat = "@"
+
             'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
             For i As Integer = 1 To NCol
                 exHoja.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
@@ -582,29 +575,20 @@ perra:
 
             For Fila = 0 To NRow - 1
                 For Col = 0 To NCol - 1
-                    exHoja.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+                    exHoja.Cells.Item(Fila + 2, Col + 1) = Convert.ToString(grdcaptura.Rows(Fila).Cells(Col).Value.ToString)
                 Next
             Next
-
-            Dim Fila2 As Integer = Fila + 2
-            Dim Col2 As Integer = Col
-
-            'Titulo en negrita, Alineado al centro y que el tamaño de la columna se
             exHoja.Rows.Item(1).Font.Bold = 1
             exHoja.Rows.Item(1).HorizontalAlignment = 3
-            exHoja.Columns.AutoFit()
-            Exportar.Enabled = True
             'Aplicación visible
-            MsgBox("Información exportada correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             exApp.Application.Visible = True
 
             exHoja = Nothing
             exLibro = Nothing
             exApp = Nothing
-            My.Application.DoEvents()
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
-            Exportar.Enabled = True
         End Try
     End Sub
 End Class
