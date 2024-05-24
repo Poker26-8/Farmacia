@@ -203,6 +203,8 @@ perra:
         txtcantidad.Text = ""
         chkConsignar.Checked = False
         ComboBox1.Text = ""
+        grdpagos.Rows.Clear()
+        txtPagos.Text = "0.00"
     End Sub
 
     Private Sub btnAbono_Click(sender As Object, e As EventArgs)
@@ -218,12 +220,14 @@ perra:
             Dim MySaldo As Double = 0
 
             Dim resta, acuenta, descuentos As Double
-            MyPago = CDbl(txtefectivo.Text)
+            MyPago = CDbl(txtefectivo.Text) + CDec(txtPagos.Text)
             If MyPago <> 0 Then
             Else
                 MsgBox("El abono tiene que ser mayor a 0", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 Exit Sub
             End If
+            If MyPago < 0 Then MsgBox("El pago no es válido. Corrobora la información.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
+            If MyPago > txttotal.Text Then MsgBox("El pago no puede ser mayor al total de la cuenta. Corrobora la información.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
 
             cnn1.Close()
             cnn1.Open()
@@ -312,6 +316,53 @@ perra:
                          "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,Comentario,CuentaC,BRecepcion) values(" & cbofolio.Text & "," & IIf(cbofolio.Text = "MOSTRADOR", 0, lblid.Text) & ",'" & cbonombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & efectivo & "," & MySaldo & ",'EFECTIVO'," & efectivo & ",'','','ADMIN',0,0,0,0,'','','')"
                     cmd1.ExecuteNonQuery()
                 End If
+
+                If grdpagos.Rows.Count > 0 Then
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select distinct FormaPago from FormasPago where FormaPago<>''"
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then
+                            Dim FormaP As String = rd1(0).ToString()
+
+                            For T As Integer = 0 To grdpagos.Rows.Count - 1
+                                If CStr(grdpagos.Rows(T).Cells(0).Value.ToString()) = FormaP Then
+                                    MontoP = MontoP + CDbl(grdpagos.Rows(T).Cells(3).Value.ToString())
+                                    BancoP = BancoP & " - " & grdpagos.Rows(T).Cells(1).Value.ToString()
+                                    RefeP = RefeP & " " & grdpagos.Rows(T).Cells(2).Value.ToString()
+                                    comentario = comentario & " " & grdpagos.Rows(T).Cells(5).Value.ToString()
+                                    cuentarep = cuentarep & " " & grdpagos.Rows(T).Cells(6).Value.ToString()
+                                    bancorep = bancorep & " " & grdpagos.Rows(T).Cells(7).Value.ToString()
+
+                                End If
+                            Next
+
+                            If FormaP = "SALDO FAVOR" Then
+                                If MontoP > 0 Then
+                                    TotSaldo = MontoP
+                                End If
+                            End If
+
+                            If MontoP > 0 Then
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText =
+                                     "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU,Cargado,MontoSF,Comentario,CuentaC,BRecepcion) values(" & cbofolio.Text & "," & IIf(lblid.Text = "MOSTRADOR", 0, lblid.Text) & ",'" & cbonombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MontoP & "," & MySaldo & ",'" & FormaP & "'," & MontoP & ",'" & BancoP & "','" & RefeP & "','ADMIN',0,0,0,0,'" & comentario & "','" & cuentarep & "','" & bancorep & "')"
+                                cmd2.ExecuteNonQuery()
+                                cnn2.Close()
+                                MontoP = 0
+                            End If
+                        Else
+                            MsgBox("No se Puede registrar el abono ya que una forma de pago no existe en el catalogo", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            Continue Do
+                        End If
+                    Loop
+                    rd1.Close()
+                End If
+
+
             End If
 
             cnn1.Close()
@@ -330,7 +381,7 @@ perra:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select distinct Folio from Ventas where status='RESTA' and Folio <> '' and Consignar=0"
+            cmd1.CommandText = "Select distinct Folio from Ventas where status='RESTA' and Folio <> ''"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 ComboBox1.Items.Add(rd1(0).ToString)
@@ -369,7 +420,7 @@ perra:
                 cnn1.Close()
             End If
             chkConsignar.Checked = False
-            ComboBox1.Text = 0
+            ComboBox1.Text = ""
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -460,5 +511,100 @@ perra:
 
     Private Sub txtPagos_TextChanged(sender As Object, e As EventArgs) Handles txtPagos.TextChanged
         calculaAbono()
+    End Sub
+
+    Private Sub frmConsignacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        Try
+            Dim voy As Integer = 0
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Consignacion from Ventas where Folio=" & ComboBox1.Text & ""
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                voy = rd1(0).ToString
+            End If
+            rd1.Close()
+            cnn1.Close()
+            If voy = 0 Then
+                chkConsignar.Checked = False
+            Else
+                chkConsignar.Checked = True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
+        If grdcaptura.Rows.Count = 0 Then
+            MsgBox("Selecciona un folio consignado para exportar la información a excel", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            Exit Sub
+        End If
+
+        If MsgBox("¿Desea exportar la información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
+        Exportar.Enabled = False
+
+        'Creamos las variables
+        Dim exApp As New Microsoft.Office.Interop.Excel.Application
+        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
+        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
+
+        Try
+            'Añadimos el Libro al programa, y la hoja al libro
+            exLibro = exApp.Workbooks.Add
+            exHoja = exLibro.Worksheets.Application.ActiveSheet
+
+            Dim Fila As Integer = 0
+            Dim Col As Integer = 0
+
+            ' ¿Cuantas columnas y cuantas filas?
+            Dim NCol As Integer = grdcaptura.ColumnCount
+            Dim NRow As Integer = grdcaptura.RowCount
+
+            exHoja.Columns("A").NumberFormat = "@"
+            exHoja.Columns("B").NumberFormat = "@"
+            exHoja.Columns("C").NumberFormat = "@"
+            exHoja.Columns("D").NumberFormat = "@"
+            exHoja.Columns("I").NumberFormat = "@"
+            exHoja.Columns("G").NumberFormat = "@"
+            exHoja.Columns("K").NumberFormat = "@"
+            'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
+            For i As Integer = 1 To NCol
+                exHoja.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                'exHoja.Cells.Item(1, i).HorizontalAlignment = 3
+            Next
+
+            For Fila = 0 To NRow - 1
+                For Col = 0 To NCol - 1
+                    exHoja.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+                Next
+            Next
+
+            Dim Fila2 As Integer = Fila + 2
+            Dim Col2 As Integer = Col
+
+            'Titulo en negrita, Alineado al centro y que el tamaño de la columna se
+            exHoja.Rows.Item(1).Font.Bold = 1
+            exHoja.Rows.Item(1).HorizontalAlignment = 3
+            exHoja.Columns.AutoFit()
+            Exportar.Enabled = True
+            'Aplicación visible
+            MsgBox("Información exportada correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            exApp.Application.Visible = True
+
+            exHoja = Nothing
+            exLibro = Nothing
+            exApp = Nothing
+            My.Application.DoEvents()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
+            Exportar.Enabled = True
+        End Try
     End Sub
 End Class
