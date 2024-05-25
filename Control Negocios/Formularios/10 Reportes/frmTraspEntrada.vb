@@ -406,7 +406,7 @@ Public Class frmTraspEntrada
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "insert into Traslados(Nombre,Totales,FVenta,HVenta,Usuario,Concepto,Cargado,FPago,FCancelado,Comisionista) values('" & cbo.Text & "'," & MyTotal & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','ENTRADA',0,'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & cbo.Text & "')"
+                "insert into Traslados(Folio,Nombre,Totales,FVenta,HVenta,Usuario,Concepto,Cargado,FPago,FCancelado,Comisionista) values(" & lblfolio.Text & ",'" & cbo.Text & "'," & MyTotal & ",'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','ENTRADA',0,'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & cbo.Text & "')"
             If cmd1.ExecuteNonQuery Then
             Else
                 MsgBox("No se pudo insertar el traslado en la base de datos.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
