@@ -35,6 +35,11 @@ Partial Class frmConsignacion
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsignacion))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.chkConsignar = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.lblid = New System.Windows.Forms.Label()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -58,6 +63,8 @@ Partial Class frmConsignacion
         Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtPagos = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtsubtotal = New System.Windows.Forms.TextBox()
@@ -87,11 +94,6 @@ Partial Class frmConsignacion
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.chkConsignar = New System.Windows.Forms.CheckBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.grdpagos = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -116,21 +118,19 @@ Partial Class frmConsignacion
         Me.dtpfecha = New System.Windows.Forms.DateTimePicker()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtPagos = New System.Windows.Forms.TextBox()
-        Me.Exportar = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.boxcantidad.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.Exportar)
+        Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.GroupBox1)
         Me.Panel2.Controls.Add(Me.lblid)
         Me.Panel2.Controls.Add(Me.btnnuevo)
@@ -148,6 +148,59 @@ Partial Class frmConsignacion
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1113, 152)
         Me.Panel2.TabIndex = 231
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.chkConsignar)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 46)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(224, 100)
+        Me.GroupBox1.TabIndex = 237
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Folios por cobrar a Consignar"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(135, 56)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(83, 38)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "Guardar"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'chkConsignar
+        '
+        Me.chkConsignar.AutoSize = True
+        Me.chkConsignar.Location = New System.Drawing.Point(56, 56)
+        Me.chkConsignar.Name = "chkConsignar"
+        Me.chkConsignar.Size = New System.Drawing.Size(73, 17)
+        Me.chkConsignar.TabIndex = 10
+        Me.chkConsignar.Text = "Consignar"
+        Me.chkConsignar.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(9, 28)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(41, 19)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Folio:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(56, 25)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(162, 25)
+        Me.ComboBox1.TabIndex = 8
         '
         'lblid
         '
@@ -386,6 +439,30 @@ Partial Class frmConsignacion
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(400, 227)
         Me.Panel8.TabIndex = 233
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(16, 69)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(54, 21)
+        Me.Label5.TabIndex = 153
+        Me.Label5.Text = "Pagos:"
+        '
+        'txtPagos
+        '
+        Me.txtPagos.BackColor = System.Drawing.Color.White
+        Me.txtPagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPagos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPagos.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.txtPagos.Location = New System.Drawing.Point(20, 95)
+        Me.txtPagos.Name = "txtPagos"
+        Me.txtPagos.ReadOnly = True
+        Me.txtPagos.Size = New System.Drawing.Size(133, 29)
+        Me.txtPagos.TabIndex = 152
+        Me.txtPagos.Text = "0.00"
+        Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Button1
         '
@@ -689,59 +766,6 @@ Partial Class frmConsignacion
         Me.txtcantidad.TabIndex = 0
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.chkConsignar)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 46)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(224, 100)
-        Me.GroupBox1.TabIndex = 237
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Folios por cobrar a Consignar"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(56, 25)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(162, 25)
-        Me.ComboBox1.TabIndex = 8
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 28)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 19)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Folio:"
-        '
-        'chkConsignar
-        '
-        Me.chkConsignar.AutoSize = True
-        Me.chkConsignar.Location = New System.Drawing.Point(56, 56)
-        Me.chkConsignar.Name = "chkConsignar"
-        Me.chkConsignar.Size = New System.Drawing.Size(73, 17)
-        Me.chkConsignar.TabIndex = 10
-        Me.chkConsignar.Text = "Consignar"
-        Me.chkConsignar.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(135, 56)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(83, 38)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Guardar"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'grdpagos
         '
         Me.grdpagos.AllowUserToAddRows = False
@@ -977,45 +1001,22 @@ Partial Class frmConsignacion
         Me.Label17.TabIndex = 239
         Me.Label17.Text = "Banco:"
         '
-        'Label5
+        'Button3
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 69)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(54, 21)
-        Me.Label5.TabIndex = 153
-        Me.Label5.Text = "Pagos:"
-        '
-        'txtPagos
-        '
-        Me.txtPagos.BackColor = System.Drawing.Color.White
-        Me.txtPagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPagos.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPagos.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtPagos.Location = New System.Drawing.Point(20, 95)
-        Me.txtPagos.Name = "txtPagos"
-        Me.txtPagos.ReadOnly = True
-        Me.txtPagos.Size = New System.Drawing.Size(133, 29)
-        Me.txtPagos.TabIndex = 152
-        Me.txtPagos.Text = "0.00"
-        Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Exportar
-        '
-        Me.Exportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Exportar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
-        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Exportar.Location = New System.Drawing.Point(1024, 48)
-        Me.Exportar.Name = "Exportar"
-        Me.Exportar.Size = New System.Drawing.Size(77, 82)
-        Me.Exportar.TabIndex = 238
-        Me.Exportar.Text = "Exportar"
-        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Exportar.UseVisualStyleBackColor = False
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Location = New System.Drawing.Point(1024, 46)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(86, 84)
+        Me.Button3.TabIndex = 238
+        Me.Button3.Text = "REPORTE"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'frmConsignacion
         '
@@ -1049,14 +1050,14 @@ Partial Class frmConsignacion
         Me.Text = "Consignaciones"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.boxcantidad.ResumeLayout(False)
         Me.boxcantidad.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1148,5 +1149,5 @@ Partial Class frmConsignacion
     Friend WithEvents Label17 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtPagos As TextBox
-    Friend WithEvents Exportar As Button
+    Friend WithEvents Button3 As Button
 End Class

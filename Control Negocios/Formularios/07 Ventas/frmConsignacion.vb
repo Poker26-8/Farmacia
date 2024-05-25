@@ -542,53 +542,8 @@ perra:
         End Try
     End Sub
 
-    Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
-        If grdcaptura.Rows.Count = 0 Then
-            Exit Sub
-        End If
-
-        If MsgBox("¿Desea exportar la información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
-
-        'Creamos las variables
-        Dim exApp As New Application
-        Dim exLibro As Workbook
-        Dim exHoja As Worksheet
-
-        Try
-            'Añadimos el Libro al programa, y la hoja al libro
-            exLibro = exApp.Workbooks.Add
-            exHoja = exLibro.Worksheets.Application.ActiveSheet
-
-            Dim Fila As Integer = 0
-            Dim Col As Integer = 0
-
-            ' ¿Cuantas columnas y cuantas filas?
-            Dim NCol As Integer = grdcaptura.ColumnCount
-            Dim NRow As Integer = grdcaptura.RowCount
-
-
-            'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
-            For i As Integer = 1 To NCol
-                exHoja.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
-                'exHoja.Cells.Item(1, i).HorizontalAlignment = 3
-            Next
-
-            For Fila = 0 To NRow - 1
-                For Col = 0 To NCol - 1
-                    exHoja.Cells.Item(Fila + 2, Col + 1) = Convert.ToString(grdcaptura.Rows(Fila).Cells(Col).Value.ToString)
-                Next
-            Next
-            exHoja.Rows.Item(1).Font.Bold = 1
-            exHoja.Rows.Item(1).HorizontalAlignment = 3
-            'Aplicación visible
-            exApp.Application.Visible = True
-
-            exHoja = Nothing
-            exLibro = Nothing
-            exApp = Nothing
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
-        End Try
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        frmRepConsignacion.Show()
+        frmRepConsignacion.BringToFront()
     End Sub
 End Class

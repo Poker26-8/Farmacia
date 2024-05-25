@@ -415,6 +415,12 @@
     <Compile Include="Formularios\07 Ventas\frmConsignacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\07 Ventas\frmRepConsignacion.Designer.vb">
+      <DependentUpon>frmRepConsignacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\frmRepConsignacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\07 Ventas\Normales\frmVentas2.Designer.vb">
       <DependentUpon>frmVentas2.vb</DependentUpon>
     </Compile>
@@ -1963,6 +1969,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmConsignacion.resx">
       <DependentUpon>frmConsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\frmRepConsignacion.resx">
+      <DependentUpon>frmRepConsignacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas2.resx">
       <DependentUpon>frmVentas2.vb</DependentUpon>
