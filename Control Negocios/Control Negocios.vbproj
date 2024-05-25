@@ -553,6 +553,12 @@
     <Compile Include="Formularios\18 Restaurantes\Precios\frmPreciosRest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoMesas.Designer.vb">
+      <DependentUpon>frmTecladoMesas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoMesas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.Designer.vb">
       <DependentUpon>frmTecladoPagar.vb</DependentUpon>
     </Compile>
@@ -2026,6 +2032,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\Precios\frmPreciosRest.resx">
       <DependentUpon>frmPreciosRest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTecladoMesas.resx">
+      <DependentUpon>frmTecladoMesas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\teclados\frmTecladoPagar.resx">
       <DependentUpon>frmTecladoPagar.vb</DependentUpon>

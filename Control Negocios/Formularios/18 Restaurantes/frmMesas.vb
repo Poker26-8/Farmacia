@@ -27,8 +27,9 @@ Public Class frmMesas
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
-        frmPasa_Mesa.Show()
-        frmPasa_Mesa.BringToFront()
+        frmTraspasarProducto.lblOrigen.Text = txtMesa.Text
+        frmTraspasarProducto.Show()
+        frmTraspasarProducto.BringToFront()
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
