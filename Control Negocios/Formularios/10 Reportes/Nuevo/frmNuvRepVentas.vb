@@ -2504,18 +2504,20 @@ Public Class frmNuvRepVentas
                             End If
                         End If
                         rd2.Close()
+                        grdCaptura.Rows.Add(folio, cliente, total, fechanueva, facturado)
                         formapago = ""
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT FormaPago FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
+                        cmd2.CommandText = "SELECT FormaPago,Concepto,Monto FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             Do While rd2.Read
-                                formapago = formapago & " " & rd2(0).ToString
+                                formapago = rd2(0).ToString()
+                                grdCaptura.Rows.Add("", rd2(1).ToString, rd2(2).ToString, "", "", formapago)
                             Loop
                         End If
                         rd2.Close()
 
-                        grdCaptura.Rows.Add(folio, cliente, total, fechanueva, facturado, formapago)
+
 
                         T_Subtotal = T_Subtotal + subtotal
                         T_IVA = T_IVA + Iva
