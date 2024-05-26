@@ -93,9 +93,17 @@ Partial Class frmProductosS
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.box_tienda = New System.Windows.Forms.GroupBox()
+        Me.txt_resumen = New System.Windows.Forms.TextBox()
+        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_tienda = New System.Windows.Forms.Button()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.box_tienda.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -945,11 +953,96 @@ Partial Class frmProductosS
         Me.Label21.Text = "Código de barras"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'box_tienda
+        '
+        Me.box_tienda.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.box_tienda.Controls.Add(Me.btn_guardar)
+        Me.box_tienda.Controls.Add(Me.Label28)
+        Me.box_tienda.Controls.Add(Me.Label20)
+        Me.box_tienda.Controls.Add(Me.txt_descripcion)
+        Me.box_tienda.Controls.Add(Me.txt_resumen)
+        Me.box_tienda.Location = New System.Drawing.Point(96, 167)
+        Me.box_tienda.Name = "box_tienda"
+        Me.box_tienda.Size = New System.Drawing.Size(633, 122)
+        Me.box_tienda.TabIndex = 253
+        Me.box_tienda.TabStop = False
+        Me.box_tienda.Text = "Datos tienda en linea"
+        Me.box_tienda.Visible = False
+        '
+        'txt_resumen
+        '
+        Me.txt_resumen.Location = New System.Drawing.Point(134, 17)
+        Me.txt_resumen.Name = "txt_resumen"
+        Me.txt_resumen.Size = New System.Drawing.Size(493, 23)
+        Me.txt_resumen.TabIndex = 0
+        '
+        'txt_descripcion
+        '
+        Me.txt_descripcion.Location = New System.Drawing.Point(134, 46)
+        Me.txt_descripcion.Name = "txt_descripcion"
+        Me.txt_descripcion.Size = New System.Drawing.Size(493, 66)
+        Me.txt_descripcion.TabIndex = 1
+        Me.txt_descripcion.Text = ""
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(6, 20)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(111, 15)
+        Me.Label20.TabIndex = 250
+        Me.Label20.Text = "Resumen producto:"
+        Me.Label20.Visible = False
+        '
+        'Label28
+        '
+        Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(6, 45)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(124, 15)
+        Me.Label28.TabIndex = 251
+        Me.Label28.Text = "Descripción producto:"
+        Me.Label28.Visible = False
+        '
+        'btn_guardar
+        '
+        Me.btn_guardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_guardar.BackColor = System.Drawing.Color.White
+        Me.btn_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_guardar.Location = New System.Drawing.Point(9, 86)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(114, 26)
+        Me.btn_guardar.TabIndex = 253
+        Me.btn_guardar.Text = "Guardar"
+        Me.btn_guardar.UseVisualStyleBackColor = False
+        '
+        'btn_tienda
+        '
+        Me.btn_tienda.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_tienda.BackColor = System.Drawing.Color.White
+        Me.btn_tienda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_tienda.Location = New System.Drawing.Point(8, 267)
+        Me.btn_tienda.Name = "btn_tienda"
+        Me.btn_tienda.Size = New System.Drawing.Size(85, 36)
+        Me.btn_tienda.TabIndex = 254
+        Me.btn_tienda.Text = "Datos tienda"
+        Me.btn_tienda.UseVisualStyleBackColor = False
+        Me.btn_tienda.Visible = False
+        '
         'frmProductosS
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(736, 377)
+        Me.Controls.Add(Me.box_tienda)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel1)
@@ -1004,6 +1097,7 @@ Partial Class frmProductosS
         Me.Controls.Add(Me.cboCodigo)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btn_tienda)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1014,6 +1108,8 @@ Partial Class frmProductosS
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.box_tienda.ResumeLayout(False)
+        Me.box_tienda.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1087,4 +1183,11 @@ Partial Class frmProductosS
     Friend WithEvents Label21 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents box_tienda As GroupBox
+    Friend WithEvents btn_guardar As Button
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txt_descripcion As RichTextBox
+    Friend WithEvents txt_resumen As TextBox
+    Friend WithEvents btn_tienda As Button
 End Class

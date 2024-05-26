@@ -781,6 +781,11 @@ Public Class Login
                             .runSp(cnnprueba, VarKeypedidosvendet, sinfo)
                             .runSp(cnnprueba, varAutopedidosvendet, sinfo)
 
+                            'comandas_t
+                            .runSp(cnnprueba, vartablacomandas_t, sinfo)
+                            .runSp(cnnprueba, varKeycomandas_t, sinfo)
+                            .runSp(cnnprueba, varAutocomandas_t, sinfo)
+
                             'pedidosven
                             .runSp(cnnprueba, vartablapedidosven, sinfo)
                             .runSp(cnnprueba, VarKeypedidosven, sinfo)

@@ -108,6 +108,8 @@ Module Module1
     Public ARCHIVO_DE_CONFIGURACIONW = My.Application.Info.DirectoryPath & "\ConfiguraW.dat"
     Public ARCHIVO_DE_CONFIGURACIONR = My.Application.Info.DirectoryPath & "\ConfiguraRenta.dat"
 
+    Public Grupo_Impresion_Tienda As String = ""
+
     Public Function ConvertCero(ByVal vl As String) As Double
         If Not IsNumeric(vl) Then
             ConvertCero = 0

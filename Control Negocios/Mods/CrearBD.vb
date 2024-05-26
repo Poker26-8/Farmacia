@@ -6528,6 +6528,22 @@
                                       `Usuario` varchar(100) NOT NULL DEFAULT ''
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+    Public vartablacomandas_t As String = "CREATE TABLE `comandas_t` (                 
+                                          `Id` int(11) DEFAULT '0',
+                                          `Pedido` varchar(80) DEFAULT '',
+                                          `Codigo` varchar(10) DEFAULT '',
+                                          `Nombre` varchar(255) DEFAULT '',
+                                          `Unidad` varchar(20) DEFAULT '',
+                                          `Cantidad` float DEFAULT '0',                                          
+                                          `Precio` float DEFAULT '0',
+                                          `Total` float DEFAULT '0',
+                                          `Fecha` date DEFAULT NULL,
+                                          `Depto` varchar(80) DEFAULT '',
+                                          `Grupo` varchar(80) DEFAULT '',
+                                          `Comentario` varchar(255) DEFAULT '',
+                                          `GPrint` varchar(50) DEFAULT ''
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
 
 
     'VtaImpresion
@@ -6713,6 +6729,7 @@
     Public varKeyuuidrelacion As String = "ALTER TABLE `uuidrelacion` ADD PRIMARY KEY (`Id`);"
     Public varKeyventas As String = "ALTER TABLE `ventas` ADD PRIMARY KEY (`Folio`);"
     Public varKeyventasdetalle As String = "ALTER TABLE `ventasdetalle` ADD PRIMARY KEY (`Id`), ADD KEY `Folio` (`Folio`);"
+    Public varKeycomandas_t As String = "ALTER TABLE `comandas_t` ADD PRIMARY KEY (`Id`);"
 
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
@@ -6758,6 +6775,7 @@
     Public varAutofechacobros As String = "ALTER TABLE `fechacobros` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutogrupos As String = "ALTER TABLE `grupos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomesasempleados As String = "ALTER TABLE `mesasxempleados` MODIFY `IdMesa` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutocomandas_t As String = "ALTER TABLE `comandas_t` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
 
     Public varAutocomandas1 As String = "ALTER TABLE `comanda1` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutocomandas As String = "ALTER TABLE `comandas` MODIFY `IDC` int(11) NOT NULL AUTO_INCREMENT;"
