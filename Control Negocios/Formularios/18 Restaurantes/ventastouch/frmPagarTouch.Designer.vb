@@ -22,9 +22,11 @@ Partial Class frmPagarTouch
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarTouch))
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.txtPorcentaje = New System.Windows.Forms.TextBox()
         Me.lblfolio = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtpagos = New System.Windows.Forms.TextBox()
@@ -115,8 +117,6 @@ Partial Class frmPagarTouch
         Me.btn500 = New System.Windows.Forms.Button()
         Me.btn50 = New System.Windows.Forms.Button()
         Me.btn100 = New System.Windows.Forms.Button()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.txtPorcentaje = New System.Windows.Forms.TextBox()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,6 +151,28 @@ Partial Class frmPagarTouch
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(254, 332)
         Me.Panel7.TabIndex = 15
+        '
+        'Label27
+        '
+        Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(166, 159)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(23, 20)
+        Me.Label27.TabIndex = 41
+        Me.Label27.Text = "%"
+        '
+        'txtPorcentaje
+        '
+        Me.txtPorcentaje.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
+        Me.txtPorcentaje.Location = New System.Drawing.Point(112, 158)
+        Me.txtPorcentaje.Name = "txtPorcentaje"
+        Me.txtPorcentaje.Size = New System.Drawing.Size(48, 21)
+        Me.txtPorcentaje.TabIndex = 40
+        Me.txtPorcentaje.Text = "0"
+        Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblfolio
         '
@@ -423,8 +445,8 @@ Partial Class frmPagarTouch
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdPagos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
@@ -1114,28 +1136,6 @@ Partial Class frmPagarTouch
         Me.btn100.Size = New System.Drawing.Size(123, 49)
         Me.btn100.TabIndex = 31
         Me.btn100.UseVisualStyleBackColor = False
-        '
-        'Label27
-        '
-        Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(166, 159)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(23, 20)
-        Me.Label27.TabIndex = 41
-        Me.Label27.Text = "%"
-        '
-        'txtPorcentaje
-        '
-        Me.txtPorcentaje.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
-        Me.txtPorcentaje.Location = New System.Drawing.Point(112, 158)
-        Me.txtPorcentaje.Name = "txtPorcentaje"
-        Me.txtPorcentaje.Size = New System.Drawing.Size(48, 21)
-        Me.txtPorcentaje.TabIndex = 40
-        Me.txtPorcentaje.Text = "0"
-        Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmPagarTouch
         '

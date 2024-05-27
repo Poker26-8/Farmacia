@@ -79,7 +79,7 @@
         If Not IsNumeric(txtDescuento.Text) Then txtDescuento.Text = "0.00" : Exit Sub
         If Strings.Left(txtDescuento.Text, 1) = "," Or Strings.Left(txtDescuento.Text, 1) = "." Then Exit Sub
 
-        myope = IIf(txtSubtotalmapeo.Text = "", 0, txtSubtotalmapeo.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(txtpagos.Text) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
+        myope = IIf(txtSubtotalmapeo.Text = "", 0.00, txtSubtotalmapeo.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0.00, txtpagos.Text)) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -111,6 +111,7 @@
         txtAdeuda.Text = "0.00"
         txtPropina.Text = "0.00"
         grdPagos.Rows.Clear()
+        txtPorcentaje.Text = "0.00"
 
         txtmonedero.Text = ""
         txtsaldomon.Text = ""
@@ -177,11 +178,16 @@
 
             txtCambio.Text = FormatNumber(txtCambio.Text, 2)
             txtResta.Text = FormatNumber(txtResta.Text, 2)
+
             If CDec(txtResta.Text) = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) And CDec(txtPropina.Text) = 0 Then
+
                 txtTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text))
                 txtTotal.Text = FormatNumber(txtTotal.Text, 2)
             Else
-                txtTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) + CDec(txtPropina.Text)
+                'txtTotal.Text = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) + CDec(txtPropina.Text)
+                'txtTotal.Text = FormatNumber(txtTotal.Text, 2)
+
+                txtTotal.Text = CDec(IIf(txtTotal.Text = "", "0", txtTotal.Text)) + CDec(txtPropina.Text)
                 txtTotal.Text = FormatNumber(txtTotal.Text, 2)
 
                 tmpCam = 0
@@ -196,6 +202,9 @@
 
             End If
             txtEfectivo.Focus.Equals(True)
+            txtEfectivo.Text = "0.00"
+            txtpagos.Text = "0.00"
+            grdPagos.Rows.Clear()
         End If
 
     End Sub
@@ -575,6 +584,7 @@
 
     Private Sub txtPropina_TextChanged(sender As Object, e As EventArgs) Handles txtPropina.TextChanged
         frmVTouchR.lblPropina.Text = txtPropina.Text
+
     End Sub
 
     Private Sub txtDescuento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescuento.KeyPress
@@ -1298,5 +1308,51 @@
 
             End If
         End If
+    End Sub
+
+    Private Sub txtPorcentaje_TextChanged(sender As Object, e As EventArgs) Handles txtPorcentaje.TextChanged
+
+        If txtPorcentaje.Text > 100 Then
+            txtPorcentaje.Text = "0"
+            Exit Sub
+        End If
+
+        Dim SALDO As Double = IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)
+        Dim PORCENTAJE As Double = (txtPorcentaje.Text / 100)
+        Dim porcentajetot As Double = CDbl(SALDO) * CDbl(PORCENTAJE)
+        txtDescuento.Text = FormatNumber(porcentajetot, 2)
+
+        Dim subtotal As Double = 0
+        subtotal = SALDO - CDbl(porcentajetot)
+        txtTotal.Text = FormatNumber(subtotal, 2)
+        txtResta.Text = FormatNumber(txtTotal.Text, 2)
+
+        Dim propina As Double = 0
+        Dim porcpropina As Double = 0
+        Dim totalpropina As Double = 0
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Propina'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                propina = rd1(0).ToString
+                If propina > 0 Then
+                    porcpropina = propina / 100
+                    totalpropina = CDbl(subtotal) * CDbl(porcpropina)
+                    txtPropina.Text = FormatNumber(totalpropina, 2)
+                    txtResta.Text = FormatNumber(CDbl(txtTotal.Text) + CDbl(txtPropina.Text), 2)
+                    txtTotal.Text = FormatNumber(txtResta.Text, 2)
+                End If
+
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        txtEfectivo.Text = "0.00"
+        txtpagos.Text = "0.00"
+        grdPagos.Rows.Clear()
+
     End Sub
 End Class
