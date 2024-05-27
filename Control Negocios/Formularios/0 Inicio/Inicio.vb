@@ -1563,6 +1563,42 @@ Public Class Inicio
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Consignar FROM ventas"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE ventas add column Consignar int default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT CantidadC FROM ventasdetalle"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE ventasdetalle add column CantidadC int default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT FechaSal FROM asigpc"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
