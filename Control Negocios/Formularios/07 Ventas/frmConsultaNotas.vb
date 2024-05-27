@@ -6868,7 +6868,6 @@ doorcita:
     End Sub
 
     Private Sub Label36_Click(sender As Object, e As EventArgs) Handles Label36.Click
-        frmConsignacion.Visible = True
-        frmConsignacion.BringToFront()
+
     End Sub
 End Class

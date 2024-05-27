@@ -289,6 +289,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Asistencia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.Designer.vb">
+      <DependentUpon>frmAct_Consignaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Entregas.Designer.vb">
       <DependentUpon>frmAct_Entregas.vb</DependentUpon>
     </Compile>
@@ -1905,6 +1911,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Asistencia.resx">
       <DependentUpon>frmAct_Asistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.resx">
+      <DependentUpon>frmAct_Consignaciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Entregas.resx">
       <DependentUpon>frmAct_Entregas.vb</DependentUpon>

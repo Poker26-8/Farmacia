@@ -173,6 +173,7 @@ Partial Class Inicio
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
+        Me.menuconsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -667,7 +668,7 @@ Partial Class Inicio
         '
         'pVentas
         '
-        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem})
+        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem, Me.menuconsignaciones})
         Me.pVentas.Name = "pVentas"
         Me.pVentas.Size = New System.Drawing.Size(53, 20)
         Me.pVentas.Text = "Ventas"
@@ -1439,6 +1440,12 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
+        'menuconsignaciones
+        '
+        Me.menuconsignaciones.Name = "menuconsignaciones"
+        Me.menuconsignaciones.Size = New System.Drawing.Size(196, 22)
+        Me.menuconsignaciones.Text = "Consignaciones"
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1620,4 +1627,5 @@ Partial Class Inicio
     Friend WithEvents PedidosTiendaEnLíneaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents pedidos_tienda As Label
     Friend WithEvents SubeMonederosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents menuconsignaciones As ToolStripMenuItem
 End Class

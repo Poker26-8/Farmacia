@@ -290,6 +290,29 @@ Public Class Inicio
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
+                "select * from Formatos where Facturas='Consignacion'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1("NotasCred").ToString() = 1 Then
+                        menuconsignaciones.Visible = True
+                    Else
+                        menuconsignaciones.Visible = False
+                    End If
+                End If
+            Else
+                menuconsignaciones.Visible = False
+            End If
+            rd1.Close() : cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
                 "select * from Formatos where Facturas='Nomina'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -3536,5 +3559,10 @@ Public Class Inicio
     Private Sub SubeMonederosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubeMonederosToolStripMenuItem.Click
         frmSubeMonedero.Show()
         frmSubeMonedero.BringToFront()
+    End Sub
+
+    Private Sub menuconsignaciones_Click(sender As Object, e As EventArgs) Handles menuconsignaciones.Click
+        frmConsignacion.Show()
+        frmConsignacion.BringToFront()
     End Sub
 End Class

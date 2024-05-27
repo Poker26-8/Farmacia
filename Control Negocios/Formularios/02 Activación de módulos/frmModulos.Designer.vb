@@ -28,6 +28,8 @@ Partial Class frmModulos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
@@ -65,8 +67,8 @@ Partial Class frmModulos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -117,6 +119,8 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button16)
+        Me.Panel2.Controls.Add(Me.Label22)
         Me.Panel2.Controls.Add(Me.Button15)
         Me.Panel2.Controls.Add(Me.Label21)
         Me.Panel2.Controls.Add(Me.Button14)
@@ -163,6 +167,30 @@ Partial Class frmModulos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1086, 357)
         Me.Panel2.TabIndex = 4
+        '
+        'Button15
+        '
+        Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button15.FlatAppearance.BorderSize = 0
+        Me.Button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
+        Me.Button15.Location = New System.Drawing.Point(500, 258)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(80, 80)
+        Me.Button15.TabIndex = 207
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(514, 230)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(63, 19)
+        Me.Label21.TabIndex = 206
+        Me.Label21.Text = "Farmacia"
         '
         'Button14
         '
@@ -616,29 +644,29 @@ Partial Class frmModulos
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button15
+        'Button16
         '
-        Me.Button15.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button15.FlatAppearance.BorderSize = 0
-        Me.Button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
-        Me.Button15.Location = New System.Drawing.Point(500, 258)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(80, 80)
-        Me.Button15.TabIndex = 207
-        Me.Button15.UseVisualStyleBackColor = True
+        Me.Button16.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button16.FlatAppearance.BorderSize = 0
+        Me.Button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button16.Image = CType(resources.GetObject("Button16.Image"), System.Drawing.Image)
+        Me.Button16.Location = New System.Drawing.Point(619, 258)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(80, 80)
+        Me.Button16.TabIndex = 209
+        Me.Button16.UseVisualStyleBackColor = True
         '
-        'Label21
+        'Label22
         '
-        Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(514, 230)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(63, 19)
-        Me.Label21.TabIndex = 206
-        Me.Label21.Text = "Farmacia"
+        Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(607, 230)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(104, 19)
+        Me.Label22.TabIndex = 208
+        Me.Label22.Text = "Consignaciones"
         '
         'frmModulos
         '
@@ -707,4 +735,6 @@ Partial Class frmModulos
     Friend WithEvents Label20 As Label
     Friend WithEvents Button15 As Button
     Friend WithEvents Label21 As Label
+    Friend WithEvents Button16 As Button
+    Friend WithEvents Label22 As Label
 End Class
