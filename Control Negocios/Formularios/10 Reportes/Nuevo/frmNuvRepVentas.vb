@@ -3,9 +3,10 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class frmNuvRepVentas
-
+    Dim idabono As Integer = 0
     Dim Partes As Boolean = False
     Private Sub frmNuvRepVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        grdCaptura.EditMode = DataGridViewEditMode.EditOnEnter
         mcDesde.SetDate(Now)
         mcHasta.SetDate(Now)
         grdCaptura.Rows.Clear()
@@ -2445,6 +2446,7 @@ Public Class frmNuvRepVentas
             fecha = Nothing
             fechanueva = ""
             facturado = 0
+            Dim fechaabono As Date=Date.now
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
@@ -2507,12 +2509,14 @@ Public Class frmNuvRepVentas
                         grdCaptura.Rows.Add(folio, cliente, total, fechanueva, facturado)
                         formapago = ""
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT FormaPago,Concepto,Monto FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
+                        cmd2.CommandText = "SELECT FormaPago,Concepto,Monto,Banco,Referencia,Fecha,CuentaC,Id,Parcialidad FROM abonoi WHERE NumFolio='" & folio & "' AND Concepto='ABONO'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             Do While rd2.Read
                                 formapago = rd2(0).ToString()
-                                grdCaptura.Rows.Add("", rd2(1).ToString, rd2(2).ToString, "", "", formapago)
+                                fechaabono = rd2(5).ToString()
+                                fechanueva = Format(fechaabono, "yyyy-MM-dd")
+                                grdCaptura.Rows.Add("", rd2(1).ToString, rd2(2).ToString, "", rd2(8).ToString, formapago, rd2(3).ToString, rd2(4).ToString, rd2(6).ToString, fechanueva, rd2(7).ToString)
                             Loop
                         End If
                         rd2.Close()
@@ -4652,7 +4656,7 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
-            grdCaptura.ColumnCount = 6
+            grdCaptura.ColumnCount = 11
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Nota de Venta"
@@ -4694,6 +4698,41 @@ Public Class frmNuvRepVentas
                     .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                     .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                     .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(6)
+                    .HeaderText = "Banco"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(7)
+                    .HeaderText = "Referencia"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(8)
+                    .HeaderText = "Cuenta"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(9)
+                    .HeaderText = "Fecha"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = True
+                    .Resizable = DataGridViewTriState.False
+                End With
+                With .Columns(10)
+                    .HeaderText = "Id"
+                    .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    .Visible = False
                     .Resizable = DataGridViewTriState.False
                 End With
             End With
@@ -4998,6 +5037,48 @@ Public Class frmNuvRepVentas
                     .Resizable = DataGridViewTriState.False
                 End With
             End With
+        End If
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+        If rbFiscal.Checked = True Then
+            If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
+                Dim celda As DataGridViewCellEventArgs = e
+                Dim fila As Integer = grdCaptura.CurrentRow.Index
+
+                If celda.ColumnIndex = 4 Then
+                    boxcantidad.Visible = True
+                    Dim selectedRow As DataGridViewRow = grdCaptura.Rows(e.RowIndex)
+                    idabono = selectedRow.Cells(10).Value.ToString
+                    txtcantidad.Text = selectedRow.Cells(4).Value.ToString
+                    txtcodigo.Tag = fila
+                    txtcantidad.Focus.Equals(True)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            grdCaptura.Rows(txtcodigo.Tag).Cells(4).Value = txtcantidad.Text
+            Try
+                cnn1.Close()
+                cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "Update Abonoi set Parcialidad='" & txtcantidad.Text & "' where Id=" & idabono & ""
+                If cmd1.ExecuteNonQuery Then
+                    boxcantidad.Visible = False
+                    txtcantidad.Text = ""
+                    txtcantidad.Tag = ""
+                    txtcodigo.Text = ""
+                    txtcodigo.Tag = ""
+                End If
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
         End If
     End Sub
 End Class
