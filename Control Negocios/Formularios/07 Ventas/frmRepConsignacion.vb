@@ -25,7 +25,7 @@
         DataGridView1.Rows.Clear()
         DataGridView1.ColumnCount = 0
         My.Application.DoEvents()
-        DataGridView1.ColumnCount = 8
+        DataGridView1.ColumnCount = 9
         With DataGridView1
             With .Columns(0)
                 .HeaderText = "Folio"
@@ -61,7 +61,7 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(4)
-                .HeaderText = "Cantidad Vendida"
+                .HeaderText = "Consignado"
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -69,7 +69,7 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(5)
-                .HeaderText = "Cantidad Pagada"
+                .HeaderText = "Pagado"
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -77,14 +77,22 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(6)
-                .HeaderText = "Precio"
-                .Width = 75
+                .HeaderText = "Pendiente de pago"
+                .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(7)
+                .HeaderText = "Cantidad"
+                .Width = 75
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                .Visible = True
+                .Resizable = DataGridViewTriState.False
+            End With
+            With .Columns(8)
                 .HeaderText = "Total"
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -100,7 +108,7 @@
         DataGridView1.Rows.Clear()
         DataGridView1.ColumnCount = 0
         My.Application.DoEvents()
-        DataGridView1.ColumnCount = 9
+        DataGridView1.ColumnCount = 10
         With DataGridView1
             With .Columns(0)
                 .HeaderText = "Folio"
@@ -143,7 +151,7 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(5)
-                .HeaderText = "Cantidad Vendida"
+                .HeaderText = "Consignado"
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -151,7 +159,7 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(6)
-                .HeaderText = "Cantidad Pagada"
+                .HeaderText = "Pagado"
                 .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -159,14 +167,22 @@
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(7)
-                .HeaderText = "Precio"
-                .Width = 75
+                .HeaderText = "Pendiente de pago"
+                .Width = 70
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
                 .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
                 .Visible = True
                 .Resizable = DataGridViewTriState.False
             End With
             With .Columns(8)
+                .HeaderText = "Cantidad "
+                .Width = 75
+                .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                .Visible = True
+                .Resizable = DataGridViewTriState.False
+            End With
+            With .Columns(9)
                 .HeaderText = "Total"
                 .Width = 75
                 .AutoSizeMode = DataGridViewAutoSizeColumnMode.None
@@ -200,7 +216,9 @@
                     cmd2.CommandText = "Select * from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
-                        DataGridView1.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd2("Codigo").ToString, rd2("Nombre").ToString, rd2("Unidad").ToString, rd2("Cantidad").ToString, rd2("CantidadC").ToString, FormatNumber(rd2("Precio").ToString, 2), FormatNumber(rd2("Total").ToString), 2)
+                        Dim resta As Double = 0
+                        resta = rd2("Cantidad").ToString - CDec(rd2("CantidadC").ToString)
+                        DataGridView1.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd2("Codigo").ToString, rd2("Nombre").ToString, rd2("Unidad").ToString, rd2("Cantidad").ToString, rd2("CantidadC").ToString, resta, FormatNumber(rd2("Precio").ToString, 2), FormatNumber(rd2("Total").ToString), 2)
                         precio = rd2("Precio").ToString
                         cantidad = rd2("Cantidad").ToString
                         pagadas = rd2("CantidadC").ToString
@@ -243,7 +261,9 @@
                     cmd2.CommandText = "Select * from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
-                        DataGridView1.Rows.Add(rd1("Folio").ToString, rd2("Codigo").ToString, rd2("Nombre").ToString, rd2("Unidad").ToString, rd2("Cantidad").ToString, rd2("CantidadC").ToString, FormatNumber(rd2("Precio").ToString, 2), FormatNumber(rd2("Total").ToString), 2)
+                        Dim resta As Double = 0
+                        resta = rd2("Cantidad").ToString - CDec(rd2("CantidadC").ToString)
+                        DataGridView1.Rows.Add(rd1("Folio").ToString, rd2("Codigo").ToString, rd2("Nombre").ToString, rd2("Unidad").ToString, rd2("Cantidad").ToString, rd2("CantidadC").ToString, resta, FormatNumber(rd2("Precio").ToString, 2), FormatNumber(rd2("Total").ToString), 2)
 
                         precio = rd2("Precio").ToString
                         cantidad = rd2("Cantidad").ToString

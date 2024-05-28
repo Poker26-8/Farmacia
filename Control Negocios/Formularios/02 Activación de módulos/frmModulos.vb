@@ -208,4 +208,9 @@
         frmAct_Farmacia.BringToFront()
         Me.Close()
     End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        frmAct_Consignaciones.Show()
+        frmAct_Consignaciones.BringToFront()
+    End Sub
 End Class
