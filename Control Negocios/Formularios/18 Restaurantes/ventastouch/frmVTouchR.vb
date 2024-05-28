@@ -1391,17 +1391,7 @@ deku:
         e.Graphics.DrawString("Cantidad de articulos: " & articulos, fuente_r, Brushes.Black, 1, Y)
         Y += 25
 
-        If lblDescuento.Text > 0 Then
-            e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(lblDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 15
-        End If
 
-        If lblPropina.Text > 0 Then
-            e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(lblPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 15
-        End If
 
         If DesglosaIVA = 1 Then
             e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
@@ -1417,8 +1407,29 @@ deku:
             Y += 15
         End If
 
+        If lblDescuento.Text > 0 Then
+            e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(lblDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+
+            e.Graphics.DrawString("TOTAL CON DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(CDbl(lblTotalPagar.Text) - CDbl(lblDescuento.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+        End If
+
+        If lblPropina.Text > 0 Then
+            e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(lblPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+
+            e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(CDbl(lbltotalventa.Text) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+        End If
+
+
         e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(FormatNumber(lbltotalventa.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+        e.Graphics.DrawString(FormatNumber(CDbl(lbltotalventa.Text) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
         Y += 20
 
         If Resta > 0 Then
@@ -2614,7 +2625,8 @@ deku:
                 Case Is = "MOSTRADOR"
                     lblNumCliente.Text = "0"
                     lblCliente.Text = ""
-                    ACuenta = FormatNumber((montoefectivo - CAMBIO) + montopagos, 2)
+
+                    ACuenta = FormatNumber((montoefectivo + montopagos) - CAMBIO - lblPropina.Text, 2)
                     MySubtotal = FormatNumber(MySubtotal, 2)
 
                     If Resta = 0 Then
@@ -2730,7 +2742,7 @@ deku:
                 End If
             End If
 
-            ACuenta = FormatNumber(montoefectivo - CAMBIO + montopagos, 2)
+            ACuenta = FormatNumber(montoefectivo + montopagos - CAMBIO - lblPropina.Text, 2)
 
             If ACuenta > 0 Then
                 Dim EfectivoX As Double = FormatNumber(montoefectivo - CAMBIO, 2)
@@ -2746,6 +2758,20 @@ deku:
                         Dim comentariopago As String = frmPagarTouch.grdPagos.Rows(tobi).Cells(5).Value.ToString
                         Dim cuentarefe As String = frmPagarTouch.grdPagos.Rows(tobi).Cells(6).Value.ToString
                         Dim bancorefe As String = frmPagarTouch.grdPagos.Rows(tobi).Cells(7).Value.ToString
+
+                        Dim nuevopago As Double = 0
+
+                        If lblPropina.Text > 0 Then
+                            If EfectivoX > 0 Then
+                                nuevopago = montopago
+                            Else
+                                nuevopago = montopago - lblPropina.Text
+                            End If
+
+
+                        Else
+                            nuevopago = montopago
+                        End If
 
                         If formapago = "MONEDERO" Then
 
@@ -2781,10 +2807,12 @@ deku:
                         End If
 
                         Select Case lblTipoVenta.Text
+
                             Case Is = "MOSTRADOR"
+
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'" & formapago & "'," & nuevopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             Case Is <> "MOSTRADOR"
                                 cmd1 = cnn1.CreateCommand
@@ -2816,11 +2844,33 @@ deku:
                 End If
 
                 If EfectivoX > 0 Then
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & MYFOLIO
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "UPDATE abonoi SET Propina=0 WHERE NumFolio=" & MYFOLIO & " AND FormaPago<>'EFECTIVO'"
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
+                        End If
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+                End If
+
+
+                If EfectivoX > 0 Then
+
+                    ACuenta = FormatNumber(montoefectivo - CAMBIO - lblPropina.Text, 2)
+
                     Select Case lblTipoVenta.Text
                         Case Is = "MOSTRADOR"
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & EfectivoX & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & ACuenta & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                             cmd1.ExecuteNonQuery()
 
                         Case Is <> "MOSTRADOR"

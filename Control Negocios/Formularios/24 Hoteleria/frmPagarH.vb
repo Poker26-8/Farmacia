@@ -1544,7 +1544,7 @@ Public Class frmPagarH
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT HorEnt,FechaSal FROM asigpc"
+            cmd2.CommandText = "SELECT HorEnt,FechaSal FROM asigpc WHERE Nombre='" & lblHabitacion.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

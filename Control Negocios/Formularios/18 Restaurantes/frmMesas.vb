@@ -27,9 +27,16 @@ Public Class frmMesas
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
-        frmTraspasarProducto.lblOrigen.Text = txtMesa.Text
-        frmTraspasarProducto.Show()
-        frmTraspasarProducto.BringToFront()
+
+        If txtMesa.Text <> "" Then
+            frmTraspasarProducto.lblOrigen.Text = txtMesa.Text
+            frmTraspasarProducto.Show()
+            frmTraspasarProducto.BringToFront()
+        Else
+            MsgBox("Seleccione una mesa con consumo", vbInformation + vbOKOnly, titulorestaurante)
+            Exit Sub
+        End If
+
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs)

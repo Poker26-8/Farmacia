@@ -68,10 +68,6 @@ Public Class frmTecladoMesas
 
                         btnMesaNM.BackColor = Color.FromArgb(251, 187, 64)
 
-
-
-
-
                         ' Posicionar el botón dentro del panel
                         btnMesaNM.Left = columna * (btnMesaNM.Width + espacioHorizontal)
                         btnMesaNM.Top = fila * (btnMesaNM.Height + espacioVertical)
@@ -97,7 +93,10 @@ Public Class frmTecladoMesas
     End Sub
 
     Private Sub btnMesa_Click(sender As Object, e As EventArgs)
+        Dim MESASELECCIONADA As Button = CType(sender, Button)
 
+        frmTraspasarProducto.lblDestino.Text = MESASELECCIONADA.Text
+        Me.Close()
     End Sub
 
     Private Sub cboMesero_DropDown(sender As Object, e As EventArgs) Handles cboMesero.DropDown
@@ -122,6 +121,10 @@ Public Class frmTecladoMesas
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub btnCancelar_Click_1(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.Close()
     End Sub
 End Class

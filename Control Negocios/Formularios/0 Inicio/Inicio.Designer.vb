@@ -1311,7 +1311,7 @@ Partial Class Inicio
         Me.btnPagarComandas.Name = "btnPagarComandas"
         Me.btnPagarComandas.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComandas.TabIndex = 185
-        Me.btnPagarComandas.Text = "PAGAR COAMANDA"
+        Me.btnPagarComandas.Text = "PAGAR COMANDA"
         Me.btnPagarComandas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPagarComandas.UseVisualStyleBackColor = True
         '

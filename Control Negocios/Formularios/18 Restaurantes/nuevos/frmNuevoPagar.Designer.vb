@@ -23,8 +23,8 @@ Partial Class frmNuevoPagar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblMesero = New System.Windows.Forms.Label()
@@ -402,7 +402,7 @@ Partial Class frmNuevoPagar
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(245, 219)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(148, 21)
+        Me.Label8.Size = New System.Drawing.Size(147, 21)
         Me.Label8.TabIndex = 43
         Me.Label8.Text = "Resta:"
         '
@@ -449,7 +449,7 @@ Partial Class frmNuevoPagar
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(245, 193)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(148, 21)
+        Me.Label7.Size = New System.Drawing.Size(147, 21)
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "Cambio:"
         '
@@ -899,8 +899,8 @@ Partial Class frmNuevoPagar
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -909,8 +909,8 @@ Partial Class frmNuevoPagar
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True

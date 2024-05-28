@@ -24,10 +24,10 @@ Partial Class frmTecladoMesas
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTecladoMesas))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.pmesas = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboMesero = New System.Windows.Forms.ComboBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.cboMesero = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pmesas = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,33 +41,6 @@ Partial Class frmTecladoMesas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(650, 60)
         Me.Panel1.TabIndex = 0
-        '
-        'pmesas
-        '
-        Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pmesas.Location = New System.Drawing.Point(0, 60)
-        Me.pmesas.Name = "pmesas"
-        Me.pmesas.Size = New System.Drawing.Size(650, 390)
-        Me.pmesas.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 32)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Mesero"
-        '
-        'cboMesero
-        '
-        Me.cboMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboMesero.FormattingEnabled = True
-        Me.cboMesero.Location = New System.Drawing.Point(108, 9)
-        Me.cboMesero.Name = "cboMesero"
-        Me.cboMesero.Size = New System.Drawing.Size(247, 32)
-        Me.cboMesero.TabIndex = 1
-        Me.cboMesero.Text = "TODOS"
         '
         'btnCancelar
         '
@@ -84,6 +57,33 @@ Partial Class frmTecladoMesas
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCancelar.UseVisualStyleBackColor = False
+        '
+        'cboMesero
+        '
+        Me.cboMesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMesero.FormattingEnabled = True
+        Me.cboMesero.Location = New System.Drawing.Point(108, 9)
+        Me.cboMesero.Name = "cboMesero"
+        Me.cboMesero.Size = New System.Drawing.Size(247, 32)
+        Me.cboMesero.TabIndex = 1
+        Me.cboMesero.Text = "TODOS"
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(90, 32)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Mesero"
+        '
+        'pmesas
+        '
+        Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pmesas.Location = New System.Drawing.Point(0, 60)
+        Me.pmesas.Name = "pmesas"
+        Me.pmesas.Size = New System.Drawing.Size(650, 390)
+        Me.pmesas.TabIndex = 1
         '
         'frmTecladoMesas
         '

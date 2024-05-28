@@ -379,10 +379,14 @@ Public Class frmNuevoPagarComandas
             If propina > 0 Then
                 lblSubtotal.Text = FormatNumber(totalventa, 2)
                 porcepropina = CDbl(totalventa) * (propina / 100)
+                txttotaldescuento.Text = FormatNumber(totalventa, 2)
                 txtPropina.Text = FormatNumber(porcepropina, 2)
+                txttotal.Text = CDbl(txttotaldescuento.Text) + CDbl(txtPropina.Text)
                 lbltotalventa.Text = FormatNumber(CDbl(totalventa) + CDbl(txtPropina.Text), 2)
                 txtResta.Text = FormatNumber(lbltotalventa.Text, 2)
             Else
+                txttotaldescuento.Text = FormatNumber(totalventa, 2)
+                txttotal.Text = FormatNumber(totalventa, 2)
                 lblSubtotal.Text = FormatNumber(totalventa, 2)
                 lbltotalventa.Text = FormatNumber(totalventa, 2)
                 txtResta.Text = lbltotalventa.Text
@@ -415,32 +419,17 @@ Public Class frmNuevoPagarComandas
 
                 Dim subtotal As Double = 0
                 subtotal = CDbl(lblSubtotal.Text) - CDbl(porcentajetot)
-                lbltotalventa.Text = FormatNumber(subtotal, 2)
-                txtResta.Text = FormatNumber(lbltotalventa.Text, 2)
 
-                Dim propina As Double = 0
-                Dim porcpropina As Double = 0
-                Dim totalpropina As Double = 0
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Propina'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        propina = rd1(0).ToString
-                        If propina > 0 Then
-                            porcpropina = propina / 100
-                            totalpropina = CDbl(subtotal) * CDbl(porcpropina)
-                            txtPropina.Text = FormatNumber(totalpropina, 2)
-                            txtResta.Text = FormatNumber(CDbl(lbltotalventa.Text) + CDbl(txtPropina.Text), 2)
-                            lbltotalventa.Text = FormatNumber(txtResta.Text, 2)
-                        End If
+                txttotaldescuento.Text = FormatNumber(subtotal, 2)
+                txttotal.Text = CDbl(txttotaldescuento.Text) + CDbl(txtPropina.Text)
+                txttotal.Text = FormatNumber(txttotal.Text, 2)
+                lbltotalventa.Text = FormatNumber(txttotal.Text, 2)
+                txtResta.Text = FormatNumber(txttotal.Text, 2)
 
-                    End If
-                End If
-                rd1.Close()
-                cnn1.Close()
-
+                txtEfectivo.Text = "0.00"
+                txtPagos.Text = "0.00"
+                grdPagos.Rows.Clear()
+                txtEfectivo.Focus.Equals(True)
             End If
         End If
     End Sub
@@ -582,7 +571,8 @@ Public Class frmNuevoPagarComandas
         grdCaptura.Rows.Clear()
         pCambioMesa.Visible = False
         grdPagos.Rows.Clear()
-        ' TraerUsuario()
+        txttotal.Text = "0.00"
+        txttotaldescuento.Text = "0.00"
 
         cboMesa.Focused.Equals(True)
 
@@ -1385,10 +1375,10 @@ Public Class frmNuevoPagarComandas
 
             Dim mypago As Double = 0
             Dim SLD1 As Double = 0
-            Dim SLD As Double = 0
+            Dim SLD As Double = 80
             Dim myefectivo As Double = 0
 
-            mypago = CDec(txtEfectivo.Text) + CDec(txtPagos.Text) - CDec(txtCambio.Text) - CDec(txtefecporcentaje.Text)
+            mypago = CDec(txtEfectivo.Text) + CDec(txtPagos.Text) - CDec(txtCambio.Text)
             SLD1 = CDbl(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDbl(IIf(txtPagos.Text = 0, 0, txtPagos.Text))
             myefectivo = CDbl(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text))
 
@@ -1496,10 +1486,10 @@ Public Class frmNuevoPagarComandas
             totaliva = FormatNumber(totaliva, 2)
 
             Dim totalventa As Double = 0
-            totalventa = lbltotalventa.Text
+            totalventa = txttotaldescuento.Text
 
             Dim subtotalventa As Double = 0
-            subtotalventa = CDbl(lbltotalventa.Text) - CDbl(totaliva)
+            subtotalventa = CDbl(txttotaldescuento.Text) - CDbl(totaliva)
 
             Dim restaventa As Double = 0
             restaventa = txtResta.Text
@@ -1553,8 +1543,11 @@ Public Class frmNuevoPagarComandas
             cmd3.CommandText = "DELETE FROM VtaImpresion"
             cmd3.ExecuteNonQuery()
 
+            Dim nuevoabono As Double = 0
+            nuevoabono = mypago - CDbl(txtPropina.Text)
+
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Propina,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoCance,Status,Comisionista,Facturado,Concepto,N_Traslado,Corte,CorteU,MontoSinDesc,Cargado,FEntrega,Entrega,Comentario,CantidadE,FolMonedero,CodFactura,IP,Formato,TComensales,MntoCortesia,Franquicia,Fecha) VALUES(" & idcliente & ",'" & nombre & "',''," & subtotalventa & "," & totaliva & "," & totalventa & "," & propinaventa & "," & descuentoventa & ",0," & mypago & "," & restaventa & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0,'" & status & "','" & totalcomisiones & "',0,'',0,0,0," & totalventa & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "',0,'',0,'','" & lic & "','" & dameIP2() & "','TICKET','',0,1,'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+            cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Propina,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,MontoCance,Status,Comisionista,Facturado,Concepto,N_Traslado,Corte,CorteU,MontoSinDesc,Cargado,FEntrega,Entrega,Comentario,CantidadE,FolMonedero,CodFactura,IP,Formato,TComensales,MntoCortesia,Franquicia,Fecha) VALUES(" & idcliente & ",'" & nombre & "',''," & subtotalventa & "," & totaliva & "," & totalventa & "," & propinaventa & "," & descuentoventa & ",0," & nuevoabono & "," & restaventa & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0,'" & status & "','" & totalcomisiones & "',0,'',0,0,0," & totalventa & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "',0,'',0,'','" & lic & "','" & dameIP2() & "','TICKET','',0,1,'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 
@@ -1587,10 +1580,25 @@ Public Class frmNuevoPagarComandas
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
 
+                    Dim nuevomontof As Double = 0
+
+                    If txtPropina.Text > 0 Then
+
+                        If myefectivo > 0 Then
+                            nuevomontof = monto
+                        Else
+                            nuevomontof = monto - CDbl(txtPropina.Text)
+
+                        End If
+
+                    Else
+                        nuevomontof = monto
+                    End If
+
                     If CDbl(monto) > 0 Then
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "INSERT INTO abonoi      (NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargado,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & mypago & "," & SLD & ",'" & formapago & "'," & monto & ",'" & banco & "','" & referencia & "','" & lblUsuario.Text & "','" & coment & "'," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                        cmd1.CommandText = "INSERT INTO abonoi      (NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargado,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevomontof & "," & SLD & ",'" & formapago & "'," & nuevomontof & ",'" & banco & "','" & referencia & "','" & lblUsuario.Text & "','" & coment & "'," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
@@ -1653,16 +1661,45 @@ Public Class frmNuevoPagarComandas
                 cnn2.Close()
             End If
 
-            If CDbl(myefectivo) > 0 Then
-                cnn3.Close() : cnn3.Open()
-                cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "',0," & mypago & "," & SLD & ",'EFECTIVO'," & myefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
-                cmd3.ExecuteNonQuery()
-                cnn3.Close()
+            If myefectivo > 0 Then
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & folioventa
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "UPDATE abonoi SET Propina=0 WHERE NumFolio=" & folioventa & " AND FormaPago<>'EFECTIVO'"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+                    End If
+                End If
+                rd2.Close()
+                cnn2.Close()
             End If
 
+            If CDbl(myefectivo) > 0 Then
 
-            Dim loba As Integer = 0
+                Dim nuevoefectivo As Double = 0
+
+                If CDbl(txtPropina.Text) > CDbl(txtEfectivo.Text) Then
+                    nuevoefectivo = myefectivo
+                Else
+                    nuevoefectivo = (CDbl(myefectivo) - CDbl(txtCambio.Text)) - CDbl(txtPropina.Text)
+                End If
+
+
+
+                cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "',0," & nuevoabono & "," & SLD & ",'EFECTIVO'," & nuevoefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+                End If
+
+
+                Dim loba As Integer = 0
             Dim codigog As String = ""
             Dim descripciong As String = ""
             Dim unidadg As String = ""
@@ -2627,8 +2664,22 @@ Door:
                 e.Graphics.DrawString("TOTAL A PAGAR: " & simbolo & " " & FormatNumber(CDec(lbltotalventa.Text), 2), fuente_a, Brushes.Black, 270, Y, derecha)
                 Y += 25
             Else
+
+                e.Graphics.DrawString("SUBTOTAL: " & simbolo & " " & FormatNumber(lblSubtotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
+
+                If CDec(txtefecporcentaje.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: " & simbolo & " " & FormatNumber(txtefecporcentaje.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: " & simbolo & " " & FormatNumber(txttotaldescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+                End If
+
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: " & simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+                    e.Graphics.DrawString("TOTAL CON PROPINA: " & simbolo & " " & FormatNumber(txttotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                     Y += 20
                 End If
 
@@ -2637,13 +2688,10 @@ Door:
             End If
 
             If CDec(txtEfectivo.Text) Then
-                e.Graphics.DrawString("EFECTIVO" & simbolo & " " & FormatNumber(txtEfectivo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                e.Graphics.DrawString("EFECTIVO: " & simbolo & " " & FormatNumber(txtEfectivo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                 Y += 20
             End If
-            If CDec(txtefecporcentaje.Text) <> 0 Then
-                e.Graphics.DrawString("DESCUENTO: " & simbolo & " " & FormatNumber(txtefecporcentaje.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                Y += 20
-            End If
+
 
             For deku As Integer = 0 To grdPagos.Rows.Count - 1
 
@@ -3331,8 +3379,22 @@ Door:
                 e.Graphics.DrawString("TOTAL A PAGAR: " & simbolo & " " & FormatNumber(CDec(lbltotalventa.Text), 2), fuente_a, Brushes.Black, 180, Y, derecha)
                 Y += 25
             Else
+                e.Graphics.DrawString("SUBTOTAL: " & simbolo & " " & FormatNumber(lblSubtotal.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 20
+
+                If CDec(txtefecporcentaje.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: " & simbolo & " " & FormatNumber(txtefecporcentaje.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: " & simbolo & " " & FormatNumber(txttotaldescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 20
+                End If
+
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: " & simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON PROPINA: " & simbolo & " " & FormatNumber(txttotal.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 20
                 End If
 
@@ -3341,13 +3403,10 @@ Door:
             End If
 
             If CDec(txtEfectivo.Text) Then
-                e.Graphics.DrawString("EFECTIVO" & simbolo & " " & FormatNumber(txtEfectivo.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                e.Graphics.DrawString("EFECTIVO: " & simbolo & " " & FormatNumber(txtEfectivo.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                 Y += 20
             End If
-            If CDec(txtefecporcentaje.Text) <> 0 Then
-                e.Graphics.DrawString("DESCUENTO: " & simbolo & " " & FormatNumber(txtefecporcentaje.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
-                Y += 20
-            End If
+
 
             For deku As Integer = 0 To grdPagos.Rows.Count - 1
 
@@ -3879,7 +3938,8 @@ Door:
         cboComensal.Text = ""
         cboComanda.Text = ""
         grdCaptura.Rows.Clear()
-
+        txttotal.Text = FormatNumber(lblSubtotal.Text, 2)
+        txttotaldescuento.Text = FormatNumber(lblSubtotal.Text, 2)
         lbltotalventa.Text = FormatNumber(lblSubtotal.Text, 2)
         txtResta.Text = FormatNumber(lblSubtotal.Text, 2)
     End Sub
@@ -4258,10 +4318,15 @@ Door:
                 txtPropina.SelectionStart = 0
                 txtPropina.SelectionLength = Len(txtPropina.Text)
             End If
+
+            Dim SUBTOTALCO As Double = IIf(lblSubtotal.Text = 0, 0, lblSubtotal.Text)
+            Dim EFECTIVOCO As Double = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)
+            Dim PAGOSCO As Double = IIf(txtPagos.Text = 0, 0, txtPagos.Text)
+
             If txtPropina.Text = "0" Then
-                MyOpe = CDec(CDec(IIf(lblSubtotal.Text = 0, 0, lblSubtotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtPagos.Text = 0, 0, txtPagos.Text)) - CDec(VarPropa)))
+                MyOpe = CDec(CDec(txttotaldescuento.Text) - (CDec(EFECTIVOCO) + CDec(PAGOSCO)) + CDec(txtPropina.Text))
             Else
-                MyOpe = CDec(CDec(IIf(lblSubtotal.Text = 0, 0, lblSubtotal.Text)) - (CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtPagos.Text = 0, 0, txtPagos.Text)) - CDec(txtPropina.Text)))
+                MyOpe = CDec(CDec(txttotaldescuento.Text) - (CDec(EFECTIVOCO) + CDec(PAGOSCO)) + CDec(txtPropina.Text))
             End If
 
             If MyOpe = 0 Then
@@ -4284,9 +4349,16 @@ Door:
             If CDec(txtResta.Text) = CDec(IIf(lblSubtotal.Text = "", "0", lblSubtotal.Text)) And CDec(txtPropina.Text) = 0 Then
                 lbltotalventa.Text = CDec(IIf(lblSubtotal.Text = "", "0", lblSubtotal.Text))
                 lbltotalventa.Text = FormatNumber(lbltotalventa.Text, 2)
+
+                txttotal.Text = CDbl(txttotaldescuento.Text) + CDbl(txtPropina.Text)
+                txttotal.Text = FormatNumber(txttotal.Text, 2)
+
             Else
-                lbltotalventa.Text = CDec(IIf(lblSubtotal.Text = "", "0", lblSubtotal.Text)) + CDec(txtPropina.Text)
+                lbltotalventa.Text = CDec(IIf(txttotaldescuento.Text = "", "0", txttotaldescuento.Text)) + CDec(txtPropina.Text)
                 lbltotalventa.Text = FormatNumber(lbltotalventa.Text, 2)
+
+                txttotal.Text = CDbl(txttotaldescuento.Text) + CDbl(txtPropina.Text)
+                txttotal.Text = FormatNumber(txttotal.Text, 2)
 
                 tmpCam = 0
 
@@ -4299,8 +4371,16 @@ Door:
                 End If
 
             End If
+            txtEfectivo.Text = "0.00"
+            txtPagos.Text = "0.00"
+            grdPagos.Rows.Clear()
             txtEfectivo.Focus.Equals(True)
+
         End If
 
+    End Sub
+
+    Private Sub txtEfectivo_Enter(sender As Object, e As EventArgs) Handles txtEfectivo.Enter
+        foco = 1
     End Sub
 End Class

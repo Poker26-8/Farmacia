@@ -1,14 +1,20 @@
 ﻿Public Class frmTraspasarProducto
 
     Private filaSeleccionada As New Dictionary(Of Integer, Boolean)()
+
+    Dim fecha As Date = Nothing
+    Dim fechanueva As String = ""
     Private Sub frmTraspasarProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Cantidad,Codigo,Nombre FROM comandas WHERE Nmesa='" & lblOrigen.Text & "'"
+            cmd1.CommandText = "SELECT Cantidad,Codigo,Nombre,Fecha FROM comandas WHERE Nmesa='" & lblOrigen.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
+                    fecha = rd1(3).ToString
+                    fechanueva = Format(fecha, "yyyy-MM-dd")
+
                     grdCaptura.Rows.Add(FormatNumber(rd1(0).ToString, 2),
                                         rd1(1).ToString,
                                         rd1(2).ToString,
@@ -69,5 +75,64 @@
     Private Sub btnDestino_Click(sender As Object, e As EventArgs) Handles btnDestino.Click
         frmTecladoMesas.Show()
         frmTecladoMesas.BringToFront()
+    End Sub
+
+    Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+        If lblDestino.Text = "" Then MsgBox("Debe seleccionar una mesa de destino") : btnDestino.Focus.Equals(True) : Exit Sub
+
+        ' Obtener las filas seleccionadas con color rojo
+        Dim filasSeleccionadas As List(Of DataGridViewRow) = Me.FilasSeleccionadas()
+
+        ' Agregar las filas al otro DataGridView (grdOtro)
+        For Each row As DataGridViewRow In filasSeleccionadas
+            grd2.Rows.Add(row.Cells.Cast(Of DataGridViewCell)().Select(Function(c) c.Value).ToArray())
+        Next
+
+        ' Limpiar las filas seleccionadas en el DataGridView original
+        For Each row As DataGridViewRow In filasSeleccionadas
+            filaSeleccionada(row.Index) = False
+            row.DefaultCellStyle.BackColor = grdCaptura.DefaultCellStyle.BackColor ' Cambiar al color por defecto
+        Next
+
+        ' Eliminar las filas seleccionadas del DataGridView original
+        For Each row As DataGridViewRow In filasSeleccionadas
+            ' Eliminar la fila del DataGridView
+            grdCaptura.Rows.Remove(row)
+            ' Limpiar la selección y restaurar el color de fondo en el diccionario y en la fila
+            filaSeleccionada.Remove(row.Index)
+        Next
+        My.Application.DoEvents()
+
+
+
+        If grd2.Rows.Count > 0 Then
+
+            Try
+
+                For luffy As Integer = 0 To grd2.Rows.Count - 1
+
+                    Dim cod As String = grd2.Rows(luffy).Cells(1).Value.ToString
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "UPDATE comandas SET Nmesa='" & lblDestino.Text & "' WHERE Nmesa='" & lblOrigen.Text & "' AND Codigo='" & cod & "'"
+                    cmd1.ExecuteNonQuery()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "UPDATE rep_comandas SET NMESA='" & lblDestino.Text & "' WHERE NMESA='" & lblOrigen.Text & "' AND Codigo='" & cod & "' AND Fecha='" & fechanueva & "'"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
+                Next
+                MsgBox("Proceso concluido correctamente", vbInformation + vbOKOnly, titulorestaurante)
+                Me.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+
+        Else
+            Exit Sub
+        End If
+
     End Sub
 End Class

@@ -6,6 +6,8 @@ Public Class frmNuevoPagar
     Public contraseñamesero As String = ""
     Public COMENSALES As String = ""
 
+    Dim idborrado As Integer = 0
+
     Dim vercomanda As String = ""
     Dim vercodigo As String = ""
     Dim verdescripcion As String = ""
@@ -120,16 +122,18 @@ Public Class frmNuevoPagar
         txtTotal.Text = CDec(txtSubtotalmapeo.Text)
         txtTotal.Text = FormatNumber(txtTotal.Text, 2)
 
-        txttotalpropina.Text = CDec(txtSubtotalmapeo.Text) + CDec(txtPropina.Text)
+        txttotalpropina.Text = CDec(txtTotal.Text) + CDec(txtPropina.Text)
         txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
 
-        lblTotal.Text = CDec(txtSubtotalmapeo.Text) + CDec(txtPropina.Text)
-        lblTotal.Text = FormatNumber(txtTotal.Text, 2)
+        lblTotal.Text = CDec(txtTotal.Text) + CDec(txtPropina.Text)
+        lblTotal.Text = FormatNumber(lblTotal.Text, 2)
+
+        txtResta.Text = txttotalpropina.Text
+        txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
 
     Private Sub txtTotal_TextChanged(sender As Object, e As EventArgs) Handles txtTotal.TextChanged
-        txtResta.Text = txtTotal.Text
-        txtResta.Text = FormatNumber(txtResta.Text, 2)
+
         Montocobromapeo = FormatNumber(txtTotal.Text, 2)
     End Sub
 
@@ -144,8 +148,13 @@ Public Class frmNuevoPagar
         If Not IsNumeric(txtEfectivo.Text) Then txtEfectivo.Text = "0.00" : Exit Sub
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
+        If idborrado = 0 Then
+            myope = IIf(txttotalpropina.Text = "", 0, txttotalpropina.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0.00, txtpagos.Text)) - txtPropina.Text)
+        Else
+            myope = txttotalpropina.Text
+        End If
 
-        myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0.00, txtpagos.Text)) - txtPropina.Text)
+
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -294,15 +303,18 @@ Public Class frmNuevoPagar
                 grdPagos.Rows.Clear()
             End If
             txtEfectivo.Focus.Equals(True)
+            focomapeo = 1
         End If
     End Sub
 
     Private Sub btnlimpiar_Click(sender As Object, e As EventArgs) Handles btnlimpiar.Click
 
+        idborrado = 1
         txtSubtotalmapeo.Text = FormatNumber(subtotalmapeo, 2)
         txtTotal.Text = FormatNumber(txtSubtotalmapeo.Text, 2)
         txttotalpropina.Text = FormatNumber(txtSubtotalmapeo.Text, 2)
         lblTotal.Text = FormatNumber(txtTotal.Text, 2)
+        txtResta.Text = FormatNumber(txttotalpropina.Text, 2)
 
         txtEfectivo.Text = "0.00"
         txtpagos.Text = "0.00"
@@ -311,6 +323,18 @@ Public Class frmNuevoPagar
         txtCambio.Text = "0.00"
         grdPagos.Rows.Clear()
         txtPropina.Text = "0.00"
+
+        percent_propina = DatosRecarga("Propina")
+
+        If percent_propina > 0 Then
+            propina = CDec(txtSubtotalmapeo.Text) * (percent_propina / 100)
+            txtPropina.Text = FormatNumber(propina, 2)
+            txttotalpropina.Text = CDbl(txtTotal.Text) + CDbl(txtPropina.Text)
+            txtPropina.Text = FormatNumber(txtPropina.Text, 2)
+            txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
+            txtResta.Text = FormatNumber(txttotalpropina.Text, 2)
+            lblTotal.Text = FormatNumber(txttotalpropina.Text, 2)
+        End If
 
 
         cboComensal.Text = ""
@@ -1252,15 +1276,32 @@ Public Class frmNuevoPagar
                     End If
                 End If
 
+
                 If CDec(montopago) > 0 Then
                     Dim nuvmontopago As Double = 0
 
                     If txtPropina.Text > 0 Then
 
                         If txtCambio.Text > 0 Then
-                            nuvmontopago = montopago - txtPropina.Text - txtCambio.Text
+                            If txtEfectivo.Text > 0 Then
+                                nuvmontopago = montopago
+
+                            Else
+                                nuvmontopago = montopago - txtPropina.Text
+                            End If
+
+
                         Else
-                            nuvmontopago = montopago - txtPropina.Text
+
+                            If txtEfectivo.Text > 0 Then
+                                nuvmontopago = montopago
+                                propina = 0
+                            Else
+                                nuvmontopago = montopago - txtPropina.Text
+                            End If
+
+
+
                         End If
 
                     Else
@@ -1272,9 +1313,30 @@ Public Class frmNuevoPagar
                     cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & nuvmontopago & "," & SLD & ",'" & formapago & "'," & txtPropina.Text & "," & nuvmontopago & ",'" & bancoforma & "','" & referencia & "','" & comentario & "','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
                     cmd3.ExecuteNonQuery()
                     cnn3.Close()
+
+                    If txtEfectivo.Text > 0 Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & folio
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                cnn3.Close() : cnn3.Open()
+                                cmd3 = cnn3.CreateCommand
+                                cmd3.CommandText = "UPDATE abonoi SET Propina=0 WHERE NumFolio=" & folio & " AND FormaPago<>'EFECTIVO'"
+                                cmd3.ExecuteNonQuery()
+                                cnn3.Close()
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    End If
+
                 End If
             Next
         End If
+
+
 
         If CDec(txtEfectivo.Text) > 0 Then
 
@@ -1284,6 +1346,9 @@ Public Class frmNuevoPagar
             cmd3.ExecuteNonQuery()
             cnn3.Close()
         End If
+
+
+
 
         Dim existencia_inicial As Double = 0
         Dim opeCantReal As Double = 0
@@ -3548,32 +3613,68 @@ Door:
 
                 End If
 
+                e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(txtSubtotalmapeo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
+
+                If CDec(txtDescuento.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtTotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+                End If
+
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                     Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
                 End If
 
                 e.Graphics.DrawString("TOTAL A PAGAR", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtTotal.Text), 2), fuente_a, Brushes.Black, 270, Y, derecha)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txttotalpropina.Text), 2), fuente_a, Brushes.Black, 270, Y, derecha)
                 Y += 20
 
             Else
 
+                e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(txtSubtotalmapeo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
+
+                If CDec(txtDescuento.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtTotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+                End If
+
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                     Y += 20
                 End If
 
                 If SinNumComensal = 1 Then
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
-                    Y += 20
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+                    Y += 25
                 Else
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
-                    Y += 20
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+                    Y += 25
                 End If
             End If
 
@@ -3583,11 +3684,7 @@ Door:
                 Y += 20
             End If
 
-            If CDec(txtDescuento.Text) <> 0 Then
-                e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                Y += 20
-            End If
+
 
             For deku As Integer = 0 To grdPagos.Rows.Count - 1
 
@@ -4020,31 +4117,66 @@ Door:
 
                 End If
 
+                e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtSubtotalmapeo.Text) - CDec(TotalIVA), 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 15
+
+                If CDec(txtDescuento.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtTotal.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+                End If
+
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 15
+
+                    e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
                 End If
 
                 e.Graphics.DrawString("TOTAL A PAGAR", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtTotal.Text), 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txttotalpropina.Text), 2), fuente_b, Brushes.Black, 180, Y, derecha)
                 Y += 15
 
             Else
+                e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtSubtotalmapeo.Text) - CDec(TotalIVA), 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 15
+
+                If CDec(txtDescuento.Text) <> 0 Then
+                    e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+
+                    e.Graphics.DrawString("TOTAL CON DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txtTotal.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+                End If
 
                 If CDec(txtPropina.Text) <> 0 Then
                     e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    Y += 15
+
+                    e.Graphics.DrawString("TOTAL CON PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 15
                 End If
 
                 If SinNumComensal = 1 Then
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 15
                 Else
                     e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & " " & FormatNumber(totalventa + CDec(propina) - txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                    e.Graphics.DrawString(simbolo & " " & FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 15
                 End If
             End If
@@ -4055,11 +4187,7 @@ Door:
                 Y += 15
             End If
 
-            If CDec(txtDescuento.Text) <> 0 Then
-                e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
-                Y += 15
-            End If
+
 
             For deku As Integer = 0 To grdPagos.Rows.Count - 1
 
@@ -4162,6 +4290,9 @@ Door:
     End Sub
 
     Private Sub txtPropina_Click(sender As Object, e As EventArgs) Handles txtPropina.Click
+        txtPropina.SelectionStart = 0
+        txtPropina.SelectionLength = Len(txtPropina.Text)
+        ' txtPropina.Text = "0.00"
         focomapeo = 3
     End Sub
 
@@ -4234,10 +4365,19 @@ Door:
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "1"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn1.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "1"
@@ -4267,10 +4407,19 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "2"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn2.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "2"
@@ -4300,10 +4449,19 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "3"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn3.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "3"
@@ -4333,9 +4491,18 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "4"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn4.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4366,10 +4533,19 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "5"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn5.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "5"
@@ -4399,9 +4575,17 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "6"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn6.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4432,10 +4616,18 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "7"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn7.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "7"
@@ -4465,9 +4657,17 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "8"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn8.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4498,9 +4698,17 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "9"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn9.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4531,9 +4739,17 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "0"
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn0.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4556,10 +4772,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "20"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "20"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "20"
@@ -4581,10 +4797,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "50"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "50"
@@ -4606,10 +4822,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "100"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "100"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "100"
@@ -4631,10 +4847,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "200"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "200"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "200"
@@ -4656,10 +4872,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "500"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "500"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "500"
@@ -4681,10 +4897,10 @@ Door:
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + "1000"
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "1000"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
             Case Is = 29
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
                 Dim nuevo = monto + "1000"
@@ -4757,7 +4973,7 @@ Door:
                 txtCambio.Text = FormatNumber(txtCambio.Text, 2)
                 txtResta.Text = FormatNumber(txtResta.Text, 2)
                 txtTotal.Text = FormatNumber(txtTotal.Text, 2)
-                lblTotal.Text = FormatNumber(txtTotal.Text, 2)
+                lblTotal.Text = FormatNumber(txttotalpropina.Text, 2)
                 txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
                 tmpCam = 0
 
@@ -4781,6 +4997,7 @@ Door:
     Private Sub txtPorcentaje_TextChanged(sender As Object, e As EventArgs) Handles txtPorcentaje.TextChanged
         If Not IsNumeric(txtPorcentaje.Text) Then txtPorcentaje.Text = "0.00" : Exit Sub
         If Strings.Left(txtPorcentaje.Text, 1) = "," Or Strings.Left(txtPorcentaje.Text, 1) = "." Then Exit Sub
+
 
         Dim VarRes As Double = 0
         Dim VRe As String = ""
@@ -4837,7 +5054,7 @@ Door:
         txtCambio.Text = FormatNumber(txtCambio.Text, 2)
         txtResta.Text = FormatNumber(txtResta.Text, 2)
         txtTotal.Text = FormatNumber(txtTotal.Text, 2)
-        lblTotal.Text = FormatNumber(txtTotal.Text, 2)
+        lblTotal.Text = FormatNumber(txttotalpropina.Text, 2)
         txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
         tmpCam = 0
 
@@ -5431,5 +5648,31 @@ Door:
         End Select
     End Sub
 
+    Private Sub txtPropina_Enter(sender As Object, e As EventArgs) Handles txtPropina.Enter
+        focomapeo = 3
+    End Sub
 
+    Private Sub txtPropina_TextChanged(sender As Object, e As EventArgs) Handles txtPropina.TextChanged
+        If Not IsNumeric(txtPropina.Text) Then txtPropina.Text = "0.00" : Exit Sub
+        If Strings.Left(txtPropina.Text, 1) = "," Or Strings.Left(txtPropina.Text, 1) = "." Then Exit Sub
+    End Sub
+
+    Private Sub btnpunto_Click(sender As Object, e As EventArgs) Handles btnpunto.Click
+
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btnpunto.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+        End Select
+    End Sub
 End Class

@@ -2262,10 +2262,8 @@ Public Class frmCorte2
         txtCobroEmpG.Text = "0.00"
         txtIngresosGlobal.Text = "0.00"
         txtIngEfectivoG.Text = "0.00"
-        txtIngTarjetaG.Text = "0.00"
-        txtIngTransfeG.Text = "0.00"
-        txtIngDepositoG.Text = "0.00"
-        txtIngMonederoG.Text = "0.00"
+
+
         'Egresos
         txtComprasG.Text = "0.00"
         txtPrestamoEmpG.Text = "0.00"
@@ -2456,10 +2454,22 @@ Public Class frmCorte2
             cnn2.Close()
             txtingresosformas.Text = FormatNumber(totalglobal, 2)
 
+            Dim ingresospropinas As Double = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT sum(Propina) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    ingresospropinas = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            txtIngresoPropina.Text = FormatNumber(ingresospropinas, 2)
 
             Dim Ingresos As String = "0"
-            Ingresos = CDec(txtIngEfectivoG.Text) + CDec(txtingresosformas.Text)
-            ' Ingresos = CDec(txtIngEfectivoG.Text) + CDec(txtIngTarjetaG.Text) + CDec(txtIngTransfeG.Text) + CDec(txtIngDepositoG.Text) + CDec(txtIngMonederoG.Text) + CDec(txtIngresosGlobal.Text)
+            Ingresos = CDec(txtIngEfectivoG.Text) + CDec(txtingresosformas.Text) + CDec(txtIngresoPropina.Text)
+
             txtIngresosGlobal.Text = FormatNumber(Ingresos, 2)
             My.Application.DoEvents()
 
@@ -3296,10 +3306,8 @@ Public Class frmCorte2
         txtCobroEmpG.Text = "0.00"
         txtIngresosGlobal.Text = "0.00"
         txtIngEfectivoG.Text = "0.00"
-        txtIngTarjetaG.Text = "0.00"
-        txtIngTransfeG.Text = "0.00"
-        txtIngDepositoG.Text = "0.00"
-        txtIngMonederoG.Text = "0.00"
+
+
         'Egresos
         txtComprasG.Text = "0.00"
         txtPrestamoEmpG.Text = "0.00"
@@ -3329,9 +3337,6 @@ Public Class frmCorte2
         txtingresosformas.Text = "0.00"
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
-
-    End Sub
 
     Private Sub txtSaldoUsuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSaldoUsuario.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then

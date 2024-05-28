@@ -205,7 +205,6 @@ Partial Class frmMesas
         Me.btnagregar.Text = "Trasladar producto"
         Me.btnagregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnagregar.UseVisualStyleBackColor = False
-        Me.btnagregar.Visible = False
         '
         'btncobro
         '

@@ -73,6 +73,8 @@ Partial Class frmCorte2
         Me.txtEgrTransfeG = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtIngresoPropina = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.grdingresosglobal = New System.Windows.Forms.DataGridView()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -89,14 +91,6 @@ Partial Class frmCorte2
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtIngEfectivoG = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.txtIngTarjetaG = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.txtIngTransfeG = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.txtIngDepositoG = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.txtIngMonederoG = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtSaldoGlobal = New System.Windows.Forms.TextBox()
@@ -252,7 +246,7 @@ Partial Class frmCorte2
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(598, 539)
+        Me.TabControl1.Size = New System.Drawing.Size(598, 583)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -262,8 +256,6 @@ Partial Class frmCorte2
         Me.TabPage1.Controls.Add(Me.btnSaldoGlobal)
         Me.TabPage1.Controls.Add(Me.btnCalcularGlobal)
         Me.TabPage1.Controls.Add(Me.btnLimpiarGlobal)
-        Me.TabPage1.Controls.Add(Me.Label33)
-        Me.TabPage1.Controls.Add(Me.DepositoCajaG)
         Me.TabPage1.Controls.Add(Me.Label34)
         Me.TabPage1.Controls.Add(Me.MonederoCajaG)
         Me.TabPage1.Controls.Add(Me.Label36)
@@ -282,7 +274,7 @@ Partial Class frmCorte2
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(590, 513)
+        Me.TabPage1.Size = New System.Drawing.Size(590, 557)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "                      CORTE GLOBAL DEL DÍA                      "
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -290,7 +282,7 @@ Partial Class frmCorte2
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(7, 463)
+        Me.Label31.Location = New System.Drawing.Point(6, 509)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(172, 13)
         Me.Label31.TabIndex = 180
@@ -299,7 +291,7 @@ Partial Class frmCorte2
         'txtegresosforma
         '
         Me.txtegresosforma.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtegresosforma.Location = New System.Drawing.Point(188, 459)
+        Me.txtegresosforma.Location = New System.Drawing.Point(187, 505)
         Me.txtegresosforma.Name = "txtegresosforma"
         Me.txtegresosforma.ReadOnly = True
         Me.txtegresosforma.Size = New System.Drawing.Size(100, 20)
@@ -313,7 +305,7 @@ Partial Class frmCorte2
         Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
         Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoGlobal.Location = New System.Drawing.Point(365, 428)
+        Me.btnSaldoGlobal.Location = New System.Drawing.Point(364, 474)
         Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
         Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnSaldoGlobal.TabIndex = 176
@@ -327,7 +319,7 @@ Partial Class frmCorte2
         Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
         Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcularGlobal.Location = New System.Drawing.Point(439, 428)
+        Me.btnCalcularGlobal.Location = New System.Drawing.Point(438, 474)
         Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
         Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnCalcularGlobal.TabIndex = 175
@@ -341,7 +333,7 @@ Partial Class frmCorte2
         Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
         Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(513, 427)
+        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(512, 473)
         Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
         Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnLimpiarGlobal.TabIndex = 174
@@ -352,7 +344,7 @@ Partial Class frmCorte2
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(14, 539)
+        Me.Label33.Location = New System.Drawing.Point(92, 642)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(72, 13)
         Me.Label33.TabIndex = 173
@@ -362,7 +354,7 @@ Partial Class frmCorte2
         'DepositoCajaG
         '
         Me.DepositoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DepositoCajaG.Location = New System.Drawing.Point(195, 535)
+        Me.DepositoCajaG.Location = New System.Drawing.Point(273, 638)
         Me.DepositoCajaG.Name = "DepositoCajaG"
         Me.DepositoCajaG.ReadOnly = True
         Me.DepositoCajaG.Size = New System.Drawing.Size(100, 20)
@@ -374,7 +366,7 @@ Partial Class frmCorte2
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(96, 488)
+        Me.Label34.Location = New System.Drawing.Point(95, 534)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(80, 13)
         Me.Label34.TabIndex = 171
@@ -384,7 +376,7 @@ Partial Class frmCorte2
         'MonederoCajaG
         '
         Me.MonederoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.MonederoCajaG.Location = New System.Drawing.Point(188, 485)
+        Me.MonederoCajaG.Location = New System.Drawing.Point(187, 531)
         Me.MonederoCajaG.Name = "MonederoCajaG"
         Me.MonederoCajaG.ReadOnly = True
         Me.MonederoCajaG.Size = New System.Drawing.Size(100, 20)
@@ -396,7 +388,7 @@ Partial Class frmCorte2
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(8, 596)
+        Me.Label36.Location = New System.Drawing.Point(4, 642)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(107, 13)
         Me.Label36.TabIndex = 169
@@ -406,7 +398,7 @@ Partial Class frmCorte2
         'TranfeCajaG
         '
         Me.TranfeCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TranfeCajaG.Location = New System.Drawing.Point(195, 593)
+        Me.TranfeCajaG.Location = New System.Drawing.Point(191, 639)
         Me.TranfeCajaG.Name = "TranfeCajaG"
         Me.TranfeCajaG.ReadOnly = True
         Me.TranfeCajaG.Size = New System.Drawing.Size(100, 20)
@@ -418,7 +410,7 @@ Partial Class frmCorte2
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(15, 565)
+        Me.Label37.Location = New System.Drawing.Point(11, 611)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(65, 13)
         Me.Label37.TabIndex = 167
@@ -428,7 +420,7 @@ Partial Class frmCorte2
         'TarjetaCajaG
         '
         Me.TarjetaCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TarjetaCajaG.Location = New System.Drawing.Point(196, 561)
+        Me.TarjetaCajaG.Location = New System.Drawing.Point(192, 607)
         Me.TarjetaCajaG.Name = "TarjetaCajaG"
         Me.TarjetaCajaG.ReadOnly = True
         Me.TarjetaCajaG.Size = New System.Drawing.Size(100, 20)
@@ -440,7 +432,7 @@ Partial Class frmCorte2
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(67, 436)
+        Me.Label14.Location = New System.Drawing.Point(66, 482)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(109, 13)
         Me.Label14.TabIndex = 165
@@ -449,7 +441,7 @@ Partial Class frmCorte2
         'EfectivoCajaG
         '
         Me.EfectivoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.EfectivoCajaG.Location = New System.Drawing.Point(188, 433)
+        Me.EfectivoCajaG.Location = New System.Drawing.Point(187, 479)
         Me.EfectivoCajaG.Name = "EfectivoCajaG"
         Me.EfectivoCajaG.ReadOnly = True
         Me.EfectivoCajaG.Size = New System.Drawing.Size(100, 20)
@@ -462,7 +454,7 @@ Partial Class frmCorte2
         Me.txtSaldoFinalG.BackColor = System.Drawing.SystemColors.HotTrack
         Me.txtSaldoFinalG.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.txtSaldoFinalG.ForeColor = System.Drawing.Color.White
-        Me.txtSaldoFinalG.Location = New System.Drawing.Point(483, 400)
+        Me.txtSaldoFinalG.Location = New System.Drawing.Point(482, 446)
         Me.txtSaldoFinalG.Name = "txtSaldoFinalG"
         Me.txtSaldoFinalG.ReadOnly = True
         Me.txtSaldoFinalG.Size = New System.Drawing.Size(100, 20)
@@ -475,7 +467,7 @@ Partial Class frmCorte2
         Me.Label13.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(9, 400)
+        Me.Label13.Location = New System.Drawing.Point(8, 446)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(470, 21)
         Me.Label13.TabIndex = 162
@@ -513,7 +505,7 @@ Partial Class frmCorte2
         Me.Panel3.Controls.Add(Me.Label30)
         Me.Panel3.Location = New System.Drawing.Point(300, 18)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(287, 379)
+        Me.Panel3.Size = New System.Drawing.Size(287, 422)
         Me.Panel3.TabIndex = 161
         '
         'grdegresosglobal
@@ -801,6 +793,8 @@ Partial Class frmCorte2
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.txtIngresoPropina)
+        Me.Panel2.Controls.Add(Me.Label23)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.grdingresosglobal)
         Me.Panel2.Controls.Add(Me.Label21)
@@ -815,18 +809,30 @@ Partial Class frmCorte2
         Me.Panel2.Controls.Add(Me.Label18)
         Me.Panel2.Controls.Add(Me.txtIngEfectivoG)
         Me.Panel2.Controls.Add(Me.Label20)
-        Me.Panel2.Controls.Add(Me.txtIngTarjetaG)
-        Me.Panel2.Controls.Add(Me.Label22)
-        Me.Panel2.Controls.Add(Me.txtIngTransfeG)
-        Me.Panel2.Controls.Add(Me.Label23)
-        Me.Panel2.Controls.Add(Me.txtIngDepositoG)
-        Me.Panel2.Controls.Add(Me.Label24)
-        Me.Panel2.Controls.Add(Me.txtIngMonederoG)
-        Me.Panel2.Controls.Add(Me.Label25)
         Me.Panel2.Location = New System.Drawing.Point(9, 96)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(287, 301)
+        Me.Panel2.Size = New System.Drawing.Size(287, 344)
         Me.Panel2.TabIndex = 160
+        '
+        'txtIngresoPropina
+        '
+        Me.txtIngresoPropina.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtIngresoPropina.Location = New System.Drawing.Point(181, 195)
+        Me.txtIngresoPropina.Name = "txtIngresoPropina"
+        Me.txtIngresoPropina.ReadOnly = True
+        Me.txtIngresoPropina.Size = New System.Drawing.Size(100, 20)
+        Me.txtIngresoPropina.TabIndex = 179
+        Me.txtIngresoPropina.Text = "0.00"
+        Me.txtIngresoPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(1, 198)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(121, 13)
+        Me.Label23.TabIndex = 180
+        Me.Label23.Text = "INGRESOS PROPINAS"
         '
         'Label4
         '
@@ -847,11 +853,11 @@ Partial Class frmCorte2
         Me.grdingresosglobal.BackgroundColor = System.Drawing.Color.White
         Me.grdingresosglobal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdingresosglobal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4})
-        Me.grdingresosglobal.Location = New System.Drawing.Point(-1, 191)
+        Me.grdingresosglobal.Location = New System.Drawing.Point(2, 221)
         Me.grdingresosglobal.Name = "grdingresosglobal"
         Me.grdingresosglobal.ReadOnly = True
         Me.grdingresosglobal.RowHeadersVisible = False
-        Me.grdingresosglobal.Size = New System.Drawing.Size(279, 105)
+        Me.grdingresosglobal.Size = New System.Drawing.Size(279, 114)
         Me.grdingresosglobal.TabIndex = 1
         '
         'Column3
@@ -990,94 +996,6 @@ Partial Class frmCorte2
         Me.Label20.TabIndex = 115
         Me.Label20.Text = "INGRESOS EFECTIVO:"
         '
-        'txtIngTarjetaG
-        '
-        Me.txtIngTarjetaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngTarjetaG.Location = New System.Drawing.Point(178, 195)
-        Me.txtIngTarjetaG.Name = "txtIngTarjetaG"
-        Me.txtIngTarjetaG.ReadOnly = True
-        Me.txtIngTarjetaG.Size = New System.Drawing.Size(100, 20)
-        Me.txtIngTarjetaG.TabIndex = 118
-        Me.txtIngTarjetaG.Text = "0.00"
-        Me.txtIngTarjetaG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtIngTarjetaG.Visible = False
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(0, 199)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(124, 13)
-        Me.Label22.TabIndex = 119
-        Me.Label22.Text = "INGRESOS TARJETAS:"
-        Me.Label22.Visible = False
-        '
-        'txtIngTransfeG
-        '
-        Me.txtIngTransfeG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngTransfeG.Location = New System.Drawing.Point(178, 219)
-        Me.txtIngTransfeG.Name = "txtIngTransfeG"
-        Me.txtIngTransfeG.ReadOnly = True
-        Me.txtIngTransfeG.Size = New System.Drawing.Size(100, 20)
-        Me.txtIngTransfeG.TabIndex = 120
-        Me.txtIngTransfeG.Text = "0.00"
-        Me.txtIngTransfeG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtIngTransfeG.Visible = False
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(0, 223)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(166, 13)
-        Me.Label23.TabIndex = 121
-        Me.Label23.Text = "INGRESOS TRANSFERENCIAS:"
-        Me.Label23.Visible = False
-        '
-        'txtIngDepositoG
-        '
-        Me.txtIngDepositoG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngDepositoG.Location = New System.Drawing.Point(178, 243)
-        Me.txtIngDepositoG.Name = "txtIngDepositoG"
-        Me.txtIngDepositoG.ReadOnly = True
-        Me.txtIngDepositoG.Size = New System.Drawing.Size(100, 20)
-        Me.txtIngDepositoG.TabIndex = 122
-        Me.txtIngDepositoG.Text = "0.00"
-        Me.txtIngDepositoG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtIngDepositoG.Visible = False
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(0, 247)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(131, 13)
-        Me.Label24.TabIndex = 123
-        Me.Label24.Text = "INGRESOS DEPOSITOS:"
-        Me.Label24.Visible = False
-        '
-        'txtIngMonederoG
-        '
-        Me.txtIngMonederoG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngMonederoG.Location = New System.Drawing.Point(178, 267)
-        Me.txtIngMonederoG.Name = "txtIngMonederoG"
-        Me.txtIngMonederoG.ReadOnly = True
-        Me.txtIngMonederoG.Size = New System.Drawing.Size(100, 20)
-        Me.txtIngMonederoG.TabIndex = 124
-        Me.txtIngMonederoG.Text = "0.00"
-        Me.txtIngMonederoG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtIngMonederoG.Visible = False
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(0, 271)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(139, 13)
-        Me.Label25.TabIndex = 125
-        Me.Label25.Text = "INGRESOS MONEDEROS:"
-        Me.Label25.Visible = False
-        '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1162,7 +1080,7 @@ Partial Class frmCorte2
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(590, 513)
+        Me.TabPage2.Size = New System.Drawing.Size(590, 606)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "                       CORTE POR USUARIO (PERIODO)                       "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -2464,8 +2382,10 @@ Partial Class frmCorte2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(615, 562)
+        Me.ClientSize = New System.Drawing.Size(615, 593)
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.DepositoCajaG)
+        Me.Controls.Add(Me.Label33)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCorte2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -2497,6 +2417,7 @@ Partial Class frmCorte2
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -2640,14 +2561,6 @@ Partial Class frmCorte2
     Friend WithEvents Label18 As Label
     Friend WithEvents txtIngEfectivoG As TextBox
     Friend WithEvents Label20 As Label
-    Friend WithEvents txtIngTarjetaG As TextBox
-    Friend WithEvents Label22 As Label
-    Friend WithEvents txtIngTransfeG As TextBox
-    Friend WithEvents Label23 As Label
-    Friend WithEvents txtIngDepositoG As TextBox
-    Friend WithEvents Label24 As Label
-    Friend WithEvents txtIngMonederoG As TextBox
-    Friend WithEvents Label25 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents txtComprasG As TextBox
     Friend WithEvents Label5 As Label
@@ -2703,4 +2616,6 @@ Partial Class frmCorte2
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents txtIngresoPropina As TextBox
+    Friend WithEvents Label23 As Label
 End Class
