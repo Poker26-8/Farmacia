@@ -82,7 +82,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
-
+            txtPropina.Visible = True
+            lblPropina.Visible = True
             btnImprimir.Visible = False
             With grdCaptura
                 With .Columns(0)
@@ -235,6 +236,8 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+            lblPropina.Visible = False
+            txtPropina.Visible = False
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
@@ -531,6 +534,8 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+            txtPropina.Visible = False
+            lblPropina.Visible = False
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
@@ -645,6 +650,8 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+            txtPropina.Visible = False
+            lblPropina.Visible = False
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
@@ -895,6 +902,8 @@ Public Class frmNuvRepVentas
             txtTotal.Text = "0.00"
             txtAcuenta.Text = "0.00"
             txtResta.Text = "0.00"
+            txtPropina.Visible = False
+            lblPropina.Visible = False
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
@@ -1041,6 +1050,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+            txtPropina.Visible = False
+            lblPropina.Visible = False
 
             btnImprimir.Visible = False
 
@@ -2802,7 +2813,7 @@ Public Class frmNuvRepVentas
                                 End If
 
 
-                                nuevototal = T_Total - CDbl(T_Descuento) + CDbl(T_Propina)
+                                nuevototal = T_Total - CDbl(T_Descuento)
                                 nuevosubtotal = T_Subtotal - CDbl(T_Descuento) + CDbl(T_Propina)
                                 T_Costo = T_Costo + costo
                             End If
@@ -3031,7 +3042,7 @@ Public Class frmNuvRepVentas
                                 T_IEPS = T_IEPS + ieps
                                 T_IVA = T_IVA + Iva
                                 nuevosubtotal = T_Subtotal + propina
-                                nuevototal = T_Total + propina
+                                nuevototal = T_Total
                                 T_Costo = T_Costo + costo
                             End If
                         Loop
