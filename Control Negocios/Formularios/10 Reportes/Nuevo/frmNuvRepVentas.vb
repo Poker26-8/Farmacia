@@ -83,6 +83,7 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
             With grdCaptura
                 With .Columns(0)
                     .HeaderText = "Folio"
@@ -237,6 +238,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+
+            btnImprimir.Visible = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 17
@@ -532,6 +535,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 10
             With grdCaptura
                 With .Columns(0)
@@ -643,6 +648,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+
+            btnImprimir.Visible = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 14
@@ -892,6 +899,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 14
             With grdCaptura
                 With .Columns(0)
@@ -1033,6 +1042,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 14
             With grdCaptura
                 With .Columns(0)
@@ -1173,6 +1184,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+
+            btnImprimir.Visible = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 18
@@ -1483,6 +1496,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 13
             With grdCaptura
                 With .Columns(0)
@@ -1615,6 +1630,7 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+            btnImprimir.Visible = False
 
             grdCaptura.ColumnCount = 8
             With grdCaptura
@@ -1713,6 +1729,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 6
             With grdCaptura
                 With .Columns(0)
@@ -1792,6 +1810,7 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = True
             grdCaptura.ColumnCount = 4
             With grdCaptura
                 With .Columns(0)
@@ -1854,6 +1873,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+
+            btnImprimir.Visible = False
 
             grdCaptura.ColumnCount = 4
             With grdCaptura
@@ -1919,6 +1940,7 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
             grdCaptura.ColumnCount = 11
             With grdCaptura
                 With .Columns(0)
@@ -2036,6 +2058,8 @@ Public Class frmNuvRepVentas
 
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
+
+            btnImprimir.Visible = False
 
             If (Partes) Then
                 grdCaptura.ColumnCount = 17
@@ -4656,6 +4680,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 11
             With grdCaptura
                 With .Columns(0)
@@ -4992,6 +5018,8 @@ Public Class frmNuvRepVentas
             rbComandasCance.Checked = False
             rbCortesias.Checked = False
 
+            btnImprimir.Visible = False
+
             grdCaptura.ColumnCount = 6
             With grdCaptura
                 With .Columns(0)
@@ -5080,5 +5108,95 @@ Public Class frmNuvRepVentas
             End Try
 
         End If
+    End Sub
+
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+
+        Dim impresora As String = ""
+        Dim tama As Integer = 0
+        tama = TamImpre()
+        impresora = ImpresoraImprimir()
+
+        If tama = 80 Then
+            PMasVendido80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+            Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+            PMasVendido80.DefaultPageSettings.PaperSize = ps
+            PMasVendido80.Print()
+        End If
+    End Sub
+
+    Private Sub PMasVendido80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PMasVendido80.PrintPage
+        Try
+
+            Dim tipografia As String = "Lucida Sans Typewriter"
+            Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
+            Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+            Dim fuente_p As New Font("Lucida Sans Typewriter", 9, FontStyle.Regular)
+            Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+
+            Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+            Dim centro As New StringFormat With {.Alignment = StringAlignment.Center}
+            Dim hoja As New Pen(Brushes.Black, 1)
+            Dim Y As Double = 0
+
+            Dim CODIGO As String = ""
+            Dim DESCRIPCION As String = ""
+            Dim UNIDAD As String = ""
+            Dim CANTIDAD As Double = 0
+
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("PRODUCTO MÁS VENDIDO", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("Fecha Inicial: " & Format(dtpinicio.Value, "yyyy/MM/dd"), fuente_r, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("Fecha Final:   " & Format(dtpFin.Value, "yyyy/MM/dd"), fuente_r, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("CODIGO", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("DESCRIPION", fuente_b, Brushes.Black, 65, Y)
+            e.Graphics.DrawString("UNIDAD", fuente_b, Brushes.Black, 205, Y, derecha)
+            e.Graphics.DrawString("CANTIDAD", fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            For LUFFY As Integer = 0 To grdCaptura.Rows.Count - 1
+
+                CODIGO = grdCaptura.Rows(LUFFY).Cells(0).Value.ToString
+                DESCRIPCION = grdCaptura.Rows(LUFFY).Cells(1).Value.ToString
+                UNIDAD = grdCaptura.Rows(LUFFY).Cells(2).Value.ToString
+                CANTIDAD = grdCaptura.Rows(LUFFY).Cells(3).Value.ToString
+
+                e.Graphics.DrawString(CODIGO, New Font("Arial", 8, FontStyle.Regular), Brushes.Black, 1, Y)
+
+                Dim caracteresPorLinea As Integer = 30
+                Dim texto As String = DESCRIPCION
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 65, Y)
+                    Y += 15
+                    inicio += caracteresPorLinea
+                End While
+
+                e.Graphics.DrawString(UNIDAD, fuente_p, Brushes.Black, 215, Y, derecha)
+                e.Graphics.DrawString(FormatNumber(CANTIDAD, 2), fuente_p, Brushes.Black, 270, Y, derecha)
+                Y += 20
+            Next
+            e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

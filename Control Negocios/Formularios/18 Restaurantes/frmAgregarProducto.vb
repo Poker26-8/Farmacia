@@ -2770,22 +2770,29 @@ deku:
                 If impresoracomanda = "" Then
                 Else
                     If tamimpre = 80 Then
-                        PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PComanda80.Print()
+                        If PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda Then
+                            PComanda80.Print()
+                        Else
+                            GoTo SAFO
+                        End If
                     End If
 
                     If tamimpre = 58 Then
-                        PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PComanda58.Print()
+                        If PComanda58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda Then
+                            PComanda58.Print()
+                        Else
+                            GoTo SAFO
+                        End If
+
                     End If
-                End If
+                    End If
 
             End If
         Loop
         rd4.Close()
         cnn4.Close()
         cnn3.Close()
-
+SAFO:
         '  BanderaIvaDescuento = 0
         btnnuevo.PerformClick()
         lblFolio.Text = MyFolio

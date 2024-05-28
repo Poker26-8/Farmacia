@@ -35,6 +35,7 @@ Partial Class frmNuevoPagarComandas
         Me.btn50 = New System.Windows.Forms.Button()
         Me.btn20 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btnPunto = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.BTNC0 = New System.Windows.Forms.Button()
@@ -92,6 +93,10 @@ Partial Class frmNuevoPagarComandas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.txttotaldescuento = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.lblSubtotal = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -162,10 +167,6 @@ Partial Class frmNuevoPagarComandas
         Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.txttotaldescuento = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.txttotal = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -210,9 +211,9 @@ Partial Class frmNuevoPagarComandas
         Me.Panel8.Controls.Add(Me.btn50)
         Me.Panel8.Controls.Add(Me.btn20)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel8.Location = New System.Drawing.Point(0, 247)
+        Me.Panel8.Location = New System.Drawing.Point(0, 299)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(267, 247)
+        Me.Panel8.Size = New System.Drawing.Size(267, 195)
         Me.Panel8.TabIndex = 68
         '
         'btn1000
@@ -284,6 +285,7 @@ Partial Class frmNuevoPagarComandas
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.btnPunto)
         Me.Panel5.Controls.Add(Me.Button1)
         Me.Panel5.Controls.Add(Me.btn0)
         Me.Panel5.Controls.Add(Me.BTNC0)
@@ -299,8 +301,21 @@ Partial Class frmNuevoPagarComandas
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(267, 247)
+        Me.Panel5.Size = New System.Drawing.Size(267, 299)
         Me.Panel5.TabIndex = 1
+        '
+        'btnPunto
+        '
+        Me.btnPunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnPunto.FlatAppearance.BorderSize = 0
+        Me.btnPunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPunto.Location = New System.Drawing.Point(92, 242)
+        Me.btnPunto.Name = "btnPunto"
+        Me.btnPunto.Size = New System.Drawing.Size(81, 54)
+        Me.btnPunto.TabIndex = 90
+        Me.btnPunto.Text = "."
+        Me.btnPunto.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -1003,6 +1018,50 @@ Partial Class frmNuevoPagarComandas
         Me.Panel13.Size = New System.Drawing.Size(342, 288)
         Me.Panel13.TabIndex = 64
         '
+        'txttotal
+        '
+        Me.txttotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
+        Me.txttotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotal.Location = New System.Drawing.Point(160, 111)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.Size = New System.Drawing.Size(95, 29)
+        Me.txttotal.TabIndex = 32
+        Me.txttotal.Text = "0.00"
+        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label33
+        '
+        Me.Label33.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(6, 111)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(148, 29)
+        Me.Label33.TabIndex = 31
+        Me.Label33.Text = "Total con propina:"
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txttotaldescuento
+        '
+        Me.txttotaldescuento.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
+        Me.txttotaldescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotaldescuento.Location = New System.Drawing.Point(159, 43)
+        Me.txttotaldescuento.Name = "txttotaldescuento"
+        Me.txttotaldescuento.Size = New System.Drawing.Size(96, 29)
+        Me.txttotaldescuento.TabIndex = 30
+        Me.txttotaldescuento.Text = "0.00"
+        Me.txttotaldescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label32
+        '
+        Me.Label32.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(7, 43)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(147, 29)
+        Me.Label32.TabIndex = 29
+        Me.Label32.Text = "Total a pagar:"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'lblSubtotal
         '
         Me.lblSubtotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
@@ -1653,50 +1712,6 @@ Partial Class frmNuevoPagarComandas
         'PCortesia58
         '
         '
-        'Label32
-        '
-        Me.Label32.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(7, 43)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(147, 29)
-        Me.Label32.TabIndex = 29
-        Me.Label32.Text = "Total a pagar:"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txttotaldescuento
-        '
-        Me.txttotaldescuento.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.txttotaldescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotaldescuento.Location = New System.Drawing.Point(159, 43)
-        Me.txttotaldescuento.Name = "txttotaldescuento"
-        Me.txttotaldescuento.Size = New System.Drawing.Size(96, 29)
-        Me.txttotaldescuento.TabIndex = 30
-        Me.txttotaldescuento.Text = "0.00"
-        Me.txttotaldescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label33
-        '
-        Me.Label33.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(6, 111)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(148, 29)
-        Me.Label33.TabIndex = 31
-        Me.Label33.Text = "Total con propina:"
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txttotal
-        '
-        Me.txttotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.txttotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotal.Location = New System.Drawing.Point(160, 111)
-        Me.txttotal.Name = "txttotal"
-        Me.txttotal.Size = New System.Drawing.Size(95, 29)
-        Me.txttotal.TabIndex = 32
-        Me.txttotal.Text = "0.00"
-        Me.txttotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'frmNuevoPagarComandas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1883,4 +1898,5 @@ Partial Class frmNuevoPagarComandas
     Friend WithEvents Label32 As Label
     Friend WithEvents txttotal As TextBox
     Friend WithEvents Label33 As Label
+    Friend WithEvents btnPunto As Button
 End Class

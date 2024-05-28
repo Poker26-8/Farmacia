@@ -108,6 +108,11 @@
         If grd2.Rows.Count > 0 Then
 
             Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO comanda1(Folio,IdCliente,Nombre,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,TComensales) VALUES(0,0,'" & lblDestino.Text & "','',0,0,0,0,0,0,0,'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',1)"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
 
                 For luffy As Integer = 0 To grd2.Rows.Count - 1
 

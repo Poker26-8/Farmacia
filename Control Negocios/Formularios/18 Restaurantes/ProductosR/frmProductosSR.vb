@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class frmProductosSR
 
     Dim buscar As String = ""
@@ -130,101 +131,6 @@ Public Class frmProductosSR
     Private Sub cboCodCorto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCodCorto.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-
-            'Dim modoalmacen As Integer = 0
-
-            'grdextras.Rows.Clear()
-            'grdpreferencia.Rows.Clear()
-            'grdpromociones.Rows.Clear()
-            'txtcantidadpromo.Text = "0"
-
-            'cnn4.Close() : cnn4.Open()
-            'cmd4 = cnn4.CreateCommand
-            'cmd4.CommandText = "SELECT Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,CodBarra,ProvRes,Modo_Almacen FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
-            'rd4 = cmd4.ExecuteReader
-            'If rd4.HasRows Then
-            '    If rd4.Read Then
-
-            '        cboDescripcion.Text = rd4(0).ToString
-            '        cboIva.Text = rd4(1).ToString
-            '        txtUnidad.Text = rd4(2).ToString
-            '        txtPrecioCompra.Text = rd4(3).ToString
-            '        txtPrecioLocal.Text = rd4(4).ToString
-            '        txtPrecioDomicilio.Text = rd4(5).ToString
-            '        cboProveedores.Text = rd4(6).ToString
-            '        cboDepartamento.Text = rd4(7).ToString
-            '        cboGrupo.Text = rd4(8).ToString
-            '        cboComanda.Text = rd4(9).ToString
-            '        txtExistencia.Text = rd4(10).ToString
-            '        txtCodBarras.Text = rd4(11).ToString
-            '        chkKit.Checked = IIf(rd4(12).ToString = "", 1, 0)
-            '        modoalmacen = rd4(13).ToString
-
-            '        If modoalmacen = 1 Then
-            '            rboDescIngredientes.Checked = True
-            '        Else
-            '            rboDescProductos.Checked = True
-            '        End If
-
-            '    End If
-            'End If
-            'rd4.Close()
-
-            'cmd4 = cnn4.CreateCommand
-            'cmd4.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
-            'rd4 = cmd4.ExecuteReader
-            'Do While rd4.Read
-            '    If rd4.HasRows Then
-
-            '        grdpreferencia.Rows.Add(rd4("NombrePrefe").ToString)
-
-            '    End If
-            'Loop
-            'rd4.Close()
-
-            'cmd4 = cnn4.CreateCommand
-            'cmd4.CommandText = "SELECT Codigo,Descx FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
-            'rd4 = cmd4.ExecuteReader
-            'Do While rd4.Read
-            '    If rd4.HasRows Then
-            '        grdextras.Rows.Add(rd4(0).ToString, rd4(1).ToString)
-            '    End If
-            'Loop
-            'rd4.Close()
-
-            'cmd4 = cnn4.CreateCommand
-            'cmd4.CommandText = "SELECT F44 FROM productos WHERE Codigo='" & cboCodCorto.Text & "'"
-            'rd4 = cmd4.ExecuteReader
-            'If rd4.HasRows Then
-            '    If rd4.Read Then
-            '        txtcantidadpromo.Text = rd4(0).ToString
-            '    End If
-            'End If
-            'rd4.Close()
-
-            'cmd4 = cnn4.CreateCommand
-            'cmd4.CommandText = "SELECT Codigo,Descx FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
-            'rd4 = cmd4.ExecuteReader
-            'Do While rd4.Read
-            '    If rd4.HasRows Then
-            '        grdpromociones.Rows.Add(rd4(0).ToString, rd4(1).ToString)
-            '    End If
-            'Loop
-            'rd4.Close()
-            'cnn4.Close()
-
-
-            'If servidor <> "" Then
-
-            '    If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-            '        PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
-            '    End If
-            'Else
-            '    If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-            '        PictureBox1.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
-            '    End If
-            'End If
-
             TraerDatos2("CODIGO")
 
             cboDescripcion.Focus.Equals(True)
@@ -1147,11 +1053,96 @@ nopasowey:
 
     Private Sub cboCodCorto_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodCorto.SelectedValueChanged
 
-        If cboCodCorto.Text = "" Then
+        Try
+            grdextras.Rows.Clear()
+            grdpreferencia.Rows.Clear()
+            grdpromociones.Rows.Clear()
+            txtcantidadpromo.Text = "0"
 
-        Else
-            TraerDatos2("CODIGO")
-        End If
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+
+                    cboCodCorto.Text = rd3("Codigo").ToString
+                    cboDescripcion.Text = rd3("Nombre").ToString
+                    cboIva.Text = rd3("IVA").ToString
+                    txtUnidad.Text = rd3("UCompra").ToString
+                    txtPrecioCompra.Text = rd3("PrecioCompra").ToString
+                    txtPrecioLocal.Text = rd3("precioVentaIVA").ToString
+                    txtPrecioDomicilio.Text = rd3("PrecioDomicilioIVA").ToString
+                    cboProveedores.Text = rd3("ProvPri").ToString
+                    cboDepartamento.Text = rd3("Departamento").ToString
+                    cboGrupo.Text = rd3("Grupo").ToString
+                    cboComanda.Text = rd3("GPrint").ToString
+                    txtExistencia.Text = rd3("Existencia").ToString
+                End If
+            End If
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+
+                    grdpreferencia.Rows.Add(rd3("NombrePrefe").ToString)
+
+                End If
+            Loop
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Codigo,Descx FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdextras.Rows.Add(rd3(0).ToString, rd3(1).ToString)
+                End If
+            Loop
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT F44 FROM productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    txtcantidadpromo.Text = rd3(0).ToString
+                End If
+            End If
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Codigo,Descx FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdpromociones.Rows.Add(rd3(0).ToString, rd3(1).ToString)
+                End If
+            Loop
+            rd3.Close()
+
+            If servidor <> "" Then
+
+                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                End If
+            Else
+                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                End If
+            End If
+            cnn3.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+
+
 
     End Sub
 

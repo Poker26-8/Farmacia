@@ -1133,7 +1133,115 @@ Public Class frmProductosDR
     End Sub
 
     Private Sub cboCodCortoNormal_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodCortoNormal.SelectedValueChanged
-        TraeDatos2("CODIGO")
+
+        Try
+
+            grdpreferencia.Rows.Clear()
+            grdextras.Rows.Clear()
+            grdpromociones.Rows.Clear()
+
+            Dim modo_almacen As Integer = 0
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+
+                    txtCodBarrasNormal.Text = rd3("CodBarra").ToString
+                    cboCodCortoNormal.Text = rd3("Codigo").ToString
+                    cboDescripcionTicketNormal.Text = rd3("Nombre").ToString
+                    cboIvaNormal.Text = rd3("IVA").ToString
+                    txtCompra.Text = rd3("UCompra").ToString
+                    txtVentaActual.Text = rd3("UVenta").ToString
+                    txtVentaMinima.Text = rd3("UMinima").ToString
+                    txtUcompra.Text = rd3("MCD").ToString
+                    txtUVenta.Text = rd3("Multiplo").ToString
+                    txtMinAlmacen.Text = rd3("Min").ToString
+                    txtMaxAlmacen.Text = rd3("Max").ToString
+                    txtComision.Text = rd3("Comision").ToString
+                    cboProveedoresNormal.Text = rd3("ProvPri").ToString
+                    cboProvEme.Text = rd3("ProvEme").ToString
+                    cboDepartamentoNormal.Text = rd3("Departamento").ToString
+                    cboGrupoNormal.Text = rd3("Grupo").ToString
+                    cboImprimirComandaNormal.Text = rd3("GPrint").ToString
+                    cboUbicacion.Text = rd3("Ubicacion").ToString
+                    modo_almacen = rd3("Modo_Almacen").ToString
+
+                    If modo_almacen = 1 Then
+                        rboDescIngredientes.Checked = True
+                    Else
+                        rboDescProductos.Checked = False
+                    End If
+
+                    txtmilitros.Text = rd3("Mililitros").ToString
+                    txtcopas.Text = rd3("Copas").ToString
+
+                End If
+            End If
+            rd3.Close()
+
+            My.Application.DoEvents()
+            If servidor <> "" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                End If
+            Else
+                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                End If
+            End If
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+
+                    grdpreferencia.Rows.Add(rd3("NombrePrefe").ToString)
+
+                End If
+            Loop
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdextras.Rows.Add(rd3("Codigo").ToString, rd3("Descx").ToString)
+                End If
+            Loop
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM promociones WHERE CodigoAlpha='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            Do While rd3.Read
+                If rd3.HasRows Then
+                    grdpromociones.Rows.Add(rd3("Codigo").ToString, rd3("Descx").ToString)
+                End If
+            Loop
+            rd3.Close()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodCortoNormal.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    txtcantidadpromo.Text = rd3("F44").ToString
+                End If
+            End If
+            rd3.Close()
+            cnn3.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+
+
     End Sub
 
     Private Sub txtmilitros_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtmilitros.KeyPress

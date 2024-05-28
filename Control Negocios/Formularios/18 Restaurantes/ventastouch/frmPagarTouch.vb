@@ -670,6 +670,8 @@
     End Sub
 
     Private Sub txtPropina_Click(sender As Object, e As EventArgs) Handles txtPropina.Click
+        txtPropina.SelectionStart = 0
+        txtPropina.SelectionLength = Len(txtPropina.Text)
         focomapeo = 3
     End Sub
 
@@ -698,14 +700,6 @@
         Select Case focomapeo
 
             Case Is = 1 'efectivo
-                ' txtEfectivo.Text = txtEfectivo.Text + btn1.Text
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn1.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
-
-
-                '_______
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
                 txtEfectivo.Text = PosCad(txtEfectivo.Text, btn1.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
@@ -717,14 +711,6 @@
                 End If
 
                 txtEfectivo.SelectionStart = NewPos
-
-                'frmVtasTouch.montoEfectivo = txtEfectivo.Text
-                'frmVtasTouch.lblImporteEfectivo.Caption = Format(txtEfectivo.Text, 2)
-                'frmVtasTouch.ActualizarImportes
-
-                'Resta.text = frmVtasTouch.lblCambio
-                'txtResta.Text = frmVtasTouch.lblRestaPagar.Caption
-
             Case Is = 2 'descuento
 
                 Dim MONTO As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
@@ -732,10 +718,20 @@
                 txtDescuento.Text = FormatNumber(NUEVO, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn1.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn1.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
+
 
         End Select
     End Sub
@@ -743,12 +739,6 @@
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn2.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
-
-                '  ____
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
                 txtEfectivo.Text = PosCad(txtEfectivo.Text, btn2.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
@@ -766,20 +756,24 @@
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn2.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn2.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
         End Select
     End Sub
 
     Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn3.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -800,22 +794,25 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn3.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
-                txtPropina.Focus.Equals(True)
 
+                txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn3.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
         End Select
     End Sub
 
     Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn4.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
-                '_______________
+
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
                 txtEfectivo.Text = PosCad(txtEfectivo.Text, btn4.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
@@ -834,20 +831,24 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn4.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn4.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
         End Select
     End Sub
 
     Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn5.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -866,20 +867,24 @@
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn5.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn5.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
         End Select
     End Sub
 
     Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn6.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -899,20 +904,25 @@
                 txtDescuento.Text = FormatNumber(nuevo, 2)
                 txtDescuento.Focus.Equals(True)
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn6.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn6.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+
         End Select
     End Sub
 
     Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn7.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -933,10 +943,18 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn7.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn7.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -944,10 +962,6 @@
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn8.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -967,10 +981,17 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn8.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn8.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -978,10 +999,6 @@
     Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn9.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -1002,10 +1019,18 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn9.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn9.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -1029,18 +1054,25 @@
             Case Is = 2 'descuento
                 txtDescuento.Text = txtDescuento.Text + btnPunto.Text
             Case Is = 3 'propina
-                txtPropina.Text = txtPropina.Text + btnPunto.Text
+
+                txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btnPunto.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+
         End Select
     End Sub
 
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         Select Case focomapeo
             Case Is = 1 'efectivo
-                'Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
-                'Dim nuevo = monto + btn0.Text
-                'txtEfectivo.Text = FormatNumber(nuevo, 2)
-                'txtEfectivo.Focus.Equals(True)
-
 
                 txtEfectivo.Focus.Equals(True)
                 NewPos = txtEfectivo.SelectionStart
@@ -1061,10 +1093,18 @@
                 txtDescuento.Focus.Equals(True)
 
             Case Is = 3 'propina
-                Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim nuevo = monto + btn0.Text
-                txtPropina.Text = FormatNumber(nuevo, 2)
+
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn0.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
         End Select
     End Sub

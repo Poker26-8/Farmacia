@@ -184,7 +184,7 @@ Partial Class frmProductosDR
         Me.btnSalirNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalirNormal.Image = CType(resources.GetObject("btnSalirNormal.Image"), System.Drawing.Image)
         Me.btnSalirNormal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalirNormal.Location = New System.Drawing.Point(618, 358)
+        Me.btnSalirNormal.Location = New System.Drawing.Point(689, 358)
         Me.btnSalirNormal.Name = "btnSalirNormal"
         Me.btnSalirNormal.Size = New System.Drawing.Size(65, 67)
         Me.btnSalirNormal.TabIndex = 326
@@ -214,7 +214,7 @@ Partial Class frmProductosDR
         Me.btnEliminarNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarNormal.Image = CType(resources.GetObject("btnEliminarNormal.Image"), System.Drawing.Image)
         Me.btnEliminarNormal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminarNormal.Location = New System.Drawing.Point(689, 358)
+        Me.btnEliminarNormal.Location = New System.Drawing.Point(618, 358)
         Me.btnEliminarNormal.Name = "btnEliminarNormal"
         Me.btnEliminarNormal.Size = New System.Drawing.Size(65, 67)
         Me.btnEliminarNormal.TabIndex = 324

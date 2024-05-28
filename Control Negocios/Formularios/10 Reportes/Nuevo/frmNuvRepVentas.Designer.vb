@@ -23,9 +23,9 @@ Partial Class frmNuvRepVentas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvRepVentas))
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -87,12 +87,13 @@ Partial Class frmNuvRepVentas
         Me.mcHasta = New System.Windows.Forms.MonthCalendar()
         Me.dtpFin = New System.Windows.Forms.DateTimePicker()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.barcarga = New System.Windows.Forms.ProgressBar()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.boxcantidad = New System.Windows.Forms.GroupBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.TextBox()
+        Me.barcarga = New System.Windows.Forms.ProgressBar()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.PMasVendido80 = New System.Drawing.Printing.PrintDocument()
         Me.Panel2.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -102,8 +103,8 @@ Partial Class frmNuvRepVentas
         Me.TabPage2.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.boxcantidad.SuspendLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -150,9 +151,9 @@ Partial Class frmNuvRepVentas
         Me.Panel7.Controls.Add(Me.txtTotal)
         Me.Panel7.Controls.Add(Me.lblTotal)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(302, 0)
+        Me.Panel7.Location = New System.Drawing.Point(303, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(749, 166)
+        Me.Panel7.Size = New System.Drawing.Size(748, 166)
         Me.Panel7.TabIndex = 17
         '
         'txtAcuenta
@@ -819,48 +820,6 @@ Partial Class frmNuvRepVentas
         Me.Panel4.Size = New System.Drawing.Size(1051, 273)
         Me.Panel4.TabIndex = 3
         '
-        'barcarga
-        '
-        Me.barcarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.barcarga.Location = New System.Drawing.Point(0, 277)
-        Me.barcarga.Name = "barcarga"
-        Me.barcarga.Size = New System.Drawing.Size(1048, 20)
-        Me.barcarga.TabIndex = 206
-        Me.barcarga.Visible = False
-        '
-        'grdCaptura
-        '
-        Me.grdCaptura.AllowUserToAddRows = False
-        Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
-        Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
-        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle15
-        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
-        Me.grdCaptura.Name = "grdCaptura"
-        Me.grdCaptura.ReadOnly = True
-        Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(1051, 273)
-        Me.grdCaptura.TabIndex = 0
-        '
         'boxcantidad
         '
         Me.boxcantidad.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -901,6 +860,51 @@ Partial Class frmNuvRepVentas
         Me.txtcantidad.TabIndex = 0
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'barcarga
+        '
+        Me.barcarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.barcarga.Location = New System.Drawing.Point(0, 277)
+        Me.barcarga.Name = "barcarga"
+        Me.barcarga.Size = New System.Drawing.Size(1048, 20)
+        Me.barcarga.TabIndex = 206
+        Me.barcarga.Visible = False
+        '
+        'grdCaptura
+        '
+        Me.grdCaptura.AllowUserToAddRows = False
+        Me.grdCaptura.AllowUserToDeleteRows = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle6
+        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
+        Me.grdCaptura.Name = "grdCaptura"
+        Me.grdCaptura.ReadOnly = True
+        Me.grdCaptura.RowHeadersVisible = False
+        Me.grdCaptura.Size = New System.Drawing.Size(1051, 273)
+        Me.grdCaptura.TabIndex = 0
+        '
+        'PMasVendido80
+        '
+        '
         'frmNuvRepVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -927,9 +931,9 @@ Partial Class frmNuvRepVentas
         Me.TabPage2.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.boxcantidad.ResumeLayout(False)
         Me.boxcantidad.PerformLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1001,4 +1005,5 @@ Partial Class frmNuvRepVentas
     Friend WithEvents txtnombre As TextBox
     Friend WithEvents txtcodigo As TextBox
     Friend WithEvents txtcantidad As TextBox
+    Friend WithEvents PMasVendido80 As Printing.PrintDocument
 End Class

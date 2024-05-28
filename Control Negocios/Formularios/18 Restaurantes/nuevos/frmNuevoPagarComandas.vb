@@ -3982,10 +3982,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn1.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn1.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4014,10 +4021,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn0.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn0.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4046,10 +4060,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn2.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn2.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4078,10 +4099,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn3.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn3.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4110,10 +4138,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn4.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn4.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4142,10 +4177,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn5.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn5.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4238,10 +4280,17 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn8.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn8.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4270,10 +4319,18 @@ Door:
 
             Case Is = 2 'PROPINA
 
-                Dim MONTO As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
-                Dim NUEVO = MONTO + btn9.Text
-                txtPropina.Text = FormatNumber(NUEVO, 2)
                 txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn9.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+
 
             Case Is = 3 'DESCUENTO
                 Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
@@ -4284,6 +4341,45 @@ Door:
         End Select
     End Sub
 
+    Private Sub btnPunto_Click(sender As Object, e As EventArgs) Handles btnPunto.Click
+        Select Case foco
+
+            Case Is = 1 'efectivo
+                txtEfectivo.Focus.Equals(True)
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btnPunto.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+
+            Case Is = 2 'PROPINA
+
+                txtPropina.Focus.Equals(True)
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btnPunto.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+
+
+            Case Is = 3 'DESCUENTO
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + btnPunto.Text
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+        End Select
+    End Sub
     Private Sub txtPropina_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPropina.KeyPress
 
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -4383,4 +4479,6 @@ Door:
     Private Sub txtEfectivo_Enter(sender As Object, e As EventArgs) Handles txtEfectivo.Enter
         foco = 1
     End Sub
+
+
 End Class

@@ -925,9 +925,6 @@ Public Class frmNuevoPagar
 
         End If
 
-
-
-
         Dim myidcliente As Integer = 0
 
         If MsgBox("¿Desea guardar los datos de esta venta?", vbQuestion + vbYesNo + vbDefaultButton1) = vbNo Then
@@ -3512,7 +3509,7 @@ Door:
                             If rd3.HasRows Then
                                 conta = conta
                                 contband = contband + 1
-
+                                Y += 20
                                 If comen_sal <> rd3("Comensal").ToString Then
                                     e.Graphics.DrawString("Detalle Comensal:", fuente_b, Brushes.Black, 1, Y)
                                     e.Graphics.DrawString(rd3("Comensal").ToString, fuente_b, Brushes.Black, 120, Y)
@@ -5673,6 +5670,25 @@ Door:
 
                 txtEfectivo.SelectionStart = NewPos
                 txtEfectivo.Focus.Equals(True)
+
+            Case Is = 3
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btnpunto.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
         End Select
+    End Sub
+
+    Private Sub frmNuevoPagar_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.Control AndAlso e.KeyCode = Keys.F2 Then
+            btnIntro.PerformClick()
+        End If
     End Sub
 End Class

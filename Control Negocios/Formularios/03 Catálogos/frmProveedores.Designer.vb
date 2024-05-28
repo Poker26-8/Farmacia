@@ -493,7 +493,6 @@ Partial Class frmProveedores
         '
         'barsube
         '
-        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.barsube.Location = New System.Drawing.Point(43, 181)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 19)
@@ -501,7 +500,6 @@ Partial Class frmProveedores
         '
         'btnImportar
         '
-        Me.btnImportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnImportar.BackColor = System.Drawing.Color.White
         Me.btnImportar.BackgroundImage = CType(resources.GetObject("btnImportar.BackgroundImage"), System.Drawing.Image)
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
