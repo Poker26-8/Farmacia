@@ -1052,7 +1052,6 @@ Partial Class frmProductosS
         Me.Button4.TabIndex = 256
         Me.Button4.Text = "Lotes y caducidades"
         Me.Button4.UseVisualStyleBackColor = False
-        Me.Button4.Visible = False
         '
         'frmProductosS
         '

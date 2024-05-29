@@ -9069,6 +9069,16 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+                Dim lote As String = ""
+                Dim caducidad As Date = Date.Now
+                Dim fechacaducidad As String = ""
+                If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
+                Else
+                    lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+                    caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
+                    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
+                End If
+
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
@@ -9079,6 +9089,12 @@ ecomoda:
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
                 e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 15
+                If lote = "" Then
+                Else
+                    e.Graphics.DrawString("Lote: " & lote, fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 280, Y, sf)
+                End If
                 Y += 21
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
