@@ -90,6 +90,13 @@ Partial Class frmProductosSR
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grdsql = New System.Windows.Forms.DataGridView()
         Me.btnMigrar = New System.Windows.Forms.Button()
+        Me.box_tienda = New System.Windows.Forms.GroupBox()
+        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
+        Me.txt_resumen = New System.Windows.Forms.TextBox()
+        Me.btn_tienda = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
@@ -100,6 +107,7 @@ Partial Class frmProductosSR
         Me.TabPage5.SuspendLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdsql, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.box_tienda.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label17
@@ -863,12 +871,96 @@ Partial Class frmProductosSR
         Me.btnMigrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnMigrar.UseVisualStyleBackColor = False
         '
+        'box_tienda
+        '
+        Me.box_tienda.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.box_tienda.Controls.Add(Me.btn_guardar)
+        Me.box_tienda.Controls.Add(Me.Label28)
+        Me.box_tienda.Controls.Add(Me.Label20)
+        Me.box_tienda.Controls.Add(Me.txt_descripcion)
+        Me.box_tienda.Controls.Add(Me.txt_resumen)
+        Me.box_tienda.Location = New System.Drawing.Point(108, 219)
+        Me.box_tienda.Name = "box_tienda"
+        Me.box_tienda.Size = New System.Drawing.Size(633, 122)
+        Me.box_tienda.TabIndex = 255
+        Me.box_tienda.TabStop = False
+        Me.box_tienda.Text = "Datos tienda en linea"
+        Me.box_tienda.Visible = False
+        '
+        'btn_guardar
+        '
+        Me.btn_guardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_guardar.BackColor = System.Drawing.Color.White
+        Me.btn_guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_guardar.Location = New System.Drawing.Point(9, 86)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(114, 26)
+        Me.btn_guardar.TabIndex = 253
+        Me.btn_guardar.Text = "Guardar"
+        Me.btn_guardar.UseVisualStyleBackColor = False
+        '
+        'Label28
+        '
+        Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(6, 45)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(111, 13)
+        Me.Label28.TabIndex = 251
+        Me.Label28.Text = "Descripción producto:"
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(6, 20)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(100, 13)
+        Me.Label20.TabIndex = 250
+        Me.Label20.Text = "Resumen producto:"
+        '
+        'txt_descripcion
+        '
+        Me.txt_descripcion.Location = New System.Drawing.Point(134, 46)
+        Me.txt_descripcion.Name = "txt_descripcion"
+        Me.txt_descripcion.Size = New System.Drawing.Size(493, 66)
+        Me.txt_descripcion.TabIndex = 1
+        Me.txt_descripcion.Text = ""
+        '
+        'txt_resumen
+        '
+        Me.txt_resumen.Location = New System.Drawing.Point(134, 17)
+        Me.txt_resumen.Name = "txt_resumen"
+        Me.txt_resumen.Size = New System.Drawing.Size(493, 20)
+        Me.txt_resumen.TabIndex = 0
+        '
+        'btn_tienda
+        '
+        Me.btn_tienda.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btn_tienda.BackColor = System.Drawing.Color.White
+        Me.btn_tienda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_tienda.Location = New System.Drawing.Point(705, 447)
+        Me.btn_tienda.Name = "btn_tienda"
+        Me.btn_tienda.Size = New System.Drawing.Size(67, 36)
+        Me.btn_tienda.TabIndex = 256
+        Me.btn_tienda.Text = "Datos tienda"
+        Me.btn_tienda.UseVisualStyleBackColor = False
+        Me.btn_tienda.Visible = False
+        '
         'frmProductosSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(849, 560)
+        Me.Controls.Add(Me.box_tienda)
+        Me.Controls.Add(Me.btn_tienda)
         Me.Controls.Add(Me.btnMigrar)
         Me.Controls.Add(Me.TabControl2)
         Me.Controls.Add(Me.txtrutaimagen)
@@ -933,6 +1025,8 @@ Partial Class frmProductosSR
         Me.TabPage5.PerformLayout()
         CType(Me.grdpromociones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdsql, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.box_tienda.ResumeLayout(False)
+        Me.box_tienda.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1005,4 +1099,11 @@ Partial Class frmProductosSR
     Friend WithEvents txtrutaimagen As TextBox
     Friend WithEvents BTNpORMOCIONES As Button
     Friend WithEvents btnMigrar As Button
+    Friend WithEvents box_tienda As GroupBox
+    Friend WithEvents btn_guardar As Button
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txt_descripcion As RichTextBox
+    Friend WithEvents txt_resumen As TextBox
+    Friend WithEvents btn_tienda As Button
 End Class

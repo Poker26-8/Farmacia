@@ -45,6 +45,14 @@
                                                                       `Porc_Descuento` float DEFAULT '0'
                                                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
                                                                     "
+
+    Public vartablarangoprecios As String = "CREATE TABLE `precios_rango` (
+                                                                      `id` int(11) NOT NULL,
+                                                                      `Codigo` varchar(50) DEFAULT '',
+                                                                      `Desde` float DEFAULT '0',
+                                                                      `Precio` float DEFAULT '0',
+                                                                      `Status` int(1) DEFAULT '0'
+                                                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1"
     'pedidosven
     Public vartablapedidosven As String = "CREATE TABLE `pedidosven` (
                                                       `Folio` int(11) NOT NULL,
@@ -6738,6 +6746,7 @@
     Public varKeyventas As String = "ALTER TABLE `ventas` ADD PRIMARY KEY (`Folio`);"
     Public varKeyventasdetalle As String = "ALTER TABLE `ventasdetalle` ADD PRIMARY KEY (`Id`), ADD KEY `Folio` (`Folio`);"
     Public varKeycomandas_t As String = "ALTER TABLE `comandas_t` ADD PRIMARY KEY (`Id`);"
+    Public varKeypreciosrango As String = "ALTER TABLE `precios_rango` ADD PRIMARY KEY (`Id`);"
 
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
@@ -6753,6 +6762,7 @@
     Public varAutopedidostemporal As String = "ALTER TABLE `pedidostemporal` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidoeliminado As String = "ALTER TABLE `pedidoeliminado` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodetallenomina As String = "ALTER TABLE `detalle_nomina` MODIFY `Id_detalle` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutopreciosrango As String = "ALTER TABLE `precios_rango` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotipoincapacidadsat As String = "ALTER TABLE `tipoincapacidadsat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutotiponomina As String = "ALTER TABLE `tiponomina` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutootrospagos As String = "ALTER TABLE `otrospagos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

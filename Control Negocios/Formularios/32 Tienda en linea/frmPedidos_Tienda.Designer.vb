@@ -22,11 +22,11 @@ Partial Class frmPedidos_Tienda
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPedidos_Tienda))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtusuario = New System.Windows.Forms.TextBox()
@@ -73,7 +73,7 @@ Partial Class frmPedidos_Tienda
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txt_envio = New System.Windows.Forms.TextBox()
         Me.btn_entregado = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.box_Pago = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -132,9 +132,11 @@ Partial Class frmPedidos_Tienda
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
         Me.p_envio = New System.Drawing.Printing.PrintDocument()
         Me.p_recoge_t = New System.Drawing.Printing.PrintDocument()
+        Me.lblt_pago = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.box_Pago.SuspendLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -292,8 +294,8 @@ Partial Class frmPedidos_Tienda
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -326,8 +328,8 @@ Partial Class frmPedidos_Tienda
         '
         'Column3
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -335,8 +337,8 @@ Partial Class frmPedidos_Tienda
         '
         'Column4
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -344,16 +346,16 @@ Partial Class frmPedidos_Tienda
         '
         'Column5
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
         'Total
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Total.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Total.DefaultCellStyle = DataGridViewCellStyle5
         Me.Total.HeaderText = "Total"
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
@@ -583,7 +585,6 @@ Partial Class frmPedidos_Tienda
         Me.lbltipo_envio.Name = "lbltipo_envio"
         Me.lbltipo_envio.Size = New System.Drawing.Size(224, 25)
         Me.lbltipo_envio.TabIndex = 262
-        Me.lbltipo_envio.Text = "PEDIDO ENVIOOOO"
         Me.lbltipo_envio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel5
@@ -662,49 +663,49 @@ Partial Class frmPedidos_Tienda
         Me.btn_entregado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_entregado.UseVisualStyleBackColor = False
         '
-        'GroupBox1
+        'box_Pago
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.txtequivale)
-        Me.GroupBox1.Controls.Add(Me.Label46)
-        Me.GroupBox1.Controls.Add(Me.txtvalor)
-        Me.GroupBox1.Controls.Add(Me.Label45)
-        Me.GroupBox1.Controls.Add(Me.cboBancoRecepcion)
-        Me.GroupBox1.Controls.Add(Me.Label43)
-        Me.GroupBox1.Controls.Add(Me.cboCuentaRecepcion)
-        Me.GroupBox1.Controls.Add(Me.txtComentarioPago)
-        Me.GroupBox1.Controls.Add(Me.Label40)
-        Me.GroupBox1.Controls.Add(Me.Button9)
-        Me.GroupBox1.Controls.Add(Me.grdpago)
-        Me.GroupBox1.Controls.Add(Me.Label30)
-        Me.GroupBox1.Controls.Add(Me.Label18)
-        Me.GroupBox1.Controls.Add(Me.txtMontoP)
-        Me.GroupBox1.Controls.Add(Me.Label27)
-        Me.GroupBox1.Controls.Add(Me.dtpFecha_P)
-        Me.GroupBox1.Controls.Add(Me.txtSubTotal)
-        Me.GroupBox1.Controls.Add(Me.Label26)
-        Me.GroupBox1.Controls.Add(Me.txtdescuento2)
-        Me.GroupBox1.Controls.Add(Me.Label25)
-        Me.GroupBox1.Controls.Add(Me.txtPagar)
-        Me.GroupBox1.Controls.Add(Me.GroupBox5)
-        Me.GroupBox1.Controls.Add(Me.cbotpago)
-        Me.GroupBox1.Controls.Add(Me.txtmonto)
-        Me.GroupBox1.Controls.Add(Me.cbobanco)
-        Me.GroupBox1.Controls.Add(Me.Label24)
-        Me.GroupBox1.Controls.Add(Me.Label22)
-        Me.GroupBox1.Controls.Add(Me.txtnumref)
-        Me.GroupBox1.Controls.Add(Me.Label23)
-        Me.GroupBox1.Controls.Add(Me.Label41)
-        Me.GroupBox1.Controls.Add(Me.Label21)
-        Me.GroupBox1.Location = New System.Drawing.Point(90, 202)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(930, 271)
-        Me.GroupBox1.TabIndex = 267
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Visible = False
+        Me.box_Pago.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.box_Pago.Controls.Add(Me.TextBox1)
+        Me.box_Pago.Controls.Add(Me.Label19)
+        Me.box_Pago.Controls.Add(Me.Button1)
+        Me.box_Pago.Controls.Add(Me.txtequivale)
+        Me.box_Pago.Controls.Add(Me.Label46)
+        Me.box_Pago.Controls.Add(Me.txtvalor)
+        Me.box_Pago.Controls.Add(Me.Label45)
+        Me.box_Pago.Controls.Add(Me.cboBancoRecepcion)
+        Me.box_Pago.Controls.Add(Me.Label43)
+        Me.box_Pago.Controls.Add(Me.cboCuentaRecepcion)
+        Me.box_Pago.Controls.Add(Me.txtComentarioPago)
+        Me.box_Pago.Controls.Add(Me.Label40)
+        Me.box_Pago.Controls.Add(Me.Button9)
+        Me.box_Pago.Controls.Add(Me.grdpago)
+        Me.box_Pago.Controls.Add(Me.Label30)
+        Me.box_Pago.Controls.Add(Me.Label18)
+        Me.box_Pago.Controls.Add(Me.txtMontoP)
+        Me.box_Pago.Controls.Add(Me.Label27)
+        Me.box_Pago.Controls.Add(Me.dtpFecha_P)
+        Me.box_Pago.Controls.Add(Me.txtSubTotal)
+        Me.box_Pago.Controls.Add(Me.Label26)
+        Me.box_Pago.Controls.Add(Me.txtdescuento2)
+        Me.box_Pago.Controls.Add(Me.Label25)
+        Me.box_Pago.Controls.Add(Me.txtPagar)
+        Me.box_Pago.Controls.Add(Me.GroupBox5)
+        Me.box_Pago.Controls.Add(Me.cbotpago)
+        Me.box_Pago.Controls.Add(Me.txtmonto)
+        Me.box_Pago.Controls.Add(Me.cbobanco)
+        Me.box_Pago.Controls.Add(Me.Label24)
+        Me.box_Pago.Controls.Add(Me.Label22)
+        Me.box_Pago.Controls.Add(Me.txtnumref)
+        Me.box_Pago.Controls.Add(Me.Label23)
+        Me.box_Pago.Controls.Add(Me.Label41)
+        Me.box_Pago.Controls.Add(Me.Label21)
+        Me.box_Pago.Location = New System.Drawing.Point(90, 202)
+        Me.box_Pago.Name = "box_Pago"
+        Me.box_Pago.Size = New System.Drawing.Size(930, 271)
+        Me.box_Pago.TabIndex = 267
+        Me.box_Pago.TabStop = False
+        Me.box_Pago.Visible = False
         '
         'TextBox1
         '
@@ -1302,12 +1303,33 @@ Partial Class frmPedidos_Tienda
         'p_recoge_t
         '
         '
+        'lblt_pago
+        '
+        Me.lblt_pago.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblt_pago.Location = New System.Drawing.Point(269, 530)
+        Me.lblt_pago.Name = "lblt_pago"
+        Me.lblt_pago.Size = New System.Drawing.Size(224, 25)
+        Me.lblt_pago.TabIndex = 269
+        Me.lblt_pago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(171, 533)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(92, 19)
+        Me.Label29.TabIndex = 268
+        Me.Label29.Text = "Tipo de pago:"
+        '
         'frmPedidos_Tienda
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1110, 622)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.lblt_pago)
+        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.box_Pago)
         Me.Controls.Add(Me.btn_entregado)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.txt_envio)
@@ -1353,8 +1375,8 @@ Partial Class frmPedidos_Tienda
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.box_Pago.ResumeLayout(False)
+        Me.box_Pago.PerformLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
@@ -1409,7 +1431,7 @@ Partial Class frmPedidos_Tienda
     Friend WithEvents Label17 As Label
     Friend WithEvents txt_envio As TextBox
     Friend WithEvents btn_entregado As Button
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents box_Pago As GroupBox
     Friend WithEvents txtequivale As TextBox
     Friend WithEvents Label46 As Label
     Friend WithEvents txtvalor As TextBox
@@ -1468,4 +1490,6 @@ Partial Class frmPedidos_Tienda
     Friend WithEvents pComanda58 As Printing.PrintDocument
     Friend WithEvents p_envio As Printing.PrintDocument
     Friend WithEvents p_recoge_t As Printing.PrintDocument
+    Friend WithEvents lblt_pago As Label
+    Friend WithEvents Label29 As Label
 End Class
