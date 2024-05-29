@@ -1046,9 +1046,9 @@ Partial Class frmProductosS
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(217, 270)
+        Me.Button4.Location = New System.Drawing.Point(217, 271)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(121, 36)
+        Me.Button4.Size = New System.Drawing.Size(121, 32)
         Me.Button4.TabIndex = 256
         Me.Button4.Text = "Lotes y caducidades"
         Me.Button4.UseVisualStyleBackColor = False
