@@ -91,6 +91,97 @@ Public Class frmPedidos_Tienda
         End If
     End Sub
 
+    Private Function Dame_Pago(ByVal id_estado As Integer) As String
+        Dim pago As String = ""
+
+        If id_estado = 1 Then
+            pago = "Pago por cheque pendiente"
+        End If
+        If id_estado = 2 Then
+            pago = "Pago aceptado"
+        End If
+        If id_estado = 3 Then
+            pago = "Preparación en curso"
+        End If
+        If id_estado = 4 Then
+            pago = "Enviado"
+        End If
+        If id_estado = 5 Then
+            pago = "Entregado"
+        End If
+        If id_estado = 6 Then
+            pago = "Cancelado"
+        End If
+        If id_estado = 7 Then
+            pago = "Reembolso"
+        End If
+        If id_estado = 8 Then
+            pago = "Error en pago"
+        End If
+        If id_estado = 9 Then
+            pago = "Bajo pedido (pagado)"
+        End If
+        If id_estado = 10 Then
+            pago = "En espera de pago por transferencia bancaria"
+        End If
+        If id_estado = 11 Then
+            pago = "Pago remoto aceptado"
+        End If
+        If id_estado = 12 Then
+            pago = "Bajo pedido (no pagado)"
+        End If
+        If id_estado = 13 Then
+            pago = "En espera de validación por pago contra entrega"
+        End If
+        If id_estado = 14 Then
+            pago = "Awaiting for PayPayl payment"
+        End If
+        If id_estado = 15 Then
+            pago = "Transacción en Proceso"
+        End If
+        If id_estado = 16 Then
+            pago = "Transacción Terminada"
+        End If
+        If id_estado = 17 Then
+            pago = "Transacción Cancelada"
+        End If
+        If id_estado = 18 Then
+            pago = "Transacción Rechazada"
+        End If
+        If id_estado = 19 Then
+            pago = "Transacción Reembolsada"
+        End If
+        If id_estado = 20 Then
+            pago = "Transacción Chargedback"
+        End If
+        If id_estado = 21 Then
+            pago = "Transacción en la Mediación"
+        End If
+        If id_estado = 22 Then
+            pago = "Transacción Pendiente"
+        End If
+        If id_estado = 23 Then
+            pago = "Transacción Autorizada"
+        End If
+        If id_estado = 24 Then
+            pago = "Transacción en Posible Fraude"
+        End If
+        If id_estado = 25 Then
+            pago = "Waiting for payment"
+        End If
+        If id_estado = 26 Then
+            pago = "Partial refund"
+        End If
+        If id_estado = 27 Then
+            pago = "Partial payment"
+        End If
+        If id_estado = 28 Then
+            pago = "Authorized. To be captured by merchant"
+        End If
+
+        Return pago
+    End Function
+
     Private Sub cbofolio_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbofolio.SelectedValueChanged
         Dim id_cliente_t As Integer = 0
         Dim tipo_envio As Integer = 0
@@ -128,12 +219,13 @@ Public Class frmPedidos_Tienda
 
                     txt_referencia.Text = rd2("Referencia").ToString()
                     txt_metodo_pago.Text = rd2("Tipo_Pago").ToString()
+                    lblt_pago.Text = rd2("Estado_Pago").ToString()
 
                     tipo_envio = rd2("Tipo_Envio").ToString()
 
                     If tipo_envio = 9 Then
                         lbltipo_envio.Text = "Envío a domicilio"
-                    ElseIf tipo_envio = 10 Then
+                    ElseIf tipo_envio = 7 Then
                         lbltipo_envio.Text = "Recoge en tienda"
                     Else
                         lbltipo_envio.Text = ""
@@ -301,9 +393,38 @@ Public Class frmPedidos_Tienda
             Exit Sub
         End If
 
+        box_Pago.Visible = True
+
         'Selecciona el tipo de pago desde la tabla de pago
+        Try
+            cnn1.Close() : cnn1.Open()
 
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Pagos_Tienda where Id_Orden=" & cbofolio.Text
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cbotpago.Text = rd1("Tipo_Pago").ToString()
+                    txtnumref.Text = rd1("Ref_Pago").ToString()
+                    txtmonto.Text = FormatNumber(rd1("Monto").ToString(), 2)
+                    dtpFecha_P.Value = FormatDateTime(rd1("Fecha_Pago").ToString(), DateFormat.ShortDate)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
 
+        If cbotpago.Text <> "" Then
+            Button9.PerformClick()
+        End If
+
+        If lbltipo_envio.Text = "Envio a domicilio" Then
+            TextBox1.Focus().Equals(True)
+        End If
 
     End Sub
 
@@ -1056,6 +1177,10 @@ Public Class frmPedidos_Tienda
             MessageBox.Show(ex.ToString())
             cnn2.Close()
         End Try
+
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
 
     End Sub
 End Class

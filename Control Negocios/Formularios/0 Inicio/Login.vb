@@ -798,6 +798,11 @@ Public Class Login
                             .runSp(cnnprueba, varKeycomandas_t, sinfo)
                             .runSp(cnnprueba, varAutocomandas_t, sinfo)
 
+                            'precios_rango
+                            .runSp(cnnprueba, vartablarangoprecios, sinfo)
+                            .runSp(cnnprueba, varKeypreciosrango, sinfo)
+                            .runSp(cnnprueba, varAutopreciosrango, sinfo)
+
                             'pedidosven
                             .runSp(cnnprueba, vartablapedidosven, sinfo)
                             .runSp(cnnprueba, VarKeypedidosven, sinfo)

@@ -1787,13 +1787,13 @@
                         If (ChkPromocion.Checked) Then
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ",PrecioVentaIVA2=" & pven2 & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Porcentaje_Promo=" & TxtPromoPercent.Text & ", Status_Promocion=1, Fecha_Inicial='" & Format(dtpFechaI.Value, "yyyy-MM-dd") & "', Fecha_Final='" & Format(dtpFechaF.Value, "yyyy-MM-dd") & "', Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
+                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ",PrecioVentaIVA2=" & pven2 & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Porcentaje_Promo=" & TxtPromoPercent.Text & ", Status_Promocion=1, Fecha_Inicial='" & Format(dtpFechaI.Value, "yyyy-MM-dd") & "', Fecha_Final='" & Format(dtpFechaF.Value, "yyyy-MM-dd") & "', Promo_Monedero=" & txtmonedero.Text & ", Actu=0 where Codigo='" & cboCodigo.Text & "'"
                             cmd2.ExecuteNonQuery()
                         Else
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min2 & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ",PrecioVentaIVA2=" & pven2 & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Status_Promocion=0, Promo_Monedero=" & txtmonedero.Text & " where Codigo='" & cboCodigo.Text & "'"
+                                "update Productos set PrecioCompra=" & NPcomp & ", Almacen3=" & NPcomp & ", PorcMin=" & uti_min & ",PorcMin2=" & uti_min2 & ", PorcMay=" & uti_may & ",PorcMay2=" & uti_may2 & ", PorcMM=" & uti_mm & ",PorcMM2=" & uti_mm2 & ", PorcEsp=" & uti_esp & ",PorcEsp2=" & uti_esp2 & ", Porcentaje=" & uti_lta & ",Porcentaje2=" & uti_lta2 & ", PreMin=" & pvi & ",PreMin2=" & pvi2 & ", PreMay=" & pmay & ",PreMay2=" & pmay2 & ", PreMM=" & pmme & ",PreMM2=" & pmme2 & ", PreEsp=" & pesp & ",PreEsp2=" & pesp2 & ", PrecioVenta=" & pven & ",PrecioVenta2=" & pven2 & ", PrecioVentaIVA=" & pven & ",PrecioVentaIVA2=" & pven2 & ", CantMin1=" & TxtCantMin.Text & ", CantMin2=" & txtCantMin2.Text & ",CantMin3=" & TxtCantMin3.Text & ",CantMin4=" & txtCantMin4.Text & ", CantMay1=" & TxtCantMay.Text & ", CantMay2=" & txtCantMay2.Text & ",CantMay3=" & TxtCantMay3.Text & ",CantMay4=" & txtCantMay4.Text & ", CantMM1=" & TxtCantMM.Text & ", CantMM2=" & TxtCantMM2.Text & ",CantMM3=" & TxtCantMM3.Text & ",CantMM4=" & TxtCantMM4.Text & ", CantEsp1=" & TxtCantEsp.Text & ", CantEsp2=" & TxtCantEsp2.Text & ",CantEsp3=" & TxtCantEsp3.Text & ",CantEsp4=" & TxtCantEsp4.Text & ", CantLst1=" & TxtCantLta.Text & ", CantLst2=" & TxtCantLta2.Text & ",CantLst3=" & TxtCantLta3.Text & ",CantLst4=" & TxtCantLta4.Text & ", pres_vol=" & IIf(ChkTodos.Checked, 1, 0) & ", Status_Promocion=0, Promo_Monedero=" & txtmonedero.Text & ", Actu=0 where Codigo='" & cboCodigo.Text & "'"
                             cmd2.ExecuteNonQuery()
                         End If
 
@@ -1801,6 +1801,83 @@
                         cmd2.CommandText =
                             "update Productos set Cargado=0 where Codigo='" & cboCodigo.Text & "'"
                         cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText =
+                            "delete from Precios_Rango where Codigo='" & cboCodigo.Text & "'"
+                        cmd2.ExecuteNonQuery()
+
+                        If CDbl(TxtCantMin3.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMin3.Text & "," & TxtPMI2.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantMin.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMin.Text & "," & TxtPMI.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantMay3.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMay3.Text & "," & TxtPreMay2.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantMay.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMay.Text & "," & TxtPreMay.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantMM3.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMM3.Text & "," & TxtPreMM2.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantMM.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantMM.Text & "," & TxtPreMM.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantEsp3.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantEsp3.Text & "," & TxtPreEsp2.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantEsp.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantEsp.Text & "," & TxtPreEsp.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantLta3.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantLta3.Text & "," & TxtPreLta2.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+                        If CDbl(TxtCantLta.Text) > 0 Then
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText =
+                                "insert into Precios_Rango(Codigo,Desde,Precio,Status) values('" & cboCodigo.Text & "'," & TxtCantLta.Text & "," & TxtPreLta.Text & ",0)"
+                            cmd2.ExecuteNonQuery()
+                        End If
+
+
                         cnn2.Close()
                     End If
                 End If
