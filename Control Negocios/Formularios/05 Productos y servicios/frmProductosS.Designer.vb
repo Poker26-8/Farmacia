@@ -94,12 +94,13 @@ Partial Class frmProductosS
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.box_tienda = New System.Windows.Forms.GroupBox()
-        Me.txt_resumen = New System.Windows.Forms.TextBox()
-        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
         Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txt_descripcion = New System.Windows.Forms.RichTextBox()
+        Me.txt_resumen = New System.Windows.Forms.TextBox()
         Me.btn_tienda = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -566,9 +567,9 @@ Partial Class frmProductosS
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(175, 270)
+        Me.Button3.Location = New System.Drawing.Point(99, 267)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(114, 30)
+        Me.Button3.Size = New System.Drawing.Size(114, 36)
         Me.Button3.TabIndex = 252
         Me.Button3.Text = "Cantidades"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -969,43 +970,6 @@ Partial Class frmProductosS
         Me.box_tienda.Text = "Datos tienda en linea"
         Me.box_tienda.Visible = False
         '
-        'txt_resumen
-        '
-        Me.txt_resumen.Location = New System.Drawing.Point(134, 17)
-        Me.txt_resumen.Name = "txt_resumen"
-        Me.txt_resumen.Size = New System.Drawing.Size(493, 23)
-        Me.txt_resumen.TabIndex = 0
-        '
-        'txt_descripcion
-        '
-        Me.txt_descripcion.Location = New System.Drawing.Point(134, 46)
-        Me.txt_descripcion.Name = "txt_descripcion"
-        Me.txt_descripcion.Size = New System.Drawing.Size(493, 66)
-        Me.txt_descripcion.TabIndex = 1
-        Me.txt_descripcion.Text = ""
-        '
-        'Label20
-        '
-        Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 20)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(111, 15)
-        Me.Label20.TabIndex = 250
-        Me.Label20.Text = "Resumen producto:"
-        Me.Label20.Visible = False
-        '
-        'Label28
-        '
-        Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 45)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(124, 15)
-        Me.Label28.TabIndex = 251
-        Me.Label28.Text = "Descripción producto:"
-        Me.Label28.Visible = False
-        '
         'btn_guardar
         '
         Me.btn_guardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -1020,6 +984,43 @@ Partial Class frmProductosS
         Me.btn_guardar.TabIndex = 253
         Me.btn_guardar.Text = "Guardar"
         Me.btn_guardar.UseVisualStyleBackColor = False
+        '
+        'Label28
+        '
+        Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(6, 45)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(124, 15)
+        Me.Label28.TabIndex = 251
+        Me.Label28.Text = "Descripción producto:"
+        Me.Label28.Visible = False
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(6, 20)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(111, 15)
+        Me.Label20.TabIndex = 250
+        Me.Label20.Text = "Resumen producto:"
+        Me.Label20.Visible = False
+        '
+        'txt_descripcion
+        '
+        Me.txt_descripcion.Location = New System.Drawing.Point(134, 46)
+        Me.txt_descripcion.Name = "txt_descripcion"
+        Me.txt_descripcion.Size = New System.Drawing.Size(493, 66)
+        Me.txt_descripcion.TabIndex = 1
+        Me.txt_descripcion.Text = ""
+        '
+        'txt_resumen
+        '
+        Me.txt_resumen.Location = New System.Drawing.Point(134, 17)
+        Me.txt_resumen.Name = "txt_resumen"
+        Me.txt_resumen.Size = New System.Drawing.Size(493, 23)
+        Me.txt_resumen.TabIndex = 0
         '
         'btn_tienda
         '
@@ -1036,6 +1037,22 @@ Partial Class frmProductosS
         Me.btn_tienda.Text = "Datos tienda"
         Me.btn_tienda.UseVisualStyleBackColor = False
         Me.btn_tienda.Visible = False
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button4.BackColor = System.Drawing.Color.White
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button4.Location = New System.Drawing.Point(217, 270)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(121, 36)
+        Me.Button4.TabIndex = 256
+        Me.Button4.Text = "Lotes y caducidades"
+        Me.Button4.UseVisualStyleBackColor = False
+        Me.Button4.Visible = False
         '
         'frmProductosS
         '
@@ -1098,6 +1115,7 @@ Partial Class frmProductosS
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_tienda)
+        Me.Controls.Add(Me.Button4)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1190,4 +1208,5 @@ Partial Class frmProductosS
     Friend WithEvents txt_descripcion As RichTextBox
     Friend WithEvents txt_resumen As TextBox
     Friend WithEvents btn_tienda As Button
+    Friend WithEvents Button4 As Button
 End Class

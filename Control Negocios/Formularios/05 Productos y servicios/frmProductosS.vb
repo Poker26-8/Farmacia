@@ -1545,4 +1545,18 @@ Public Class frmProductosS
         box_tienda.Visible = False
         btnGuardar.Focus().Equals(True)
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Button1.Enabled = False
+        My.Application.DoEvents()
+        Dim cnn1 As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\BaseExportar\DL1.mdb;;Persist Security Info=True;Jet OLEDB:Database Password=jipl22")
+        Dim cmd1 As OleDbCommand = New OleDbCommand
+        Dim rd1 As OleDbDataReader
+        Dim codigo As String = ""
+        Dim lote As String = ""
+        Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
+        Dim cantidad As Double = 0
+
+
+    End Sub
 End Class
