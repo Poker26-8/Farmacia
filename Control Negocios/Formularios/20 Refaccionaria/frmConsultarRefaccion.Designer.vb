@@ -38,15 +38,15 @@ Partial Class frmConsultarRefaccion
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grdProductos = New System.Windows.Forms.DataGridView()
-        Me.PDerecha = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.PicProducto = New System.Windows.Forms.PictureBox()
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PDerecha = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PicProducto = New System.Windows.Forms.PictureBox()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PSuperior.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -98,7 +98,7 @@ Partial Class frmConsultarRefaccion
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
@@ -114,7 +114,7 @@ Partial Class frmConsultarRefaccion
         'btnLimpiar
         '
         Me.btnLimpiar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnLimpiar.BackColor = System.Drawing.Color.White
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
@@ -187,7 +187,7 @@ Partial Class frmConsultarRefaccion
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnClose.BackColor = System.Drawing.Color.White
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
@@ -232,44 +232,6 @@ Partial Class frmConsultarRefaccion
         Me.grdProductos.Size = New System.Drawing.Size(810, 375)
         Me.grdProductos.TabIndex = 0
         '
-        'PDerecha
-        '
-        Me.PDerecha.Controls.Add(Me.Panel4)
-        Me.PDerecha.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PDerecha.Location = New System.Drawing.Point(810, 124)
-        Me.PDerecha.Name = "PDerecha"
-        Me.PDerecha.Size = New System.Drawing.Size(192, 375)
-        Me.PDerecha.TabIndex = 2
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.PicProducto)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(192, 139)
-        Me.Panel4.TabIndex = 58
-        '
-        'PicProducto
-        '
-        Me.PicProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PicProducto.Location = New System.Drawing.Point(0, 0)
-        Me.PicProducto.Name = "PicProducto"
-        Me.PicProducto.Size = New System.Drawing.Size(192, 139)
-        Me.PicProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PicProducto.TabIndex = 57
-        Me.PicProducto.TabStop = False
-        '
-        'PrintPreviewDialog1
-        '
-        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
-        Me.PrintPreviewDialog1.Enabled = True
-        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
-        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        Me.PrintPreviewDialog1.Visible = False
-        '
         'Column1
         '
         Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -308,6 +270,44 @@ Partial Class frmConsultarRefaccion
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         Me.Column5.Width = 111
+        '
+        'PDerecha
+        '
+        Me.PDerecha.Controls.Add(Me.Panel4)
+        Me.PDerecha.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PDerecha.Location = New System.Drawing.Point(810, 124)
+        Me.PDerecha.Name = "PDerecha"
+        Me.PDerecha.Size = New System.Drawing.Size(192, 375)
+        Me.PDerecha.TabIndex = 2
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.PicProducto)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(192, 139)
+        Me.Panel4.TabIndex = 58
+        '
+        'PicProducto
+        '
+        Me.PicProducto.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PicProducto.Location = New System.Drawing.Point(0, 0)
+        Me.PicProducto.Name = "PicProducto"
+        Me.PicProducto.Size = New System.Drawing.Size(192, 139)
+        Me.PicProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PicProducto.TabIndex = 57
+        Me.PicProducto.TabStop = False
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
         'frmConsultarRefaccion
         '

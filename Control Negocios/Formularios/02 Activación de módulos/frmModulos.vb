@@ -199,8 +199,8 @@
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
         Me.Close()
-        ' frmCitas.Show()
-        frmNuevo.Show()
+        frmCitas.Show()
+        'frmNuevo.Show()
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click

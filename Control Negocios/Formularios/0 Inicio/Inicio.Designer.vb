@@ -83,6 +83,7 @@ Partial Class Inicio
         Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosTiendaEnLíneaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuconsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCompras = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPedidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCaptura = New System.Windows.Forms.ToolStripMenuItem()
@@ -173,7 +174,6 @@ Partial Class Inicio
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.menuconsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -367,7 +367,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1194, 24)
@@ -708,6 +708,12 @@ Partial Class Inicio
         Me.PedidosTiendaEnLíneaToolStripMenuItem.Name = "PedidosTiendaEnLíneaToolStripMenuItem"
         Me.PedidosTiendaEnLíneaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.PedidosTiendaEnLíneaToolStripMenuItem.Text = "Pedidos tienda en línea"
+        '
+        'menuconsignaciones
+        '
+        Me.menuconsignaciones.Name = "menuconsignaciones"
+        Me.menuconsignaciones.Size = New System.Drawing.Size(196, 22)
+        Me.menuconsignaciones.Text = "Consignaciones"
         '
         'pCompras
         '
@@ -1439,12 +1445,6 @@ Partial Class Inicio
         Me.pedidos_tienda.Text = "Nuevos pedidos:"
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
-        '
-        'menuconsignaciones
-        '
-        Me.menuconsignaciones.Name = "menuconsignaciones"
-        Me.menuconsignaciones.Size = New System.Drawing.Size(196, 22)
-        Me.menuconsignaciones.Text = "Consignaciones"
         '
         'Inicio
         '

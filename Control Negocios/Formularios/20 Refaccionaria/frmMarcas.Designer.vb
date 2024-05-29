@@ -30,6 +30,10 @@ Partial Class frmMarcas
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.txtMarca = New System.Windows.Forms.ComboBox()
         Me.lblId = New System.Windows.Forms.Label()
+        Me.btnExportar = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.barsube = New System.Windows.Forms.ProgressBar()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -48,7 +52,7 @@ Partial Class frmMarcas
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(372, 24)
+        Me.Panel1.Size = New System.Drawing.Size(392, 24)
         Me.Panel1.TabIndex = 1
         '
         'Button1
@@ -57,7 +61,7 @@ Partial Class frmMarcas
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(291, 65)
+        Me.Button1.Location = New System.Drawing.Point(310, 65)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 77)
         Me.Button1.TabIndex = 4
@@ -71,7 +75,7 @@ Partial Class frmMarcas
         Me.btnAlmacenar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlmacenar.Image = CType(resources.GetObject("btnAlmacenar.Image"), System.Drawing.Image)
         Me.btnAlmacenar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAlmacenar.Location = New System.Drawing.Point(128, 65)
+        Me.btnAlmacenar.Location = New System.Drawing.Point(150, 65)
         Me.btnAlmacenar.Name = "btnAlmacenar"
         Me.btnAlmacenar.Size = New System.Drawing.Size(75, 77)
         Me.btnAlmacenar.TabIndex = 3
@@ -85,7 +89,7 @@ Partial Class frmMarcas
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(210, 65)
+        Me.btnEliminar.Location = New System.Drawing.Point(230, 65)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 77)
         Me.btnEliminar.TabIndex = 5
@@ -99,7 +103,7 @@ Partial Class frmMarcas
         Me.txtMarca.FormattingEnabled = True
         Me.txtMarca.Location = New System.Drawing.Point(82, 30)
         Me.txtMarca.Name = "txtMarca"
-        Me.txtMarca.Size = New System.Drawing.Size(284, 24)
+        Me.txtMarca.Size = New System.Drawing.Size(303, 24)
         Me.txtMarca.TabIndex = 6
         '
         'lblId
@@ -108,16 +112,53 @@ Partial Class frmMarcas
         Me.lblId.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblId.Location = New System.Drawing.Point(7, 65)
         Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(100, 23)
+        Me.lblId.Size = New System.Drawing.Size(57, 23)
         Me.lblId.TabIndex = 7
         Me.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnExportar
+        '
+        Me.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportar.Image = CType(resources.GetObject("btnExportar.Image"), System.Drawing.Image)
+        Me.btnExportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExportar.Location = New System.Drawing.Point(70, 65)
+        Me.btnExportar.Name = "btnExportar"
+        Me.btnExportar.Size = New System.Drawing.Size(75, 77)
+        Me.btnExportar.TabIndex = 8
+        Me.btnExportar.Text = "Importar"
+        Me.btnExportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExportar.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(413, 30)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(82, 45)
+        Me.DataGridView1.TabIndex = 9
+        Me.DataGridView1.Visible = False
+        '
+        'barsube
+        '
+        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.barsube.Location = New System.Drawing.Point(4, 91)
+        Me.barsube.Name = "barsube"
+        Me.barsube.Size = New System.Drawing.Size(62, 14)
+        Me.barsube.TabIndex = 221
         '
         'frmMarcas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(372, 151)
+        Me.ClientSize = New System.Drawing.Size(392, 151)
+        Me.Controls.Add(Me.barsube)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.btnExportar)
         Me.Controls.Add(Me.lblId)
         Me.Controls.Add(Me.txtMarca)
         Me.Controls.Add(Me.btnEliminar)
@@ -126,9 +167,11 @@ Partial Class frmMarcas
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(388, 190)
         Me.Name = "frmMarcas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Marcas"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -141,4 +184,7 @@ Partial Class frmMarcas
     Friend WithEvents btnEliminar As Button
     Friend WithEvents txtMarca As ComboBox
     Friend WithEvents lblId As Label
+    Friend WithEvents btnExportar As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents barsube As ProgressBar
 End Class

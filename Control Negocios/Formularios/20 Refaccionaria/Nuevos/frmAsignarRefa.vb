@@ -216,7 +216,6 @@
             If dato = "NOMBRE" Then
                 cmd1.CommandText = "SELECT * FROM productos WHERE Nombre='" & cboNombre.Text & "'"
             End If
-
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -224,10 +223,24 @@
                     txtbarras.Text = rd1("CodBarra").ToString
                     txtnumparte.Text = rd1("N_Serie").ToString
                     cboUbicaicon.Text = rd1("Ubicacion").ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM refaccionaria WHERE Nombre='" & cboNombre.Text & "' AND CodigoPro='" & cboCodigo.Text & "'"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            txtObservacion.Text = rd2("Observaciones").ToString
+                        End If
+                    End If
+                    rd2.Close()
+
                 End If
             End If
             rd1.Close()
             cnn1.Close()
+            cnn2.Close()
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -319,5 +332,6 @@
         cboMarca.Text = ""
         cboModelo.Text = ""
         cboServicio.Text = ""
+        txtObservacion.Text = ""
     End Sub
 End Class

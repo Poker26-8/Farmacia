@@ -44,9 +44,13 @@
                 If rd1.Read Then
 
                     If rd1(0).ToString = 1 Then
-                        Me.Size = New Size(722, 134)
+                        Button1.Enabled = True
+                        Button5.Enabled = True
+                        Me.Size = New Size(710, 132)
                     Else
-                        Me.Size = New Size(640, 134)
+                        Me.Size = New Size(512, 132)
+                        Button1.Enabled = False
+                        Button5.Enabled = False
                     End If
 
                 End If

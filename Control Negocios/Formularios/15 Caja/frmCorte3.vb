@@ -1353,21 +1353,21 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago='EFECTIVO'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago='EFECTIVO' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    SUMAEFECTIVO = rd1(0).ToString
+                    SUMAEFECTIVO = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
                 End If
             End If
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO'  AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    SUMAFORMAS = rd1(0).ToString
+                    SUMAFORMAS = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
                 End If
             End If
             rd1.Close()

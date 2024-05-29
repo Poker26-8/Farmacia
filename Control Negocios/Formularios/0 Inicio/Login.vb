@@ -772,6 +772,12 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+
+                            'marcas
+                            .runSp(cnnprueba, vartablamarcas, sinfo)
+                            .runSp(cnnprueba, VarKeymarcas, sinfo)
+                            .runSp(cnnprueba, varAutomarcas, sinfo)
+
                             'vehiculo2
                             .runSp(cnnprueba, vartablavehiculo2, sinfo)
                             .runSp(cnnprueba, varKeyvehiculo2, sinfo)

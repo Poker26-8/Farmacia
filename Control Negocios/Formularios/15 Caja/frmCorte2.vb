@@ -2464,11 +2464,23 @@ Public Class frmCorte2
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    ingresospropinas = rd1(0).ToString
+                    ingresospropinas = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
                 End If
             End If
             rd1.Close()
             txtIngresoPropina.Text = FormatNumber(ingresospropinas, 2)
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE COncepto='CANCELACION' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtComprasCanceG.Text = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                    txtComprasCanceG.Text = FormatNumber(txtComprasCanceG.Text, 2)
+                End If
+            End If
+            rd1.Close()
+
 
             Dim Ingresos As String = "0"
             Ingresos = CDec(txtVentasG.Text) + CDec(txtComprasCanceG.Text) + CDec(txtCobroEmpG.Text)
@@ -2481,11 +2493,11 @@ Public Class frmCorte2
             My.Application.DoEvents()
 
 
-            cnn2.Close() : cnn2.Open()
             'Compras
+            cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Abono) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
+                "select sum(Abono) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Abono<>0 AND Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2575,7 +2587,7 @@ Public Class frmCorte2
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Efectivo) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                "select sum(Efectivo) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Efectivo>0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2678,19 +2690,6 @@ Public Class frmCorte2
             txtEgrTransfeG.Text = FormatNumber(EgrTran, 2)
 
             Dim EgrOtro As Double = 0
-            ''Deposito
-            'cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText =
-            '    "select sum(Otro) from AbonoI where Concepto<>'ABONO' and Concepto<>'CARGO' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            'rd2 = cmd2.ExecuteReader
-            'If rd2.HasRows Then
-            '    If rd2.Read Then
-            '        EgrOtro = EgrOtro + IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString)
-            '        CanceDevo = CDec(CanceDevo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
-            '    End If
-            'End If
-            'rd2.Close()
-
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
                 "select sum(Otro) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
