@@ -292,12 +292,24 @@ Public Class frmPedidos_Tienda
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_entregado.Click
+        If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder terminarlo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focused.Equals(True) : Exit Sub
+        If lbltipo_envio.Visible = False Then MsgBox("No hay un tipo de envío seleccionado.", vbInformation + vbOK, "Delsscom Control Negocios Pro") : cbofolio.Focused().Equals(True) : Exit Sub
+        If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Viene_De = "Entrega" : Exit Sub
+        If opt_entregados.Checked = True Then MsgBox("No puedes terminar un pedido que ya fue entregado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Limpiar_datos() : Exit Sub
+
+        If grdcaptura.Rows.Count < 1 Then
+            Exit Sub
+        End If
+
+        'Selecciona el tipo de pago desde la tabla de pago
+
+
 
     End Sub
 
     Private Sub btn_produccion_Click(sender As Object, e As EventArgs) Handles btn_produccion.Click
         If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder enviar a producción.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focused.Equals(True) : Exit Sub
-        If lbltipo_envio.Visible = False Then MsgBox("No hay un tipo de envío seleecionado.", vbInformation + vbOK, "Delsscom Control Negocios Pro") : cbofolio.Focused().Equals(True) : Exit Sub
+        If lbltipo_envio.Visible = False Then MsgBox("No hay un tipo de envío seleccionado.", vbInformation + vbOK, "Delsscom Control Negocios Pro") : cbofolio.Focused().Equals(True) : Exit Sub
         If lblusuario.Text = "" Then MsgBox("Escribe tu contraseña para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtusuario.Focus().Equals(True) : Viene_De = "Produccion" : Exit Sub
         If opt_entregados.Checked = True Then MsgBox("No puedes enviar a producción un pedido que ya fue entregado.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Limpiar_datos() : Exit Sub
 
@@ -336,6 +348,30 @@ Public Class frmPedidos_Tienda
 
         If lbltipo_envio.Text = "Recoge en tienda" Then
             Envia_Produccion()
+
+            Dim impresora As String = ""
+
+            Try
+                cnn3.Close() : cnn3.Open()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "SELECT Impresora from RutasImpresion where Tipo='TICKET' and Equipo='" & ObtenerNombreEquipo() & "'"
+                rd3 = cmd3.ExecuteReader
+                If rd3.HasRows Then
+                    If rd3.Read Then
+                        impresora = rd3(0).ToString
+                    End If
+                End If
+                rd3.Close()
+                cnn3.Close()
+
+                p_recoge_t.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                p_recoge_t.Print()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn3.Close()
+            End Try
         End If
     End Sub
 
@@ -611,6 +647,9 @@ Public Class frmPedidos_Tienda
 
             If Viene_De = "Produccion" Then
                 btn_produccion.Focus().Equals(True)
+            End If
+            If Viene_De = "Entrega" Then
+                btn_entregado.Focus().Equals(True)
             End If
         End If
     End Sub
@@ -913,5 +952,110 @@ Public Class frmPedidos_Tienda
             MessageBox.Show(ex.ToString())
             cnn2.Close()
         End Try
+    End Sub
+
+    Private Sub p_recoge_t_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles p_recoge_t.PrintPage
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+
+        Dim Y As Double = 0
+
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        Dim Pie As String = ""
+
+        Try
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("TICKET DEL ENTREGA", New Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 280, Y, sf)
+            Y += 12
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+            e.Graphics.DrawString("Pedido: " & cbofolio.Text, New Font("Lucida Sans Typewriter", 8, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Referencia: " & txt_referencia.Text, New Font("Lucida Sans Typewriter", 8, FontStyle.Bold), Brushes.Black, 280, Y, sf)
+            Y += 22
+
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 12
+
+            e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 10
+            e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRECIO", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 190, Y, sf)
+            e.Graphics.DrawString("IMPORTE", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 280, Y, sf)
+            Y += 5
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+
+            Dim total_prods As Double = 0
+
+            For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+                If grdcaptura.Rows(miku).Cells(1).Value.ToString() <> "" And grdcaptura.Rows(miku).Cells(0).Value.ToString = "" Then
+                    Y -= 5
+                    e.Graphics.DrawString(grdcaptura.Rows(miku).Cells(1).Value.ToString(), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+                    Y += 21
+                    Continue For
+                End If
+                Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+                Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
+                Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
+                Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+                Dim total As Double = FormatNumber(canti * precio, 4)
+
+                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 1, Y)
+                Y += 12.5
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 21
+                total_prods = total_prods + canti
+            Next
+            Y -= 3
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 6
+            e.Graphics.DrawString("---------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+
+            e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txt_total.Text, 2), New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 280, Y, sf)
+            Y += 18
+
+            e.Graphics.DrawString(convLetras(txt_total.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+            Y += 18
+
+            If txt_metodo_pago.Text = "PAGO CONTRA ENTREGA (PCE)" Then
+                Y += 5
+                e.Graphics.DrawString("PAGO A CONTRA ENTREGA", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 20
+            Else
+                Y += 5
+                e.Graphics.DrawString("PAGADO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 20
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
+
     End Sub
 End Class
