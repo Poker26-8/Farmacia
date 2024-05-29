@@ -1147,12 +1147,28 @@ Public Class frmProductosS
                     claveunidad = rd1("ClaveUnidadSat").ToString
                     isr = IIf(rd1("isr").ToString = "", 0, rd1("isr").ToString)
 
+                    If codigo = "047533" Then
+                        MsgBox("si")
+                    End If
+                    nombre = nombre.Replace("’", "")
+
+                    nombrelargo = Trim(Replace(nombrelargo, "'", ""))
+                    nombrelargo = nombrelargo.Replace("’", "")
+                    My.Application.DoEvents()
                     nombre = Trim(Replace(nombre, "‘", ""))
                     nombre = Trim(Replace(nombre, "'", "''"))
 
+                    nombre = Trim(Replace(nombre, "'", ""))
+                    nombrelargo = Trim(Replace(nombrelargo, "'", ""))
+
+
+
+                    My.Application.DoEvents()
+
+
                     codbarras = Trim(Replace(codbarras, "‘", ""))
                     codbarras = Trim(Replace(codbarras, "'", "''"))
-
+                    '
 
                     nombrelargo = Trim(Replace(nombrelargo, "‘", ""))
                     nombrelargo = Trim(Replace(nombrelargo, "'", "''"))
@@ -1544,5 +1560,57 @@ Public Class frmProductosS
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         box_tienda.Visible = False
         btnGuardar.Focus().Equals(True)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Button4.Enabled = False
+        My.Application.DoEvents()
+        Dim cnn1 As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\BaseExportar\DL1.mdb;;Persist Security Info=True;Jet OLEDB:Database Password=jipl22")
+        Dim cmd1 As OleDbCommand = New OleDbCommand
+        Dim rd1 As OleDbDataReader
+        Dim codigo As String = ""
+        Dim lote As String = ""
+        Dim fecha As Date = Nothing
+        Dim cantidad As Double = 0
+        Dim cuantos As Integer = 0
+        Dim fechaformateada As String = ""
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from LoteCaducidad"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                codigo = rd1("Codigo").ToString
+                lote = rd1("Lote").ToString
+                fecha = IIf(rd1("FechaCaducidad").ToString = "", Date.Now, rd1("FechaCaducidad"))
+                cantidad = rd1("Cantidad").ToString
+                fechaformateada = Format(fecha, "yyyy-MM-dd")
+                cnn2.Close()
+                cnn2.Open()
+                My.Application.DoEvents()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "Insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codigo & "','" & lote & "','" & fechaformateada & "'," & cantidad & ")"
+                If cmd2.ExecuteNonQuery Then
+                    cuantos = cuantos + 1
+                    txtbarras.Text = cuantos
+                    My.Application.DoEvents()
+                Else
+                    MsgBox("Hay un error con el codigo: " & codigo & " y el lote: " & lote, vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                End If
+            Loop
+            MsgBox("Se insertaron " & cuantos & " lotes correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            cnn2.Close()
+            rd1.Close()
+            cnn1.Close()
+            My.Application.DoEvents()
+            txtbarras.Text = ""
+            Button4.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+            cnn2.Close()
+        End Try
+
     End Sub
 End Class

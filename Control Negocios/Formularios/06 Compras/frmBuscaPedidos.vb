@@ -484,9 +484,9 @@
             frmPedidos.txtcodigo.Text = grdcaptura.Rows(index).Cells(0).Value.ToString
             frmPedidos.cbonombre.Text = grdcaptura.Rows(index).Cells(1).Value.ToString
             frmPedidos.txtunidad.Text = grdcaptura.Rows(index).Cells(2).Value.ToString
-            frmPedidos.txtprecio.Text = FormatNumber(grdcaptura.Rows(index).Cells(3).Value.ToString, 2)
-            frmPedidos.txtexistencia.Text = grdcaptura.Rows(index).Cells(4).Value.ToString
-            frmPedidos.txtminimo.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
+            'frmPedidos.txtprecio.Text = FormatNumber(grdcaptura.Rows(index).Cells(3).Value.ToString, 2)
+            'frmPedidos.txtexistencia.Text = grdcaptura.Rows(index).Cells(4).Value.ToString
+            'frmPedidos.txtminimo.Text = grdcaptura.Rows(index).Cells(5).Value.ToString
 
             Me.Close()
             frmPedidos.txtcodigo.Focus().Equals(True)
