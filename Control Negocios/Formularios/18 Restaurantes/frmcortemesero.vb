@@ -122,7 +122,7 @@ Public Class frmcortemesero
                             PCorteU80.Print()
                         End If
 
-                        If TAMIMPRE Then
+                        If TAMIMPRE = "58" Then
                             PCorteU58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
                             PCorteU58.Print()
                         End If
@@ -309,10 +309,10 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND Mesero='" & meseros & "' group by formapago order by formapago"
+                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND Mesero='" & meseros & "' order by formapago"
                     rd2 = cmd2.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd2.Read Then
+                    Do While rd2.Read
+                        If rd2.HasRows Then
 
                             totalventa = totalventa + rd2("Monto").ToString
                             totalsiva = totalventa / 1.16
@@ -320,132 +320,135 @@ Public Class frmcortemesero
 
                             DESCUENTO = DESCUENTO + rd2("Descuento").ToString
                             PROPINAS = PROPINAS + rd2("Propina").ToString
-
-                            e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-
-                            cmd9 = cnn9.CreateCommand
-                            cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' group by formapago order by formapago"
-                            rd9 = cmd9.ExecuteReader
-                            Do While rd9.Read
-                                If rd9.HasRows Then
-
-                                    formapagos = rd9("FormaPago").ToString
-                                    cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
-                                    rd3 = cmd3.ExecuteReader
-                                    If rd3.HasRows Then
-                                        If rd3.Read Then
-                                            totalmesero = rd3(0).ToString
-
-                                            TOTAL = TOTAL + totalmesero
-
-                                            e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
-                                            e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                            Y += 15
-                                        End If
-                                    End If
-                                    rd3.Close()
-
-                                End If
-                            Loop
-                            rd9.Close()
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 25
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-
-                            Dim CUENTAS As String = ""
-                            Dim SALDO As Double = 0
-                            Dim dx As String = ""
-
-                            cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO'"
-                            rd4 = cmd4.ExecuteReader
-                            Do While rd4.Read
-                                If rd4.HasRows Then
-
-                                    SALDO = rd4("Saldo").ToString
-                                    If SALDO = 0 Then
-
-                                        dx = "PAGADO"
-                                        CUENTAS = rd4("Monto").ToString
-
-                                        e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
-                                        e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                        Y += 15
-                                        TOTALCUENTAS = TOTALCUENTAS + CUENTAS
-                                    End If
-
-                                End If
-                            Loop
-                            rd4.Close()
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 25
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-
                         End If
-                    End If
+                    Loop
                     rd2.Close()
 
+
+                    e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 20
+                    e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("VEN ANTES DE IMP: ", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 20
+                    e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("TOTAL VENTA:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(CDbl(totalventa) + CDbl(PROPINAS), 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' group by formapago order by formapago"
+                    rd9 = cmd9.ExecuteReader
+                    Do While rd9.Read
+                        If rd9.HasRows Then
+
+                            formapagos = rd9("FormaPago").ToString
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
+                            rd3 = cmd3.ExecuteReader
+                            If rd3.HasRows Then
+                                If rd3.Read Then
+                                    totalmesero = rd3(0).ToString
+
+                                    TOTAL = TOTAL + totalmesero
+
+                                    e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
+                                    e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                                    Y += 15
+                                End If
+                            End If
+                            rd3.Close()
+
+                        End If
+                    Loop
+                    rd9.Close()
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL PAGOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 25
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("CUENTAS DEL MESERO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+
+                    Dim CUENTAS As String = ""
+                    Dim SALDO As Double = 0
+                    Dim dx As String = ""
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO' ORDER BY NumFolio"
+                    rd4 = cmd4.ExecuteReader
+                    Do While rd4.Read
+                        If rd4.HasRows Then
+
+                            SALDO = rd4("Saldo").ToString
+                            If SALDO = 0 Then
+
+                                dx = "PAGADO"
+                                CUENTAS = rd4("Monto").ToString
+
+                                e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
+                                e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                                Y += 15
+                                TOTALCUENTAS = TOTALCUENTAS + CUENTAS
+                            End If
+
+                        End If
+                    Loop
+                    rd4.Close()
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
+                    Y += 25
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
 
                 End If
             Loop
@@ -590,7 +593,7 @@ Public Class frmcortemesero
             cnn4.Close() : cnn4.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO'  group by Mesero order by mesero"
+            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' order by mesero"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -600,129 +603,134 @@ Public Class frmcortemesero
                     impuesto = CDbl(totalventa) - CDbl(totalsiva)
                     propina = propina + rd1("Propina").ToString
                     descuento = descuento + rd1("Descuento").ToString
+                End If
+            Loop
 
-                    e.Graphics.DrawString("VENTA BRUTA", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VENTA BRUTA", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(descuento, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(descuento, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
 
-                    e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
-                    e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(impuesto, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(impuesto, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
 
-                    e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
-                    e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(propina, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(propina, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE VENTAS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(CDbl(totalventa) + CDbl(propina), 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 25
 
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 15
-                    e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                    Y += 12
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 25
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
+            rd2 = cmd2.ExecuteReader
+            Do While rd2.Read
+                If rd2.HasRows Then
+                    FORMAPAGO = rd2(0).ToString
 
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
-                    rd2 = cmd2.ExecuteReader
-                    Do While rd2.Read
-                        If rd2.HasRows Then
-                            FORMAPAGO = rd2(0).ToString
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
 
-                            cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
-                            rd3 = cmd3.ExecuteReader
-                            If rd3.HasRows Then
-                                If rd3.Read Then
+                            TOTALFORMA = rd3(0).ToString
 
-                                    TOTALFORMA = rd3(0).ToString
-
-                                    totalsuma = totalsuma + TOTALFORMA
-                                    e.Graphics.DrawString(FORMAPAGO, fuente_datos, Brushes.Black, 10, Y)
-                                    e.Graphics.DrawString("$ " & FormatNumber(TOTALFORMA, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                    Y += 15
-                                End If
-                            End If
-                            rd3.Close()
-
+                            totalsuma = totalsuma + TOTALFORMA
+                            e.Graphics.DrawString(FORMAPAGO, fuente_datos, Brushes.Black, 10, Y)
+                            e.Graphics.DrawString("$ " & FormatNumber(TOTALFORMA, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                            Y += 15
                         End If
-                    Loop
-                    rd2.Close()
-
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
-
-                    e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsuma, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 25
-
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 15
-                    e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                    Y += 12
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 25
-
-                    Dim SALDO As Double = 0
-                    Dim CUENTAS As Double = 0
-                    Dim dx As String = ""
-                    Dim TOTALCUENTAS As Double = 0
-
-                    cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
-                    rd4 = cmd4.ExecuteReader
-                    Do While rd4.Read
-                        If rd4.HasRows Then
-
-                            SALDO = rd4("Saldo").ToString
-                            If SALDO = 0 Then
-
-                                dx = "PAGADO"
-                                CUENTAS = rd4("Monto").ToString
-
-                                e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
-                                e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                Y += 15
-                                TOTALCUENTAS = TOTALCUENTAS + CUENTAS
-                            End If
-
-                        End If
-                    Loop
-                    rd4.Close()
-
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
-
-                    e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 25
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    End If
+                    rd3.Close()
 
                 End If
             Loop
+            rd2.Close()
+
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsuma, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 25
+
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("CUENTAS DEL MESERO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 25
+
+            Dim SALDO As Double = 0
+            Dim CUENTAS As Double = 0
+            Dim dx As String = ""
+            Dim TOTALCUENTAS As Double = 0
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+
+                    SALDO = rd4("Saldo").ToString
+                    If SALDO = 0 Then
+
+                        dx = "PAGADO"
+                        CUENTAS = rd4("Monto").ToString
+
+                        e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
+                        e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                        Y += 15
+                        TOTALCUENTAS = TOTALCUENTAS + CUENTAS
+                    End If
+
+                End If
+            Loop
+            rd4.Close()
+
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 25
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+
+
             rd1.Close()
             cnn1.Close()
             cnn2.Close()
@@ -885,10 +893,10 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND Mesero='" & mesero & "' group by formapago order by formapago"
+                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND Mesero='" & mesero & "' order by formapago"
                     rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
+                    Do While rd2.Read
+                        If rd2.HasRows Then
 
                             totalventa = totalventa + rd2("Monto").ToString
                             totalsiva = totalventa / 1.16
@@ -896,133 +904,134 @@ Public Class frmcortemesero
 
                             DESCUENTO = DESCUENTO + rd2("Descuento").ToString
                             PROPINAS = PROPINAS + rd2("Propina").ToString
-
-                            e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 15
-
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-                            cmd9 = cnn9.CreateCommand
-                            cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' group by formapago order by formapago"
-                            rd9 = cmd9.ExecuteReader
-                            Do While rd9.Read
-                                If rd9.HasRows Then
-
-                                    formapagos = rd9("FormaPago").ToString
-                                    cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
-                                    rd3 = cmd3.ExecuteReader
-                                    If rd3.HasRows Then
-                                        If rd3.Read Then
-                                            totalmesero = rd3(0).ToString
-
-                                            TOTAL = TOTAL + totalmesero
-
-                                            e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
-                                            e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                            Y += 15
-                                        End If
-                                    End If
-                                    rd3.Close()
-
-
-                                End If
-                            Loop
-                            rd9.Close()
-
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 25
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-                            Dim CUENTAS As String = ""
-                            Dim SALDO As Double = 0
-                            Dim dx As String = ""
-
-                            cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO'"
-                            rd4 = cmd4.ExecuteReader
-                            Do While rd4.Read
-                                If rd4.HasRows Then
-
-                                    SALDO = rd4("Saldo").ToString
-                                    If SALDO = 0 Then
-
-                                        dx = "PAGADO"
-                                        CUENTAS = rd4("Monto").ToString
-
-                                        e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
-                                        e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                        Y += 15
-                                        TOTALCUENTAS = TOTALCUENTAS + CUENTAS
-                                    End If
-
-                                End If
-                            Loop
-                            rd4.Close()
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                            Y += 25
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-
                         End If
-                    End If
+                    Loop
                     rd2.Close()
 
+                    e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 20
+                    e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
 
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 20
+                    e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("TOTAL DE VENTA:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(CDbl(totalventa) + CDbl(PROPINAS), 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' group by formapago order by formapago"
+                    rd9 = cmd9.ExecuteReader
+                    Do While rd9.Read
+                        If rd9.HasRows Then
+
+                            formapagos = rd9("FormaPago").ToString
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
+                            rd3 = cmd3.ExecuteReader
+                            If rd3.HasRows Then
+                                If rd3.Read Then
+                                    totalmesero = rd3(0).ToString
+
+                                    TOTAL = TOTAL + totalmesero
+
+                                    e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
+                                    e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                                    Y += 15
+                                End If
+                            End If
+                            rd3.Close()
+
+
+                        End If
+                    Loop
+                    rd9.Close()
+
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 25
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+                    Dim CUENTAS As String = ""
+                    Dim SALDO As Double = 0
+                    Dim dx As String = ""
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO'"
+                    rd4 = cmd4.ExecuteReader
+                    Do While rd4.Read
+                        If rd4.HasRows Then
+
+                            SALDO = rd4("Saldo").ToString
+                            If SALDO = 0 Then
+
+                                dx = "PAGADO"
+                                CUENTAS = rd4("Monto").ToString
+
+                                e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
+                                e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                                Y += 15
+                                TOTALCUENTAS = TOTALCUENTAS + CUENTAS
+                            End If
+
+                        End If
+                    Loop
+                    rd4.Close()
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
+                    Y += 25
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
 
                 End If
             Loop
@@ -1167,142 +1176,146 @@ Public Class frmcortemesero
             Dim totalsuma As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO'  group by Mesero order by mesero"
+            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' order by mesero"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
+
 
                     totalventa = totalventa + rd1("Monto").ToString
                     totalsiva = totalventa / 1.16
                     impuesto = CDbl(totalventa) - CDbl(totalsiva)
                     propina = propina + rd1("Propina").ToString
                     descuento = descuento + rd1("Descuento").ToString
+                End If
+            Loop
+            rd1.Close()
 
-                    e.Graphics.DrawString("VENTA BRUTA", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VENTA BRUTA", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(descuento, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(descuento, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
 
-                    e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
-                    e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(impuesto, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(impuesto, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
 
-                    e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
-                    e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(propina, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 15
+            e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(propina, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE VENTAS:", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(CDbl(totalventa) + CDbl(propina), 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 15
 
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 25
 
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 15
-                    e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                    Y += 12
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 25
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
+            rd2 = cmd2.ExecuteReader
+            Do While rd2.Read
+                If rd2.HasRows Then
 
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' group by FormaPago order by FormaPago"
-                    rd2 = cmd2.ExecuteReader
-                    Do While rd2.Read
-                        If rd2.HasRows Then
+                    FORMAPAGO = rd2(0).ToString
 
-                            FORMAPAGO = rd2(0).ToString
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
 
-                            cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Mesero='" & cbomesero.Text & "'  AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='" & FORMAPAGO & "'"
-                            rd3 = cmd3.ExecuteReader
-                            If rd3.HasRows Then
-                                If rd3.Read Then
+                            TOTALFORMA = rd3(0).ToString
 
-                                    TOTALFORMA = rd3(0).ToString
-
-                                    totalsuma = totalsuma + TOTALFORMA
-                                    e.Graphics.DrawString(FORMAPAGO, fuente_datos, Brushes.Black, 10, Y)
-                                    e.Graphics.DrawString("$ " & FormatNumber(TOTALFORMA, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                    Y += 15
-                                End If
-                            End If
-                            rd3.Close()
-
+                            totalsuma = totalsuma + TOTALFORMA
+                            e.Graphics.DrawString(FORMAPAGO, fuente_datos, Brushes.Black, 10, Y)
+                            e.Graphics.DrawString("$ " & FormatNumber(TOTALFORMA, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                            Y += 15
                         End If
-                    Loop
-                    rd2.Close()
-
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
-
-                    e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(totalsuma, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 25
-
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 15
-                    e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                    Y += 12
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                    Y += 25
-
-                    Dim SALDO As Double = 0
-                    Dim CUENTAS As Double = 0
-                    Dim dx As String = ""
-                    Dim TOTALCUENTAS As Double = 0
-
-                    cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora between '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
-                    rd4 = cmd4.ExecuteReader
-                    Do While rd4.Read
-                        If rd4.HasRows Then
-
-                            SALDO = rd4("Saldo").ToString
-                            If SALDO = 0 Then
-
-                                dx = "PAGADO"
-                                CUENTAS = rd4("Monto").ToString
-
-                                e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
-                                e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 240, Y, sf)
-                                Y += 15
-                                TOTALCUENTAS = TOTALCUENTAS + CUENTAS
-                            End If
-
-                        End If
-                    Loop
-                    rd4.Close()
-
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 6
-                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 240, Y, sf)
-                    Y += 20
-
-                    e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 240, Y, sf)
-                    Y += 20
-                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    End If
+                    rd3.Close()
 
                 End If
             Loop
+            rd2.Close()
 
-            rd1.Close()
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL FORMAS PAGO", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(totalsuma, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 25
+
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("CUENTAS DEL MESERO", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 25
+
+            Dim SALDO As Double = 0
+            Dim CUENTAS As Double = 0
+            Dim dx As String = ""
+            Dim TOTALCUENTAS As Double = 0
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora between '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & cbomesero.Text & "' AND Concepto='ABONO'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+
+                    SALDO = rd4("Saldo").ToString
+                    If SALDO = 0 Then
+
+                        dx = "PAGADO"
+                        CUENTAS = rd4("Monto").ToString
+
+                        e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
+                        e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 270, Y, sf)
+                        Y += 15
+                        TOTALCUENTAS = TOTALCUENTAS + CUENTAS
+                    End If
+
+                End If
+            Loop
+            rd4.Close()
+
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 6
+            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 270, Y, sf)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL CUENTAS", fuente_prods, Brushes.Black, 10, Y)
+            e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+            Y += 20
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+
             cnn1.Close()
             cnn2.Close()
             cnn3.Close()
@@ -1459,10 +1472,10 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND Mesero='" & meseros & "' group by formapago order by formapago"
+                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND Mesero='" & meseros & "' order by formapago"
                     rd2 = cmd2.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd2.Read Then
+                    Do While rd2.Read
+                        If rd2.HasRows Then
 
                             totalventa = totalventa + rd2("Monto").ToString
                             totalsiva = totalventa / 1.16
@@ -1470,132 +1483,134 @@ Public Class frmcortemesero
 
                             DESCUENTO = DESCUENTO + rd2("Descuento").ToString
                             PROPINAS = PROPINAS + rd2("Propina").ToString
-
-                            e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 20
-                            e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 15
-
-                            e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 15
-
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("FORMAS DE PAGO:", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-
-                            cmd9 = cnn9.CreateCommand
-                            cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' group by formapago order by formapago"
-                            rd9 = cmd9.ExecuteReader
-                            Do While rd9.Read
-                                If rd9.HasRows Then
-
-                                    formapagos = rd9("FormaPago").ToString
-                                    cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
-                                    rd3 = cmd3.ExecuteReader
-                                    If rd3.HasRows Then
-                                        If rd3.Read Then
-                                            totalmesero = rd3(0).ToString
-
-                                            TOTAL = TOTAL + totalmesero
-
-                                            e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
-                                            e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 180, Y, sf)
-                                            Y += 15
-                                        End If
-                                    End If
-                                    rd3.Close()
-
-                                End If
-                            Loop
-                            rd9.Close()
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL FORMAS PAGO:", fuente_prods, Brushes.Black, 8, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 25
-
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 15
-                            e.Graphics.DrawString("CUENTAS DEL MESERO:", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
-                            Y += 12
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-                            Y += 25
-
-
-                            Dim CUENTAS As String = ""
-                            Dim SALDO As Double = 0
-                            Dim dx As String = ""
-
-                            cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO'"
-                            rd4 = cmd4.ExecuteReader
-                            Do While rd4.Read
-                                If rd4.HasRows Then
-
-                                    SALDO = rd4("Saldo").ToString
-                                    If SALDO = 0 Then
-
-                                        dx = "PAGADO"
-                                        CUENTAS = rd4("Monto").ToString
-
-                                        e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
-                                        e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 180, Y, sf)
-                                        Y += 15
-                                        TOTALCUENTAS = TOTALCUENTAS + CUENTAS
-                                    End If
-
-                                End If
-                            Loop
-                            rd4.Close()
-
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 6
-                            e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
-                            Y += 20
-
-                            e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
-                            e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 180, Y, sf)
-                            Y += 25
-                            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-
                         End If
-                    End If
+                    Loop
                     rd2.Close()
 
+                    e.Graphics.DrawString("VENTA BRUTA:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 20
+                    e.Graphics.DrawString("DESCUENTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(DESCUENTO, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    Y += 20
+
+                    'e.Graphics.DrawString("VEN ANTES DE IMP:", fuente_prods, Brushes.Black, 10, Y)
+                    'e.Graphics.DrawString("$ " & FormatNumber(totalsiva, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    'Y += 20
+                    'e.Graphics.DrawString("IMPUESTOS:", fuente_prods, Brushes.Black, 10, Y)
+                    'e.Graphics.DrawString("$ " & FormatNumber(IMPUESTO, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    'Y += 15
+
+                    'e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    'Y += 6
+                    'e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    'Y += 20
+
+                    e.Graphics.DrawString("VENTA TOTAL:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(totalventa, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("PROPINAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(PROPINAS, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 15
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("TOTAL VENTAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(CDbl(totalventa) + CDbl(PROPINAS), 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 15
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("FORMAS DE PAGO", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+
+                    cmd9 = cnn9.CreateCommand
+                    cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' group by formapago order by formapago"
+                    rd9 = cmd9.ExecuteReader
+                    Do While rd9.Read
+                        If rd9.HasRows Then
+
+                            formapagos = rd9("FormaPago").ToString
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
+                            rd3 = cmd3.ExecuteReader
+                            If rd3.HasRows Then
+                                If rd3.Read Then
+                                    totalmesero = rd3(0).ToString
+
+                                    TOTAL = TOTAL + totalmesero
+
+                                    e.Graphics.DrawString(formapagos, fuente_datos, Brushes.Black, 10, Y)
+                                    e.Graphics.DrawString("$ " & FormatNumber(totalmesero, 2), fuente_datos, Brushes.Black, 180, Y, sf)
+                                    Y += 15
+                                End If
+                            End If
+                            rd3.Close()
+
+                        End If
+                    Loop
+                    rd9.Close()
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL FORMAS PAGO", fuente_prods, Brushes.Black, 8, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTAL, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 25
+
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawString("CUENTAS DEL MESERO", New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)
+                    Y += 12
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 25
+
+
+                    Dim CUENTAS As String = ""
+                    Dim SALDO As Double = 0
+                    Dim dx As String = ""
+
+                    cmd4 = cnn4.CreateCommand
+                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & meseros & "' AND Concepto='ABONO'"
+                    rd4 = cmd4.ExecuteReader
+                    Do While rd4.Read
+                        If rd4.HasRows Then
+
+                            SALDO = rd4("Saldo").ToString
+                            If SALDO = 0 Then
+
+                                dx = "PAGADO"
+                                CUENTAS = rd4("Monto").ToString
+
+                                e.Graphics.DrawString(dx, fuente_datos, Brushes.Black, 10, Y)
+                                e.Graphics.DrawString("$ " & FormatNumber(CUENTAS, 2), fuente_datos, Brushes.Black, 180, Y, sf)
+                                Y += 15
+                                TOTALCUENTAS = TOTALCUENTAS + CUENTAS
+                            End If
+
+                        End If
+                    Loop
+                    rd4.Close()
+
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
+                    Y += 6
+                    e.Graphics.DrawString("---------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 150, Y, sf)
+                    Y += 20
+
+                    e.Graphics.DrawString("TOTAL CUENTAS:", fuente_prods, Brushes.Black, 10, Y)
+                    e.Graphics.DrawString("$ " & FormatNumber(TOTALCUENTAS, 2), fuente_prods, Brushes.Black, 180, Y, sf)
+                    Y += 25
+                    e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
 
                 End If
             Loop

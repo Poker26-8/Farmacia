@@ -2285,6 +2285,9 @@ Public Class frmCorte2
         TranfeCajaG.Text = "0.00"
         MonederoCajaG.Text = "0.00"
         DepositoCajaG.Text = "0.00"
+
+        txtIngresoPropina.Text = "0.00"
+        TXTglobalPro.Text = "0.00"
         C_Global()
         CorteGlobal = False
 
@@ -2468,9 +2471,13 @@ Public Class frmCorte2
             txtIngresoPropina.Text = FormatNumber(ingresospropinas, 2)
 
             Dim Ingresos As String = "0"
-            Ingresos = CDec(txtIngEfectivoG.Text) + CDec(txtingresosformas.Text) + CDec(txtIngresoPropina.Text)
+            Ingresos = CDec(txtVentasG.Text) + CDec(txtComprasCanceG.Text) + CDec(txtCobroEmpG.Text)
+
+            Dim ingresospro As Double = 0
+            ingresospro = CDec(txtIngEfectivoG.Text) + CDec(txtingresosformas.Text) + CDec(txtIngresoPropina.Text)
 
             txtIngresosGlobal.Text = FormatNumber(Ingresos, 2)
+            TXTglobalPro.Text = FormatNumber(ingresospro, 2)
             My.Application.DoEvents()
 
 
@@ -3345,6 +3352,10 @@ Public Class frmCorte2
     End Sub
 
     Private Sub pCierreUsuario58_PrintPage(sender As Object, e As PrintPageEventArgs) Handles pCierreUsuario58.PrintPage
+
+    End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
     End Sub
 End Class

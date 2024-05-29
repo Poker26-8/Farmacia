@@ -156,8 +156,8 @@ Public Class frmConsultaR
 
         CODIGO = grdcaptura.Rows(index).Cells(0).Value.ToString
 
-        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg\" & CODIGO & ".jpg") Then
-            PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & CODIGO & ".jpg")
+        If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & CODIGO & ".jpg") Then
+            PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & CODIGO & ".jpg")
         End If
     End Sub
 
@@ -234,7 +234,7 @@ Public Class frmConsultaR
 
             If (rbmarca.Checked) Then
                 cmd5.CommandText = "SELECT DISTINCT Marca FROM refaccionaria WHERE Marca<>'' ORDER BY Marca"
-                rd5 = cmd5.ExecuteReader
+            rd5 = cmd5.ExecuteReader
                 Do While rd5.Read
                     If rd5.HasRows Then
                         cbodatos.Items.Add(rd5(0).ToString)

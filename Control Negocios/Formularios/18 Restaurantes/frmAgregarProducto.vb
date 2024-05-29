@@ -2773,6 +2773,7 @@ deku:
                         If PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda Then
                             PComanda80.Print()
                         Else
+                            MsgBox("La impresora no esta configurada", vbInformation + vbOKOnly, titulorestaurante)
                             GoTo SAFO
                         End If
                     End If

@@ -149,11 +149,10 @@ Public Class frmNuevoPagar
         If Strings.Left(txtEfectivo.Text, 1) = "," Or Strings.Left(txtEfectivo.Text, 1) = "." Then Exit Sub
 
         If idborrado = 0 Then
-            myope = IIf(txttotalpropina.Text = "", 0, txttotalpropina.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0.00, txtpagos.Text)) - txtPropina.Text)
+            myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0.00, txtpagos.Text)) - txtPropina.Text)
         Else
             myope = txttotalpropina.Text
         End If
-
 
 
         If myope < 0 Then
@@ -212,9 +211,6 @@ Public Class frmNuevoPagar
             Dim tmpCam As Double = 0
             Dim TotalPagar As Double = 0
 
-            VarRes = IIf(txtPropina.Text = "", 0, txtPropina.Text)
-            VRe = Mid(txtPropina.Text, 1, 1)
-            Vre1 = Mid(txtPropina.Text, 1, 2)
 
             Dim subtotalventa As Double = IIf(txtSubtotalmapeo.Text = 0, 0, txtSubtotalmapeo.Text)
             Dim efectivoventa As Double = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)
@@ -223,24 +219,6 @@ Public Class frmNuevoPagar
             Dim totalventa As Double = IIf(txtTotal.Text = 0, 0, txtTotal.Text)
 
             Dim sumapagos As Double = CDbl(efectivoventa) + CDbl(pagosventa)
-
-            If VRe = "." Then
-                VRe = 0
-                VarPropa = VRe
-            ElseIf VRe = "" Then
-                VRe = 0
-                VarPropa = VRe
-            Else
-                VarPropa = txtPropina.Text
-            End If
-
-            If Vre1 = ".." Then
-                Vre1 = 0
-                VarPropa = Vre1
-                txtPropina.Text = Vre1
-                txtPropina.SelectionStart = 0
-                txtPropina.SelectionLength = Len(txtPropina.Text)
-            End If
 
             If txtPropina.Text = "0" Then
 
@@ -267,7 +245,6 @@ Public Class frmNuevoPagar
             Else
                 txtResta.Text = MyOpe
                 txtCambio.Text = "0.00"
-                restapago = txtResta.Text
             End If
 
             txtCambio.Text = FormatNumber(txtCambio.Text, 2)
@@ -289,15 +266,6 @@ Public Class frmNuevoPagar
                 lblTotal.Text = CDec(totalventa) + CDbl(txtPropina.Text)
                 lblTotal.Text = FormatNumber(lblTotal.Text, 2)
 
-                'tmpCam = 0
-
-                'If CDec(tmpCam) >= 0 Then
-                '    txtCambio.Text = FormatNumber(tmpCam, 2)
-
-                'Else
-                '    txtCambio.Text = "0.00"
-
-                'End If
                 txtEfectivo.Text = "0.00"
                 txtpagos.Text = "0.00"
                 grdPagos.Rows.Clear()
@@ -3467,7 +3435,7 @@ Door:
                             Y += 13
                             inicio += caracteresPorLinea
                         End While
-
+                        Y += 5
                         e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 200, Y, derecha)
                         e.Graphics.DrawString(simbolo & " " & FormatNumber(importepro, 2), fuente_p, Brushes.Black, 270, Y, derecha)
                         Y += 13
@@ -3479,7 +3447,7 @@ Door:
                 rd4.Close()
 
                 e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-                Y += 11
+                Y += 15
             Else
                 Dim conta As Integer = 0
                 Dim contband As Integer = 0
@@ -3509,13 +3477,14 @@ Door:
                             If rd3.HasRows Then
                                 conta = conta
                                 contband = contband + 1
-                                Y += 20
+                                Y += 15
                                 If comen_sal <> rd3("Comensal").ToString Then
                                     e.Graphics.DrawString("Detalle Comensal:", fuente_b, Brushes.Black, 1, Y)
                                     e.Graphics.DrawString(rd3("Comensal").ToString, fuente_b, Brushes.Black, 120, Y)
                                     TOTALCOM = 0
+                                    Y += 20
                                 End If
-                                Y += 20
+
 
                                 nombrepro = rd3("Nombre").ToString
                                 preciopro = rd3("Precio").ToString
@@ -3535,7 +3504,7 @@ Door:
                                 Loop
                                 rd1.Close()
 
-                                e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
+                                e.Graphics.DrawString(FormatNumber(cantidadpro, 2), New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
 
                                 Dim caracteresPorLinea As Integer = 30
                                 Dim texto As String = nombrepro
@@ -3549,10 +3518,10 @@ Door:
                                     Y += 13
                                     inicio += caracteresPorLinea
                                 End While
-
+                                Y += 5
                                 e.Graphics.DrawString(simbolo & " " & preciopro, fuente_p, Brushes.Black, 195, Y, derecha)
                                 e.Graphics.DrawString(simbolo & " " & FormatNumber(importepro, 2), fuente_p, Brushes.Black, 270, Y, derecha)
-                                Y += 13
+                                Y += 10
 
                                 articulos = articulos + cantidadpro
                                 TOTALCOM = CDec(TOTALCOM) + CDec(importepro)
@@ -3570,16 +3539,18 @@ Door:
                                     Else
                                         TOTALCOM = FormatNumber(TOTALCOM, 2)
                                     End If
-                                    Y += 20
+                                    Y += 10
                                     e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
                                     e.Graphics.DrawString(simbolo & " " & FormatNumber(TOTALCOM, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                                    Y += 15
+                                    Y += 10
 
                                     e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-                                    Y += 16
+                                    Y += 10
                                 End If
                                 comen_sal = rd3("Comensal").ToString
                                 totalventa = totalventa + importepro
+
+
 
                             End If
                         Loop
@@ -5652,6 +5623,77 @@ Door:
     Private Sub txtPropina_TextChanged(sender As Object, e As EventArgs) Handles txtPropina.TextChanged
         If Not IsNumeric(txtPropina.Text) Then txtPropina.Text = "0.00" : Exit Sub
         If Strings.Left(txtPropina.Text, 1) = "," Or Strings.Left(txtPropina.Text, 1) = "." Then Exit Sub
+
+
+        Dim VarRes As Double = 0
+        Dim VRe As String = ""
+        Dim Vre1 As String = ""
+        Dim VarPropa As Double = 0
+        Dim MyOpe As Double = 0
+        Dim restapago As Double = 0
+        Dim tmpCam As Double = 0
+        Dim TotalPagar As Double = 0
+
+        Dim subtotalventa As Double = IIf(txtSubtotalmapeo.Text = "", 0, txtSubtotalmapeo.Text)
+        Dim efectivoventa As Double = IIf(txtEfectivo.Text = "", 0, txtEfectivo.Text)
+        Dim pagosventa As Double = IIf(txtpagos.Text = "", 0, txtpagos.Text)
+        Dim propinaventa As Double = IIf(txtPropina.Text = "", 0, txtPropina.Text)
+        Dim totalventa As Double = IIf(txtTotal.Text = "", 0, txtTotal.Text)
+
+        Dim sumapagos As Double = CDbl(efectivoventa) + CDbl(pagosventa)
+
+        If txtPropina.Text = "0" Then
+
+            MyOpe = CDec(CDec(subtotalventa) - (sumapagos - CDec(VarPropa)) - CDbl(txtDescuento.Text))
+        Else
+
+            If txtDescuento.Text = "0.00" Then
+                MyOpe = CDec(subtotalventa + propinaventa) - sumapagos
+            Else
+                MyOpe = CDec(CDec(subtotalventa) - (sumapagos - CDec(propinaventa)) - CDbl(IIf(txtDescuento.Text = "", 0, txtDescuento.Text)))
+            End If
+
+        End If
+
+        If MyOpe = 0 Then
+            MyOpe = 0
+        End If
+
+
+        If MyOpe < 0 Then
+            txtResta.Text = "0.00"
+
+            txtCambio.Text = -MyOpe
+        Else
+            txtResta.Text = MyOpe
+            txtCambio.Text = "0.00"
+        End If
+
+        txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+        txtResta.Text = FormatNumber(txtResta.Text, 2)
+
+        If CDec(txtResta.Text) = CDec(IIf(txtSubtotalmapeo.Text = "", "0", txtSubtotalmapeo.Text)) And CDec(txtPropina.Text) = 0 Then
+
+            txttotalpropina.Text = CDec(totalventa) + CDec(txtPropina.Text)
+            txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
+
+            lblTotal.Text = CDec(subtotalventa)
+            lblTotal.Text = FormatNumber(IIf(txtTotal.Text = "", 0, txtTotal.Text), 2)
+        Else
+
+
+            txttotalpropina.Text = CDec(totalventa) + CDec(IIf(txtPropina.Text = "", 0, txtPropina.Text))
+            txttotalpropina.Text = FormatNumber(txttotalpropina.Text, 2)
+
+            lblTotal.Text = CDec(totalventa) + CDbl(txtPropina.Text)
+            lblTotal.Text = FormatNumber(lblTotal.Text, 2)
+
+            txtEfectivo.Text = "0.00"
+            txtpagos.Text = "0.00"
+            grdPagos.Rows.Clear()
+        End If
+        focomapeo = 1
+
     End Sub
 
     Private Sub btnpunto_Click(sender As Object, e As EventArgs) Handles btnpunto.Click

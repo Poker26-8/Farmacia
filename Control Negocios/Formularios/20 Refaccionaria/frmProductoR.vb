@@ -24,6 +24,10 @@ Public Class frmProductoR
             Dim nombre As String = ""
             Dim piezas As Double = 0
 
+
+            Dim marcaveh As String = ""
+            Dim modeloveh As String = ""
+
             cnn1.Close() : cnn1.Open()
 
             For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -43,13 +47,24 @@ Public Class frmProductoR
                 nombre = grdcaptura.Rows(luffy).Cells(12).Value.ToString
 
                 cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM vehiculo WHERE IdVehiculo='" & vehiculo & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        marcaveh = rd1("Marca").ToString
+                        modeloveh = rd1("Modelo").ToString
+                    End If
+                End If
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "SELECT * FROM Refaccionaria WHERE CodigoPro='" & cboCodigo.Text & "' AND IdVehiculo=" & vehiculo & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn3.Close() : cnn3.Open()
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "UPDATE refaccionaria SET Marca='" & marca & "',Medida='" & txtMedida.Text & "',Observaciones='" & txtObservacion.Text & "',Ubicacion='" & cboCodigo.Text & "',Servicio='" & cboservicio.Text & "',NPiezas='" & txtpiezas.Text & "',IdVehiculo=" & vehiculo & " WHERE CodigoPro='" & cboCodigo.Text & "' AND IdVehiculo=" & vehiculo & ""
+                        cmd3.CommandText = "UPDATE refaccionaria SET Marca='" & marcaveh & "',Modelo='" & modeloveh & "',Medida='" & txtMedida.Text & "',Observaciones='" & txtObservacion.Text & "',Ubicacion='" & cboubicacion.Text & "',Servicio='" & cboservicio.Text & "',NPiezas='" & txtpiezas.Text & "',IdVehiculo=" & vehiculo & ",MarcaRefa='" & marca & "' WHERE CodigoPro='" & cboCodigo.Text & "' AND IdVehiculo=" & vehiculo & ""
                         cmd3.ExecuteNonQuery()
                         cnn3.Close()
                         btnNuevo.PerformClick()
@@ -58,7 +73,7 @@ Public Class frmProductoR
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Medida,Observaciones,Ubicacion,Servicio,UVenta,NPiezas,IdVehiculo) VALUES('" & codigo & "','" & numparte & "','" & barra & "','" & nombre & "','" & marca & "','" & medida & "','" & observacion & "','" & ubicacion & "','" & servicio & "','" & unidad & "','" & piezas & "'," & vehiculo & ")"
+                    cmd3.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Medida,Observaciones,Ubicacion,Servicio,UVenta,NPiezas,IdVehiculo,MarcaRefa) VALUES('" & codigo & "','" & numparte & "','" & barra & "','" & nombre & "','" & marcaveh & "','" & modeloveh & "','" & medida & "','" & observacion & "','" & ubicacion & "','" & servicio & "','" & unidad & "','" & piezas & "'," & vehiculo & ",'" & marca & "')"
                     If cmd3.ExecuteNonQuery() Then
                         MsgBox("Producto agregado correctamente", vbInformation + vbOKOnly, titulorefaccionaria)
                     End If
@@ -345,7 +360,7 @@ Public Class frmProductoR
                                  rd1("NumParte").ToString,
                                  rd1("CodBarra").ToString,
                                    rd1("Nombre").ToString(),
-                                 rd1("Marca").ToString,
+                                 rd1("MarcaRefa").ToString,
                                  rd1("Medida").ToString,
                                  rd1("Observaciones").ToString,
                                  rd1("Ubicacion").ToString,
@@ -509,8 +524,8 @@ Public Class frmProductoR
         cboCodigo.Text = grd.Rows(index).Cells(0).Value.ToString
         txtnumparte.Text = grd.Rows(index).Cells(1).Value.ToString
         txtbarras.Text = grd.Rows(index).Cells(2).Value.ToString
-        cboMarca.Text = grd.Rows(index).Cells(3).Value.ToString
-        cboNombre.Text = grd.Rows(index).Cells(4).Value.ToString
+        cboMarca.Text = grd.Rows(index).Cells(4).Value.ToString
+        cboNombre.Text = grd.Rows(index).Cells(3).Value.ToString
         txtMedida.Text = grd.Rows(index).Cells(5).Value.ToString
         txtObservacion.Text = grd.Rows(index).Cells(6).Value.ToString
         cboubicacion.Text = grd.Rows(index).Cells(7).Value.ToString

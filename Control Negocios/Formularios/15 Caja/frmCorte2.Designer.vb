@@ -31,8 +31,6 @@ Partial Class frmCorte2
         Me.btnSaldoGlobal = New System.Windows.Forms.Button()
         Me.btnCalcularGlobal = New System.Windows.Forms.Button()
         Me.btnLimpiarGlobal = New System.Windows.Forms.Button()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.DepositoCajaG = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.MonederoCajaG = New System.Windows.Forms.TextBox()
         Me.Label36 = New System.Windows.Forms.Label()
@@ -214,6 +212,8 @@ Partial Class frmCorte2
         Me.txtSaldoFinalU = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.btnCalcular = New System.Windows.Forms.Button()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.DepositoCajaG = New System.Windows.Forms.TextBox()
         Me.tCorte = New System.Windows.Forms.Timer(Me.components)
         Me.pCalculoGlobal80 = New System.Drawing.Printing.PrintDocument()
         Me.pCalculoGlobal58 = New System.Drawing.Printing.PrintDocument()
@@ -221,6 +221,8 @@ Partial Class frmCorte2
         Me.pCalculoUsuario58 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario80 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario58 = New System.Drawing.Printing.PrintDocument()
+        Me.TXTglobalPro = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -246,7 +248,7 @@ Partial Class frmCorte2
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(598, 583)
+        Me.TabControl1.Size = New System.Drawing.Size(598, 605)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -274,7 +276,7 @@ Partial Class frmCorte2
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(590, 557)
+        Me.TabPage1.Size = New System.Drawing.Size(590, 579)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "                      CORTE GLOBAL DEL DÍA                      "
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -282,7 +284,7 @@ Partial Class frmCorte2
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(6, 509)
+        Me.Label31.Location = New System.Drawing.Point(9, 530)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(172, 13)
         Me.Label31.TabIndex = 180
@@ -291,7 +293,7 @@ Partial Class frmCorte2
         'txtegresosforma
         '
         Me.txtegresosforma.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtegresosforma.Location = New System.Drawing.Point(187, 505)
+        Me.txtegresosforma.Location = New System.Drawing.Point(190, 526)
         Me.txtegresosforma.Name = "txtegresosforma"
         Me.txtegresosforma.ReadOnly = True
         Me.txtegresosforma.Size = New System.Drawing.Size(100, 20)
@@ -305,7 +307,7 @@ Partial Class frmCorte2
         Me.btnSaldoGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaldoGlobal.Image = CType(resources.GetObject("btnSaldoGlobal.Image"), System.Drawing.Image)
         Me.btnSaldoGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaldoGlobal.Location = New System.Drawing.Point(364, 474)
+        Me.btnSaldoGlobal.Location = New System.Drawing.Point(367, 495)
         Me.btnSaldoGlobal.Name = "btnSaldoGlobal"
         Me.btnSaldoGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnSaldoGlobal.TabIndex = 176
@@ -319,7 +321,7 @@ Partial Class frmCorte2
         Me.btnCalcularGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalcularGlobal.Image = CType(resources.GetObject("btnCalcularGlobal.Image"), System.Drawing.Image)
         Me.btnCalcularGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCalcularGlobal.Location = New System.Drawing.Point(438, 474)
+        Me.btnCalcularGlobal.Location = New System.Drawing.Point(441, 495)
         Me.btnCalcularGlobal.Name = "btnCalcularGlobal"
         Me.btnCalcularGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnCalcularGlobal.TabIndex = 175
@@ -333,7 +335,7 @@ Partial Class frmCorte2
         Me.btnLimpiarGlobal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiarGlobal.Image = CType(resources.GetObject("btnLimpiarGlobal.Image"), System.Drawing.Image)
         Me.btnLimpiarGlobal.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(512, 473)
+        Me.btnLimpiarGlobal.Location = New System.Drawing.Point(515, 494)
         Me.btnLimpiarGlobal.Name = "btnLimpiarGlobal"
         Me.btnLimpiarGlobal.Size = New System.Drawing.Size(68, 73)
         Me.btnLimpiarGlobal.TabIndex = 174
@@ -341,32 +343,10 @@ Partial Class frmCorte2
         Me.btnLimpiarGlobal.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiarGlobal.UseVisualStyleBackColor = True
         '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(92, 642)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(72, 13)
-        Me.Label33.TabIndex = 173
-        Me.Label33.Text = "DEPÓSITOS:"
-        Me.Label33.Visible = False
-        '
-        'DepositoCajaG
-        '
-        Me.DepositoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DepositoCajaG.Location = New System.Drawing.Point(273, 638)
-        Me.DepositoCajaG.Name = "DepositoCajaG"
-        Me.DepositoCajaG.ReadOnly = True
-        Me.DepositoCajaG.Size = New System.Drawing.Size(100, 20)
-        Me.DepositoCajaG.TabIndex = 172
-        Me.DepositoCajaG.Text = "0.00"
-        Me.DepositoCajaG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.DepositoCajaG.Visible = False
-        '
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(95, 534)
+        Me.Label34.Location = New System.Drawing.Point(98, 555)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(80, 13)
         Me.Label34.TabIndex = 171
@@ -376,7 +356,7 @@ Partial Class frmCorte2
         'MonederoCajaG
         '
         Me.MonederoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.MonederoCajaG.Location = New System.Drawing.Point(187, 531)
+        Me.MonederoCajaG.Location = New System.Drawing.Point(190, 552)
         Me.MonederoCajaG.Name = "MonederoCajaG"
         Me.MonederoCajaG.ReadOnly = True
         Me.MonederoCajaG.Size = New System.Drawing.Size(100, 20)
@@ -388,7 +368,7 @@ Partial Class frmCorte2
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(4, 642)
+        Me.Label36.Location = New System.Drawing.Point(7, 720)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(107, 13)
         Me.Label36.TabIndex = 169
@@ -398,7 +378,7 @@ Partial Class frmCorte2
         'TranfeCajaG
         '
         Me.TranfeCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TranfeCajaG.Location = New System.Drawing.Point(191, 639)
+        Me.TranfeCajaG.Location = New System.Drawing.Point(194, 717)
         Me.TranfeCajaG.Name = "TranfeCajaG"
         Me.TranfeCajaG.ReadOnly = True
         Me.TranfeCajaG.Size = New System.Drawing.Size(100, 20)
@@ -410,7 +390,7 @@ Partial Class frmCorte2
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(11, 611)
+        Me.Label37.Location = New System.Drawing.Point(14, 689)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(65, 13)
         Me.Label37.TabIndex = 167
@@ -420,7 +400,7 @@ Partial Class frmCorte2
         'TarjetaCajaG
         '
         Me.TarjetaCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TarjetaCajaG.Location = New System.Drawing.Point(192, 607)
+        Me.TarjetaCajaG.Location = New System.Drawing.Point(195, 685)
         Me.TarjetaCajaG.Name = "TarjetaCajaG"
         Me.TarjetaCajaG.ReadOnly = True
         Me.TarjetaCajaG.Size = New System.Drawing.Size(100, 20)
@@ -432,7 +412,7 @@ Partial Class frmCorte2
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(66, 482)
+        Me.Label14.Location = New System.Drawing.Point(69, 503)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(109, 13)
         Me.Label14.TabIndex = 165
@@ -441,7 +421,7 @@ Partial Class frmCorte2
         'EfectivoCajaG
         '
         Me.EfectivoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.EfectivoCajaG.Location = New System.Drawing.Point(187, 479)
+        Me.EfectivoCajaG.Location = New System.Drawing.Point(190, 500)
         Me.EfectivoCajaG.Name = "EfectivoCajaG"
         Me.EfectivoCajaG.ReadOnly = True
         Me.EfectivoCajaG.Size = New System.Drawing.Size(100, 20)
@@ -454,7 +434,7 @@ Partial Class frmCorte2
         Me.txtSaldoFinalG.BackColor = System.Drawing.SystemColors.HotTrack
         Me.txtSaldoFinalG.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.txtSaldoFinalG.ForeColor = System.Drawing.Color.White
-        Me.txtSaldoFinalG.Location = New System.Drawing.Point(482, 446)
+        Me.txtSaldoFinalG.Location = New System.Drawing.Point(483, 468)
         Me.txtSaldoFinalG.Name = "txtSaldoFinalG"
         Me.txtSaldoFinalG.ReadOnly = True
         Me.txtSaldoFinalG.Size = New System.Drawing.Size(100, 20)
@@ -467,7 +447,7 @@ Partial Class frmCorte2
         Me.Label13.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(8, 446)
+        Me.Label13.Location = New System.Drawing.Point(9, 468)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(470, 21)
         Me.Label13.TabIndex = 162
@@ -505,7 +485,7 @@ Partial Class frmCorte2
         Me.Panel3.Controls.Add(Me.Label30)
         Me.Panel3.Location = New System.Drawing.Point(300, 18)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(287, 422)
+        Me.Panel3.Size = New System.Drawing.Size(287, 438)
         Me.Panel3.TabIndex = 161
         '
         'grdegresosglobal
@@ -793,6 +773,8 @@ Partial Class frmCorte2
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.TXTglobalPro)
+        Me.Panel2.Controls.Add(Me.Label22)
         Me.Panel2.Controls.Add(Me.txtIngresoPropina)
         Me.Panel2.Controls.Add(Me.Label23)
         Me.Panel2.Controls.Add(Me.Label4)
@@ -811,16 +793,16 @@ Partial Class frmCorte2
         Me.Panel2.Controls.Add(Me.Label20)
         Me.Panel2.Location = New System.Drawing.Point(9, 96)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(287, 344)
+        Me.Panel2.Size = New System.Drawing.Size(287, 360)
         Me.Panel2.TabIndex = 160
         '
         'txtIngresoPropina
         '
         Me.txtIngresoPropina.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngresoPropina.Location = New System.Drawing.Point(181, 195)
+        Me.txtIngresoPropina.Location = New System.Drawing.Point(182, 181)
         Me.txtIngresoPropina.Name = "txtIngresoPropina"
         Me.txtIngresoPropina.ReadOnly = True
-        Me.txtIngresoPropina.Size = New System.Drawing.Size(100, 20)
+        Me.txtIngresoPropina.Size = New System.Drawing.Size(99, 20)
         Me.txtIngresoPropina.TabIndex = 179
         Me.txtIngresoPropina.Text = "0.00"
         Me.txtIngresoPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -828,7 +810,7 @@ Partial Class frmCorte2
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(1, 198)
+        Me.Label23.Location = New System.Drawing.Point(2, 184)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(121, 13)
         Me.Label23.TabIndex = 180
@@ -853,7 +835,7 @@ Partial Class frmCorte2
         Me.grdingresosglobal.BackgroundColor = System.Drawing.Color.White
         Me.grdingresosglobal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdingresosglobal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4})
-        Me.grdingresosglobal.Location = New System.Drawing.Point(2, 221)
+        Me.grdingresosglobal.Location = New System.Drawing.Point(4, 233)
         Me.grdingresosglobal.Name = "grdingresosglobal"
         Me.grdingresosglobal.ReadOnly = True
         Me.grdingresosglobal.RowHeadersVisible = False
@@ -877,7 +859,7 @@ Partial Class frmCorte2
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(0, 171)
+        Me.Label21.Location = New System.Drawing.Point(1, 159)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(176, 13)
         Me.Label21.TabIndex = 178
@@ -897,7 +879,7 @@ Partial Class frmCorte2
         'txtingresosformas
         '
         Me.txtingresosformas.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtingresosformas.Location = New System.Drawing.Point(181, 167)
+        Me.txtingresosformas.Location = New System.Drawing.Point(182, 155)
         Me.txtingresosformas.Name = "txtingresosformas"
         Me.txtingresosformas.ReadOnly = True
         Me.txtingresosformas.Size = New System.Drawing.Size(100, 20)
@@ -958,7 +940,7 @@ Partial Class frmCorte2
         '
         Me.txtIngresosGlobal.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtIngresosGlobal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.txtIngresosGlobal.Location = New System.Drawing.Point(181, 111)
+        Me.txtIngresosGlobal.Location = New System.Drawing.Point(182, 104)
         Me.txtIngresosGlobal.Name = "txtIngresosGlobal"
         Me.txtIngresosGlobal.ReadOnly = True
         Me.txtIngresosGlobal.Size = New System.Drawing.Size(100, 20)
@@ -970,7 +952,7 @@ Partial Class frmCorte2
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(3, 115)
+        Me.Label18.Location = New System.Drawing.Point(1, 108)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(140, 13)
         Me.Label18.TabIndex = 111
@@ -979,7 +961,7 @@ Partial Class frmCorte2
         'txtIngEfectivoG
         '
         Me.txtIngEfectivoG.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtIngEfectivoG.Location = New System.Drawing.Point(181, 142)
+        Me.txtIngEfectivoG.Location = New System.Drawing.Point(182, 130)
         Me.txtIngEfectivoG.Name = "txtIngEfectivoG"
         Me.txtIngEfectivoG.ReadOnly = True
         Me.txtIngEfectivoG.Size = New System.Drawing.Size(100, 20)
@@ -990,7 +972,7 @@ Partial Class frmCorte2
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(0, 145)
+        Me.Label20.Location = New System.Drawing.Point(1, 133)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(121, 13)
         Me.Label20.TabIndex = 115
@@ -1080,7 +1062,7 @@ Partial Class frmCorte2
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(590, 606)
+        Me.TabPage2.Size = New System.Drawing.Size(590, 557)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "                       CORTE POR USUARIO (PERIODO)                       "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -2359,6 +2341,28 @@ Partial Class frmCorte2
         Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnCalcular.UseVisualStyleBackColor = True
         '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(92, 775)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(72, 13)
+        Me.Label33.TabIndex = 173
+        Me.Label33.Text = "DEPÓSITOS:"
+        Me.Label33.Visible = False
+        '
+        'DepositoCajaG
+        '
+        Me.DepositoCajaG.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.DepositoCajaG.Location = New System.Drawing.Point(273, 771)
+        Me.DepositoCajaG.Name = "DepositoCajaG"
+        Me.DepositoCajaG.ReadOnly = True
+        Me.DepositoCajaG.Size = New System.Drawing.Size(100, 20)
+        Me.DepositoCajaG.TabIndex = 172
+        Me.DepositoCajaG.Text = "0.00"
+        Me.DepositoCajaG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.DepositoCajaG.Visible = False
+        '
         'pCalculoGlobal80
         '
         '
@@ -2377,12 +2381,34 @@ Partial Class frmCorte2
         'pCierreUsuario58
         '
         '
+        'TXTglobalPro
+        '
+        Me.TXTglobalPro.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TXTglobalPro.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.TXTglobalPro.Location = New System.Drawing.Point(182, 207)
+        Me.TXTglobalPro.Name = "TXTglobalPro"
+        Me.TXTglobalPro.ReadOnly = True
+        Me.TXTglobalPro.Size = New System.Drawing.Size(99, 20)
+        Me.TXTglobalPro.TabIndex = 181
+        Me.TXTglobalPro.Text = "0.00"
+        Me.TXTglobalPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(2, 210)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(178, 13)
+        Me.Label22.TabIndex = 182
+        Me.Label22.Text = "TOTAL INGRESOS PROPINA:"
+        '
         'frmCorte2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(615, 593)
+        Me.ClientSize = New System.Drawing.Size(615, 622)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.DepositoCajaG)
         Me.Controls.Add(Me.Label33)
@@ -2618,4 +2644,6 @@ Partial Class frmCorte2
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents txtIngresoPropina As TextBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents TXTglobalPro As TextBox
+    Friend WithEvents Label22 As Label
 End Class

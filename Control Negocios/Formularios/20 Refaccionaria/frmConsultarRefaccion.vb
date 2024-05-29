@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.IO
+Imports AForge.Controls
 Public Class frmConsultarRefaccion
     Private Sub frmConsultarRefaccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Obtener el año actual
@@ -17,6 +18,7 @@ Public Class frmConsultarRefaccion
             Dim unidad As String = ""
             Dim proveedor As String = ""
             Dim precio As Double = 0
+
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -51,6 +53,8 @@ Public Class frmConsultarRefaccion
                                           precio,
                                           proveedor
 )
+
+
                 End If
             Loop
             rd1.Close()
@@ -123,6 +127,8 @@ Public Class frmConsultarRefaccion
         cboModelo.Text = ""
         grdProductos.Rows.Clear()
         cboaño.Focused.Equals(True)
+
+        PicProducto.Image = Nothing
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
