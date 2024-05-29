@@ -7,14 +7,16 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        frmProductoR.Show()
-        'frmAsignarRefa.Show()
+        'frmProductoR.Show()
+        frmAsignarRefa.Show()
+        frmAsignarRefa.BringToFront()
         Me.Close()
     End Sub
 
     Private Sub btnconsultar_Click(sender As Object, e As EventArgs) Handles btnconsultar.Click
-        frmConsultaR.Show()
+
         frmConsultarRefaccion.Show()
+        frmConsultarRefaccion.BringToFront()
         Me.Close()
     End Sub
 
@@ -42,9 +44,9 @@
                 If rd1.Read Then
 
                     If rd1(0).ToString = 1 Then
-                        Me.Size = New Size(566, 134)
+                        Me.Size = New Size(722, 134)
                     Else
-                        Me.Size = New Size(486, 134)
+                        Me.Size = New Size(640, 134)
                     End If
 
                 End If
@@ -56,5 +58,16 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        frmMarcas.Show()
+        frmMarcas.BringToFront()
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        frmModelos.Show()
+        frmModelos.BringToFront()
     End Sub
 End Class

@@ -771,6 +771,12 @@ Public Class Login
                     'Dim sTargetprueba = "Server=localhost;user id = root; password=;"
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
+
+                            'vehiculo2
+                            .runSp(cnnprueba, vartablavehiculo2, sinfo)
+                            .runSp(cnnprueba, varKeyvehiculo2, sinfo)
+                            .runSp(cnnprueba, varAutovehiuclo2, sinfo)
+
                             'nominas
                             .runSp(cnnprueba, vartablanominass, sinfo)
                             .runSp(cnnprueba, VarKeynominass, sinfo)
@@ -793,7 +799,7 @@ Public Class Login
 
                             'detallehotelprecios
                             .runSp(cnnprueba, vartabladetallehotelprecios, sinfo)
-                            .runSp(cnnprueba, varKeydetallehotelprecios, sinfo)
+                            .runSp(cnnprueba, VarKeydetallehotelprecios, sinfo)
                             .runSp(cnnprueba, varAutodetallehotelprecios, sinfo)
 
                             'promos

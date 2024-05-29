@@ -590,7 +590,7 @@ Public Class frmProRefaccionaria
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Ubicacion from Productos order by Ubicacion"
+                "select distinct Ubicacion from Productos WHERE Ubicacion<>'' order by Ubicacion"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then cboubicacion.Items.Add(rd1(0).ToString())

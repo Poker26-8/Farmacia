@@ -118,6 +118,8 @@ Public Class frmConsultarRefaccion
 
         If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg") Then
             PicProducto.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg")
+        Else
+            PicProducto.Image = Nothing
         End If
     End Sub
 
@@ -133,6 +135,7 @@ Public Class frmConsultarRefaccion
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+        frmMenuPrincipal.Show()
     End Sub
 
     Private Sub cboaño_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboaño.KeyPress

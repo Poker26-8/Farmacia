@@ -4,6 +4,7 @@
     End Sub
     Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
         Me.Close()
+        frmMenuPrincipal.Show()
     End Sub
 
     Private Sub cboCodigo_DropDown(sender As Object, e As EventArgs) Handles cboCodigo.DropDown
@@ -299,6 +300,7 @@
 
                 Next
                 MsgBox("Refacciones asignadas correctamente", vbInformation + vbOKOnly, titulorefaccionaria)
+                grdCaptura.Rows.Clear()
             End If
 
 

@@ -49,6 +49,9 @@
 
     Private Sub btnAlmacenar_Click(sender As Object, e As EventArgs) Handles btnAlmacenar.Click
         Try
+
+            If cboAno.Text = "" Then MsgBox("Seleccione el año del modelo", vbInformation + vbOKOnly, titulorefaccionaria) : cboAno.Focus.Equals(True) : Exit Sub
+
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT * FROM marcas WHERE Nombre='" & cboMarca.Text & "'"
@@ -80,13 +83,28 @@
                     Dim modelo As String = grdModelos.Rows(luufy).Cells(1).Value.ToString
                     Dim an As String = grdModelos.Rows(luufy).Cells(2).Value.ToString
 
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO vehiculo2(Marca,Modelo,ano) VALUES('" & marca & "','" & modelo & "','" & an & "')"
-                    cmd2.ExecuteNonQuery()
-                    cnn2.Close()
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT * FROM vehiculo2 WHERE Modelo='" & modelo & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+
+                        End If
+                    Else
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "INSERT INTO vehiculo2(Marca,Modelo,ano) VALUES('" & marca & "','" & modelo & "','" & an & "')"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+
+
                 Next
                 MsgBox("Datos almacenados correctamente", vbInformation + vbOKOnly, titulorefaccionaria)
+                grdModelos.Rows.Clear()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)

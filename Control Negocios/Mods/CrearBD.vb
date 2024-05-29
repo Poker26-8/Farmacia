@@ -607,6 +607,13 @@
                                           `Cliente` varchar(255) DEFAULT ''
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+    Public vartablavehiculo2 As String = "CREATE TABLE `vehiculo2` (
+                                              `Id` int(11) NOT NULL,
+                                              `Marca` varchar(70) DEFAULT '',
+                                              `Modelo` varchar(150) DEFAULT '',
+                                              `Ano` varchar(50) DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'comandasveh
     Public vartablacomandasveh As String = "CREATE TABLE `comandasveh` (
                               `Id` int(11) NOT NULL,
@@ -6580,6 +6587,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeyvehiculo2 As String = "ALTER TABLE `vehiculo2` ADD PRIMARY KEY (`Id`);"
     Public VarKeynominass As String = "ALTER TABLE `nominas` ADD PRIMARY KEY (`Id`);"
     Public VarKeypedidosvendet As String = "ALTER TABLE `pedidosvendet` ADD PRIMARY KEY (`Id`);"
     Public VarKeypedidosven As String = "ALTER TABLE `pedidosven` ADD PRIMARY KEY (`Folio`);"
@@ -6734,6 +6742,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutovehiuclo2 As String = "ALTER TABLE `vehiculo2` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutonominass As String = "ALTER TABLE `nominas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidosvendet As String = "ALTER TABLE `pedidosvendet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutopedidosven As String = "ALTER TABLE `pedidosven` MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"

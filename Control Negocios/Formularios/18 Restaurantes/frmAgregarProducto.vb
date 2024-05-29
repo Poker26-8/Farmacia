@@ -2751,14 +2751,14 @@ deku:
         rd4.Close()
 
         cmd4 = cnn4.CreateCommand
-        cmd4.CommandText = "SELECT DISTINCT GPrint FROM Comandas WHERE Id=" & lblFolio.Text
+        cmd4.CommandText = "SELECT DISTINCT GPrint FROM Comandas WHERE Nmesa='" & lblmesa.Text & "' AND Id=" & lblFolio.Text
         rd4 = cmd4.ExecuteReader
         Do While rd4.Read
             If rd4.HasRows Then
                 impre = rd4(0).ToString
 
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "SELECT Impresora from RutasImpresion where Tipo='" & impre & "'"
+                cmd3.CommandText = "SELECT Impresora from rutasimpresion where Tipo='" & impre & "' AND Equipo='" & ObtenerNombreEquipo() & "'"
                 rd3 = cmd3.ExecuteReader
                 If rd3.HasRows Then
                     If rd3.Read Then
@@ -2770,6 +2770,7 @@ deku:
                 If impresoracomanda = "" Then
                 Else
                     If tamimpre = 80 Then
+                        PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
                         If PComanda80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda Then
                             PComanda80.Print()
                         Else

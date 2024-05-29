@@ -202,13 +202,6 @@
             e.Graphics.DrawString("(+) Propinas:", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(propinas, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
-            'e.Graphics.DrawString("(-) Retiros:", fuente_b, Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            'Y += 20
-            'e.Graphics.DrawString("(+) Depositos:", fuente_b, Brushes.Black, 1, Y)
-            'e.Graphics.DrawString(simbolo, fuente_b, Brushes.Black, 270, Y, derecha)
-            'Y += 20
-
             e.Graphics.DrawString("----------", fuente_b, Brushes.Black, 200, Y)
             Y += 11
 
@@ -284,142 +277,22 @@
             Y += 2
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
+            e.Graphics.DrawString("P R O P I N A S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("SUMA GENERAL DE PROPINAS:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(CDbl(SUMAFORMAPRO) + CDbl(propinas), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+
+            Y += 11
             SUMATOTAL2 = CDbl(SUMATOTAL) + CDbl(SUMATOTALEFECTIVO)
             e.Graphics.DrawString("SUMA GENERAL DE INGRESOS:", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(SUMATOTAL2, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 11
 
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 13
-            e.Graphics.DrawString("E G R E S O S", fuente_b, Brushes.Black, 135, Y, centro)
-            Y += 11
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    SUMACOMPRAS = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    SUMANOMINA = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-            e.Graphics.DrawString("(-) Compras:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(SUMACOMPRAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("(-) Nomina:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(SUMANOMINA, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            SUMAEGRESOS = CDbl(SUMACOMPRAS) + CDbl(SUMANOMINA)
-            e.Graphics.DrawString("SUMA GENERAL DE EGRESOS:", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(SUMAEGRESOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 11
-
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("C A N C E L A C I O N E S", fuente_b, Brushes.Black, 135, Y, centro)
-            Y += 11
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    CANTIDADCANCELADAS = rd2(0).ToString
-                End If
-            End If
-            rd2.Close()
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    SUMACANCELACIONES = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-
-            e.Graphics.DrawString("# Cuentas canceladas", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(CANTIDADCANCELADAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-            e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(SUMACANCELACIONES, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("D E V O L U C I O N E S", fuente_b, Brushes.Black, 135, Y, centro)
-            Y += 11
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    SUMADEVOLUCIONES = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-
-
-            If SUMADEVOLUCIONES > 0 Then
-                e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(SUMADEVOLUCIONES, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                Y += 20
-            Else
-                e.Graphics.DrawString("No hay devoluciones", fuente_b, Brushes.Black, 1, Y)
-                Y += 20
-            End If
-
-
-
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("D E S C U E N T O S", fuente_b, Brushes.Black, 135, Y, centro)
-            Y += 11
-            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    SUMADESCUENTOS = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-                End If
-            End If
-            rd2.Close()
-            cnn2.Close()
-
-            e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(simbolo & FormatNumber(SUMADESCUENTOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 17
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("V E N T A S  C L A S I F I C A C I O N", fuente_b, Brushes.Black, 135, Y, centro)
@@ -571,6 +444,143 @@
                 Y += 15
             End If
 
+
+
+
+
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 13
+            e.Graphics.DrawString("E G R E S O S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMACOMPRAS = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SUMANOMINA = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            e.Graphics.DrawString("(-) Compras:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMACOMPRAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("(-) Nomina:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMANOMINA, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            SUMAEGRESOS = CDbl(SUMACOMPRAS) + CDbl(SUMANOMINA)
+            e.Graphics.DrawString("SUMA GENERAL DE EGRESOS:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMAEGRESOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 11
+
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("C A N C E L A C I O N E S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    CANTIDADCANCELADAS = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SUMACANCELACIONES = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("# Cuentas canceladas", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(CANTIDADCANCELADAS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMACANCELACIONES, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("D E V O L U C I O N E S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SUMADEVOLUCIONES = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+
+            If SUMADEVOLUCIONES > 0 Then
+                e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(SUMADEVOLUCIONES, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
+            Else
+                e.Graphics.DrawString("No hay devoluciones", fuente_b, Brushes.Black, 1, Y)
+                Y += 20
+            End If
+
+
+
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("D E S C U E N T O S", fuente_b, Brushes.Black, 135, Y, centro)
+            Y += 11
+            e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SUMADESCUENTOS = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            e.Graphics.DrawString("Total", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(SUMADESCUENTOS, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 17
+
+
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             SUMATOTALEGRESOS = CDbl(SUMACANCELACIONES) + CDbl(SUMADEVOLUCIONES)
@@ -592,6 +602,10 @@
             Y += 20
             e.Graphics.DrawString("TOTAL CON FONDO INICIAL", fuente_b, Brushes.Black, 10, Y)
             e.Graphics.DrawString(simbolo & FormatNumber(CDbl(ACUMULADO2 + txtInicial.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("TOTAL CON PROPINAS", fuente_b, Brushes.Black, 10, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(CDbl(ACUMULADO2 + CDbl(SUMAFORMAPRO) + CDbl(propinas)), 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
 
 
