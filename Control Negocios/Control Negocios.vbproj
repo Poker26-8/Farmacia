@@ -1813,10 +1813,16 @@
     <Compile Include="Formularios\28 Pedidos\frmVehP.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\29 Consignacion\frmMadrid.Designer.vb">
+    <Compile Include="Formularios\29 Condominios\frmMadrid.Designer.vb">
       <DependentUpon>frmMadrid.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\29 Consignacion\frmMadrid.vb">
+    <Compile Include="Formularios\29 Condominios\frmMadrid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\29 Condominios\frmRegistroHusped.Designer.vb">
+      <DependentUpon>frmRegistroHusped.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\29 Condominios\frmRegistroHusped.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\30 Citas Med\frmCitas.Designer.vb">
@@ -2696,8 +2702,11 @@
     <EmbeddedResource Include="Formularios\28 Pedidos\frmVehP.resx">
       <DependentUpon>frmVehP.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\29 Consignacion\frmMadrid.resx">
+    <EmbeddedResource Include="Formularios\29 Condominios\frmMadrid.resx">
       <DependentUpon>frmMadrid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\29 Condominios\frmRegistroHusped.resx">
+      <DependentUpon>frmRegistroHusped.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\30 Citas Med\frmCitas.resx">
       <DependentUpon>frmCitas.vb</DependentUpon>

@@ -214,23 +214,26 @@ Partial Class frmModelos
         '
         'Column1
         '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column1.HeaderText = "Marca"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Width = 80
         '
         'Column2
         '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column2.HeaderText = "Modelo"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 89
         '
         'Column3
         '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column3.HeaderText = "Año"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
+        Me.Column3.Width = 62
         '
         'frmModelos
         '
@@ -269,8 +272,8 @@ Partial Class frmModelos
     Friend WithEvents grdModelos As DataGridView
     Friend WithEvents cboAno As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Label4 As Label
 End Class

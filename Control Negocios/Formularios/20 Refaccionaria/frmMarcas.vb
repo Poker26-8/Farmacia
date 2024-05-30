@@ -3,7 +3,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM marcas WHERE Nombre='" & txtMarca.Text & "'"
+            cmd1.CommandText = "SELECT * FROM marcas WHERE Id=" & IIf(lblId.Text = "", 0, lblId.Text)
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -11,7 +11,7 @@
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "UPDATE marcas SET Nombre='" & txtMarca.Text & "' WHERE Id=" & lblId.Text
                     If cmd2.ExecuteNonQuery() Then
-                        MsgBox("Marca agregada correctamente", vbInformation + vbInformation, titulorefaccionaria)
+                        MsgBox("Marca actualizada correctamente", vbInformation + vbInformation, titulorefaccionaria)
                         txtMarca.Text = ""
                         txtMarca.Focus.Equals(True)
                     End If
@@ -231,4 +231,8 @@
             NulCad = Replace(cadena, "'", "") : Replace(cadena, "*", "")
         End If
     End Function
+
+    Private Sub frmMarcas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmMenuPrincipal.Show()
+    End Sub
 End Class

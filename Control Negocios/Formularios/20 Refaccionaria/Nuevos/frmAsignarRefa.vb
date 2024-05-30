@@ -431,4 +431,8 @@
             cnn5.Close()
         End Try
     End Sub
+
+    Private Sub frmAsignarRefa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmMenuPrincipal.Show()
+    End Sub
 End Class

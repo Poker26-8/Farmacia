@@ -1,7 +1,18 @@
 ﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.IO
 Imports AForge.Controls
+Imports QRCoder.PayloadGenerator
 Public Class frmConsultarRefaccion
+
+    ' Variable para alternar entre el tamaño original y el tamaño ampliado
+    Private isImageEnlarged As Boolean = False
+    ' Tamaño y posición original del PictureBox
+    Private originalSize As Size
+    Private originalLocation As Point
+    ' Nueva ubicación y tamaño para el PictureBox
+    Private newSize As Size
+    Private newLocation As Point
+
     Private Sub frmConsultarRefaccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Obtener el año actual
         Dim añoActual As Integer = DateTime.Now.Year
@@ -10,6 +21,9 @@ Public Class frmConsultarRefaccion
         For i As Integer = 1900 To añoActual
             cboaño.Items.Add(i.ToString())
         Next
+
+        ' Configuración inicial del PictureBox
+        PicProducto.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -118,8 +132,10 @@ Public Class frmConsultarRefaccion
         CODIGO = grdProductos.Rows(index).Cells(0).Value.ToString
 
         If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg") Then
+            PicProducto.Visible = True
             PicProducto.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & CODIGO & ".jpg")
         Else
+            PicProducto.Visible = False
             PicProducto.Image = Nothing
         End If
     End Sub
@@ -160,5 +176,38 @@ Public Class frmConsultarRefaccion
         If AscW(e.KeyChar) = Keys.Enter Then
             Button3.Focus.Equals(True)
         End If
+    End Sub
+
+    Private Sub frmConsultarRefaccion_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub PicProducto_Click(sender As Object, e As EventArgs) Handles PicProducto.Click
+
+        '' Si la imagen no está ampliada, agrándala y cámbiala de posición
+        'If Not isImageEnlarged Then
+        '    ' Guarda el tamaño y la posición original
+        '    originalSize = PicProducto.Size
+        '    originalLocation = PicProducto.Location
+        '    ' Define el nuevo tamaño y la nueva posición
+        '    newSize = New Size(PicProducto.Width * 2, PicProducto.Height * 2)
+        '    newLocation = New Point(215, 60) ' Cambia estos valores a la posición deseada
+        '    ' Cambia el tamaño y la posición del PictureBox
+        '    PicProducto.Size = newSize
+        '    PicProducto.Location = newLocation
+        '    ' Ajusta el tamaño de la imagen para llenar el PictureBox
+        '    PicProducto.SizeMode = PictureBoxSizeMode.StretchImage
+        '    ' Cambia el estado
+        '    isImageEnlarged = True
+        'Else
+        '    ' Vuelve al tamaño y la posición original
+        '    PicProducto.Size = originalSize
+        '    PicProducto.Location = originalLocation
+        '    ' Ajusta el tamaño de la imagen para mostrarla de acuerdo al PictureBox
+        '    PicProducto.SizeMode = PictureBoxSizeMode.Zoom
+        '    ' Cambia el estado
+        '    isImageEnlarged = False
+        'End If
+
     End Sub
 End Class

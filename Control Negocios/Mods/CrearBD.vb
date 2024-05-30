@@ -597,11 +597,12 @@
                                               `CodBarra` varchar(50) DEFAULT '',
                                               `Nombre` varchar(255) DEFAULT '',
                                               `Marca` varchar(50) DEFAULT '',
+                                              `Modelo` varchar(100) DEFAULT '',
                                               `Medida` varchar(50) DEFAULT '',
                                               `Observaciones` varchar(255) DEFAULT '',
                                               `Ubicacion` varchar(50) DEFAULT '',
                                               `Servicio` varchar(80) DEFAULT '',
-                                              `UVenta` varchar(20) DEFAULT '',
+                                              `Ano` varchar(20) DEFAULT '',
                                               `Npiezas` varchar(20) DEFAULT '',
                                               `IdVehiculo` int(11) DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"

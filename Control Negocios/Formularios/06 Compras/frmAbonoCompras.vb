@@ -229,7 +229,7 @@ Public Class frmAbonoCompras
 
         If CDbl(txtpagos.Text) > 0 Then
             If grdpagos.Rows.Count = 0 Then MsgBox("Procedimiento erróneo para abonar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-            txtpagos.Text = "0.00"
+            ' txtpagos.Text = "0.00"
             txtpagos.Focus().Equals(True)
         End If
 
@@ -291,6 +291,30 @@ Public Class frmAbonoCompras
                 Dim acuenta As Double = 0
                 Dim resta As Double = 0
 
+                Dim tarjeta As Double = 0, transfe As Double = 0, otro As Double = 0
+                Dim banco As String = "", refer As String = ""
+                Dim pagos As Double = 0
+
+                For yu As Integer = 0 To grdpagos.Rows.Count - 1
+                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "TARJETA" Then
+                        tarjeta = tarjeta + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
+                    End If
+                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "TRANSFERENCIA" Then
+                        transfe = transfe + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
+                    End If
+                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "OTRO" Then
+                        otro = otro + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
+                    End If
+                    If CStr(grdpagos.Rows(yu).Cells(1).Value.ToString) <> "" Then
+                        banco = banco & "-" & grdpagos.Rows(yu).Cells(1).Value.ToString
+                    End If
+                    If CStr(grdpagos.Rows(yu).Cells(2).Value.ToString) <> "" Then
+                        refer = refer & "-" & grdpagos.Rows(yu).Cells(2).Value.ToString
+                    End If
+                Next
+                pagos = tarjeta + transfe + otro
+
+
                 MyPago = CDbl(txtpagos.Text) + CDbl(txtefectivo.Text)
 
                 cmd1 = cnn1.CreateCommand
@@ -330,28 +354,7 @@ Public Class frmAbonoCompras
                 End If
                 rd1.Close()
 
-                Dim tarjeta As Double = 0, transfe As Double = 0, otro As Double = 0
-                Dim banco As String = "", refer As String = ""
-                Dim pagos As Double = 0
 
-                For yu As Integer = 0 To grdpagos.Rows.Count - 1
-                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "TARJETA" Then
-                        tarjeta = tarjeta + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
-                    End If
-                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "TRANSFERENCIA" Then
-                        transfe = transfe + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
-                    End If
-                    If CStr(grdpagos.Rows(yu).Cells(0).Value.ToString) = "OTRO" Then
-                        otro = otro + CDbl(grdpagos.Rows(yu).Cells(3).Value.ToString)
-                    End If
-                    If CStr(grdpagos.Rows(yu).Cells(1).Value.ToString) <> "" Then
-                        banco = banco & "-" & grdpagos.Rows(yu).Cells(1).Value.ToString
-                    End If
-                    If CStr(grdpagos.Rows(yu).Cells(2).Value.ToString) <> "" Then
-                        refer = refer & "-" & grdpagos.Rows(yu).Cells(2).Value.ToString
-                    End If
-                Next
-                pagos = tarjeta + transfe + otro
 
                 If pagos > 0 Then
                     cmd1 = cnn1.CreateCommand
@@ -362,7 +365,7 @@ Public Class frmAbonoCompras
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where Proveedor='" & cboproveedor.Text & "')"
+                        "select Saldo from AbonoE where Id=(select max(Id) from AbonoE where Proveedor='" & cboproveedor.Text & "')"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -373,9 +376,10 @@ Public Class frmAbonoCompras
                 End If
                 rd1.Close()
 
+
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Saldo,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & txtremision.Text & "','" & num_fac & "','" & num_ped & "'," & id_prov & ",'" & cboproveedor.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MySaldo & ",'" & CDbl(MyPago) & "'," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','',0,0,0)"
+                        "insert into AbonoE(NumRemision,NumFactura,NumPedido,IdProv,Proveedor,Concepto,Fecha,Hora,Cargo,Saldo,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia,Usuario,Corte,CorteU,Cargado) values('" & txtremision.Text & "','" & num_fac & "','" & num_ped & "'," & id_prov & ",'" & cboproveedor.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & MySaldo & ",'" & CDbl(MyPago) & "'," & CDbl(txtefectivo.Text) & "," & tarjeta & "," & transfe & "," & otro & ",'" & banco & "','" & refer & "','" & lblUsuario.Text & "',0,0,0)"
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Abono a compra registardo correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     frmCtsPagar.txtresta.Text = FormatNumber(txtresta.Text, 2)
