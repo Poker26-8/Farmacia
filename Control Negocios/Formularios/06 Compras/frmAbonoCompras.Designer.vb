@@ -305,7 +305,7 @@ Partial Class frmAbonoCompras
         Me.grdpagos.Name = "grdpagos"
         Me.grdpagos.ReadOnly = True
         Me.grdpagos.RowHeadersVisible = False
-        Me.grdpagos.Size = New System.Drawing.Size(388, 100)
+        Me.grdpagos.Size = New System.Drawing.Size(390, 100)
         Me.grdpagos.TabIndex = 153
         '
         'Column1
