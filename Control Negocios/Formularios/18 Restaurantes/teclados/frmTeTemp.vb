@@ -250,10 +250,14 @@
                         cnn2.Close()
                         txtNombre.Text = ""
                         If frmMesas.mapearmesas = 1 Then
+                            frmMesas.Show()
+                            frmMesas.BringToFront()
                             frmMesas.TRAERLUGAR()
                             frmMesas.primerBoton()
                         Else
                             frmMesas.CrearBD_MesaNM()
+                            frmMesas.Show()
+                            frmMesas.BringToFront()
                         End If
 
                         Me.Close()

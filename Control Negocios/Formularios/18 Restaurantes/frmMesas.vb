@@ -1386,6 +1386,15 @@ Public Class frmMesas
 
     Private Sub btnborra_Click(sender As Object, e As EventArgs) Handles btnborra.Click
         txtUsuario.Text = CutCad(txtUsuario.Text)
+        If txtUsuario.Text = "" Then
+            lblusuario.Text = ""
+            Me.Text = "Mesas"
+            txtMesa.Text = ""
+            parea.Controls.Clear()
+            pmesas.Controls.Clear()
+            pmesaNM.Controls.Clear() '
+
+        End If
     End Sub
 
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
@@ -1602,8 +1611,45 @@ Public Class frmMesas
     End Sub
 
     Private Sub btntemporales_Click(sender As Object, e As EventArgs) Handles btntemporales.Click
-        frmPasa_Mesa.Show()
-        frmPasa_Mesa.BringToFront()
+
+        Dim id_usu As Integer = 0
+        Dim sobrenombre As String = ""
+
+        Try
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select IdEmpleado,Alias from Usuarios where Clave='" & txtUsuario.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    id_usu = rd1(0).ToString()
+                    sobrenombre = rd1("Alias").ToString
+                End If
+            Else
+                MsgBox("No se encuentra el registro del empleado.", vbInformation + vbOKOnly, titulorestaurante)
+                txtUsuario.SelectAll()
+                rd1.Close() : cnn1.Close()
+                Exit Sub
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If id_usu <> 0 Then
+                frmTeTemp.mesatemp = 1
+                frmTeTemp.Show()
+                frmTeTemp.BringToFront()
+            Else
+                MsgBox("Ingresa una contraseña para continuar", vbInformation + vbOKOnly, titulorestaurante)
+                Exit Sub
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
 
 
     End Sub
@@ -1686,6 +1732,10 @@ Public Class frmMesas
         '    CrearBD_MesaNM()
         'End If
         'tim.Start()
+    End Sub
+
+    Private Sub lblfolio_Click(sender As Object, e As EventArgs) Handles lblfolio.Click
+
     End Sub
 
     Public Function CutCad(VAL As String) As String
