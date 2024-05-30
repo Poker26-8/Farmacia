@@ -8303,37 +8303,26 @@ ecomoda:
             End If
 
             Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
-            If DesglosaIVA = "1" Then
-                If TotalIVAPrint > 0 Then
-                    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 15
-                        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                        Y += 15
-                    End If
-                End If
-                If TotalIEPS > 0 Then
-                    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
-                    Y += 15
-                End If
-            End If
-
-            Y += 19
+            'If DesglosaIVA = "1" Then
+            '    If TotalIVAPrint > 0 Then
+            '        If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
+            '            Y += 15
+            '            e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '            e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+            '            Y += 15
+            '        End If
+            '    End If
+            '    If TotalIEPS > 0 Then
+            '        e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            '        e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+            '        Y += 15
+            '    End If
+            'End If
 
             e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 142.5, Y, sc)
-            Y += 13.5
-            If Mid(Pie, 36, 70) <> "" Then
-                e.Graphics.DrawString(Mid(Pie, 36, 70), fuente_prods, Brushes.Black, 142.5, Y, sc)
-                Y += 13.5
-            End If
-            If Mid(Pie, 71, 105) <> "" Then
-                e.Graphics.DrawString(Mid(Pie, 71, 105), fuente_prods, Brushes.Black, 142.5, Y, sc)
-                Y += 13.5
-            End If
             Y += 18
-            e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
-
+            e.Graphics.DrawString("Lo atiende: " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
+            Y += 20
             If ligaqr <> "" Then
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
@@ -8343,7 +8332,7 @@ ecomoda:
                 picQR.Image = Code.GetGraphic(200)
                 My.Application.DoEvents()
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
-                Y += 25
+                Y += 20
                 e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
             End If
 

@@ -3,7 +3,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM marcas WHERE Id=" & lblId.Text
+            cmd1.CommandText = "SELECT * FROM marcas WHERE Nombre='" & txtMarca.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -62,7 +62,8 @@
 
     Private Sub txtMarca_DropDown(sender As Object, e As EventArgs) Handles txtMarca.DropDown
         Try
-            txtMarca.Controls.Clear()
+            txtMarca.Items.Clear()
+
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText = "SELECT DISTINCT(Nombre) FROM marcas WHERE Nombre<>'' ORDER BY Nombre"

@@ -28,7 +28,7 @@ Public Class frmConsultarRefaccion
             End If
 
             If cboModelo.Text <> "" Then
-                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "'"
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboaño.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -47,11 +47,12 @@ Public Class frmConsultarRefaccion
                     End If
                     rd2.Close()
 
-                    grdProductos.Rows.Add(rd1("Codigopro").ToString,
+                    grdProductos.Rows.Add(rd1("CodigoPro").ToString,
+                                          rd1("NumParte").ToString,
                                           rd1("Nombre").ToString,
                                           unidad,
                                           precio,
-                                          proveedor
+                                          rd1("Observaciones").ToString
 )
 
 

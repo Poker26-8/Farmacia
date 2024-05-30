@@ -167,7 +167,7 @@
     Private Sub cboMarca_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMarca.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            cboModelo.Focus.Equals(True)
+            cboAno.Focus.Equals(True)
         End If
     End Sub
 
@@ -195,7 +195,8 @@
                                 cboServicio.Text,
                                 txtObservacion.Text,
                                 cboUbicaicon.Text,
-                                txtpiezas.Text
+                                txtpiezas.Text,
+                                cboAno.Text
 )
 
 
@@ -292,6 +293,7 @@
                     Dim observacion As String = grdCaptura.Rows(monkey).Cells(7).Value.ToString
                     Dim ubicacion As String = grdCaptura.Rows(monkey).Cells(8).Value.ToString
                     Dim pieza As String = grdCaptura.Rows(monkey).Cells(9).Value.ToString
+                    Dim ano As String = grdCaptura.Rows(monkey).Cells(10).Value.ToString
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
@@ -304,7 +306,7 @@
                     Else
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Observaciones,Ubicacion,Servicio,Npiezas) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "')"
+                        cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -333,5 +335,17 @@
         cboModelo.Text = ""
         cboServicio.Text = ""
         txtObservacion.Text = ""
+    End Sub
+
+    Private Sub cboAno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboAno.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboModelo.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        grdCaptura.Rows.Remove(grdCaptura.Rows(index))
     End Sub
 End Class

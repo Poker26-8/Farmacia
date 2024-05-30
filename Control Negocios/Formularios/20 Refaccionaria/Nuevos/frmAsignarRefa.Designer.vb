@@ -49,6 +49,7 @@ Partial Class frmAsignarRefa
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cboServicio = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtObservacion = New System.Windows.Forms.TextBox()
@@ -61,6 +62,8 @@ Partial Class frmAsignarRefa
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnclose = New System.Windows.Forms.Button()
         Me.btnModelos = New System.Windows.Forms.Button()
+        Me.cboAno = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,7 +245,7 @@ Partial Class frmAsignarRefa
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column4, Me.Column3, Me.Column2, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column4, Me.Column3, Me.Column2, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -318,6 +321,12 @@ Partial Class frmAsignarRefa
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 63
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "Año"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
         '
         'cboServicio
         '
@@ -469,12 +478,37 @@ Partial Class frmAsignarRefa
         Me.btnModelos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnModelos.UseVisualStyleBackColor = True
         '
+        'cboAno
+        '
+        Me.cboAno.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboAno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboAno.FormattingEnabled = True
+        Me.cboAno.Location = New System.Drawing.Point(8, 220)
+        Me.cboAno.Name = "cboAno"
+        Me.cboAno.Size = New System.Drawing.Size(130, 23)
+        Me.cboAno.TabIndex = 546
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(8, 194)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(130, 23)
+        Me.Label9.TabIndex = 545
+        Me.Label9.Text = "Año"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmAsignarRefa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(901, 501)
+        Me.Controls.Add(Me.cboAno)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.btnModelos)
         Me.Controls.Add(Me.btnclose)
         Me.Controls.Add(Me.btnLimpiar)
@@ -540,6 +574,9 @@ Partial Class frmAsignarRefa
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents btnclose As Button
+    Friend WithEvents btnModelos As Button
+    Friend WithEvents cboAno As ComboBox
+    Friend WithEvents Label9 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -550,5 +587,5 @@ Partial Class frmAsignarRefa
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents btnModelos As Button
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
 End Class
