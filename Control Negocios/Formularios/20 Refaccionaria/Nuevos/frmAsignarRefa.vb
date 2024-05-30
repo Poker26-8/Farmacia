@@ -144,6 +144,39 @@
     Private Sub txtnumparte_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnumparte.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Codigo,Nombre,CodBarra,Ubicacion FROM productos WHERE N_Serie='" & txtnumparte.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cboCodigo.Text = rd2("Codigo").ToString
+                    cboNombre.Text = rd2("Nombre").ToString
+                    txtbarras.Text = rd2("CodBarra").ToString
+                    cboUbicaicon.Text = rd2("Ubicacion").ToString
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            If cboMarca.Text <> "" And cboModelo.Text <> "" And cboAno.Text <> "" Then
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Servicio,Observaciones FROM refaccionaria WHERE CodigoPro='" & cboCodigo.Text & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        cboServicio.Text = rd2("Servicio").ToString
+                        txtObservacion.Text = rd2("Observaciones").ToString
+                    End If
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+            End If
+
             txtpiezas.Focus.Equals(True)
         End If
     End Sub
@@ -279,6 +312,11 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
+
+            If cboMarca.Text = "" Then MsgBox("Seleccione la marca") : cboMarca.Focus.Equals(True) : Exit Sub
+            If cboModelo.Text = "" Then MsgBox("Seleccione el modelo") : cboModelo.Focus.Equals(True) : Exit Sub
+            If cboAno.Text = "" Then MsgBox("Seleccione el año") : cboAno.Focus.Equals(True) : Exit Sub
+
             If grdCaptura.Rows.Count > 0 Then
 
                 For monkey As Integer = 0 To grdCaptura.Rows.Count - 1
@@ -333,6 +371,7 @@
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         cboMarca.Text = ""
         cboModelo.Text = ""
+        cboAno.Text = ""
         cboServicio.Text = ""
         txtObservacion.Text = ""
     End Sub
@@ -347,5 +386,49 @@
         Dim index As Integer = grdCaptura.CurrentRow.Index
 
         grdCaptura.Rows.Remove(grdCaptura.Rows(index))
+    End Sub
+
+    Private Sub cboAno_DropDown(sender As Object, e As EventArgs) Handles cboAno.DropDown
+        Try
+            cboAno.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Ano FROM refaccionaria WHERE Ano<>'' ORDER BY Ano"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboAno.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboServicio_DropDown(sender As Object, e As EventArgs) Handles cboServicio.DropDown
+        Try
+            cboServicio.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Servicio FROM refaccionaria WHERE Servicio<>'' ORDER BY Servicio"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboServicio.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
     End Sub
 End Class

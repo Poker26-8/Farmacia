@@ -6584,6 +6584,7 @@ doorcita:
     End Sub
 
     Private Sub btnventa_Click(sender As System.Object, e As System.EventArgs) Handles btnventa.Click
+
         Dim VarUser As String = "", VarIdUsuario As Integer = 0, DsctoProd As Single = 0, PorcentDscto As Single = 0, DsctoProdTod As Single = 0
         Dim CveLte As Double = 0
         Dim IdCliente As Integer = 0

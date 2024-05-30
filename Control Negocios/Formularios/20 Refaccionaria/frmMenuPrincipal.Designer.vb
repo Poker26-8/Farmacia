@@ -24,7 +24,6 @@ Partial Class frmMenuPrincipal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.btnconsultar = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -40,28 +39,13 @@ Partial Class frmMenuPrincipal
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(613, 8)
+        Me.Button5.Location = New System.Drawing.Point(532, 8)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 75)
         Me.Button5.TabIndex = 27
         Me.Button5.Text = "Taller"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button5.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.White
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(336, 8)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 75)
-        Me.Button4.TabIndex = 26
-        Me.Button4.Text = "Ventas"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -70,7 +54,7 @@ Partial Class frmMenuPrincipal
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(417, 8)
+        Me.Button3.Location = New System.Drawing.Point(336, 8)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 75)
         Me.Button3.TabIndex = 25
@@ -111,7 +95,7 @@ Partial Class frmMenuPrincipal
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(498, 8)
+        Me.Button1.Location = New System.Drawing.Point(417, 8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(109, 75)
         Me.Button1.TabIndex = 22
@@ -154,11 +138,10 @@ Partial Class frmMenuPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(498, 93)
+        Me.ClientSize = New System.Drawing.Size(415, 93)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.btnconsultar)
         Me.Controls.Add(Me.Button2)
@@ -172,7 +155,6 @@ Partial Class frmMenuPrincipal
     End Sub
 
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents btnconsultar As Button
     Friend WithEvents Button2 As Button

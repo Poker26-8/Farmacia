@@ -2066,6 +2066,7 @@ Public Class Inicio
 
         Dim parte As Integer = 0
         Dim series As Integer = 0
+        Dim refaccion As Integer = 0
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
@@ -2089,12 +2090,26 @@ Public Class Inicio
         End If
         rd1.Close()
 
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select NumPart from Formatos where Facturas='Refaccionaria'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                refaccion = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
         If parte = 1 Then
             frmComprasS.Show()
             frmComprasS.BringToFront()
         ElseIf series = 1 Then
             frmComprasSeries.Show()
             frmComprasSeries.BringToFront()
+
+        ElseIf refaccion = 1 Then
+            frmComprasS.Show()
+            frmComprasS.BringToFront()
         Else
             frmCompras.Show()
             frmCompras.BringToFront()
@@ -2481,6 +2496,7 @@ Public Class Inicio
             Dim partes As Integer = 0
             Dim series As Integer = 0
             Dim descuento As Integer = 0
+            Dim refaccionaria As Integer = 0
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -2512,17 +2528,33 @@ Public Class Inicio
                 End If
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Refaccionaria'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    refaccionaria = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
             cnn1.Close()
 
             If partes = 1 Then
                 frmVentas1_Partes.Show()
                 frmVentas1_Partes.BringToFront()
-            ElseIf descuento Then
+
+            ElseIf descuento = 1 Then
                 frmVentas1_Descuentos.Show()
                 frmVentas1_Descuentos.BringToFront()
-            ElseIf series Then
+
+            ElseIf series = 1 Then
                 frmVentas_Series.Show()
                 frmVentas_Series.BringToFront()
+
+            ElseIf refaccionaria = 1 Then
+                frmVentas_refa.Show()
+                frmVentas_refa.BringToFront()
             Else
                 frmVentas1.Show()
                 frmVentas1.BringToFront()

@@ -20,10 +20,7 @@
         Me.Close()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        frmVentas_refa.Show()
-        Me.Close()
-    End Sub
+
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         frmTallerR.Show()
@@ -46,9 +43,9 @@
                     If rd1(0).ToString = 1 Then
                         Button1.Enabled = True
                         Button5.Enabled = True
-                        Me.Size = New Size(710, 132)
+                        Me.Size = New Size(631, 132)
                     Else
-                        Me.Size = New Size(512, 132)
+                        Me.Size = New Size(431, 132)
                         Button1.Enabled = False
                         Button5.Enabled = False
                     End If
