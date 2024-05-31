@@ -44,9 +44,54 @@ Public Class frmNuevoPagar
 
     Dim cortesia_venta As Integer = 0
     Dim NewPos As String = ""
+
+    Dim tim As New Timer()
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs)
+        tim.Stop()
+
+        Try
+            grdComanda.Rows.Clear
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            Do While rd2.Read
+                If rd2.HasRows Then
+                    vercomanda = rd2("IDC").ToString
+                    vercodigo = rd2("Codigo").ToString
+                    verdescripcion = rd2("Nombre").ToString
+                    verunidad = rd2("UVenta").ToString
+                    vercantidad = rd2("Cantidad").ToString
+                    verprecio = rd2("Precio").ToString
+                    vertotal = rd2("Total").ToString
+                    vercomensal = rd2("Comensal").ToString
+                    vermesero = rd2("CUsuario").ToString
+                    verid = rd2("Id").ToString
+                    lblMesero.Text = rd2("CUsuario").ToString
+
+                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
+
+                    Montocobromapeo = Montocobromapeo + vertotal
+                End If
+            Loop
+            rd2.Close()
+            cnn2.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+
+        tim.Start()
+    End Sub
     Private Sub frmNuevoPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         grdComanda.Rows.Clear()
         TFolio.Start()
+
+        tim.Interval = 5000
+        AddHandler tim.Tick, AddressOf Timer_Tick
+        tim.Start()
 
         Try
             cnn2.Close() : cnn2.Open()
@@ -2851,7 +2896,7 @@ Door:
                         cnn2.Close()
 
                         MsgBox("Cancelación realizada correctamente.", vbInformation + vbOKOnly, titulomensajes)
-                        Me.Close()
+                        'Me.Close()
                     Else
 
                         HrTiempo = Format(Date.Now, "yyyy/MM/dd")
@@ -2904,7 +2949,7 @@ Door:
                 End If
             End If
             cnn3.Close()
-            Me.Close()
+            '  Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()

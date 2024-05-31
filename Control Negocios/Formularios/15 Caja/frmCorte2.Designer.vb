@@ -71,6 +71,8 @@ Partial Class frmCorte2
         Me.txtEgrTransfeG = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TXTglobalPro = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.txtIngresoPropina = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -221,8 +223,6 @@ Partial Class frmCorte2
         Me.pCalculoUsuario58 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario80 = New System.Drawing.Printing.PrintDocument()
         Me.pCierreUsuario58 = New System.Drawing.Printing.PrintDocument()
-        Me.TXTglobalPro = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -278,7 +278,7 @@ Partial Class frmCorte2
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(590, 579)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "                      CORTE GLOBAL DEL DÍA                      "
+        Me.TabPage1.Text = "                      CORTE GLOBAL DEL DÍA (Z)                  "
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Label31
@@ -796,6 +796,28 @@ Partial Class frmCorte2
         Me.Panel2.Size = New System.Drawing.Size(287, 360)
         Me.Panel2.TabIndex = 160
         '
+        'TXTglobalPro
+        '
+        Me.TXTglobalPro.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TXTglobalPro.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.TXTglobalPro.Location = New System.Drawing.Point(182, 207)
+        Me.TXTglobalPro.Name = "TXTglobalPro"
+        Me.TXTglobalPro.ReadOnly = True
+        Me.TXTglobalPro.Size = New System.Drawing.Size(99, 20)
+        Me.TXTglobalPro.TabIndex = 181
+        Me.TXTglobalPro.Text = "0.00"
+        Me.TXTglobalPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(2, 210)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(178, 13)
+        Me.Label22.TabIndex = 182
+        Me.Label22.Text = "TOTAL INGRESOS PROPINA:"
+        '
         'txtIngresoPropina
         '
         Me.txtIngresoPropina.BackColor = System.Drawing.Color.WhiteSmoke
@@ -1062,9 +1084,9 @@ Partial Class frmCorte2
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(590, 557)
+        Me.TabPage2.Size = New System.Drawing.Size(590, 579)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "                       CORTE POR USUARIO (PERIODO)                       "
+        Me.TabPage2.Text = "                       CORTE POR USUARIO (X)                                  "
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'btnLimpiarUsuario
@@ -2380,28 +2402,6 @@ Partial Class frmCorte2
         '
         'pCierreUsuario58
         '
-        '
-        'TXTglobalPro
-        '
-        Me.TXTglobalPro.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TXTglobalPro.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.TXTglobalPro.Location = New System.Drawing.Point(182, 207)
-        Me.TXTglobalPro.Name = "TXTglobalPro"
-        Me.TXTglobalPro.ReadOnly = True
-        Me.TXTglobalPro.Size = New System.Drawing.Size(99, 20)
-        Me.TXTglobalPro.TabIndex = 181
-        Me.TXTglobalPro.Text = "0.00"
-        Me.TXTglobalPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(2, 210)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(178, 13)
-        Me.Label22.TabIndex = 182
-        Me.Label22.Text = "TOTAL INGRESOS PROPINA:"
         '
         'frmCorte2
         '

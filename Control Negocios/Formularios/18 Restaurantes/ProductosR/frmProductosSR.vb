@@ -266,11 +266,11 @@ Public Class frmProductosSR
                 If cmd2.ExecuteNonQuery() Then
 
 
-                    crea_ruta(My.Application.Info.DirectoryPath & "\ImagenesProductos\")
+                    crea_ruta(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\")
                     If Not PictureBox1.Image Is Nothing Then
-                        If img = My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg" Then
+                        If img = My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg" Then
                         Else
-                            PictureBox1.Image.Save(My.Application.Info.DirectoryPath & "\ImagenesProductos\", System.Drawing.Imaging.ImageFormat.Jpeg)
+                            PictureBox1.Image.Save(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\", System.Drawing.Imaging.ImageFormat.Jpeg)
                         End If
 
                     End If
@@ -1134,12 +1134,12 @@ nopasowey:
 
             If servidor <> "" Then
 
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-                    PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg")
                 End If
             Else
-                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-                    PictureBox1.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                If File.Exists(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg")
                 End If
             End If
             cnn3.Close()
@@ -1240,12 +1240,12 @@ nopasowey:
 
             If servidor <> "" Then
 
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-                    PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg")
                 End If
             Else
-                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg") Then
-                    PictureBox1.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCorto.Text & ".jpg")
+                If File.Exists(equipo_servidor & "\ProductosImg\" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg") Then
+                    PictureBox1.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg")
                 End If
             End If
             cnn3.Close()

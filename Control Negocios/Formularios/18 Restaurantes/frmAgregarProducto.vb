@@ -832,8 +832,8 @@ Public Class frmAgregarProducto
                     btnProd.FlatStyle = FlatStyle.Popup
                     btnProd.FlatAppearance.BorderSize = 0
 
-                    If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg") Then
-                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & rd3(1).ToString & ".jpg")
+                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & rd3(1).ToString & ".jpg") Then
+                        btnProd.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & rd3(1).ToString & ".jpg")
                         btnProd.BackgroundImageLayout = ImageLayout.Stretch
                         btnProd.TextAlign = ContentAlignment.BottomCenter
                         btnProd.ForeColor = Color.Black

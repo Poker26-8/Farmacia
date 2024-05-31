@@ -3650,4 +3650,5 @@ Public Class Inicio
         frmConsignacion.Show()
         frmConsignacion.BringToFront()
     End Sub
+
 End Class

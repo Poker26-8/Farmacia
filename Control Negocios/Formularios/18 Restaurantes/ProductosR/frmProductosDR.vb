@@ -177,12 +177,12 @@ Public Class frmProductosDR
 
             My.Application.DoEvents()
             If servidor <> "" Then
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
-                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             Else
-                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
-                    picImagen.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                If File.Exists(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             End If
 
@@ -1184,12 +1184,12 @@ Public Class frmProductosDR
 
             My.Application.DoEvents()
             If servidor <> "" Then
-                If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
-                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             Else
-                If File.Exists(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg") Then
-                    picImagen.Image = Image.FromFile(equipo_servidor & "\ImagenesProductos\" & cboCodCortoNormal.Text & ".jpg")
+                If File.Exists(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
+                    picImagen.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             End If
 

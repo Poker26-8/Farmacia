@@ -1070,7 +1070,7 @@ malo:
     Private Sub llena_cbo_descripcionticket()
         Dim sSQL As String = ""
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
-        sSQL = "Select * from Productos order by Nombre"
+        sSQL = "Select Codigo,Nombre from Productos order by Nombre"
         Dim ds As New DataSet
         Dim sinfo As String = ""
         Dim odata As New ToolKitSQL.myssql
@@ -1089,7 +1089,7 @@ malo:
     End Sub
 
     Private Function busca_producto()
-        Dim sSQL As String = "Select * from Productos where Codigo='" & var_producto & "'"
+        Dim sSQL As String = "Select IVA,PercentIVAret,IIEPS,PrecioVenta,UnidadSat,ClaveSat from Productos where Codigo='" & var_producto & "'"
         Dim cnn As MySqlClient.MySqlConnection = New MySqlClient.MySqlConnection
         Dim dr As DataRow
         Dim sinfo As String = ""
@@ -6932,7 +6932,7 @@ puerta_FacturaG:
                                             Dim dr2 As DataRow
                                             With odata
                                                 If .dbOpen(cnn2, sTarget, sinfo) Then
-                                                    If .getDt(cnn2, dt2, "Select * from Productos where Codigo = '" & dr(0).ToString & "'", sinfo) Then
+                                                    If .getDt(cnn2, dt2, "Select ClaveSat,UnidadSat,IVA,PercentIVAret,IIEPS from Productos where Codigo = '" & dr(0).ToString & "'", sinfo) Then
                                                         For Each dr2 In dt2.Rows
                                                             varClaveProd = IIf(IsDBNull(dr2("ClaveSat").ToString), "", dr2("ClaveSat").ToString)
                                                             varUniMed = IIf(IsDBNull(dr2("UnidadSat").ToString), "", dr2("UnidadSat").ToString)
@@ -7043,7 +7043,7 @@ puerta_FacturaG:
                                             Dim dr2 As DataRow
                                             With odata
                                                 If .dbOpen(cnn2, sTarget, sinfo) Then
-                                                    If .getDt(cnn2, dt2, "Select * from Productos where Codigo='" & dr(0).ToString() & "'", sinfo) Then
+                                                    If .getDt(cnn2, dt2, "Select ClaveSat,UnidadSat,IVA,PercentIVAret,IIEPS from Productos where Codigo='" & dr(0).ToString() & "'", sinfo) Then
                                                         For Each dr2 In dt2.Rows
                                                             varClaveProd = IIf(IsDBNull(dr2("ClaveSat").ToString), "", dr2("ClaveSat").ToString)
                                                             varUniMed = IIf(IsDBNull(dr2("UnidadSat").ToString), "", dr2("UnidadSat").ToString)

@@ -5230,6 +5230,8 @@ kaka:
         Dim banco As String = cbobanco.Text
         Dim refe As String = txtnumref.Text
         Dim monto As Double = 0
+
+
         If txtvalor.Text <> "0.00" Then
             monto = FormatNumber(txtmonto.Text * CDec(txtvalor.Text), 4)
         Else
@@ -6991,7 +6993,7 @@ doorcita:
 
                 Case Is <> "MOSTRADOR"
                     Efectivo = txtefectivo.Text
-                    MyMonto = Efectivo + CDbl(txtMontoP.Text) + CDbl(txtafavor.Text)
+                    MyMonto = Efectivo + CDbl(txtMontoP.Text)
                     Resta = FormatNumber(txtResta.Text, 2)
 
                     If TotalIVAPrint > 0 Then
@@ -7250,9 +7252,28 @@ doorcita:
                             cnn1.Close()
                         End If
 
-                        If FormaPago = "SALDO FAVOR" Then
+                        If FormaPago = "SALDO A FAVOR" Then
                             If TotFormaPago > 0 Then
                                 TotSaldo = TotFormaPago
+
+                                'Dim saldofav As Double = 0
+                                'cnn1.Close() : cnn1.Open()
+                                'cmd1 = cnn1.CreateCommand
+                                'cmd1.CommandText = "SELECT SaldoFavor FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+                                'rd1 = cmd1.ExecuteReader
+                                'If rd1.HasRows Then
+                                '    If rd1.Read Then
+                                '        saldofav = rd1(0).ToString
+
+                                '        cnn2.Close() : cnn2.Open()
+                                '        cmd2 = cnn2.CreateCommand
+                                '        cmd2.CommandText = "UPDATE clientes SET SaldoFavor=SaldoFavor - " & saldofav & " WHERE Nombre='" & cboNombre.Text & "'"
+                                '        cmd2.ExecuteNonQuery()
+                                '        cnn2.Close()
+                                '    End If
+                                'End If
+                                'rd1.Close()
+                                'cnn1.Close()
                             End If
 
                         End If
@@ -7274,6 +7295,8 @@ doorcita:
             MessageBox.Show(ex.ToString())
             cnn1.Close()
         End Try
+
+
 
         If TotSaldo > 0 Then
             Dim saldo_actual As Double = 0

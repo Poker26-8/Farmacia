@@ -2383,7 +2383,7 @@ Public Class frmCorte2
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "SELECT sum(Abono) FROM AbonoI where Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                "SELECT sum(Abono) FROM AbonoI where Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' AND FormaPago<>'SALDO A FAVOR' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2429,7 +2429,7 @@ Public Class frmCorte2
             Dim totalglobal As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' AND FormaPago<>'EFECTIVO' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' AND FormaPago<>'EFECTIVO' and FormaPago<>'SALDO A FAVOR' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

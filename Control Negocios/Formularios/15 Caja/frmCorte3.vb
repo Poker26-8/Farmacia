@@ -342,7 +342,7 @@
                     rd2.Close()
 
                     e.Graphics.DrawString(grupo & ":", fuente_b, Brushes.Black, 10, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(sumasiniva, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                    e.Graphics.DrawString(simbolo & FormatNumber(sumagrupo, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                     Y += 20
 
                     sumatotalgrupo = sumatotalgrupo + sumagrupo

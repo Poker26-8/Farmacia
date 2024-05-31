@@ -32,6 +32,96 @@ Public Class frmNuevoPagarComandas
     Public foco As Integer = 0
 
     Dim NewPos As String = ""
+
+    Dim tim As New Timer
+
+    Private Sub Timer_Tick(sender As Object, e As EventArgs)
+        tim.Stop()
+
+        Try
+            grdCaptura.Rows.Clear()
+            txtPorcentaje.Text = "0"
+            txtefecporcentaje.Text = "0.00"
+            totalventa = 0
+
+            btnCambio.Enabled = True
+            btnCancelar.Enabled = True
+            btnCortesia.Enabled = True
+            btnPrecuenta.Enabled = True
+
+            Dim propina As Double = 0
+            Dim porcepropina As Double = 0
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Propina'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    propina = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Usuario FROM comanda1 WHERE Nombre='" & cboMesa.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    lblMesero.Text = rd2(0).ToString
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            Do While rd2.Read
+                If rd2.HasRows Then
+
+                    Dim codigo As String = rd2("Codigo").ToString
+                    Dim nombre As String = rd2("Nombre").ToString
+                    Dim unidad As String = rd2("UVenta").ToString
+                    Dim cantidad As Double = rd2("Cantidad").ToString
+                    Dim precio As Double = rd2("Precio").ToString
+                    Dim total As Double = rd2("Total").ToString
+                    Dim comensal As String = rd2("Comensal").ToString
+                    Dim comanda As Integer = rd2("Id").ToString
+
+                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda)
+
+                    totalventa = totalventa + CDbl(total)
+
+                End If
+            Loop
+            rd2.Close()
+            cnn2.Close()
+
+            If propina > 0 Then
+                lblSubtotal.Text = FormatNumber(totalventa, 2)
+                porcepropina = CDbl(totalventa) * (propina / 100)
+                txttotaldescuento.Text = FormatNumber(totalventa, 2)
+                txtPropina.Text = FormatNumber(porcepropina, 2)
+                txttotal.Text = CDbl(txttotaldescuento.Text) + CDbl(txtPropina.Text)
+                lbltotalventa.Text = FormatNumber(CDbl(totalventa) + CDbl(txtPropina.Text), 2)
+                txtResta.Text = FormatNumber(lbltotalventa.Text, 2)
+            Else
+                txttotaldescuento.Text = FormatNumber(totalventa, 2)
+                txttotal.Text = FormatNumber(totalventa, 2)
+                lblSubtotal.Text = FormatNumber(totalventa, 2)
+                lbltotalventa.Text = FormatNumber(totalventa, 2)
+                txtResta.Text = lbltotalventa.Text
+            End If
+            totalventa = 0
+            foco = 1
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn2.Close()
+        End Try
+
+        tim.Start()
+    End Sub
+
     Private Sub frmNuevoPagarComandas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         TFecha.Start()
@@ -455,8 +545,12 @@ Public Class frmNuevoPagarComandas
 
     Private Sub txtEfectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEfectivo.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnCerrar.Enabled = True
-            btnCerrar.Focus.Equals(True)
+
+            If txtEfectivo.Text > 0 Then
+                btnCerrar.Enabled = True
+                btnCerrar.Focus.Equals(True)
+            End If
+
         End If
     End Sub
 
@@ -857,7 +951,13 @@ Public Class frmNuevoPagarComandas
                 End If
             End If
             cnn3.Close()
-            Me.Close()
+            'Me.Close()
+            'btnLimpiar.PerformClick()
+
+            tim.Interval = 5000
+            AddHandler tim.Tick, AddressOf Timer_Tick
+            tim.Start()
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -1350,6 +1450,9 @@ Public Class frmNuevoPagarComandas
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
 
         Try
+            Dim mypagop As Double = CDbl(txtEfectivo.Text) + CDbl(txtPagos.Text)
+
+            If mypagop < 0 Then MsgBox("Debe cerrar la cuenta") : txtEfectivo.Focus.Equals(True) : Exit Sub
 
             If lblUsuario.Text = "" Then MsgBox("Ingrese la contraseña por favor", vbInformation + vbOKOnly) : txtContra.Focus.Equals(True) : Exit Sub
 
@@ -1692,14 +1795,14 @@ Public Class frmNuevoPagarComandas
 
 
                 cnn3.Close() : cnn3.Open()
-                    cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "',0," & nuevoabono & "," & SLD & ",'EFECTIVO'," & nuevoefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
-                    cmd3.ExecuteNonQuery()
-                    cnn3.Close()
-                End If
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "',0," & nuevoabono & "," & SLD & ",'EFECTIVO'," & nuevoefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            End If
 
 
-                Dim loba As Integer = 0
+            Dim loba As Integer = 0
             Dim codigog As String = ""
             Dim descripciong As String = ""
             Dim unidadg As String = ""

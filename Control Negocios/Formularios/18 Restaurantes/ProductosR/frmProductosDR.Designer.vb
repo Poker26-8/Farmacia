@@ -173,7 +173,7 @@ Partial Class frmProductosDR
         Me.picImagen.Location = New System.Drawing.Point(618, 431)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(65, 67)
-        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picImagen.TabIndex = 327
         Me.picImagen.TabStop = False
         '

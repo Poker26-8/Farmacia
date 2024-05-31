@@ -77,13 +77,6 @@ Partial Class Inicio
         Me.pRegistro_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReporte_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentas = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentasM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PedidosTiendaEnLíneaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.menuconsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCompras = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPedidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCaptura = New System.Windows.Forms.ToolStripMenuItem()
@@ -94,6 +87,13 @@ Partial Class Inicio
         Me.pZapatería = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaPorModeloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntallarComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentasM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pVentasT = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pcFolios = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pAbonosV = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PedidosTiendaEnLíneaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuconsignaciones = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReportes = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRepVentasG = New System.Windows.Forms.ToolStripMenuItem()
@@ -666,55 +666,6 @@ Partial Class Inicio
         Me.ControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ControlDeServiciosToolStripMenuItem.Text = "Control de servicios"
         '
-        'pVentas
-        '
-        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem, Me.menuconsignaciones})
-        Me.pVentas.Name = "pVentas"
-        Me.pVentas.Size = New System.Drawing.Size(53, 20)
-        Me.pVentas.Text = "Ventas"
-        '
-        'pVentasM
-        '
-        Me.pVentasM.BackColor = System.Drawing.Color.White
-        Me.pVentasM.Name = "pVentasM"
-        Me.pVentasM.Size = New System.Drawing.Size(196, 22)
-        Me.pVentasM.Text = "Ventas mostrador"
-        '
-        'pVentasT
-        '
-        Me.pVentasT.BackColor = System.Drawing.Color.White
-        Me.pVentasT.Name = "pVentasT"
-        Me.pVentasT.Size = New System.Drawing.Size(196, 22)
-        Me.pVentasT.Text = "Ventas touch"
-        '
-        'pcFolios
-        '
-        Me.pcFolios.BackColor = System.Drawing.Color.White
-        Me.pcFolios.Name = "pcFolios"
-        Me.pcFolios.Size = New System.Drawing.Size(196, 22)
-        Me.pcFolios.Text = "Consulta de folios"
-        '
-        'pAbonosV
-        '
-        Me.pAbonosV.BackColor = System.Drawing.Color.White
-        Me.pAbonosV.Name = "pAbonosV"
-        Me.pAbonosV.Size = New System.Drawing.Size(196, 22)
-        Me.pAbonosV.Text = "Abonos a notas"
-        Me.pAbonosV.Visible = False
-        '
-        'PedidosTiendaEnLíneaToolStripMenuItem
-        '
-        Me.PedidosTiendaEnLíneaToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.PedidosTiendaEnLíneaToolStripMenuItem.Name = "PedidosTiendaEnLíneaToolStripMenuItem"
-        Me.PedidosTiendaEnLíneaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
-        Me.PedidosTiendaEnLíneaToolStripMenuItem.Text = "Pedidos tienda en línea"
-        '
-        'menuconsignaciones
-        '
-        Me.menuconsignaciones.Name = "menuconsignaciones"
-        Me.menuconsignaciones.Size = New System.Drawing.Size(196, 22)
-        Me.menuconsignaciones.Text = "Consignaciones"
-        '
         'pCompras
         '
         Me.pCompras.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pPedidos, Me.pCaptura, Me.ComprasTouchToolStripMenuItem, Me.pNotasC, Me.pCuentasPag, Me.pAnticipoP, Me.pZapatería})
@@ -786,6 +737,55 @@ Partial Class Inicio
         Me.EntallarComprasToolStripMenuItem.Name = "EntallarComprasToolStripMenuItem"
         Me.EntallarComprasToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.EntallarComprasToolStripMenuItem.Text = "Entallar compras"
+        '
+        'pVentas
+        '
+        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem, Me.menuconsignaciones})
+        Me.pVentas.Name = "pVentas"
+        Me.pVentas.Size = New System.Drawing.Size(53, 20)
+        Me.pVentas.Text = "Ventas"
+        '
+        'pVentasM
+        '
+        Me.pVentasM.BackColor = System.Drawing.Color.White
+        Me.pVentasM.Name = "pVentasM"
+        Me.pVentasM.Size = New System.Drawing.Size(196, 22)
+        Me.pVentasM.Text = "Ventas mostrador"
+        '
+        'pVentasT
+        '
+        Me.pVentasT.BackColor = System.Drawing.Color.White
+        Me.pVentasT.Name = "pVentasT"
+        Me.pVentasT.Size = New System.Drawing.Size(196, 22)
+        Me.pVentasT.Text = "Ventas touch"
+        '
+        'pcFolios
+        '
+        Me.pcFolios.BackColor = System.Drawing.Color.White
+        Me.pcFolios.Name = "pcFolios"
+        Me.pcFolios.Size = New System.Drawing.Size(196, 22)
+        Me.pcFolios.Text = "Consulta de folios"
+        '
+        'pAbonosV
+        '
+        Me.pAbonosV.BackColor = System.Drawing.Color.White
+        Me.pAbonosV.Name = "pAbonosV"
+        Me.pAbonosV.Size = New System.Drawing.Size(196, 22)
+        Me.pAbonosV.Text = "Abonos a notas"
+        Me.pAbonosV.Visible = False
+        '
+        'PedidosTiendaEnLíneaToolStripMenuItem
+        '
+        Me.PedidosTiendaEnLíneaToolStripMenuItem.BackColor = System.Drawing.Color.White
+        Me.PedidosTiendaEnLíneaToolStripMenuItem.Name = "PedidosTiendaEnLíneaToolStripMenuItem"
+        Me.PedidosTiendaEnLíneaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.PedidosTiendaEnLíneaToolStripMenuItem.Text = "Pedidos tienda en línea"
+        '
+        'menuconsignaciones
+        '
+        Me.menuconsignaciones.Name = "menuconsignaciones"
+        Me.menuconsignaciones.Size = New System.Drawing.Size(196, 22)
+        Me.menuconsignaciones.Text = "Consignaciones"
         '
         'pReportes
         '
