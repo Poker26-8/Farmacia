@@ -13338,10 +13338,10 @@ ecomoda:
             '    Y += 18
             'End If
 
-            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 270, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 485, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 270, Y, sf)
             Y += 15
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 20
@@ -13358,13 +13358,14 @@ ecomoda:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Nombre,Cantidad,Comentario FROM VentasDetalle  WHERE GPrint='" & IMPRE & "' and Folio=" & MYFOLIO & " GROUP BY Nombre,Cantidad,Comentario"
+            cmd2.CommandText = "SELECT Nombre,Cantidad,CostVR FROM VentasDetalle  WHERE GPrint='" & IMPRE & "' and Folio=" & MYFOLIO & " GROUP BY Nombre,Cantidad,CostVR"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
 
                     cantidad = rd2("Cantidad").ToString
                     nombre = rd2("Nombre").ToString
+                    comentario = rd2("CostVR").ToString
 
                     e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
                     Dim caracteresPorLinea As Integer = 30
@@ -13379,7 +13380,7 @@ ecomoda:
                         Y += 15
                         inicio += caracteresPorLinea
                     End While
-
+                    Y += 5
 
                     If comentario <> "" Then
                         e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
@@ -13389,7 +13390,7 @@ ecomoda:
                 End If
             Loop
             rd2.Close()
-            Y += 20
+            Y += 5
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
 
 
@@ -14731,5 +14732,7 @@ doorcita:
         End Try
     End Sub
 
+    Private Sub pComanda58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda58.PrintPage
 
+    End Sub
 End Class

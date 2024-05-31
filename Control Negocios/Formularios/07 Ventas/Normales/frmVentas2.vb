@@ -13227,13 +13227,14 @@ ecomoda:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Nombre,Cantidad,Comentario FROM VentasDetalle  WHERE GPrint='" & IMPRE & "' and Folio=" & MYFOLIO & " GROUP BY Nombre,Cantidad,Comentario"
+            cmd2.CommandText = "SELECT Nombre,Cantidad,CostVR FROM VentasDetalle  WHERE GPrint='" & IMPRE & "' and Folio=" & MYFOLIO & " GROUP BY Nombre,Cantidad,CostVR"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
 
                     cantidad = rd2("Cantidad").ToString
                     nombre = rd2("Nombre").ToString
+                    comentario = rd2("CostVR").ToString
 
                     e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
                     Dim caracteresPorLinea As Integer = 30
@@ -13248,7 +13249,7 @@ ecomoda:
                         Y += 15
                         inicio += caracteresPorLinea
                     End While
-
+                    Y += 5
 
                     If comentario <> "" Then
                         e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
@@ -13258,7 +13259,7 @@ ecomoda:
                 End If
             Loop
             rd2.Close()
-            Y += 20
+            Y += 5
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
 
 
