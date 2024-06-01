@@ -227,7 +227,6 @@ Partial Class Inicio
         Me.Button11.Size = New System.Drawing.Size(90, 90)
         Me.Button11.TabIndex = 10
         Me.Button11.UseVisualStyleBackColor = True
-        Me.Button11.Visible = False
         '
         'Button10
         '

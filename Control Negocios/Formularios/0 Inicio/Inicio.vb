@@ -3176,8 +3176,10 @@ Public Class Inicio
                     End If
                     If Admi = 3 Then
                         pAdmin.Enabled = False
+                        Button11.Enabled = False
                     Else
                         pAdmin.Enabled = True
+                        Button11.Enabled = True
                     End If
 
                     'Corte
@@ -3651,4 +3653,8 @@ Public Class Inicio
         frmConsignacion.BringToFront()
     End Sub
 
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        frmConfigs.Show()
+        frmConfigs.BringToFront()
+    End Sub
 End Class
