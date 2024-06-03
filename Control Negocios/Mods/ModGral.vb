@@ -157,8 +157,48 @@ Module ModGral
                 existe = False
             End If
             rd5.Close()
-            valor = 0
+
             If (existe) Then
+
+            Else
+                cmd5 = cnn5.CreateCommand
+                cmd5.CommandText =
+                    "insert into Formatos(Facturas,NotasCred,NumPart) values('" & campo & "','" & valor & "',0)"
+                cmd5.ExecuteNonQuery()
+            End If
+
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+        Return Nothing
+    End Function
+    Public Function SFormatos2(ByVal campo As String, ByVal valor As String)
+        Dim existe As Boolean = False
+        Try
+            cnn5.Close() : cnn5.Open()
+
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText =
+                "select NotasCred from Formatos where Facturas='" & campo & "'"
+            rd5 = cmd5.ExecuteReader
+            If rd5.HasRows Then
+                If rd5.Read Then
+                    existe = True
+                End If
+            Else
+                existe = False
+            End If
+            rd5.Close()
+
+            If (existe) Then
+                cmd5 = cnn5.CreateCommand
+                cmd5.CommandText = "Update Formatos set NotasCred='" & valor & "' where Facturas='" & campo & "'"
+                If cmd5.ExecuteNonQuery Then
+                Else
+
+                End If
             Else
                 cmd5 = cnn5.CreateCommand
                 cmd5.CommandText =

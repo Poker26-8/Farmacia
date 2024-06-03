@@ -1657,7 +1657,7 @@ Public Class frmConfigs
 
                 FileIO.FileSystem.CopyFile(ofdLogo.FileName, ruta_local & Path.GetFileName(ofdLogo.FileName), True)
 
-                SFormatos("FILE_CERT", ofdLogo.SafeFileName)
+                SFormatos2("FILE_CERT", ofdLogo.SafeFileName)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -1689,12 +1689,12 @@ Public Class frmConfigs
         If MsgBox("¿Es correcta la información que estás a punto de guardar?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
 
         Try
-            SFormatos("SHIBBOLETH", txtContra1.Text)
-            SFormatos("SERIE_FACT_EL", txtSerie_Fac.Text)
-            SFormatos("SERIE_NC_EL", txtSerie_Not.Text)
-            SFormatos("FOLIOfacINI", txtFolioI_Fact.Text)
-            SFormatos("FOLIOfacFIN", txtFolioF_Fact.Text)
-            SFormatos("FolioNtaCredIni", txtFolioI_Not.Text)
+            SFormatos2("SHIBBOLETH", txtContra1.Text)
+            SFormatos2("SERIE_FACT_EL", txtSerie_Fac.Text)
+            SFormatos2("SERIE_NC_EL", txtSerie_Not.Text)
+            SFormatos2("FOLIOfacINI", txtFolioI_Fact.Text)
+            SFormatos2("FOLIOfacFIN", txtFolioF_Fact.Text)
+            SFormatos2("FolioNtaCredIni", txtFolioI_Not.Text)
 
             MsgBox("Información registrada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         Catch ex As Exception
@@ -1716,7 +1716,7 @@ Public Class frmConfigs
 
                 FileIO.FileSystem.CopyFile(ofdLogo.FileName, ruta_local & Path.GetFileName(ofdLogo.FileName), True)
 
-                SFormatos("FILE_KEY", ofdLogo.SafeFileName)
+                SFormatos2("FILE_KEY", ofdLogo.SafeFileName)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -1965,14 +1965,14 @@ Public Class frmConfigs
             Exit Sub
         End If
         If MsgBox("¿Deseas guardar esta información?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-            Call SFormatos("PROVE_Ser", cboproveedor.Text)
-            Call SFormatos("Server_SMTP", txtsmtp.Text)
-            Call SFormatos("Pto_Mail", txtpuerto.Text)
-            Call SFormatos("Mail_Emi", txtcorreo_ef.Text)
-            Call SFormatos("Shibboleth_ML", txtcontra_correo.Text)
-            Call SFormatos("Aute_Server_SMTP", chksmtp.CheckState)
-            Call SFormatos("SSL", chkssl.CheckState)
-            Call SFormatos("ENV_DOC", chkenvioauto.CheckState)
+            Call SFormatos2("PROVE_Ser", cboproveedor.Text)
+            Call SFormatos2("Server_SMTP", txtsmtp.Text)
+            Call SFormatos2("Pto_Mail", txtpuerto.Text)
+            Call SFormatos2("Mail_Emi", txtcorreo_ef.Text)
+            Call SFormatos2("Shibboleth_ML", txtcontra_correo.Text)
+            Call SFormatos2("Aute_Server_SMTP", chksmtp.CheckState)
+            Call SFormatos2("SSL", chkssl.CheckState)
+            Call SFormatos2("ENV_DOC", chkenvioauto.CheckState)
 
             MsgBox("Datos guardados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         End If
