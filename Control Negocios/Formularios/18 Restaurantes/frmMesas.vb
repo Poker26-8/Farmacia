@@ -1393,7 +1393,6 @@ Public Class frmMesas
             parea.Controls.Clear()
             pmesas.Controls.Clear()
             pmesaNM.Controls.Clear() '
-
         End If
     End Sub
 
