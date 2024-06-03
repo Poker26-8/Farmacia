@@ -167,6 +167,7 @@ Partial Class frmNuevoPagarComandas
         Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
+        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -188,6 +189,7 @@ Partial Class frmNuevoPagarComandas
         Me.Panel14.SuspendLayout()
         Me.Panel15.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -998,6 +1000,7 @@ Partial Class frmNuevoPagarComandas
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel13.Controls.Add(Me.picQR)
         Me.Panel13.Controls.Add(Me.txttotal)
         Me.Panel13.Controls.Add(Me.Label33)
         Me.Panel13.Controls.Add(Me.txttotaldescuento)
@@ -1714,6 +1717,20 @@ Partial Class frmNuevoPagarComandas
         'PCortesia58
         '
         '
+        'picQR
+        '
+        Me.picQR.BackColor = System.Drawing.Color.White
+        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picQR.Location = New System.Drawing.Point(272, 43)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
+        Me.picQR.Name = "picQR"
+        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picQR.Size = New System.Drawing.Size(57, 55)
+        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picQR.TabIndex = 210
+        Me.picQR.TabStop = False
+        Me.picQR.Visible = False
+        '
         'frmNuevoPagarComandas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1756,6 +1773,7 @@ Partial Class frmNuevoPagarComandas
         Me.Panel14.PerformLayout()
         Me.Panel15.ResumeLayout(False)
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1901,4 +1919,5 @@ Partial Class frmNuevoPagarComandas
     Friend WithEvents txttotal As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents btnPunto As Button
+    Friend WithEvents picQR As PictureBox
 End Class

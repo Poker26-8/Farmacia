@@ -8766,6 +8766,9 @@ ecomoda:
         Dim ligaqr As String = ""
         Dim whats As String = DatosRecarga("Whatsapp")
 
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim siqr As String = DatosRecarga2("LinkAuto")
+
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
         End If
@@ -9081,18 +9084,103 @@ ecomoda:
             Y += 18
             e.Graphics.DrawString("Lo atiende: " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
             Y += 20
-            If ligaqr <> "" Then
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
 
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
-                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
-                Y += 20
-                e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+
+            'para el qr
+
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
             End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim entrada As String = ligaqr
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y), 85, 85)
+                    Y += 60
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                End If
+
+            End If
+
+            Y += 35
+            If autofac = 1 Then
+
+                If siqr = "1" Then
+                    Dim entrada As String = linkauto
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+
+                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    ' Asigna la nueva imagen al PictureBox
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 10
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
+                    Y += 20
+
+                End If
+
+            Else
+
+            End If
+
 
 
 
@@ -9123,6 +9211,8 @@ ecomoda:
         Dim ligaqr As String = ""
         Dim whats As String = DatosRecarga("Whatsapp")
 
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim siqr As String = DatosRecarga2("LinkAuto")
 
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
@@ -9422,19 +9512,19 @@ ecomoda:
 
             Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
             If DesglosaIVA = "1" Then
-                If TotalIVAPrint > 0 Then
-                    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
-                        Y += 12
-                        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                        Y += 12
-                    End If
-                End If
-                If TotalIEPS > 0 Then
-                    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
-                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
-                    Y += 12
-                End If
+                'If TotalIVAPrint > 0 Then
+                '    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
+                '        Y += 12
+                '        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                '        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                '        Y += 12
+                '    End If
+                'End If
+                'If TotalIEPS > 0 Then
+                '    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                '    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 180, Y, sf)
+                '    Y += 12
+                'End If
             End If
 
             Y += 15
@@ -9451,38 +9541,101 @@ ecomoda:
             End If
             Y += 3
             e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 90, Y, sc)
+            Y += 15
 
-            Dim va_whatsapp As Integer = 0
-            Try
-                cnn1.Close() : cnn1.Open()
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select NumPart from Formatos where Facturas='Whatsapp'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        va_whatsapp = rd1(0).ToString()
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim entrada As String = ligaqr
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_prods, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 85, 85)
+                    Y += 60
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
                     End If
                 End If
-                rd1.Close() : cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn1.Close()
-            End Try
 
-            If ligaqr <> "" Then
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
-
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
-                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 90, Y, sc)
-                Y += 20
-                e.Graphics.DrawImage(picQR.Image, 15, CInt(Y), 160, 160)
             End If
+
+            Y += 35
+            If autofac = 1 Then
+
+                If siqr = "1" Then
+                    Dim entrada As String = linkauto
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+
+                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    ' Asigna la nueva imagen al PictureBox
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_prods, Brushes.Black, 1, Y)
+                    Y += 25
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_prods, Brushes.Black, 1, Y)
+                    Y += 10
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 15), 85, 85)
+                    Y += 20
+
+                End If
+
+            Else
+
+            End If
+
 
             e.HasMorePages = False
         Catch ex As Exception

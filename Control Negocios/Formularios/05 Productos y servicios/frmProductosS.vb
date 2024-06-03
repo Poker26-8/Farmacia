@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Data.OleDb
 Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data
+Imports System.Runtime.Remoting.Contexts
 
 Public Class frmProductosS
 
@@ -1089,6 +1090,8 @@ Public Class frmProductosS
         Dim claveunidad As String = ""
         Dim isr As Double = 0
         Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
+
+        Dim conteo As Integer = 0
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1179,18 +1182,27 @@ Public Class frmProductosS
                     departamento = Trim(Replace(departamento, "‘", "''"))
                     grupo = Trim(Replace(grupo, "‘", "''"))
 
+                    If (Comprueba(codigo, nombre, codbarras)) Then
 
-                    cnn2.Close()
-                    cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "Insert into Productos(Codigo, CodBarra, nombre, nombrelargo, provpri, proveme, provres, ucompra, uventa, UMinima, mcd, multiplo, departamento, grupo, ubicacion, min, max, comision, preciocompra, PorcMin, Porcentaje, precioventa, precioventaiva, iva, existencia, PorcMay, PorcMM, PorcEsp, premay, premm, preesp, CantMin1, CantMay1, CantMM1, CantEsp1, CantLst1, cantmin2, cantmay2, cantmm2, cantesp2, CantLst2, pres_vol, id_tbmoneda, almacen3, clavesat, UnidadSat, isr,Fecha,Fecha_inicial,fecha_final) values('" & codigo & "','" & codbarras & "','" & nombre & "','" & nombrelargo & "','" & provpri & "','" & proveme & "'," & provres & ",'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & min & "," & max & ",'" & comision & "'," & preciocompra & "," & porcentagemin & "," & porcentage & "," & precioventa & "," & precioventaiva & "," & iva & "," & existencia & "," & pormay & "," & pormm & "," & poresp & "," & premay & "," & premm & "," & preesp & "," & cantmin & "," & cantmay & "," & cantmm & "," & cantesp & "," & cantlta & "," & cantmin2 & "," & cantmay2 & "," & cantmm2 & "," & cantesp2 & "," & cantlta & "," & presvol & "," & id_tbmoneda & "," & almacen3 & ",'" & clavesat & "','" & claveunidad & "'," & isr & ",'" & fecha & "','" & fecha & "','" & fecha & "')"
-                    If cmd2.ExecuteNonQuery Then
-                        cuantos = cuantos + 1
-                        txtbarras.Text = cuantos
-                        My.Application.DoEvents()
+                        cnn2.Close()
+                        cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "Insert into Productos(Codigo, CodBarra, nombre, nombrelargo, provpri, proveme, provres, ucompra, uventa, UMinima, mcd, multiplo, departamento, grupo, ubicacion, min, max, comision, preciocompra, PorcMin, Porcentaje, precioventa, precioventaiva, iva, existencia, PorcMay, PorcMM, PorcEsp, premay, premm, preesp, CantMin1, CantMay1, CantMM1, CantEsp1, CantLst1, cantmin2, cantmay2, cantmm2, cantesp2, CantLst2, pres_vol, id_tbmoneda, almacen3, clavesat, UnidadSat, isr,Fecha,Fecha_inicial,fecha_final) values('" & codigo & "','" & codbarras & "','" & nombre & "','" & nombrelargo & "','" & provpri & "','" & proveme & "'," & provres & ",'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & min & "," & max & ",'" & comision & "'," & preciocompra & "," & porcentagemin & "," & porcentage & "," & precioventa & "," & precioventaiva & "," & iva & "," & existencia & "," & pormay & "," & pormm & "," & poresp & "," & premay & "," & premm & "," & preesp & "," & cantmin & "," & cantmay & "," & cantmm & "," & cantesp & "," & cantlta & "," & cantmin2 & "," & cantmay2 & "," & cantmm2 & "," & cantesp2 & "," & cantlta & "," & presvol & "," & id_tbmoneda & "," & almacen3 & ",'" & clavesat & "','" & claveunidad & "'," & isr & ",'" & fecha & "','" & fecha & "','" & fecha & "')"
+                        If cmd2.ExecuteNonQuery Then
+                            cuantos = cuantos + 1
+                            txtbarras.Text = cuantos
+                            My.Application.DoEvents()
+                        Else
+                            MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
+                        End If
+
                     Else
-                        MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
+                        conteo += 1
+                        barsube.Value = conteo
+                        Continue Do
                     End If
+
+
                 Loop
                 cnn2.Close()
                 MsgBox("Se insertaron " & cuantos & " productos")
@@ -1206,6 +1218,56 @@ Public Class frmProductosS
         My.Application.DoEvents()
         Button1.Enabled = True
     End Sub
+
+    Private Function Comprueba(ByVal cod As String, ByVal desc As String, ByVal codbarra As String) As Boolean
+        Dim valida As Boolean = True
+
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText =
+            "select * from Productos where Codigo='" & cod & "'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                'MsgBox("Ya cuentas con un producto registrado con el código corto " & cod & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                valida = False
+            End If
+        End If
+        rd2.Close()
+
+        If codbarra <> "" Then
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from Productos where CodBarra='" & codbarra & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    'MsgBox("Ya cuentas con un producto registrado con el código de barras " & codbarra & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    valida = False
+                End If
+            End If
+            rd2.Close()
+        End If
+
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText =
+            "select * from Productos where Nombre='" & desc & "'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                'MsgBox("Ya cuentas con un producto registrado con el nombre " & desc & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                valida = False
+            End If
+        End If
+        rd2.Close()
+
+        cnn2.Close()
+        Return valida
+
+    End Function
+
+
+
 
     Private Sub txtBarras1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtBarras1.KeyPress
         e.KeyChar = UCase(e.KeyChar)

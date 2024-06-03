@@ -506,7 +506,8 @@ Partial Class frmMesas
         '
         Me.txtMesa.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtMesa.BackColor = System.Drawing.SystemColors.Window
+        Me.txtMesa.BackColor = System.Drawing.Color.White
+        Me.txtMesa.Enabled = False
         Me.txtMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMesa.Location = New System.Drawing.Point(6, 91)
         Me.txtMesa.Name = "txtMesa"

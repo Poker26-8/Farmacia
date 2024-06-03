@@ -27,6 +27,7 @@ Partial Class frmVTouchR
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.lbltotalventa = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblDescuento = New System.Windows.Forms.Label()
@@ -145,6 +146,7 @@ Partial Class frmVTouchR
         Me.Cortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,6 +164,7 @@ Partial Class frmVTouchR
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.picQR)
         Me.Panel1.Controls.Add(Me.lbltotalventa)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.lblDescuento)
@@ -183,6 +186,20 @@ Partial Class frmVTouchR
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1033, 100)
         Me.Panel1.TabIndex = 0
+        '
+        'picQR
+        '
+        Me.picQR.BackColor = System.Drawing.Color.White
+        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picQR.Location = New System.Drawing.Point(624, 36)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
+        Me.picQR.Name = "picQR"
+        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picQR.Size = New System.Drawing.Size(57, 55)
+        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picQR.TabIndex = 210
+        Me.picQR.TabStop = False
+        Me.picQR.Visible = False
         '
         'lbltotalventa
         '
@@ -1577,6 +1594,7 @@ Partial Class frmVTouchR
         Me.Text = "Venta Touch"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1713,4 +1731,5 @@ Partial Class frmVTouchR
     Friend WithEvents Cortesia80 As Printing.PrintDocument
     Friend WithEvents Cortesia58 As Printing.PrintDocument
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents picQR As PictureBox
 End Class

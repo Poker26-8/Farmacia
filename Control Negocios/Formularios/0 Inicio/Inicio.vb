@@ -2113,6 +2113,9 @@ Public Class Inicio
         Else
             frmCompras.Show()
             frmCompras.BringToFront()
+
+            frmNuvCompras.Show()
+            frmNuvCompras.BringToFront()
         End If
 
 

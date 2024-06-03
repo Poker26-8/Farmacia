@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports QRCoder
 Public Class frmNuevoPagar
 
     Public subtotalmapeo As Double = 0
@@ -41,7 +42,7 @@ Public Class frmNuevoPagar
     Dim precioeliminar As Double = 0
     Dim comensaleliminar As String = ""
 
-
+    Public cadenafact As String = ""
     Dim cortesia_venta As Integer = 0
     Dim NewPos As String = ""
 
@@ -1047,6 +1048,7 @@ Public Class frmNuevoPagar
             lic = lic & numeros & letras & "-"
         Next
         lic = Strings.Left(lic, lic.Length - 1)
+        cadenafact = Trim(lic)
 #End Region
 
         Dim totalventa22 As Double = 0
@@ -3328,7 +3330,7 @@ Door:
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
         Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
-        Dim fuente_c As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+        Dim fuente_c As New Font("Lucida Sans Typewriter", 10, FontStyle.Regular)
         Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
         Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
 
@@ -3361,6 +3363,15 @@ Door:
         Dim TOTALCOM As Double = 0
         Dim totalventa As Double = 0
         Dim numdec As String = ""
+
+        Dim siqr As String = DatosRecarga2("LinkAuto")
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim whats As String = DatosRecarga("Whatsapp")
+        Dim ligaqr As String = ""
+
+        If whats <> "" Then
+            ligaqr = "http://wa.me/" & whats
+        End If
 
         Dim Pie1 As String = ""
 
@@ -3572,9 +3583,12 @@ Door:
                                 rd1 = cmd1.ExecuteReader
                                 Do While rd1.Read
                                     If rd1.HasRows Then
-                                        ope = importepro / 1.16
-                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
-                                        TotalIVA = FormatNumber(TotalIVA, 2)
+                                        If rd1(0).ToString > 0 Then
+                                            ope = importepro / (1 + rd1(0).ToString)
+                                            TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
+                                            TotalIVA = FormatNumber(TotalIVA, 2)
+                                        End If
+
                                     End If
                                 Loop
                                 rd1.Close()
@@ -3642,7 +3656,7 @@ Door:
 
             If TotalIVA <> 0 Then
 
-                If DesglosaIVA = False Then
+                If DesglosaIVA = 1 Then
 
                     e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtSubtotalmapeo.Text) - CDec(TotalIVA), 2), fuente_b, Brushes.Black, 270, Y, derecha)
@@ -3652,13 +3666,11 @@ Door:
                     Y += 20
                     e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtSubtotalmapeo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                    Y += 30
+                    Y += 20
 
+                    e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+                    Y += 15
                 End If
-
-                e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & " " & FormatNumber(txtSubtotalmapeo.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-                Y += 20
 
                 If CDec(txtDescuento.Text) <> 0 Then
                     e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
@@ -3804,12 +3816,96 @@ Door:
 
             e.Graphics.DrawString("Mesero: " & lblMesero.Text, fuente_r, Brushes.Black, 5, Y)
             e.Graphics.DrawString("Cajero: " & lblusuario2.Text, fuente_r, Brushes.Black, 270, Y, derecha)
-            Y += 15
+            Y += 20
 
-            If facLinea = 1 Then
-                e.Graphics.DrawString("Folio para Facturar", fuente_b, Brushes.Black, 135, Y, sc)
-                Y += 15
-                e.Graphics.DrawString(foliofactura, fuente_b, Brushes.Black, 135, Y, sc)
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim entrada As String = ligaqr
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_c, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y), 85, 85)
+                    Y += 85
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                End If
+
+            End If
+
+            If autofac = 1 Then
+
+                If siqr = "1" Then
+                    Dim entrada As String = linkauto
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+
+                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    ' Asigna la nueva imagen al PictureBox
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_c, Brushes.Black, 1, Y)
+                    Y += 20
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_c, Brushes.Black, 1, Y)
+                    Y += 20
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_c, Brushes.Black, 1, Y)
+                    Y += 10
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
+                    Y += 20
+
+                End If
+
             Else
 
             End If
@@ -3867,6 +3963,16 @@ Door:
         Dim numdec As String = ""
 
         Dim Pie1 As String = ""
+
+        Dim ligaqr As String = ""
+        Dim whats As String = DatosRecarga("Whatsapp")
+
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim siqr As String = DatosRecarga2("LinkAuto")
+
+        If whats <> "" Then
+            ligaqr = "http://wa.me/" & whats
+        End If
 
         cnn1.Close() : cnn1.Open()
         cnn2.Close() : cnn2.Open()
@@ -4078,9 +4184,12 @@ Door:
                                 rd1 = cmd1.ExecuteReader
                                 Do While rd1.Read
                                     If rd1.HasRows Then
-                                        ope = importepro / 1.16
-                                        TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
-                                        TotalIVA = FormatNumber(TotalIVA, 2)
+                                        If rd1(0).ToString > 0 Then
+                                            ope = importepro / (1 + rd1(0).ToString)
+                                            TotalIVA = TotalIVA + CDec(ope) * CDec(rd1(0).ToString)
+                                            TotalIVA = FormatNumber(TotalIVA, 2)
+                                        End If
+
                                     End If
                                 Loop
                                 rd1.Close()
@@ -4146,7 +4255,7 @@ Door:
 
             If TotalIVA <> 0 Then
 
-                If DesglosaIVA = False Then
+                If DesglosaIVA = 1 Then
 
                     e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(CDec(txtSubtotalmapeo.Text) - CDec(TotalIVA), 2), fuente_b, Brushes.Black, 180, Y, derecha)
@@ -4157,7 +4266,8 @@ Door:
                     e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
                     e.Graphics.DrawString(simbolo & " " & FormatNumber(txtSubtotalmapeo.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
                     Y += 15
-
+                    e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+                    Y += 15
                 End If
 
                 e.Graphics.DrawString("SUBTOTAL: ", fuente_b, Brushes.Black, 1, Y)
@@ -4309,10 +4419,95 @@ Door:
             e.Graphics.DrawString("Cajero: " & lblusuario2.Text, fuente_r, Brushes.Black, 180, Y, derecha)
             Y += 15
 
-            If facLinea = 1 Then
-                e.Graphics.DrawString("Folio para Facturar", fuente_b, Brushes.Black, 90, Y, sc)
-                Y += 15
-                e.Graphics.DrawString(foliofactura, fuente_b, Brushes.Black, 90, Y, sc)
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim entrada As String = ligaqr
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_c, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 85, 85)
+                    Y += 60
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                End If
+
+            End If
+
+            Y += 35
+            If autofac = 1 Then
+
+                If siqr = "1" Then
+                    Dim entrada As String = linkauto
+                    Dim Gen As New QRCodeGenerator
+                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
+                    Dim Code As New QRCode(data)
+
+                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
+                    If picQR.Image IsNot Nothing Then
+                        picQR.Image.Dispose()
+                    End If
+                    ' Asigna la nueva imagen al PictureBox
+                    picQR.Image = Code.GetGraphic(200)
+                    My.Application.DoEvents()
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_c, Brushes.Black, 1, Y)
+                    Y += 25
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_c, Brushes.Black, 1, Y)
+                    Y += 25
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_c, Brushes.Black, 1, Y)
+                    Y += 10
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 15), 85, 85)
+                    Y += 20
+
+                End If
+
             Else
 
             End If

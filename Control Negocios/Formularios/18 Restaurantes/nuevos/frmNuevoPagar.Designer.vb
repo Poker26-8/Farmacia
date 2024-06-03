@@ -147,6 +147,7 @@ Partial Class frmNuevoPagar
         Me.pCortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.pCortesia58 = New System.Drawing.Printing.PrintDocument()
         Me.Precuenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -162,6 +163,7 @@ Partial Class frmNuevoPagar
         Me.PIZQUIERDAABAJO.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -276,6 +278,7 @@ Partial Class frmNuevoPagar
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.picQR)
         Me.Panel6.Controls.Add(Me.Label27)
         Me.Panel6.Controls.Add(Me.txttotalpropina)
         Me.Panel6.Controls.Add(Me.Label25)
@@ -1472,6 +1475,20 @@ Partial Class frmNuevoPagar
         'Precuenta58
         '
         '
+        'picQR
+        '
+        Me.picQR.BackColor = System.Drawing.Color.White
+        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picQR.Location = New System.Drawing.Point(6, 2)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
+        Me.picQR.Name = "picQR"
+        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picQR.Size = New System.Drawing.Size(57, 55)
+        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picQR.TabIndex = 210
+        Me.picQR.TabStop = False
+        Me.picQR.Visible = False
+        '
         'frmNuevoPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1506,6 +1523,7 @@ Partial Class frmNuevoPagar
         Me.PIZQUIERDAABAJO.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1631,4 +1649,5 @@ Partial Class frmNuevoPagar
     Friend WithEvents btnpunto As Button
     Friend WithEvents Label27 As Label
     Friend WithEvents txttotalpropina As TextBox
+    Friend WithEvents picQR As PictureBox
 End Class

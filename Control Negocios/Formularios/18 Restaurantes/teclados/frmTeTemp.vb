@@ -234,8 +234,10 @@
                 If rd1.HasRows Then
                     If rd1.Read Then
 
-
-
+                        MsgBox("El nombre de la mesa ya esta registrado", vbInformation + vbOKOnly, titulorestaurante)
+                        txtNombre.Text = ""
+                        txtNombre.Focus.Equals(True)
+                        Exit Sub
                     End If
                 Else
                     cnn2.Close() : cnn2.Open()

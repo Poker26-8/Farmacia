@@ -409,6 +409,12 @@
     <Compile Include="Formularios\06 Compras\frmSalidas_Pedidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\06 Compras\Nuevos\frmNuvCompras.Designer.vb">
+      <DependentUpon>frmNuvCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\06 Compras\Nuevos\frmNuvCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\06 Compras\Series\frmComprasSeries.Designer.vb">
       <DependentUpon>frmComprasSeries.vb</DependentUpon>
     </Compile>
@@ -1978,6 +1984,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmSalidas_Pedidos.resx">
       <DependentUpon>frmSalidas_Pedidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\06 Compras\Nuevos\frmNuvCompras.resx">
+      <DependentUpon>frmNuvCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Series\frmComprasSeries.resx">
       <DependentUpon>frmComprasSeries.vb</DependentUpon>

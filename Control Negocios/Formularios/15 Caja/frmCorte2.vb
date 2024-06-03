@@ -546,6 +546,12 @@ Public Class frmCorte2
                     pCalculoUsuario58.Print()
                 End If
             End If
+
+            If MsgBox("¿Deseas enviar el corte por correo electrónico?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                Insert_Corte_G()
+                PDF_Corte_U()
+            End If
+
             cnn1.Close()
             cnn2.Close()
             cnn3.Close()

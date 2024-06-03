@@ -591,7 +591,7 @@ Public Class frmMesas
 
             If simesaspropianm = 1 Then
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
+                cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & idempleado & ""
                 rd2 = cmd2.ExecuteReader
                 If rd2.Read Then
                     If rd2.HasRows Then
