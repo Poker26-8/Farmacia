@@ -22,6 +22,7 @@ Public Class frmVentasTouch3
     Friend WithEvents pComanda As System.Drawing.Printing.PrintDocument
 
     Public G_Comanda As String = ""
+    Public cadenafact As String = ""
 
     Friend WithEvents btnDepto, btnGrupo, btnProd As System.Windows.Forms.Button
 
@@ -1265,6 +1266,58 @@ keseso:
             Dim Descuento As Double = 0
             Dim MontoSDesc As Double = 0
 
+            Dim CodCadena As String = ""
+            Dim cadena As String = ""
+            Dim ope1 As Double = 0
+            Dim Car As Integer = 0
+
+            Dim letters As String = ""
+            Dim Numeros As String = ""
+            Dim Letras As String = ""
+            Dim lic As String = ""
+
+            ope1 = Math.Cos(CDbl(lblFolio.Text))
+            If ope1 > 0 Then
+                cadena = Strings.Left(Replace(CStr(ope1), ".", "9"), 10)
+            Else
+                cadena = Strings.Left(Replace(CStr(Math.Abs(ope1)), ".", "8"), 10)
+            End If
+            For i = 1 To 10
+                Car = Mid(cadena, i, 1)
+                Select Case Car
+                    Case Is = 0
+                        letters = letters & "Y"
+                    Case Is = 1
+                        letters = letters & "Z"
+                    Case Is = 2
+                        letters = letters & "W"
+                    Case Is = 3
+                        letters = letters & "H"
+                    Case Is = 4
+                        letters = letters & "S"
+                    Case Is = 5
+                        letters = letters & "B"
+                    Case Is = 6
+                        letters = letters & "C"
+                    Case Is = 7
+                        letters = letters & "P"
+                    Case Is = 8
+                        letters = letters & "Q"
+                    Case Is = 9
+                        letters = letters & "A"
+                    Case Else
+                        letters = letters & Car
+                End Select
+            Next
+            For w = 1 To 10 Step 2
+                Numeros = Mid(lblFolio.Text, w, 4)
+                Letras = Mid(letters, w, 4)
+                lic = lic & Numeros & Letras & "-"
+            Next
+            lic = Strings.Left(lic, Len(lic) - 1)
+            CodCadena = lic
+            cadenafact = Trim(CodCadena)
+
             Select Case lbltipoventa.Text
                 Case Is = "MOSTRADOR"
                     IdCliente = 0
@@ -1287,7 +1340,7 @@ keseso:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Franquicia) values(" & IdCliente & ",'" & Cliente & "','" & Direccion & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "',1)"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Franquicia,Formato,Fecha,CodFactura) values(" & IdCliente & ",'" & Cliente & "','" & Direccion & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "',1,'TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cadenafact & "')"
                     cmd1.ExecuteNonQuery()
                 Case Is <> "MOSTRADOR"
                     MyMonto = MontoEfectivo + MontoTarjeta + AFavor_Cliente
@@ -1315,7 +1368,7 @@ keseso:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Franquicia) values(" & IdCliente & ",'" & Cliente & "','" & Direccion & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "',1)"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Franquicia,Formato,Fecha,CodFactura) values(" & IdCliente & ",'" & Cliente & "','" & Direccion & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "',1,'TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cadenafact & "')"
                     cmd1.ExecuteNonQuery()
             End Select
 
@@ -1444,29 +1497,46 @@ keseso:
 
             If ACuenta > 0 Then
                 Dim EfectivoX As Double = FormatNumber(MontoEfectivo - Cambio, 2)
-                MontoTarjeta = FormatNumber(MontoTarjeta - Cambio, 2)
+                MontoTarjeta = FormatNumber(MontoTarjeta, 2)
                 Dim Bancos As String = ""
                 Dim Refes As String = ""
                 Dim soy As String = ""
                 Dim soy2 As Double = 0
-                If MontoTarjeta <> 0 Then
-                    soy = "TARJETA"
-                    soy2 = MontoTarjeta
-                Else
-                    soy = "EFECTIVO"
-                    soy2 = EfectivoX
-                End If
+                'If MontoTarjeta <> 0 Then
+                '    soy = "TARJETA"
+                '    soy2 = MontoTarjeta
+                'Else
+                '    soy = "EFECTIVO"
+                '    soy2 = EfectivoX
+                'End If
 
                 Select Case lbltipoventa.Text
                     Case Is = "MOSTRADOR"
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                            "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Referencia,Usuario) values(" & MYFOLIO & ",0,'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & soy2 & "," & MySaldo & ",'" & soy & "'," & soy2 & ",'" & Refes & "','" & lblatiende.Text & "')"
-                        If cmd1.ExecuteNonQuery Then
 
-                        Else
+                        If MontoTarjeta > 0 Then
+                            soy = "TARJETA"
+                            soy2 = MontoTarjeta
 
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Referencia,Usuario) values(" & MYFOLIO & ",0,'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & soy2 & "," & MySaldo & ",'" & soy & "'," & soy2 & ",'" & Refes & "','" & lblatiende.Text & "')"
+                            If cmd1.ExecuteNonQuery Then
+                            Else
+                            End If
                         End If
+
+                        If EfectivoX > 0 Then
+                            soy = "EFECTIVO"
+                            soy2 = EfectivoX
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Referencia,Usuario) values(" & MYFOLIO & ",0,'" & Cliente & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & soy2 & "," & MySaldo & ",'" & soy & "'," & soy2 & ",'" & Refes & "','" & lblatiende.Text & "')"
+                            If cmd1.ExecuteNonQuery Then
+                            Else
+                            End If
+                        End If
+
                     Case Is <> "MOSTRADOR"
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =

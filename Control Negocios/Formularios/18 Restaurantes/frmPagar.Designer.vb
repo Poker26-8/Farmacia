@@ -159,6 +159,7 @@ Partial Class frmPagar
         '
         'Panel7
         '
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel7.Controls.Add(Me.Label25)
         Me.Panel7.Controls.Add(Me.txtMonedero)
         Me.Panel7.Controls.Add(Me.Label24)
@@ -470,7 +471,7 @@ Partial Class frmPagar
         '
         'Panel8
         '
-        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel8.Controls.Add(Me.txtComentario)
         Me.Panel8.Controls.Add(Me.Label10)
         Me.Panel8.Controls.Add(Me.txtSaldoM)
@@ -828,7 +829,7 @@ Partial Class frmPagar
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel3.Controls.Add(Me.btnCortesia)
         Me.Panel3.Controls.Add(Me.btnDividir)
         Me.Panel3.Controls.Add(Me.btnCancelar)
@@ -908,7 +909,7 @@ Partial Class frmPagar
         '
         'Panel6
         '
-        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel6.Controls.Add(Me.lblusuario2)
         Me.Panel6.Controls.Add(Me.btnPagar)
         Me.Panel6.Controls.Add(Me.Label20)
@@ -1288,7 +1289,7 @@ Partial Class frmPagar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1250, 772)
         Me.Controls.Add(Me.grdcomanda)
         Me.Controls.Add(Me.Panel9)

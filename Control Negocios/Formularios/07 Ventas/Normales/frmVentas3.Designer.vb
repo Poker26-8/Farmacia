@@ -2756,6 +2756,9 @@ Partial Class frmVentas3
         'pComanda80
         '
         '
+        'pComanda58
+        '
+        '
         'pVentaCarta
         '
         '

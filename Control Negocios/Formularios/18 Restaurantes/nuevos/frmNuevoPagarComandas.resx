@@ -10355,6 +10355,22 @@
         FFABRRRQAUUUUAFFFFAH/9k=
 </value>
   </data>
+  <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACkAAAAvCAYAAAB+OePrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAj1JREFUWEft2b9LW1EUwPH8CfkPDHR0UCkUFbFBmmBERYUiWUK6BFtoa1uJioMB
+        FweHgCIZHFIE0cGlpVVsAqFDp1KEQqcO2bq09IEgguDxnJAr18NNcvLeNYnwhk9+3Dxyv7ycFwgJ/F15
+        EP6efri/Nx/dT88l1lOpVOauAEDADYosI1C+LvTD+9cxWHyeAHxj2/KmiEYo8iaQ+7nYAx/ehmH1Rdy0
+        oSs8QKJupO73UjecvBuC7Mtp4+ZSPEBCHMnRWOReTTQ9FjxAwnWkjsaC5lgyFjxAwkqkrlEoD5CwHnnw
+        5okxTuEBEn6kCQ+Q8CNNeICEH2nCAyT8SBMeINH2yI1vj4MoUxXkr5NOiKQ4qDpFIX5MJ0SWtEjioF79
+        GOuRH9cHYXl7piYMUB+tUkZ6pAoN31lkId/HN/QieR8iSfI+RDrWIzdzj2Dg05g1w59jV54jna3xW89t
+        Rz79Ei15ijw7TONcA1z8OLxZsxkZL0R3PF84l39+VSLpXq3tZvshvjdZE50Z3chR7JLH0UesAj1H/lvr
+        q5xFuldrzX6Zx45H//PARDEyqx9j/cJpNpLOpgqMHo+e80DS9shnxUgXnU2Kpcf8ddL2SAk/0oQHSPiR
+        JjxAwo804QESfqQJD5BodWTZFNEIRWb4Rl7UiXTQrV+BUpUbfPMgmkJ55NBmHrj+U6kW4yJu1Iuy6LS6
+        cTNaE6nDTUNoHpWqEY20PlKHATQWSVRvLNobyWFQGNFY6P9Puro46jEudhYIXAPtinovmsN64wAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="btnLimpiar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAYAAABXuSs3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -11646,54 +11662,6 @@
     <value>True</value>
   </metadata>
   <metadata name="Column17.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column18.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column16.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column17.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

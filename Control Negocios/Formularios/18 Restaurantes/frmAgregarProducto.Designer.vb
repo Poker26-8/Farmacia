@@ -515,7 +515,7 @@ Partial Class frmAgregarProducto
         Me.pPromociones.Padding = New System.Windows.Forms.Padding(3)
         Me.pPromociones.Size = New System.Drawing.Size(276, 234)
         Me.pPromociones.TabIndex = 2
-        Me.pPromociones.Text = "Promoción"
+        Me.pPromociones.Text = " Promoción "
         '
         'Panel7
         '
@@ -572,7 +572,7 @@ Partial Class frmAgregarProducto
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnSalir)
         Me.Panel2.Controls.Add(Me.btnnuevo)
         Me.Panel2.Controls.Add(Me.btnOcasional)

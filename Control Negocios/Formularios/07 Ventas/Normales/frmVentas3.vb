@@ -13011,9 +13011,17 @@ ecomoda:
                     End While
                     Y += 5
 
-                    If comentario <> "" Then
-                        e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
-                        Y += 15
+                    If comentario = "0" Then
+                        comentario = ""
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+                    Else
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
                     End If
 
                 End If
@@ -13819,6 +13827,10 @@ doorcita:
                 a_cnn.Close()
             End If
         End With
+
+    End Sub
+
+    Private Sub pComanda58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda58.PrintPage
 
     End Sub
 End Class

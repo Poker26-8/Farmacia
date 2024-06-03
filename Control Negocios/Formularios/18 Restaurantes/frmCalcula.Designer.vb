@@ -62,7 +62,7 @@ Partial Class frmCalcula
         Me.lblpc.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblpc.Location = New System.Drawing.Point(164, 9)
         Me.lblpc.Name = "lblpc"
-        Me.lblpc.Size = New System.Drawing.Size(184, 38)
+        Me.lblpc.Size = New System.Drawing.Size(189, 38)
         Me.lblpc.TabIndex = 2
         Me.lblpc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -105,7 +105,7 @@ Partial Class frmCalcula
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalir.Location = New System.Drawing.Point(273, 302)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 60)
+        Me.btnSalir.Size = New System.Drawing.Size(80, 60)
         Me.btnSalir.TabIndex = 31
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -130,7 +130,7 @@ Partial Class frmCalcula
         Me.txtHorFin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHorFin.Location = New System.Drawing.Point(164, 103)
         Me.txtHorFin.Name = "txtHorFin"
-        Me.txtHorFin.Size = New System.Drawing.Size(184, 24)
+        Me.txtHorFin.Size = New System.Drawing.Size(189, 24)
         Me.txtHorFin.TabIndex = 29
         '
         'Label7
@@ -190,7 +190,7 @@ Partial Class frmCalcula
         Me.txtHorIni.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHorIni.Location = New System.Drawing.Point(164, 63)
         Me.txtHorIni.Name = "txtHorIni"
-        Me.txtHorIni.Size = New System.Drawing.Size(184, 24)
+        Me.txtHorIni.Size = New System.Drawing.Size(189, 24)
         Me.txtHorIni.TabIndex = 23
         '
         'Label5
@@ -244,7 +244,7 @@ Partial Class frmCalcula
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(360, 379)
+        Me.ClientSize = New System.Drawing.Size(360, 368)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtHoras)

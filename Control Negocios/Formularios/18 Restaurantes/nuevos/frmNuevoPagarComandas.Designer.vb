@@ -24,8 +24,8 @@ Partial Class frmNuevoPagarComandas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagarComandas))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.btn1000 = New System.Windows.Forms.Button()
@@ -309,12 +309,13 @@ Partial Class frmNuevoPagarComandas
         Me.btnPunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnPunto.FlatAppearance.BorderSize = 0
         Me.btnPunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPunto.Location = New System.Drawing.Point(92, 242)
         Me.btnPunto.Name = "btnPunto"
         Me.btnPunto.Size = New System.Drawing.Size(81, 54)
         Me.btnPunto.TabIndex = 90
         Me.btnPunto.Text = "."
+        Me.btnPunto.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPunto.UseVisualStyleBackColor = False
         '
         'Button1
@@ -323,12 +324,13 @@ Partial Class frmNuevoPagarComandas
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(178, 183)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 54)
+        Me.Button1.Size = New System.Drawing.Size(81, 113)
         Me.Button1.TabIndex = 81
         Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = False
         '
         'btn0
@@ -860,9 +862,9 @@ Partial Class frmNuevoPagarComandas
         '
         Me.cbocliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbocliente.FormattingEnabled = True
-        Me.cbocliente.Location = New System.Drawing.Point(70, 6)
+        Me.cbocliente.Location = New System.Drawing.Point(73, 6)
         Me.cbocliente.Name = "cbocliente"
-        Me.cbocliente.Size = New System.Drawing.Size(300, 21)
+        Me.cbocliente.Size = New System.Drawing.Size(297, 21)
         Me.cbocliente.TabIndex = 6
         '
         'Label19
@@ -911,9 +913,9 @@ Partial Class frmNuevoPagarComandas
         '
         Me.lblUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(78, 8)
+        Me.lblUsuario.Location = New System.Drawing.Point(73, 8)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(112, 21)
+        Me.lblUsuario.Size = New System.Drawing.Size(117, 21)
         Me.lblUsuario.TabIndex = 6
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -968,9 +970,9 @@ Partial Class frmNuevoPagarComandas
         '
         Me.cboCambioM.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCambioM.FormattingEnabled = True
-        Me.cboCambioM.Location = New System.Drawing.Point(70, 10)
+        Me.cboCambioM.Location = New System.Drawing.Point(73, 10)
         Me.cboCambioM.Name = "cboCambioM"
-        Me.cboCambioM.Size = New System.Drawing.Size(117, 21)
+        Me.cboCambioM.Size = New System.Drawing.Size(114, 21)
         Me.cboCambioM.TabIndex = 6
         '
         'Label3
@@ -1649,8 +1651,8 @@ Partial Class frmNuevoPagarComandas
         'Column5
         '
         Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -1659,8 +1661,8 @@ Partial Class frmNuevoPagarComandas
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True

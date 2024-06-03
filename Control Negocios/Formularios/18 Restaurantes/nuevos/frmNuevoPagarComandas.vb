@@ -1251,6 +1251,9 @@ Public Class frmNuevoPagarComandas
             e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
 
+            e.Graphics.DrawString("TOTAL: " & "$ " & FormatNumber(lblSubtotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
             If txtPropina.Text > 0 Then
                 e.Graphics.DrawString("SERVICIO: " & "$ " & FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                 Y += 20
@@ -1259,13 +1262,10 @@ Public Class frmNuevoPagarComandas
             If txtefecporcentaje.Text > 0 Then
                 e.Graphics.DrawString("DESCUENTO: " & "$ " & FormatNumber(txtefecporcentaje.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
                 Y += 20
+
+                e.Graphics.DrawString("TOTAL A PAGAR: " & "$ " & FormatNumber(lbltotalventa.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
+                Y += 20
             End If
-
-            e.Graphics.DrawString("SUBTOTAL: " & "$ " & FormatNumber(lblSubtotal.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
-
-            e.Graphics.DrawString("TOTAL A PAGAR: " & "$ " & FormatNumber(lbltotalventa.Text, 2), fuente_b, Brushes.Black, 270, Y, derecha)
-            Y += 20
 
             e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11

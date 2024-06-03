@@ -2252,8 +2252,24 @@ Door:
                 Y += 20
             End If
 
+            e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatNumber(txtSubtotalmapeo.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            If txtPropina.Text > 0 Then
+                e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(txtPropina.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+                Y += 20
+            End If
+
+            If txtDescuento.Text > 0 Then
+                e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(txtDescuento.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+                Y += 20
+            End If
+
             e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(FormatNumber(totalcuenta + servicio, 2), fuente_a, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString(FormatNumber(txttotalpropina.Text, 2), fuente_a, Brushes.Black, 270, Y, derecha)
             Y += 20
 
             e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
@@ -2288,11 +2304,9 @@ Door:
                 e.Graphics.DrawString(Mid(pie1, 36, 72), fuente_r, Brushes.Black, 1, Y)
                 Y += 12
             End If
-            Y += 12
+            Y += 3
 
             e.Graphics.DrawString("Le atiende: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
-            Y += 20
-
 
             cnn4.Close()
             cnn3.Close()
@@ -2600,9 +2614,25 @@ Door:
                 Y += 15
             End If
 
-            e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(FormatNumber(totalcuenta + servicio, 2), fuente_b, Brushes.Black, 180, Y, derecha)
             Y += 15
+
+            If txtPropina.Text > 0 Then
+                e.Graphics.DrawString("PROPINA: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(txtPropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 15
+            End If
+
+            If txtDescuento.Text > 0 Then
+                e.Graphics.DrawString("DESCUENTO: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(txtDescuento.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 15
+
+                e.Graphics.DrawString("TOTAL A PAGAR: ", fuente_b, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(txttotalpropina.Text, 2), fuente_b, Brushes.Black, 180, Y, derecha)
+                Y += 15
+            End If
 
             e.Graphics.DrawString("------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
@@ -2636,7 +2666,7 @@ Door:
                 e.Graphics.DrawString(Mid(pie1, 37, 72), fuente_r, Brushes.Black, 1, Y)
                 Y += 12
             End If
-            Y += 12
+            Y += 3
 
             e.Graphics.DrawString("Le atiende: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
 

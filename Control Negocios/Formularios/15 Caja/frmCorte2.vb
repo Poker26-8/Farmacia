@@ -1504,6 +1504,7 @@ Public Class frmCorte2
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_prods2 As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -1595,7 +1596,7 @@ Public Class frmCorte2
             Y += 18
 
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods2, Brushes.Black, 285, Y, sf)
             Y += 23
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 20
@@ -1681,6 +1682,7 @@ Public Class frmCorte2
         Dim tipografia As String = "Lucida Sans Typewriter"
         Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
         Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_prods2 As New Drawing.Font(tipografia, 11, FontStyle.Regular)
         'Variables
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
         Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
@@ -1773,7 +1775,7 @@ Public Class frmCorte2
             e.Graphics.DrawString("Usuario: " & cboUsuario.Text, fuente_datos, Brushes.Black, 285, Y, sf)
             Y += 15
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_prods, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods, Brushes.Black, 285, Y, sf)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_prods2, Brushes.Black, 285, Y, sf)
             Y += 23
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 20

@@ -79,6 +79,8 @@ Partial Class frmTecladoMesas
         '
         'pmesas
         '
+        Me.pmesas.AutoScroll = True
+        Me.pmesas.BackColor = System.Drawing.Color.White
         Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pmesas.Location = New System.Drawing.Point(0, 60)
         Me.pmesas.Name = "pmesas"

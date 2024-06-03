@@ -781,12 +781,6 @@
     <Compile Include="Formularios\14 Admon\frmConfigRecargas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\18 Restaurantes\frmAgregarMesa.Designer.vb">
-      <DependentUpon>frmAgregarMesa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\18 Restaurantes\frmAgregarMesa.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\18 Restaurantes\frmAgregarProducto.Designer.vb">
       <DependentUpon>frmAgregarProducto.vb</DependentUpon>
     </Compile>
@@ -2170,9 +2164,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\14 Admon\frmConfigRecargas.resx">
       <DependentUpon>frmConfigRecargas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\18 Restaurantes\frmAgregarMesa.resx">
-      <DependentUpon>frmAgregarMesa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmAgregarProducto.resx">
       <DependentUpon>frmAgregarProducto.vb</DependentUpon>

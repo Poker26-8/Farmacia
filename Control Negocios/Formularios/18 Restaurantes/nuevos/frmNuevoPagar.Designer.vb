@@ -1079,12 +1079,13 @@ Partial Class frmNuevoPagar
         Me.btnpunto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnpunto.FlatAppearance.BorderSize = 0
         Me.btnpunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnpunto.Location = New System.Drawing.Point(128, 243)
         Me.btnpunto.Name = "btnpunto"
-        Me.btnpunto.Size = New System.Drawing.Size(127, 45)
+        Me.btnpunto.Size = New System.Drawing.Size(128, 45)
         Me.btnpunto.TabIndex = 78
         Me.btnpunto.Text = "."
+        Me.btnpunto.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnpunto.UseVisualStyleBackColor = False
         '
         'btnSalir
@@ -1092,13 +1093,14 @@ Partial Class frmNuevoPagar
         Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.Location = New System.Drawing.Point(262, 183)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(117, 57)
+        Me.btnSalir.Size = New System.Drawing.Size(117, 105)
         Me.btnSalir.TabIndex = 69
         Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = False
         '
         'btn0
@@ -1106,7 +1108,7 @@ Partial Class frmNuevoPagar
         Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn0.FlatAppearance.BorderSize = 0
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.Location = New System.Drawing.Point(128, 183)
         Me.btn0.Name = "btn0"
         Me.btn0.Size = New System.Drawing.Size(128, 54)
@@ -1119,7 +1121,7 @@ Partial Class frmNuevoPagar
         Me.btnlimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnlimpiar.FlatAppearance.BorderSize = 0
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnlimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpiar.Location = New System.Drawing.Point(6, 183)
         Me.btnlimpiar.Name = "btnlimpiar"
         Me.btnlimpiar.Size = New System.Drawing.Size(115, 54)
@@ -1132,7 +1134,7 @@ Partial Class frmNuevoPagar
         Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn3.FlatAppearance.BorderSize = 0
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.Location = New System.Drawing.Point(262, 123)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(117, 54)
@@ -1145,7 +1147,7 @@ Partial Class frmNuevoPagar
         Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn2.FlatAppearance.BorderSize = 0
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.Location = New System.Drawing.Point(128, 123)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(128, 54)
@@ -1158,7 +1160,7 @@ Partial Class frmNuevoPagar
         Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn1.FlatAppearance.BorderSize = 0
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.Location = New System.Drawing.Point(7, 123)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(115, 54)
@@ -1171,7 +1173,7 @@ Partial Class frmNuevoPagar
         Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn6.FlatAppearance.BorderSize = 0
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.Location = New System.Drawing.Point(262, 63)
         Me.btn6.Name = "btn6"
         Me.btn6.Size = New System.Drawing.Size(117, 54)
@@ -1184,7 +1186,7 @@ Partial Class frmNuevoPagar
         Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn5.FlatAppearance.BorderSize = 0
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.Location = New System.Drawing.Point(128, 63)
         Me.btn5.Name = "btn5"
         Me.btn5.Size = New System.Drawing.Size(128, 54)
@@ -1197,7 +1199,7 @@ Partial Class frmNuevoPagar
         Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn4.FlatAppearance.BorderSize = 0
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.Location = New System.Drawing.Point(6, 63)
         Me.btn4.Name = "btn4"
         Me.btn4.Size = New System.Drawing.Size(115, 54)
@@ -1210,7 +1212,7 @@ Partial Class frmNuevoPagar
         Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn9.FlatAppearance.BorderSize = 0
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.Location = New System.Drawing.Point(262, 3)
         Me.btn9.Name = "btn9"
         Me.btn9.Size = New System.Drawing.Size(117, 54)
@@ -1223,7 +1225,7 @@ Partial Class frmNuevoPagar
         Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn8.FlatAppearance.BorderSize = 0
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.Location = New System.Drawing.Point(128, 3)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(128, 54)
@@ -1236,7 +1238,7 @@ Partial Class frmNuevoPagar
         Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn7.FlatAppearance.BorderSize = 0
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.Location = New System.Drawing.Point(6, 3)
         Me.btn7.Name = "btn7"
         Me.btn7.Size = New System.Drawing.Size(115, 54)

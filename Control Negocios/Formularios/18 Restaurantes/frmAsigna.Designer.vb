@@ -65,7 +65,7 @@ Partial Class frmAsigna
         Me.txtHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHora.Location = New System.Drawing.Point(63, 41)
         Me.txtHora.Name = "txtHora"
-        Me.txtHora.Size = New System.Drawing.Size(135, 24)
+        Me.txtHora.Size = New System.Drawing.Size(153, 24)
         Me.txtHora.TabIndex = 5
         '
         'Label2
@@ -96,7 +96,7 @@ Partial Class frmAsigna
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Location = New System.Drawing.Point(115, 75)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(87, 38)
+        Me.btnSalir.Size = New System.Drawing.Size(101, 38)
         Me.btnSalir.TabIndex = 2
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False

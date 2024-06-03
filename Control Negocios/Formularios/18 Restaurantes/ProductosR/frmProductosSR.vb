@@ -1067,70 +1067,70 @@ nopasowey:
             txtcantidadpromo.Text = "0"
 
 
-            cnn3.Close() : cnn3.Open()
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
+            cnn4.Close() : cnn4.Open()
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
 
-                    cboCodCorto.Text = rd3("Codigo").ToString
-                    cboDescripcion.Text = rd3("Nombre").ToString
-                    cboIva.Text = rd3("IVA").ToString
-                    txtUnidad.Text = rd3("UCompra").ToString
-                    txtPrecioCompra.Text = rd3("PrecioCompra").ToString
-                    txtPrecioLocal.Text = rd3("precioVentaIVA").ToString
-                    txtPrecioDomicilio.Text = rd3("PrecioDomicilioIVA").ToString
-                    cboProveedores.Text = rd3("ProvPri").ToString
-                    cboDepartamento.Text = rd3("Departamento").ToString
-                    cboGrupo.Text = rd3("Grupo").ToString
-                    cboComanda.Text = rd3("GPrint").ToString
-                    txtExistencia.Text = rd3("Existencia").ToString
+                    cboCodCorto.Text = rd4("Codigo").ToString
+                    cboDescripcion.Text = rd4("Nombre").ToString
+                    cboIva.Text = rd4("IVA").ToString
+                    txtUnidad.Text = rd4("UCompra").ToString
+                    txtPrecioCompra.Text = rd4("PrecioCompra").ToString
+                    txtPrecioLocal.Text = rd4("precioVentaIVA").ToString
+                    txtPrecioDomicilio.Text = rd4("PrecioDomicilioIVA").ToString
+                    cboProveedores.Text = rd4("ProvPri").ToString
+                    cboDepartamento.Text = rd4("Departamento").ToString
+                    cboGrupo.Text = rd4("Grupo").ToString
+                    cboComanda.Text = rd4("GPrint").ToString
+                    txtExistencia.Text = rd4("Existencia").ToString
                 End If
             End If
-            rd3.Close()
+            rd4.Close()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            Do While rd3.Read
-                If rd3.HasRows Then
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
 
-                    grdpreferencia.Rows.Add(rd3("NombrePrefe").ToString)
+                    grdpreferencia.Rows.Add(rd4("NombrePrefe").ToString)
 
                 End If
             Loop
-            rd3.Close()
+            rd4.Close()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT Codigo,Descx FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            Do While rd3.Read
-                If rd3.HasRows Then
-                    grdextras.Rows.Add(rd3(0).ToString, rd3(1).ToString)
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT Codigo,Descx FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+                    grdextras.Rows.Add(rd4(0).ToString, rd4(1).ToString)
                 End If
             Loop
-            rd3.Close()
+            rd4.Close()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT F44 FROM productos WHERE Codigo='" & cboCodCorto.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    txtcantidadpromo.Text = rd3(0).ToString
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT F44 FROM productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    txtcantidadpromo.Text = rd4(0).ToString
                 End If
             End If
-            rd3.Close()
+            rd4.Close()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT Codigo,Descx FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
-            rd3 = cmd3.ExecuteReader
-            Do While rd3.Read
-                If rd3.HasRows Then
-                    grdpromociones.Rows.Add(rd3(0).ToString, rd3(1).ToString)
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText = "SELECT Codigo,Descx FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+            rd4 = cmd4.ExecuteReader
+            Do While rd4.Read
+                If rd4.HasRows Then
+                    grdpromociones.Rows.Add(rd4(0).ToString, rd4(1).ToString)
                 End If
             Loop
-            rd3.Close()
+            rd4.Close()
 
             If servidor <> "" Then
 
@@ -1142,11 +1142,11 @@ nopasowey:
                     PictureBox1.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCorto.Text & ".jpg")
                 End If
             End If
-            cnn3.Close()
+            cnn4.Close()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn3.Close()
+            cnn4.Close()
         End Try
 
 

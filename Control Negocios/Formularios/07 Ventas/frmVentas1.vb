@@ -13382,10 +13382,19 @@ ecomoda:
                     End While
                     Y += 5
 
-                    If comentario <> "" Then
-                        e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
-                        Y += 15
+                    If comentario = "0" Then
+                        comentario = ""
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+                    Else
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
                     End If
+
 
                 End If
             Loop

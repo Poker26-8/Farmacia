@@ -66,7 +66,7 @@ Public Class frmTecladoMesas
                         btnMesaNM.Name = "btnMesa(" & nombreMesa & ")"
                         btnMesaNM.TextAlign = ContentAlignment.BottomCenter
 
-                        btnMesaNM.BackColor = Color.FromArgb(251, 187, 64)
+                        btnMesaNM.BackColor = Color.FromArgb(255, 255, 128)
 
                         ' Posicionar el botón dentro del panel
                         btnMesaNM.Left = columna * (btnMesaNM.Width + espacioHorizontal)
@@ -75,13 +75,9 @@ Public Class frmTecladoMesas
                         AddHandler btnMesaNM.Click, AddressOf btnMesa_Click
                         pmesas.Controls.Add(btnMesaNM)
                         mesa += 1
-
-
                     Next
                 Next
                 cnn2.Close()
-
-
             Else
 
             End If

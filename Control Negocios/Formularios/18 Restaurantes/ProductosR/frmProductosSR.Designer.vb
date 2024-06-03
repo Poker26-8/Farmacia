@@ -945,9 +945,9 @@ Partial Class frmProductosSR
         Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_tienda.Location = New System.Drawing.Point(705, 447)
+        Me.btn_tienda.Location = New System.Drawing.Point(705, 444)
         Me.btn_tienda.Name = "btn_tienda"
-        Me.btn_tienda.Size = New System.Drawing.Size(67, 36)
+        Me.btn_tienda.Size = New System.Drawing.Size(67, 67)
         Me.btn_tienda.TabIndex = 256
         Me.btn_tienda.Text = "Datos tienda"
         Me.btn_tienda.UseVisualStyleBackColor = False
