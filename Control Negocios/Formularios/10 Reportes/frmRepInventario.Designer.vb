@@ -54,6 +54,7 @@ Partial Class frmRepInventario
         Me.barCarga = New System.Windows.Forms.ProgressBar()
         Me.lblexportar = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnreporte = New System.Windows.Forms.Button()
         Me.FinaCosteo = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -75,7 +76,6 @@ Partial Class frmRepInventario
         Me.btnExistencia = New System.Windows.Forms.Button()
         Me.btnImpExis = New System.Windows.Forms.Button()
         Me.btnExpExis = New System.Windows.Forms.Button()
-        Me.btnreporte = New System.Windows.Forms.Button()
         Me.btnexcel = New System.Windows.Forms.Button()
         Me.btncardex = New System.Windows.Forms.Button()
         Me.btnsalida = New System.Windows.Forms.Button()
@@ -454,7 +454,21 @@ Partial Class frmRepInventario
         Me.GroupBox1.TabIndex = 237
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Estado de resultados"
-        Me.GroupBox1.Visible = False
+        '
+        'btnreporte
+        '
+        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
+        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
+        Me.btnreporte.Name = "btnreporte"
+        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
+        Me.btnreporte.TabIndex = 234
+        Me.btnreporte.Text = "Reporte"
+        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnreporte.UseVisualStyleBackColor = True
         '
         'FinaCosteo
         '
@@ -655,21 +669,6 @@ Partial Class frmRepInventario
         Me.btnExpExis.Text = "Exportar Existencias"
         Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnExpExis.UseVisualStyleBackColor = True
-        '
-        'btnreporte
-        '
-        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
-        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
-        Me.btnreporte.Name = "btnreporte"
-        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
-        Me.btnreporte.TabIndex = 234
-        Me.btnreporte.Text = "Reporte"
-        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnreporte.UseVisualStyleBackColor = True
         '
         'btnexcel
         '
