@@ -27,6 +27,7 @@ Partial Class frmRepInventario
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tcOpt = New System.Windows.Forms.TabControl()
         Me.tpInv = New System.Windows.Forms.TabPage()
+        Me.rbAjuste = New System.Windows.Forms.RadioButton()
         Me.optperdidas = New System.Windows.Forms.RadioButton()
         Me.optTodos = New System.Windows.Forms.RadioButton()
         Me.optGrupo = New System.Windows.Forms.RadioButton()
@@ -37,10 +38,6 @@ Partial Class frmRepInventario
         Me.optCaducidad = New System.Windows.Forms.RadioButton()
         Me.optCaducos = New System.Windows.Forms.RadioButton()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.btnsalida = New System.Windows.Forms.Button()
-        Me.btnentrada = New System.Windows.Forms.Button()
-        Me.btnetiquetas = New System.Windows.Forms.Button()
-        Me.btncatalogo = New System.Windows.Forms.Button()
         Me.boxcaduca = New System.Windows.Forms.GroupBox()
         Me.dtpFin = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -48,8 +45,6 @@ Partial Class frmRepInventario
         Me.btnCaduc = New System.Windows.Forms.Button()
         Me.dtpIni = New System.Windows.Forms.DateTimePicker()
         Me.cbofiltro = New System.Windows.Forms.ComboBox()
-        Me.btnexcel = New System.Windows.Forms.Button()
-        Me.btncardex = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtregistros = New System.Windows.Forms.TextBox()
         Me.txtVentaTot = New System.Windows.Forms.TextBox()
@@ -59,7 +54,6 @@ Partial Class frmRepInventario
         Me.barCarga = New System.Windows.Forms.ProgressBar()
         Me.lblexportar = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnreporte = New System.Windows.Forms.Button()
         Me.FinaCosteo = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -75,12 +69,19 @@ Partial Class frmRepInventario
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnExpExis = New System.Windows.Forms.Button()
-        Me.btnImpExis = New System.Windows.Forms.Button()
-        Me.btnExistencia = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.rbAjuste = New System.Windows.Forms.RadioButton()
+        Me.btnExistencia = New System.Windows.Forms.Button()
+        Me.btnImpExis = New System.Windows.Forms.Button()
+        Me.btnExpExis = New System.Windows.Forms.Button()
+        Me.btnreporte = New System.Windows.Forms.Button()
+        Me.btnexcel = New System.Windows.Forms.Button()
+        Me.btncardex = New System.Windows.Forms.Button()
+        Me.btnsalida = New System.Windows.Forms.Button()
+        Me.btnentrada = New System.Windows.Forms.Button()
+        Me.btnetiquetas = New System.Windows.Forms.Button()
+        Me.btncatalogo = New System.Windows.Forms.Button()
         Me.tcOpt.SuspendLayout()
         Me.tpInv.SuspendLayout()
         Me.tpCad.SuspendLayout()
@@ -129,6 +130,17 @@ Partial Class frmRepInventario
         Me.tpInv.TabIndex = 0
         Me.tpInv.Text = "      Inventario      "
         Me.tpInv.UseVisualStyleBackColor = True
+        '
+        'rbAjuste
+        '
+        Me.rbAjuste.AutoSize = True
+        Me.rbAjuste.Location = New System.Drawing.Point(125, 8)
+        Me.rbAjuste.Name = "rbAjuste"
+        Me.rbAjuste.Size = New System.Drawing.Size(145, 19)
+        Me.rbAjuste.TabIndex = 58
+        Me.rbAjuste.TabStop = True
+        Me.rbAjuste.Text = "Preajuste de Inventario"
+        Me.rbAjuste.UseVisualStyleBackColor = True
         '
         'optperdidas
         '
@@ -193,7 +205,7 @@ Partial Class frmRepInventario
         Me.tpCad.Location = New System.Drawing.Point(4, 22)
         Me.tpCad.Name = "tpCad"
         Me.tpCad.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpCad.Size = New System.Drawing.Size(194, 133)
+        Me.tpCad.Size = New System.Drawing.Size(276, 133)
         Me.tpCad.TabIndex = 1
         Me.tpCad.Text = "   Caducidades   "
         Me.tpCad.UseVisualStyleBackColor = True
@@ -247,66 +259,6 @@ Partial Class frmRepInventario
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(986, 311)
         Me.grdcaptura.TabIndex = 231
-        '
-        'btnsalida
-        '
-        Me.btnsalida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
-        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalida.Location = New System.Drawing.Point(913, 123)
-        Me.btnsalida.Name = "btnsalida"
-        Me.btnsalida.Size = New System.Drawing.Size(82, 63)
-        Me.btnsalida.TabIndex = 235
-        Me.btnsalida.Text = "Traspaso Salida"
-        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnsalida.UseVisualStyleBackColor = True
-        '
-        'btnentrada
-        '
-        Me.btnentrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnentrada.BackgroundImage = CType(resources.GetObject("btnentrada.BackgroundImage"), System.Drawing.Image)
-        Me.btnentrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnentrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnentrada.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnentrada.Location = New System.Drawing.Point(913, 50)
-        Me.btnentrada.Name = "btnentrada"
-        Me.btnentrada.Size = New System.Drawing.Size(82, 63)
-        Me.btnentrada.TabIndex = 234
-        Me.btnentrada.Text = "Traspaso Entrada"
-        Me.btnentrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnentrada.UseVisualStyleBackColor = True
-        '
-        'btnetiquetas
-        '
-        Me.btnetiquetas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnetiquetas.BackgroundImage = CType(resources.GetObject("btnetiquetas.BackgroundImage"), System.Drawing.Image)
-        Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnetiquetas.Location = New System.Drawing.Point(826, 123)
-        Me.btnetiquetas.Name = "btnetiquetas"
-        Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
-        Me.btnetiquetas.TabIndex = 233
-        Me.btnetiquetas.Text = "Etiquetas"
-        Me.btnetiquetas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnetiquetas.UseVisualStyleBackColor = True
-        '
-        'btncatalogo
-        '
-        Me.btncatalogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btncatalogo.BackgroundImage = CType(resources.GetObject("btncatalogo.BackgroundImage"), System.Drawing.Image)
-        Me.btncatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btncatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncatalogo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncatalogo.Location = New System.Drawing.Point(825, 50)
-        Me.btncatalogo.Name = "btncatalogo"
-        Me.btncatalogo.Size = New System.Drawing.Size(82, 63)
-        Me.btncatalogo.TabIndex = 232
-        Me.btncatalogo.Text = "Exportar catálogo"
-        Me.btncatalogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncatalogo.UseVisualStyleBackColor = True
         '
         'boxcaduca
         '
@@ -389,36 +341,6 @@ Partial Class frmRepInventario
         Me.cbofiltro.Name = "cbofiltro"
         Me.cbofiltro.Size = New System.Drawing.Size(247, 25)
         Me.cbofiltro.TabIndex = 237
-        '
-        'btnexcel
-        '
-        Me.btnexcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnexcel.BackgroundImage = CType(resources.GetObject("btnexcel.BackgroundImage"), System.Drawing.Image)
-        Me.btnexcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnexcel.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexcel.Location = New System.Drawing.Point(12, 522)
-        Me.btnexcel.Name = "btnexcel"
-        Me.btnexcel.Size = New System.Drawing.Size(60, 63)
-        Me.btnexcel.TabIndex = 240
-        Me.btnexcel.Text = "Exportar"
-        Me.btnexcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnexcel.UseVisualStyleBackColor = True
-        '
-        'btncardex
-        '
-        Me.btncardex.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btncardex.BackgroundImage = CType(resources.GetObject("btncardex.BackgroundImage"), System.Drawing.Image)
-        Me.btncardex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btncardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncardex.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncardex.Location = New System.Drawing.Point(78, 522)
-        Me.btncardex.Name = "btncardex"
-        Me.btncardex.Size = New System.Drawing.Size(60, 63)
-        Me.btncardex.TabIndex = 239
-        Me.btncardex.Text = "Cárdex"
-        Me.btncardex.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncardex.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -533,21 +455,6 @@ Partial Class frmRepInventario
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Estado de resultados"
         Me.GroupBox1.Visible = False
-        '
-        'btnreporte
-        '
-        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
-        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
-        Me.btnreporte.Name = "btnreporte"
-        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
-        Me.btnreporte.TabIndex = 234
-        Me.btnreporte.Text = "Reporte"
-        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnreporte.UseVisualStyleBackColor = True
         '
         'FinaCosteo
         '
@@ -668,50 +575,6 @@ Partial Class frmRepInventario
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         '
-        'btnExpExis
-        '
-        Me.btnExpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnExpExis.BackgroundImage = CType(resources.GetObject("btnExpExis.BackgroundImage"), System.Drawing.Image)
-        Me.btnExpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnExpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExpExis.Location = New System.Drawing.Point(144, 537)
-        Me.btnExpExis.Name = "btnExpExis"
-        Me.btnExpExis.Size = New System.Drawing.Size(167, 48)
-        Me.btnExpExis.TabIndex = 250
-        Me.btnExpExis.Text = "Exportar Existencias"
-        Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnExpExis.UseVisualStyleBackColor = True
-        '
-        'btnImpExis
-        '
-        Me.btnImpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnImpExis.BackgroundImage = CType(resources.GetObject("btnImpExis.BackgroundImage"), System.Drawing.Image)
-        Me.btnImpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnImpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnImpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImpExis.Location = New System.Drawing.Point(317, 537)
-        Me.btnImpExis.Name = "btnImpExis"
-        Me.btnImpExis.Size = New System.Drawing.Size(167, 48)
-        Me.btnImpExis.TabIndex = 251
-        Me.btnImpExis.Text = "Importar Existencias"
-        Me.btnImpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnImpExis.UseVisualStyleBackColor = True
-        '
-        'btnExistencia
-        '
-        Me.btnExistencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnExistencia.Image = CType(resources.GetObject("btnExistencia.Image"), System.Drawing.Image)
-        Me.btnExistencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExistencia.Location = New System.Drawing.Point(746, 123)
-        Me.btnExistencia.Name = "btnExistencia"
-        Me.btnExistencia.Size = New System.Drawing.Size(75, 63)
-        Me.btnExistencia.TabIndex = 252
-        Me.btnExistencia.Text = "Existencias"
-        Me.btnExistencia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnExistencia.UseVisualStyleBackColor = True
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -720,6 +583,20 @@ Partial Class frmRepInventario
         Me.DataGridView1.Size = New System.Drawing.Size(105, 63)
         Me.DataGridView1.TabIndex = 253
         Me.DataGridView1.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(144, 522)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(88, 63)
+        Me.Button2.TabIndex = 255
+        Me.Button2.Text = "Mínimos y máximos"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -735,22 +612,161 @@ Partial Class frmRepInventario
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'rbAjuste
+        'btnExistencia
         '
-        Me.rbAjuste.AutoSize = True
-        Me.rbAjuste.Location = New System.Drawing.Point(125, 8)
-        Me.rbAjuste.Name = "rbAjuste"
-        Me.rbAjuste.Size = New System.Drawing.Size(145, 19)
-        Me.rbAjuste.TabIndex = 58
-        Me.rbAjuste.TabStop = True
-        Me.rbAjuste.Text = "Preajuste de Inventario"
-        Me.rbAjuste.UseVisualStyleBackColor = True
+        Me.btnExistencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExistencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExistencia.Image = CType(resources.GetObject("btnExistencia.Image"), System.Drawing.Image)
+        Me.btnExistencia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExistencia.Location = New System.Drawing.Point(746, 123)
+        Me.btnExistencia.Name = "btnExistencia"
+        Me.btnExistencia.Size = New System.Drawing.Size(75, 63)
+        Me.btnExistencia.TabIndex = 252
+        Me.btnExistencia.Text = "Existencias"
+        Me.btnExistencia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExistencia.UseVisualStyleBackColor = True
+        '
+        'btnImpExis
+        '
+        Me.btnImpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnImpExis.BackgroundImage = CType(resources.GetObject("btnImpExis.BackgroundImage"), System.Drawing.Image)
+        Me.btnImpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnImpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImpExis.Location = New System.Drawing.Point(424, 537)
+        Me.btnImpExis.Name = "btnImpExis"
+        Me.btnImpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnImpExis.TabIndex = 251
+        Me.btnImpExis.Text = "Importar Existencias"
+        Me.btnImpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnImpExis.UseVisualStyleBackColor = True
+        '
+        'btnExpExis
+        '
+        Me.btnExpExis.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnExpExis.BackgroundImage = CType(resources.GetObject("btnExpExis.BackgroundImage"), System.Drawing.Image)
+        Me.btnExpExis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnExpExis.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExpExis.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExpExis.Location = New System.Drawing.Point(251, 537)
+        Me.btnExpExis.Name = "btnExpExis"
+        Me.btnExpExis.Size = New System.Drawing.Size(167, 48)
+        Me.btnExpExis.TabIndex = 250
+        Me.btnExpExis.Text = "Exportar Existencias"
+        Me.btnExpExis.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnExpExis.UseVisualStyleBackColor = True
+        '
+        'btnreporte
+        '
+        Me.btnreporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnreporte.BackgroundImage = CType(resources.GetObject("btnreporte.BackgroundImage"), System.Drawing.Image)
+        Me.btnreporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreporte.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreporte.Location = New System.Drawing.Point(166, 19)
+        Me.btnreporte.Name = "btnreporte"
+        Me.btnreporte.Size = New System.Drawing.Size(82, 51)
+        Me.btnreporte.TabIndex = 234
+        Me.btnreporte.Text = "Reporte"
+        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnreporte.UseVisualStyleBackColor = True
+        '
+        'btnexcel
+        '
+        Me.btnexcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnexcel.BackgroundImage = CType(resources.GetObject("btnexcel.BackgroundImage"), System.Drawing.Image)
+        Me.btnexcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnexcel.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexcel.Location = New System.Drawing.Point(12, 522)
+        Me.btnexcel.Name = "btnexcel"
+        Me.btnexcel.Size = New System.Drawing.Size(60, 63)
+        Me.btnexcel.TabIndex = 240
+        Me.btnexcel.Text = "Exportar"
+        Me.btnexcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnexcel.UseVisualStyleBackColor = True
+        '
+        'btncardex
+        '
+        Me.btncardex.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btncardex.BackgroundImage = CType(resources.GetObject("btncardex.BackgroundImage"), System.Drawing.Image)
+        Me.btncardex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btncardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncardex.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncardex.Location = New System.Drawing.Point(78, 522)
+        Me.btncardex.Name = "btncardex"
+        Me.btncardex.Size = New System.Drawing.Size(60, 63)
+        Me.btncardex.TabIndex = 239
+        Me.btncardex.Text = "Cárdex"
+        Me.btncardex.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btncardex.UseVisualStyleBackColor = True
+        '
+        'btnsalida
+        '
+        Me.btnsalida.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnsalida.BackgroundImage = CType(resources.GetObject("btnsalida.BackgroundImage"), System.Drawing.Image)
+        Me.btnsalida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnsalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsalida.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalida.Location = New System.Drawing.Point(913, 123)
+        Me.btnsalida.Name = "btnsalida"
+        Me.btnsalida.Size = New System.Drawing.Size(82, 63)
+        Me.btnsalida.TabIndex = 235
+        Me.btnsalida.Text = "Traspaso Salida"
+        Me.btnsalida.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnsalida.UseVisualStyleBackColor = True
+        '
+        'btnentrada
+        '
+        Me.btnentrada.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnentrada.BackgroundImage = CType(resources.GetObject("btnentrada.BackgroundImage"), System.Drawing.Image)
+        Me.btnentrada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnentrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnentrada.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnentrada.Location = New System.Drawing.Point(913, 50)
+        Me.btnentrada.Name = "btnentrada"
+        Me.btnentrada.Size = New System.Drawing.Size(82, 63)
+        Me.btnentrada.TabIndex = 234
+        Me.btnentrada.Text = "Traspaso Entrada"
+        Me.btnentrada.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnentrada.UseVisualStyleBackColor = True
+        '
+        'btnetiquetas
+        '
+        Me.btnetiquetas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnetiquetas.BackgroundImage = CType(resources.GetObject("btnetiquetas.BackgroundImage"), System.Drawing.Image)
+        Me.btnetiquetas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnetiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnetiquetas.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnetiquetas.Location = New System.Drawing.Point(826, 123)
+        Me.btnetiquetas.Name = "btnetiquetas"
+        Me.btnetiquetas.Size = New System.Drawing.Size(82, 63)
+        Me.btnetiquetas.TabIndex = 233
+        Me.btnetiquetas.Text = "Etiquetas"
+        Me.btnetiquetas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnetiquetas.UseVisualStyleBackColor = True
+        '
+        'btncatalogo
+        '
+        Me.btncatalogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btncatalogo.BackgroundImage = CType(resources.GetObject("btncatalogo.BackgroundImage"), System.Drawing.Image)
+        Me.btncatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btncatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncatalogo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncatalogo.Location = New System.Drawing.Point(825, 50)
+        Me.btncatalogo.Name = "btncatalogo"
+        Me.btncatalogo.Size = New System.Drawing.Size(82, 63)
+        Me.btncatalogo.TabIndex = 232
+        Me.btncatalogo.Text = "Exportar catálogo"
+        Me.btncatalogo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btncatalogo.UseVisualStyleBackColor = True
         '
         'frmRepInventario
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1004, 595)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnExistencia)
@@ -857,4 +873,5 @@ Partial Class frmRepInventario
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents rbAjuste As RadioButton
+    Friend WithEvents Button2 As Button
 End Class

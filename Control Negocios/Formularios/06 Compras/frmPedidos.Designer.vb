@@ -22,13 +22,18 @@ Partial Class frmPedidos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle55 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle51 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle52 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle53 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle54 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPedidos))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -41,24 +46,14 @@ Partial Class frmPedidos
         Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.tab_Pedidos = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.txtmoneda = New System.Windows.Forms.TextBox()
         Me.cbomoneda = New System.Windows.Forms.ComboBox()
         Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.lblValor = New System.Windows.Forms.Label()
-        Me.lblMoneda = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.ppdPedidos = New System.Windows.Forms.PrintPreviewDialog()
-        Me.pCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pMediaCarta = New System.Drawing.Printing.PrintDocument()
-        Me.pTicket80 = New System.Drawing.Printing.PrintDocument()
-        Me.pTicket58 = New System.Drawing.Printing.PrintDocument()
-        Me.lblusuario = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,11 +64,29 @@ Partial Class frmPedidos
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblValor = New System.Windows.Forms.Label()
+        Me.lblMoneda = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.ppdPedidos = New System.Windows.Forms.PrintPreviewDialog()
+        Me.pCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pTicket80 = New System.Drawing.Printing.PrintDocument()
+        Me.pTicket58 = New System.Drawing.Printing.PrintDocument()
+        Me.lblusuario = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.cboInventario = New System.Windows.Forms.ComboBox()
         Me.btncopia = New System.Windows.Forms.Button()
         Me.btncancela = New System.Windows.Forms.Button()
         Me.btnguarda = New System.Windows.Forms.Button()
         Me.btnlimpia = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.chk_mPrecio = New System.Windows.Forms.CheckBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1.SuspendLayout()
+        Me.tab_Pedidos.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -124,7 +137,7 @@ Partial Class frmPedidos
         Me.txtexistencia.Name = "txtexistencia"
         Me.txtexistencia.Size = New System.Drawing.Size(76, 23)
         Me.txtexistencia.TabIndex = 93
-        Me.txtexistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtexistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label2
         '
@@ -161,7 +174,7 @@ Partial Class frmPedidos
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(73, 23)
         Me.txtcantidad.TabIndex = 88
-        Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtunidad
         '
@@ -208,12 +221,53 @@ Partial Class frmPedidos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.tab_Pedidos)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(8, 405)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 344)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1182, 235)
+        Me.GroupBox1.Size = New System.Drawing.Size(1182, 300)
         Me.GroupBox1.TabIndex = 138
         Me.GroupBox1.TabStop = False
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(1087, 13)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(86, 26)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Nuevo (+)"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'tab_Pedidos
+        '
+        Me.tab_Pedidos.Controls.Add(Me.TabPage1)
+        Me.tab_Pedidos.Location = New System.Drawing.Point(7, 39)
+        Me.tab_Pedidos.Name = "tab_Pedidos"
+        Me.tab_Pedidos.SelectedIndex = 0
+        Me.tab_Pedidos.Size = New System.Drawing.Size(1169, 252)
+        Me.tab_Pedidos.TabIndex = 0
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.DataGridView1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1161, 224)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(1155, 179)
+        Me.DataGridView1.TabIndex = 0
         '
         'txtmoneda
         '
@@ -254,18 +308,109 @@ Partial Class frmPedidos
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle45.BackColor = System.Drawing.Color.Beige
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle45
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column6, Me.Column4, Me.Column8, Me.Column9, Me.Column10, Me.Column5, Me.Column7})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(8, 114)
         Me.grdcaptura.Name = "grdcaptura"
-        Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
+        DataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdcaptura.RowsDefaultCellStyle = DataGridViewCellStyle55
+        Me.grdcaptura.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdcaptura.RowTemplate.Height = 30
+        Me.grdcaptura.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdcaptura.Size = New System.Drawing.Size(1182, 220)
         Me.grdcaptura.TabIndex = 147
+        '
+        'Column1
+        '
+        DataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle46
+        Me.Column1.HeaderText = "Código"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 60
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle47
+        Me.Column3.HeaderText = "Unidad"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 80
+        '
+        'Column6
+        '
+        DataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle48
+        Me.Column6.HeaderText = "Existencia"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 74
+        '
+        'Column4
+        '
+        DataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle49.ForeColor = System.Drawing.Color.Blue
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle49
+        Me.Column4.HeaderText = "Cantidad"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 73
+        '
+        'Column8
+        '
+        DataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle50
+        Me.Column8.HeaderText = "Sugerencia"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column9
+        '
+        DataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle51
+        Me.Column9.HeaderText = "Min / Max"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column10
+        '
+        DataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle52
+        Me.Column10.HeaderText = "Salidas"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle53
+        Me.Column5.HeaderText = "Precio"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 63
+        '
+        'Column7
+        '
+        DataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle54
+        Me.Column7.HeaderText = "Importe"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
         '
         'lblValor
         '
@@ -323,18 +468,6 @@ Partial Class frmPedidos
         Me.ppdPedidos.Name = "ppdPedidos"
         Me.ppdPedidos.Visible = False
         '
-        'pCarta
-        '
-        '
-        'pMediaCarta
-        '
-        '
-        'pTicket80
-        '
-        '
-        'pTicket58
-        '
-        '
         'lblusuario
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
@@ -345,137 +478,26 @@ Partial Class frmPedidos
         Me.lblusuario.TabIndex = 228
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(706, 89)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(148, 17)
-        Me.CheckBox1.TabIndex = 232
-        Me.CheckBox1.Text = "Mejor precio de compra"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Location = New System.Drawing.Point(8, 40)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(77, 17)
+        Me.RadioButton1.Size = New System.Drawing.Size(122, 17)
         Me.RadioButton1.TabIndex = 233
         Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Inventario"
+        Me.RadioButton1.Text = "Cálculo inteligente"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'cboInventario
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(286, 40)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(61, 17)
-        Me.RadioButton2.TabIndex = 234
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Salidas"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(91, 38)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(189, 21)
-        Me.ComboBox2.TabIndex = 235
-        '
-        'Column1
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.HeaderText = "Código"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 60
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Nombre"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column3.HeaderText = "Unidad"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 57
-        '
-        'Column6
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column6.HeaderText = "Existencia"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 74
-        '
-        'Column4
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Column4.HeaderText = "Cantidad"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 73
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Sugerencia"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Min / Max"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Salidas"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'Column5
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Column5.HeaderText = "Precio"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 90
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Importe"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(1129, 40)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(61, 68)
-        Me.Button1.TabIndex = 231
-        Me.Button1.Text = "Nuevo"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cboInventario.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboInventario.FormattingEnabled = True
+        Me.cboInventario.Items.AddRange(New Object() {"MINIMO", "MAXIMO"})
+        Me.cboInventario.Location = New System.Drawing.Point(136, 38)
+        Me.cboInventario.Name = "cboInventario"
+        Me.cboInventario.Size = New System.Drawing.Size(189, 21)
+        Me.cboInventario.TabIndex = 235
         '
         'btncopia
         '
@@ -484,7 +506,7 @@ Partial Class frmPedidos
         Me.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncopia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncopia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncopia.Location = New System.Drawing.Point(928, 340)
+        Me.btncopia.Location = New System.Drawing.Point(790, 286)
         Me.btncopia.Name = "btncopia"
         Me.btncopia.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
         Me.btncopia.Size = New System.Drawing.Size(61, 68)
@@ -500,7 +522,7 @@ Partial Class frmPedidos
         Me.btncancela.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncancela.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancela.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncancela.Location = New System.Drawing.Point(995, 340)
+        Me.btncancela.Location = New System.Drawing.Point(857, 286)
         Me.btncancela.Name = "btncancela"
         Me.btncancela.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
         Me.btncancela.Size = New System.Drawing.Size(61, 68)
@@ -511,16 +533,15 @@ Partial Class frmPedidos
         '
         'btnguarda
         '
-        Me.btnguarda.BackgroundImage = CType(resources.GetObject("btnguarda.BackgroundImage"), System.Drawing.Image)
         Me.btnguarda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguarda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguarda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguarda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguarda.Location = New System.Drawing.Point(1062, 340)
+        Me.btnguarda.Location = New System.Drawing.Point(1062, 40)
         Me.btnguarda.Name = "btnguarda"
         Me.btnguarda.Size = New System.Drawing.Size(61, 68)
         Me.btnguarda.TabIndex = 149
-        Me.btnguarda.Text = "Guardar"
+        Me.btnguarda.Text = "Salidas"
         Me.btnguarda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnguarda.UseVisualStyleBackColor = True
         '
@@ -531,7 +552,7 @@ Partial Class frmPedidos
         Me.btnlimpia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnlimpia.Location = New System.Drawing.Point(1129, 340)
+        Me.btnlimpia.Location = New System.Drawing.Point(991, 286)
         Me.btnlimpia.Name = "btnlimpia"
         Me.btnlimpia.Size = New System.Drawing.Size(61, 68)
         Me.btnlimpia.TabIndex = 148
@@ -539,19 +560,50 @@ Partial Class frmPedidos
         Me.btnlimpia.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnlimpia.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(1129, 40)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(61, 68)
+        Me.Button1.TabIndex = 231
+        Me.Button1.Text = "Carga pedidos"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'chk_mPrecio
+        '
+        Me.chk_mPrecio.AutoSize = True
+        Me.chk_mPrecio.Location = New System.Drawing.Point(706, 89)
+        Me.chk_mPrecio.Name = "chk_mPrecio"
+        Me.chk_mPrecio.Size = New System.Drawing.Size(148, 17)
+        Me.chk_mPrecio.TabIndex = 236
+        Me.chk_mPrecio.Text = "Mejor precio de compra"
+        Me.chk_mPrecio.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(331, 40)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(61, 17)
+        Me.RadioButton2.TabIndex = 237
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Salidas"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'frmPedidos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1202, 652)
-        Me.Controls.Add(Me.btncopia)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.btncancela)
         Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.btnguarda)
+        Me.Controls.Add(Me.chk_mPrecio)
+        Me.Controls.Add(Me.cboInventario)
         Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.btnlimpia)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblusuario)
         Me.Controls.Add(Me.lblValor)
@@ -574,6 +626,10 @@ Partial Class frmPedidos
         Me.Controls.Add(Me.cbonombre)
         Me.Controls.Add(Me.txtcodigo)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btncopia)
+        Me.Controls.Add(Me.btncancela)
+        Me.Controls.Add(Me.btnguarda)
+        Me.Controls.Add(Me.btnlimpia)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -582,6 +638,10 @@ Partial Class frmPedidos
         Me.Name = "frmPedidos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Captura de pedidos"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.tab_Pedidos.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -618,10 +678,9 @@ Partial Class frmPedidos
     Friend WithEvents pTicket58 As System.Drawing.Printing.PrintDocument
     Friend WithEvents lblusuario As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cboInventario As ComboBox
+    Friend WithEvents tab_Pedidos As TabControl
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -632,4 +691,9 @@ Partial Class frmPedidos
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As Button
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents chk_mPrecio As CheckBox
+    Friend WithEvents RadioButton2 As RadioButton
 End Class

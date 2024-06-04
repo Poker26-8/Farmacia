@@ -403,6 +403,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmModulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.Designer.vb">
+      <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\06 Compras\frmSalidas_Pedidos.Designer.vb">
       <DependentUpon>frmSalidas_Pedidos.vb</DependentUpon>
     </Compile>
@@ -473,6 +479,12 @@
       <DependentUpon>frmEtiquetas2.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\10 Reportes\frmEtiquetas2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmMinMax.Designer.vb">
+      <DependentUpon>frmMinMax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\frmMinMax.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.Designer.vb">
@@ -1982,6 +1994,9 @@
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.resx">
+      <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmSalidas_Pedidos.resx">
       <DependentUpon>frmSalidas_Pedidos.vb</DependentUpon>
     </EmbeddedResource>
@@ -2017,6 +2032,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmEtiquetas2.resx">
       <DependentUpon>frmEtiquetas2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\frmMinMax.resx">
+      <DependentUpon>frmMinMax.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.resx">
       <DependentUpon>frmNuvRepVentas.vb</DependentUpon>
