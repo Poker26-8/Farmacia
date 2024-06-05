@@ -6108,4 +6108,12 @@ quepasowey:
         pasa_pago = False
         panpago_compra.Visible = False
     End Sub
+
+    Private Sub pCancela58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancela58.PrintPage
+
+    End Sub
+
+    Private Sub pCancelaMC_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancelaMC.PrintPage
+
+    End Sub
 End Class

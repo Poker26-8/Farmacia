@@ -645,6 +645,96 @@ Public Class Inicio
 
     Public Sub verif()
 
+        'abonoe
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FormaPago FROM abonoe"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column FormaPago varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Monto FROM abonoe"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column Monto double default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comentario FROM abonoe"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column Comentario varchar(255) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT CuentaRep FROM abonoe"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column CuentaRep varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT BancoRep FROM abonoe"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column BancoRep varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
         'abonoi
         Try
             cnn1.Close()
@@ -2111,8 +2201,8 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            frmCompras.Show()
-            frmCompras.BringToFront()
+            'frmCompras.Show()
+            'frmCompras.BringToFront()
 
             frmNuvCompras.Show()
             frmNuvCompras.BringToFront()

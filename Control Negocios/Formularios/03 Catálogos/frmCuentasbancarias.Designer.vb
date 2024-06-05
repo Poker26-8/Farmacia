@@ -35,6 +35,9 @@ Partial Class frmCuentabANCARIA
         Me.cbobanco = New System.Windows.Forms.ComboBox()
         Me.cboTitular = New System.Windows.Forms.ComboBox()
         Me.txtId = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtSaldo = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -87,7 +90,7 @@ Partial Class frmCuentabANCARIA
         Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(242, 146)
+        Me.btnSalir.Location = New System.Drawing.Point(242, 184)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(60, 70)
         Me.btnSalir.TabIndex = 235
@@ -97,13 +100,14 @@ Partial Class frmCuentabANCARIA
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(176, 147)
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(176, 185)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(60, 70)
+        Me.btnGuardar.Size = New System.Drawing.Size(60, 69)
         Me.btnGuardar.TabIndex = 234
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -115,7 +119,7 @@ Partial Class frmCuentabANCARIA
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(44, 147)
+        Me.btnNuevo.Location = New System.Drawing.Point(44, 185)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 70)
         Me.btnNuevo.TabIndex = 233
@@ -130,7 +134,7 @@ Partial Class frmCuentabANCARIA
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(110, 146)
+        Me.btnEliminar.Location = New System.Drawing.Point(110, 184)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 70)
         Me.btnEliminar.TabIndex = 232
@@ -173,12 +177,48 @@ Partial Class frmCuentabANCARIA
         Me.txtId.TabIndex = 239
         Me.txtId.Visible = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(14, 155)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(50, 18)
+        Me.Label5.TabIndex = 240
+        Me.Label5.Text = "Saldo:"
+        '
+        'txtSaldo
+        '
+        Me.txtSaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSaldo.Location = New System.Drawing.Point(73, 151)
+        Me.txtSaldo.Name = "txtSaldo"
+        Me.txtSaldo.Size = New System.Drawing.Size(107, 22)
+        Me.txtSaldo.TabIndex = 241
+        Me.txtSaldo.Text = "0"
+        Me.txtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(186, 149)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 24)
+        Me.Button1.TabIndex = 242
+        Me.Button1.Text = "Actualizar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmCuentabANCARIA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(314, 227)
+        Me.ClientSize = New System.Drawing.Size(314, 254)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtSaldo)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.cboTitular)
         Me.Controls.Add(Me.cbobanco)
@@ -212,4 +252,7 @@ Partial Class frmCuentabANCARIA
     Friend WithEvents cbobanco As ComboBox
     Friend WithEvents cboTitular As ComboBox
     Friend WithEvents txtId As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtSaldo As TextBox
+    Friend WithEvents Button1 As Button
 End Class

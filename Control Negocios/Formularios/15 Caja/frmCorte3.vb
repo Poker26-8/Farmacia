@@ -32,6 +32,21 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Id FROM cortecaja WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                End If
+            Else
+                MsgBox("Necesita guardar el saldo inicial", vbInformation + vbOKOnly, titulocentral)
+                btnSalIni.Focus.Equals(True)
+                Exit Sub
+            End If
+            rd1.Close()
+
+
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -184,7 +199,9 @@
             Y += 11
 
             e.Graphics.DrawString("Fecha: " & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Folio: " & folio, fuente_b, Brushes.Black, 270, Y, derecha)
+            e.Graphics.DrawString("Hora: " & Format(Date.Now, "HH:mm:ss"), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Folio: " & folio, fuente_b, Brushes.Black, 1, Y)
             Y += 15
 
             If cboCajero.Text <> "" Then
@@ -747,7 +764,10 @@
             Y += 11
 
             e.Graphics.DrawString("Fecha: " & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Folio: " & folio, fuente_b, Brushes.Black, 180, Y, derecha)
+            e.Graphics.DrawString("Fecha: " & Format(Date.Now, "HH:mm:ss"), fuente_b, Brushes.Black, 180, Y, derecha)
+            Y += 15
+
+            e.Graphics.DrawString("Folio: " & folio, fuente_b, Brushes.Black, 1, Y)
             Y += 15
 
             If cboCajero.Text <> "" Then

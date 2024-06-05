@@ -649,29 +649,34 @@
 
     'AbonoE
     Public vartablaabonoe As String = "CREATE TABLE IF NOT EXISTS `abonoe` (
-                                              `Id` int(11) NOT NULL,
-                                              `NumRemision` varchar(80) NOT NULL DEFAULT '',
-                                              `NumFactura` varchar(80) NOT NULL DEFAULT '',
-                                              `NumPedido` varchar(100) NOT NULL DEFAULT '',
-                                              `IdProv` int(11) NOT NULL DEFAULT '0',
-                                              `Proveedor` varchar(255) NOT NULL DEFAULT '',
-                                              `Concepto` varchar(100) NOT NULL DEFAULT '',
-                                              `Fecha` date NOT NULL,
-                                              `Hora` time NOT NULL,
-                                              `Cargo` float NOT NULL DEFAULT '0',
-                                              `Abono` float NOT NULL DEFAULT '0',
-                                              `Saldo` float NOT NULL DEFAULT '0',
-                                              `Efectivo` float NOT NULL DEFAULT '0',
-                                              `Tarjeta` float NOT NULL DEFAULT '0',
-                                              `Transfe` float NOT NULL DEFAULT '0',
-                                              `Otro` float NOT NULL DEFAULT '0',
-                                              `Banco` varchar(100) NOT NULL DEFAULT '',
-                                              `Referencia` varchar(20) NOT NULL DEFAULT '',
-                                              `Usuario` varchar(100) NOT NULL DEFAULT '',
-                                              `Corte` int(1) NOT NULL DEFAULT '0',
-                                              `CorteU` int(1) NOT NULL DEFAULT '0',
-                                              `Cargado` int(1) NOT NULL DEFAULT '0'
-                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1"
+                                          `Id` int(11) NOT NULL,
+                                          `NumRemision` varchar(80) NOT NULL DEFAULT '',
+                                          `NumFactura` varchar(80) NOT NULL DEFAULT '',
+                                          `NumPedido` varchar(100) NOT NULL DEFAULT '',
+                                          `IdProv` int(11) NOT NULL DEFAULT '0',
+                                          `Proveedor` varchar(255) NOT NULL DEFAULT '',
+                                          `Concepto` varchar(100) NOT NULL DEFAULT '',
+                                          `Fecha` date NOT NULL,
+                                          `Hora` time NOT NULL,
+                                          `Cargo` float NOT NULL DEFAULT '0',
+                                          `Abono` float NOT NULL DEFAULT '0',
+                                          `Saldo` float NOT NULL DEFAULT '0',
+                                          `FormaPago` varchar(80) NOT NULL DEFAULT '',
+                                          `Monto` double NOT NULL DEFAULT '0',
+                                          `Efectivo` float NOT NULL DEFAULT '0',
+                                          `Tarjeta` float NOT NULL DEFAULT '0',
+                                          `Transfe` float NOT NULL DEFAULT '0',
+                                          `Otro` float NOT NULL DEFAULT '0',
+                                          `Banco` varchar(100) NOT NULL DEFAULT '',
+                                          `Referencia` varchar(20) NOT NULL DEFAULT '',
+                                          `Comentario` varchar(255) NOT NULL DEFAULT '',
+                                          `CuentaRep` varchar(100) NOT NULL DEFAULT '',
+                                          `BancoRep` varchar(100) NOT NULL DEFAULT '',
+                                          `Usuario` varchar(100) NOT NULL DEFAULT '',
+                                          `Corte` int(1) NOT NULL DEFAULT '0',
+                                          `CorteU` int(1) NOT NULL DEFAULT '0',
+                                          `Cargado` int(1) NOT NULL DEFAULT '0'
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
 

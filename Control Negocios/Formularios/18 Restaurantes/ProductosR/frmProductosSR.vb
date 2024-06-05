@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.IO
+Imports System.Runtime.Remoting.Contexts
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class frmProductosSR
 
@@ -1499,7 +1500,7 @@ nopasowey:
         Dim isr As Double = 0
 
         Dim cuantos As Double = 0
-
+        Dim conteo As Integer = 0
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -1584,15 +1585,27 @@ nopasowey:
                         precioDomicilioIVA = 0
                     End If
 
-                    cnn2.Close() : cnn2.Open()
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,provEme,ProvRes,UCompra,UVenta,Uminima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PrecioDomicilio,PrecioDomicilioIVA,PorcMin,PreMin,IVA,Existencia,Porcentaje,Fecha,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,pres_vol,id_tbMoneda,Promocion,Descto,Afecta_exis,PercentIVAret,Almacen3,IIEPS,InvInicial,ISR,InvFinal,InvInicialCosto,InvFinalCosto,ClaveSat,UnidadSat,Cargado,CargadoInv,Status_Promocion,Porcentaje_Promo,Fecha_Inicial,Fecha_Final,E1,E2,F44) VALUES('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & provpri & "','" & proveme & "',0,'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & minim & "," & maxi & "," & comision & "," & precioCompra & "," & precioVenta & "," & precioVentaIVA & "," & precioDomicilio & "," & precioDomicilioIVA & "," & porcMin & "," & PrecioMin & "," & IVA & "," & existencias & "," & porcentage & ",'" & fecha & "'," & porcMay & "," & porcMM & "," & porcEsp & "," & preMay & "," & PreMM & "," & PreEsp & "," & cantMin & "," & cantMin2 & "," & cantMay & "," & cantMay2 & "," & cantMM & "," & cantMM2 & "," & cantEsp & "," & cantEsp2 & "," & cantLst & "," & cantLst2 & "," & prevol & "," & idmoneda & "," & promocion & "," & descuento & "," & afectaexis & "," & percentIvaRet & "," & almacen3 & "," & ieps & ",0," & isr & "," & invfinal & "," & invInicialCosto & "," & invFinalCosto & ",'" & clavesat & "','" & unidadsat & "',0,0," & statuspromo & "," & porcentajePromo & ",'" & fecha & "','" & fecha & "'," & e1 & "," & e2 & "," & f44 & ")"
-                    If cmd2.ExecuteNonQuery() Then
-                        cuantos = cuantos + 1
-                    Else
+                    If (Comprueba(codigo, nombre, barras)) Then
 
-                        MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "INSERT INTO productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,provEme,ProvRes,UCompra,UVenta,Uminima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PrecioDomicilio,PrecioDomicilioIVA,PorcMin,PreMin,IVA,Existencia,Porcentaje,Fecha,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,pres_vol,id_tbMoneda,Promocion,Descto,Afecta_exis,PercentIVAret,Almacen3,IIEPS,InvInicial,ISR,InvFinal,InvInicialCosto,InvFinalCosto,ClaveSat,UnidadSat,Cargado,CargadoInv,Status_Promocion,Porcentaje_Promo,Fecha_Inicial,Fecha_Final,E1,E2,F44) VALUES('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & provpri & "','" & proveme & "',0,'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & minim & "," & maxi & "," & comision & "," & precioCompra & "," & precioVenta & "," & precioVentaIVA & "," & precioDomicilio & "," & precioDomicilioIVA & "," & porcMin & "," & PrecioMin & "," & IVA & "," & existencias & "," & porcentage & ",'" & fecha & "'," & porcMay & "," & porcMM & "," & porcEsp & "," & preMay & "," & PreMM & "," & PreEsp & "," & cantMin & "," & cantMin2 & "," & cantMay & "," & cantMay2 & "," & cantMM & "," & cantMM2 & "," & cantEsp & "," & cantEsp2 & "," & cantLst & "," & cantLst2 & "," & prevol & "," & idmoneda & "," & promocion & "," & descuento & "," & afectaexis & "," & percentIvaRet & "," & almacen3 & "," & ieps & ",0," & isr & "," & invfinal & "," & invInicialCosto & "," & invFinalCosto & ",'" & clavesat & "','" & unidadsat & "',0,0," & statuspromo & "," & porcentajePromo & ",'" & fecha & "','" & fecha & "'," & e1 & "," & e2 & "," & f44 & ")"
+                        If cmd2.ExecuteNonQuery() Then
+                            cuantos = cuantos + 1
+                        Else
+
+                            MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
+                        End If
+
+                    Else
+                        MsgBox(codigo, nombre)
+                        conteo += 1
+                        pbimportar.Value = conteo
+
+                        Continue Do
                     End If
+
+
 
                 Loop
                 cnn2.Close()
@@ -1608,6 +1621,60 @@ nopasowey:
         My.Application.DoEvents()
         Button1.Enabled = True
     End Sub
+
+    Private Function Comprueba(ByVal codigo As String, ByVal nombre As String, ByVal barras As String) As Boolean
+        Try
+            Dim valida As Boolean = True
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from Productos where Codigo='" & codigo & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    'MsgBox("Ya cuentas con un producto registrado con el código corto " & codigo & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    valida = False
+                    Exit Function
+                End If
+            End If
+            rd2.Close()
+
+            If barras <> "" Then
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select * from Productos where CodBarra='" & barras & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        'MsgBox("Ya cuentas con un producto registrado con el código de barras " & barras & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        valida = False
+                        Exit Function
+                    End If
+                End If
+                rd2.Close()
+            End If
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from Productos where Nombre='" & nombre & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    'MsgBox("Ya cuentas con un producto registrado con el nombre " & nombre & ".", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    valida = False
+                    Exit Function
+                End If
+            End If
+            rd2.Close()
+
+            cnn2.Close()
+            Return valida
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
+        End Try
+        Return Nothing
+    End Function
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         box_tienda.Visible = False

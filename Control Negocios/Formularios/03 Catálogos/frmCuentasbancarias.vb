@@ -59,6 +59,10 @@
                     If cmd2.ExecuteNonQuery Then
                         MsgBox("Cuenta agregada correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('INICIAL','','','SALDO'," & txtSaldo.Text & ",0,0," & txtSaldo.Text & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & cbocuenta.Text & "','" & cbobanco.Text & "')"
+                    cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
                 End If
@@ -152,7 +156,7 @@
     Private Sub cboTitular_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboTitular.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnGuardar.Focus.Equals(True)
+            txtSaldo.Focus.Equals(True)
         End If
     End Sub
 
@@ -204,6 +208,51 @@
             MessageBox.Show(ex.ToString)
             cnn2.Close()
             cnn3.Close()
+        End Try
+    End Sub
+
+    Private Sub txtSaldo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSaldo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtSaldo.Text) Then
+                btnGuardar.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            Dim idmov As Integer = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Id,Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cbocuenta.Text & "')"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    idmov = rd1(0).ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('ACTUALIZACION SALDO','','','SALDO'," & txtSaldo.Text & ",0,0," & txtSaldo.Text & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & cbocuenta.Text & "','" & cbobanco.Text & "')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+            Else
+                idmov = rd1(0).ToString
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('ACTUALIZACION SALDO','','','SALDO'," & txtSaldo.Text & ",0,0," & txtSaldo.Text & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & cbocuenta.Text & "','" & cbobanco.Text & "')"
+                cmd2.ExecuteNonQuery()
+
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 End Class

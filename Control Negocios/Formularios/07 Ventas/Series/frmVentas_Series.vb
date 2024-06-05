@@ -5659,13 +5659,6 @@ Door:
 
                                 TotalIVAPrint = TotalIVAPrint + CDbl(ivaproducto)
                             End If
-                            'If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
-
-                            '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-
-                            '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
-
-                            'End If
                         End If
                     End If
                     rd1.Close()
@@ -11875,6 +11868,10 @@ doorcita:
                 frmBuscarPrecio.BringToFront()
         End Select
 
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
 End Class

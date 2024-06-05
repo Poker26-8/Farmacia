@@ -22,6 +22,7 @@ Partial Class frmNuvCompras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvCompras))
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -59,6 +60,9 @@ Partial Class frmNuvCompras
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dtpfpago = New System.Windows.Forms.DateTimePicker()
+        Me.Label37 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtanticipo = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -99,20 +103,9 @@ Partial Class frmNuvCompras
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.cbobanco = New System.Windows.Forms.ComboBox()
-        Me.Button9 = New System.Windows.Forms.Button()
+        Me.btnPagos = New System.Windows.Forms.Button()
         Me.txtmonto = New System.Windows.Forms.TextBox()
         Me.grdpago = New System.Windows.Forms.DataGridView()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbotpago = New System.Windows.Forms.ComboBox()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -141,6 +134,10 @@ Partial Class frmNuvCompras
         Me.cbonombre = New System.Windows.Forms.ComboBox()
         Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label38 = New System.Windows.Forms.Label()
         Me.barraExcel = New System.Windows.Forms.ProgressBar()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -154,18 +151,38 @@ Partial Class frmNuvCompras
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dtpfpago = New System.Windows.Forms.DateTimePicker()
-        Me.Label37 = New System.Windows.Forms.Label()
+        Me.pTicket80 = New System.Drawing.Printing.PrintDocument()
+        Me.pTicket58 = New System.Drawing.Printing.PrintDocument()
+        Me.pMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pCarta = New System.Drawing.Printing.PrintDocument()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.UnicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pCancela80 = New System.Drawing.Printing.PrintDocument()
+        Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -177,7 +194,7 @@ Partial Class frmNuvCompras
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(967, 35)
+        Me.Label1.Size = New System.Drawing.Size(946, 35)
         Me.Label1.TabIndex = 5
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -185,7 +202,7 @@ Partial Class frmNuvCompras
         '
         Me.lblvalor.BackColor = System.Drawing.Color.White
         Me.lblvalor.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblvalor.ForeColor = System.Drawing.Color.White
+        Me.lblvalor.ForeColor = System.Drawing.Color.Black
         Me.lblvalor.Location = New System.Drawing.Point(222, 8)
         Me.lblvalor.Name = "lblvalor"
         Me.lblvalor.Size = New System.Drawing.Size(92, 17)
@@ -196,7 +213,7 @@ Partial Class frmNuvCompras
         '
         Me.lblmoneda.BackColor = System.Drawing.Color.White
         Me.lblmoneda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmoneda.ForeColor = System.Drawing.Color.White
+        Me.lblmoneda.ForeColor = System.Drawing.Color.Black
         Me.lblmoneda.Location = New System.Drawing.Point(73, 9)
         Me.lblmoneda.Name = "lblmoneda"
         Me.lblmoneda.Size = New System.Drawing.Size(92, 17)
@@ -252,7 +269,7 @@ Partial Class frmNuvCompras
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 35)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(967, 94)
+        Me.Panel1.Size = New System.Drawing.Size(946, 94)
         Me.Panel1.TabIndex = 152
         '
         'Panel3
@@ -261,7 +278,7 @@ Partial Class frmNuvCompras
         Me.Panel3.Controls.Add(Me.btnprod)
         Me.Panel3.Controls.Add(Me.txtusuario)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(859, 0)
+        Me.Panel3.Location = New System.Drawing.Point(838, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(108, 94)
         Me.Panel3.TabIndex = 234
@@ -272,18 +289,18 @@ Partial Class frmNuvCompras
         Me.lblusuario.ForeColor = System.Drawing.Color.White
         Me.lblusuario.Location = New System.Drawing.Point(3, 4)
         Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(98, 23)
+        Me.lblusuario.Size = New System.Drawing.Size(99, 23)
         Me.lblusuario.TabIndex = 232
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnprod
         '
-        Me.btnprod.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnprod.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btnprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnprod.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnprod.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnprod.Location = New System.Drawing.Point(4, 55)
         Me.btnprod.Name = "btnprod"
-        Me.btnprod.Size = New System.Drawing.Size(97, 36)
+        Me.btnprod.Size = New System.Drawing.Size(98, 36)
         Me.btnprod.TabIndex = 233
         Me.btnprod.Text = "Productos"
         Me.btnprod.UseVisualStyleBackColor = False
@@ -295,16 +312,17 @@ Partial Class frmNuvCompras
         Me.txtusuario.Location = New System.Drawing.Point(4, 30)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtusuario.Size = New System.Drawing.Size(97, 23)
+        Me.txtusuario.Size = New System.Drawing.Size(98, 23)
         Me.txtusuario.TabIndex = 231
         Me.txtusuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblpAnticipo
         '
+        Me.lblpAnticipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblpAnticipo.AutoSize = True
         Me.lblpAnticipo.Enabled = False
         Me.lblpAnticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpAnticipo.Location = New System.Drawing.Point(460, 63)
+        Me.lblpAnticipo.Location = New System.Drawing.Point(501, 63)
         Me.lblpAnticipo.Name = "lblpAnticipo"
         Me.lblpAnticipo.Size = New System.Drawing.Size(58, 16)
         Me.lblpAnticipo.TabIndex = 178
@@ -312,10 +330,11 @@ Partial Class frmNuvCompras
         '
         'txtpAnticipo
         '
+        Me.txtpAnticipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtpAnticipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtpAnticipo.Enabled = False
         Me.txtpAnticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpAnticipo.Location = New System.Drawing.Point(533, 59)
+        Me.txtpAnticipo.Location = New System.Drawing.Point(570, 58)
         Me.txtpAnticipo.Name = "txtpAnticipo"
         Me.txtpAnticipo.Size = New System.Drawing.Size(102, 24)
         Me.txtpAnticipo.TabIndex = 177
@@ -324,11 +343,12 @@ Partial Class frmNuvCompras
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.Enabled = False
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(459, 33)
+        Me.Button1.Location = New System.Drawing.Point(496, 32)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(176, 23)
         Me.Button1.TabIndex = 176
@@ -340,7 +360,7 @@ Partial Class frmNuvCompras
         Me.cbopedido.FormattingEnabled = True
         Me.cbopedido.Location = New System.Drawing.Point(334, 33)
         Me.cbopedido.Name = "cbopedido"
-        Me.cbopedido.Size = New System.Drawing.Size(120, 21)
+        Me.cbopedido.Size = New System.Drawing.Size(157, 21)
         Me.cbopedido.TabIndex = 175
         '
         'Label31
@@ -359,7 +379,7 @@ Partial Class frmNuvCompras
         Me.dtpfecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpfecha.Location = New System.Drawing.Point(334, 59)
         Me.dtpfecha.Name = "dtpfecha"
-        Me.dtpfecha.Size = New System.Drawing.Size(120, 23)
+        Me.dtpfecha.Size = New System.Drawing.Size(157, 23)
         Me.dtpfecha.TabIndex = 173
         '
         'txtvalor
@@ -367,7 +387,7 @@ Partial Class frmNuvCompras
         Me.txtvalor.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtvalor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtvalor.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtvalor.Location = New System.Drawing.Point(780, 59)
+        Me.txtvalor.Location = New System.Drawing.Point(759, 59)
         Me.txtvalor.Name = "txtvalor"
         Me.txtvalor.Size = New System.Drawing.Size(75, 23)
         Me.txtvalor.TabIndex = 172
@@ -379,7 +399,7 @@ Partial Class frmNuvCompras
         Me.cbomoneda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbomoneda.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbomoneda.FormattingEnabled = True
-        Me.cbomoneda.Location = New System.Drawing.Point(699, 59)
+        Me.cbomoneda.Location = New System.Drawing.Point(678, 59)
         Me.cbomoneda.Name = "cbomoneda"
         Me.cbomoneda.Size = New System.Drawing.Size(75, 23)
         Me.cbomoneda.TabIndex = 171
@@ -392,7 +412,7 @@ Partial Class frmNuvCompras
         Me.btncancela.Enabled = False
         Me.btncancela.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncancela.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncancela.Location = New System.Drawing.Point(780, 7)
+        Me.btncancela.Location = New System.Drawing.Point(759, 7)
         Me.btncancela.Name = "btncancela"
         Me.btncancela.Size = New System.Drawing.Size(75, 49)
         Me.btncancela.TabIndex = 170
@@ -406,7 +426,7 @@ Partial Class frmNuvCompras
         Me.btnactualiza.Enabled = False
         Me.btnactualiza.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnactualiza.Font = New System.Drawing.Font("Segoe UI Semibold", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnactualiza.Location = New System.Drawing.Point(699, 7)
+        Me.btnactualiza.Location = New System.Drawing.Point(678, 7)
         Me.btnactualiza.Name = "btnactualiza"
         Me.btnactualiza.Size = New System.Drawing.Size(75, 49)
         Me.btnactualiza.TabIndex = 169
@@ -428,7 +448,7 @@ Partial Class frmNuvCompras
         Me.cbofactura.FormattingEnabled = True
         Me.cbofactura.Location = New System.Drawing.Point(81, 33)
         Me.cbofactura.Name = "cbofactura"
-        Me.cbofactura.Size = New System.Drawing.Size(120, 21)
+        Me.cbofactura.Size = New System.Drawing.Size(145, 21)
         Me.cbofactura.TabIndex = 167
         '
         'Label15
@@ -453,30 +473,34 @@ Partial Class frmNuvCompras
         '
         'txtsaldo
         '
+        Me.txtsaldo.BackColor = System.Drawing.Color.White
         Me.txtsaldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsaldo.Enabled = False
         Me.txtsaldo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsaldo.Location = New System.Drawing.Point(81, 59)
         Me.txtsaldo.Name = "txtsaldo"
-        Me.txtsaldo.Size = New System.Drawing.Size(120, 24)
+        Me.txtsaldo.Size = New System.Drawing.Size(145, 24)
         Me.txtsaldo.TabIndex = 164
         Me.txtsaldo.Text = "0.00"
         Me.txtsaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cboremision
         '
+        Me.cboremision.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboremision.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboremision.FormattingEnabled = True
-        Me.cboremision.Location = New System.Drawing.Point(533, 7)
+        Me.cboremision.Location = New System.Drawing.Point(570, 6)
         Me.cboremision.Name = "cboremision"
         Me.cboremision.Size = New System.Drawing.Size(102, 21)
         Me.cboremision.TabIndex = 163
         '
         'Label12
         '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(460, 11)
+        Me.Label12.Location = New System.Drawing.Point(497, 10)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(67, 16)
         Me.Label12.TabIndex = 162
@@ -484,11 +508,13 @@ Partial Class frmNuvCompras
         '
         'cboproveedor
         '
+        Me.cboproveedor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboproveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboproveedor.FormattingEnabled = True
         Me.cboproveedor.Location = New System.Drawing.Point(81, 7)
         Me.cboproveedor.Name = "cboproveedor"
-        Me.cboproveedor.Size = New System.Drawing.Size(373, 21)
+        Me.cboproveedor.Size = New System.Drawing.Size(410, 21)
         Me.cboproveedor.TabIndex = 161
         '
         'Label11
@@ -508,11 +534,13 @@ Partial Class frmNuvCompras
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 500)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(967, 227)
+        Me.Panel2.Size = New System.Drawing.Size(878, 227)
         Me.Panel2.TabIndex = 153
         '
         'Panel5
         '
+        Me.Panel5.BackColor = System.Drawing.Color.White
+        Me.Panel5.Controls.Add(Me.DataGridView1)
         Me.Panel5.Controls.Add(Me.dtpfpago)
         Me.Panel5.Controls.Add(Me.Label37)
         Me.Panel5.Controls.Add(Me.Label17)
@@ -544,26 +572,64 @@ Partial Class frmNuvCompras
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(426, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(541, 227)
+        Me.Panel5.Size = New System.Drawing.Size(452, 227)
         Me.Panel5.TabIndex = 257
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(579, 10)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(120, 100)
+        Me.DataGridView1.TabIndex = 183
+        Me.DataGridView1.Visible = False
+        '
+        'dtpfpago
+        '
+        Me.dtpfpago.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtpfpago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpfpago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpfpago.Location = New System.Drawing.Point(245, 193)
+        Me.dtpfpago.Name = "dtpfpago"
+        Me.dtpfpago.Size = New System.Drawing.Size(112, 25)
+        Me.dtpfpago.TabIndex = 154
+        '
+        'Label37
+        '
+        Me.Label37.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label37.AutoSize = True
+        Me.Label37.BackColor = System.Drawing.Color.White
+        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.ForeColor = System.Drawing.Color.Black
+        Me.Label37.Location = New System.Drawing.Point(153, 196)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(86, 20)
+        Me.Label37.TabIndex = 153
+        Me.Label37.Text = "Fecha pago"
         '
         'Label17
         '
+        Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(188, 65)
+        Me.Label17.BackColor = System.Drawing.Color.White
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(277, 61)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(58, 16)
+        Me.Label17.Size = New System.Drawing.Size(67, 16)
         Me.Label17.TabIndex = 101
         Me.Label17.Text = "Anticipo:"
         '
         'txtanticipo
         '
+        Me.txtanticipo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtanticipo.BackColor = System.Drawing.Color.White
         Me.txtanticipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtanticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtanticipo.ForeColor = System.Drawing.Color.Navy
-        Me.txtanticipo.Location = New System.Drawing.Point(262, 63)
+        Me.txtanticipo.Location = New System.Drawing.Point(351, 58)
         Me.txtanticipo.Name = "txtanticipo"
         Me.txtanticipo.ReadOnly = True
         Me.txtanticipo.Size = New System.Drawing.Size(101, 22)
@@ -573,21 +639,24 @@ Partial Class frmNuvCompras
         '
         'Label16
         '
+        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(188, 117)
+        Me.Label16.BackColor = System.Drawing.Color.White
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(278, 115)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(50, 16)
+        Me.Label16.Size = New System.Drawing.Size(56, 16)
         Me.Label16.TabIndex = 99
         Me.Label16.Text = "Pagos:"
         '
         'txtpagos
         '
+        Me.txtpagos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtpagos.BackColor = System.Drawing.Color.White
         Me.txtpagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtpagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpagos.ForeColor = System.Drawing.Color.Navy
-        Me.txtpagos.Location = New System.Drawing.Point(262, 116)
+        Me.txtpagos.Location = New System.Drawing.Point(351, 111)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
         Me.txtpagos.Size = New System.Drawing.Size(101, 22)
@@ -597,8 +666,9 @@ Partial Class frmNuvCompras
         '
         'Label32
         '
+        Me.Label32.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(7, 172)
+        Me.Label32.Location = New System.Drawing.Point(87, 163)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(152, 23)
         Me.Label32.TabIndex = 97
@@ -607,31 +677,35 @@ Partial Class frmNuvCompras
         '
         'txtprods
         '
+        Me.txtprods.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtprods.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtprods.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprods.Location = New System.Drawing.Point(165, 172)
+        Me.txtprods.Location = New System.Drawing.Point(245, 165)
         Me.txtprods.Name = "txtprods"
-        Me.txtprods.Size = New System.Drawing.Size(85, 23)
+        Me.txtprods.Size = New System.Drawing.Size(112, 23)
         Me.txtprods.TabIndex = 96
         Me.txtprods.Text = "0"
         Me.txtprods.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(188, 143)
+        Me.Label5.BackColor = System.Drawing.Color.White
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(278, 141)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 16)
+        Me.Label5.Size = New System.Drawing.Size(52, 16)
         Me.Label5.TabIndex = 93
         Me.Label5.Text = "Resta:"
         '
         'txtresta
         '
+        Me.txtresta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtresta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtresta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtresta.ForeColor = System.Drawing.Color.Red
-        Me.txtresta.Location = New System.Drawing.Point(262, 142)
+        Me.txtresta.Location = New System.Drawing.Point(351, 137)
         Me.txtresta.Name = "txtresta"
         Me.txtresta.Size = New System.Drawing.Size(101, 22)
         Me.txtresta.TabIndex = 92
@@ -640,23 +714,25 @@ Partial Class frmNuvCompras
         '
         'Label6
         '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(188, 89)
+        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(277, 89)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(58, 16)
+        Me.Label6.Size = New System.Drawing.Size(67, 16)
         Me.Label6.TabIndex = 91
         Me.Label6.Text = "Efectivo:"
         '
         'txtefectivo
         '
+        Me.txtefectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtefectivo.BackColor = System.Drawing.Color.White
         Me.txtefectivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtefectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtefectivo.ForeColor = System.Drawing.Color.Navy
-        Me.txtefectivo.Location = New System.Drawing.Point(262, 90)
+        Me.txtefectivo.Location = New System.Drawing.Point(351, 85)
         Me.txtefectivo.Name = "txtefectivo"
-        Me.txtefectivo.ReadOnly = True
         Me.txtefectivo.Size = New System.Drawing.Size(101, 22)
         Me.txtefectivo.TabIndex = 90
         Me.txtefectivo.Text = "0.00"
@@ -664,19 +740,22 @@ Partial Class frmNuvCompras
         '
         'Label35
         '
+        Me.Label35.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(188, 11)
+        Me.Label35.BackColor = System.Drawing.Color.White
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(277, 9)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(40, 16)
+        Me.Label35.Size = New System.Drawing.Size(45, 16)
         Me.Label35.TabIndex = 95
         Me.Label35.Text = "IEPS:"
         '
         'txtieps
         '
+        Me.txtieps.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtieps.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtieps.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtieps.Location = New System.Drawing.Point(262, 11)
+        Me.txtieps.Location = New System.Drawing.Point(351, 6)
         Me.txtieps.Name = "txtieps"
         Me.txtieps.Size = New System.Drawing.Size(101, 22)
         Me.txtieps.TabIndex = 94
@@ -685,20 +764,23 @@ Partial Class frmNuvCompras
         '
         'Label25
         '
+        Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(188, 37)
+        Me.Label25.BackColor = System.Drawing.Color.White
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(277, 32)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(58, 16)
+        Me.Label25.Size = New System.Drawing.Size(66, 16)
         Me.Label25.TabIndex = 89
         Me.Label25.Text = "A pagar:"
         '
         'txtapagar
         '
+        Me.txtapagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtapagar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtapagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtapagar.ForeColor = System.Drawing.Color.ForestGreen
-        Me.txtapagar.Location = New System.Drawing.Point(262, 37)
+        Me.txtapagar.Location = New System.Drawing.Point(351, 32)
         Me.txtapagar.Name = "txtapagar"
         Me.txtapagar.Size = New System.Drawing.Size(101, 22)
         Me.txtapagar.TabIndex = 88
@@ -707,19 +789,22 @@ Partial Class frmNuvCompras
         '
         'Label26
         '
+        Me.Label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(7, 144)
+        Me.Label26.BackColor = System.Drawing.Color.White
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(81, 139)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(75, 16)
+        Me.Label26.Size = New System.Drawing.Size(85, 16)
         Me.Label26.TabIndex = 23
         Me.Label26.Text = "Descuento:"
         '
         'txtdesc2
         '
+        Me.txtdesc2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtdesc2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdesc2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdesc2.Location = New System.Drawing.Point(84, 141)
+        Me.txtdesc2.Location = New System.Drawing.Point(173, 136)
         Me.txtdesc2.Name = "txtdesc2"
         Me.txtdesc2.Size = New System.Drawing.Size(93, 22)
         Me.txtdesc2.TabIndex = 22
@@ -728,19 +813,23 @@ Partial Class frmNuvCompras
         '
         'Label27
         '
+        Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(7, 118)
+        Me.Label27.BackColor = System.Drawing.Color.White
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(81, 112)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(41, 16)
+        Me.Label27.Size = New System.Drawing.Size(47, 16)
         Me.Label27.TabIndex = 21
         Me.Label27.Text = "Total:"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtTotalC
         '
+        Me.txtTotalC.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtTotalC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalC.Location = New System.Drawing.Point(84, 115)
+        Me.txtTotalC.Location = New System.Drawing.Point(173, 110)
         Me.txtTotalC.Name = "txtTotalC"
         Me.txtTotalC.Size = New System.Drawing.Size(93, 22)
         Me.txtTotalC.TabIndex = 20
@@ -749,19 +838,22 @@ Partial Class frmNuvCompras
         '
         'Label4
         '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(7, 92)
+        Me.Label4.BackColor = System.Drawing.Color.White
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(81, 87)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(31, 16)
+        Me.Label4.Size = New System.Drawing.Size(35, 16)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "IVA:"
         '
         'txtiva
         '
+        Me.txtiva.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtiva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtiva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtiva.Location = New System.Drawing.Point(84, 89)
+        Me.txtiva.Location = New System.Drawing.Point(173, 84)
         Me.txtiva.Name = "txtiva"
         Me.txtiva.Size = New System.Drawing.Size(93, 22)
         Me.txtiva.TabIndex = 18
@@ -770,19 +862,22 @@ Partial Class frmNuvCompras
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 66)
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(81, 62)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 16)
+        Me.Label2.Size = New System.Drawing.Size(68, 16)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Subtotal:"
         '
         'txtsub2
         '
+        Me.txtsub2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtsub2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsub2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsub2.Location = New System.Drawing.Point(84, 63)
+        Me.txtsub2.Location = New System.Drawing.Point(173, 58)
         Me.txtsub2.Name = "txtsub2"
         Me.txtsub2.Size = New System.Drawing.Size(93, 22)
         Me.txtsub2.TabIndex = 16
@@ -791,19 +886,22 @@ Partial Class frmNuvCompras
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 40)
+        Me.Label3.BackColor = System.Drawing.Color.White
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(81, 36)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.Size = New System.Drawing.Size(85, 16)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Descuento:"
         '
         'txtdesc1
         '
+        Me.txtdesc1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtdesc1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdesc1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdesc1.Location = New System.Drawing.Point(84, 37)
+        Me.txtdesc1.Location = New System.Drawing.Point(173, 32)
         Me.txtdesc1.Name = "txtdesc1"
         Me.txtdesc1.Size = New System.Drawing.Size(93, 22)
         Me.txtdesc1.TabIndex = 14
@@ -812,19 +910,22 @@ Partial Class frmNuvCompras
         '
         'Label20
         '
+        Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(6, 14)
+        Me.Label20.BackColor = System.Drawing.Color.White
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(81, 10)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(59, 16)
+        Me.Label20.Size = New System.Drawing.Size(68, 16)
         Me.Label20.TabIndex = 13
         Me.Label20.Text = "Subtotal:"
         '
         'txtsub1
         '
+        Me.txtsub1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtsub1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtsub1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsub1.Location = New System.Drawing.Point(84, 11)
+        Me.txtsub1.Location = New System.Drawing.Point(173, 6)
         Me.txtsub1.Name = "txtsub1"
         Me.txtsub1.Size = New System.Drawing.Size(93, 22)
         Me.txtsub1.TabIndex = 12
@@ -846,7 +947,7 @@ Partial Class frmNuvCompras
         Me.Panel4.Controls.Add(Me.Label24)
         Me.Panel4.Controls.Add(Me.Label40)
         Me.Panel4.Controls.Add(Me.cbobanco)
-        Me.Panel4.Controls.Add(Me.Button9)
+        Me.Panel4.Controls.Add(Me.btnPagos)
         Me.Panel4.Controls.Add(Me.txtmonto)
         Me.Panel4.Controls.Add(Me.grdpago)
         Me.Panel4.Controls.Add(Me.cbotpago)
@@ -915,6 +1016,7 @@ Partial Class frmNuvCompras
         'cboBancoRecepcion
         '
         Me.cboBancoRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cboBancoRecepcion.Enabled = False
         Me.cboBancoRecepcion.Location = New System.Drawing.Point(291, 89)
         Me.cboBancoRecepcion.Name = "cboBancoRecepcion"
         Me.cboBancoRecepcion.Size = New System.Drawing.Size(130, 20)
@@ -992,23 +1094,23 @@ Partial Class frmNuvCompras
         Me.cbobanco.Size = New System.Drawing.Size(130, 25)
         Me.cbobanco.TabIndex = 240
         '
-        'Button9
+        'btnPagos
         '
-        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(232, 114)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(189, 24)
-        Me.Button9.TabIndex = 248
-        Me.Button9.Text = "Agregar pago"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.btnPagos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagos.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagos.Location = New System.Drawing.Point(232, 114)
+        Me.btnPagos.Name = "btnPagos"
+        Me.btnPagos.Size = New System.Drawing.Size(189, 24)
+        Me.btnPagos.TabIndex = 248
+        Me.btnPagos.Text = "Agregar pago"
+        Me.btnPagos.UseVisualStyleBackColor = True
         '
         'txtmonto
         '
         Me.txtmonto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtmonto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtmonto.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtmonto.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtmonto.Location = New System.Drawing.Point(291, 35)
         Me.txtmonto.Name = "txtmonto"
         Me.txtmonto.Size = New System.Drawing.Size(130, 25)
@@ -1024,92 +1126,13 @@ Partial Class frmNuvCompras
         Me.grdpago.BackgroundColor = System.Drawing.Color.White
         Me.grdpago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdpago.ColumnHeadersVisible = False
-        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column27, Me.Column28, Me.Column29, Me.Column30, Me.Column31})
+        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27, Me.Column29, Me.Column30, Me.Column31})
         Me.grdpago.Location = New System.Drawing.Point(5, 142)
         Me.grdpago.Name = "grdpago"
         Me.grdpago.ReadOnly = True
         Me.grdpago.RowHeadersVisible = False
         Me.grdpago.Size = New System.Drawing.Size(416, 78)
         Me.grdpago.TabIndex = 247
-        '
-        'Column15
-        '
-        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column15.HeaderText = "Tipo"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        '
-        'Column16
-        '
-        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column16.HeaderText = "Banco"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        '
-        'Column17
-        '
-        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column17.HeaderText = "Número"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        '
-        'Column18
-        '
-        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column18.HeaderText = "Monto"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        '
-        'Column19
-        '
-        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column19.HeaderText = "Fecha"
-        Me.Column19.Name = "Column19"
-        Me.Column19.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column27
-        '
-        Me.Column27.HeaderText = "BancoRe"
-        Me.Column27.Name = "Column27"
-        Me.Column27.ReadOnly = True
-        Me.Column27.Visible = False
-        '
-        'Column28
-        '
-        Me.Column28.HeaderText = "CuentaRe"
-        Me.Column28.Name = "Column28"
-        Me.Column28.ReadOnly = True
-        Me.Column28.Visible = False
-        '
-        'Column29
-        '
-        Me.Column29.HeaderText = "valor"
-        Me.Column29.Name = "Column29"
-        Me.Column29.ReadOnly = True
-        Me.Column29.Visible = False
-        Me.Column29.Width = 5
-        '
-        'Column30
-        '
-        Me.Column30.HeaderText = "equivale"
-        Me.Column30.Name = "Column30"
-        Me.Column30.ReadOnly = True
-        Me.Column30.Visible = False
-        Me.Column30.Width = 5
-        '
-        'Column31
-        '
-        Me.Column31.HeaderText = "dolar"
-        Me.Column31.Name = "Column31"
-        Me.Column31.ReadOnly = True
-        Me.Column31.Visible = False
-        Me.Column31.Width = 5
         '
         'cbotpago
         '
@@ -1139,9 +1162,9 @@ Partial Class frmNuvCompras
         Me.Panel6.Controls.Add(Me.btnguardar)
         Me.Panel6.Controls.Add(Me.btnnuevo)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel6.Location = New System.Drawing.Point(897, 129)
+        Me.Panel6.Location = New System.Drawing.Point(878, 129)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(70, 371)
+        Me.Panel6.Size = New System.Drawing.Size(68, 598)
         Me.Panel6.TabIndex = 154
         '
         'btnimportarxml
@@ -1192,10 +1215,10 @@ Partial Class frmNuvCompras
         '
         'btnguardar
         '
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnguardar.Location = New System.Drawing.Point(3, 81)
         Me.btnguardar.Name = "btnguardar"
@@ -1245,29 +1268,31 @@ Partial Class frmNuvCompras
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel7.Location = New System.Drawing.Point(0, 129)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(897, 56)
+        Me.Panel7.Size = New System.Drawing.Size(878, 52)
         Me.Panel7.TabIndex = 155
         '
         'Label10
         '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(758, 10)
+        Me.Label10.Location = New System.Drawing.Point(794, 3)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(81, 21)
+        Me.Label10.Size = New System.Drawing.Size(84, 21)
         Me.Label10.TabIndex = 104
         Me.Label10.Text = "Lote"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label9
         '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(682, 10)
+        Me.Label9.Location = New System.Drawing.Point(718, 3)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(77, 21)
         Me.Label9.TabIndex = 103
@@ -1276,11 +1301,12 @@ Partial Class frmNuvCompras
         '
         'Label8
         '
+        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(617, 10)
+        Me.Label8.Location = New System.Drawing.Point(653, 3)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(66, 21)
         Me.Label8.TabIndex = 102
@@ -1289,11 +1315,12 @@ Partial Class frmNuvCompras
         '
         'Label7
         '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(521, 10)
+        Me.Label7.Location = New System.Drawing.Point(557, 3)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(97, 21)
         Me.Label7.TabIndex = 101
@@ -1302,11 +1329,12 @@ Partial Class frmNuvCompras
         '
         'Label18
         '
+        Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label18.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.White
-        Me.Label18.Location = New System.Drawing.Point(435, 10)
+        Me.Label18.Location = New System.Drawing.Point(471, 3)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(87, 21)
         Me.Label18.TabIndex = 100
@@ -1315,11 +1343,12 @@ Partial Class frmNuvCompras
         '
         'Label19
         '
+        Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label19.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(377, 10)
+        Me.Label19.Location = New System.Drawing.Point(413, 3)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(59, 21)
         Me.Label19.TabIndex = 99
@@ -1328,11 +1357,12 @@ Partial Class frmNuvCompras
         '
         'Label28
         '
+        Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label28.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label28.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.White
-        Me.Label28.Location = New System.Drawing.Point(329, 10)
+        Me.Label28.Location = New System.Drawing.Point(365, 3)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(49, 21)
         Me.Label28.TabIndex = 98
@@ -1341,36 +1371,40 @@ Partial Class frmNuvCompras
         '
         'txtlote
         '
+        Me.txtlote.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtlote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtlote.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlote.Location = New System.Drawing.Point(758, 30)
+        Me.txtlote.Location = New System.Drawing.Point(794, 23)
         Me.txtlote.Name = "txtlote"
-        Me.txtlote.Size = New System.Drawing.Size(81, 23)
+        Me.txtlote.Size = New System.Drawing.Size(84, 23)
         Me.txtlote.TabIndex = 97
         '
         'dtpcaducidad
         '
+        Me.dtpcaducidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtpcaducidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpcaducidad.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpcaducidad.Location = New System.Drawing.Point(682, 30)
+        Me.dtpcaducidad.Location = New System.Drawing.Point(718, 23)
         Me.dtpcaducidad.Name = "dtpcaducidad"
         Me.dtpcaducidad.Size = New System.Drawing.Size(77, 23)
         Me.dtpcaducidad.TabIndex = 96
         '
         'txtexiste
         '
+        Me.txtexiste.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtexiste.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtexiste.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtexiste.Location = New System.Drawing.Point(617, 30)
+        Me.txtexiste.Location = New System.Drawing.Point(653, 23)
         Me.txtexiste.Name = "txtexiste"
         Me.txtexiste.Size = New System.Drawing.Size(66, 23)
         Me.txtexiste.TabIndex = 95
         '
         'txttotal
         '
+        Me.txttotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txttotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotal.Location = New System.Drawing.Point(521, 30)
+        Me.txttotal.Location = New System.Drawing.Point(557, 23)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Size = New System.Drawing.Size(97, 23)
         Me.txttotal.TabIndex = 94
@@ -1379,10 +1413,11 @@ Partial Class frmNuvCompras
         '
         'txtprecio
         '
+        Me.txtprecio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtprecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtprecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtprecio.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio.Location = New System.Drawing.Point(435, 30)
+        Me.txtprecio.Location = New System.Drawing.Point(471, 23)
         Me.txtprecio.Name = "txtprecio"
         Me.txtprecio.Size = New System.Drawing.Size(87, 23)
         Me.txtprecio.TabIndex = 93
@@ -1391,13 +1426,15 @@ Partial Class frmNuvCompras
         '
         'Label29
         '
+        Me.Label29.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label29.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label29.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.White
-        Me.Label29.Location = New System.Drawing.Point(53, 10)
+        Me.Label29.Location = New System.Drawing.Point(52, 3)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(277, 21)
+        Me.Label29.Size = New System.Drawing.Size(313, 21)
         Me.Label29.TabIndex = 92
         Me.Label29.Text = "Descripción"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1408,7 +1445,7 @@ Partial Class frmNuvCompras
         Me.Label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label36.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label36.ForeColor = System.Drawing.Color.White
-        Me.Label36.Location = New System.Drawing.Point(3, 10)
+        Me.Label36.Location = New System.Drawing.Point(2, 3)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(51, 21)
         Me.Label36.TabIndex = 91
@@ -1417,19 +1454,21 @@ Partial Class frmNuvCompras
         '
         'txtcantidad
         '
+        Me.txtcantidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtcantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(377, 30)
+        Me.txtcantidad.Location = New System.Drawing.Point(413, 23)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(59, 23)
         Me.txtcantidad.TabIndex = 90
         '
         'txtunidad
         '
+        Me.txtunidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtunidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtunidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtunidad.Location = New System.Drawing.Point(329, 30)
+        Me.txtunidad.Location = New System.Drawing.Point(365, 23)
         Me.txtunidad.Name = "txtunidad"
         Me.txtunidad.Size = New System.Drawing.Size(49, 23)
         Me.txtunidad.TabIndex = 89
@@ -1438,19 +1477,21 @@ Partial Class frmNuvCompras
         '
         'cbonombre
         '
+        Me.cbonombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbonombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbonombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonombre.FormattingEnabled = True
-        Me.cbonombre.Location = New System.Drawing.Point(53, 30)
+        Me.cbonombre.Location = New System.Drawing.Point(52, 23)
         Me.cbonombre.Name = "cbonombre"
-        Me.cbonombre.Size = New System.Drawing.Size(277, 23)
+        Me.cbonombre.Size = New System.Drawing.Size(313, 23)
         Me.cbonombre.TabIndex = 88
         '
         'txtcodigo
         '
         Me.txtcodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcodigo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcodigo.Location = New System.Drawing.Point(3, 30)
+        Me.txtcodigo.Location = New System.Drawing.Point(2, 23)
         Me.txtcodigo.Name = "txtcodigo"
         Me.txtcodigo.Size = New System.Drawing.Size(51, 23)
         Me.txtcodigo.TabIndex = 87
@@ -1458,13 +1499,60 @@ Partial Class frmNuvCompras
         '
         'Panel8
         '
+        Me.Panel8.Controls.Add(Me.Panel9)
         Me.Panel8.Controls.Add(Me.barraExcel)
         Me.Panel8.Controls.Add(Me.grdcaptura)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel8.Location = New System.Drawing.Point(0, 185)
+        Me.Panel8.Location = New System.Drawing.Point(0, 181)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(897, 315)
+        Me.Panel8.Size = New System.Drawing.Size(878, 319)
         Me.Panel8.TabIndex = 156
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.NavajoWhite
+        Me.Panel9.Controls.Add(Me.Button2)
+        Me.Panel9.Controls.Add(Me.Label38)
+        Me.Panel9.Controls.Add(Me.Button3)
+        Me.Panel9.Location = New System.Drawing.Point(317, 81)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(286, 129)
+        Me.Panel9.TabIndex = 184
+        Me.Panel9.Visible = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.White
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(146, 82)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(128, 36)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Regresar dinero a caja"
+        Me.Button3.UseVisualStyleBackColor = False
+        Me.Button3.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(12, 82)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(262, 36)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Saldo a favor con proveedor"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Label38
+        '
+        Me.Label38.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(13, 10)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(261, 61)
+        Me.Label38.TabIndex = 0
+        Me.Label38.Text = "Como abonaste a esta compra (total o parcialmente), tienes dos opciones para mane" &
+    "jar el dinero abonado."
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'barraExcel
         '
@@ -1472,7 +1560,7 @@ Partial Class frmNuvCompras
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.barraExcel.Location = New System.Drawing.Point(4, 293)
         Me.barraExcel.Name = "barraExcel"
-        Me.barraExcel.Size = New System.Drawing.Size(887, 19)
+        Me.barraExcel.Size = New System.Drawing.Size(868, 19)
         Me.barraExcel.TabIndex = 182
         Me.barraExcel.Visible = False
         '
@@ -1493,7 +1581,7 @@ Partial Class frmNuvCompras
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 26
-        Me.grdcaptura.Size = New System.Drawing.Size(897, 315)
+        Me.grdcaptura.Size = New System.Drawing.Size(878, 319)
         Me.grdcaptura.TabIndex = 6
         '
         'Column1
@@ -1581,37 +1669,125 @@ Partial Class frmNuvCompras
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         Me.DataGridViewTextBoxColumn3.Visible = False
         '
-        'dtpfpago
+        'pTicket80
         '
-        Me.dtpfpago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpfpago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpfpago.Location = New System.Drawing.Point(348, 170)
-        Me.dtpfpago.Name = "dtpfpago"
-        Me.dtpfpago.Size = New System.Drawing.Size(109, 25)
-        Me.dtpfpago.TabIndex = 154
         '
-        'Label37
+        'pTicket58
         '
-        Me.Label37.AutoSize = True
-        Me.Label37.BackColor = System.Drawing.Color.White
-        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.ForeColor = System.Drawing.Color.Black
-        Me.Label37.Location = New System.Drawing.Point(256, 173)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(86, 20)
-        Me.Label37.TabIndex = 153
-        Me.Label37.Text = "Fecha pago"
+        '
+        'pMediaCarta
+        '
+        '
+        'pCarta
+        '
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UnicoToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(106, 26)
+        '
+        'UnicoToolStripMenuItem
+        '
+        Me.UnicoToolStripMenuItem.Name = "UnicoToolStripMenuItem"
+        Me.UnicoToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.UnicoToolStripMenuItem.Text = "Unico"
+        '
+        'pCancela80
+        '
+        '
+        'pCancela58
+        '
+        '
+        'Column15
+        '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column15.HeaderText = "Tipo"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column16.HeaderText = "Banco"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column17.HeaderText = "Número"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column18.HeaderText = "Monto"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        '
+        'Column19
+        '
+        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column19.HeaderText = "Fecha"
+        Me.Column19.Name = "Column19"
+        Me.Column19.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column28
+        '
+        Me.Column28.HeaderText = "CuentaRe"
+        Me.Column28.Name = "Column28"
+        Me.Column28.ReadOnly = True
+        Me.Column28.Visible = False
+        '
+        'Column27
+        '
+        Me.Column27.HeaderText = "BancoRe"
+        Me.Column27.Name = "Column27"
+        Me.Column27.ReadOnly = True
+        Me.Column27.Visible = False
+        '
+        'Column29
+        '
+        Me.Column29.HeaderText = "valor"
+        Me.Column29.Name = "Column29"
+        Me.Column29.ReadOnly = True
+        Me.Column29.Visible = False
+        Me.Column29.Width = 5
+        '
+        'Column30
+        '
+        Me.Column30.HeaderText = "equivale"
+        Me.Column30.Name = "Column30"
+        Me.Column30.ReadOnly = True
+        Me.Column30.Visible = False
+        Me.Column30.Width = 5
+        '
+        'Column31
+        '
+        Me.Column31.HeaderText = "dolar"
+        Me.Column31.Name = "Column31"
+        Me.Column31.ReadOnly = True
+        Me.Column31.Visible = False
+        Me.Column31.Width = 5
         '
         'frmNuvCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(967, 727)
+        Me.ClientSize = New System.Drawing.Size(946, 727)
         Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblvalor)
         Me.Controls.Add(Me.lblmoneda)
@@ -1629,6 +1805,7 @@ Partial Class frmNuvCompras
         Me.Panel2.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1636,7 +1813,9 @@ Partial Class frmNuvCompras
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel8.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1675,19 +1854,8 @@ Partial Class frmNuvCompras
     Friend WithEvents cboCuentaRecepcion As ComboBox
     Friend WithEvents txtComentarioPago As TextBox
     Friend WithEvents Label40 As Label
-    Friend WithEvents Button9 As Button
+    Friend WithEvents btnPagos As Button
     Friend WithEvents grdpago As DataGridView
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
-    Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column27 As DataGridViewTextBoxColumn
-    Friend WithEvents Column28 As DataGridViewTextBoxColumn
-    Friend WithEvents Column29 As DataGridViewTextBoxColumn
-    Friend WithEvents Column30 As DataGridViewTextBoxColumn
-    Friend WithEvents Column31 As DataGridViewTextBoxColumn
     Friend WithEvents dtpFecha_P As DateTimePicker
     Friend WithEvents cbotpago As ComboBox
     Friend WithEvents txtmonto As TextBox
@@ -1770,4 +1938,28 @@ Partial Class frmNuvCompras
     Friend WithEvents barraExcel As ProgressBar
     Friend WithEvents dtpfpago As DateTimePicker
     Friend WithEvents Label37 As Label
+    Friend WithEvents pTicket80 As Printing.PrintDocument
+    Friend WithEvents pTicket58 As Printing.PrintDocument
+    Friend WithEvents pMediaCarta As Printing.PrintDocument
+    Friend WithEvents pCarta As Printing.PrintDocument
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label38 As Label
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents UnicoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents pCancela80 As Printing.PrintDocument
+    Friend WithEvents pCancela58 As Printing.PrintDocument
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
+    Friend WithEvents Column19 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column28 As DataGridViewTextBoxColumn
+    Friend WithEvents Column27 As DataGridViewTextBoxColumn
+    Friend WithEvents Column29 As DataGridViewTextBoxColumn
+    Friend WithEvents Column30 As DataGridViewTextBoxColumn
+    Friend WithEvents Column31 As DataGridViewTextBoxColumn
 End Class
