@@ -8683,31 +8683,6 @@ ecomoda:
                 End If
                 Dim MyExiste As Double = 0
 
-                'If grdcaptura.Rows(beatriz_pinzon_solano).Cells(0).Value.ToString() <> "" Then
-                '    Dim cantiventa As Double = 0
-                '    cnn2.Close() : cnn2.Open()
-                '    cmd2 = cnn2.CreateCommand
-                '    cmd2.CommandText = "SELECT Cantidad FROM ventasdetalle WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
-                '    rd2 = cmd2.ExecuteReader
-                '    If rd2.HasRows Then
-                '        If rd2.Read Then
-                '            cantiventa = rd2(0).ToString
-                '        End If
-                '    End If
-                '    rd2.Close()
-                '    cnn2.Close()
-
-                '    If cantiventa > 1 Then
-                '        cmd1 = cnn1.CreateCommand
-                '        cmd1.CommandText = "UPDATE ventasdetalle SET Cantidad=" & Mycant & " WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
-                '        cmd1.ExecuteNonQuery()
-                '    Else
-                '        cmd1 = cnn1.CreateCommand
-                '        cmd1.CommandText = "DELETE FROM ventasdetalle WHERE Folio=" & cbonota.Text & " AND Codigo='" & mycode & "'"
-                '        cmd1.ExecuteNonQuery()
-                '    End If
-                'End If
-
                 If MyDepto <> "SERVICIOS" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
@@ -8732,7 +8707,7 @@ ecomoda:
                                     cmd3.ExecuteNonQuery()
 
                                     '****** Configurable
-                                    ActualizaPEPS(cbonota.Text, mycode, Mycant)
+                                    'ActualizaPEPS(cbonota.Text, mycode, Mycant)
 
                                     cmd3 = cnn3.CreateCommand
                                     cmd3.CommandText =
@@ -8774,7 +8749,7 @@ ecomoda:
                                 cmd3.ExecuteNonQuery()
 
                                 '****** Configurable
-                                ActualizaPEPS(cbonota.Text, mycode, Mycant)
+                                'ActualizaPEPS(cbonota.Text, mycode, Mycant)
 
                                 cmd3 = cnn3.CreateCommand
                                 cmd3.CommandText =

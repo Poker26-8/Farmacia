@@ -2791,6 +2791,20 @@ Public Class frmConsultaNotas
                 If grdcaptura.Rows(dl).Cells(0).Value.ToString() <> "" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
+                        "select * from Productos where Codigo='" & codigo & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            MyMultiplo = rd1("Multiplo").ToString()
+                            MyPrecio = rd1("PrecioVentaIVA").ToString()
+                        End If
+                    Else
+                        MsgBox("El código: '" & codigo & "' fue eliminado de la base de datos. Para realizar la cancelación debe darlo de alta nuevamente.") : rd1.Close() : cnn1.Close() : Exit Sub
+                    End If
+                    rd1.Close()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
                          "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
@@ -2810,12 +2824,22 @@ Public Class frmConsultaNotas
 
                                         cmd3 = cnn3.CreateCommand
                                         cmd3.CommandText =
+                                            "select * from Productos where Codigo='" & codigo & "'"
+                                        rd3 = cmd3.ExecuteReader
+                                        If rd3.HasRows Then
+                                            If rd3.Read Then
+                                                MyMultiplo = rd3("Multiplo").ToString()
+                                            End If
+                                        End If
+                                        rd3.Close()
+
+                                        cmd3 = cnn3.CreateCommand
+                                        cmd3.CommandText =
                                              "select * from Productos where Codigo='" & Strings.Left(mi_codigo, 6) & "'"
                                         rd3 = cmd3.ExecuteReader
                                         If rd3.HasRows Then
                                             If rd3.Read Then
                                                 MyExist = rd3("Existencia").ToString()
-                                                MyMultiplo = rd3("Multiplo").ToString()
 
                                                 MyNewExist = MyExist + (mi_cantidad * cantidad * MyMultiplo)
                                             End If
@@ -2839,8 +2863,6 @@ Public Class frmConsultaNotas
                                 Loop
                                 rd2.Close()
                             Else
-                                MyMultiplo = rd1("Multiplo").ToString()
-                                MyPrecio = rd1("PrecioVenta").ToString()
                                 MyExist = rd1("Existencia").ToString()
                                 MyNewExist = MyExist + (cantidad * MyMultiplo)
 
@@ -2892,7 +2914,7 @@ Public Class frmConsultaNotas
                                     End If
                                     rd2.Close()
 
-                                    Dim nueva_cant_lote As Double = cant_lote + cantidad
+                                    Dim nueva_cant_lote As Double = cant_lote + (cantidad * MyMultiplo)
 
                                     If id_lote = 0 Then
                                         cmd2 = cnn2.CreateCommand
