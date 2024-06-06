@@ -294,7 +294,8 @@ Module ModGral
             rd5.Close()
             cnn5.Close()
         Catch ex As Exception
-            MessageBox.Show(ex.ToString())
+            MessageBox.Show(ex.ToString() & cmd5.CommandText =
+                      "select * from Permisos where IdEmpleado=" & id_usu)
             cnn5.Close()
         End Try
 #Disable Warning BC42353' La función no devuelve un valor
@@ -322,7 +323,7 @@ Module ModGral
                         INI = DateDiff(DateInterval.Day, Date.Now, FechaI)
                         FIN = DateDiff(DateInterval.Day, Date.Now, FechaF)
                         If INI <= 0 And FIN >= 0 Then
-                            DescPromo = CDbl(rd4(3).ToString) * (CDbl(rd3(2).ToString) / 100)
+                            DescPromo = CDbl(rd3(3).ToString) * (CDbl(rd3(2).ToString) / 100)
                             Promos = actual - DescPromo
                         Else
                             Promos = actual

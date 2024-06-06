@@ -2265,7 +2265,7 @@ quepaso_wey:
 
     Private Sub EInvInicial()
         Dim codigoProd As String = ""
-        Dim fechaAhora As String = Format(Date.Now, "dd/MM/yyyy")
+        Dim fechaAhora As Date = Date.Now
         Dim unidadProd As String = ""
         Dim existeProd As Double = 0
         Dim costoProd As Double = 0
@@ -2288,7 +2288,7 @@ quepaso_wey:
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into TAlmacen(Codigo,Fecha,Folio,TipoMov,Entrada,UndE,Salida,UndS,Exist,Costo,Debe,ExiCont,Haber,Saldo,FolioReporte,FechaReporte) values('" & codigoProd & "','" & fechaAhora & "',0,'Inventario inicial',0,'" & unidadProd & "',0,'" & unidadProd & "'," & existeProd & "," & costoProd & ",0," & existeProd & "," & totalCosto & "," & totalCosto & ",0,'')"
+                        "insert into TAlmacen(Codigo,Fecha,Folio,TipoMov,Entrada,UndE,Salida,UndS,Exist,Costo,Debe,ExiCont,Haber,Saldo,FolioReporte,FechaReporte) values('" & codigoProd & "','" & Format(fechaAhora, "yyyy-MM-dd") & "',0,'Inventario inicial',0,'" & unidadProd & "',0,'" & unidadProd & "'," & existeProd & "," & costoProd & ",0," & existeProd & "," & totalCosto & "," & totalCosto & ",0,'')"
                     cmd2.ExecuteNonQuery()
                 End If
             Loop
