@@ -3905,7 +3905,7 @@ Door:
                     ' Dibuja la imagen en el contexto gráfico
                     e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
                     Y += 20
-
+                    picQR.Image.Dispose()
                 End If
 
             Else
