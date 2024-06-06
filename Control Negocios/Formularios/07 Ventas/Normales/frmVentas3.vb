@@ -9385,6 +9385,7 @@ ecomoda:
             cnn1.Close()
 
             If ligaqr <> "" Then
+                picQR.Image.Dispose()
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -9395,12 +9396,14 @@ ecomoda:
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
                 Y += 25
                 e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+                picQR.Image.Dispose()
             End If
 
             Y += 20
             If autofac = 1 Then
 
                 If linkauto <> "" Then
+                    picQR.Image.Dispose()
                     Dim entrada As String = linkauto
                     Dim Gen As New QRCodeGenerator
                     Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -9420,6 +9423,7 @@ ecomoda:
                     Y += 15
                     ' Dibuja la imagen en el contexto gráfico
                     e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+                    picQR.Image.Dispose()
                 End If
 
             Else
@@ -12299,6 +12303,7 @@ ecomoda:
 
 
             If ligaqr <> "" Then
+                picQR.Image.Dispose()
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -12309,6 +12314,7 @@ ecomoda:
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 90, Y, sc)
                 Y += 20
                 e.Graphics.DrawImage(picQR.Image, 15, CInt(Y), 160, 160)
+                picQR.Image.Dispose()
             End If
 
             Y += 20
