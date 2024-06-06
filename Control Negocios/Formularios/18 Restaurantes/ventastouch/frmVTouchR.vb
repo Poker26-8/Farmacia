@@ -1557,6 +1557,7 @@ deku:
         cnn1.Close()
         If siqrwhats = 1 Then
             If ligaqr <> "" Then
+                picQR.Image.Dispose()
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -1581,6 +1582,7 @@ deku:
         If autofac = 1 Then
 
             If siqr = "1" Then
+                picQR.Image.Dispose()
                 Dim entrada As String = linkauto
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -1603,7 +1605,7 @@ deku:
                 ' Dibuja la imagen en el contexto gráfico
                 e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
                 Y += 20
-
+                picQR.Image.Dispose()
             End If
 
         Else
@@ -4174,6 +4176,7 @@ Door:
         If autofac = 1 Then
 
             If siqr = "1" Then
+                picQR.Image.Dispose()
                 Dim entrada As String = linkauto
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -4196,7 +4199,7 @@ Door:
                 ' Dibuja la imagen en el contexto gráfico
                 e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 15), 85, 85)
                 Y += 20
-
+                picQR.Image.Dispose()
             End If
 
         Else
