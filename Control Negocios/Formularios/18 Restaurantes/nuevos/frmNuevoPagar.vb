@@ -3858,6 +3858,7 @@ Door:
             cnn1.Close()
             If siqrwhats = 1 Then
                 If ligaqr <> "" Then
+                    picQR.Image.Dispose()
                     Dim entrada As String = ligaqr
                     Dim Gen As New QRCodeGenerator
                     Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
@@ -3881,6 +3882,7 @@ Door:
             If autofac = 1 Then
 
                 If siqr = "1" Then
+                    picQR.Image.Dispose()
                     Dim entrada As String = linkauto
                     Dim Gen As New QRCodeGenerator
                     Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
