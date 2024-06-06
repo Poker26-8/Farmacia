@@ -114,6 +114,7 @@ Partial Class Inicio
         Me.ReporteDeControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
@@ -169,12 +170,9 @@ Partial Class Inicio
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -932,6 +930,12 @@ Partial Class Inicio
         Me.ReporteDeAuditoriaToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeAuditoriaToolStripMenuItem.Text = "Reporte de auditoria"
         '
+        'ReporteMovCuentasToolStripMenuItem
+        '
+        Me.ReporteMovCuentasToolStripMenuItem.Name = "ReporteMovCuentasToolStripMenuItem"
+        Me.ReporteMovCuentasToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteMovCuentasToolStripMenuItem.Text = "Reporte Mov Cuentas"
+        '
         'pIngresos
         '
         Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado})
@@ -1247,6 +1251,7 @@ Partial Class Inicio
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
         Me.btnpollo.UseVisualStyleBackColor = True
+        Me.btnpollo.Visible = False
         '
         'btnHoteleria
         '
@@ -1321,6 +1326,7 @@ Partial Class Inicio
         Me.btnPagarComandas.Text = "PAGAR COMANDA"
         Me.btnPagarComandas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPagarComandas.UseVisualStyleBackColor = True
+        Me.btnPagarComandas.Visible = False
         '
         'btnvtatouch
         '
@@ -1376,7 +1382,7 @@ Partial Class Inicio
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1033, 720)
+        Me.Label1.Location = New System.Drawing.Point(1033, 768)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 38)
         Me.Label1.TabIndex = 10
@@ -1384,43 +1390,17 @@ Partial Class Inicio
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label1.Visible = False
         '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1008, 778)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(123, 19)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "SINCRONIZADOR"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label2.Visible = False
-        '
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1139, 718)
+        Me.Button3.Location = New System.Drawing.Point(1139, 766)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(43, 42)
         Me.Button3.TabIndex = 9
         Me.Button3.UseVisualStyleBackColor = False
-        '
-        'btnSincronizador
-        '
-        Me.btnSincronizador.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSincronizador.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
-        Me.btnSincronizador.Location = New System.Drawing.Point(1139, 766)
-        Me.btnSincronizador.Name = "btnSincronizador"
-        Me.btnSincronizador.Size = New System.Drawing.Size(43, 42)
-        Me.btnSincronizador.TabIndex = 8
-        Me.btnSincronizador.UseVisualStyleBackColor = False
-        Me.btnSincronizador.Visible = False
         '
         'PictureBox1
         '
@@ -1446,22 +1426,14 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
-        'ReporteMovCuentasToolStripMenuItem
-        '
-        Me.ReporteMovCuentasToolStripMenuItem.Name = "ReporteMovCuentasToolStripMenuItem"
-        Me.ReporteMovCuentasToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.ReporteMovCuentasToolStripMenuItem.Text = "Reporte Mov Cuentas"
-        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1194, 820)
         Me.Controls.Add(Me.pedidos_tienda)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.btnSincronizador)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
@@ -1585,11 +1557,9 @@ Partial Class Inicio
     Friend WithEvents pNomina As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents pTransporte As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents btnSincronizador As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents pRepPrecios As ToolStripMenuItem
     Friend WithEvents ReporteDeEgresosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubeClientesToolStripMenuItem As ToolStripMenuItem

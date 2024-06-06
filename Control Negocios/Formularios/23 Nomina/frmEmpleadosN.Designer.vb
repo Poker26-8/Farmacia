@@ -28,6 +28,7 @@ Partial Class frmEmpleadosN
         Me.cboEmpresa = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnRfc = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtnss = New System.Windows.Forms.TextBox()
         Me.txtcurp = New System.Windows.Forms.TextBox()
@@ -97,7 +98,6 @@ Partial Class frmEmpleadosN
         Me.lblidcontrato = New System.Windows.Forms.Label()
         Me.lblidriesgo = New System.Windows.Forms.Label()
         Me.lblidbanco = New System.Windows.Forms.Label()
-        Me.btnRfc = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -169,6 +169,15 @@ Partial Class frmEmpleadosN
         Me.GroupBox2.TabIndex = 178
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos del  Empleado"
+        '
+        'btnRfc
+        '
+        Me.btnRfc.Location = New System.Drawing.Point(493, 58)
+        Me.btnRfc.Name = "btnRfc"
+        Me.btnRfc.Size = New System.Drawing.Size(20, 21)
+        Me.btnRfc.TabIndex = 10
+        Me.btnRfc.TabStop = False
+        Me.btnRfc.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -504,6 +513,7 @@ Partial Class frmEmpleadosN
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
+        Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnAgregar.Location = New System.Drawing.Point(10, 13)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 84)
@@ -886,15 +896,6 @@ Partial Class frmEmpleadosN
         Me.lblidbanco.Size = New System.Drawing.Size(100, 23)
         Me.lblidbanco.TabIndex = 188
         Me.lblidbanco.Visible = False
-        '
-        'btnRfc
-        '
-        Me.btnRfc.Location = New System.Drawing.Point(493, 58)
-        Me.btnRfc.Name = "btnRfc"
-        Me.btnRfc.Size = New System.Drawing.Size(20, 21)
-        Me.btnRfc.TabIndex = 10
-        Me.btnRfc.TabStop = False
-        Me.btnRfc.UseVisualStyleBackColor = True
         '
         'frmEmpleadosN
         '

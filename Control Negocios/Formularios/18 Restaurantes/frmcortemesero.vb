@@ -268,7 +268,8 @@ Public Class frmcortemesero
             Y += 18
             e.Graphics.DrawString("DEL:" & Format(dtpfecha.Value, "yyyy-MM-dd"), fuente_prods, Brushes.Black, 1, Y)
             Y += 15
-
+            e.Graphics.DrawString("Hora:" & Format(Date.Now, "HH:mm:ss"), fuente_prods, Brushes.Black, 1, Y)
+            Y += 15
 
             Dim totalmesero As Double = 0
             Dim formapagos As String = ""

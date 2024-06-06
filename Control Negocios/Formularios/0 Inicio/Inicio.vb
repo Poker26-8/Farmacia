@@ -3637,7 +3637,7 @@ Public Class Inicio
         frmAct_Sincronizador.BringToFront()
     End Sub
 
-    Private Sub btnSincronizador_Click(sender As System.Object, e As System.EventArgs) Handles btnSincronizador.Click
+    Private Sub btnSincronizador_Click(sender As System.Object, e As System.EventArgs)
         frmSincro.Show()
         frmSincro.BringToFront()
     End Sub
@@ -3653,14 +3653,6 @@ Public Class Inicio
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         frmModulos.Show()
         frmModulos.BringToFront()
-    End Sub
-
-    Private Sub btnSincronizador_MouseEnter(sender As Object, e As System.EventArgs) Handles btnSincronizador.MouseEnter
-        Label2.Visible = True
-    End Sub
-
-    Private Sub btnSincronizador_MouseLeave(sender As Object, e As System.EventArgs) Handles btnSincronizador.MouseLeave
-        Label2.Visible = False
     End Sub
 
     Private Sub pFacturas_Click(sender As Object, e As EventArgs) Handles pFacturas.Click
