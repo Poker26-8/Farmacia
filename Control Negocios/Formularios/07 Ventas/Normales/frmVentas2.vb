@@ -12404,6 +12404,7 @@ ecomoda:
 
 
             If ligaqr <> "" Then
+
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
