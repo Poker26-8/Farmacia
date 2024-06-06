@@ -379,26 +379,27 @@
 
     'tipocontrato
 
-    Public vartablatipocontrato As String = "CREATE TABLE `tipo_jornada` (
-                                              `Id` int(11) NOT NULL,
-                                              `Tj_id` varchar(10) NOT NULL DEFAULT '',
-                                              `tj_nombre` varchar(100) NOT NULL DEFAULT '',
-                                              `tj_numerico1` varchar(50) NOT NULL DEFAULT '',
-                                              `tj_texto1` varchar(50) NOT NULL DEFAULT '',
-                                              `Campo1` int(11) NOT NULL DEFAULT '0'
-                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+    Public vartablatipocontrato As String = "CREATE TABLE `tipo_contrato` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Tc_id` varchar(10) NOT NULL DEFAULT '',
+                                                  `Tc_nombre` varchar(100) NOT NULL DEFAULT '',
+                                                  `Tc_numerico1` varchar(50) NOT NULL DEFAULT '',
+                                                  `Tc_texto1` varchar(50) NOT NULL DEFAULT ''
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'insertatipocontrato
-    Public varinsertatipocontrato As String = "INSERT INTO `tipo_jornada` (`Id`, `Tj_id`, `tj_nombre`, `tj_numerico1`, `tj_texto1`, `Campo1`) VALUES
-                                                        (1, '01', 'Diurna', '', '', 0),
-                                                        (2, '02', 'Nocturna', '', '', 0),
-                                                        (3, '03', 'Mixta', '', '', 0),
-                                                        (4, '04', 'Por hora', '', '', 0),
-                                                        (5, '05', 'Reducida', '', '', 0),
-                                                        (6, '06', 'Continuada', '', '', 0),
-                                                        (7, '07', 'Partida', '', '', 0),
-                                                        (8, '08', 'Por turnos', '', '', 0),
-                                                        (9, '99', 'Otra Jornada', '', '', 0);"
+    Public varinsertatipocontrato As String = "INSERT INTO `tipo_contrato` (`Id`, `Tc_id`, `Tc_nombre`, `Tc_numerico1`, `Tc_texto1`) VALUES
+                                                    (1, '01', 'Contrato de trabajo por tiempo indeterminado', '', ''),
+                                                    (2, '02', 'Contrato de trabajo para obra determinada', '', ''),
+                                                    (3, '03', 'Contrato de trabajo por tiempo determinado', '', ''),
+                                                    (4, '04', 'Contrato de trabajo por temporada', '', ''),
+                                                    (5, '05', 'Contrato de trabajo sujeto a prueba', '', ''),
+                                                    (6, '06', 'Contrato de trabajo con capacitación inicial', '', ''),
+                                                    (7, '07', 'Modalidad de contratación por pago de hora laborada', '', ''),
+                                                    (8, '08', 'Modalidad de trabajo por comisión laboral', '', ''),
+                                                    (9, '09', 'Modalidades de contratación donde no existe relación de trabajo', '', ''),
+                                                    (10, '10', 'Jubilación, pensión, retiro.', '', ''),
+                                                    (11, '99', 'Otro contrato', '', '');"
 
     'tipo_pago
     Public vartablatipojornada As String = "CREATE TABLE `tipo_jornada` (

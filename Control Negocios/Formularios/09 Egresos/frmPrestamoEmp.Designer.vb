@@ -36,6 +36,10 @@ Partial Class frmPrestamoEmp
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtPagos = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.dtppago = New System.Windows.Forms.DateTimePicker()
         Me.txtcomentario = New System.Windows.Forms.TextBox()
@@ -87,10 +91,7 @@ Partial Class frmPrestamoEmp
         Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbotpago = New System.Windows.Forms.ComboBox()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtPagos = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -237,6 +238,48 @@ Partial Class frmPrestamoEmp
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Préstamo"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(5, 83)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(45, 20)
+        Me.Label14.TabIndex = 206
+        Me.Label14.Text = "Total:"
+        '
+        'txtTotal
+        '
+        Me.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTotal.Location = New System.Drawing.Point(74, 81)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(107, 23)
+        Me.txtTotal.TabIndex = 205
+        Me.txtTotal.Text = "0.00"
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(5, 49)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(51, 20)
+        Me.Label13.TabIndex = 204
+        Me.Label13.Text = "Pagos:"
+        '
+        'txtPagos
+        '
+        Me.txtPagos.BackColor = System.Drawing.Color.White
+        Me.txtPagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPagos.Enabled = False
+        Me.txtPagos.Location = New System.Drawing.Point(74, 49)
+        Me.txtPagos.Name = "txtPagos"
+        Me.txtPagos.Size = New System.Drawing.Size(107, 23)
+        Me.txtPagos.TabIndex = 203
+        Me.txtPagos.Text = "0.00"
+        Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -359,7 +402,7 @@ Partial Class frmPrestamoEmp
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(331, 3)
+        Me.btnguardar.Location = New System.Drawing.Point(265, 3)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 63)
         Me.btnguardar.TabIndex = 178
@@ -373,7 +416,7 @@ Partial Class frmPrestamoEmp
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(395, 3)
+        Me.btnnuevo.Location = New System.Drawing.Point(330, 3)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnnuevo.TabIndex = 177
@@ -487,6 +530,7 @@ Partial Class frmPrestamoEmp
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnSalir)
         Me.Panel1.Controls.Add(Me.btnguardar)
         Me.Panel1.Controls.Add(Me.btnnuevo)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -728,47 +772,20 @@ Partial Class frmPrestamoEmp
         Me.dtpFecha_P.Size = New System.Drawing.Size(135, 25)
         Me.dtpFecha_P.TabIndex = 300
         '
-        'Label13
+        'btnSalir
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(5, 49)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(51, 20)
-        Me.Label13.TabIndex = 204
-        Me.Label13.Text = "Pagos:"
-        '
-        'txtPagos
-        '
-        Me.txtPagos.BackColor = System.Drawing.Color.White
-        Me.txtPagos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPagos.Enabled = False
-        Me.txtPagos.Location = New System.Drawing.Point(74, 49)
-        Me.txtPagos.Name = "txtPagos"
-        Me.txtPagos.Size = New System.Drawing.Size(107, 23)
-        Me.txtPagos.TabIndex = 203
-        Me.txtPagos.Text = "0.00"
-        Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(5, 83)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(45, 20)
-        Me.Label14.TabIndex = 206
-        Me.Label14.Text = "Total:"
-        '
-        'txtTotal
-        '
-        Me.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTotal.Location = New System.Drawing.Point(74, 81)
-        Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(107, 23)
-        Me.txtTotal.TabIndex = 205
-        Me.txtTotal.Text = "0.00"
-        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(395, 3)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(60, 63)
+        Me.btnSalir.TabIndex = 179
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'frmPrestamoEmp
         '
@@ -895,4 +912,5 @@ Partial Class frmPrestamoEmp
     Friend WithEvents txtPagos As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents txtTotal As TextBox
+    Friend WithEvents btnSalir As Button
 End Class

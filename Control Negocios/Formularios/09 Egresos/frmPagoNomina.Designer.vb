@@ -291,7 +291,7 @@ Partial Class frmPagoNomina
         Me.txttotal.BackColor = System.Drawing.Color.White
         Me.txttotal.Enabled = False
         Me.txttotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.txttotal.Location = New System.Drawing.Point(306, 118)
+        Me.txttotal.Location = New System.Drawing.Point(276, 118)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Size = New System.Drawing.Size(83, 23)
         Me.txttotal.TabIndex = 234
@@ -302,7 +302,7 @@ Partial Class frmPagoNomina
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(261, 119)
+        Me.Label21.Location = New System.Drawing.Point(231, 119)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(39, 17)
         Me.Label21.TabIndex = 233
@@ -314,7 +314,7 @@ Partial Class frmPagoNomina
         Me.txtPagos.Enabled = False
         Me.txtPagos.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPagos.ForeColor = System.Drawing.Color.LimeGreen
-        Me.txtPagos.Location = New System.Drawing.Point(306, 89)
+        Me.txtPagos.Location = New System.Drawing.Point(276, 89)
         Me.txtPagos.Name = "txtPagos"
         Me.txtPagos.Size = New System.Drawing.Size(83, 23)
         Me.txtPagos.TabIndex = 232
@@ -334,7 +334,7 @@ Partial Class frmPagoNomina
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(254, 89)
+        Me.Label4.Location = New System.Drawing.Point(224, 89)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(47, 17)
         Me.Label4.TabIndex = 231
@@ -353,7 +353,7 @@ Partial Class frmPagoNomina
         '
         Me.txtefectivo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtefectivo.ForeColor = System.Drawing.Color.LimeGreen
-        Me.txtefectivo.Location = New System.Drawing.Point(306, 60)
+        Me.txtefectivo.Location = New System.Drawing.Point(276, 60)
         Me.txtefectivo.Name = "txtefectivo"
         Me.txtefectivo.Size = New System.Drawing.Size(83, 23)
         Me.txtefectivo.TabIndex = 230
@@ -364,7 +364,7 @@ Partial Class frmPagoNomina
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(245, 61)
+        Me.Label18.Location = New System.Drawing.Point(215, 61)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(56, 17)
         Me.Label18.TabIndex = 229

@@ -566,4 +566,8 @@
         txtTotal.Text = CDbl(IIf(txtEfectivo.Text = "", 0, txtEfectivo.Text)) + CDbl(IIf(txtPagos.Text = "", 0, txtPagos.Text))
         txtTotal.Text = FormatNumber(txtTotal.Text, 2)
     End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
 End Class

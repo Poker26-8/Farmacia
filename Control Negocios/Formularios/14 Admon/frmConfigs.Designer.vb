@@ -284,6 +284,7 @@ Partial Class frmConfigs
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabFuncionalidades1 = New System.Windows.Forms.TabPage()
         Me.pauto = New System.Windows.Forms.GroupBox()
+        Me.chkauto = New System.Windows.Forms.CheckBox()
         Me.Button27 = New System.Windows.Forms.Button()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.txtlink = New System.Windows.Forms.TextBox()
@@ -350,7 +351,6 @@ Partial Class frmConfigs
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
-        Me.chkauto = New System.Windows.Forms.CheckBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -1902,9 +1902,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2138,10 +2138,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -2904,10 +2904,11 @@ Partial Class frmConfigs
         '
         'btnGuardaFormatos
         '
-        Me.btnGuardaFormatos.BackgroundImage = CType(resources.GetObject("btnGuardaFormatos.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardaFormatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardaFormatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardaFormatos.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardaFormatos.Image = CType(resources.GetObject("btnGuardaFormatos.Image"), System.Drawing.Image)
+        Me.btnGuardaFormatos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardaFormatos.Location = New System.Drawing.Point(411, 24)
         Me.btnGuardaFormatos.Name = "btnGuardaFormatos"
         Me.btnGuardaFormatos.Size = New System.Drawing.Size(60, 63)
@@ -3262,12 +3263,25 @@ Partial Class frmConfigs
         Me.pauto.Text = "Autofacturación"
         Me.pauto.Visible = False
         '
+        'chkauto
+        '
+        Me.chkauto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkauto.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkauto.Location = New System.Drawing.Point(45, 58)
+        Me.chkauto.Name = "chkauto"
+        Me.chkauto.Size = New System.Drawing.Size(91, 22)
+        Me.chkauto.TabIndex = 251
+        Me.chkauto.Text = "Mostrar QR"
+        Me.chkauto.UseVisualStyleBackColor = True
+        '
         'Button27
         '
-        Me.Button27.BackgroundImage = CType(resources.GetObject("Button27.BackgroundImage"), System.Drawing.Image)
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button27.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button27.Image = CType(resources.GetObject("Button27.Image"), System.Drawing.Image)
+        Me.Button27.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button27.Location = New System.Drawing.Point(401, 17)
         Me.Button27.Name = "Button27"
         Me.Button27.Size = New System.Drawing.Size(60, 63)
@@ -3543,9 +3557,9 @@ Partial Class frmConfigs
         'tabFuncionalidades2
         '
         Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
-        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 58)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
         Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
-        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 463)
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
         Me.tabFuncionalidades2.TabIndex = 11
         Me.tabFuncionalidades2.Text = " Funcionalidades 2"
         Me.tabFuncionalidades2.UseVisualStyleBackColor = True
@@ -3631,9 +3645,9 @@ Partial Class frmConfigs
         Me.tabMigracion.Controls.Add(Me.chkProductos)
         Me.tabMigracion.Controls.Add(Me.Label72)
         Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
+        Me.tabMigracion.Location = New System.Drawing.Point(4, 84)
         Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
+        Me.tabMigracion.Size = New System.Drawing.Size(478, 437)
         Me.tabMigracion.TabIndex = 8
         Me.tabMigracion.Text = "Migración de datos"
         Me.tabMigracion.UseVisualStyleBackColor = True
@@ -3754,10 +3768,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 437)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3859,10 +3873,10 @@ Partial Class frmConfigs
         Me.TabPage3.Controls.Add(Me.Label86)
         Me.TabPage3.Controls.Add(Me.Label85)
         Me.TabPage3.Controls.Add(Me.Label84)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(478, 463)
+        Me.TabPage3.Size = New System.Drawing.Size(478, 437)
         Me.TabPage3.TabIndex = 10
         Me.TabPage3.Text = "Configuración de Prosepago"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3977,18 +3991,6 @@ Partial Class frmConfigs
         Me.Label84.TabIndex = 0
         Me.Label84.Text = "Configuración de Prosepago"
         Me.Label84.Visible = False
-        '
-        'chkauto
-        '
-        Me.chkauto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkauto.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkauto.Location = New System.Drawing.Point(45, 58)
-        Me.chkauto.Name = "chkauto"
-        Me.chkauto.Size = New System.Drawing.Size(91, 22)
-        Me.chkauto.TabIndex = 251
-        Me.chkauto.Text = "Mostrar QR"
-        Me.chkauto.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '

@@ -726,12 +726,14 @@
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Permisos insertados correctamente", vbInformation + vbOKOnly, "Delsscom® Control Negocios Pro")
                     End If
+                    cnn2.Close()
 
+                    cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
-                        "update Usuarios set Clave='" & txtcontra.Text & "' where IdEmpleado=" & lblid_usu.Text
+                    cmd2.CommandText = "UPDATE Usuarios SET Clave='" & txtcontra.Text & "' WHERE IdEmpleado=" & lblid_usu.Text
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
+
                 End If
                 rd1.Close() : cnn1.Close()
                 If txtcontra.Text = contraaa Then

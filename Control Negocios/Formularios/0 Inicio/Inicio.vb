@@ -785,7 +785,7 @@ Public Class Inicio
         Catch ex As Exception
             rd1.Close()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE abonoe add column otrosgastos double default '0'"
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column Monto double default '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
