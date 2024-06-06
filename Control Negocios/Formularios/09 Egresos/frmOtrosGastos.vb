@@ -38,6 +38,7 @@
     End Sub
 
     Private Sub cboconcepto_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cboconcepto.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             txtefectivo.Focus().Equals(True)
         End If
@@ -87,6 +88,8 @@
     End Sub
 
     Private Sub txtcomentario_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtcomentario.KeyPress
+
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             btnguardar.Focus().Equals(True)
         End If
@@ -130,14 +133,61 @@
         If MsgBox("¿Deseas guardar este gasto?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Try
                 cnn1.Close() : cnn1.Open()
+                For luffy As Integer = 0 To grdpago.Rows.Count - 1
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "insert into OtrosGastos(Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario,Corte,CorteU) values('" & cbotipo.Text & "','" & cboconcepto.Text & "','" & txtfolio.Text & "','" & Format(dtpfecha.Value, "yyyy/MM/dd") & "'," & CDbl(txtefectivo.Text) & "," & CDbl(txtpagos.Text) & "," & CDbl(txttotal.Text) & ",'" & txtcomentario.Text & "','" & lblusuario.Text & "','0','0')"
-                If cmd1.ExecuteNonQuery Then
-                    MsgBox("Movimiento de gasto guardado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    btnnuevo.PerformClick()
+                    Dim formap As String = grdpago.Rows(luffy).Cells(0).Value.ToString
+                    Dim bancop As String = grdpago.Rows(luffy).Cells(1).Value.ToString
+                    Dim referenciap As String = grdpago.Rows(luffy).Cells(2).Value.ToString
+                    Dim montop As String = grdpago.Rows(luffy).Cells(3).Value.ToString
+                    Dim fechap As Date = grdpago.Rows(luffy).Cells(4).Value.ToString
+                    Dim comentariop As String = grdpago.Rows(luffy).Cells(5).Value.ToString
+                    Dim cuentac As String = grdpago.Rows(luffy).Cells(6).Value.ToString
+                    Dim bancocp As String = grdpago.Rows(luffy).Cells(7).Value.ToString
+
+                    Dim fechanueva As String = ""
+                    fechanueva = Format(fechap, "yyyy-MM-dd")
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "INSERT INTO otrosgastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU) values('" & cbotipo.Text & "','" & cboconcepto.Text & "','" & txtfolio.Text & "','" & Format(dtpfecha.Value, "yyyy/MM/dd") & "','" & formap & "'," & montop & "," & CDbl(montop) & ",'" & txtcomentario.Text & "','" & bancop & "','" & referenciap & "','" & comentariop & "','" & cuentac & "','" & bancocp & "','" & lblusuario.Text & "','0','0')"
+                    cmd1.ExecuteNonQuery()
+
+                    Dim saldocuenta As Double = 0
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cuentac & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) - montop
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','OTROS GASTOS'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & txtfolio.Text & "','" & comentariop & "','" & cuentac & "','" & bancocp & "')"
+                            cmd1.ExecuteNonQuery()
+                        End If
+                    Else
+                        saldocuenta = -montop
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','OTROS GASTOS'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & txtfolio.Text & "','" & comentariop & "','" & cuentac & "','" & bancocp & "')"
+                        cmd1.ExecuteNonQuery()
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+
+
+
+                Next
+
+                If txtefectivo.Text > 0 Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "insert into OtrosGastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU) values('" & cbotipo.Text & "','" & cboconcepto.Text & "','" & txtfolio.Text & "','" & Format(dtpfecha.Value, "yyyy/MM/dd") & "','EFECTIVO'," & txtefectivo.Text & "," & CDbl(txtefectivo.Text) & ",'" & txtcomentario.Text & "','','','','','','" & lblusuario.Text & "','0','0')"
+                    cmd1.ExecuteNonQuery()
+
                 End If
+                MsgBox("Registro agregado correctamente", vbInformation + vbOKOnly, titulocentral)
+                btnnuevo.PerformClick()
 
                 cnn1.Close()
             Catch ex As Exception
@@ -159,6 +209,7 @@
         txttotal.Text = "0.00"
         txtcomentario.Text = ""
         dtpfecha.Value = Date.Now
+        grdpago.Rows.Clear()
         cboconcepto.Focus().Equals(True)
     End Sub
 
@@ -363,5 +414,9 @@
         grdpago.Rows.Remove(grdpago.Rows(index))
         txtpagos.Text = txtpagos.Text - CDec(importe)
         txtpagos.Text = FormatNumber(txtpagos.Text, 2)
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
     End Sub
 End Class

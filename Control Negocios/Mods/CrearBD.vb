@@ -2062,7 +2062,7 @@
                                           `Retiro` float NOT NULL DEFAULT '0',
                                           `Deposito` float NOT NULL DEFAULT '0',
                                           `Fecha` date NOT NULL,
-                                          `Hora` time(2) NOT NULL,
+                                          `Hora` time NOT NULL,
                                           `Folio` varchar(70) NOT NULL DEFAULT '',
                                           `Comentario` varchar(70) NOT NULL DEFAULT '',
                                           `Cuenta` varchar(70) NOT NULL DEFAULT '',
@@ -2175,20 +2175,27 @@
 
     'OtrosGastos
     Public vartablaotrosgastos As String = "CREATE TABLE IF NOT EXISTS `otrosgastos` (
-                                      `Id` int(11) NOT NULL,
-                                      `Tipo` varchar(50) NOT NULL DEFAULT '',
-                                      `Concepto` varchar(255) NOT NULL DEFAULT '',
-                                      `Folio` varchar(50) NOT NULL DEFAULT '',
-                                      `Fecha` date NOT NULL,
-                                      `Efectivo` float NOT NULL DEFAULT '0',
-                                      `Tarjeta` float NOT NULL DEFAULT '0',
-                                      `Transfe` float NOT NULL DEFAULT '0',
-                                      `Total` float NOT NULL DEFAULT '0',
-                                      `Nota` text NOT NULL,
-                                      `Usuario` varchar(50) NOT NULL DEFAULT '',
-                                      `Corte` int(2) NOT NULL DEFAULT '0',
-                                      `CorteU` int(2) NOT NULL DEFAULT '0'
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+                                              `Id` int(11) NOT NULL,
+                                              `Tipo` varchar(50) NOT NULL DEFAULT '',
+                                              `Concepto` varchar(255) NOT NULL DEFAULT '',
+                                              `Folio` varchar(50) NOT NULL DEFAULT '',
+                                              `Fecha` date NOT NULL,
+                                              `FormaPago` varchar(50) NOT NULL DEFAULT '',
+                                              `Monto` double NOT NULL DEFAULT '0',
+                                              `Efectivo` float NOT NULL DEFAULT '0',
+                                              `Tarjeta` float NOT NULL DEFAULT '0',
+                                              `Transfe` float NOT NULL DEFAULT '0',
+                                              `Total` float NOT NULL DEFAULT '0',
+                                              `Nota` text NOT NULL,
+                                              `Banco` varchar(50) DEFAULT '',
+                                              `Referencia` varchar(50) DEFAULT '',
+                                              `Comentario` varchar(255) DEFAULT '',
+                                              `CuentaC` varchar(50) DEFAULT '',
+                                              `BancoC` varchar(50) DEFAULT '',
+                                              `Usuario` varchar(50) NOT NULL DEFAULT '',
+                                              `CorteU` int(2) NOT NULL DEFAULT '0',
+                                              `Corte` int(2) NOT NULL DEFAULT '0'
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 
 
@@ -6096,8 +6103,14 @@
                                                   `Abono` float NOT NULL DEFAULT '0',
                                                   `Tipo` varchar(80) NOT NULL DEFAULT '',
                                                   `Concepto` varchar(150) NOT NULL DEFAULT '',
+                                                  `FormaPago` varchar(50) NOT NULL DEFAULT '',
                                                   `Monto` float NOT NULL DEFAULT '0',
                                                   `Nota` varchar(250) NOT NULL DEFAULT '',
+                                                  `Banco` varchar(50) NOT NULL DEFAULT '',
+                                                  `Referencia` varchar(50) NOT NULL DEFAULT '',
+                                                  `Comentario` varchar(255) NOT NULL DEFAULT '',
+                                                  `Cuenta` varchar(50) NOT NULL DEFAULT '',
+                                                  `BancoC` varchar(50) NOT NULL DEFAULT '',
                                                   `Usuario` varchar(50) NOT NULL DEFAULT '',
                                                   `Corte` int(1) NOT NULL DEFAULT '0',
                                                   `CorteU` int(1) NOT NULL DEFAULT '0',

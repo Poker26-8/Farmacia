@@ -69,11 +69,9 @@ Partial Class frmOtrosGastos
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbotpago = New System.Windows.Forms.ComboBox()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.grdpago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -201,16 +199,17 @@ Partial Class frmOtrosGastos
         '
         Me.txtfolio.Location = New System.Drawing.Point(73, 18)
         Me.txtfolio.Name = "txtfolio"
-        Me.txtfolio.Size = New System.Drawing.Size(102, 23)
+        Me.txtfolio.Size = New System.Drawing.Size(110, 23)
         Me.txtfolio.TabIndex = 165
         '
         'btnguardar
         '
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.Location = New System.Drawing.Point(361, 218)
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnguardar.Location = New System.Drawing.Point(297, 218)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 63)
         Me.btnguardar.TabIndex = 218
@@ -224,7 +223,7 @@ Partial Class frmOtrosGastos
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(295, 218)
+        Me.btnnuevo.Location = New System.Drawing.Point(231, 218)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnnuevo.TabIndex = 217
@@ -235,11 +234,12 @@ Partial Class frmOtrosGastos
         'txtcontraseña
         '
         Me.txtcontraseña.BackColor = System.Drawing.Color.White
-        Me.txtcontraseña.Location = New System.Drawing.Point(325, 40)
+        Me.txtcontraseña.Location = New System.Drawing.Point(342, 40)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtcontraseña.Size = New System.Drawing.Size(81, 23)
         Me.txtcontraseña.TabIndex = 222
+        Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label17
         '
@@ -256,7 +256,7 @@ Partial Class frmOtrosGastos
         Me.cbotipo.FormattingEnabled = True
         Me.cbotipo.Location = New System.Drawing.Point(55, 40)
         Me.cbotipo.Name = "cbotipo"
-        Me.cbotipo.Size = New System.Drawing.Size(154, 23)
+        Me.cbotipo.Size = New System.Drawing.Size(173, 23)
         Me.cbotipo.TabIndex = 219
         '
         'Label16
@@ -276,7 +276,7 @@ Partial Class frmOtrosGastos
         '
         Me.lblusuario.BackColor = System.Drawing.Color.Navy
         Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(227, 40)
+        Me.lblusuario.Location = New System.Drawing.Point(244, 40)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(92, 23)
         Me.lblusuario.TabIndex = 225
@@ -346,9 +346,9 @@ Partial Class frmOtrosGastos
         Me.Label23.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label23.Location = New System.Drawing.Point(5, 320)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(68, 19)
+        Me.Label23.Size = New System.Drawing.Size(84, 19)
         Me.Label23.TabIndex = 260
-        Me.Label23.Text = "Número:"
+        Me.Label23.Text = "Referencia:"
         '
         'cboBancoRecepcion
         '
@@ -452,7 +452,7 @@ Partial Class frmOtrosGastos
         Me.grdpago.BackgroundColor = System.Drawing.Color.White
         Me.grdpago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdpago.ColumnHeadersVisible = False
-        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27, Me.Column29, Me.Column30, Me.Column31})
+        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27})
         Me.grdpago.Location = New System.Drawing.Point(7, 424)
         Me.grdpago.Name = "grdpago"
         Me.grdpago.ReadOnly = True
@@ -515,30 +515,6 @@ Partial Class frmOtrosGastos
         Me.Column27.ReadOnly = True
         Me.Column27.Visible = False
         '
-        'Column29
-        '
-        Me.Column29.HeaderText = "valor"
-        Me.Column29.Name = "Column29"
-        Me.Column29.ReadOnly = True
-        Me.Column29.Visible = False
-        Me.Column29.Width = 5
-        '
-        'Column30
-        '
-        Me.Column30.HeaderText = "equivale"
-        Me.Column30.Name = "Column30"
-        Me.Column30.ReadOnly = True
-        Me.Column30.Visible = False
-        Me.Column30.Width = 5
-        '
-        'Column31
-        '
-        Me.Column31.HeaderText = "dolar"
-        Me.Column31.Name = "Column31"
-        Me.Column31.ReadOnly = True
-        Me.Column31.Visible = False
-        Me.Column31.Width = 5
-        '
         'cbotpago
         '
         Me.cbotpago.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -557,11 +533,27 @@ Partial Class frmOtrosGastos
         Me.dtpFecha_P.Size = New System.Drawing.Size(135, 25)
         Me.dtpFecha_P.TabIndex = 264
         '
+        'btnSalir
+        '
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(363, 218)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(60, 63)
+        Me.btnSalir.TabIndex = 274
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
         'frmOtrosGastos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(431, 508)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label43)
         Me.Controls.Add(Me.Label41)
@@ -643,6 +635,8 @@ Partial Class frmOtrosGastos
     Friend WithEvents btnPagos As Button
     Friend WithEvents txtmonto As TextBox
     Friend WithEvents grdpago As DataGridView
+    Friend WithEvents cbotpago As ComboBox
+    Friend WithEvents dtpFecha_P As DateTimePicker
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
@@ -651,9 +645,5 @@ Partial Class frmOtrosGastos
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column28 As DataGridViewTextBoxColumn
     Friend WithEvents Column27 As DataGridViewTextBoxColumn
-    Friend WithEvents Column29 As DataGridViewTextBoxColumn
-    Friend WithEvents Column30 As DataGridViewTextBoxColumn
-    Friend WithEvents Column31 As DataGridViewTextBoxColumn
-    Friend WithEvents cbotpago As ComboBox
-    Friend WithEvents dtpFecha_P As DateTimePicker
+    Friend WithEvents btnSalir As Button
 End Class

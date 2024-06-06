@@ -644,6 +644,241 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+        'saldosempleados
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FormaPago FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column FormaPago varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Banco FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column Banco varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Referencia FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column Referencia varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comentario FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column Comentario varchar(255) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cuenta FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column Cuenta varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT BancoC FROM saldosempleados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+        cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE saldosempleados add column BancoC varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+        cnn1.Close()
+        End Try
+
+        'OTROSGASTOS
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FormaPago FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column FormaPago varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Monto FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoe add column otrosgastos double default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Banco FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column Banco varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Referencia FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column Referencia varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comentario FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column Comentario varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT CuentaC FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column CuentaC varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT BancoC FROM otrosgastos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE otrosgastos add column BancoC varchar(100) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
 
         'abonoe
         Try
@@ -1595,17 +1830,17 @@ Public Class Inicio
 
         'usuarios
         Try
-                cnn1.Close()
-                cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select P1,P2,P3 from Usuarios"
-                rd1 = cmd1.ExecuteReader
-                If rd1.Read Then
-                End If
-                rd1.Close()
-                cnn1.Close()
-            Catch ex As Exception
-                rd1.Close()
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select P1,P2,P3 from Usuarios"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "Alter table Usuarios add column P1 varchar(255)"
             cmd1.ExecuteNonQuery()
@@ -2220,7 +2455,7 @@ Public Class Inicio
             frmComprasS.BringToFront()
         Else
             'frmCompras.Show()
-            'frmCompras.BringToFront()
+            ' frmCompras.BringToFront()
 
             frmNuvCompras.Show()
             frmNuvCompras.BringToFront()
@@ -3767,5 +4002,11 @@ Public Class Inicio
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         frmConfigs.Show()
         frmConfigs.BringToFront()
+    End Sub
+
+    Private Sub ReporteMovCuentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteMovCuentasToolStripMenuItem.Click
+        frmRepMovCuentas.Show()
+        frmRepMovCuentas.BringToFront()
+
     End Sub
 End Class

@@ -493,6 +493,12 @@
     <Compile Include="Formularios\10 Reportes\frmMinMax.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\MovCuentas\frmRepMovCuentas.Designer.vb">
+      <DependentUpon>frmRepMovCuentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\MovCuentas\frmRepMovCuentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.Designer.vb">
       <DependentUpon>frmNuvRepVentas.vb</DependentUpon>
     </Compile>
@@ -2045,6 +2051,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmMinMax.resx">
       <DependentUpon>frmMinMax.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\MovCuentas\frmRepMovCuentas.resx">
+      <DependentUpon>frmRepMovCuentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.resx">
       <DependentUpon>frmNuvRepVentas.vb</DependentUpon>

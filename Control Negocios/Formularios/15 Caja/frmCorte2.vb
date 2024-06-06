@@ -268,7 +268,7 @@ Public Class frmCorte2
             Try
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT SUM(Efectivo) FROM AbonoE WHERE Usuario='" & Usu & "' AND Abono<>0 AND CorteU=0"
+                cmd2.CommandText = "SELECT SUM(Abono) FROM AbonoE WHERE Usuario='" & Usu & "' AND Abono<>0 AND CorteU=0 AND Concepto='ABONO'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -2406,8 +2406,7 @@ Public Class frmCorte2
 
             'Cobro a empleados
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "SELECT sum(Monto) FROM SaldosEmpleados where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Concepto='COBRO'"
+            cmd1.CommandText = "SELECT sum(Monto) FROM SaldosEmpleados where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Concepto='COBRO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2416,6 +2415,19 @@ Public Class frmCorte2
                 End If
             End If
             rd1.Close()
+
+            'compras canceladas
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE COncepto='CANCELACION' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtComprasCanceG.Text = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
+                    txtComprasCanceG.Text = FormatNumber(txtComprasCanceG.Text, 2)
+                End If
+            End If
+            rd1.Close()
+
 
             Dim Efectivo As String = "0"
             'Efectivo
@@ -2429,7 +2441,6 @@ Public Class frmCorte2
                 End If
             End If
             rd1.Close()
-
             txtIngEfectivoG.Text = FormatNumber(Efectivo, 2)
 
             Dim formapagoglobal As String = ""
@@ -2466,7 +2477,6 @@ Public Class frmCorte2
             txtingresosformas.Text = FormatNumber(totalglobal, 2)
 
             Dim ingresospropinas As Double = 0
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT sum(Propina) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
@@ -2477,18 +2487,6 @@ Public Class frmCorte2
             End If
             rd1.Close()
             txtIngresoPropina.Text = FormatNumber(ingresospropinas, 2)
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE COncepto='CANCELACION' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txtComprasCanceG.Text = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
-                    txtComprasCanceG.Text = FormatNumber(txtComprasCanceG.Text, 2)
-                End If
-            End If
-            rd1.Close()
-
 
             Dim Ingresos As String = "0"
             Ingresos = CDec(txtVentasG.Text) + CDec(txtComprasCanceG.Text) + CDec(txtCobroEmpG.Text)
@@ -2517,8 +2515,7 @@ Public Class frmCorte2
 
             'Prestamo a empleados
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select sum(Monto) from SaldosEmpleados where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM SaldosEmpleados where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto<>'COBRO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2543,8 +2540,7 @@ Public Class frmCorte2
 
             'Otros gastos
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select sum(Total) from OtrosGastos where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto<>'NOMINA'"
+            cmd2.CommandText = "SELECT SUM(Total) FROM OtrosGastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto<>'NOMINA'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2584,7 +2580,7 @@ Public Class frmCorte2
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Efectivo) from OtrosGastos where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                "select sum(Monto) from OtrosGastos where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2595,7 +2591,7 @@ Public Class frmCorte2
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Efectivo) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Efectivo>0"
+                "select sum(Monto) from AbonoE where Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2607,6 +2603,16 @@ Public Class frmCorte2
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
                 "select sum(nom_salario) from Nomina where nom_fecha_nomina='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    EgrEfectivo = CDec(EgrEfectivo) + CDec(IIf(rd2(0).ToString = "", "0.00", rd2(0).ToString))
+                End If
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT sum(Monto) FROM saldosempleados WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

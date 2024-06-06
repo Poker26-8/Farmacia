@@ -1737,7 +1737,7 @@ kaka:
     Private Sub txtefectivo_LostFocus(sender As Object, e As EventArgs) Handles txtefectivo.LostFocus
 
 
-        txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+
     End Sub
 
     Private Sub grdcaptura_KeyDown(sender As Object, e As KeyEventArgs) Handles grdcaptura.KeyDown

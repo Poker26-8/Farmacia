@@ -174,6 +174,7 @@ Partial Class Inicio
         Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
+        Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -788,7 +789,7 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteMovCuentasToolStripMenuItem})
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
@@ -1445,6 +1446,12 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
+        'ReporteMovCuentasToolStripMenuItem
+        '
+        Me.ReporteMovCuentasToolStripMenuItem.Name = "ReporteMovCuentasToolStripMenuItem"
+        Me.ReporteMovCuentasToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteMovCuentasToolStripMenuItem.Text = "Reporte Mov Cuentas"
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1627,4 +1634,5 @@ Partial Class Inicio
     Friend WithEvents pedidos_tienda As Label
     Friend WithEvents SubeMonederosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents menuconsignaciones As ToolStripMenuItem
+    Friend WithEvents ReporteMovCuentasToolStripMenuItem As ToolStripMenuItem
 End Class
