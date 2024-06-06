@@ -22,9 +22,11 @@ Partial Class frmPagarTouch
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarTouch))
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.txttotalpropina = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtPorcentaje = New System.Windows.Forms.TextBox()
         Me.lblfolio = New System.Windows.Forms.Label()
@@ -117,8 +119,6 @@ Partial Class frmPagarTouch
         Me.btn500 = New System.Windows.Forms.Button()
         Me.btn50 = New System.Windows.Forms.Button()
         Me.btn100 = New System.Windows.Forms.Button()
-        Me.txttotalpropina = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,6 +155,28 @@ Partial Class frmPagarTouch
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(254, 318)
         Me.Panel7.TabIndex = 15
+        '
+        'txttotalpropina
+        '
+        Me.txttotalpropina.BackColor = System.Drawing.Color.White
+        Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txttotalpropina.Location = New System.Drawing.Point(166, 170)
+        Me.txttotalpropina.Name = "txttotalpropina"
+        Me.txttotalpropina.ReadOnly = True
+        Me.txttotalpropina.Size = New System.Drawing.Size(84, 21)
+        Me.txttotalpropina.TabIndex = 43
+        Me.txttotalpropina.Text = "0.00"
+        Me.txttotalpropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(6, 171)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(154, 21)
+        Me.Label28.TabIndex = 42
+        Me.Label28.Text = "Total con propina:"
         '
         'Label27
         '
@@ -429,6 +451,7 @@ Partial Class frmPagarTouch
         'txtRecepcion
         '
         Me.txtRecepcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.txtRecepcion.Enabled = False
         Me.txtRecepcion.Location = New System.Drawing.Point(325, 102)
         Me.txtRecepcion.Name = "txtRecepcion"
         Me.txtRecepcion.Size = New System.Drawing.Size(143, 20)
@@ -457,8 +480,8 @@ Partial Class frmPagarTouch
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdPagos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
@@ -1148,28 +1171,6 @@ Partial Class frmPagarTouch
         Me.btn100.Size = New System.Drawing.Size(131, 49)
         Me.btn100.TabIndex = 31
         Me.btn100.UseVisualStyleBackColor = False
-        '
-        'txttotalpropina
-        '
-        Me.txttotalpropina.BackColor = System.Drawing.Color.White
-        Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotalpropina.Location = New System.Drawing.Point(166, 170)
-        Me.txttotalpropina.Name = "txttotalpropina"
-        Me.txttotalpropina.ReadOnly = True
-        Me.txttotalpropina.Size = New System.Drawing.Size(84, 21)
-        Me.txttotalpropina.TabIndex = 43
-        Me.txttotalpropina.Text = "0.00"
-        Me.txttotalpropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label28
-        '
-        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(6, 171)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(154, 21)
-        Me.Label28.TabIndex = 42
-        Me.Label28.Text = "Total con propina:"
         '
         'frmPagarTouch
         '

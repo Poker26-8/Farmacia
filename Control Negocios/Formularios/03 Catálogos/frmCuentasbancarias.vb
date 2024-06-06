@@ -5,7 +5,7 @@
         cbobanco.Text = ""
         cboTitular.Text = ""
         cbocuenta.Focus.Equals(True)
-
+        txtSaldo.Text = "0"
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -171,6 +171,17 @@
                     txtId.Text = rd1(0).ToString
                     cbobanco.Text = rd1(1).ToString
                     cboTitular.Text = rd1(2).ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cbocuenta.Text & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            txtSaldo.Text = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+                        End If
+                    End If
+                    rd2.Close()
                 End If
             End If
             rd1.Close()
@@ -225,11 +236,11 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Id,Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cbocuenta.Text & "')"
+            cmd1.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cbocuenta.Text & "')"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    idmov = rd1(0).ToString
+
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
@@ -239,7 +250,7 @@
 
                 End If
             Else
-                idmov = rd1(0).ToString
+
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
@@ -249,7 +260,7 @@
             End If
             rd1.Close()
             cnn1.Close()
-
+            MsgBox("Saldo actualizado correctamente", vbInformation + vbOKOnly, titulocentral)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()

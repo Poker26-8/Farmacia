@@ -173,6 +173,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
+        Me.MovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -938,7 +939,7 @@ Partial Class Inicio
         '
         'pIngresos
         '
-        Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado})
+        Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado, Me.MovCuentasToolStripMenuItem})
         Me.pIngresos.Name = "pIngresos"
         Me.pIngresos.Size = New System.Drawing.Size(63, 20)
         Me.pIngresos.Text = "Ingresos"
@@ -947,7 +948,7 @@ Partial Class Inicio
         '
         Me.pCEmpleado.BackColor = System.Drawing.Color.White
         Me.pCEmpleado.Name = "pCEmpleado"
-        Me.pCEmpleado.Size = New System.Drawing.Size(177, 22)
+        Me.pCEmpleado.Size = New System.Drawing.Size(180, 22)
         Me.pCEmpleado.Text = "Cobro a empleados"
         '
         'pEgresos
@@ -1426,6 +1427,12 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
+        'MovCuentasToolStripMenuItem
+        '
+        Me.MovCuentasToolStripMenuItem.Name = "MovCuentasToolStripMenuItem"
+        Me.MovCuentasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MovCuentasToolStripMenuItem.Text = "Mov Cuentas"
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1605,4 +1612,5 @@ Partial Class Inicio
     Friend WithEvents SubeMonederosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents menuconsignaciones As ToolStripMenuItem
     Friend WithEvents ReporteMovCuentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MovCuentasToolStripMenuItem As ToolStripMenuItem
 End Class

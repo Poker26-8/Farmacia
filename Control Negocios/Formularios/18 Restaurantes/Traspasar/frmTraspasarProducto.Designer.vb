@@ -51,6 +51,7 @@ Partial Class frmTraspasarProducto
         Me.DataGridViewButtonColumn1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,7 +70,7 @@ Partial Class frmTraspasarProducto
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(633, 33)
+        Me.Label1.Size = New System.Drawing.Size(1036, 33)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Traspasar producto a otra mesa"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -80,7 +81,7 @@ Partial Class frmTraspasarProducto
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(633, 33)
+        Me.Panel1.Size = New System.Drawing.Size(1036, 33)
         Me.Panel1.TabIndex = 1
         '
         'Panel2
@@ -96,7 +97,7 @@ Partial Class frmTraspasarProducto
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 33)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(633, 89)
+        Me.Panel2.Size = New System.Drawing.Size(1036, 261)
         Me.Panel2.TabIndex = 2
         '
         'lblDestino
@@ -148,7 +149,7 @@ Partial Class frmTraspasarProducto
         Me.btnDestino.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDestino.Image = CType(resources.GetObject("btnDestino.Image"), System.Drawing.Image)
         Me.btnDestino.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnDestino.Location = New System.Drawing.Point(349, 6)
+        Me.btnDestino.Location = New System.Drawing.Point(752, 6)
         Me.btnDestino.Name = "btnDestino"
         Me.btnDestino.Size = New System.Drawing.Size(89, 78)
         Me.btnDestino.TabIndex = 3
@@ -164,7 +165,7 @@ Partial Class frmTraspasarProducto
         Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
         Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAceptar.Location = New System.Drawing.Point(444, 6)
+        Me.btnAceptar.Location = New System.Drawing.Point(847, 6)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(89, 78)
         Me.btnAceptar.TabIndex = 2
@@ -180,7 +181,7 @@ Partial Class frmTraspasarProducto
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCancelar.Location = New System.Drawing.Point(539, 6)
+        Me.btnCancelar.Location = New System.Drawing.Point(942, 6)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(89, 78)
         Me.btnCancelar.TabIndex = 1
@@ -216,9 +217,8 @@ Partial Class frmTraspasarProducto
         Me.grd2.Location = New System.Drawing.Point(315, 7)
         Me.grd2.Name = "grd2"
         Me.grd2.RowHeadersVisible = False
-        Me.grd2.Size = New System.Drawing.Size(313, 71)
+        Me.grd2.Size = New System.Drawing.Size(313, 230)
         Me.grd2.TabIndex = 1
-        Me.grd2.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -265,9 +265,9 @@ Partial Class frmTraspasarProducto
         '
         Me.Panel3.Controls.Add(Me.grdCaptura)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 122)
+        Me.Panel3.Location = New System.Drawing.Point(0, 294)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(633, 540)
+        Me.Panel3.Size = New System.Drawing.Size(1036, 368)
         Me.Panel3.TabIndex = 3
         '
         'grdCaptura
@@ -286,7 +286,7 @@ Partial Class frmTraspasarProducto
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column1, Me.Column2, Me.Column4, Me.Column5})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column6, Me.Column3, Me.Column1, Me.Column2, Me.Column4, Me.Column5})
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -299,8 +299,13 @@ Partial Class frmTraspasarProducto
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(633, 540)
+        Me.grdCaptura.Size = New System.Drawing.Size(1036, 368)
         Me.grdCaptura.TabIndex = 0
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "IDC"
+        Me.Column6.Name = "Column6"
         '
         'Column3
         '
@@ -348,7 +353,7 @@ Partial Class frmTraspasarProducto
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(633, 662)
+        Me.ClientSize = New System.Drawing.Size(1036, 662)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -378,15 +383,16 @@ Partial Class frmTraspasarProducto
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents grdCaptura As DataGridView
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewButtonColumn
     Friend WithEvents grd2 As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewButtonColumn1 As DataGridViewButtonColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewButtonColumn
 End Class

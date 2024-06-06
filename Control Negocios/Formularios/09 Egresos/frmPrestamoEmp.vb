@@ -282,7 +282,7 @@
                             saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) - montop
 
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','PRESTAMO'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "', '" & comentario & "','" & cuentap & "','" & bancocp & "')"
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','PRESTAMO'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "','" & cbonombre.Text & "', '" & comentario & "','" & cuentap & "','" & bancocp & "')"
                             cmd1.ExecuteNonQuery()
 
                         End If
@@ -290,7 +290,7 @@
                         saldocuenta = -montop
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','PRESTAMO'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "', '" & comentario & "','" & cuentap & "','" & bancocp & "')"
+                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formap & "','" & bancop & "','" & referenciap & "','PRESTAMO'," & montop & "," & montop & ",0," & saldocuenta & ",'" & fechanueva & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "','" & cbonombre.Text & "', '" & comentario & "','" & cuentap & "','" & bancocp & "')"
                         cmd1.ExecuteNonQuery()
                     End If
                     rd2.Close()

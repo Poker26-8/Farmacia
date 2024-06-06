@@ -1867,6 +1867,12 @@
     <Compile Include="Formularios\32 Tienda en linea\frmPedidos_Tienda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\33 Mov_Cuentas\frmMovCuentas.Designer.vb">
+      <DependentUpon>frmMovCuentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\33 Mov_Cuentas\frmMovCuentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -2753,6 +2759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\32 Tienda en linea\frmPedidos_Tienda.resx">
       <DependentUpon>frmPedidos_Tienda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\33 Mov_Cuentas\frmMovCuentas.resx">
+      <DependentUpon>frmMovCuentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

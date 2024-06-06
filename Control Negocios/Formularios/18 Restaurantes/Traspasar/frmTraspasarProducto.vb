@@ -8,18 +8,18 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Cantidad,Codigo,Nombre,Fecha FROM comandas WHERE Nmesa='" & lblOrigen.Text & "'"
+            cmd1.CommandText = "SELECT IDC,Cantidad,Codigo,Nombre,Fecha FROM comandas WHERE Nmesa='" & lblOrigen.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
-                    fecha = rd1(3).ToString
+                    fecha = rd1(4).ToString
                     fechanueva = Format(fecha, "yyyy-MM-dd")
 
-                    grdCaptura.Rows.Add(FormatNumber(rd1(0).ToString, 2),
-                                        rd1(1).ToString,
+                    grdCaptura.Rows.Add(rd1(0).ToString,
+                                        FormatNumber(rd1(1).ToString, 2),
                                         rd1(2).ToString,
-                                        "1.00"
-)
+                                        rd1(3).ToString,
+                                        "1.00")
                 End If
             Loop
             rd1.Close()
@@ -51,7 +51,7 @@
 
     Private Sub grdCaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellContentClick
         ' Verificar si se hizo clic en la columna del botón "Eliminar"
-        If e.ColumnIndex = grdCaptura.Columns(4).Index AndAlso e.RowIndex >= 0 Then
+        If e.ColumnIndex = grdCaptura.Columns(5).Index AndAlso e.RowIndex >= 0 Then
             ' Verificar si la fila ya ha sido seleccionada
             If Not filaSeleccionada.ContainsKey(e.RowIndex) Then
                 ' La fila aún no ha sido seleccionada, cambiar el color de fondo a uno
@@ -116,11 +116,12 @@
 
                 For luffy As Integer = 0 To grd2.Rows.Count - 1
 
-                    Dim cod As String = grd2.Rows(luffy).Cells(1).Value.ToString
+                    Dim idc As Integer = grd2.Rows(luffy).Cells(0).Value.ToString
+                    Dim cod As String = grd2.Rows(luffy).Cells(2).Value.ToString
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "UPDATE comandas SET Nmesa='" & lblDestino.Text & "' WHERE Nmesa='" & lblOrigen.Text & "' AND Codigo='" & cod & "'"
+                    cmd1.CommandText = "UPDATE comandas SET Nmesa='" & lblDestino.Text & "' WHERE Nmesa='" & lblOrigen.Text & "' AND Codigo='" & cod & "' and idc=" & idc & ""
                     cmd1.ExecuteNonQuery()
 
                     cmd1 = cnn1.CreateCommand

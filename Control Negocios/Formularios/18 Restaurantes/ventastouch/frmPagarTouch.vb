@@ -334,19 +334,8 @@
     Private Sub cboCuenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuenta.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Banco FROM cuentasbancarias WHERE CuentaBan='" & cboCuenta.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    txtRecepcion.Text = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
 
-            txtRecepcion.Focus.Equals(True)
+            btnagregarpago.Focus.Equals(True)
 
         End If
     End Sub
@@ -377,7 +366,7 @@
 
         If tipo = "MONEDERO" Then
             If referencia = "" Then
-                MsgBox("Debe ingresar una refrencia", vbInformation + vbOKOnly, titulomensajes)
+                MsgBox("Debe ingresar una referencia", vbInformation + vbOKOnly, titulomensajes)
                 Exit Sub
             End If
 
@@ -1394,6 +1383,21 @@
         txtEfectivo.Text = "0.00"
         txtpagos.Text = "0.00"
         grdPagos.Rows.Clear()
+
+    End Sub
+
+    Private Sub cboCuenta_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuenta.SelectedValueChanged
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT Banco FROM cuentasbancarias WHERE CuentaBan='" & cboCuenta.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                txtRecepcion.Text = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
 
     End Sub
 End Class

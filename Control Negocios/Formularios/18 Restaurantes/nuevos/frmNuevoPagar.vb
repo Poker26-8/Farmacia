@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports QRCoder
 Public Class frmNuevoPagar
 
@@ -46,13 +47,16 @@ Public Class frmNuevoPagar
     Dim cortesia_venta As Integer = 0
     Dim NewPos As String = ""
 
-    Dim tim As New Timer()
+    'Dim tim As New Timer()
+    Dim tim As New System.Windows.Forms.Timer()
 
+    Dim sumacomandas As Double = 0
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
         tim.Stop()
 
         Try
-            grdComanda.Rows.Clear
+            grdComanda.Rows.Clear()
+            sumacomandas = 0
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
@@ -73,12 +77,12 @@ Public Class frmNuevoPagar
 
                     grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
 
-                    Montocobromapeo = Montocobromapeo + vertotal
+                    sumacomandas = sumacomandas + vertotal
                 End If
             Loop
             rd2.Close()
             cnn2.Close()
-
+            txtSubtotalmapeo.Text = FormatNumber(sumacomandas, 2)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn2.Close()
@@ -115,12 +119,13 @@ Public Class frmNuevoPagar
 
                     grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
 
-                    Montocobromapeo = Montocobromapeo + vertotal
+                    Montocobromapeo = Montocobromapeo
                 End If
             Loop
             rd2.Close()
             cnn2.Close()
 
+            txtSubtotalmapeo.Text = FormatNumber(Montocobromapeo, 2)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn2.Close()
@@ -573,7 +578,7 @@ Public Class frmNuevoPagar
 
     Private Sub cboCuenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuenta.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtRecepcion.Focus.Equals(True)
+            btnagregarpago.Focus.Equals(True)
         End If
     End Sub
 
@@ -1248,12 +1253,38 @@ Public Class frmNuevoPagar
                 Dim cuentarep As String = grdPagos.Rows(luffy).Cells(6).Value.ToString
                 Dim bancorep As String = grdPagos.Rows(luffy).Cells(7).Value.ToString
 
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Comentario) values('" & formapago & "','" & bancoforma & "','" & referencia & "','Venta'," & montopago & ",0," & montopago & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "','" & comentario & "')"
-                cmd1.ExecuteNonQuery()
-                cnn1.Close()
+                Dim saldocuneta As Double = 0
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cuentarep & "')"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        saldocuneta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + montopago
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                                    "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & formapago & "','" & bancoforma & "','" & referencia & "','VENTA'," & montopago & ",0," & montopago & "," & saldocuneta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "','MOSTRADOR','" & comentario & "','" & cuentarep & "','" & bancorep & "')"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+
+                    End If
+                Else
+                    saldocuneta = -montopago
+
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                                "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & formapago & "','" & bancoforma & "','" & referencia & "','VENTA'," & montopago & ",0," & montopago & "," & saldocuneta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MyFolio & "','MOSTRADOR','" & comentario & "','" & cuentarep & "','" & bancorep & "')"
+                    cmd1.ExecuteNonQuery()
+                    cnn1.Close()
+
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+
 
                 If formapago = "MONEDERO" Then
                     If montopago > 0 Then
@@ -6006,5 +6037,25 @@ Door:
         If e.Control AndAlso e.KeyCode = Keys.F2 Then
             btnIntro.PerformClick()
         End If
+    End Sub
+
+    Private Sub cboCuenta_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuenta.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Banco FROM cuentasbancarias WHERE CuentaBan='" & cboCuenta.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtRecepcion.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

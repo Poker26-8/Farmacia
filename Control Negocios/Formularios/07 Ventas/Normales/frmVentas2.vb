@@ -7385,7 +7385,7 @@ Door:
         Dim ReferenciaFP As String = ""
         Dim CmentarioFP As String = ""
         Dim CuentaFP As String = ""
-        Dim BancoRecp As String = ""
+        Dim BancoCFP As String = ""
 
         Dim TotSaldo As Double = 0
 
@@ -7451,6 +7451,8 @@ Door:
                             BancoFP = BancoFP & "-" & CStr(grdpago.Rows(R).Cells(1).Value.ToString())
                             ReferenciaFP = grdpago.Rows(R).Cells(2).Value.ToString()
                             CmentarioFP = grdpago.Rows(R).Cells(5).Value.ToString()
+                            CuentaFP = grdpago.Rows(R).Cells(6).Value.ToString()
+                            BancoCFP = grdpago.Rows(R).Cells(7).Value.ToString
                         End If
 
                         If FormaPago = "MONEDERO" Then
@@ -7499,6 +7501,33 @@ Door:
                                 "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario) values(" & MYFOLIO & "," & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & TotFormaPago & "," & (MySaldo) & ",'" & FormaPago & "'," & TotFormaPago & ",'" & BancoFP & "','" & ReferenciaFP & "','" & lblusuario.Text & "','" & CmentarioFP & "')"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
+
+                            Dim saldocuenta As Double = 0
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & CuentaFP & "')"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    saldocuenta = IIf(rd1(0).ToString = "", 0, rd1(0).ToString) + TotFormaPago
+
+                                    cnn2.Close() : cnn2.Open()
+                                    cmd2 = cnn2.CreateCommand
+                                    cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & cboNombre.Text & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
+                                    cmd2.ExecuteNonQuery()
+                                    cnn2.Close()
+                                End If
+                            Else
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & cboNombre.Text & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
+                                cmd2.ExecuteNonQuery()
+                                cnn2.Close()
+                            End If
+                            rd1.Close()
+                            cnn1.Close()
+
                         End If
                     Next
 

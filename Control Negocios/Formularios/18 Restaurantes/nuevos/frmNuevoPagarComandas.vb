@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports QRCoder
 Public Class frmNuevoPagarComandas
 
@@ -34,7 +35,8 @@ Public Class frmNuevoPagarComandas
 
     Dim NewPos As String = ""
 
-    Dim tim As New Timer
+    '  Dim tim As New Timer
+    Dim tim As New System.Windows.Forms.Timer()
     Public cadenafact As String = ""
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
         tim.Stop()
@@ -1677,12 +1679,39 @@ Public Class frmNuevoPagarComandas
                     Dim referencia As String = grdPagos.Rows(forace).Cells(2).Value.ToString
                     Dim monto As Double = grdPagos.Rows(forace).Cells(3).Value.ToString
                     Dim coment As String = grdPagos.Rows(forace).Cells(4).Value.ToString
+                    Dim cuenta As String = grdPagos.Rows(forace).Cells(5).Value.ToString
+                    Dim bancoc As String = grdPagos.Rows(forace).Cells(6).Value.ToString
 
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Comentario) VALUES('" & formapago & "','" & banco & "','" & referencia & "','Venta'," & monto & ",0," & monto & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblfolio.Text & "','" & coment & "')"
-                    cmd1.ExecuteNonQuery()
-                    cnn1.Close()
+                    Dim saldocuenta As Double = 0
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cuenta & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + monto
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formapago & "','" & banco & "','" & referencia & "','VENTA'," & monto & ",0," & monto & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblfolio.Text & "','" & cbocliente.Text & "','" & coment & "','" & cuenta & "','" & bancoc & "')"
+                            cmd1.ExecuteNonQuery()
+                            cnn1.Close()
+
+                        End If
+                    Else
+                        saldocuenta = -monto
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formapago & "','" & banco & "','" & referencia & "','VENTA'," & monto & ",0," & monto & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblfolio.Text & "','" & cbocliente.Text & "','" & coment & "','" & cuenta & "','" & bancoc & "')"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+
 
                     Dim nuevomontof As Double = 0
 
@@ -2266,6 +2295,8 @@ Door:
         Dim referencia As String = txtreferencia.Text
         Dim monto As Double = txtmonto.Text
         Dim comen As String = txtComentario.Text
+        Dim cuenta As String = cboCuneta.Text
+        Dim bancoc As String = txtbancocuenta.Text
 
         Dim totalpagos As Double = 0
         If tipo = "MONEDERO" Then
@@ -2293,7 +2324,8 @@ Door:
 
         End If
 
-        grdPagos.Rows.Add(tipo, banco, referencia, monto, comen)
+        grdPagos.Rows.Add(tipo, banco, referencia, monto, comen, cuenta, bancoc)
+
         totalpagos = txtPagos.Text + monto
         txtPagos.Text = FormatNumber(totalpagos, 2)
         limpiarforma()
@@ -2421,7 +2453,7 @@ Door:
     Private Sub txtComentario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComentario.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnagregarpago.Focus.Equals(True)
+            cboCuneta.Focus.Equals(True)
         End If
     End Sub
 
@@ -4783,5 +4815,52 @@ Door:
         foco = 1
     End Sub
 
+    Private Sub cboCuneta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuneta.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnagregarpago.Focus.Equals(True)
+        End If
+    End Sub
 
+    Private Sub cboCuneta_DropDown(sender As Object, e As EventArgs) Handles cboCuneta.DropDown
+        Try
+            cboCuneta.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT(CuentaBan) FROM cuentasbancarias WHERE CuentaBan<>'' ORDER BY CuentaBan"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboCuneta.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboCuneta_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuneta.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Banco FROM cuentasbancarias WHERE CuentaBan='" & cboCuneta.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtbancocuenta.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class

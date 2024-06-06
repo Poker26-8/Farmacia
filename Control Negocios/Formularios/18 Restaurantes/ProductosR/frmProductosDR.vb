@@ -1116,7 +1116,17 @@ Public Class frmProductosDR
             cboCodCortoNormal.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE Codigo<>'' ORDER BY Codigo"
+            If cboCodCortoNormal.Text <> "" Then
+                cmd5.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE left(Codigo,6)='" & Strings.Left(cboCodCortoNormal.Text, 6) & "' AND Codigo<>'' ORDER BY Codigo"
+            Else
+                If cboDescripcionTicketNormal.Text = "" Then
+                    cmd5.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE Codigo<>'' ORDER BY Codigo"
+                Else
+                    cmd5.CommandText = "SELECT DISTINCT Codigo FROM Productos WHERE Nombre='" & cboDescripcionTicketNormal.Text & "' ORDER BY Codigo"
+                End If
+            End If
+
+
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then

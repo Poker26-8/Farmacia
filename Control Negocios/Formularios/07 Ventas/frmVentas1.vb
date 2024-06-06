@@ -7299,14 +7299,14 @@ doorcita:
 
                                     cnn2.Close() : cnn2.Open()
                                     cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
+                                    cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & cboNombre.Text & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
                                     cmd2.ExecuteNonQuery()
                                     cnn2.Close()
                                 End If
                             Else
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
+                                cmd2.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & FormaPago & "','" & BancoFP & "','" & ReferenciaFP & "','VENTA'," & TotFormaPago & ",0," & TotFormaPago & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & cboNombre.Text & "','" & CmentarioFP & "','" & CuentaFP & "','" & BancoCFP & "')"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
                             End If

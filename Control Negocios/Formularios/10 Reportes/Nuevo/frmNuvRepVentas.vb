@@ -5210,4 +5210,8 @@ Public Class frmNuvRepVentas
             cnn1.Close()
         End Try
     End Sub
+
+    Private Sub grdCaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellContentClick
+
+    End Sub
 End Class

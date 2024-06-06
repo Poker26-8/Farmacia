@@ -644,6 +644,26 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+
+        'movcuenta
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cliente FROM movcuenta"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE movcuenta add column Cliente varchar(50) default ''"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'saldosempleados
         Try
             cnn1.Close()
@@ -747,10 +767,10 @@ Public Class Inicio
             cnn1.Close()
         Catch ex As Exception
             rd1.Close()
-        cmd1 = cnn1.CreateCommand
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "ALTER TABLE saldosempleados add column BancoC varchar(50) default ''"
             cmd1.ExecuteNonQuery()
-        cnn1.Close()
+            cnn1.Close()
         End Try
 
         'OTROSGASTOS
@@ -4000,5 +4020,10 @@ Public Class Inicio
         frmRepMovCuentas.Show()
         frmRepMovCuentas.BringToFront()
 
+    End Sub
+
+    Private Sub MovCuentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovCuentasToolStripMenuItem.Click
+        frmMovCuentas.Show()
+        frmMovCuentas.BringToFront()
     End Sub
 End Class

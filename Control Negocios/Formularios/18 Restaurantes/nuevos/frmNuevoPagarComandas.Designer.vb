@@ -93,6 +93,7 @@ Partial Class frmNuevoPagarComandas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.txttotal = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.txttotaldescuento = New System.Windows.Forms.TextBox()
@@ -110,6 +111,10 @@ Partial Class frmNuevoPagarComandas
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtEfectivo = New System.Windows.Forms.TextBox()
         Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.txtbancocuenta = New System.Windows.Forms.TextBox()
+        Me.cboCuneta = New System.Windows.Forms.ComboBox()
+        Me.Label34 = New System.Windows.Forms.Label()
         Me.txtreferencia = New System.Windows.Forms.TextBox()
         Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -167,7 +172,6 @@ Partial Class frmNuevoPagarComandas
         Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
-        Me.picQR = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -184,12 +188,12 @@ Partial Class frmNuevoPagarComandas
         Me.pCambioMesa.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel13.SuspendLayout()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel12.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel14.SuspendLayout()
         Me.Panel15.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -762,7 +766,7 @@ Partial Class frmNuevoPagarComandas
         Me.cboComensal.FormattingEnabled = True
         Me.cboComensal.Location = New System.Drawing.Point(102, 75)
         Me.cboComensal.Name = "cboComensal"
-        Me.cboComensal.Size = New System.Drawing.Size(122, 21)
+        Me.cboComensal.Size = New System.Drawing.Size(123, 21)
         Me.cboComensal.TabIndex = 39
         '
         'Label16
@@ -1023,6 +1027,20 @@ Partial Class frmNuevoPagarComandas
         Me.Panel13.Size = New System.Drawing.Size(342, 288)
         Me.Panel13.TabIndex = 64
         '
+        'picQR
+        '
+        Me.picQR.BackColor = System.Drawing.Color.White
+        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picQR.Location = New System.Drawing.Point(272, 43)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
+        Me.picQR.Name = "picQR"
+        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.picQR.Size = New System.Drawing.Size(57, 55)
+        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picQR.TabIndex = 210
+        Me.picQR.TabStop = False
+        Me.picQR.Visible = False
+        '
         'txttotal
         '
         Me.txttotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
@@ -1208,6 +1226,10 @@ Partial Class frmNuevoPagarComandas
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel12.Controls.Add(Me.Label35)
+        Me.Panel12.Controls.Add(Me.txtbancocuenta)
+        Me.Panel12.Controls.Add(Me.cboCuneta)
+        Me.Panel12.Controls.Add(Me.Label34)
         Me.Panel12.Controls.Add(Me.txtreferencia)
         Me.Panel12.Controls.Add(Me.txtComentario)
         Me.Panel12.Controls.Add(Me.Label10)
@@ -1228,12 +1250,48 @@ Partial Class frmNuevoPagarComandas
         Me.Panel12.Size = New System.Drawing.Size(422, 288)
         Me.Panel12.TabIndex = 63
         '
+        'Label35
+        '
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(221, 93)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(64, 20)
+        Me.Label35.TabIndex = 65
+        Me.Label35.Text = "Banco:"
+        '
+        'txtbancocuenta
+        '
+        Me.txtbancocuenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.txtbancocuenta.Enabled = False
+        Me.txtbancocuenta.Location = New System.Drawing.Point(291, 92)
+        Me.txtbancocuenta.Name = "txtbancocuenta"
+        Me.txtbancocuenta.Size = New System.Drawing.Size(123, 20)
+        Me.txtbancocuenta.TabIndex = 64
+        '
+        'cboCuneta
+        '
+        Me.cboCuneta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.cboCuneta.FormattingEnabled = True
+        Me.cboCuneta.Location = New System.Drawing.Point(91, 90)
+        Me.cboCuneta.Name = "cboCuneta"
+        Me.cboCuneta.Size = New System.Drawing.Size(124, 21)
+        Me.cboCuneta.TabIndex = 63
+        '
+        'Label34
+        '
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(9, 89)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(79, 20)
+        Me.Label34.TabIndex = 62
+        Me.Label34.Text = "Cuenta:"
+        '
         'txtreferencia
         '
         Me.txtreferencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.txtreferencia.Location = New System.Drawing.Point(91, 34)
         Me.txtreferencia.Name = "txtreferencia"
-        Me.txtreferencia.Size = New System.Drawing.Size(123, 20)
+        Me.txtreferencia.Size = New System.Drawing.Size(124, 20)
         Me.txtreferencia.TabIndex = 50
         '
         'txtComentario
@@ -1284,9 +1342,9 @@ Partial Class frmNuevoPagarComandas
         '
         Me.cboBanco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.cboBanco.FormattingEnabled = True
-        Me.cboBanco.Location = New System.Drawing.Point(279, 7)
+        Me.cboBanco.Location = New System.Drawing.Point(291, 7)
         Me.cboBanco.Name = "cboBanco"
-        Me.cboBanco.Size = New System.Drawing.Size(136, 21)
+        Me.cboBanco.Size = New System.Drawing.Size(124, 21)
         Me.cboBanco.TabIndex = 47
         '
         'grdPagos
@@ -1298,11 +1356,11 @@ Partial Class frmNuevoPagarComandas
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
         Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Column11, Me.Column12, Me.Column18, Me.Column16, Me.Column17})
-        Me.grdPagos.Location = New System.Drawing.Point(9, 125)
+        Me.grdPagos.Location = New System.Drawing.Point(7, 162)
         Me.grdPagos.Name = "grdPagos"
         Me.grdPagos.ReadOnly = True
         Me.grdPagos.RowHeadersVisible = False
-        Me.grdPagos.Size = New System.Drawing.Size(406, 114)
+        Me.grdPagos.Size = New System.Drawing.Size(408, 114)
         Me.grdPagos.TabIndex = 55
         '
         'DataGridViewTextBoxColumn1
@@ -1381,7 +1439,7 @@ Partial Class frmNuevoPagarComandas
         Me.btnagregarpago.FlatAppearance.BorderSize = 0
         Me.btnagregarpago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnagregarpago.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnagregarpago.Location = New System.Drawing.Point(234, 90)
+        Me.btnagregarpago.Location = New System.Drawing.Point(234, 118)
         Me.btnagregarpago.Name = "btnagregarpago"
         Me.btnagregarpago.Size = New System.Drawing.Size(181, 29)
         Me.btnagregarpago.TabIndex = 48
@@ -1401,7 +1459,7 @@ Partial Class frmNuevoPagarComandas
         '
         Me.dtpfechapago.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpfechapago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpfechapago.Location = New System.Drawing.Point(90, 90)
+        Me.dtpfechapago.Location = New System.Drawing.Point(90, 118)
         Me.dtpfechapago.Name = "dtpfechapago"
         Me.dtpfechapago.Size = New System.Drawing.Size(124, 20)
         Me.dtpfechapago.TabIndex = 54
@@ -1410,9 +1468,9 @@ Partial Class frmNuevoPagarComandas
         '
         Me.txtmonto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.txtmonto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtmonto.Location = New System.Drawing.Point(279, 35)
+        Me.txtmonto.Location = New System.Drawing.Point(291, 35)
         Me.txtmonto.Name = "txtmonto"
-        Me.txtmonto.Size = New System.Drawing.Size(136, 21)
+        Me.txtmonto.Size = New System.Drawing.Size(124, 21)
         Me.txtmonto.TabIndex = 52
         Me.txtmonto.Text = "0.00"
         Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1420,7 +1478,7 @@ Partial Class frmNuevoPagarComandas
         'Label15
         '
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(10, 90)
+        Me.Label15.Location = New System.Drawing.Point(10, 118)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(58, 20)
         Me.Label15.TabIndex = 53
@@ -1717,20 +1775,6 @@ Partial Class frmNuevoPagarComandas
         'PCortesia58
         '
         '
-        'picQR
-        '
-        Me.picQR.BackColor = System.Drawing.Color.White
-        Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picQR.Location = New System.Drawing.Point(272, 43)
-        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
-        Me.picQR.Name = "picQR"
-        Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picQR.Size = New System.Drawing.Size(57, 55)
-        Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picQR.TabIndex = 210
-        Me.picQR.TabStop = False
-        Me.picQR.Visible = False
-        '
         'frmNuevoPagarComandas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1766,6 +1810,7 @@ Partial Class frmNuevoPagarComandas
         Me.Panel3.ResumeLayout(False)
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
+        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1773,7 +1818,6 @@ Partial Class frmNuevoPagarComandas
         Me.Panel14.PerformLayout()
         Me.Panel15.ResumeLayout(False)
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1920,4 +1964,8 @@ Partial Class frmNuevoPagarComandas
     Friend WithEvents Label33 As Label
     Friend WithEvents btnPunto As Button
     Friend WithEvents picQR As PictureBox
+    Friend WithEvents Label35 As Label
+    Friend WithEvents txtbancocuenta As TextBox
+    Friend WithEvents cboCuneta As ComboBox
+    Friend WithEvents Label34 As Label
 End Class

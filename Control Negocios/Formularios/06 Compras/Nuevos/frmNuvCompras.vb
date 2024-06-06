@@ -2101,7 +2101,7 @@ kaka:
                                 saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) - monto
 
                                 cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText = "INSERT INTO MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) values('" & forma & "','" & bancop & "','" & refe & "','COMPRA'," & monto & "," & monto & ",0," & saldocuenta & ",'" & nuevafecha & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cboremision.Text & "','" & comentariop & "','" & cuentaref & "','" & bancoref & "')"
+                                cmd1.CommandText = "INSERT INTO MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & forma & "','" & bancop & "','" & refe & "','COMPRA'," & monto & "," & monto & ",0," & saldocuenta & ",'" & nuevafecha & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cboremision.Text & "','" & cboproveedor.Text & "','" & comentariop & "','" & cuentaref & "','" & bancoref & "')"
                                 cmd1.ExecuteNonQuery()
 
                             End If
@@ -2109,7 +2109,7 @@ kaka:
                             saldocuenta = -monto
 
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "INSERT INTO MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Comentario,Cuenta,BancoCuenta) values('" & forma & "','" & bancop & "','" & refe & "','COMPRA'," & monto & "," & monto & ",0," & saldocuenta & ",'" & nuevafecha & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cboremision.Text & "','" & comentariop & "','" & cuentaref & "','" & bancoref & "')"
+                            cmd1.CommandText = "INSERT INTO MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & forma & "','" & bancop & "','" & refe & "','COMPRA'," & monto & "," & monto & ",0," & saldocuenta & ",'" & nuevafecha & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cboremision.Text & "','" & cboproveedor.Text & "','" & comentariop & "','" & cuentaref & "','" & bancoref & "')"
                             cmd1.ExecuteNonQuery()
                         End If
                         rd2.Close()
@@ -5774,5 +5774,9 @@ caca:
 
     Private Sub btnactualiza_Click(sender As Object, e As EventArgs) Handles btnactualiza.Click
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Close()
     End Sub
 End Class

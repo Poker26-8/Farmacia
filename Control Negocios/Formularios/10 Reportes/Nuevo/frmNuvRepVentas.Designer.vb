@@ -22,10 +22,10 @@ Partial Class frmNuvRepVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvRepVentas))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvRepVentas))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -52,6 +52,12 @@ Partial Class frmNuvRepVentas
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.btnReporte = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.btnExcel = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnAntibiotico = New System.Windows.Forms.Button()
+        Me.btnControlado = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -88,12 +94,6 @@ Partial Class frmNuvRepVentas
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.PMasVendido80 = New System.Drawing.Printing.PrintDocument()
-        Me.btnReporte = New System.Windows.Forms.Button()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.btnExcel = New System.Windows.Forms.Button()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnAntibiotico = New System.Windows.Forms.Button()
-        Me.btnControlado = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -389,6 +389,93 @@ Partial Class frmNuvRepVentas
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(1051, 166)
         Me.Panel6.TabIndex = 16
+        '
+        'btnReporte
+        '
+        Me.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReporte.Image = CType(resources.GetObject("btnReporte.Image"), System.Drawing.Image)
+        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnReporte.Location = New System.Drawing.Point(3, 6)
+        Me.btnReporte.Name = "btnReporte"
+        Me.btnReporte.Size = New System.Drawing.Size(90, 74)
+        Me.btnReporte.TabIndex = 0
+        Me.btnReporte.Text = "Reporte"
+        Me.btnReporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnReporte.UseVisualStyleBackColor = True
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
+        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimir.Location = New System.Drawing.Point(99, 6)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(90, 74)
+        Me.btnImprimir.TabIndex = 1
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimir.UseVisualStyleBackColor = True
+        Me.btnImprimir.Visible = False
+        '
+        'btnExcel
+        '
+        Me.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
+        Me.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnExcel.Location = New System.Drawing.Point(3, 86)
+        Me.btnExcel.Name = "btnExcel"
+        Me.btnExcel.Size = New System.Drawing.Size(90, 74)
+        Me.btnExcel.TabIndex = 2
+        Me.btnExcel.Text = "Exportar"
+        Me.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnExcel.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnNuevo.Location = New System.Drawing.Point(99, 86)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(90, 74)
+        Me.btnNuevo.TabIndex = 3
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        '
+        'btnAntibiotico
+        '
+        Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAntibiotico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
+        Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAntibiotico.Location = New System.Drawing.Point(195, 6)
+        Me.btnAntibiotico.Name = "btnAntibiotico"
+        Me.btnAntibiotico.Size = New System.Drawing.Size(102, 74)
+        Me.btnAntibiotico.TabIndex = 4
+        Me.btnAntibiotico.Text = "Antibióticos"
+        Me.btnAntibiotico.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAntibiotico.UseVisualStyleBackColor = True
+        Me.btnAntibiotico.Visible = False
+        '
+        'btnControlado
+        '
+        Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnControlado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
+        Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnControlado.Location = New System.Drawing.Point(195, 86)
+        Me.btnControlado.Name = "btnControlado"
+        Me.btnControlado.Size = New System.Drawing.Size(102, 74)
+        Me.btnControlado.TabIndex = 5
+        Me.btnControlado.Text = "Controlados"
+        Me.btnControlado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnControlado.UseVisualStyleBackColor = True
+        Me.btnControlado.Visible = False
         '
         'Panel3
         '
@@ -817,93 +904,6 @@ Partial Class frmNuvRepVentas
         '
         'PMasVendido80
         '
-        '
-        'btnReporte
-        '
-        Me.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnReporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReporte.Image = CType(resources.GetObject("btnReporte.Image"), System.Drawing.Image)
-        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnReporte.Location = New System.Drawing.Point(3, 6)
-        Me.btnReporte.Name = "btnReporte"
-        Me.btnReporte.Size = New System.Drawing.Size(90, 74)
-        Me.btnReporte.TabIndex = 0
-        Me.btnReporte.Text = "Reporte"
-        Me.btnReporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnReporte.UseVisualStyleBackColor = True
-        '
-        'btnImprimir
-        '
-        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
-        Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimir.Location = New System.Drawing.Point(99, 6)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(90, 74)
-        Me.btnImprimir.TabIndex = 1
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnImprimir.UseVisualStyleBackColor = True
-        Me.btnImprimir.Visible = False
-        '
-        'btnExcel
-        '
-        Me.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExcel.Image = CType(resources.GetObject("btnExcel.Image"), System.Drawing.Image)
-        Me.btnExcel.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnExcel.Location = New System.Drawing.Point(3, 86)
-        Me.btnExcel.Name = "btnExcel"
-        Me.btnExcel.Size = New System.Drawing.Size(90, 74)
-        Me.btnExcel.TabIndex = 2
-        Me.btnExcel.Text = "Exportar"
-        Me.btnExcel.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnExcel.UseVisualStyleBackColor = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
-        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(99, 86)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(90, 74)
-        Me.btnNuevo.TabIndex = 3
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        '
-        'btnAntibiotico
-        '
-        Me.btnAntibiotico.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnAntibiotico.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAntibiotico.Image = CType(resources.GetObject("btnAntibiotico.Image"), System.Drawing.Image)
-        Me.btnAntibiotico.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAntibiotico.Location = New System.Drawing.Point(195, 6)
-        Me.btnAntibiotico.Name = "btnAntibiotico"
-        Me.btnAntibiotico.Size = New System.Drawing.Size(102, 74)
-        Me.btnAntibiotico.TabIndex = 4
-        Me.btnAntibiotico.Text = "Antibióticos"
-        Me.btnAntibiotico.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAntibiotico.UseVisualStyleBackColor = True
-        Me.btnAntibiotico.Visible = False
-        '
-        'btnControlado
-        '
-        Me.btnControlado.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnControlado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnControlado.Image = CType(resources.GetObject("btnControlado.Image"), System.Drawing.Image)
-        Me.btnControlado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnControlado.Location = New System.Drawing.Point(195, 86)
-        Me.btnControlado.Name = "btnControlado"
-        Me.btnControlado.Size = New System.Drawing.Size(102, 74)
-        Me.btnControlado.TabIndex = 5
-        Me.btnControlado.Text = "Controlados"
-        Me.btnControlado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnControlado.UseVisualStyleBackColor = True
-        Me.btnControlado.Visible = False
         '
         'frmNuvRepVentas
         '

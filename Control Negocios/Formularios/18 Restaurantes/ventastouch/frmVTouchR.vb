@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports QRCoder
 Public Class frmVTouchR
 
@@ -2918,8 +2919,36 @@ deku:
                         Dim cuentarefe As String = frmPagarTouch.grdPagos.Rows(tobi).Cells(6).Value.ToString
                         Dim bancorefe As String = frmPagarTouch.grdPagos.Rows(tobi).Cells(7).Value.ToString
 
-                        Dim nuevopago As Double = 0
+                        Dim saldocuenta As Double = 0
 
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cuentarefe & "')"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + montopago
+
+                                cnn1.Close() : cnn1.Open()
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formapago & "','" & bancopago & "','" & referenciapago & "','VENTA'," & montopago & ",0," & montopago & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','" & comentariopago & "','" & cuentarefe & "','" & bancorefe & "')"
+                                cmd1.ExecuteNonQuery()
+                                cnn1.Close()
+                            End If
+                        Else
+                            saldocuenta = -montopago
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & formapago & "','" & bancopago & "','" & referenciapago & "','VENTA'," & montopago & ",0," & montopago & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','" & comentariopago & "','" & cuentarefe & "','" & bancorefe & "')"
+                            cmd1.ExecuteNonQuery()
+                            cnn1.Close()
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+
+                        Dim nuevopago As Double = 0
                         If lblPropina.Text > 0 Then
                             If EfectivoX > 0 Then
                                 nuevopago = montopago
@@ -2964,6 +2993,7 @@ deku:
                             cnn2.Close()
 
                         End If
+                        cnn1.Close() : cnn1.Open()
 
                         Select Case lblTipoVenta.Text
 

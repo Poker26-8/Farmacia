@@ -23,8 +23,8 @@ Partial Class frmNuevoPagar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblMesero = New System.Windows.Forms.Label()
@@ -327,7 +327,7 @@ Partial Class frmNuevoPagar
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(260, 115)
+        Me.Label27.Location = New System.Drawing.Point(275, 115)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(117, 21)
         Me.Label27.TabIndex = 47
@@ -338,10 +338,10 @@ Partial Class frmNuevoPagar
         Me.txttotalpropina.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotalpropina.BackColor = System.Drawing.Color.White
         Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotalpropina.Location = New System.Drawing.Point(384, 115)
+        Me.txttotalpropina.Location = New System.Drawing.Point(398, 115)
         Me.txttotalpropina.Name = "txttotalpropina"
         Me.txttotalpropina.ReadOnly = True
-        Me.txttotalpropina.Size = New System.Drawing.Size(138, 21)
+        Me.txttotalpropina.Size = New System.Drawing.Size(124, 21)
         Me.txttotalpropina.TabIndex = 48
         Me.txttotalpropina.Text = "0.00"
         Me.txttotalpropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -349,10 +349,9 @@ Partial Class frmNuevoPagar
         'Label25
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(257, 278)
+        Me.Label25.Location = New System.Drawing.Point(278, 270)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(265, 13)
+        Me.Label25.Size = New System.Drawing.Size(244, 30)
         Me.Label25.TabIndex = 46
         Me.Label25.Text = "Ingresa número telefonico del cliente para el monedero"
         '
@@ -360,9 +359,9 @@ Partial Class frmNuevoPagar
         '
         Me.txtMonedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtMonedero.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMonedero.Location = New System.Drawing.Point(384, 245)
+        Me.txtMonedero.Location = New System.Drawing.Point(398, 245)
         Me.txtMonedero.Name = "txtMonedero"
-        Me.txtMonedero.Size = New System.Drawing.Size(138, 22)
+        Me.txtMonedero.Size = New System.Drawing.Size(124, 22)
         Me.txtMonedero.TabIndex = 45
         '
         'Label24
@@ -370,7 +369,7 @@ Partial Class frmNuevoPagar
         Me.Label24.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label24.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(260, 245)
+        Me.Label24.Location = New System.Drawing.Point(275, 245)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(117, 22)
         Me.Label24.TabIndex = 44
@@ -381,7 +380,7 @@ Partial Class frmNuevoPagar
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(260, 9)
+        Me.Label1.Location = New System.Drawing.Point(275, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(117, 21)
         Me.Label1.TabIndex = 3
@@ -392,10 +391,10 @@ Partial Class frmNuevoPagar
         Me.txtSubtotalmapeo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotalmapeo.Location = New System.Drawing.Point(383, 9)
+        Me.txtSubtotalmapeo.Location = New System.Drawing.Point(397, 9)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
         Me.txtSubtotalmapeo.ReadOnly = True
-        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(139, 21)
+        Me.txtSubtotalmapeo.Size = New System.Drawing.Size(125, 21)
         Me.txtSubtotalmapeo.TabIndex = 4
         Me.txtSubtotalmapeo.Text = "0.00"
         Me.txtSubtotalmapeo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -405,9 +404,9 @@ Partial Class frmNuevoPagar
         Me.txtDescuento.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescuento.ForeColor = System.Drawing.Color.Orange
-        Me.txtDescuento.Location = New System.Drawing.Point(465, 36)
+        Me.txtDescuento.Location = New System.Drawing.Point(475, 36)
         Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.Size = New System.Drawing.Size(57, 21)
+        Me.txtDescuento.Size = New System.Drawing.Size(47, 21)
         Me.txtDescuento.TabIndex = 37
         Me.txtDescuento.Text = "0.00"
         Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -417,7 +416,7 @@ Partial Class frmNuevoPagar
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(260, 219)
+        Me.Label8.Location = New System.Drawing.Point(275, 219)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(117, 21)
         Me.Label8.TabIndex = 43
@@ -427,9 +426,9 @@ Partial Class frmNuevoPagar
         '
         Me.txtPropina.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPropina.Location = New System.Drawing.Point(384, 89)
+        Me.txtPropina.Location = New System.Drawing.Point(398, 89)
         Me.txtPropina.Name = "txtPropina"
-        Me.txtPropina.Size = New System.Drawing.Size(138, 21)
+        Me.txtPropina.Size = New System.Drawing.Size(124, 21)
         Me.txtPropina.TabIndex = 9
         Me.txtPropina.Text = "0.00"
         Me.txtPropina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -440,10 +439,10 @@ Partial Class frmNuevoPagar
         Me.txtResta.BackColor = System.Drawing.Color.White
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
-        Me.txtResta.Location = New System.Drawing.Point(384, 219)
+        Me.txtResta.Location = New System.Drawing.Point(398, 219)
         Me.txtResta.Name = "txtResta"
         Me.txtResta.ReadOnly = True
-        Me.txtResta.Size = New System.Drawing.Size(138, 21)
+        Me.txtResta.Size = New System.Drawing.Size(124, 21)
         Me.txtResta.TabIndex = 42
         Me.txtResta.Text = "0.00"
         Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -453,7 +452,7 @@ Partial Class frmNuevoPagar
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(260, 89)
+        Me.Label5.Location = New System.Drawing.Point(275, 89)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(117, 21)
         Me.Label5.TabIndex = 10
@@ -464,7 +463,7 @@ Partial Class frmNuevoPagar
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(260, 193)
+        Me.Label7.Location = New System.Drawing.Point(275, 193)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(117, 21)
         Me.Label7.TabIndex = 41
@@ -475,7 +474,7 @@ Partial Class frmNuevoPagar
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(260, 63)
+        Me.Label2.Location = New System.Drawing.Point(275, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(117, 21)
         Me.Label2.TabIndex = 11
@@ -487,10 +486,10 @@ Partial Class frmNuevoPagar
         Me.txtCambio.BackColor = System.Drawing.Color.White
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
-        Me.txtCambio.Location = New System.Drawing.Point(384, 193)
+        Me.txtCambio.Location = New System.Drawing.Point(398, 193)
         Me.txtCambio.Name = "txtCambio"
         Me.txtCambio.ReadOnly = True
-        Me.txtCambio.Size = New System.Drawing.Size(138, 21)
+        Me.txtCambio.Size = New System.Drawing.Size(124, 21)
         Me.txtCambio.TabIndex = 40
         Me.txtCambio.Text = "0.00"
         Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -500,10 +499,10 @@ Partial Class frmNuevoPagar
         Me.txtTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotal.BackColor = System.Drawing.Color.White
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(384, 63)
+        Me.txtTotal.Location = New System.Drawing.Point(398, 63)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
-        Me.txtTotal.Size = New System.Drawing.Size(138, 21)
+        Me.txtTotal.Size = New System.Drawing.Size(124, 21)
         Me.txtTotal.TabIndex = 12
         Me.txtTotal.Text = "0.00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -512,7 +511,7 @@ Partial Class frmNuevoPagar
         '
         Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(436, 37)
+        Me.Label21.Location = New System.Drawing.Point(450, 36)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(23, 20)
         Me.Label21.TabIndex = 39
@@ -523,7 +522,7 @@ Partial Class frmNuevoPagar
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(260, 141)
+        Me.Label3.Location = New System.Drawing.Point(275, 141)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(117, 21)
         Me.Label3.TabIndex = 13
@@ -534,7 +533,7 @@ Partial Class frmNuevoPagar
         Me.txtPorcentaje.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
-        Me.txtPorcentaje.Location = New System.Drawing.Point(383, 36)
+        Me.txtPorcentaje.Location = New System.Drawing.Point(397, 35)
         Me.txtPorcentaje.Name = "txtPorcentaje"
         Me.txtPorcentaje.Size = New System.Drawing.Size(47, 21)
         Me.txtPorcentaje.TabIndex = 38
@@ -546,9 +545,9 @@ Partial Class frmNuevoPagar
         Me.txtEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEfectivo.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtEfectivo.Location = New System.Drawing.Point(384, 141)
+        Me.txtEfectivo.Location = New System.Drawing.Point(398, 141)
         Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(138, 21)
+        Me.txtEfectivo.Size = New System.Drawing.Size(124, 21)
         Me.txtEfectivo.TabIndex = 14
         Me.txtEfectivo.Text = "0.00"
         Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -559,10 +558,10 @@ Partial Class frmNuevoPagar
         Me.txtpagos.BackColor = System.Drawing.Color.White
         Me.txtpagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpagos.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtpagos.Location = New System.Drawing.Point(384, 167)
+        Me.txtpagos.Location = New System.Drawing.Point(398, 167)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
-        Me.txtpagos.Size = New System.Drawing.Size(138, 21)
+        Me.txtpagos.Size = New System.Drawing.Size(124, 21)
         Me.txtpagos.TabIndex = 18
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -572,7 +571,7 @@ Partial Class frmNuevoPagar
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(260, 36)
+        Me.Label6.Location = New System.Drawing.Point(275, 36)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(117, 21)
         Me.Label6.TabIndex = 36
@@ -583,7 +582,7 @@ Partial Class frmNuevoPagar
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(260, 167)
+        Me.Label9.Location = New System.Drawing.Point(275, 167)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(117, 21)
         Me.Label9.TabIndex = 19
@@ -662,6 +661,7 @@ Partial Class frmNuevoPagar
         'txtRecepcion
         '
         Me.txtRecepcion.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.txtRecepcion.Enabled = False
         Me.txtRecepcion.Location = New System.Drawing.Point(257, 89)
         Me.txtRecepcion.Name = "txtRecepcion"
         Me.txtRecepcion.Size = New System.Drawing.Size(100, 20)
@@ -916,8 +916,8 @@ Partial Class frmNuevoPagar
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -926,8 +926,8 @@ Partial Class frmNuevoPagar
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -1097,9 +1097,9 @@ Partial Class frmNuevoPagar
         Me.btnpunto.FlatAppearance.BorderSize = 0
         Me.btnpunto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpunto.Location = New System.Drawing.Point(115, 243)
+        Me.btnpunto.Location = New System.Drawing.Point(114, 243)
         Me.btnpunto.Name = "btnpunto"
-        Me.btnpunto.Size = New System.Drawing.Size(109, 45)
+        Me.btnpunto.Size = New System.Drawing.Size(110, 44)
         Me.btnpunto.TabIndex = 78
         Me.btnpunto.Text = "."
         Me.btnpunto.TextAlign = System.Drawing.ContentAlignment.TopCenter
