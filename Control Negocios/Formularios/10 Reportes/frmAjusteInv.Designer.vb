@@ -393,11 +393,13 @@ Partial Class frmAjusteInv
         'txtcontraseña
         '
         Me.txtcontraseña.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtcontraseña.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcontraseña.Location = New System.Drawing.Point(263, 5)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtcontraseña.Size = New System.Drawing.Size(85, 22)
+        Me.txtcontraseña.Size = New System.Drawing.Size(85, 25)
         Me.txtcontraseña.TabIndex = 182
+        Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label12
         '

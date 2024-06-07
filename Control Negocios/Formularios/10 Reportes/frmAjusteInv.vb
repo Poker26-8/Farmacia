@@ -362,8 +362,39 @@
     End Sub
 
     Private Sub btnNuevo_Click(sender As System.Object, e As System.EventArgs) Handles btnNuevo.Click
-        txtcontraseña.Text = ""
-        lblusuario.Text = ""
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1(0).ToString = 1 Then
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            lblusuario.Text = rd2(0).ToString
+                            txtcontraseña.Text = rd2(1).ToString
+                        End If
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+                Else
+                    txtcontraseña.Text = ""
+                    lblusuario.Text = ""
+                End If
+            End If
+        Else
+
+        End If
+        rd1.Close()
+        cnn1.Close()
+
         cbocodigo.Text = ""
         cbocodigo.Items.Clear()
         cbodesc.Text = ""
@@ -494,10 +525,6 @@
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "update Productos set Cargado=0, CargadoInv=0, Existencia=" & existemmmmmmmcias & " where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
                 cmd1.ExecuteNonQuery()
-
-                'cmd1 = cnn1.CreateCommand
-                'cmd1.CommandText = "update Productos set Cargado=0, CargadoInv=0, Existencia=" & txtfisica.Text & " where Codigo='" & cbocodigo.Text & "'"
-                'cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
@@ -715,6 +742,37 @@
     End Sub
 
     Private Sub frmAjusteInv_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='TomaContra'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
 
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Alias,Clave FROM usuarios WHERE IdEmpleado=" & id_usu_log
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                lblusuario.Text = rd2(0).ToString
+                                txtcontraseña.Text = rd2(1).ToString
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class
