@@ -3299,7 +3299,7 @@ Public Class frmConfigs
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "Update DatosProsepago set Terminal='" & txtTerminal.Text & "', Clave='" & txtClave.Text & "', Solicitud='" & txtSolicitud.Text & "', Resultado='" & txtResultado.Text & "' where Id=1"
                 If cmd1.ExecuteNonQuery Then
-                    MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios PRO")
+                    MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 End If
                 cnn1.Close()
             Else
@@ -3307,7 +3307,7 @@ Public Class frmConfigs
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "Insert into DatosProsepago(Terminal,Clave,Solicitud,Resultado) values('" & txtTerminal.Text & "','" & txtClave.Text & "','" & txtSolicitud.Text & "', '" & txtResultado.Text & "')"
                 If cmd1.ExecuteNonQuery Then
-                    MsgBox("Datos registrados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios PRO")
+                    MsgBox("Datos registrados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 End If
                 cnn1.Close()
             End If
