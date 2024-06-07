@@ -2623,11 +2623,6 @@ Public Class Inicio
         frmPagoNomina.BringToFront()
     End Sub
 
-    Private Sub TransporteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs)
-
-
-    End Sub
-
     Private Sub OtrosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs)
         frmOtrosGastos.Show()
         frmOtrosGastos.BringToFront()

@@ -251,45 +251,137 @@
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
 
-            Dim totalpagos As Double = 0
-
-            If cboForma.Text = "" Then MsgBox("Seleeciona una forma de pago", vbInformation + vbOKOnly, titulocentral) : cboForma.Focus.Equals(True) : Exit Sub
-
-            If cboBanco.Text = "" Then MsgBox("Seleccione un banco", vbInformation + vbOKOnly, titulocentral) : cboBanco.Focus.Equals(True) : Exit Sub
-
-            If txtMonto.Text = 0 Or txtMonto.Text = 0.00 Then MsgBox("El monto debe ser mayor a 0") : txtMonto.Focus.Equals(True) : Exit Sub
-
-            If cboCuneta.Text = "" Then MsgBox("Debe seleccionar una cuenta") : cboCuneta.Focus.Equals(True) : Exit Sub
-
-            grdPagos.Rows.Add(cboForma.Text,
-                              cboBanco.Text,
-                              txtReferencia.Text,
-                              txtMonto.Text,
-                              cboCuneta.Text,
-                              txtBancoC.Text
-)
-
-            totalpagos = txtTotal.Text + txtMonto.Text
-            txtTotal.Text = FormatNumber(totalpagos, 2)
-
-            limpiarformas()
-
             btnguardar.Focus.Equals(True)
         End If
     End Sub
 
-    Public Sub limpiarformas()
 
-        cboForma.Text = ""
-        cboBanco.Text = ""
-        txtReferencia.Text = ""
-        txtMonto.Text = "0.00"
-        cboCuneta.Text = ""
-        txtBancoC.Text = ""
+
+
+    Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
+        Try
+            Dim saldocuenta As Double = 0
+            Dim nuevosaldo As Double = 0
+            Dim monto As Double = 0
+
+            monto = txtMonto.Text
+
+            If cboFolio.Text <> "" Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id" & cboFolio.Text
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cboCuneta.Text & "')"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+
+
+                                cnn3.Close() : cnn3.Open()
+                                cmd3 = cnn3.CreateCommand
+                                cmd3.CommandText = "UPDATE movcuenta SET Total=" & txtMonto.Text & ",Retiro="",Saldo="" WHERE Id=" & cboFolio.Text
+                                cmd3.ExecuteNonQuery()
+                                cnn3.Close()
+
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            End If
+
+            If cboFolio.Text = "" Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Cuenta='" & cboCuneta.Text & "' AND Id=" & lblFolio.Text & ""
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                    End If
+                Else
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cboCuneta.Text & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + monto
+
+                            cnn3.Close() : cnn3.Open()
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "INSERT INTO movCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & cboForma.Text & "','" & cboBanco.Text & "','" & txtReferencia.Text & "','OTROS'," & txtMonto.Text & ",0," & txtMonto.Text & "," & saldocuenta & ",'" & Format(dtpFecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "','" & cboNombre.Text & "','" & rtobservacion.Text & "','" & cboCuneta.Text & "','" & txtBancoC.Text & "')"
+                            cmd3.ExecuteNonQuery()
+                            cnn3.Close()
+
+                        End If
+                    Else
+                        saldocuenta = monto
+
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "INSERT INTO movCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('" & cboForma.Text & "','" & cboBanco.Text & "','" & txtReferencia.Text & "','OTROS'," & txtMonto.Text & ",0," & txtMonto.Text & "," & saldocuenta & ",'" & Format(dtpFecha.Value, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & lblFolio.Text & "','" & cboNombre.Text & "','" & rtobservacion.Text & "','" & cboCuneta.Text & "','" & txtBancoC.Text & "')"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            End If
+
+
+            MsgBox("Ingreso registrado correctamente", vbInformation + vbOKOnly, titulocentral)
+            btnnuevo.PerformClick()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
-    Private Sub txtTotal_Click(sender As Object, e As EventArgs) Handles txtTotal.Click
-        txtTotal.SelectionStart = 0
-        txtTotal.SelectionLength = Len(txtTotal.Text)
+    Private Sub cboFolio_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboFolio.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolio.Text
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    cboNombre.Text = rd1("Cliente").ToString
+                    cboForma.Text = rd1("Tipo").ToString
+                    cboBanco.Text = rd1("Banco").ToString
+                    txtReferencia.Text = rd1("Referencia").ToString
+                    txtMonto.Text = FormatNumber(rd1("Total").ToString, 2)
+                    cboCuneta.Text = rd1("Cuenta").ToString
+                    txtBancoC.Text = rd1("BancoCuenta").ToString
+                    rtobservacion.Text = rd1("Comentario").ToString
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class
