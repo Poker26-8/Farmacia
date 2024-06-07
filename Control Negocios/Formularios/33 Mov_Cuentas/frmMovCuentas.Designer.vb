@@ -26,6 +26,15 @@ Partial Class frmMovCuentas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMovCuentas))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.grdPagos = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cboFolio = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.txtBancoC = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cboCuneta = New System.Windows.Forms.ComboBox()
@@ -49,6 +58,8 @@ Partial Class frmMovCuentas
         Me.lblFolio = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
@@ -57,10 +68,9 @@ Partial Class frmMovCuentas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.cboFolio = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -72,11 +82,12 @@ Partial Class frmMovCuentas
         Me.TabControl1.Location = New System.Drawing.Point(6, 53)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(553, 307)
+        Me.TabControl1.Size = New System.Drawing.Size(553, 404)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.grdPagos)
         Me.TabPage1.Controls.Add(Me.cboFolio)
         Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.txtBancoC)
@@ -101,25 +112,106 @@ Partial Class frmMovCuentas
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(545, 274)
+        Me.TabPage1.Size = New System.Drawing.Size(545, 371)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "     Ingresos     "
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'grdPagos
+        '
+        Me.grdPagos.AllowUserToAddRows = False
+        Me.grdPagos.BackgroundColor = System.Drawing.Color.White
+        Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
+        Me.grdPagos.GridColor = System.Drawing.Color.Black
+        Me.grdPagos.Location = New System.Drawing.Point(8, 179)
+        Me.grdPagos.Name = "grdPagos"
+        Me.grdPagos.ReadOnly = True
+        Me.grdPagos.RowHeadersVisible = False
+        Me.grdPagos.Size = New System.Drawing.Size(529, 98)
+        Me.grdPagos.TabIndex = 20
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Forma"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 71
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Banco"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 71
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Ref"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 53
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column4.HeaderText = "Monto"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 69
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Cuenta"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 74
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "BancoC"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 80
+        '
+        'cboFolio
+        '
+        Me.cboFolio.BackColor = System.Drawing.Color.White
+        Me.cboFolio.FormattingEnabled = True
+        Me.cboFolio.Location = New System.Drawing.Point(72, 6)
+        Me.cboFolio.Name = "cboFolio"
+        Me.cboFolio.Size = New System.Drawing.Size(110, 24)
+        Me.cboFolio.TabIndex = 19
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(6, 6)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(70, 24)
+        Me.Label12.TabIndex = 18
+        Me.Label12.Text = "Folio:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtBancoC
         '
         Me.txtBancoC.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.txtBancoC.Enabled = False
         Me.txtBancoC.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBancoC.Location = New System.Drawing.Point(395, 239)
+        Me.txtBancoC.Location = New System.Drawing.Point(356, 144)
         Me.txtBancoC.Name = "txtBancoC"
-        Me.txtBancoC.Size = New System.Drawing.Size(141, 24)
+        Me.txtBancoC.Size = New System.Drawing.Size(180, 24)
         Me.txtBancoC.TabIndex = 17
         '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(337, 239)
+        Me.Label10.Location = New System.Drawing.Point(299, 144)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(61, 24)
         Me.Label10.TabIndex = 16
@@ -130,15 +222,15 @@ Partial Class frmMovCuentas
         '
         Me.cboCuneta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cboCuneta.FormattingEnabled = True
-        Me.cboCuneta.Location = New System.Drawing.Point(113, 239)
+        Me.cboCuneta.Location = New System.Drawing.Point(113, 144)
         Me.cboCuneta.Name = "cboCuneta"
-        Me.cboCuneta.Size = New System.Drawing.Size(218, 24)
+        Me.cboCuneta.Size = New System.Drawing.Size(180, 24)
         Me.cboCuneta.TabIndex = 15
         '
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(0, 239)
+        Me.Label9.Location = New System.Drawing.Point(0, 144)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(123, 24)
         Me.Label9.TabIndex = 14
@@ -147,7 +239,7 @@ Partial Class frmMovCuentas
         '
         'rtobservacion
         '
-        Me.rtobservacion.Location = New System.Drawing.Point(113, 151)
+        Me.rtobservacion.Location = New System.Drawing.Point(113, 283)
         Me.rtobservacion.Name = "rtobservacion"
         Me.rtobservacion.Size = New System.Drawing.Size(423, 82)
         Me.rtobservacion.TabIndex = 13
@@ -156,7 +248,7 @@ Partial Class frmMovCuentas
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(3, 172)
+        Me.Label8.Location = New System.Drawing.Point(3, 304)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 24)
         Me.Label8.TabIndex = 12
@@ -284,7 +376,7 @@ Partial Class frmMovCuentas
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(545, 250)
+        Me.TabPage2.Size = New System.Drawing.Size(545, 371)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "     Egresos     "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -315,15 +407,37 @@ Partial Class frmMovCuentas
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.txtTotal)
+        Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.btnEliminar)
         Me.Panel1.Controls.Add(Me.btnSalir)
         Me.Panel1.Controls.Add(Me.btnguardar)
         Me.Panel1.Controls.Add(Me.btnnuevo)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 365)
+        Me.Panel1.Location = New System.Drawing.Point(0, 463)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(563, 74)
+        Me.Panel1.Size = New System.Drawing.Size(563, 73)
         Me.Panel1.TabIndex = 8
+        '
+        'txtTotal
+        '
+        Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.Location = New System.Drawing.Point(55, 13)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(118, 24)
+        Me.txtTotal.TabIndex = 280
+        Me.txtTotal.Text = "0.00"
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label14
+        '
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(7, 13)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(50, 24)
+        Me.Label14.TabIndex = 279
+        Me.Label14.Text = "Total:"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnEliminar
         '
@@ -429,31 +543,12 @@ Partial Class frmMovCuentas
         Me.Label13.Text = "Usuario"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label12
-        '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(6, 6)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(70, 24)
-        Me.Label12.TabIndex = 18
-        Me.Label12.Text = "Folio:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cboFolio
-        '
-        Me.cboFolio.BackColor = System.Drawing.Color.White
-        Me.cboFolio.FormattingEnabled = True
-        Me.cboFolio.Location = New System.Drawing.Point(72, 6)
-        Me.cboFolio.Name = "cboFolio"
-        Me.cboFolio.Size = New System.Drawing.Size(110, 24)
-        Me.cboFolio.TabIndex = 19
-        '
         'frmMovCuentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(563, 439)
+        Me.ClientSize = New System.Drawing.Size(563, 536)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.lblUsuario)
         Me.Controls.Add(Me.Label11)
@@ -469,7 +564,9 @@ Partial Class frmMovCuentas
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -510,4 +607,13 @@ Partial Class frmMovCuentas
     Friend WithEvents Label13 As Label
     Friend WithEvents cboFolio As ComboBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents grdPagos As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents txtTotal As TextBox
+    Friend WithEvents Label14 As Label
 End Class

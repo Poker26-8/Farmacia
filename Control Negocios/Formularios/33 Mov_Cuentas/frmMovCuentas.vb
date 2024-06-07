@@ -1,6 +1,7 @@
 ﻿Public Class frmMovCuentas
     Private Sub frmMovCuentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TFolio.Start()
+        cboNombre.Focus.Equals(True)
     End Sub
 
     Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
@@ -169,7 +170,7 @@
 
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Nombre FROM clientes WHERE Nombre<>'' ORDER BY Nombre"
+            cmd5.CommandText = "SELECT DISTINCT Cliente FROM movcuenta WHERE Cliente<>'' ORDER BY Cliente"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -183,5 +184,112 @@
             MessageBox.Show(ex.ToString)
             cnn5.Close()
         End Try
+    End Sub
+
+    Private Sub cboFolio_DropDown(sender As Object, e As EventArgs) Handles cboFolio.DropDown
+        Try
+            cboFolio.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Id FROM movcuenta WHERE Concepto='OTROS' AND Id<>'' ORDER BY Id"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboFolio.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub frmMovCuentas_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        cboNombre.Focus.Equals(True)
+    End Sub
+
+    Private Sub cboNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboNombre.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboForma.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboForma_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboForma.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboBanco.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboBanco_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBanco.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtReferencia.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtReferencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtReferencia.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtMonto.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtMonto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMonto.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If IsNumeric(txtMonto.Text) Then
+                cboCuneta.Focus.Equals(True)
+            End If
+        End If
+    End Sub
+
+    Private Sub cboCuneta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuneta.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+
+            Dim totalpagos As Double = 0
+
+            If cboForma.Text = "" Then MsgBox("Seleeciona una forma de pago", vbInformation + vbOKOnly, titulocentral) : cboForma.Focus.Equals(True) : Exit Sub
+
+            If cboBanco.Text = "" Then MsgBox("Seleccione un banco", vbInformation + vbOKOnly, titulocentral) : cboBanco.Focus.Equals(True) : Exit Sub
+
+            If txtMonto.Text = 0 Or txtMonto.Text = 0.00 Then MsgBox("El monto debe ser mayor a 0") : txtMonto.Focus.Equals(True) : Exit Sub
+
+            If cboCuneta.Text = "" Then MsgBox("Debe seleccionar una cuenta") : cboCuneta.Focus.Equals(True) : Exit Sub
+
+            grdPagos.Rows.Add(cboForma.Text,
+                              cboBanco.Text,
+                              txtReferencia.Text,
+                              txtMonto.Text,
+                              cboCuneta.Text,
+                              txtBancoC.Text
+)
+
+            totalpagos = txtTotal.Text + txtMonto.Text
+            txtTotal.Text = FormatNumber(totalpagos, 2)
+
+            limpiarformas()
+
+            btnguardar.Focus.Equals(True)
+        End If
+    End Sub
+
+    Public Sub limpiarformas()
+
+        cboForma.Text = ""
+        cboBanco.Text = ""
+        txtReferencia.Text = ""
+        txtMonto.Text = "0.00"
+        cboCuneta.Text = ""
+        txtBancoC.Text = ""
+    End Sub
+
+    Private Sub txtTotal_Click(sender As Object, e As EventArgs) Handles txtTotal.Click
+        txtTotal.SelectionStart = 0
+        txtTotal.SelectionLength = Len(txtTotal.Text)
     End Sub
 End Class
