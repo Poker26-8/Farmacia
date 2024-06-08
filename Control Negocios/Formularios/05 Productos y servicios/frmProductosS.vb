@@ -680,7 +680,6 @@ Public Class frmProductosS
                     cmd1.CommandText =
                         "delete from Productos where Codigo='" & cboCodigo.Text & "'"
                     If cmd1.ExecuteNonQuery Then
-
                         If (picImagen.Image Is Nothing) Then
                         Else
                             If txtrutaimagen.Text = "" Then
