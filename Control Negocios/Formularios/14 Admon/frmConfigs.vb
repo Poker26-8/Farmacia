@@ -60,24 +60,30 @@ Public Class frmConfigs
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
-        'Try
-        '    cnn1.Close()
-        '    cnn1.Open()
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText = "Select * from DatosProsepago"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.Read Then
-        '        txtTerminal.Text = rd1(1).ToString
-        '        txtClave.Text = rd1(2).ToString
-        '        txtSolicitud.Text = rd1(3).ToString
-        '        txtResultado.Text = rd1(4).ToString
-        '    End If
-        '    rd1.Close()
-        '    cnn1.Close()
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.ToString)
-        '    cnn1.Close()
-        'End Try
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from DatosProsepago"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                txtTerminal.Text = rd1(1).ToString
+                txtClave.Text = rd1(2).ToString
+                txtSolicitud.Text = rd1(3).ToString
+                txtResultado.Text = rd1(4).ToString
+
+                txtResultado.Enabled = False
+                txtSolicitud.Enabled = False
+            Else
+                txtResultado.Enabled = True
+                txtResultado.Enabled = True
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
 
         Try
             Dim tipo_logo As String = ""
@@ -3297,7 +3303,7 @@ Public Class frmConfigs
             If rd1.Read Then
                 rd1.Close()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Update DatosProsepago set Terminal='" & txtTerminal.Text & "', Clave='" & txtClave.Text & "', Solicitud='" & txtSolicitud.Text & "', Resultado='" & txtResultado.Text & "' where Id=1"
+                cmd1.CommandText = "Update DatosProsepago set Terminal='" & txtTerminal.Text & "', Clave='" & txtClave.Text & "'"
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Datos actualizados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                 End If
@@ -3308,6 +3314,8 @@ Public Class frmConfigs
                 cmd1.CommandText = "Insert into DatosProsepago(Terminal,Clave,Solicitud,Resultado) values('" & txtTerminal.Text & "','" & txtClave.Text & "','" & txtSolicitud.Text & "', '" & txtResultado.Text & "')"
                 If cmd1.ExecuteNonQuery Then
                     MsgBox("Datos registrados correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    txtSolicitud.Enabled = False
+                    txtResultado.Enabled = False
                 End If
                 cnn1.Close()
             End If

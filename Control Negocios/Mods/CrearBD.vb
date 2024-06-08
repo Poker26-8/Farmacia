@@ -1423,6 +1423,14 @@
                                           `Emi_psw` varchar(150) NOT NULL DEFAULT ''
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+    Public vartabladatosprosepago As String = "CREATE TABLE IF NOT EXISTS `datosprosepago` (
+                                          `Id` int(11) NOT NULL,
+                                          `Terminal` varchar(255) NOT NULL DEFAULT '',
+                                          `Clave` varchar(255) NOT NULL DEFAULT '',
+                                          `Solicitud` varchar(50) NOT NULL DEFAULT '',
+                                          `Resultado` varchar(50) NOT NULL DEFAULT ''
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
 
 
     'detalle_factura
@@ -6693,6 +6701,7 @@
     Public varKeycotpeddet As String = "ALTER TABLE `cotpeddet` ADD PRIMARY KEY (`Id`);"
     Public varKeyctmedicos As String = "ALTER TABLE `ctmedicos` ADD PRIMARY KEY (`Id`);"
     Public varKeydatosnegocio As String = "ALTER TABLE `datosnegocio` ADD PRIMARY KEY (`Emisor_id`);"
+    Public varKeydatosprosepago As String = "ALTER TABLE `datosprosepago` ADD PRIMARY KEY (`Id`);"
     Public varKeydeudores As String = "ALTER TABLE `deudores` ADD PRIMARY KEY (`IdDeudor`);"
     Public varKeydevoluciones As String = "ALTER TABLE `devoluciones` ADD PRIMARY KEY (`Id`);"
     Public varKeyentregas As String = "ALTER TABLE `entregas` ADD PRIMARY KEY (`Id`);"
@@ -6852,6 +6861,7 @@
     Public varAutocotpeddet As String = "ALTER TABLE `cotpeddet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoctmedicos As String = "ALTER TABLE `ctmedicos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodatosnegocio As String = "ALTER TABLE `datosnegocio` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutodatosprosepago As String = "ALTER TABLE `datosprosepago` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodeudores As String = "ALTER TABLE `deudores` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodevoluciones As String = "ALTER TABLE `devoluciones` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoentregas As String = "ALTER TABLE `entregas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

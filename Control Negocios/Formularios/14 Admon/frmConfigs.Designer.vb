@@ -1902,9 +1902,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2138,10 +2138,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3242,9 +3242,9 @@ Partial Class frmConfigs
         Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
-        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
-        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades1.TabIndex = 7
         Me.tabFuncionalidades1.Text = "Funcionalidades 1"
         Me.tabFuncionalidades1.UseVisualStyleBackColor = True
@@ -3557,9 +3557,9 @@ Partial Class frmConfigs
         'tabFuncionalidades2
         '
         Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
-        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
-        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades2.TabIndex = 11
         Me.tabFuncionalidades2.Text = " Funcionalidades 2"
         Me.tabFuncionalidades2.UseVisualStyleBackColor = True
@@ -3645,9 +3645,9 @@ Partial Class frmConfigs
         Me.tabMigracion.Controls.Add(Me.chkProductos)
         Me.tabMigracion.Controls.Add(Me.Label72)
         Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 84)
+        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
         Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 437)
+        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
         Me.tabMigracion.TabIndex = 8
         Me.tabMigracion.Text = "Migración de datos"
         Me.tabMigracion.UseVisualStyleBackColor = True
@@ -3768,10 +3768,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 437)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3885,25 +3885,23 @@ Partial Class frmConfigs
         '
         Me.btnCancela.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.btnCancela.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCancela.Location = New System.Drawing.Point(248, 306)
+        Me.btnCancela.Location = New System.Drawing.Point(248, 299)
         Me.btnCancela.Name = "btnCancela"
         Me.btnCancela.Size = New System.Drawing.Size(90, 29)
         Me.btnCancela.TabIndex = 10
         Me.btnCancela.Text = "Cancelar"
         Me.btnCancela.UseVisualStyleBackColor = False
-        Me.btnCancela.Visible = False
         '
         'btnGPago
         '
         Me.btnGPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnGPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnGPago.Location = New System.Drawing.Point(364, 306)
+        Me.btnGPago.Location = New System.Drawing.Point(364, 299)
         Me.btnGPago.Name = "btnGPago"
         Me.btnGPago.Size = New System.Drawing.Size(90, 29)
         Me.btnGPago.TabIndex = 9
         Me.btnGPago.Text = "Guardar"
         Me.btnGPago.UseVisualStyleBackColor = False
-        Me.btnGPago.Visible = False
         '
         'txtClave
         '
@@ -3911,23 +3909,20 @@ Partial Class frmConfigs
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Size = New System.Drawing.Size(275, 23)
         Me.txtClave.TabIndex = 8
-        Me.txtClave.Visible = False
         '
         'txtResultado
         '
-        Me.txtResultado.Location = New System.Drawing.Point(179, 259)
+        Me.txtResultado.Location = New System.Drawing.Point(179, 254)
         Me.txtResultado.Name = "txtResultado"
         Me.txtResultado.Size = New System.Drawing.Size(275, 23)
         Me.txtResultado.TabIndex = 7
-        Me.txtResultado.Visible = False
         '
         'txtSolicitud
         '
-        Me.txtSolicitud.Location = New System.Drawing.Point(179, 194)
+        Me.txtSolicitud.Location = New System.Drawing.Point(179, 189)
         Me.txtSolicitud.Name = "txtSolicitud"
         Me.txtSolicitud.Size = New System.Drawing.Size(275, 23)
         Me.txtSolicitud.TabIndex = 6
-        Me.txtSolicitud.Visible = False
         '
         'txtTerminal
         '
@@ -3935,29 +3930,26 @@ Partial Class frmConfigs
         Me.txtTerminal.Name = "txtTerminal"
         Me.txtTerminal.Size = New System.Drawing.Size(275, 23)
         Me.txtTerminal.TabIndex = 5
-        Me.txtTerminal.Visible = False
         '
         'Label88
         '
         Me.Label88.AutoSize = True
         Me.Label88.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label88.Location = New System.Drawing.Point(30, 257)
+        Me.Label88.Location = New System.Drawing.Point(30, 252)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(132, 21)
         Me.Label88.TabIndex = 4
         Me.Label88.Text = "URL de resultado:"
-        Me.Label88.Visible = False
         '
         'Label87
         '
         Me.Label87.AutoSize = True
         Me.Label87.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label87.Location = New System.Drawing.Point(37, 196)
+        Me.Label87.Location = New System.Drawing.Point(37, 191)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(125, 21)
         Me.Label87.TabIndex = 3
         Me.Label87.Text = "URL de solicitud:"
-        Me.Label87.Visible = False
         '
         'Label86
         '
@@ -3968,7 +3960,6 @@ Partial Class frmConfigs
         Me.Label86.Size = New System.Drawing.Size(51, 21)
         Me.Label86.TabIndex = 2
         Me.Label86.Text = "Clave:"
-        Me.Label86.Visible = False
         '
         'Label85
         '
@@ -3979,7 +3970,6 @@ Partial Class frmConfigs
         Me.Label85.Size = New System.Drawing.Size(154, 21)
         Me.Label85.TabIndex = 1
         Me.Label85.Text = "Número de terminal:"
-        Me.Label85.Visible = False
         '
         'Label84
         '
@@ -3990,7 +3980,6 @@ Partial Class frmConfigs
         Me.Label84.Size = New System.Drawing.Size(227, 21)
         Me.Label84.TabIndex = 0
         Me.Label84.Text = "Configuración de Prosepago"
-        Me.Label84.Visible = False
         '
         'frmConfigs
         '

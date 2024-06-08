@@ -1169,6 +1169,11 @@ Public Class Login
                             .runSp(cnnprueba, varKeydatosnegocio, sinfo)
                             .runSp(cnnprueba, varAutodatosnegocio, sinfo)
 
+                            'DatosProsepago
+                            .runSp(cnnprueba, vartabladatosprosepago, sinfo)
+                            .runSp(cnnprueba, varKeydatosprosepago, sinfo)
+                            .runSp(cnnprueba, varAutodatosprosepago, sinfo)
+
                             'detalle_factura
                             .runSp(cnnprueba, vartabladdetalle_factura, sinfo)
 
