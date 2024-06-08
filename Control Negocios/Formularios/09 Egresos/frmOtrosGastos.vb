@@ -132,6 +132,9 @@
 
         If MsgBox("¿Deseas guardar este gasto?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Try
+
+                Dim efectivo As Double = 0
+                efectivo = txtefectivo.Text
                 cnn1.Close() : cnn1.Open()
                 For luffy As Integer = 0 To grdpago.Rows.Count - 1
 
@@ -182,7 +185,7 @@
                 If txtefectivo.Text > 0 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into OtrosGastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU) values('" & cbotipo.Text & "','" & cboconcepto.Text & "','" & txtfolio.Text & "','" & Format(dtpfecha.Value, "yyyy/MM/dd") & "','EFECTIVO'," & txtefectivo.Text & "," & CDbl(txtefectivo.Text) & ",'" & txtcomentario.Text & "','','','','','','" & lblusuario.Text & "','0','0')"
+                        "insert into OtrosGastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU,Efectivo,Tarjeta,Transfe) values('" & cbotipo.Text & "','" & cboconcepto.Text & "','" & txtfolio.Text & "','" & Format(dtpfecha.Value, "yyyy/MM/dd") & "','EFECTIVO'," & efectivo & "," & efectivo & ",'" & txtcomentario.Text & "','','','','','','" & lblusuario.Text & "','0','0',0,0,0)"
                     cmd1.ExecuteNonQuery()
 
                 End If
