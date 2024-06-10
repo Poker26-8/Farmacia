@@ -95,7 +95,6 @@ Public Class datos_delsscom
                 End If
             End If
         End With
-
         consultaaa()
     End Sub
 
