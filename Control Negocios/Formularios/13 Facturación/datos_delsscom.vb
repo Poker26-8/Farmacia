@@ -44,18 +44,6 @@ Public Class datos_delsscom
         End Try
     End Sub
 
-    Private Sub btnguarda_Click(sender As Object, e As EventArgs) Handles btnguarda.Click
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-    End Sub
-
     Private Sub chkFactGob_Click(sender As Object, e As EventArgs) Handles chkFactGob.Click
         Dim cnn As MySqlConnection = New MySqlConnection
         Dim dr As DataRow
@@ -137,7 +125,9 @@ Public Class datos_delsscom
         If TextBox1.Text = "" Then Exit Sub
         lblproceso.Visible = True
         Button4.Enabled = False
+        My.Application.DoEvents()
         crea()
+        My.Application.DoEvents()
         lblproceso.Visible = False
         Button4.Enabled = True
         MsgBox("Base Creada Correctamente")
@@ -531,6 +521,12 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, vartabladatosnegocio, sinfo)
                         .runSp(cnnprueba, varKeydatosnegocio, sinfo)
                         .runSp(cnnprueba, varAutodatosnegocio, sinfo)
+
+
+                        'DatosProsepago
+                        .runSp(cnnprueba, vartabladatosprosepago, sinfo)
+                        .runSp(cnnprueba, varKeydatosprosepago, sinfo)
+                        .runSp(cnnprueba, varAutodatosprosepago, sinfo)
 
                         'detalle_factura
                         .runSp(cnnprueba, vartabladdetalle_factura, sinfo)
