@@ -1572,9 +1572,7 @@ nopasowey:
                     e1 = IIf(rd1("E1").ToString = "", 0, rd1("E1").ToString)
                     e2 = IIf(rd1("E2").ToString = "", 0, rd1("E2").ToString)
                     f44 = IIf(rd1("F44").ToString = "", 0, rd1("F44").ToString)
-                    If codigo = "003B" Then
-                        MsgBox(codigo)
-                    End If
+
 
                     nombre = Trim(Replace(nombre, "‘", ""))
                     nombre = Trim(Replace(nombre, "'", "''"))
