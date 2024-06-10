@@ -6752,7 +6752,7 @@ doorcita:
                     SiPago = 0
                 ElseIf descripcionValue = "2" Then
                     If descripcionValue2 = "Denegada, Saldo insuficiente" Then
-                        MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Exitosa")
+                        MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Fallida")
                         SiPago = 0
                     Else
                         SiPago = 1
