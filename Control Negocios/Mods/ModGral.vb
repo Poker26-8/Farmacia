@@ -159,7 +159,10 @@ Module ModGral
             rd5.Close()
 
             If (existe) Then
-
+                cmd5 = cnn5.CreateCommand
+                cmd5.CommandText =
+                    "UPDATE Formatos SET NotasCred='" & valor & "' WHERE Facturas='" & campo & "'"
+                cmd5.ExecuteNonQuery()
             Else
                 cmd5 = cnn5.CreateCommand
                 cmd5.CommandText =

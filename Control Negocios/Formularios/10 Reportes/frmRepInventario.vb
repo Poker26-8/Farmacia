@@ -1,5 +1,6 @@
 ﻿Imports Microsoft.Office.Interop.Excel
-
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Public Class frmRepInventario
 
     Dim Libreria As Boolean = False
@@ -1941,6 +1942,7 @@ Public Class frmRepInventario
         'Producto
         Dim PCodigo As String = ""
         Dim PNombre As String = ""
+
         Dim PCosto As Double = 0
         Dim PPrecio As Double = 0
         Dim PIVA As Double = 0
@@ -1966,25 +1968,24 @@ Public Class frmRepInventario
         Dim CantProd As Double = 0
 
         Dim FechaInvInicial As String = ""
-        Dim FechaIni As String = ""
-        Dim FechaFin As String = ""
+        Dim FechaIni As Date = Nothing
+        Dim FechaFin As Date = Nothing
         Dim Reporte As Boolean = False
         Dim FolReporte As Integer = 0
 
-        On Error GoTo quepaso_wey
 
         FechaInvInicial = DatosRecarga("FechaCosteo")
         If FechaInvInicial = "" Then
             SFormatos("FechaCosteo", Format(Date.Now, "dd/MM/yyyy"))
             MsgBox("La fecha establecida para el inventario inicial es: " & Format(Date.Now, "dd/MM/yyyy"), vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
             FechaInvInicial = Format(Date.Now, "dd/MM/yyyy")
-            FechaIni = Format(Date.Now, "dd/MM/yyyy")
-            FechaFin = Format(Date.Now, "dd/MM/yyyy")
+            FechaIni = Date.Now
+            FechaFin = Date.Now
             EInvInicial()
             Exit Sub
         Else
             FechaIni = FechaInvInicial
-            FechaFin = Format(Date.Now, "dd/MM/yyyy")
+            FechaFin = Date.Now
         End If
 
         Reporte = False
@@ -1998,7 +1999,7 @@ Public Class frmRepInventario
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select distinct (TA.Codigo), PR.Nombre from TAlmacen TA INNER JOIN Productos PR ON TA.Codigo=PR.Codigo where TA.Fecha>='" & FechaIni & "' and TA.Fecha<='" & FechaFin & "' and TA.FolioReporte=0"
+            "select distinct (TA.Codigo), PR.Nombre from TAlmacen TA INNER JOIN Productos PR ON TA.Codigo=PR.Codigo where TA.Fecha>='" & Format(FechaIni, "yyyy-MM-dd") & "' and TA.Fecha<='" & Format(FechaFin, "yyyy-MM-dd") & "' and TA.FolioReporte=0"
         rd1 = cmd1.ExecuteReader
         cnn2.Close() : cnn2.Open()
         Do While rd1.Read
@@ -2033,7 +2034,7 @@ Public Class frmRepInventario
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select SUM(VD.Total) as TotalPre, SUM(VD.Cantidad) as CantP from Ventas V INNER JOIN VentasDetalle VD ON VD.Folio=V.Folio where VD.Codigo='" & PCodigo & "' and V.Status<>'CANCELADA' and VD.Fecha>='" & Format(CDate(FechaIni), "yyyy-MM-dd") & "' and VD.Fecha<='" & Format(CDate(FechaFin), "yyyy-MM-dd") & "'"
+                "select SUM(VD.Total) as TotalPre, SUM(VD.Cantidad) as CantP from Ventas V INNER JOIN VentasDetalle VD ON VD.Folio=V.Folio where VD.Codigo='" & PCodigo & "' and V.Status<>'CANCELADA' and (VD.Fecha>='" & Format(CDate(FechaIni), "yyyy-MM-dd") & "' and VD.Fecha<='" & Format(CDate(FechaFin), "yyyy-MM-dd") & "') and VD.VDCosteo=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2085,155 +2086,173 @@ Public Class frmRepInventario
 
         Tota_Utilidad = FormatNumber(Efectivo_Ventas - Efectivo_Costo, 4)
 
+        Inserta_Reporte()
+
+        Dim fol_historico As Integer = 0
+
         System.Threading.Thread.Sleep(1000)
 
         If Reporte = True Then
-            If MsgBox("¿Deseas establecer un inventario inicial para el siguiente reporte?", vbQuestion + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                cnn1.Close() : cnn1.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update TAlmacen set FechaReporte='" & Format(Date.Now, "dd/MM/yyyy") & "' where FolioReporte=0"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select MAX(FolioReporte) from TAlmacen"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        FolReporte = IIf(rd1(0).ToString() = "", 0, rd1(0).ToString()) + 1
-                    End If
-                Else
-                    FolReporte = 1
-                End If
-                rd1.Close()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update TAlmacen set FolioReporte=" & FolReporte & " where FolioReporte=0"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update Devoluciones set FolioReporte=" & FolReporte & " where FolioReporte=0"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update ComprasDet set FolioRep=" & FolReporte & " where FolioRep=0"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "insert into HEResultados(Codigo,PDesc,InvIni,Compra,CantDev,InvFin,Cvta,PPrecio,VtaTotal,CostoTotal) select Codigo,PDesc,InvIni,Compra,CantDev,InvFin,CVta,PPrecio,VtaTotal,CostoTotal from RepoMen"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select MAX(Folio_Rep) from HEResultados"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        FolReporte = IIf(rd1(0).ToString() = "", 0, rd1(0).ToString()) + 1
-                    End If
-                Else
-                    FolReporte = 1
-                End If
-                rd1.Close()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update HEResultados set C_Vtas=" & Efectivo_Ventas & ", C_Utilidad=" & Tota_Utilidad & ", C_Costo=" & Efectivo_Costo & ", Folio_Rep=" & FolReporte & ", Fecha_Rep='" & Format(Date.Now, "dd/MM/yyyy") & "', Fecha_Ini='" & FechaIni & "' where Folio_Rep=0"
-                cmd1.ExecuteNonQuery()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "update VentasDetalle set VDCosteo=1 where VDCosteo=0"
-                cmd1.ExecuteNonQuery()
-
-                cnn1.Close()
-
-                EInvInicial()
-                SFormatos("FechaCosteo", Format(Date.Now, "dd/MM/yyyy"))
-            End If
-
-            'Genera el reporte (yo digo que en Excel), sí en Excel
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from RepoMen order by Codigo"
+                    "update TAlmacen set FechaReporte='" & Format(Date.Now, "dd/MM/yyyy") & "' where FolioReporte=0"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "select MAX(FolioReporte) from TAlmacen"
             rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-                    grdestado.Rows.Add(
-                        rd1("Codigo").ToString(),
-                        rd1("PDesc").ToString(),
-                        rd1("InvIni").ToString(),
-                        rd1("Compra").ToString(),
-                        rd1("CantDev").ToString(),
-                        rd1("InvFin").ToString(),
-                        rd1("CVta").ToString(),
-                        rd1("PPrecio").ToString(),
-                        rd1("VtaTotal").ToString(),
-                        rd1("CostoTotal").ToString()
-                        )
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    FolReporte = IIf(rd1(0).ToString() = "", 0, rd1(0).ToString()) + 1
                 End If
-            Loop
-            rd1.Close() : cnn1.Close()
+            Else
+                FolReporte = 1
+            End If
+            rd1.Close()
 
-            If grdestado.Rows.Count = 0 Then Exit Sub
-            Dim exApp As New Microsoft.Office.Interop.Excel.Application
-            Dim exBook As Microsoft.Office.Interop.Excel.Workbook
-            Dim exSheet As Microsoft.Office.Interop.Excel.Worksheet
+            fol_historico = FolReporte
 
-            exBook = exApp.Workbooks.Add
-            exSheet = exBook.Application.ActiveSheet
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "update TAlmacen set FolioReporte=" & FolReporte & " where FolioReporte=0"
+            cmd1.ExecuteNonQuery()
 
-            exSheet.Columns("A").NumberFormat = "@"
-            exSheet.Columns("B").NumberFormat = "@"
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "update Devoluciones set FolioReporte=" & FolReporte & " where FolioReporte=0"
+            cmd1.ExecuteNonQuery()
 
-            Dim Fila As Integer = 0
-            Dim Col As Integer = 0
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "update ComprasDet set FolioRep=" & FolReporte & " where FolioRep=0"
+            cmd1.ExecuteNonQuery()
 
-            Dim NCol As Integer = grdestado.ColumnCount
-            Dim NRow As Integer = grdestado.RowCount
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "insert into HEResultados(Codigo,PDesc,InvIni,Compra,CantDev,InvFin,Cvta,PPrecio,VtaTotal,CostoTotal) select Codigo,PDesc,InvIni,Compra,CantDev,InvFin,CVta,PPrecio,VtaTotal,CostoTotal from RepoMen"
+            cmd1.ExecuteNonQuery()
 
-            For i As Integer = 1 To NCol
-                exSheet.Cells.Item(1, i) = grdestado.Columns(i - 1).HeaderText.ToString
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "select MAX(Folio_Rep) from HEResultados"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    FolReporte = IIf(rd1(0).ToString() = "", 0, rd1(0).ToString()) + 1
+                End If
+            Else
+                FolReporte = 1
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "update HEResultados set C_Vtas=" & Efectivo_Ventas & ", C_Utilidad=" & Tota_Utilidad & ", C_Costo=" & Efectivo_Costo & ", Folio_Rep=" & FolReporte & ", Fecha_Rep='" & Format(Date.Now, "dd/MM/yyyy") & "', Fecha_Ini='" & FechaIni & "' where Folio_Rep=0"
+            cmd1.ExecuteNonQuery()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                    "update VentasDetalle set VDCosteo=1 where VDCosteo=0"
+            cmd1.ExecuteNonQuery()
+
+            cnn1.Close()
+
+            EInvInicial()
+            SFormatos("FechaCosteo", Format(Date.Now, "dd/MM/yyyy"))
+
+            'Genera crystal
+            Dim root_name_recibo As String = ""
+            Dim FileOpen As New ProcessStartInfo
+            Dim FileNta As New EdoResultados
+            Dim strServerName As String = System.Windows.Forms.Application.StartupPath
+            Dim crtableLogoninfos As New TableLogOnInfos
+            Dim crtableLogoninfo As New TableLogOnInfo
+            Dim crConnectionInfo As New ConnectionInfo
+            Dim CrTables As Tables
+            Dim CrTable As Table
+
+            crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\")
+            root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf"
+
+            If System.IO.File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf") Then
+                System.IO.File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf")
+            End If
+
+            If varrutabase <> "" Then
+                If System.IO.File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf") Then
+                    System.IO.File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf")
+                End If
+            End If
+
+            With crConnectionInfo
+                .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+                .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+                .UserID = ""
+                .Password = "jipl22"
+            End With
+
+            CrTables = FileNta.Database.Tables
+            For Each CrTable In CrTables
+                crtableLogoninfo = CrTable.LogOnInfo
+                crtableLogoninfo.ConnectionInfo = crConnectionInfo
+                CrTable.ApplyLogOnInfo(crtableLogoninfo)
             Next
 
-            For Fila = 0 To NRow - 1
-                For Col = 0 To NCol - 1
-                    exSheet.Cells.Item(Fila + 2, Col + 1) = grdestado.Rows(Fila).Cells(Col).Value.ToString
-                Next
-            Next
+            FileNta.SetDatabaseLogon("", "jipl22")
+            FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & fol_historico & "'"
+            FileNta.DataDefinition.FormulaFields("F_Inicial").Text = "'" & FormatDateTime(FechaIni, DateFormat.ShortDate) & "'"
+            FileNta.DataDefinition.FormulaFields("F_Reporte").Text = "'" & FormatDateTime(FechaFin, DateFormat.ShortDate) & "'"
 
-            Dim Fila2 As Integer = Fila + 2
-            ''Aquí manda los datos conclusorios
+            FileNta.Refresh()
+            FileNta.Refresh()
+            FileNta.Refresh()
+            If System.IO.File.Exists(root_name_recibo) Then
+                System.IO.File.Delete(root_name_recibo)
+            End If
 
-            'exSheet.Cells.Item(Fila2 + 2, Col - 1) = "Valor de Compra Total"
-            'exSheet.Cells.Item(Fila2 + 2, Col - 1).Font.Bold = 1
-            'exSheet.Cells.Item(Fila2 + 3, Col - 1) = "Valor de Venta Total"
-            'exSheet.Cells.Item(Fila2 + 3, Col - 1).Font.Bold = 1
+            Try
+                Dim CrExportOptions As ExportOptions
+                Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+                Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
 
-            'exSheet.Cells.Item(Fila2 + 2, Col) = FormatNumber(txtCompraTot.Text, 2)
-            'exSheet.Cells.Item(Fila2 + 3, Col) = FormatNumber(txtVentaTot.Text, 2)
+                CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+                CrExportOptions = FileNta.ExportOptions
+                With CrExportOptions
+                    .ExportDestinationType = ExportDestinationType.DiskFile
+                    .ExportFormatType = ExportFormatType.PortableDocFormat
+                    .DestinationOptions = CrDiskFileDestinationOptions
+                    .FormatOptions = CrFormatTypeOptions
+                End With
 
-            exSheet.Rows.Item(1).Font.Bold = 1
-            exSheet.Rows.Item(1).HorizontalAlignment = 3
-            exSheet.Columns.AutoFit()
+                FileNta.Export()
+                FileOpen.UseShellExecute = True
+                FileOpen.FileName = root_name_recibo
 
-            exApp.Application.Visible = True
-            exSheet = Nothing
-            exBook = Nothing
-            exApp = Nothing
+                My.Application.DoEvents()
 
-            barCarga.Value = 0
-            barCarga.Visible = False
+                If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    Process.Start(FileOpen)
+                    MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            FileNta.Close()
 
-            MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            If varrutabase <> "" Then
+
+                If System.IO.File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf") Then
+                    System.IO.File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf")
+                End If
+
+                System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\ESTADO RESULTADOS\Folio_" & fol_historico & ".pdf")
+            End If
+            Exit Sub
+            'MsgBox("Reporte exportado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         Else
             If DatosRecarga("FechaCosteo") = "" Then
                 EInvInicial()
@@ -2261,6 +2280,41 @@ quepaso_wey:
         MsgBox(Err.Number & " - " & Err.Description & vbNewLine &
                "No se pudo continuar con el proceso, inténtalo de nuevo más tarde. Sí el problema persiste comunícate con tu proveedor de software", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         Exit Sub
+    End Sub
+
+    Private Sub Inserta_Reporte()
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New System.Data.DataTable
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from RepoMen", sinfo)
+                sinfo = ""
+
+                cnn4.Close() : cnn4.Open()
+
+                cmd4 = cnn4.CreateCommand
+                cmd4.CommandText =
+                    "select * from RepoMen"
+                rd4 = cmd4.ExecuteReader
+                Do While rd4.Read
+                    If rd4.HasRows Then
+                        If .runSp(a_cnn, "insert into RepoMen(Codigo,PDesc,InvIni,Compra,CantDev,InvFini,CVta,PPrecio,VtaTotal,CostoTotal) values('" & rd4("Codigo").ToString() & "','" & rd4("PDesc").ToString() & "'," & rd4("InvIni").ToString() & "," & rd4("Compra").ToString() & "," & rd4("CantDev").ToString() & "," & rd4("InvFin").ToString() & "," & rd4("CVta").ToString() & "," & rd4("PPrecio").ToString() & "," & rd4("VtaTotal").ToString() & "," & rd4("CostoTotal").ToString() & ")", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    End If
+                Loop
+                rd4.Close()
+                cnn4.Close()
+                a_cnn.Close()
+            End If
+        End With
     End Sub
 
     Private Sub EInvInicial()
@@ -2301,16 +2355,14 @@ quepaso_wey:
 
     Private Function InventarioI(ByVal COD As String, ByRef CostoInv As Double) As Double
         Dim FCosteo As String = DatosRecarga("FechaCosteo")
-        FCosteo = IIf(FCosteo = "", Format(Date.Now, "dd/MM/yyyy"), FCosteo)
+        Dim fecha_consulta As Date = FCosteo
 
         Try
             cnn3.Close() : cnn3.Open()
 
             cmd3 = cnn3.CreateCommand
-            ' cmd3.CommandText =
-            '  "select TOP 1 IDTAlmacen,Exist,Saldo from TAlmacen where Codigo='" & COD & "' and Fecha>='" & FCosteo & "' and FolioReporte=0 and TipoMov='Inventario inicial' order by IDTAlmacen desc"
             cmd3.CommandText =
-                "select IDTAlmacen,Exist,Saldo from TAlmacen where Codigo='" & COD & "' and Fecha>='" & FCosteo & "' and FolioReporte=0 and TipoMov='Inventario inicial' LIMIT 1"
+                "select IDTAlmacen,Exist,Saldo from TAlmacen where Codigo='" & COD & "' and Fecha>='" & Format(fecha_consulta, "yyyy-MM-dd") & "' and FolioReporte=0 and TipoMov='Inventario inicial' LIMIT 1"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
