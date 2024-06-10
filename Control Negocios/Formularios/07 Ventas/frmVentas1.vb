@@ -622,7 +622,6 @@ Public Class frmVentas1
                 End If
             End If
             rd3.Close()
-
             cnn3.Close()
 
             If TPapel = "MEDIA CARTA" Then
