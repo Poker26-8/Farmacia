@@ -20,7 +20,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    salidahotel = rd2(0).ToString
+                    salidahotel = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
                     salidahotel2 = Format(salidahotel, "HH:mm")
                 End If
             End If
@@ -37,7 +37,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+            cmd2.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='ToleHabi'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

@@ -360,7 +360,7 @@ Partial Class frmNuevoPagarComandas
         Me.BTNC0.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTNC0.Location = New System.Drawing.Point(6, 183)
         Me.BTNC0.Name = "BTNC0"
-        Me.BTNC0.Size = New System.Drawing.Size(81, 54)
+        Me.BTNC0.Size = New System.Drawing.Size(81, 113)
         Me.BTNC0.TabIndex = 88
         Me.BTNC0.Text = "C0"
         Me.BTNC0.UseVisualStyleBackColor = False

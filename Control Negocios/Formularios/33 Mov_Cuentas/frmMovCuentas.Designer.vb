@@ -82,6 +82,10 @@ Partial Class frmMovCuentas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.pIngreso80 = New System.Drawing.Printing.PrintDocument()
+        Me.PIngreso58 = New System.Drawing.Printing.PrintDocument()
+        Me.pEgresos80 = New System.Drawing.Printing.PrintDocument()
+        Me.pEgresos58 = New System.Drawing.Printing.PrintDocument()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -709,12 +713,13 @@ Partial Class frmMovCuentas
         'txtContra
         '
         Me.txtContra.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContra.Location = New System.Drawing.Point(432, 32)
+        Me.txtContra.Location = New System.Drawing.Point(432, 28)
         Me.txtContra.Name = "txtContra"
         Me.txtContra.Size = New System.Drawing.Size(123, 24)
         Me.txtContra.TabIndex = 10
         Me.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtContra.UseSystemPasswordChar = True
+        Me.txtContra.Visible = False
         '
         'Label11
         '
@@ -725,17 +730,19 @@ Partial Class frmMovCuentas
         Me.Label11.TabIndex = 11
         Me.Label11.Text = "Contraseña"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label11.Visible = False
         '
         'lblUsuario
         '
         Me.lblUsuario.BackColor = System.Drawing.Color.DodgerBlue
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.ForeColor = System.Drawing.Color.White
-        Me.lblUsuario.Location = New System.Drawing.Point(300, 33)
+        Me.lblUsuario.Location = New System.Drawing.Point(300, 28)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(129, 23)
         Me.lblUsuario.TabIndex = 12
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblUsuario.Visible = False
         '
         'Label13
         '
@@ -746,6 +753,19 @@ Partial Class frmMovCuentas
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "Usuario"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label13.Visible = False
+        '
+        'pIngreso80
+        '
+        '
+        'PIngreso58
+        '
+        '
+        'pEgresos80
+        '
+        '
+        'pEgresos58
+        '
         '
         'frmMovCuentas
         '
@@ -832,4 +852,8 @@ Partial Class frmMovCuentas
     Friend WithEvents btnGuardarE As Button
     Friend WithEvents btnSalirE As Button
     Friend WithEvents btnNuevoE As Button
+    Friend WithEvents pIngreso80 As Printing.PrintDocument
+    Friend WithEvents PIngreso58 As Printing.PrintDocument
+    Friend WithEvents pEgresos80 As Printing.PrintDocument
+    Friend WithEvents pEgresos58 As Printing.PrintDocument
 End Class

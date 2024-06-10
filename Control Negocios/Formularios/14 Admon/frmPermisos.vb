@@ -285,9 +285,9 @@
         If rd1.HasRows Then
             If rd1.Read Then
                 If rd1(0).ToString = "1" Then
-                    Button13.Visible = True
+                    btnPermisosRestaurante.Visible = True
                 Else
-                    Button13.Visible = False
+                    btnPermisosRestaurante.Visible = False
                 End If
             End If
         End If
@@ -937,7 +937,7 @@
         End Try
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles btnPermisosRestaurante.Click
         frmPermisosRestaurant.Show()
         frmPermisosRestaurant.BringToFront()
     End Sub

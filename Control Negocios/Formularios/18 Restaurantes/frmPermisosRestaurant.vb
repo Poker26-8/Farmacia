@@ -40,7 +40,8 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    cobroexacto = rd2(0).ToString
+                    cobroexacto = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+
                     If cobroexacto = 1 Then
                         cbCobroExacto.Checked = True
                     Else
@@ -64,11 +65,11 @@
             Dim propias As Integer = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='MesasPropias'"
+            cmd2.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='MesasPropias'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    propias = rd2(0).ToString
+                    propias = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
 
                     If propias = 1 Then
                         cbMesasPropias.Checked = True
@@ -87,7 +88,7 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    cuartos = rd2(0).ToString
+                    cuartos = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
 
                     If cuartos = 1 Then
                         chkCuartos.Checked = True
@@ -99,17 +100,21 @@
             End If
             rd2.Close()
 
+            Dim copa As Integer = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
+            cmd2.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Copa'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    If rd2(0).ToString = 1 Then
+                    copa = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+
+                    If copa = 1 Then
                         cbCopas.Checked = True
                     Else
                         cbCopas.Checked = False
                     End If
+
                 End If
             End If
             rd2.Close()
@@ -656,7 +661,7 @@
             If (cbMesasPropias.Checked) Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='0' WHERE Facturas='MesasPropias'"
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart=1' WHERE Facturas='MesasPropias'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Else
@@ -677,7 +682,7 @@
             If (cbCopas.Checked) Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='0' WHERE Facturas='Copa'"
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='1' WHERE Facturas='Copa'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Else

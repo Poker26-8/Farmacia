@@ -214,4 +214,10 @@
         frmAct_Consignaciones.Show()
         frmAct_Consignaciones.BringToFront()
     End Sub
+
+    Private Sub btnMovCuenta_Click(sender As Object, e As EventArgs) Handles btnMovCuenta.Click
+        frmAct_MovCuenta.Show()
+        frmAct_MovCuenta.BringToFront()
+        Me.Close()
+    End Sub
 End Class

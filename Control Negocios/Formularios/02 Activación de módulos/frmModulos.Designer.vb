@@ -69,6 +69,8 @@ Partial Class frmModulos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnMovCuenta = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -119,6 +121,8 @@ Partial Class frmModulos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.btnMovCuenta)
+        Me.Panel2.Controls.Add(Me.Label23)
         Me.Panel2.Controls.Add(Me.Button16)
         Me.Panel2.Controls.Add(Me.Label22)
         Me.Panel2.Controls.Add(Me.Button15)
@@ -668,6 +672,30 @@ Partial Class frmModulos
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'btnMovCuenta
+        '
+        Me.btnMovCuenta.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnMovCuenta.FlatAppearance.BorderSize = 0
+        Me.btnMovCuenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnMovCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMovCuenta.Image = CType(resources.GetObject("btnMovCuenta.Image"), System.Drawing.Image)
+        Me.btnMovCuenta.Location = New System.Drawing.Point(724, 252)
+        Me.btnMovCuenta.Name = "btnMovCuenta"
+        Me.btnMovCuenta.Size = New System.Drawing.Size(80, 80)
+        Me.btnMovCuenta.TabIndex = 211
+        Me.btnMovCuenta.UseVisualStyleBackColor = True
+        '
+        'Label23
+        '
+        Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(720, 230)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(91, 19)
+        Me.Label23.TabIndex = 210
+        Me.Label23.Text = "Mov Cuentas"
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -737,4 +765,6 @@ Partial Class frmModulos
     Friend WithEvents Label21 As Label
     Friend WithEvents Button16 As Button
     Friend WithEvents Label22 As Label
+    Friend WithEvents btnMovCuenta As Button
+    Friend WithEvents Label23 As Label
 End Class

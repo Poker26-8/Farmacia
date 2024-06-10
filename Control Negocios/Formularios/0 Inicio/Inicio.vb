@@ -525,12 +525,14 @@ Public Class Inicio
                         CORTEMESERO.Visible = True
                         pMod_Produccion.Visible = True
                         pMod_Produccion.Enabled = True
+                        frmPermisos.btnPermisosRestaurante.Visible = True
                     Else
                         Button12.Visible = False
                         ' Button13.Visible = False
                         btnPagarComandas.Visible = False
                         btnvtatouch.Visible = False
                         CORTEMESERO.Visible = False
+                        frmPermisos.btnPermisosRestaurante.Visible = False
                     End If
 
                 End If
@@ -621,7 +623,29 @@ Public Class Inicio
                     End If
                 End If
             End If
-            rd1.Close() : cnn1.Close()
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE  Facturas='Mov_Cuenta'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
+                        ReporteMovCuentasToolStripMenuItem.Visible = True
+                        MovCuentasToolStripMenuItem.Visible = True
+                    Else
+                        ReporteMovCuentasToolStripMenuItem.Visible = False
+                        MovCuentasToolStripMenuItem.Visible = False
+                    End If
+
+                End If
+            Else
+                ReporteMovCuentasToolStripMenuItem.Visible = False
+                MovCuentasToolStripMenuItem.Visible = False
+            End If
+            rd1.Close()
+
+            cnn1.Close()
 
             If (migracion) Then
                 pMigracion.Visible = True

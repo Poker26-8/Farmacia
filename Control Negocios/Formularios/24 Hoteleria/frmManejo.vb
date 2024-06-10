@@ -647,7 +647,7 @@ Public Class frmManejo
                                     rd1.Close()
 
                                     cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+                                    cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='ToleHabi'"
                                     rd1 = cmd1.ExecuteReader
                                     If rd1.HasRows Then
                                         If rd1.Read Then
@@ -818,10 +818,6 @@ Public Class frmManejo
             Loop
             rd3.Close()
             cnn3.Close()
-
-
-
-
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)

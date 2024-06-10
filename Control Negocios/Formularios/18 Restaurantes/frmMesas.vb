@@ -264,7 +264,7 @@ Public Class frmMesas
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    If rd2("NotasCred").ToString = 1 Then
+                    If rd2("numPart").ToString = 1 Then
                         simesaspropia = 1
                     Else
                         simesaspropia = 0
@@ -504,7 +504,7 @@ Public Class frmMesas
         rd3 = cmd3.ExecuteReader
         If rd3.HasRows Then
             If rd3.Read Then
-                If rd3("NotasCred").ToString = 1 Then
+                If rd3("NumPart").ToString = 1 Then
                     simesaspropianm = 1
                 Else
                     simesaspropianm = 0
@@ -578,7 +578,7 @@ Public Class frmMesas
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    If rd2("NotasCred").ToString = 1 Then
+                    If rd2("NumPart").ToString = 1 Then
                         simesaspropianm = 1
                     Else
                         simesaspropianm = 0

@@ -1830,9 +1830,6 @@ Door:
         btnlimpiar.PerformClick()
         Me.Close()
 
-        frmMesas.Close()
-        frmMesas.Show()
-
     End Sub
 
     Private Sub btnPrecuenta_Click(sender As Object, e As EventArgs) Handles btnPrecuenta.Click

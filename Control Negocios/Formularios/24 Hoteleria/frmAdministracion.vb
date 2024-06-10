@@ -159,7 +159,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ToleHabi'"
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='ToleHabi'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -183,7 +183,7 @@
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    dtpinicio.Text = rd1(0).ToString
+                    dtpinicio.Text = IIf(rd1(0).ToString = "", 0, rd1(0).ToString)
                 End If
             End If
             rd1.Close()
@@ -209,7 +209,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE formatos set NotasCred='" & txttole.Text & "' WHERE Facturas='ToleHabi' "
+                    cmd2.CommandText = "UPDATE formatos set NumPart='" & txttole.Text & "' WHERE Facturas='ToleHabi' "
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
