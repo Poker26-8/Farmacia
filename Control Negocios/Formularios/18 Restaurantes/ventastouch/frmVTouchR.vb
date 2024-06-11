@@ -2831,12 +2831,18 @@ deku:
                 End If
             End If
             If validaTarjeta = 0 Then
-                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : 
-                frmPagarTouch.btnIntro.Enabled = True : Exit Sub
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                    cnn1.Close()
+                    Exit Sub
+                End If
+                frmPagarTouch.btnIntro.Enabled = True
             Else
                 If SiPago = 0 Then
-                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : 
-                    frmPagarTouch.btnIntro.Enabled = True : Exit Sub
+                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                        cnn1.Close()
+                        Exit Sub
+                    End If
+                    frmPagarTouch.btnIntro.Enabled = True
                 End If
             End If
 
