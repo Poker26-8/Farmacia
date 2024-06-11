@@ -49,6 +49,9 @@
         frmVentasTouch3.Id_Cliente = MyIdCliente
         frmVentasTouch3.Direccion = txtDireccion.Text
         frmVentasTouch3.Monedero = txtMonedero.Text
+        Dim cuantopaga As Double = 0
+        cuantopaga = txttarjeta.Text
+        frmVentasTouch3.validaTarjeta = cuantopaga
         Refresh()
         frmVentasTouch3.GuardarVenta()
     End Sub
