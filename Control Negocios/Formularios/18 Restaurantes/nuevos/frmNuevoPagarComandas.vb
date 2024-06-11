@@ -1617,7 +1617,7 @@ Public Class frmNuevoPagarComandas
                 End If
 
                 If descripcionValue = "0" Then
-                    MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incomppleta")
+                    MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incompleta")
                     SiPago = 0
                 ElseIf descripcionValue = "1" Then
                     MsgBox("La operación es rechazada por el banco o cancelada por el usuario", vbCritical + vbOKOnly, "Operación Denegada")

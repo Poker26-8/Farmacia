@@ -275,7 +275,7 @@ Public Class frmConsultaNotas
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "SELECT Fecha,Hora,Abono,FormaPago,Banco,Referencia,Comentario,CuentaC,BRecepcion,Usuario FROM AbonoI WHERE NumFolio='" & cbofolio.Text & "' AND Concepto='ABONO'"
+                        "SELECT Fecha,Hora,Abono,FormaPago,Banco,Referencia,Comentario,CuentaC,BRecepcion,Usuario FROM AbonoI WHERE NumFolio='" & cbofolio.Text & "' AND Concepto='ABONO' AND Status=0"
                     rd1 = cmd1.ExecuteReader
                     Do While rd1.Read
                         If rd1.HasRows Then
@@ -2021,10 +2021,33 @@ Public Class frmConsultaNotas
                     Dim cuentap As String = grdpagos.Rows(T).Cells(6).Value.ToString()
                     Dim bancocuenta As String = grdpagos.Rows(T).Cells(7).Value.ToString()
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & FormaP & "','" & BancoP & "','" & RefeP & "','Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cbofolio.Text & "','" & cbonombre.Text & "','','" & cuentap & "','" & bancocuenta & "')"
-                    cmd1.ExecuteNonQuery()
+                    Dim saldocuenta As Double = 0
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & cuentap & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + MontoP
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                    "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & FormaP & "','" & BancoP & "','" & RefeP & "','Venta'," & MontoP & ",0," & MontoP & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cbofolio.Text & "','" & cbonombre.Text & "','','" & cuentap & "','" & bancocuenta & "')"
+                            cmd1.ExecuteNonQuery()
+
+                        End If
+                    Else
+                        MySaldo = MontoP
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                                "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & FormaP & "','" & BancoP & "','" & RefeP & "','Venta'," & MontoP & ",0," & MontoP & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cbofolio.Text & "','" & cbonombre.Text & "','','" & cuentap & "','" & bancocuenta & "')"
+                        cmd1.ExecuteNonQuery()
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+
                 Next
             End If
             cnn1.Close()

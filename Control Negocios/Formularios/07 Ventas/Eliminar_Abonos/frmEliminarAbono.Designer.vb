@@ -23,7 +23,7 @@ Partial Class frmEliminarAbono
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEliminarAbono))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtMonto = New System.Windows.Forms.TextBox()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -51,6 +51,7 @@ Partial Class frmEliminarAbono
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pEliminar58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -62,7 +63,7 @@ Partial Class frmEliminarAbono
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(8, 18)
+        Me.Label2.Location = New System.Drawing.Point(10, 8)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 18)
         Me.Label2.TabIndex = 1
@@ -71,7 +72,7 @@ Partial Class frmEliminarAbono
         'txtMonto
         '
         Me.txtMonto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMonto.Location = New System.Drawing.Point(69, 16)
+        Me.txtMonto.Location = New System.Drawing.Point(71, 6)
         Me.txtMonto.Name = "txtMonto"
         Me.txtMonto.Size = New System.Drawing.Size(107, 22)
         Me.txtMonto.TabIndex = 3
@@ -135,7 +136,7 @@ Partial Class frmEliminarAbono
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(606, 68)
+        Me.Panel2.Size = New System.Drawing.Size(651, 68)
         Me.Panel2.TabIndex = 9
         '
         'cboCliente
@@ -144,7 +145,7 @@ Partial Class frmEliminarAbono
         Me.cboCliente.FormattingEnabled = True
         Me.cboCliente.Location = New System.Drawing.Point(71, 38)
         Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(350, 24)
+        Me.cboCliente.Size = New System.Drawing.Size(395, 24)
         Me.cboCliente.TabIndex = 9
         '
         'Label3
@@ -161,7 +162,7 @@ Partial Class frmEliminarAbono
         '
         Me.cboFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboFolio.FormattingEnabled = True
-        Me.cboFolio.Location = New System.Drawing.Point(480, 38)
+        Me.cboFolio.Location = New System.Drawing.Point(525, 38)
         Me.cboFolio.Name = "cboFolio"
         Me.cboFolio.Size = New System.Drawing.Size(121, 24)
         Me.cboFolio.TabIndex = 7
@@ -170,7 +171,7 @@ Partial Class frmEliminarAbono
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(427, 38)
+        Me.Label1.Location = New System.Drawing.Point(472, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 20)
         Me.Label1.TabIndex = 6
@@ -182,7 +183,7 @@ Partial Class frmEliminarAbono
         Me.Panel3.Controls.Add(Me.btnnuevo)
         Me.Panel3.Controls.Add(Me.btnguardar)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(538, 68)
+        Me.Panel3.Location = New System.Drawing.Point(583, 68)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(68, 252)
         Me.Panel3.TabIndex = 10
@@ -192,9 +193,9 @@ Partial Class frmEliminarAbono
         Me.Panel1.Controls.Add(Me.txtMonto)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 273)
+        Me.Panel1.Location = New System.Drawing.Point(0, 279)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(538, 47)
+        Me.Panel1.Size = New System.Drawing.Size(583, 41)
         Me.Panel1.TabIndex = 11
         '
         'Panel4
@@ -203,7 +204,7 @@ Partial Class frmEliminarAbono
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 68)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(538, 205)
+        Me.Panel4.Size = New System.Drawing.Size(583, 211)
         Me.Panel4.TabIndex = 12
         '
         'grdAbonos
@@ -218,14 +219,14 @@ Partial Class frmEliminarAbono
         Me.grdAbonos.Name = "grdAbonos"
         Me.grdAbonos.ReadOnly = True
         Me.grdAbonos.RowHeadersVisible = False
-        Me.grdAbonos.Size = New System.Drawing.Size(538, 205)
+        Me.grdAbonos.Size = New System.Drawing.Size(583, 211)
         Me.grdAbonos.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(382, 9)
+        Me.Label4.Location = New System.Drawing.Point(427, 12)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(92, 20)
         Me.Label4.TabIndex = 10
@@ -233,7 +234,7 @@ Partial Class frmEliminarAbono
         '
         'txtContraseña
         '
-        Me.txtContraseña.Location = New System.Drawing.Point(480, 9)
+        Me.txtContraseña.Location = New System.Drawing.Point(525, 12)
         Me.txtContraseña.Name = "txtContraseña"
         Me.txtContraseña.Size = New System.Drawing.Size(121, 20)
         Me.txtContraseña.TabIndex = 11
@@ -244,7 +245,7 @@ Partial Class frmEliminarAbono
         Me.lblUsuario.BackColor = System.Drawing.Color.Blue
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.ForeColor = System.Drawing.Color.White
-        Me.lblUsuario.Location = New System.Drawing.Point(258, 6)
+        Me.lblUsuario.Location = New System.Drawing.Point(303, 9)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(118, 23)
         Me.lblUsuario.TabIndex = 12
@@ -254,11 +255,14 @@ Partial Class frmEliminarAbono
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(171, 7)
+        Me.Label6.Location = New System.Drawing.Point(216, 10)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(81, 20)
         Me.Label6.TabIndex = 13
         Me.Label6.Text = "Empleado"
+        '
+        'pEliminar80
+        '
         '
         'Column1
         '
@@ -311,8 +315,8 @@ Partial Class frmEliminarAbono
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column3.HeaderText = "Monto"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -326,12 +330,15 @@ Partial Class frmEliminarAbono
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 68
         '
+        'pEliminar58
+        '
+        '
         'frmEliminarAbono
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(606, 320)
+        Me.ClientSize = New System.Drawing.Size(651, 320)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -377,4 +384,5 @@ Partial Class frmEliminarAbono
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents pEliminar58 As Printing.PrintDocument
 End Class
