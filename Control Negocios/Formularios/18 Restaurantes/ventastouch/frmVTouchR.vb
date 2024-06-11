@@ -2818,7 +2818,6 @@ deku:
                 End If
             End If
 
-
             If grdCaptura.Rows.Count < 1 Then
                 Exit Sub
             End If
