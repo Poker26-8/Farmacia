@@ -710,6 +710,10 @@ Public Class frmNuevoPagarComandas
 
         cboMesa.Focused.Equals(True)
 
+        SiPago = 0
+        validaTarjeta = 0
+        My.Application.DoEvents()
+
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click

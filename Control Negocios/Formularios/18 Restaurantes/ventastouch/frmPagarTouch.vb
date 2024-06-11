@@ -409,7 +409,22 @@
         cboCuenta.Text = ""
         txtRecepcion.Text = ""
         btnIntro.Focus.Equals(True)
-
+        validaMontosTarjeta()
+    End Sub
+    Public Sub validaMontosTarjeta()
+        Try
+            Dim cuantopaga As Double = 0
+            For xxx As Integer = 0 To grdPagos.Rows.Count - 1
+                Dim primer As String = grdPagos.Rows(xxx).Cells(0).Value.ToString
+                If primer.ToUpper().Contains("TARJETA") Then
+                    cuantopaga = cuantopaga + CDec(grdPagos.Rows(xxx).Cells(3).Value)
+                End If
+            Next
+            frmVTouchR.validaTarjeta = cuantopaga
+            'MsgBox("La suma de pagos con tarjeta es: " & cuantopaga)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 
     Private Sub txtpagos_TextChanged(sender As Object, e As EventArgs) Handles txtpagos.TextChanged
