@@ -6,18 +6,19 @@ Imports MySql.Data.MySqlClient
 Imports System.IO.Ports
 Imports QRCoder
 Imports System.Drawing
-Imports System.Net
+Imports System.Net7777
 Imports System.Xml
 Imports System.Threading.Tasks
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Net
 Public Class frmVentas1
 
     ''' variablesm para terminal bancaria
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
     Public hayTerminal As Integer = 0
-    Dim validaTarjeta As Double = 0
+    Public validaTarjeta As Double = 0
 
     Dim numTerminal As String = ""
     Dim numClave As String = ""
