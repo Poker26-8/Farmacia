@@ -1090,7 +1090,6 @@ Public Class frmNuevoPagar
                 If rd2.Read Then
                     tipo_mone = rd2("NumPart").ToString()
                     porcentaje_mone = IIf(rd2("NotasCred").ToString() = "", 0, rd2("NotasCred").ToString())
-
                 End If
             End If
 
