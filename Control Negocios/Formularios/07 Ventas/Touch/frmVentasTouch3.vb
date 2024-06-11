@@ -2988,6 +2988,9 @@ Door:
         CampoDsct = 0
         lblTotal.Text = "0.00"
         lblcantidadletra.Text = ""
+        SiPago = 0
+        validaTarjeta = 0
+        My.Application.DoEvents()
     End Sub
 
 End Class
