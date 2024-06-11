@@ -1970,8 +1970,8 @@ Public Class frmConsultaNotas
                                     BancoP = BancoP & " - " & grdpagos.Rows(T).Cells(1).Value.ToString()
                                     RefeP = RefeP & " " & grdpagos.Rows(T).Cells(2).Value.ToString()
                                     comentario = comentario & " " & grdpagos.Rows(T).Cells(5).Value.ToString()
-                                    cuentarep = cuentarep & " " & grdpagos.Rows(T).Cells(6).Value.ToString()
-                                    bancorep = bancorep & " " & grdpagos.Rows(T).Cells(7).Value.ToString()
+                                    cuentarep = grdpagos.Rows(T).Cells(6).Value.ToString()
+                                    bancorep = grdpagos.Rows(T).Cells(7).Value.ToString()
 
                                 End If
                             Next
@@ -2018,10 +2018,12 @@ Public Class frmConsultaNotas
                     Dim MontoP As Double = grdpagos.Rows(T).Cells(3).Value.ToString()
                     Dim RefeP As String = grdpagos.Rows(T).Cells(2).Value.ToString()
                     Dim FechaP As String = grdpagos.Rows(T).Cells(4).Value.ToString()
+                    Dim cuentap As String = grdpagos.Rows(T).Cells(6).Value.ToString()
+                    Dim bancocuenta As String = grdpagos.Rows(T).Cells(7).Value.ToString()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio) values('" & FormaP & "','" & BancoP & "','" & RefeP & "','Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cbofolio.Text & "')"
+                            "insert into MovCuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) values('" & FormaP & "','" & BancoP & "','" & RefeP & "','Venta'," & MontoP & ",0," & MontoP & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & cbofolio.Text & "','" & cbonombre.Text & "','','" & cuentap & "','" & bancocuenta & "')"
                     cmd1.ExecuteNonQuery()
                 Next
             End If
@@ -7353,4 +7355,6 @@ doorcita:
 
         txtpagos.Text = FormatNumber(pagos, 4)
     End Sub
+
+
 End Class

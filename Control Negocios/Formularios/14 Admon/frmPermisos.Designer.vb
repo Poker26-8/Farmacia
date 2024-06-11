@@ -145,6 +145,7 @@ Partial Class frmPermisos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnPermisosRestaurante = New System.Windows.Forms.Button()
+        Me.EliAbonos = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -479,6 +480,7 @@ Partial Class frmPermisos
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.EliAbonos)
         Me.Panel4.Controls.Add(Me.ven_Edi)
         Me.Panel4.Controls.Add(Me.ven_Can)
         Me.Panel4.Controls.Add(Me.ven_Dev)
@@ -492,7 +494,7 @@ Partial Class frmPermisos
         Me.Panel4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(162, 339)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(152, 212)
+        Me.Panel4.Size = New System.Drawing.Size(152, 237)
         Me.Panel4.TabIndex = 52
         '
         'ven_Edi
@@ -1510,6 +1512,16 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPermisosRestaurante.UseVisualStyleBackColor = True
         '
+        'EliAbonos
+        '
+        Me.EliAbonos.AutoSize = True
+        Me.EliAbonos.Location = New System.Drawing.Point(2, 206)
+        Me.EliAbonos.Name = "EliAbonos"
+        Me.EliAbonos.Size = New System.Drawing.Size(109, 17)
+        Me.EliAbonos.TabIndex = 10
+        Me.EliAbonos.Text = "Eliminar abonos"
+        Me.EliAbonos.UseVisualStyleBackColor = True
+        '
         'frmPermisos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1709,4 +1721,5 @@ Partial Class frmPermisos
     Friend WithEvents cat_Bancos As CheckBox
     Friend WithEvents cat_cuentas As CheckBox
     Friend WithEvents btnPermisosRestaurante As Button
+    Friend WithEvents EliAbonos As CheckBox
 End Class

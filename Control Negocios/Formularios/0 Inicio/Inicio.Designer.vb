@@ -117,6 +117,7 @@ Partial Class Inicio
         Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pEgresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pPEmpleados = New System.Windows.Forms.ToolStripMenuItem()
         Me.pOtros = New System.Windows.Forms.ToolStripMenuItem()
@@ -173,7 +174,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.MovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarAbonosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -366,7 +367,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1194, 24)
@@ -739,7 +740,7 @@ Partial Class Inicio
         '
         'pVentas
         '
-        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem, Me.menuconsignaciones})
+        Me.pVentas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pVentasM, Me.pVentasT, Me.pcFolios, Me.pAbonosV, Me.PedidosTiendaEnLíneaToolStripMenuItem, Me.menuconsignaciones, Me.EliminarAbonosToolStripMenuItem})
         Me.pVentas.Name = "pVentas"
         Me.pVentas.Size = New System.Drawing.Size(53, 20)
         Me.pVentas.Text = "Ventas"
@@ -948,8 +949,14 @@ Partial Class Inicio
         '
         Me.pCEmpleado.BackColor = System.Drawing.Color.White
         Me.pCEmpleado.Name = "pCEmpleado"
-        Me.pCEmpleado.Size = New System.Drawing.Size(180, 22)
+        Me.pCEmpleado.Size = New System.Drawing.Size(177, 22)
         Me.pCEmpleado.Text = "Cobro a empleados"
+        '
+        'MovCuentasToolStripMenuItem
+        '
+        Me.MovCuentasToolStripMenuItem.Name = "MovCuentasToolStripMenuItem"
+        Me.MovCuentasToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.MovCuentasToolStripMenuItem.Text = "Mov Cuentas"
         '
         'pEgresos
         '
@@ -1427,11 +1434,11 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
-        'MovCuentasToolStripMenuItem
+        'EliminarAbonosToolStripMenuItem
         '
-        Me.MovCuentasToolStripMenuItem.Name = "MovCuentasToolStripMenuItem"
-        Me.MovCuentasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MovCuentasToolStripMenuItem.Text = "Mov Cuentas"
+        Me.EliminarAbonosToolStripMenuItem.Name = "EliminarAbonosToolStripMenuItem"
+        Me.EliminarAbonosToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.EliminarAbonosToolStripMenuItem.Text = "Eliminar abonos"
         '
         'Inicio
         '
@@ -1613,4 +1620,5 @@ Partial Class Inicio
     Friend WithEvents menuconsignaciones As ToolStripMenuItem
     Friend WithEvents ReporteMovCuentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MovCuentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EliminarAbonosToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -463,15 +463,16 @@ Public Class frmPagoNomina
                     rd2.Close()
                     cnn2.Close()
                 Next
+                cnn1.Close()
 
                 If txtefectivo.Text > 0 Then
-
+                    cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO otrosgastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU) VALUES('" & cbotipo.Text & "','NOMINA','0','" & Format(Date.Now, "yyyy/MM/dd") & "','EFECTIVO'," & txtefectivo.Text & "," & efectivo & ",'','','','','','','" & lblusuario.Text & "',0,0)"
+                    cmd1.CommandText = "INSERT INTO otrosgastos(Tipo,Concepto,Folio,Fecha,FormaPago,Monto,Total,Nota,Banco,Referencia,Comentario,CuentaC,BancoC,Usuario,Corte,CorteU) VALUES('" & cbotipo.Text & "','NOMINA','0','" & Format(Date.Now, "yyyy/MM/dd") & "','EFECTIVO'," & efectivo & "," & efectivo & ",'','','','','','','" & lblusuario.Text & "',0,0)"
                     cmd1.ExecuteNonQuery()
-
+                    cnn1.Close()
                 End If
-                cnn1.Close()
+
 
                 Dim tam As Integer = 0
                 Dim impresora As String = ""

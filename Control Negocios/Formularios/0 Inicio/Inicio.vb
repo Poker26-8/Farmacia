@@ -669,6 +669,25 @@ Public Class Inicio
 
     Public Sub verif()
 
+        'abonoi
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Status FROM abonoi"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE abonoi add column Status int default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'movcuenta
         Try
             cnn1.Close()
@@ -2402,6 +2421,10 @@ Public Class Inicio
     End Sub
 
     Private Sub CapturaToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles pCaptura.Click
+        Dim parte As Integer = 0
+        Dim series As Integer = 0
+        Dim refaccion As Integer = 0
+
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
@@ -2409,16 +2432,51 @@ Public Class Inicio
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
-                If rd1(0).ToString() = 1 Then
-                    frmComprasS.Show()
-                    frmComprasS.BringToFront()
-                Else
-                    frmCompras.Show()
-                    frmCompras.BringToFront()
-                End If
+                parte = rd1(0).ToString
             End If
         End If
-        rd1.Close() : cnn1.Close()
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select NumPart from Formatos where Facturas='Series'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                series = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select NumPart from Formatos where Facturas='Refaccionaria'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                refaccion = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        If parte = 1 Then
+            frmComprasS.Show()
+            frmComprasS.BringToFront()
+        ElseIf series = 1 Then
+            frmComprasSeries.Show()
+            frmComprasSeries.BringToFront()
+
+        ElseIf refaccion = 1 Then
+            frmComprasS.Show()
+            frmComprasS.BringToFront()
+        Else
+            frmCompras.Show()
+            frmCompras.BringToFront()
+
+            ' frmNuvCompras.Show()
+            ' frmNuvCompras.BringToFront()
+        End If
+
+
+        cnn1.Close()
     End Sub
 
     Private Sub btnProductos_Click(sender As System.Object, e As System.EventArgs) Handles btnProductos.Click
@@ -2516,11 +2574,11 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            'frmCompras.Show()
-            ' frmCompras.BringToFront()
+            frmCompras.Show()
+            frmCompras.BringToFront()
 
-            frmNuvCompras.Show()
-            frmNuvCompras.BringToFront()
+            ' frmNuvCompras.Show()
+            'frmNuvCompras.BringToFront()
         End If
 
 
@@ -3594,6 +3652,12 @@ Public Class Inicio
                         Button11.Enabled = False
                         P.Ad_Corte = False
                     End If
+
+                    If rd5("EliAbono").ToString = True Then
+                        EliminarAbonosToolStripMenuItem.Enabled = True
+                    Else
+                        EliminarAbonosToolStripMenuItem.Enabled = False
+                    End If
                 End If
             End If
             rd5.Close()
@@ -4062,5 +4126,10 @@ Public Class Inicio
     Private Sub MovCuentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MovCuentasToolStripMenuItem.Click
         frmMovCuentas.Show()
         frmMovCuentas.BringToFront()
+    End Sub
+
+    Private Sub EliminarAbonosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarAbonosToolStripMenuItem.Click
+        frmEliminarAbono.Show()
+        frmEliminarAbono.BringToFront()
     End Sub
 End Class

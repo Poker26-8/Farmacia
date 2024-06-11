@@ -91,6 +91,7 @@ Public Class frmNuevoPagar
         tim.Start()
     End Sub
     Private Sub frmNuevoPagar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         grdComanda.Rows.Clear()
         TFolio.Start()
 

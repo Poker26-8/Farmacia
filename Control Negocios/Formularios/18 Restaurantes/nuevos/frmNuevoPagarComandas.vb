@@ -714,7 +714,11 @@ Public Class frmNuevoPagarComandas
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
-
+                                If rd2(0).ToString = 1 Then
+                                Else
+                                    MsgBox("El usuario no cuenta con permisos para realizar esta accion", vbInformation + vbOKOnly, titulorestaurante)
+                                    Exit Sub
+                                End If
                             End If
                         Else
                             MsgBox("El usuario no cuenta con permisos para realizar esta accion", vbInformation + vbOKOnly, titulorestaurante)
