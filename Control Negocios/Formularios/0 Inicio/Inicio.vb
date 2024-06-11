@@ -601,8 +601,10 @@ Public Class Inicio
                     hoteles = rd1(0).ToString
                     If hoteles = 1 Then
                         btnHoteleria.Visible = True
+                        ReporteDeHotelToolStripMenuItem.Visible = True
                     Else
                         btnHoteleria.Visible = False
+                        ReporteDeHotelToolStripMenuItem.Visible = False
                     End If
                 End If
             End If
@@ -668,7 +670,24 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
-
+        'permisos
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT EliAbono FROM permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE permisos add column EliAbono int(1) default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
         'abonoi
         Try
             cnn1.Close()
@@ -4131,5 +4150,10 @@ Public Class Inicio
     Private Sub EliminarAbonosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarAbonosToolStripMenuItem.Click
         frmEliminarAbono.Show()
         frmEliminarAbono.BringToFront()
+    End Sub
+
+    Private Sub ReporteDeHotelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeHotelToolStripMenuItem.Click
+        frmRepHoteles.Show()
+        frmRepHoteles.BringToFront()
     End Sub
 End Class
