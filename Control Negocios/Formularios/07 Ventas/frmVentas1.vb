@@ -18,7 +18,7 @@ Public Class frmVentas1
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
     Public hayTerminal As Integer = 0
-    Dim validaTarjeta As Double = 0
+    Public validaTarjeta As Double = 0
 
     Dim numTerminal As String = ""
     Dim numClave As String = ""
