@@ -165,7 +165,6 @@ Module Module1
                         sTargetlocal = "server=" & dameIP2() & ";uid=Delsscom;password=jipl22;database=cn" & varnumbase & ";persist security info=false;connect timeout=300"
                     Else
 
-
                         sTargetlocal = "server=" & varrutabase & ";uid=Delsscom;password=jipl22;database=cn" & varnumbase & ";persist security info=false;connect timeout=300"
                     End If
                 End If
