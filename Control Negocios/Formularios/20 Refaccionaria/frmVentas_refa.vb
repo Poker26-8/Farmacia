@@ -5,7 +5,22 @@ Imports CrystalDecisions.Shared
 Imports MySql.Data
 Imports QRCoder
 Imports MySql.Data.MySqlClient
+Imports System.Threading.Tasks
+Imports System.Net
+Imports System.Text
+Imports System.Xml
 Public Class frmVentas_refa
+
+    ''' variablesm para terminal bancaria
+    Public valorxd As Integer = 0
+    Public SiPago As Integer = 0
+    Public hayTerminal As Integer = 0
+    Public validaTarjeta As Double = 0
+
+    Dim numTerminal As String = ""
+    Dim numClave As String = ""
+    Dim URLsolicitud As String = ""
+    Dim URLresultado As String = ""
 
     Dim nuevo_saldo_monedero As Double = 0
 
@@ -48,6 +63,28 @@ Public Class frmVentas_refa
     Private currentRecord As Long
     Private lastRecord As Long
     Private Sub frmVentas_refa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select * from DatosProsepago"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                hayTerminal = 1
+                numTerminal = rd1("Terminal").ToString
+                numClave = rd1("Clave").ToString
+                URLsolicitud = rd1("Solicitud").ToString
+                URLresultado = rd1("Resultado").ToString
+            Else
+                hayTerminal = 0
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
 
         If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
 
@@ -4615,8 +4652,23 @@ kaka:
         cboCuentaRecepcion.Text = ""
         txtvalor.Text = "0.00"
         txtequivale.Text = "0.00"
+        validaMontosTarjeta()
     End Sub
-
+    Public Sub validaMontosTarjeta()
+        Try
+            Dim cuantopaga As Double = 0
+            For xxx As Integer = 0 To grdpago.Rows.Count - 1
+                Dim primer As String = grdpago.Rows(xxx).Cells(0).Value.ToString
+                If primer.ToUpper().Contains("TARJETA") Then
+                    cuantopaga = cuantopaga + CDec(grdpago.Rows(xxx).Cells(3).Value)
+                End If
+            Next
+            validaTarjeta = cuantopaga
+            'MsgBox("La suma de pagos con tarjeta es: " & cuantopaga)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
     Private Sub btncomentario_Click(sender As Object, e As EventArgs) Handles btncomentario.Click
         If grdcaptura.Rows.Count = 0 Then
             MsgBox("Agrega productos a la venta para asignar un comentario.", vbInformation + vbOK, "Delsscom Control Negocios Pro")
@@ -4758,6 +4810,8 @@ kaka:
         txtdia.Text = Weekday(Date.Now)
         txtResta.Text = "0.00"
         txtcotped.Text = ""
+        SiPago = 0
+        validaTarjeta = 0
         Timer1.Start()
 
     End Sub
@@ -5526,6 +5580,157 @@ doorcita:
         End With
     End Sub
 
+    Async Function EnviarSolicitudAPI() As Task
+
+        ' Label1.Visible = True
+        ' Valores a enviar a la API
+        Dim TipoPlan As String = "00"
+        Dim Terminal As String = numTerminal
+        Dim Importe As String = validaTarjeta
+        Dim pv As String = "DELSSCOM"
+        Dim nombre As String = cboNombre.Text
+        Dim concepto As String = "Venta"
+        Dim referencia As String = lblfolio.Text & FormatDateTime(Date.Now, DateFormat.ShortDate) & FormatDateTime(Date.Now, DateFormat.ShortTime) ' se recomienda poner el folio de la venta y la fecha, asi me dijo el wey de procepago, dice que no se debe de repetir
+
+        Dim correo As String = ""
+        Dim membresia As String = "false"
+        Dim clave As String = numClave
+
+        Dim cadenatexto As String = TipoPlan & Terminal & Importe & nombre & concepto & referencia & correo & clave
+        ' MsgBox(cadenatexto)
+        Dim CadenaEncriptada As String = CalculateSHA1(cadenatexto)
+
+        ' URL de la API
+        Dim url As String = URLsolicitud
+
+        ' Construye la solicitud HTTP
+        Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' datos a enviar con metodo post
+        Dim postData As String = $"&tipoPlan={TipoPlan}&terminal={Terminal}&importe={Importe}&nombre={nombre}&concepto={concepto}&referencia={referencia}&correo={correo}&pv={pv}&CadenaEncriptada={CadenaEncriptada}"
+        'MsgBox(postData)
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentLength = byteArray.Length
+
+        Try
+            ' Aqui se activa el pago en la terminal
+            Using dataStream As Stream = Await request.GetRequestStreamAsync()
+                Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
+            End Using
+
+
+            ' Envía la solicitud y procesa la respuesta
+
+            Dim response As WebResponse = Await request.GetResponseAsync()
+
+            Using dataStream As Stream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim responseFromServer As String = Await reader.ReadToEndAsync()
+                ' MessageBox.Show("Respuesta de la API: " & responseFromServer)
+                valorxd = responseFromServer
+                'Thread.Sleep(4000)
+                EnviarSolicitudAPI2()
+            End Using
+        Catch ex As WebException
+            MessageBox.Show("Error en la solicitud: " & ex.Message)
+        End Try
+    End Function
+
+    Private Function CalculateSHA1(input As String) As String
+        Try
+            Dim sha1Obj As New System.Security.Cryptography.SHA1CryptoServiceProvider
+            Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(input)
+            bytesToHash = sha1Obj.ComputeHash(bytesToHash)
+            Dim strResult As String = ""
+            For Each b As Byte In bytesToHash
+                strResult += b.ToString("x2")
+            Next
+            Return strResult
+        Catch ex As Exception
+            MessageBox.Show("Funcion getSHA1Hash: | " & ex.ToString)
+        End Try
+
+    End Function
+
+
+    Async Function EnviarSolicitudAPI2() As Task
+        ' Valores a enviar a la API
+        Dim idsolicitud As String = valorxd
+        Dim clave As String = numClave
+
+        ' Genera el hash SHA-1 de los valores
+        Dim CadenaEncriptada As String = CalculateSHA1(idsolicitud & clave)
+
+        ' URL de la API
+
+        Dim url As String = URLresultado
+
+        ' Construye la solicitud HTTP
+        Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' Construye los datos a enviar en la solicitud
+        Dim postData As String = $"&idsolicitud={idsolicitud}&cadenaEncriptada={CadenaEncriptada}"
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentLength = byteArray.Length
+
+        ' Escribe los datos en el cuerpo de la solicitud
+
+        Using dataStream As Stream = Await request.GetRequestStreamAsync()
+            Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
+        End Using
+
+
+        ' Envía la solicitud y procesa la respuesta
+        Try
+            Dim response As WebResponse = Await request.GetResponseAsync()
+            Using dataStream As Stream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim responseFromServer As String = Await reader.ReadToEndAsync()
+
+                If responseFromServer = "901" Then
+                    EnviarSolicitudAPI2()
+                End If
+
+                Dim xmlDoc As New XmlDocument()
+                xmlDoc.LoadXml(responseFromServer)
+                Dim descripcionValue2 As String = ""
+                ' Obtener el valor de la etiqueta <descripcion>
+                Dim descripcionValue As String = xmlDoc.SelectSingleNode("/PVresultado/descripcion").InnerText
+                If descripcionValue = "0" Then
+                Else
+                    descripcionValue2 = xmlDoc.SelectSingleNode("/PVresultado/causaDenegada").InnerText
+                End If
+
+                If descripcionValue = "0" Then
+                    MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incomppleta")
+                    SiPago = 0
+                ElseIf descripcionValue = "1" Then
+                    MsgBox("La operación es rechazada por el banco o cancelada por el usuario", vbCritical + vbOKOnly, "Operación Denegada")
+                    SiPago = 0
+                ElseIf descripcionValue = "2" Then
+                    If descripcionValue2 = "Denegada, Saldo insuficiente" Then
+                        MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Fallida")
+                        SiPago = 0
+                    Else
+                        SiPago = 1
+                        btnventa.PerformClick()
+                    End If
+                ElseIf descripcionValue = "3" Then
+                    MsgBox("Ya se llevo a cabo el proceso por parte de Pprosepago", vbInformation + vbOKOnly, "Operación Liquidada")
+                    SiPago = 0
+                End If
+
+                'MessageBox.Show("Respuesta de la API: " & responseFromServer)
+            End Using
+        Catch ex As WebException
+            MessageBox.Show("Error en la solicitud: " & ex.Message)
+        End Try
+    End Function
+
     Private Sub btnventa_Click(sender As Object, e As EventArgs) Handles btnventa.Click
 
         Dim VarUser As String = "", VarIdUsuario As Integer = 0, DsctoProd As Single = 0, PorcentDscto As Single = 0, DsctoProdTod As Single = 0
@@ -5762,9 +5967,35 @@ doorcita:
                 Exit Sub
             End If
         End If
+        If validaTarjeta = 0 Then
+            If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+        Else
+            If SiPago = 0 Then
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+            End If
+        End If
 
         'Comienza proceso de guardado de la venta
-        If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+        If validaTarjeta <> 0 Then
+            If hayTerminal = 0 Then
+                GoTo kakaxd
+            End If
+        End If
+
+        If SiPago = 0 Then
+            If validaTarjeta <> 0 Then
+                EnviarSolicitudAPI()
+                Exit Sub
+            ElseIf SiPago = 1 Then
+                GoTo kakaxd
+            End If
+        Else
+            GoTo kakaxd
+        End If
+
+
+
+kakaxd:
 
 
         'Sí el cliente existe en el catálogo, valida su credito disponible; y sí la venta es por pagar recalcula para saber sí su crédito alcanza
