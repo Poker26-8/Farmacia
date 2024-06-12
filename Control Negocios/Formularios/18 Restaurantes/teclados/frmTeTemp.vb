@@ -257,7 +257,9 @@
                             frmMesas.TRAERLUGAR()
                             frmMesas.primerBoton()
                         Else
-                            frmMesas.CrearBD_MesaNM()
+                            'frmMesas.CrearBD_MesaNM()
+                            frmMesas.TRAERLUGAR()
+                            frmMesas.primerBoton()
                             frmMesas.Show()
                             frmMesas.BringToFront()
                         End If

@@ -6,6 +6,7 @@ Public Class frmMesas
     Dim tim As New Timer()
 
     Friend WithEvents btnArea As System.Windows.Forms.Button
+    Friend WithEvents btnAreaNM As System.Windows.Forms.Button
     Friend WithEvents btnMesa As System.Windows.Forms.Button
     Friend WithEvents btnMesaNM As System.Windows.Forms.Button
 
@@ -45,7 +46,8 @@ Public Class frmMesas
         If mapearmesas = 1 Then
             TRAERLUGAR()
         Else
-            CrearBD_MesaNM()
+            TRAERLUGAR()
+            ' CrearBD_MesaNM()
         End If
         tim.Start()
     End Sub
@@ -127,8 +129,9 @@ Public Class frmMesas
         Else
             pmesaNM.Visible = True
             pmesas.Visible = False
-            CrearBD_MesaNM()
-
+            'CrearBD_MesaNM()
+            TRAERLUGAR()
+            primerBoton()
 
             If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
                 pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
@@ -139,6 +142,15 @@ Public Class frmMesas
     End Sub
 
     Public Sub primerBoton()
+        For Each control As Control In parea.Controls
+            If TypeOf control Is Button Then
+                DirectCast(control, Button).PerformClick()
+                Exit For
+            End If
+        Next
+    End Sub
+
+    Public Sub primerBoton2()
         For Each control As Control In parea.Controls
             If TypeOf control Is Button Then
                 DirectCast(control, Button).PerformClick()
@@ -215,13 +227,18 @@ Public Class frmMesas
         End Try
     End Sub
 
-
     Private Sub btnArea_Click(sender As Object, e As EventArgs)
         pmesas.Controls.Clear()
         Dim mesa As Button = CType(sender, Button)
 
         nombreubicacion = mesa.Text
-        Crea_Mesas(mesa.Text)
+
+        If mapearmesas = 1 Then
+            Crea_Mesas(mesa.Text)
+        Else
+            CrearBD_MesaNM(mesa.Text)
+        End If
+
         Dim valor As String = ""
         valor = mesa.Text
 
@@ -241,6 +258,8 @@ Public Class frmMesas
         Me.Text = mesa.Text
 
     End Sub
+
+
 
     Public Sub Crea_Mesas(ByVal ubicacion As String)
 
@@ -539,13 +558,13 @@ Public Class frmMesas
                 If tomacontralog = 1 Then
                     cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
                 Else
-                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & idempleado & ""
+                    cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE Mesasxempleados.IdEmpleado=" & idempleado & " AND mesa.Ubicacion='" & nombreubicacion & "'"
                 End If
 
 
             End If
         Else
-            cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
+            cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa where ubicacion='" & nombreubicacion & "'"
         End If
         rd3 = cmd3.ExecuteReader
         If rd3.Read Then
@@ -556,7 +575,7 @@ Public Class frmMesas
 
         Return totalmesa2
     End Function
-    Public Sub CrearBD_MesaNM()
+    Public Sub CrearBD_MesaNM(ByVal ubicacion As String)
 
         Dim tables As Integer = 0
         Dim tipo As String = ""
@@ -610,23 +629,23 @@ Public Class frmMesas
                 If simesaspropusuarionm = 0 Then
 
                     If tomacontralog = "1" Then
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                     Else
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " order by Orden"
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                     End If
 
                 Else
 
                     If tomacontralog = "1" Then
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " order by Orden"
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "'  order by Orden"
                     Else
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " order by Orden"
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                     End If
 
 
                 End If
             Else
-                cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado FROM Mesa order by Orden"
+                cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,Y,Tipo,IdEmpleado,Ubicacion FROM Mesa WHERE Ubicacion='" & ubicacion & "' order by Orden"
             End If
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
@@ -1323,7 +1342,8 @@ Public Class frmMesas
         If mapearmesas = 1 Then
             TRAERLUGAR()
         Else
-            CrearBD_MesaNM()
+            TRAERLUGAR()
+            'CrearBD_MesaNM()
         End If
 
         lbltotalmesa.Text = ""
@@ -1659,7 +1679,8 @@ Public Class frmMesas
     End Sub
 
     Private Sub frmMesas_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        CrearBD_MesaNM()
+        TRAERLUGAR()
+        'CrearBD_MesaNM()
         AjustarTamañoFuenteBotones()
     End Sub
 
@@ -1693,7 +1714,10 @@ Public Class frmMesas
                         Else
                             pmesaNM.Visible = True
                             pmesas.Visible = False
-                            CrearBD_MesaNM()
+                            ' CrearBD_MesaNM()
+                            TRAERLUGAR()
+                            primerBoton()
+
                             If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
                                 pmesaNM.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg")
                                 pmesaNM.BackgroundImageLayout = ImageLayout.Stretch

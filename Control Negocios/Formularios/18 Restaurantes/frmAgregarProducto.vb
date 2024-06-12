@@ -1043,6 +1043,7 @@ Public Class frmAgregarProducto
                 If gdato.Text = "Comensal" Then
 
                     ObtenerProducto(damecodigo)
+                    banderaPROMOCION = 0
                 End If
 
                 If gdato.Text = "Cantidad" Then

@@ -162,6 +162,7 @@
                     End If
                 End If
             End If
+            rd2.Close()
             cnn2.Close()
 
         Catch ex As Exception
@@ -661,7 +662,7 @@
             If (cbMesasPropias.Checked) Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart=1' WHERE Facturas='MesasPropias'"
+                cmd1.CommandText = "UPDATE Formatos SET NotasCred='1',NumPart='1' WHERE Facturas='MesasPropias'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Else
@@ -933,7 +934,7 @@
                 If rd1.Read Then
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE mesa SET Temporal=0, Contabiliza=" & TIEMPO & ",Precio=" & txtPrecio.Text & ",Ubicacion='" & cboUbicacion.Text & "',Tipo=" & cboPara.Text & ",Nombre_mesa='" & cboMesa.Text & "' WHERE IdMesa='" & idmesa & "'"
+                    cmd2.CommandText = "UPDATE mesa SET Temporal=0, Contabiliza=" & TIEMPO & ",Precio=" & txtPrecio.Text & ",Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboPara.Text & "',Nombre_mesa='" & cboMesa.Text & "' WHERE IdMesa='" & idmesa & "'"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
