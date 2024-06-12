@@ -118,10 +118,11 @@ Partial Class frmCambioPrecio
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardar.Location = New System.Drawing.Point(224, 168)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
@@ -315,10 +316,11 @@ Partial Class frmCambioPrecio
         '
         'Button1
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(224, 169)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(60, 63)
@@ -423,10 +425,11 @@ Partial Class frmCambioPrecio
         '
         'Button4
         '
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button4.Location = New System.Drawing.Point(290, 162)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(60, 68)
@@ -437,10 +440,11 @@ Partial Class frmCambioPrecio
         '
         'Button3
         '
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button3.Location = New System.Drawing.Point(225, 162)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(60, 68)
@@ -622,19 +626,20 @@ Partial Class frmCambioPrecio
         Me.TabPage4.Controls.Add(Me.txtmonedero)
         Me.TabPage4.Controls.Add(Me.Panel5)
         Me.TabPage4.Controls.Add(Me.Label7)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 64)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(360, 247)
+        Me.TabPage4.Size = New System.Drawing.Size(360, 241)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Bonificación a monedero"
         '
         'btnsave_mone
         '
-        Me.btnsave_mone.BackgroundImage = CType(resources.GetObject("btnsave_mone.BackgroundImage"), System.Drawing.Image)
         Me.btnsave_mone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnsave_mone.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnsave_mone.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsave_mone.Image = CType(resources.GetObject("btnsave_mone.Image"), System.Drawing.Image)
+        Me.btnsave_mone.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnsave_mone.Location = New System.Drawing.Point(224, 168)
         Me.btnsave_mone.Name = "btnsave_mone"
         Me.btnsave_mone.Size = New System.Drawing.Size(60, 63)
@@ -781,10 +786,11 @@ Partial Class frmCambioPrecio
         '
         'btnEliminarDia
         '
-        Me.btnEliminarDia.BackgroundImage = CType(resources.GetObject("btnEliminarDia.BackgroundImage"), System.Drawing.Image)
         Me.btnEliminarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarDia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarDia.Image = CType(resources.GetObject("btnEliminarDia.Image"), System.Drawing.Image)
+        Me.btnEliminarDia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnEliminarDia.Location = New System.Drawing.Point(152, 144)
         Me.btnEliminarDia.Name = "btnEliminarDia"
         Me.btnEliminarDia.Size = New System.Drawing.Size(60, 63)
@@ -795,10 +801,11 @@ Partial Class frmCambioPrecio
         '
         'btnGuardarDia
         '
-        Me.btnGuardarDia.BackgroundImage = CType(resources.GetObject("btnGuardarDia.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardarDia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardarDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarDia.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardarDia.Image = CType(resources.GetObject("btnGuardarDia.Image"), System.Drawing.Image)
+        Me.btnGuardarDia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardarDia.Location = New System.Drawing.Point(218, 144)
         Me.btnGuardarDia.Name = "btnGuardarDia"
         Me.btnGuardarDia.Size = New System.Drawing.Size(60, 63)

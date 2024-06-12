@@ -2828,11 +2828,7 @@ Public Class frmConfigs
 
     End Sub
 
-    Private Sub btnMigrar_Click(sender As Object, e As EventArgs) Handles btnMigrar.Click
-        If txtBase.Text = "" Then MsgBox("Necesitas seleccionar una ruta de acceso para la base a migrar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtBase.Focus().Equals(True) : Exit Sub
 
-
-    End Sub
 
     Private Sub Button25_Click_1(sender As Object, e As EventArgs) Handles Button25.Click
         'If txtnumero.Text.Length >= 10 Then MsgBox("El número de télefono debe de ser de 10 digitos", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro") : txtnumero.Focus.Equals(True) : Exit Sub

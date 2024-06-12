@@ -9608,7 +9608,7 @@ ecomoda:
             cnn1.Close()
 
             If ligaqr <> "" Then
-                picQR.Image.Dispose()
+                ' picQR.Image.Dispose()
                 Dim entrada As String = ligaqr
                 Dim Gen As New QRCodeGenerator
                 Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)

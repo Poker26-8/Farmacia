@@ -317,18 +317,6 @@ Partial Class frmConfigs
         Me.Button26 = New System.Windows.Forms.Button()
         Me.optmone_ven = New System.Windows.Forms.RadioButton()
         Me.optmone_prod = New System.Windows.Forms.RadioButton()
-        Me.tabMigracion = New System.Windows.Forms.TabPage()
-        Me.btnMigrar = New System.Windows.Forms.Button()
-        Me.lblProgreso = New System.Windows.Forms.Label()
-        Me.pbMigracion = New System.Windows.Forms.ProgressBar()
-        Me.btnBuscaBase = New System.Windows.Forms.Button()
-        Me.txtBase = New System.Windows.Forms.TextBox()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.chkUsuarios = New System.Windows.Forms.CheckBox()
-        Me.chkClientes = New System.Windows.Forms.CheckBox()
-        Me.chkProductos = New System.Windows.Forms.CheckBox()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.grdMigracion = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.txtnumero = New System.Windows.Forms.TextBox()
         Me.lblid = New System.Windows.Forms.Label()
@@ -404,8 +392,6 @@ Partial Class frmConfigs
         Me.GroupBox9.SuspendLayout()
         Me.tabFuncionalidades2.SuspendLayout()
         Me.GroupBox27.SuspendLayout()
-        Me.tabMigracion.SuspendLayout()
-        CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
@@ -433,9 +419,9 @@ Partial Class frmConfigs
         Me.tabCFDI.Controls.Add(Me.GroupBox13)
         Me.tabCFDI.Controls.Add(Me.GroupBox14)
         Me.tabCFDI.Controls.Add(Me.GroupBox15)
-        Me.tabCFDI.Location = New System.Drawing.Point(4, 58)
+        Me.tabCFDI.Location = New System.Drawing.Point(4, 84)
         Me.tabCFDI.Name = "tabCFDI"
-        Me.tabCFDI.Size = New System.Drawing.Size(478, 463)
+        Me.tabCFDI.Size = New System.Drawing.Size(478, 437)
         Me.tabCFDI.TabIndex = 5
         Me.tabCFDI.Text = "Certificado CFDI"
         Me.tabCFDI.UseVisualStyleBackColor = True
@@ -762,9 +748,9 @@ Partial Class frmConfigs
         '
         Me.tabFactura.Controls.Add(Me.Label40)
         Me.tabFactura.Controls.Add(Me.GroupBox10)
-        Me.tabFactura.Location = New System.Drawing.Point(4, 58)
+        Me.tabFactura.Location = New System.Drawing.Point(4, 84)
         Me.tabFactura.Name = "tabFactura"
-        Me.tabFactura.Size = New System.Drawing.Size(478, 463)
+        Me.tabFactura.Size = New System.Drawing.Size(478, 437)
         Me.tabFactura.TabIndex = 3
         Me.tabFactura.Text = "Configuración de factura"
         Me.tabFactura.UseVisualStyleBackColor = True
@@ -826,10 +812,11 @@ Partial Class frmConfigs
         '
         'btnElimina_fact
         '
-        Me.btnElimina_fact.BackgroundImage = CType(resources.GetObject("btnElimina_fact.BackgroundImage"), System.Drawing.Image)
         Me.btnElimina_fact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnElimina_fact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnElimina_fact.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnElimina_fact.Image = CType(resources.GetObject("btnElimina_fact.Image"), System.Drawing.Image)
+        Me.btnElimina_fact.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnElimina_fact.Location = New System.Drawing.Point(265, 333)
         Me.btnElimina_fact.Name = "btnElimina_fact"
         Me.btnElimina_fact.Size = New System.Drawing.Size(60, 63)
@@ -840,10 +827,11 @@ Partial Class frmConfigs
         '
         'btnGuarda_fact
         '
-        Me.btnGuarda_fact.BackgroundImage = CType(resources.GetObject("btnGuarda_fact.BackgroundImage"), System.Drawing.Image)
         Me.btnGuarda_fact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuarda_fact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuarda_fact.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuarda_fact.Image = CType(resources.GetObject("btnGuarda_fact.Image"), System.Drawing.Image)
+        Me.btnGuarda_fact.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuarda_fact.Location = New System.Drawing.Point(331, 333)
         Me.btnGuarda_fact.Name = "btnGuarda_fact"
         Me.btnGuarda_fact.Size = New System.Drawing.Size(60, 63)
@@ -1187,9 +1175,9 @@ Partial Class frmConfigs
         Me.tabCorreo.Controls.Add(Me.Button12)
         Me.tabCorreo.Controls.Add(Me.GroupBox12)
         Me.tabCorreo.Controls.Add(Me.GroupBox11)
-        Me.tabCorreo.Location = New System.Drawing.Point(4, 58)
+        Me.tabCorreo.Location = New System.Drawing.Point(4, 84)
         Me.tabCorreo.Name = "tabCorreo"
-        Me.tabCorreo.Size = New System.Drawing.Size(478, 463)
+        Me.tabCorreo.Size = New System.Drawing.Size(478, 437)
         Me.tabCorreo.TabIndex = 6
         Me.tabCorreo.Text = "Configuración de correo"
         Me.tabCorreo.UseVisualStyleBackColor = True
@@ -1490,9 +1478,9 @@ Partial Class frmConfigs
         Me.tabMoneda.Controls.Add(Me.GroupBox8)
         Me.tabMoneda.Controls.Add(Me.GroupBox6)
         Me.tabMoneda.Controls.Add(Me.GroupBox7)
-        Me.tabMoneda.Location = New System.Drawing.Point(4, 58)
+        Me.tabMoneda.Location = New System.Drawing.Point(4, 84)
         Me.tabMoneda.Name = "tabMoneda"
-        Me.tabMoneda.Size = New System.Drawing.Size(478, 463)
+        Me.tabMoneda.Size = New System.Drawing.Size(478, 437)
         Me.tabMoneda.TabIndex = 2
         Me.tabMoneda.Text = "Tipo de moneda"
         Me.tabMoneda.UseVisualStyleBackColor = True
@@ -1632,10 +1620,11 @@ Partial Class frmConfigs
         '
         'Button6
         '
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button6.Location = New System.Drawing.Point(327, 22)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(60, 67)
@@ -1879,10 +1868,11 @@ Partial Class frmConfigs
         '
         'Button15
         '
-        Me.Button15.BackgroundImage = CType(resources.GetObject("Button15.BackgroundImage"), System.Drawing.Image)
         Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button15.Image = CType(resources.GetObject("Button15.Image"), System.Drawing.Image)
+        Me.Button15.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button15.Location = New System.Drawing.Point(327, 51)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(60, 59)
@@ -1902,9 +1892,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2138,10 +2128,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3224,7 +3214,6 @@ Partial Class frmConfigs
         Me.TabControl1.Controls.Add(Me.tabCFDI)
         Me.TabControl1.Controls.Add(Me.tabFuncionalidades1)
         Me.TabControl1.Controls.Add(Me.tabFuncionalidades2)
-        Me.TabControl1.Controls.Add(Me.tabMigracion)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -3242,9 +3231,9 @@ Partial Class frmConfigs
         Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
-        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 58)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 84)
         Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
-        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 463)
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 437)
         Me.tabFuncionalidades1.TabIndex = 7
         Me.tabFuncionalidades1.Text = "Funcionalidades 1"
         Me.tabFuncionalidades1.UseVisualStyleBackColor = True
@@ -3557,9 +3546,9 @@ Partial Class frmConfigs
         'tabFuncionalidades2
         '
         Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
-        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 58)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
         Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
-        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 463)
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
         Me.tabFuncionalidades2.TabIndex = 11
         Me.tabFuncionalidades2.Text = " Funcionalidades 2"
         Me.tabFuncionalidades2.UseVisualStyleBackColor = True
@@ -3632,131 +3621,6 @@ Partial Class frmConfigs
         Me.optmone_prod.Text = "Por producto"
         Me.optmone_prod.UseVisualStyleBackColor = True
         '
-        'tabMigracion
-        '
-        Me.tabMigracion.Controls.Add(Me.btnMigrar)
-        Me.tabMigracion.Controls.Add(Me.lblProgreso)
-        Me.tabMigracion.Controls.Add(Me.pbMigracion)
-        Me.tabMigracion.Controls.Add(Me.btnBuscaBase)
-        Me.tabMigracion.Controls.Add(Me.txtBase)
-        Me.tabMigracion.Controls.Add(Me.Label74)
-        Me.tabMigracion.Controls.Add(Me.chkUsuarios)
-        Me.tabMigracion.Controls.Add(Me.chkClientes)
-        Me.tabMigracion.Controls.Add(Me.chkProductos)
-        Me.tabMigracion.Controls.Add(Me.Label72)
-        Me.tabMigracion.Controls.Add(Me.grdMigracion)
-        Me.tabMigracion.Location = New System.Drawing.Point(4, 58)
-        Me.tabMigracion.Name = "tabMigracion"
-        Me.tabMigracion.Size = New System.Drawing.Size(478, 463)
-        Me.tabMigracion.TabIndex = 8
-        Me.tabMigracion.Text = "Migración de datos"
-        Me.tabMigracion.UseVisualStyleBackColor = True
-        '
-        'btnMigrar
-        '
-        Me.btnMigrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMigrar.Location = New System.Drawing.Point(352, 116)
-        Me.btnMigrar.Name = "btnMigrar"
-        Me.btnMigrar.Size = New System.Drawing.Size(125, 46)
-        Me.btnMigrar.TabIndex = 11
-        Me.btnMigrar.Text = "Comenzar migración de datos"
-        Me.btnMigrar.UseVisualStyleBackColor = True
-        '
-        'lblProgreso
-        '
-        Me.lblProgreso.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProgreso.Location = New System.Drawing.Point(8, 165)
-        Me.lblProgreso.Name = "lblProgreso"
-        Me.lblProgreso.Size = New System.Drawing.Size(469, 20)
-        Me.lblProgreso.TabIndex = 10
-        '
-        'pbMigracion
-        '
-        Me.pbMigracion.Location = New System.Drawing.Point(8, 190)
-        Me.pbMigracion.Name = "pbMigracion"
-        Me.pbMigracion.Size = New System.Drawing.Size(469, 23)
-        Me.pbMigracion.TabIndex = 9
-        '
-        'btnBuscaBase
-        '
-        Me.btnBuscaBase.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscaBase.Location = New System.Drawing.Point(450, 87)
-        Me.btnBuscaBase.Name = "btnBuscaBase"
-        Me.btnBuscaBase.Size = New System.Drawing.Size(27, 23)
-        Me.btnBuscaBase.TabIndex = 8
-        Me.btnBuscaBase.Text = "..."
-        Me.btnBuscaBase.UseVisualStyleBackColor = True
-        '
-        'txtBase
-        '
-        Me.txtBase.Location = New System.Drawing.Point(140, 87)
-        Me.txtBase.Name = "txtBase"
-        Me.txtBase.Size = New System.Drawing.Size(304, 23)
-        Me.txtBase.TabIndex = 7
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(8, 91)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(125, 15)
-        Me.Label74.TabIndex = 6
-        Me.Label74.Text = "Ruta de base de datos:"
-        '
-        'chkUsuarios
-        '
-        Me.chkUsuarios.AutoSize = True
-        Me.chkUsuarios.Location = New System.Drawing.Point(300, 55)
-        Me.chkUsuarios.Name = "chkUsuarios"
-        Me.chkUsuarios.Size = New System.Drawing.Size(148, 19)
-        Me.chkUsuarios.TabIndex = 5
-        Me.chkUsuarios.Text = "Usuarios (sin permisos)"
-        Me.chkUsuarios.UseVisualStyleBackColor = True
-        '
-        'chkClientes
-        '
-        Me.chkClientes.AutoSize = True
-        Me.chkClientes.Location = New System.Drawing.Point(224, 55)
-        Me.chkClientes.Name = "chkClientes"
-        Me.chkClientes.Size = New System.Drawing.Size(68, 19)
-        Me.chkClientes.TabIndex = 4
-        Me.chkClientes.Text = "Clientes"
-        Me.chkClientes.UseVisualStyleBackColor = True
-        '
-        'chkProductos
-        '
-        Me.chkProductos.AutoSize = True
-        Me.chkProductos.Location = New System.Drawing.Point(37, 55)
-        Me.chkProductos.Name = "chkProductos"
-        Me.chkProductos.Size = New System.Drawing.Size(179, 19)
-        Me.chkProductos.TabIndex = 2
-        Me.chkProductos.Text = "Productos (con proveedores)"
-        Me.chkProductos.UseVisualStyleBackColor = True
-        '
-        'Label72
-        '
-        Me.Label72.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.Label72.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.Location = New System.Drawing.Point(118, 8)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(248, 30)
-        Me.Label72.TabIndex = 1
-        Me.Label72.Text = "Selecciona los datos a migrar"
-        Me.Label72.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'grdMigracion
-        '
-        Me.grdMigracion.AllowUserToAddRows = False
-        Me.grdMigracion.AllowUserToDeleteRows = False
-        Me.grdMigracion.BackgroundColor = System.Drawing.Color.White
-        Me.grdMigracion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdMigracion.GridColor = System.Drawing.Color.White
-        Me.grdMigracion.Location = New System.Drawing.Point(8, 213)
-        Me.grdMigracion.Name = "grdMigracion"
-        Me.grdMigracion.ReadOnly = True
-        Me.grdMigracion.Size = New System.Drawing.Size(469, 200)
-        Me.grdMigracion.TabIndex = 0
-        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.txtnumero)
@@ -3768,10 +3632,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 437)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -4081,9 +3945,6 @@ Partial Class frmConfigs
         Me.tabFuncionalidades2.ResumeLayout(False)
         Me.GroupBox27.ResumeLayout(False)
         Me.GroupBox27.PerformLayout()
-        Me.tabMigracion.ResumeLayout(False)
-        Me.tabMigracion.PerformLayout()
-        CType(Me.grdMigracion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
@@ -4355,18 +4216,6 @@ Partial Class frmConfigs
     Friend WithEvents Label73 As Label
     Friend WithEvents cboGPrint As ComboBox
     Friend WithEvents chkFranquicia As CheckBox
-    Friend WithEvents tabMigracion As TabPage
-    Friend WithEvents grdMigracion As DataGridView
-    Friend WithEvents Label72 As Label
-    Friend WithEvents chkUsuarios As CheckBox
-    Friend WithEvents chkClientes As CheckBox
-    Friend WithEvents chkProductos As CheckBox
-    Friend WithEvents txtBase As TextBox
-    Friend WithEvents Label74 As Label
-    Friend WithEvents btnBuscaBase As Button
-    Friend WithEvents lblProgreso As Label
-    Friend WithEvents pbMigracion As ProgressBar
-    Friend WithEvents btnMigrar As Button
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents txtnumero As TextBox
     Friend WithEvents lblid As Label

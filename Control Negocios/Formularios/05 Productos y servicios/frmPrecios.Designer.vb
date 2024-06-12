@@ -125,6 +125,7 @@ Partial Class frmPrecios
         Me.optmone_depto = New System.Windows.Forms.RadioButton()
         Me.btnmone_guarda = New System.Windows.Forms.Button()
         Me.lblporc_mone = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GpbPromociones.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -199,7 +200,7 @@ Partial Class frmPrecios
         Me.BtnPrecios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BtnPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnPrecios.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPrecios.Location = New System.Drawing.Point(416, 6)
+        Me.BtnPrecios.Location = New System.Drawing.Point(362, 6)
         Me.BtnPrecios.Name = "BtnPrecios"
         Me.BtnPrecios.Size = New System.Drawing.Size(60, 63)
         Me.BtnPrecios.TabIndex = 122
@@ -845,11 +846,12 @@ Partial Class frmPrecios
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(482, 6)
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(425, 6)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 134
@@ -863,7 +865,7 @@ Partial Class frmPrecios
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(548, 6)
+        Me.btnNuevo.Location = New System.Drawing.Point(488, 6)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 133
@@ -957,6 +959,7 @@ Partial Class frmPrecios
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btnNuevo)
         Me.Panel1.Controls.Add(Me.BtnPrecios)
         Me.Panel1.Controls.Add(Me.btnGuardar)
@@ -1348,6 +1351,21 @@ Partial Class frmPrecios
         Me.lblporc_mone.Text = "%"
         Me.lblporc_mone.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(551, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 63)
+        Me.Button1.TabIndex = 135
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmPrecios
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1561,4 +1579,5 @@ Partial Class frmPrecios
     Friend WithEvents optmone_depto As RadioButton
     Friend WithEvents btnmone_guarda As Button
     Friend WithEvents lblporc_mone As Label
+    Friend WithEvents Button1 As Button
 End Class

@@ -479,4 +479,8 @@
     Private Sub cboarticulo_LostFocus(sender As Object, e As System.EventArgs) Handles cboarticulo.LostFocus
         txtnombre.Text = cboarticulo.Text & " " & cbomarca.Text & " " & cbomodelo.Text & " " & cbocolor.Text & "  " & cbotalla.Text
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+    End Sub
 End Class

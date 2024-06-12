@@ -806,10 +806,11 @@ Partial Class frmNotasCredito
         '
         'btnguarda
         '
-        Me.btnguarda.BackgroundImage = CType(resources.GetObject("btnguarda.BackgroundImage"), System.Drawing.Image)
         Me.btnguarda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguarda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguarda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguarda.Image = CType(resources.GetObject("btnguarda.Image"), System.Drawing.Image)
+        Me.btnguarda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnguarda.Location = New System.Drawing.Point(693, 41)
         Me.btnguarda.Name = "btnguarda"
         Me.btnguarda.Size = New System.Drawing.Size(60, 63)
