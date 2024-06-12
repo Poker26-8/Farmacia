@@ -1371,8 +1371,6 @@ Public Class frmNuvCompras
                         rd1.Close()
                         cnn1.Close()
                     End If
-
-
                 Else
                     CP = 0
                 End If

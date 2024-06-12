@@ -2593,11 +2593,11 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            frmCompras.Show()
-            frmCompras.BringToFront()
+            '   frmCompras.Show()
+            '  frmCompras.BringToFront()
 
-            ' frmNuvCompras.Show()
-            'frmNuvCompras.BringToFront()
+            frmNuvCompras.Show()
+            frmNuvCompras.BringToFront()
         End If
 
 

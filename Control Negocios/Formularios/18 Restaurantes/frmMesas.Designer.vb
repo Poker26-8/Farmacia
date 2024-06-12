@@ -302,9 +302,9 @@ Partial Class frmMesas
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.Panel6)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1107, 104)
+        Me.Panel2.Location = New System.Drawing.Point(1108, 104)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(265, 640)
+        Me.Panel2.Size = New System.Drawing.Size(264, 640)
         Me.Panel2.TabIndex = 1
         '
         'lblusuario
@@ -316,7 +316,7 @@ Partial Class frmMesas
         Me.lblusuario.ForeColor = System.Drawing.Color.White
         Me.lblusuario.Location = New System.Drawing.Point(7, 465)
         Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(251, 24)
+        Me.lblusuario.Size = New System.Drawing.Size(250, 24)
         Me.lblusuario.TabIndex = 100
         Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -328,7 +328,7 @@ Partial Class frmMesas
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(7, 442)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(251, 23)
+        Me.Label4.Size = New System.Drawing.Size(250, 23)
         Me.Label4.TabIndex = 99
         Me.Label4.Text = "USUARIO"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -484,7 +484,7 @@ Partial Class frmMesas
         Me.txtUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsuario.Location = New System.Drawing.Point(6, 142)
         Me.txtUsuario.Name = "txtUsuario"
-        Me.txtUsuario.Size = New System.Drawing.Size(252, 29)
+        Me.txtUsuario.Size = New System.Drawing.Size(251, 29)
         Me.txtUsuario.TabIndex = 86
         Me.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtUsuario.UseSystemPasswordChar = True
@@ -497,7 +497,7 @@ Partial Class frmMesas
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 116)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(252, 23)
+        Me.Label3.Size = New System.Drawing.Size(251, 23)
         Me.Label3.TabIndex = 85
         Me.Label3.Text = "CLAVE DE USUARIO"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -511,7 +511,7 @@ Partial Class frmMesas
         Me.txtMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMesa.Location = New System.Drawing.Point(6, 91)
         Me.txtMesa.Name = "txtMesa"
-        Me.txtMesa.Size = New System.Drawing.Size(252, 24)
+        Me.txtMesa.Size = New System.Drawing.Size(251, 24)
         Me.txtMesa.TabIndex = 84
         Me.txtMesa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -523,7 +523,7 @@ Partial Class frmMesas
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(6, 65)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(252, 23)
+        Me.Label2.Size = New System.Drawing.Size(251, 23)
         Me.Label2.TabIndex = 83
         Me.Label2.Text = "NOMBRE DE LA MESA"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -535,7 +535,7 @@ Partial Class frmMesas
         Me.txtNComensales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNComensales.Location = New System.Drawing.Point(6, 40)
         Me.txtNComensales.Name = "txtNComensales"
-        Me.txtNComensales.Size = New System.Drawing.Size(252, 22)
+        Me.txtNComensales.Size = New System.Drawing.Size(251, 22)
         Me.txtNComensales.TabIndex = 82
         Me.txtNComensales.Text = "1"
         Me.txtNComensales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -548,7 +548,7 @@ Partial Class frmMesas
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(252, 23)
+        Me.Label1.Size = New System.Drawing.Size(246, 23)
         Me.Label1.TabIndex = 81
         Me.Label1.Text = "TOTAL DE COMENSALES"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -563,7 +563,7 @@ Partial Class frmMesas
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel6.Location = New System.Drawing.Point(0, 504)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(265, 136)
+        Me.Panel6.Size = New System.Drawing.Size(264, 136)
         Me.Panel6.TabIndex = 0
         '
         'Button1
@@ -603,7 +603,7 @@ Partial Class frmMesas
         Me.pmesas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pmesas.Location = New System.Drawing.Point(0, 0)
         Me.pmesas.Name = "pmesas"
-        Me.pmesas.Size = New System.Drawing.Size(1107, 640)
+        Me.pmesas.Size = New System.Drawing.Size(1108, 640)
         Me.pmesas.TabIndex = 3
         '
         'pcentral
@@ -614,7 +614,7 @@ Partial Class frmMesas
         Me.pcentral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pcentral.Location = New System.Drawing.Point(0, 104)
         Me.pcentral.Name = "pcentral"
-        Me.pcentral.Size = New System.Drawing.Size(1107, 640)
+        Me.pcentral.Size = New System.Drawing.Size(1108, 640)
         Me.pcentral.TabIndex = 0
         '
         'pmesaNM
@@ -623,7 +623,7 @@ Partial Class frmMesas
         Me.pmesaNM.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pmesaNM.Location = New System.Drawing.Point(0, 0)
         Me.pmesaNM.Name = "pmesaNM"
-        Me.pmesaNM.Size = New System.Drawing.Size(1107, 640)
+        Me.pmesaNM.Size = New System.Drawing.Size(1108, 640)
         Me.pmesaNM.TabIndex = 4
         '
         'frmMesas

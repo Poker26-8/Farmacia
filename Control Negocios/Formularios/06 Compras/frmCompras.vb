@@ -1494,6 +1494,7 @@ Public Class frmCompras
                 End If
                 If (cbonombre.Text <> "" And txtprecio.Text <> "") Then
                     Call UpGrid(CP)
+                    'Call IVA()
 
                     txtsub1.Text = FormatNumber(CDbl(txtsub1.Text) + CDbl(txtieps.Text), 2)
 
@@ -6114,6 +6115,10 @@ quepasowey:
     End Sub
 
     Private Sub pCancelaMC_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCancelaMC.PrintPage
+
+    End Sub
+
+    Private Sub txtlote_TextChanged(sender As Object, e As EventArgs) Handles txtlote.TextChanged
 
     End Sub
 End Class

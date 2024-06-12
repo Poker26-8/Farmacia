@@ -97,7 +97,7 @@ Partial Class frmTraspasarProducto
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 33)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1036, 261)
+        Me.Panel2.Size = New System.Drawing.Size(1036, 90)
         Me.Panel2.TabIndex = 2
         '
         'lblDestino
@@ -217,8 +217,9 @@ Partial Class frmTraspasarProducto
         Me.grd2.Location = New System.Drawing.Point(315, 7)
         Me.grd2.Name = "grd2"
         Me.grd2.RowHeadersVisible = False
-        Me.grd2.Size = New System.Drawing.Size(313, 230)
+        Me.grd2.Size = New System.Drawing.Size(417, 77)
         Me.grd2.TabIndex = 1
+        Me.grd2.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -265,9 +266,9 @@ Partial Class frmTraspasarProducto
         '
         Me.Panel3.Controls.Add(Me.grdCaptura)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 294)
+        Me.Panel3.Location = New System.Drawing.Point(0, 123)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1036, 368)
+        Me.Panel3.Size = New System.Drawing.Size(1036, 539)
         Me.Panel3.TabIndex = 3
         '
         'grdCaptura
@@ -299,7 +300,7 @@ Partial Class frmTraspasarProducto
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(1036, 368)
+        Me.grdCaptura.Size = New System.Drawing.Size(1036, 539)
         Me.grdCaptura.TabIndex = 0
         '
         'Column6

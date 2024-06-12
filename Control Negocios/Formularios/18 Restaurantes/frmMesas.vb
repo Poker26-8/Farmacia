@@ -552,11 +552,11 @@ Public Class frmMesas
 
         If simesaspropianm = 1 Then
             If simesaspropusuarionm = 1 Then
-                cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa"
+                cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa WHERE ubicacion='" & nombreubicacion & "'"
             Else
 
                 If tomacontralog = 1 Then
-                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados  WHERE IdEmpleado=" & id_usu_log & ""
+                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados INNER JOIN mesa ON Mesasxempleados.IdMesa=mesa.IdMesa WHERE IdEmpleado=" & id_usu_log & " AND mesa.Ubicacion='" & nombreubicacion & "'"
                 Else
                     cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE Mesasxempleados.IdEmpleado=" & idempleado & " AND mesa.Ubicacion='" & nombreubicacion & "'"
                 End If
