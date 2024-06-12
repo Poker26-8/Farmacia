@@ -2376,7 +2376,7 @@ Door:
                             MyExiste = FormatNumber(MyExiste / MyMultiplo, 2)
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
+                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta en línea'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
                             cmd1.ExecuteNonQuery()
                         Else
                             Existencia = FormatNumber((MyExiste + nueva_existe) / MyMulti2, 2)
@@ -2384,7 +2384,7 @@ Door:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
+                                "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & mycode & "','" & mydesc & "','Venta en línea'," & Existencia & "," & mycant & "," & MyExiste & "," & myprecio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MYFOLIO & "','','','','','')"
                             cmd1.ExecuteNonQuery()
                         End If
                     End If
@@ -2421,86 +2421,75 @@ Door:
         Dim pide As String = "", contra As String = txtusuario.Text, usu As String = lblusuario.Text
 
 
-        'cnn1.Close() : cnn1.Open()
+        cnn1.Close() : cnn1.Open()
 
-        'cmd1 = cnn1.CreateCommand
-        'cmd1.CommandText =
-        '    "select * from Ticket"
-        'rd1 = cmd1.ExecuteReader
-        'If rd1.HasRows Then
-        '    If rd1.Read Then
-        '        Imprime = rd1("NoPrint").ToString
-        '        Copias = rd1("Copias").ToString()
-        '    End If
-        'End If
-        'rd1.Close() : cnn1.Close()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText =
+            "select * from Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                Imprime = rd1("NoPrint").ToString
+                Copias = rd1("Copias").ToString()
+            End If
+        End If
+        rd1.Close() : cnn1.Close()
 
-        'If (Imprime) Then
-        '    If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-        '        Pasa_Print = True
-        '    Else
-        '        Pasa_Print = False
-        '    End If
-        'Else
-        '    Pasa_Print = True
-        'End If
 
-        'If (Pasa_Print) Then
+        cnn1.Close() : cnn1.Open()
 
-        '    cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NotasCred from Formatos where Facturas='TamImpre'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Tamaño = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
 
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText =
-        '        "select NotasCred from Formatos where Facturas='TamImpre'"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.HasRows Then
-        '        If rd1.Read Then
-        '            Tamaño = rd1(0).ToString
-        '        End If
-        '    End If
-        '    rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Impresora = rd1(0).ToString
+                End If
+            Else
+                Impresora = "PRED"
+            End If
+            rd1.Close() : cnn1.Close()
 
-        '    cmd1 = cnn1.CreateCommand
-        '    cmd1.CommandText =
-        '        "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
-        '    rd1 = cmd1.ExecuteReader
-        '    If rd1.HasRows Then
-        '        If rd1.Read Then
-        '            Impresora = rd1(0).ToString
-        '        End If
-        '    Else
-        '        Impresora = "PRED"
-        '    End If
-        '    rd1.Close() : cnn1.Close()
+            If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error() : Exit Sub
 
-        '    If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error() : Exit Sub
+        If Impresora = "PRED" Then
+            If Tamaño = "80" Then
+                For t As Integer = 1 To Copias
+                    pVenta80.Print()
+                Next
+            End If
+            If Tamaño = "58" Then
+                For t As Integer = 1 To Copias
+                    pVenta58.Print()
+                Next
+            End If
+        Else
+            If Tamaño = "80" Then
+                For t As Integer = 1 To Copias
+                    pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pVenta80.Print()
+                Next
+            End If
+            If Tamaño = "58" Then
+                For t As Integer = 1 To Copias
+                    pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                    pVenta58.Print()
+                Next
+            End If
+        End If
 
-        '    'If Impresora = "PRED" Then
-        '    '    If Tamaño = "80" Then
-        '    '        For t As Integer = 1 To Copias
-        '    '            pVenta80.Print()
-        '    '        Next
-        '    '    End If
-        '    '    If Tamaño = "58" Then
-        '    '        For t As Integer = 1 To Copias
-        '    '            pVenta58.Print()
-        '    '        Next
-        '    '    End If
-        '    'Else
-        '    '    If Tamaño = "80" Then
-        '    '        For t As Integer = 1 To Copias
-        '    '            pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-        '    '            pVenta80.Print()
-        '    '        Next
-        '    '    End If
-        '    '    If Tamaño = "58" Then
-        '    '        For t As Integer = 1 To Copias
-        '    '            pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-        '    '            pVenta58.Print()
-        '    '        Next
-        '    '    End If
-        '    'End If
-        'End If
 
         'Actualiza estados de pedido para la tienda
         Try
@@ -2561,5 +2550,9 @@ Door:
         If AscW(e.KeyChar) = Keys.Enter Then
             Button1.Focus().Equals(True)
         End If
+    End Sub
+
+    Private Sub pVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
+
     End Sub
 End Class
