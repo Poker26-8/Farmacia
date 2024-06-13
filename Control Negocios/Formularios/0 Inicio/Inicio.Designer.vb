@@ -116,6 +116,7 @@ Partial Class Inicio
         Me.ReporteDeSeries = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeHotelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +176,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.ReporteDeHotelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnOptica = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -945,6 +946,12 @@ Partial Class Inicio
         Me.ReporteMovCuentasToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteMovCuentasToolStripMenuItem.Text = "Reporte Mov Cuentas"
         '
+        'ReporteDeHotelToolStripMenuItem
+        '
+        Me.ReporteDeHotelToolStripMenuItem.Name = "ReporteDeHotelToolStripMenuItem"
+        Me.ReporteDeHotelToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReporteDeHotelToolStripMenuItem.Text = "Reporte de Hotel"
+        '
         'pIngresos
         '
         Me.pIngresos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCEmpleado, Me.MovCuentasToolStripMenuItem})
@@ -1240,6 +1247,7 @@ Partial Class Inicio
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Moccasin
+        Me.Panel2.Controls.Add(Me.btnOptica)
         Me.Panel2.Controls.Add(Me.btnpollo)
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
@@ -1441,11 +1449,18 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
-        'ReporteDeHotelToolStripMenuItem
+        'btnOptica
         '
-        Me.ReporteDeHotelToolStripMenuItem.Name = "ReporteDeHotelToolStripMenuItem"
-        Me.ReporteDeHotelToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.ReporteDeHotelToolStripMenuItem.Text = "Reporte de Hotel"
+        Me.btnOptica.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnOptica.FlatAppearance.BorderSize = 0
+        Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 612)
+        Me.btnOptica.Name = "btnOptica"
+        Me.btnOptica.Size = New System.Drawing.Size(90, 90)
+        Me.btnOptica.TabIndex = 186
+        Me.btnOptica.UseVisualStyleBackColor = True
         '
         'Inicio
         '
@@ -1629,4 +1644,5 @@ Partial Class Inicio
     Friend WithEvents MovCuentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EliminarAbonosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeHotelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnOptica As Button
 End Class

@@ -4156,4 +4156,9 @@ Public Class Inicio
         frmRepHoteles.Show()
         frmRepHoteles.BringToFront()
     End Sub
+
+    Private Sub btnOptica_Click(sender As Object, e As EventArgs) Handles btnOptica.Click
+        frmOptometria.Show()
+        frmOptometria.BringToFront()
+    End Sub
 End Class

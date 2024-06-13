@@ -23,19 +23,17 @@ Partial Class frmcofepris
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmcofepris))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmcofepris))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.mCalendar2 = New System.Windows.Forms.MonthCalendar()
         Me.mCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
-        Me.Exportar = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,6 +45,8 @@ Partial Class frmcofepris
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Exportar = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -111,35 +111,6 @@ Partial Class frmcofepris
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(1051, 324)
         Me.grdcaptura.TabIndex = 206
-        '
-        'Exportar
-        '
-        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
-        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Exportar.Location = New System.Drawing.Point(108, 40)
-        Me.Exportar.Name = "Exportar"
-        Me.Exportar.Size = New System.Drawing.Size(90, 54)
-        Me.Exportar.TabIndex = 209
-        Me.Exportar.Text = "Exportar"
-        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Exportar.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(12, 40)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 54)
-        Me.Button2.TabIndex = 208
-        Me.Button2.Text = "Reporte"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Column1
         '
@@ -225,6 +196,35 @@ Partial Class frmcofepris
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
         Me.Column11.Width = 82
+        '
+        'Exportar
+        '
+        Me.Exportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Exportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Exportar.Image = CType(resources.GetObject("Exportar.Image"), System.Drawing.Image)
+        Me.Exportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Exportar.Location = New System.Drawing.Point(108, 40)
+        Me.Exportar.Name = "Exportar"
+        Me.Exportar.Size = New System.Drawing.Size(90, 54)
+        Me.Exportar.TabIndex = 209
+        Me.Exportar.Text = "Exportar"
+        Me.Exportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Exportar.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(12, 40)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 54)
+        Me.Button2.TabIndex = 208
+        Me.Button2.Text = "Reporte"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'frmcofepris
         '

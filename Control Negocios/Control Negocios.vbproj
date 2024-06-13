@@ -1891,6 +1891,12 @@
     <Compile Include="Formularios\33 Mov_Cuentas\frmMovCuentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\34 Opticas\frmMedicos.Designer.vb">
+      <DependentUpon>frmMedicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\34 Opticas\frmMedicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\34 Opticas\frmOptometria.Designer.vb">
       <DependentUpon>frmOptometria.vb</DependentUpon>
     </Compile>
@@ -2795,6 +2801,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\33 Mov_Cuentas\frmMovCuentas.resx">
       <DependentUpon>frmMovCuentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\34 Opticas\frmMedicos.resx">
+      <DependentUpon>frmMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\34 Opticas\frmOptometria.resx">
+      <DependentUpon>frmOptometria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
