@@ -6177,10 +6177,77 @@ Door:
             cnn1.Close()
         End Try
 
+        Dim TotalIEPSPrint As Double = 0
+        Dim SubtotalPrint As Double = 0
+        Dim MySubtotal As Double = 0
+        Dim TotalIVAPrint As Double = 0
+
+        Dim SubTotal As Double = 0
+        Dim IVA_Vent As Double = 0
+        Dim Total_Ve As Double = 0
+
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+        Try
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+            If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
+
+            cnn1.Close() : cnn1.Open()
+            For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
+                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                End If
+            Next
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            MySubtotal = FormatNumber(MySubtotal, 4)
+
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+        IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+        SubTotal = FormatNumber(TotalIVAPrint, 4)
+        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
+
         FileNta.SetDatabaseLogon("", "jipl22")
         FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & MYFOLIO & "'"
         FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
         FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txtPagar.Text) & "'"
+
+        'Pagos
+        If DesglosaIVA = "1" Then
+            If SubTotal > 0 Then
+                FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"       'Subtotal
+            End If
+            If IVA_Vent > 0 Then
+                If IVA_Vent > 0 And IVA_Vent <> CDbl(txtPagar.Text) Then
+                    FileNta.DataDefinition.FormulaFields("IVA").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"   'IVA
+                End If
+            End If
+        End If
+
+        Dim total_des As Double = Total_Ve + CDbl(txtdescuento2.Text)
+
+        FileNta.DataDefinition.FormulaFields("Total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+        If CDbl(txtdescuento2.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("TTotal").Text = "'" & FormatNumber(total_des, 4) & "'"             'Total
+            FileNta.DataDefinition.FormulaFields("Descuento").Text = "'" & FormatNumber(txtdescuento2.Text, 4) & "'"             'Total
+        End If
+
 
         If PieNota <> "" Then
             FileNta.DataDefinition.FormulaFields("pieNota").Text = "'" & PieNota & "'"          'Pie de nota
@@ -15165,5 +15232,9 @@ doorcita:
     Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
         frmOrdenTrabajo.Show()
         frmOrdenTrabajo.BringToFront()
+    End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+
     End Sub
 End Class

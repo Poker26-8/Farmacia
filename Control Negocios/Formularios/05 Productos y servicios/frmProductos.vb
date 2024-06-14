@@ -1113,6 +1113,9 @@ Public Class frmProductos
             Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
             Dim conteo As Integer = 0
 
+            Dim lote As String = ""
+            Dim caducidad As String = ""
+
             barsube.Value = 0
             barsube.Maximum = grdcaptura.Rows.Count
 
@@ -1143,6 +1146,9 @@ Public Class frmProductos
                 existencias = NulVa(grdcaptura.Rows(zef).Cells(19).Value.ToString())
                 ieps = NulVa(grdcaptura.Rows(zef).Cells(20).Value.ToString())
 
+                lote = NulCad(grdcaptura.Rows(zef).Cells(21).Value.ToString())
+                caducidad = NulCad(grdcaptura.Rows(zef).Cells(22).Value.ToString())
+
                 If (Comprueba(codigo, nombrec, barras, proveedorp, proveedore)) Then
                     If cnn1.State = 0 Then cnn1.Open()
 
@@ -1150,6 +1156,10 @@ Public Class frmProductos
                     cmd1.CommandText =
                         "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,PorcMay,PorcMM,PorcEsp,PreMay,PreMM,PreEsp,CantMin1,CantMin2,CantMay1,CantMay2,CantMM1,CantMM2,CantEsp1,CantEsp2,CantLst1,CantLst2,PreMin) values('" & codigo & "','" & barras & "','" & nombrec & "','" & nombrel & "','" & proveedorp & "','" & proveedore & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & pcompra & "," & pventasiva & "," & pventaciva & "," & iva & "," & existencias & "," & utilidad & ",'" & fecha & "',0,1,0,0," & pcompra & ",'" & clave_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)"
                     cmd1.ExecuteNonQuery()
+
+                    If lote <> "" Then
+                        Inserta_Lote(lote, codigo, existencias, caducidad)
+                    End If
                 Else
                     conteo += 1
                     barsube.Value = conteo
@@ -1169,6 +1179,30 @@ Public Class frmProductos
             MessageBox.Show(ex.ToString())
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub Inserta_Lote(ByVal lote As String, codigo As String, cantidad As Double, fecha As String)
+        'Try
+        '    cnn3.Close() : cnn3.Open()
+
+        '    cmd3 = cnn3.CreateCommand
+        '    cmd3.CommandText =
+        '        "select * from LoteCaducidad where "
+        '    If rd3.HasRows Then
+        '        'Existe
+        '        If rd3.Read Then
+
+        '        End If
+        '    Else
+        '        'No existe
+
+        '    End If
+        '    rd3.Close()
+        '    cnn3.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString())
+        '    cnn3.Close()
+        'End Try
     End Sub
 
     Private Function NulCad(ByVal cadena As String) As String
