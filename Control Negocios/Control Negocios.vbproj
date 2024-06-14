@@ -105,6 +105,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DGMC.TimbraCFDI">
       <HintPath>..\DGMC.TimbraCFDI.dll</HintPath>
     </Reference>
@@ -165,6 +166,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -425,6 +427,12 @@
       <DependentUpon>frmOrdenes.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\06 Compras\Cambios\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\06 Compras\Cambios\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.Designer.vb">
@@ -2090,6 +2098,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmOrdenes.resx">
       <DependentUpon>frmOrdenes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\06 Compras\Cambios\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.resx">
       <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
