@@ -182,7 +182,7 @@ Public Class frmAutoservicio
                     End If
                     btnDepto.Top = (deptos) * (btnDepto.Height + 0.5)
                     btnDepto.BackColor = pDeptos.BackColor
-                    btnDepto.FlatStyle = FlatStyle.Flat
+                    btnDepto.FlatStyle = FlatStyle.Popup
                     btnDepto.Font = New Font("Segoe UI", 10, FontStyle.Bold)
                     btnDepto.FlatAppearance.BorderSize = 0
                     AddHandler btnDepto.Click, AddressOf btnDepto_Click
@@ -253,7 +253,7 @@ Public Class frmAutoservicio
                     End If
                     btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
                     btnGrupo.BackColor = pGrupos.BackColor
-                    btnGrupo.FlatStyle = FlatStyle.Flat
+                    btnGrupo.FlatStyle = FlatStyle.Popup
                     btnGrupo.Font = New Font("Segoe UI", 10, FontStyle.Bold)
                     btnGrupo.FlatAppearance.BorderSize = 0
                     AddHandler btnGrupo.Click, AddressOf btnGrupo_Click
@@ -738,7 +738,7 @@ Public Class frmAutoservicio
                     End If
 
                     btnProd.BackColor = Color.White
-                    btnProd.FlatStyle = FlatStyle.Flat
+                    btnProd.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnProd.Font, FontStyle.Bold)
                     btnProd.Font = fuenteNegrita
                     btnProd.Font = New Font("Segoe UI", 10, FontStyle.Bold)
