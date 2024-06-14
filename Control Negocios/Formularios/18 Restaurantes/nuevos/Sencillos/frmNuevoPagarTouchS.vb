@@ -150,7 +150,7 @@
         If Not IsNumeric(txtDescuento.Text) Then txtDescuento.Text = "0.00" : Exit Sub
         If Strings.Left(txtDescuento.Text, 1) = "," Or Strings.Left(txtDescuento.Text, 1) = "." Then Exit Sub
 
-        myope = IIf(txtSubtotalmapeo.Text = "", 0.00, txtSubtotalmapeo.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtTarjeta.Text = "", 0.00, txtTarjeta.Text))+CDbl(IIf(txtTransferencia.Text="",0.00,txtTransferencia.Text)) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
+        myope = IIf(txtSubtotalmapeo.Text = "", 0.00, txtSubtotalmapeo.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtTarjeta.Text = "", 0.00, txtTarjeta.Text)) + CDbl(IIf(txtTransferencia.Text = "", 0.00, txtTransferencia.Text)) + CDbl(IIf(txtDescuento.Text = "", 0.00, txtDescuento.Text)))
 
         If myope < 0 Then
             txtCambio.Text = FormatNumber(-myope, 2)
@@ -1504,7 +1504,7 @@
                 txtTransferencia.Focus.Equals(True)
         End Select
     End Sub
-<<<<<<< HEAD
+
 
     Private Sub btn500_Click(sender As Object, e As EventArgs) Handles btn500.Click
         Select Case focomapeo
@@ -1539,6 +1539,38 @@
                 txtTransferencia.Focus.Equals(True)
         End Select
     End Sub
-=======
->>>>>>> 86d5341a33c9372aa1982d689280448651c032f7
+
+    Private Sub btn1000_Click(sender As Object, e As EventArgs) Handles btn1000.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = txtEfectivo.Text
+                Dim nuevo As Double = monto + "1000"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = txtDescuento.Text
+                Dim nuevo As Double = monto + "1000"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+                Dim monto As Double = txtPropina.Text
+                Dim nuevo As Double = monto + "1000"
+                txtPropina.Text = FormatNumber(nuevo, 2)
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 7
+                Dim monto As Double = txtTarjeta.Text
+                Dim nuevo As Double = monto + "1000"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                Dim monto As Double = txtTransferencia.Text
+                Dim nuevo As Double = monto + "1000"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
 End Class
