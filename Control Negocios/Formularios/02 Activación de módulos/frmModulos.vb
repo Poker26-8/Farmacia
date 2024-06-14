@@ -1,15 +1,15 @@
 ﻿Public Class frmModulos
 
-      Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
-            frmAct_Sincronizador.Show()
-            frmAct_Sincronizador.BringToFront()
-      End Sub
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+        frmAct_Sincronizador.Show()
+        frmAct_Sincronizador.BringToFront()
+    End Sub
 
-      Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-            frmAct_Entregas.Show()
-            frmAct_Entregas.txtcontra.Focus().Equals(True)
-            frmAct_Entregas.BringToFront()
-      End Sub
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        frmAct_Entregas.Show()
+        frmAct_Entregas.txtcontra.Focus().Equals(True)
+        frmAct_Entregas.BringToFront()
+    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmAct_Asistencia.Show()
@@ -219,6 +219,12 @@
     Private Sub btnMovCuenta_Click(sender As Object, e As EventArgs) Handles btnMovCuenta.Click
         frmAct_MovCuenta.Show()
         frmAct_MovCuenta.BringToFront()
+        Me.Close()
+    End Sub
+
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        frmOrdenes.Show()
+        frmOrdenes.BringToFront()
         Me.Close()
     End Sub
 

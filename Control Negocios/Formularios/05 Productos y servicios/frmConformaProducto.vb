@@ -166,7 +166,7 @@
                         Dim unidad As String = rd1("UVenta").ToString()
                         Dim cantidad As Double = rd1("Cantidad").ToString()
 
-                        grdcaptura.Rows.Add(codigo,nombre,unidad,cantidad)
+                        grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad)
                     End If
                 Loop
                 rd1.Close()
@@ -300,7 +300,7 @@
                         Dim unidad As String = rd1("UVenta").ToString()
                         Dim cantidad As Double = rd1("Cantidad").ToString()
 
-                        grdcaptura.Rows.Add(codigo,nombre,unidad,cantidad)
+                        grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad)
                     End If
                 Loop
                 rd1.Close()
@@ -411,7 +411,7 @@
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
-            End Try            
+            End Try
         End If
     End Sub
 
@@ -427,6 +427,10 @@
     End Sub
 
     Private Sub txtcantidad_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles txtcantidad.KeyUp
+
+    End Sub
+
+    Private Sub grdcaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellContentClick
 
     End Sub
 

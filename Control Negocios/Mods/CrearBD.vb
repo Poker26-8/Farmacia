@@ -2206,6 +2206,122 @@
                                               `Corte` int(2) NOT NULL DEFAULT '0'
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
+    Public vartablaordentrabajo As String = "CREATE TABLE `ordentrabajo` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `CodBarra` varchar(100) NOT NULL DEFAULT '',
+                                                  `CodBarra1` varchar(100) NOT NULL DEFAULT '',
+                                                  `CodBarra2` varchar(100) NOT NULL DEFAULT '',
+                                                  `CodBarra3` varchar(100) NOT NULL DEFAULT '',
+                                                  `Nombre` varchar(250) NOT NULL DEFAULT '',
+                                                  `NombreLargo` varchar(250) NOT NULL DEFAULT '',
+                                                  `ProvPri` varchar(250) NOT NULL DEFAULT '',
+                                                  `ProvEme` varchar(250) NOT NULL DEFAULT '',
+                                                  `ProvRes` int(1) NOT NULL DEFAULT '0',
+                                                  `UCompra` varchar(50) NOT NULL DEFAULT '',
+                                                  `UVenta` varchar(50) NOT NULL DEFAULT '',
+                                                  `UMinima` varchar(50) NOT NULL DEFAULT '',
+                                                  `MCD` float NOT NULL DEFAULT '0',
+                                                  `Multiplo` float NOT NULL DEFAULT '0',
+                                                  `Departamento` varchar(250) NOT NULL DEFAULT '',
+                                                  `Grupo` varchar(250) NOT NULL DEFAULT '',
+                                                  `Ubicacion` varchar(250) NOT NULL DEFAULT '',
+                                                  `Min` float NOT NULL DEFAULT '0',
+                                                  `Max` float NOT NULL DEFAULT '0',
+                                                  `Comision` float NOT NULL DEFAULT '0',
+                                                  `PrecioCompra` float NOT NULL DEFAULT '0',
+                                                  `PrecioVenta` float NOT NULL DEFAULT '0',
+                                                  `PrecioVenta2` float NOT NULL DEFAULT '0',
+                                                  `PrecioVentaIVA` float NOT NULL DEFAULT '0',
+                                                  `PrecioDomicilio` float DEFAULT '0',
+                                                  `PrecioDomicilioIVA` float DEFAULT '0',
+                                                  `PorcMin` float NOT NULL DEFAULT '0',
+                                                  `PorcMin2` float NOT NULL DEFAULT '0',
+                                                  `PreMin` float NOT NULL DEFAULT '0',
+                                                  `PreMin2` float NOT NULL DEFAULT '0',
+                                                  `IVA` float NOT NULL DEFAULT '0',
+                                                  `Existencia` float NOT NULL DEFAULT '0',
+                                                  `Porcentaje` float NOT NULL DEFAULT '0',
+                                                  `Porcentaje2` float NOT NULL DEFAULT '0',
+                                                  `Fecha` date NOT NULL,
+                                                  `PorcMay` float NOT NULL DEFAULT '0',
+                                                  `PorcMay2` float NOT NULL DEFAULT '0',
+                                                  `PorcMM` float NOT NULL DEFAULT '0',
+                                                  `PorcMM2` float NOT NULL DEFAULT '0',
+                                                  `PorcEsp` float NOT NULL DEFAULT '0',
+                                                  `PorcEsp2` float NOT NULL DEFAULT '0',
+                                                  `PreMay` float NOT NULL DEFAULT '0',
+                                                  `PreMay2` float NOT NULL DEFAULT '0',
+                                                  `PreMM` float NOT NULL DEFAULT '0',
+                                                  `PreMM2` float NOT NULL DEFAULT '0',
+                                                  `PreEsp` float NOT NULL DEFAULT '0',
+                                                  `PreEsp2` float NOT NULL DEFAULT '0',
+                                                  `CantMin1` float NOT NULL DEFAULT '0',
+                                                  `CantMin2` float NOT NULL DEFAULT '0',
+                                                  `CantMin3` float NOT NULL DEFAULT '0',
+                                                  `CantMin4` float NOT NULL DEFAULT '0',
+                                                  `CantMay1` float NOT NULL DEFAULT '0',
+                                                  `CantMay2` float NOT NULL DEFAULT '0',
+                                                  `CantMay3` float NOT NULL DEFAULT '0',
+                                                  `CantMay4` float NOT NULL DEFAULT '0',
+                                                  `CantMM1` float NOT NULL DEFAULT '0',
+                                                  `CantMM2` float NOT NULL DEFAULT '0',
+                                                  `CantMM3` float NOT NULL DEFAULT '0',
+                                                  `CantMM4` float NOT NULL DEFAULT '0',
+                                                  `CantEsp1` float NOT NULL DEFAULT '0',
+                                                  `CantEsp2` float NOT NULL DEFAULT '0',
+                                                  `CantEsp3` float NOT NULL DEFAULT '0',
+                                                  `CantEsp4` float NOT NULL DEFAULT '0',
+                                                  `CantLst1` float NOT NULL DEFAULT '0',
+                                                  `CantLst2` float NOT NULL DEFAULT '0',
+                                                  `CantLst3` float NOT NULL DEFAULT '0',
+                                                  `CantLst4` float NOT NULL DEFAULT '0',
+                                                  `pres_vol` int(1) NOT NULL DEFAULT '0',
+                                                  `id_tbMoneda` float NOT NULL DEFAULT '0',
+                                                  `Promocion` int(1) NOT NULL DEFAULT '0',
+                                                  `Descto` float NOT NULL DEFAULT '0',
+                                                  `Afecta_exis` int(1) NOT NULL DEFAULT '0',
+                                                  `PercentIVAret` float NOT NULL DEFAULT '0',
+                                                  `Almacen3` float NOT NULL DEFAULT '0',
+                                                  `IIEPS` float NOT NULL DEFAULT '0',
+                                                  `InvInicial` float NOT NULL DEFAULT '0',
+                                                  `ISR` float NOT NULL DEFAULT '0',
+                                                  `InvFinal` float NOT NULL DEFAULT '0',
+                                                  `InvInicialCosto` float NOT NULL DEFAULT '0',
+                                                  `InvFinalCosto` float NOT NULL DEFAULT '0',
+                                                  `ClaveSat` varchar(100) NOT NULL DEFAULT '',
+                                                  `UnidadSat` varchar(50) NOT NULL DEFAULT '',
+                                                  `Cargado` int(1) NOT NULL DEFAULT '0',
+                                                  `CargadoInv` int(1) NOT NULL DEFAULT '0',
+                                                  `Uso` varchar(100) NOT NULL DEFAULT '',
+                                                  `Color` varchar(100) NOT NULL DEFAULT '',
+                                                  `Genero` varchar(100) NOT NULL DEFAULT '',
+                                                  `Marca` varchar(100) NOT NULL DEFAULT '',
+                                                  `Articulo` varchar(100) NOT NULL DEFAULT '',
+                                                  `Dia` float NOT NULL DEFAULT '0',
+                                                  `Descu` varchar(50) NOT NULL DEFAULT '0',
+                                                  `Status_Promocion` int(1) NOT NULL DEFAULT '0',
+                                                  `Porcentaje_Promo` float NOT NULL DEFAULT '0',
+                                                  `Fecha_Inicial` date NOT NULL,
+                                                  `Fecha_Final` date NOT NULL,
+                                                  `Promo_Monedero` float NOT NULL DEFAULT '0',
+                                                  `Unico` int(1) NOT NULL DEFAULT '0',
+                                                  `N_Serie` varchar(150) NOT NULL DEFAULT '',
+                                                  `GPrint` varchar(80) DEFAULT '',
+                                                  `Cant_Ent` float DEFAULT '0',
+                                                  `E1` int(1) DEFAULT '0',
+                                                  `E2` int(1) DEFAULT '0',
+                                                  `NumPromo` varchar(50) DEFAULT '0',
+                                                  `Modo_Almacen` int(1) DEFAULT '0',
+                                                  `F44` float DEFAULT '0',
+                                                  `CargadoAndroid` int(11) DEFAULT '0' COMMENT 'para ventas en ruta',
+                                                  `Mililitros` float DEFAULT '0',
+                                                  `Copas` float DEFAULT '0',
+                                                  `Existencia_Suc` int(1) DEFAULT '0',
+                                                  `Consecutivo` int(1) DEFAULT '0',
+                                                  `PrecioUnitario` varchar(250) DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
 
 
     'Parametros
@@ -6725,6 +6841,7 @@
     Public varKeynomina As String = "ALTER TABLE `nomina` ADD PRIMARY KEY (`Id`);"
     Public varKeynota As String = "ALTER TABLE `nota` ADD PRIMARY KEY (`not_cve`);"
     Public varKeyotrosgastos As String = "ALTER TABLE `otrosgastos` ADD PRIMARY KEY (`Id`);"
+    Public varKeyordentrabajo As String = "ALTER TABLE `ordentrabajo` ADD PRIMARY KEY (`Id`);"
     Public varKeyparcialidadesdetalle As String = "ALTER TABLE `parcialidadesdetalle` ADD PRIMARY KEY (`Id`);"
     Public varKeyparcialidadesdetallemulti As String = "ALTER TABLE `parcialidadesdetallemulti` ADD PRIMARY KEY (`Id`);"
     Public varKeyparcialidades As String = "ALTER TABLE `parcialidades` ADD PRIMARY KEY (`Id`);"
@@ -6885,6 +7002,7 @@
     Public varAutonomina As String = "ALTER TABLE `nomina` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutonota As String = "ALTER TABLE `nota` MODIFY `not_cve` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutootrosgastos As String = "ALTER TABLE `otrosgastos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoordentrabajo As String = "ALTER TABLE `ordentrabajo` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoparcialidades As String = "ALTER TABLE `parcialidades` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoparcialidadesmulti As String = "ALTER TABLE `parcialidadesmulti` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoparcialidadesdetalle As String = "ALTER TABLE `parcialidadesdetalle` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
