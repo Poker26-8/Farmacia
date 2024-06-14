@@ -2087,7 +2087,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmOrdenes.resx">
       <DependentUpon>frmOrdenes.vb</DependentUpon>
