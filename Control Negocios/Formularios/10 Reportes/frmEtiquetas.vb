@@ -2481,7 +2481,7 @@ Public Class frmEtiquetas
         Dim cadena As String = codigo & " - " & nombre
 
         Y += 5
-        Dim caracteresPorLinea As Integer = 30
+        Dim caracteresPorLinea As Integer = 40
         Dim texto As String = cadena
         Dim inicio As Integer = 0
             Dim longitudTexto As Integer = texto.Length
@@ -2489,12 +2489,12 @@ Public Class frmEtiquetas
             While inicio < longitudTexto
                 Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                 Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 5, Y)
-                Y += 8
-                inicio += caracteresPorLinea
+            e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 1, Y)
+            Y += 12
+            inicio += caracteresPorLinea
             End While
-        Y += 20
-        e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), New Drawing.Font("Arial", 23, FontStyle.Bold), Brushes.Black, 100, Y, sc)
+        Y += 30
+        e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), New Drawing.Font("Arial", 35, FontStyle.Bold), Brushes.Black, 100, Y, sc)
         e.HasMorePages = False
 
     End Sub
