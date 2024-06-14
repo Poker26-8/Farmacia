@@ -12,6 +12,8 @@
 
     Dim NewPos As String = ""
     Public dato As Integer = 0
+
+    Dim cobroexacto As Integer = 0
     Private Sub frmNuevoPagarTouchS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -125,6 +127,8 @@
     End Sub
 
     Private Sub txtTransferencia_TextChanged(sender As Object, e As EventArgs) Handles txtTransferencia.TextChanged
+
+        If Not IsNumeric(txtTransferencia.Text) Then txtTransferencia.Text = "0.00" : Exit Sub
         If Strings.Left(txtTransferencia.Text, 1) = "," Or Strings.Left(txtTransferencia.Text, 1) = "." Then Exit Sub
 
         tarjeta = IIf(txtTarjeta.Text = "", 0, txtTarjeta.Text)
@@ -186,6 +190,7 @@
         txtsaldomon.Text = ""
         btnIntro.Enabled = True
         lblidcliente.Text = ""
+        lblTarjeta.Text = ""
     End Sub
 
     Private Sub txtPropina_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPropina.KeyPress
@@ -306,7 +311,17 @@
             frmVTouchR.lblImporteEfectivo.Text = FormatNumber(txtEfectivo.Text, 2)
             frmVTouchR.lblCambio.Text = txtCambio.Text
             frmVTouchR.lblPagos.Text = CDbl(txtTarjeta.Text) + CDbl(txtTransferencia.Text)
-            btnIntro.Focus.Equals(True)
+
+            cobroexacto = efectivocompleto()
+
+            If cobroexacto = 1 Then
+                btnIntro.Focus.Equals(True)
+            Else
+                txtEfectivo.Text = "0.00"
+                btnIntro.Focus.Equals(True)
+            End If
+
+
         End If
     End Sub
 
@@ -315,7 +330,16 @@
             frmVTouchR.lblImporteEfectivo.Text = FormatNumber(txtEfectivo.Text, 2)
             frmVTouchR.lblCambio.Text = txtCambio.Text
             frmVTouchR.lblPagos.Text = CDbl(txtTarjeta.Text) + CDbl(txtTransferencia.Text)
-            btnIntro.Focus.Equals(True)
+
+            cobroexacto = efectivocompleto()
+
+            If cobroexacto = 1 Then
+                btnIntro.Focus.Equals(True)
+            Else
+                txtEfectivo.Text = "0.00"
+                btnIntro.Focus.Equals(True)
+            End If
+
         End If
     End Sub
 
@@ -1572,5 +1596,84 @@
                 txtTransferencia.Text = FormatNumber(nuevo, 2)
                 txtTransferencia.Focus.Equals(True)
         End Select
+    End Sub
+
+    Private Sub btnIntro_Click(sender As Object, e As EventArgs) Handles btnIntro.Click
+
+        If cboNombre.Text = "" Then
+            frmVTouchR.lblCliente.Text = "MOSTRADOR"
+            frmVTouchR.lblTelefono.Text = ""
+            frmVTouchR.lblTipoVenta.Text = "MOSTRADOR"
+            frmVTouchR.lblTelefono.Text = ""
+            frmVTouchR.lblDireccion.Text = ""
+        Else
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    lblidcliente.Text = rd1("Id").ToString
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,Credito,Telefono,Calle) VALUES('" & cboNombre.Text & "','" & cboNombre.Text & "','Lista',10000,'" & cboTelefono.Text & "','" & rbtDireccion.Text & "')"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Id FROM clientes WHERE Nombre='" & cboNombre.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    lblidcliente.Text = rd3(0).ToString
+                End If
+            End If
+            rd3.Close()
+            cnn3.Close()
+
+
+            frmVTouchR.lblCliente.Text = cboNombre.Text
+            frmVTouchR.lblTelefono.Text = cboTelefono.Text
+            frmVTouchR.lblNumCliente.Text = lblidcliente.Text
+            frmVTouchR.lblTipoVenta.Text = lblidcliente.Text
+            frmVTouchR.lblTelefono.Text = cboTelefono.Text
+            frmVTouchR.lblDireccion.Text = rbtDireccion.Text
+        End If
+        btnIntro.Enabled = False
+        frmVTouchR.GuardarVenta()
+
+    End Sub
+
+    Private Sub btnVisa_Click(sender As Object, e As EventArgs) Handles btnVisa.Click
+
+        If txtTarjeta.Text > 0 OR txtTransferencia.Text>0 Then
+            lblTarjeta.Text = ""
+            lblTarjeta.Text = "VISA"
+        End If
+
+    End Sub
+
+    Private Sub btnMaster_Click(sender As Object, e As EventArgs) Handles btnMaster.Click
+        If txtTarjeta.Text > 0 Or txtTransferencia.Text > 0 Then
+            lblTarjeta.Text = ""
+            lblTarjeta.Text = "MASTER"
+        End If
+
+    End Sub
+
+    Private Sub btnAmerica_Click(sender As Object, e As EventArgs) Handles btnAmerica.Click
+        If txtTarjeta.Text > 0 Or txtTransferencia.Text > 0 Then
+            lblTarjeta.Text = ""
+            lblTarjeta.Text = "AMERICAN"
+        End If
+
     End Sub
 End Class

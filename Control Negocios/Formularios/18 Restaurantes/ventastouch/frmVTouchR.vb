@@ -3057,7 +3057,7 @@ kakaxd:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,Formato,Fecha) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & TotalIVAPrint & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "'," & propina & ",'TICKET','" & Format(Date.Now, "yyyy-MM-dd") & "')"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Comentario,StatusE,IP,Propina,Formato,Fecha) values(" & lblNumCliente.Text & ",'" & lblCliente.Text & "','" & frmPagarTouch.rbtDireccion.Text & "'," & SubTotal & "," & TotalIVAPrint & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblAtendio.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','','" & MyStatus & "','',''," & MontoSDesc & ",'','',0,'" & dameIP2() & "'," & propina & ",'TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                     cmd1.ExecuteNonQuery()
 
                 Case Is <> "MOSTRADOR"
@@ -3156,6 +3156,166 @@ kakaxd:
 
             If ACuenta > 0 Then
                 Dim EfectivoX As Double = FormatNumber(montoefectivo - CAMBIO, 2)
+
+                If frmNuevoPagarTouchS.txtTarjeta.Text > 0 Then
+
+                    Dim saldocuenta As Double = 0
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & frmNuevoPagarTouchS.lblCuenta.Text & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + frmNuevoPagarTouchS.txtTarjeta.Text
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('TARJETA','" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','VENTA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",0," & frmNuevoPagarTouchS.txtTarjeta.Text & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','','','')"
+                            cmd1.ExecuteNonQuery()
+                            cnn1.Close()
+                        End If
+                    Else
+                        saldocuenta = -frmNuevoPagarTouchS.txtTarjeta.Text
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('TARJETA','" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','VENTA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",0," & frmNuevoPagarTouchS.txtTarjeta.Text & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','','','')"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+                    Dim nuevopago As Double = 0
+                    If lblPropina.Text > 0 Then
+                        If EfectivoX > 0 Then
+                            nuevopago = frmNuevoPagarTouchS.txtTarjeta.Text
+                        Else
+                            nuevopago = frmNuevoPagarTouchS.txtTarjeta.Text - lblPropina.Text
+                        End If
+                    Else
+                        nuevopago = frmNuevoPagarTouchS.txtTarjeta.Text
+                    End If
+
+                    cnn1.Close() : cnn1.Open()
+                    Select Case lblTipoVenta.Text
+
+                        Case Is = "MOSTRADOR"
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TARJETA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            cmd1.ExecuteNonQuery()
+
+                        Case Is <> "MOSTRADOR"
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                        "select Saldo from Abonoi where Id=(select MAX(Id) from Abonoi where IdCliente=" & lblTipoVenta.Text & ")"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) - ACuenta, 2)
+                                End If
+                            Else
+                                MySaldo = FormatNumber(lbltotalventa.Text, 2)
+                            End If
+                            rd1.Close()
+
+                            If Resta > 0 And AFavor_Cliente > 0 Then
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                                cmd1.ExecuteNonQuery()
+                            Else
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                cmd1.ExecuteNonQuery()
+                            End If
+                    End Select
+
+                End If
+
+                If frmNuevoPagarTouchS.txtTransferencia.Text > 0 Then
+
+                    Dim saldocuenta As Double = 0
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT Saldo FROM movCuenta WHERE Id=(SELECT MAX(Id) FROM movcuenta WHERE Cuenta='" & frmNuevoPagarTouchS.lblCuenta.Text & "')"
+                    rd2 = cmd2.ExecuteReader
+                    If rd2.HasRows Then
+                        If rd2.Read Then
+                            saldocuenta = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + frmNuevoPagarTouchS.txtTransferencia.Text
+
+                            cnn1.Close() : cnn1.Open()
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('TRANSFERENCIA','" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','VENTA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",0," & frmNuevoPagarTouchS.txtTransferencia.Text & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','','','')"
+                            cmd1.ExecuteNonQuery()
+                            cnn1.Close()
+                        End If
+                    Else
+                        saldocuenta = -frmNuevoPagarTouchS.txtTarjeta.Text
+
+                        cnn1.Close() : cnn1.Open()
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO movcuenta(Tipo,Banco,Referencia,Concepto,Total,Retiro,Deposito,Saldo,Fecha,Hora,Folio,Cliente,Comentario,Cuenta,BancoCuenta) VALUES('TRANSFERENCIA','" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','VENTA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",0," & frmNuevoPagarTouchS.txtTransferencia.Text & "," & saldocuenta & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & MYFOLIO & "','" & lblCliente.Text & "','','','')"
+                        cmd1.ExecuteNonQuery()
+                        cnn1.Close()
+                    End If
+                    rd2.Close()
+                    cnn2.Close()
+
+                    Dim nuevopago As Double = 0
+                    If lblPropina.Text > 0 Then
+                        If EfectivoX > 0 Then
+                            nuevopago = frmNuevoPagarTouchS.txtTransferencia.Text
+                        Else
+                            nuevopago = frmNuevoPagarTouchS.txtTransferencia.Text - lblPropina.Text
+                        End If
+                    Else
+                        nuevopago = frmNuevoPagarTouchS.txtTransferencia.Text
+                    End If
+
+                    cnn1.Close() : cnn1.Open()
+                    Select Case lblTipoVenta.Text
+
+                        Case Is = "MOSTRADOR"
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TRANSFERENCIA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            cmd1.ExecuteNonQuery()
+
+                        Case Is <> "MOSTRADOR"
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                        "select Saldo from Abonoi where Id=(select MAX(Id) from Abonoi where IdCliente=" & lblTipoVenta.Text & ")"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    MySaldo = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) - ACuenta, 2)
+                                End If
+                            Else
+                                MySaldo = FormatNumber(lbltotalventa.Text, 2)
+                            End If
+                            rd1.Close()
+
+                            If Resta > 0 And AFavor_Cliente > 0 Then
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                                cmd1.ExecuteNonQuery()
+                            Else
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText =
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                cmd1.ExecuteNonQuery()
+                            End If
+                    End Select
+
+                End If
 
                 If frmPagarTouch.grdPagos.Rows.Count > 0 Then
 
@@ -3762,6 +3922,7 @@ Door:
 
             btnLimpiar.PerformClick()
             frmPagarTouch.Close()
+            frmNuevoPagarTouchS.Close()
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand

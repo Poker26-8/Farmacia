@@ -583,6 +583,27 @@ Module Module1
         End Try
     End Function
 
+    Public Function efectivocompleto()
+        Try
+            Dim impre As Integer = 0
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroExacto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    impre = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            Return impre
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Function
+
     Public Function TraerSimbolo()
         Try
             Dim simbo As String = ""

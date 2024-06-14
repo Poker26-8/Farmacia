@@ -101,6 +101,7 @@ Partial Class frmNuevoPagarTouchS
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.lblidcliente = New System.Windows.Forms.Label()
+        Me.lblCuenta = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1006,6 +1007,7 @@ Partial Class frmNuevoPagarTouchS
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.lblCuenta)
         Me.Panel4.Controls.Add(Me.lblidcliente)
         Me.Panel4.Controls.Add(Me.btn20)
         Me.Panel4.Controls.Add(Me.btn200)
@@ -1026,6 +1028,16 @@ Partial Class frmNuevoPagarTouchS
         Me.lblidcliente.Name = "lblidcliente"
         Me.lblidcliente.Size = New System.Drawing.Size(88, 26)
         Me.lblidcliente.TabIndex = 40
+        Me.lblidcliente.Visible = False
+        '
+        'lblCuenta
+        '
+        Me.lblCuenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblCuenta.Location = New System.Drawing.Point(7, 42)
+        Me.lblCuenta.Name = "lblCuenta"
+        Me.lblCuenta.Size = New System.Drawing.Size(88, 26)
+        Me.lblCuenta.TabIndex = 41
+        Me.lblCuenta.Visible = False
         '
         'frmNuevoPagarTouchS
         '
@@ -1038,6 +1050,8 @@ Partial Class frmNuevoPagarTouchS
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(869, 515)
+        Me.MinimumSize = New System.Drawing.Size(869, 515)
         Me.Name = "frmNuevoPagarTouchS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pagar venta touch"
@@ -1132,4 +1146,5 @@ Partial Class frmNuevoPagarTouchS
     Friend WithEvents txtTransferencia As TextBox
     Friend WithEvents txtTarjeta As TextBox
     Friend WithEvents lblidcliente As Label
+    Friend WithEvents lblCuenta As Label
 End Class
