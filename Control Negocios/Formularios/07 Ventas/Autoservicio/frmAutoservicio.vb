@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Threading.Tasks
 Imports System.Xml
 Imports System.Text
+Imports System.Data.SqlClient
 Public Class frmAutoservicio
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
@@ -63,7 +64,7 @@ Public Class frmAutoservicio
     End Sub
 
     Private Sub tFecha_Tick(sender As System.Object, e As System.EventArgs) Handles tFecha.Tick
-        Me.Text = "Delsscom® Control Negocios Pro  -  Ventas touch" & Strings.Space(40) & Date.Now
+        Me.Text = "Delsscom® Control Negocios Pro  -  Ventas de AutoServicio" & Strings.Space(40) & Date.Now
         lblfecha.Text = FormatDateTime(Date.Now, DateFormat.ShortDate)
     End Sub
 
@@ -156,44 +157,59 @@ Public Class frmAutoservicio
     Private Sub Departamentos()
         Dim deptos As Integer = 0
         Try
-            If TotDeptos <= 10 Then
+            If TotDeptos <= 8 Then
                 pDeptos.AutoScroll = False
             Else
                 pDeptos.AutoScroll = True
             End If
-            cnn1.Close() : cnn1.Open()
+            cnn1.Close()
+            cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Departamento from Productos order by Departamento asc"
+            cmd1.CommandText = "select distinct Departamento from Productos order by Departamento asc"
             rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then
-                    Dim departamento As String = rd1(0).ToString
-                    btnDepto = New Button
-                    btnDepto.Text = departamento
-                    btnDepto.Name = "btnDepto(" & deptos & ")"
-                    btnDepto.Left = 0
-                    btnDepto.Height = 55
-                    If TotDeptos <= 10 Then
-                        btnDepto.Width = pDeptos.Width
-                    Else
-                        btnDepto.Width = pDeptos.Width - 17
-                    End If
-                    btnDepto.Top = (deptos) * (btnDepto.Height + 0.5)
-                    btnDepto.BackColor = pDeptos.BackColor
-                    btnDepto.FlatStyle = FlatStyle.Popup
-                    btnDepto.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-                    btnDepto.FlatAppearance.BorderSize = 0
-                    AddHandler btnDepto.Click, AddressOf btnDepto_Click
-                    pDeptos.Controls.Add(btnDepto)
-                    If deptos = 0 Then
-                        Grupos(departamento)
-                    End If
-                    deptos += 1
+
+
+            Dim btnDepto As Button
+            Dim btnWidth As Integer
+
+            'If TotDeptos <= 10 Then
+            '    btnWidth = pDeptos.Width
+            'Else
+            '    btnWidth = pDeptos.Width - 17
+            'End If
+
+            While rd1.Read()
+                Dim departamento As String = rd1(0).ToString()
+
+                btnDepto = New Button()
+                btnDepto.Text = departamento
+                btnDepto.Name = "btnDepto(" & deptos & ")"
+                btnDepto.Width = 100
+                btnDepto.Height = pDeptos.Height
+                btnDepto.BackColor = pDeptos.BackColor
+                btnDepto.FlatStyle = FlatStyle.Popup
+                btnDepto.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+                btnDepto.FlatAppearance.BorderSize = 0
+
+                ' Calcular posición horizontal
+                btnDepto.Left = deptos * (btnDepto.Width + 2) ' Espacio entre botones: 5
+
+                ' Posición vertical fija (si lo deseas)
+                btnDepto.Top = 0
+
+                AddHandler btnDepto.Click, AddressOf btnDepto_Click
+                pDeptos.Controls.Add(btnDepto)
+
+                If deptos = 0 Then
+                    Grupos(departamento) ' Llamada a la función para el primer departamento
                 End If
-            Loop
-            rd1.Close() : cnn1.Close()
+
+                deptos += 1
+            End While
+
+            rd1.Close()
+            cnn1.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -215,61 +231,120 @@ Public Class frmAutoservicio
     Private Sub Grupos(ByVal depto As String)
         Dim grupos As Integer = 0
         TotGrupos = 0
-        Try
-            cnn2.Close() : cnn2.Open()
+        'Try
+        '    cnn2.Close() : cnn2.Open()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
-            rd2 = cmd2.ExecuteReader
-            Do While rd2.Read
-                If rd2.HasRows Then TotGrupos = TotGrupos + 1
+        '    cmd2 = cnn2.CreateCommand
+        '    cmd2.CommandText =
+        '        "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
+        '    rd2 = cmd2.ExecuteReader
+        '    Do While rd2.Read
+        '        If rd2.HasRows Then TotGrupos = TotGrupos + 1
+        '    Loop
+        '    rd2.Close()
+
+        '    If TotGrupos <= 10 Then
+        '        pGrupos.AutoScroll = False
+        '    Else
+        '        pGrupos.AutoScroll = True
+        '    End If
+
+        '    cmd2 = cnn2.CreateCommand
+        '    cmd2.CommandText =
+        '        "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
+        '    rd2 = cmd2.ExecuteReader
+        '    Do While rd2.Read
+        '        If rd2.HasRows Then
+        '            Dim grupo As String = rd2(0).ToString
+        '            btnGrupo = New Button
+        '            btnGrupo.Text = grupo
+        '            btnGrupo.Tag = depto
+        '            btnGrupo.Name = "btnGrupo(" & grupos & ")"
+        '            btnGrupo.Height = 55
+        '            btnGrupo.Left = 0
+        '            If TotGrupos <= 10 Then
+        '                btnGrupo.Width = pGrupos.Width
+        '            Else
+        '                btnGrupo.Width = pGrupos.Width - 17
+        '            End If
+        '            btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
+        '            btnGrupo.BackColor = pGrupos.BackColor
+        '            btnGrupo.FlatStyle = FlatStyle.Popup
+        '            btnGrupo.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+        '            btnGrupo.FlatAppearance.BorderSize = 0
+        '            AddHandler btnGrupo.Click, AddressOf btnGrupo_Click
+        '            pGrupos.Controls.Add(btnGrupo)
+        '            If grupos = 0 Then
+        '                Productos(depto, grupo)
+        '            End If
+        '            grupos += 1
+        '        End If
+        '    Loop
+        '    rd2.Close()
+        '    cnn2.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn2.Close()
+        'End Try
+        Try
+            cnn2.Close()
+            cnn2.Open()
+
+            ' Calcular el número total de grupos
+            cmd2 = cnn2.CreateCommand()
+            cmd2.CommandText = "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
+            rd2 = cmd2.ExecuteReader()
+            TotGrupos = 0
+            Do While rd2.Read()
+                TotGrupos += 1
             Loop
             rd2.Close()
 
-            If TotGrupos <= 10 Then
+            ' Habilitar o deshabilitar el scroll automático según la cantidad de grupos
+            If TotGrupos <= 8 Then
                 pGrupos.AutoScroll = False
             Else
                 pGrupos.AutoScroll = True
             End If
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText =
-                "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
-            rd2 = cmd2.ExecuteReader
-            Do While rd2.Read
+            ' Crear los botones de grupos
+            cmd2.CommandText = "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
+            rd2 = cmd2.ExecuteReader()
+            grupos = 0
+            Do While rd2.Read()
                 If rd2.HasRows Then
-                    Dim grupo As String = rd2(0).ToString
-                    btnGrupo = New Button
+                    Dim grupo As String = rd2(0).ToString()
+                    btnGrupo = New Button()
                     btnGrupo.Text = grupo
-                    btnGrupo.Tag = depto
+                    btnGrupo.Tag = depto ' Almacenar el departamento en el Tag del botón
                     btnGrupo.Name = "btnGrupo(" & grupos & ")"
-                    btnGrupo.Height = 55
+                    btnGrupo.Height = pGrupos.Height
+                    btnGrupo.Width = 100
                     btnGrupo.Left = 0
-                    If TotGrupos <= 10 Then
-                        btnGrupo.Width = pGrupos.Width
-                    Else
-                        btnGrupo.Width = pGrupos.Width - 17
-                    End If
-                    btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
+                    btnGrupo.Left = grupos * (btnGrupo.Width + 2) ' Espacio vertical entre botones: 5
                     btnGrupo.BackColor = pGrupos.BackColor
                     btnGrupo.FlatStyle = FlatStyle.Popup
                     btnGrupo.Font = New Font("Segoe UI", 10, FontStyle.Bold)
                     btnGrupo.FlatAppearance.BorderSize = 0
                     AddHandler btnGrupo.Click, AddressOf btnGrupo_Click
                     pGrupos.Controls.Add(btnGrupo)
+
                     If grupos = 0 Then
-                        Productos(depto, grupo)
+                        Productos(depto, grupo) ' Llamada a la función para el primer grupo
                     End If
+
                     grupos += 1
                 End If
             Loop
+
             rd2.Close()
             cnn2.Close()
+
         Catch ex As Exception
-            MessageBox.Show(ex.ToString)
+            MessageBox.Show(ex.ToString())
             cnn2.Close()
         End Try
+
     End Sub
 
     Private Sub btnGrupo_Click(sender As Object, e As EventArgs)
@@ -301,8 +376,8 @@ Public Class frmAutoservicio
                     btnProd.Text = producto
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 130
-                    btnProd.Width = 100
+                    btnProd.Height = 135
+                    btnProd.Width = 200
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
                         btnProd.Left = (btnProd.Width * 1)
@@ -737,7 +812,7 @@ Public Class frmAutoservicio
                         btnProd.Top = (prods - 1) * (btnProd.Height + 0.5)
                     End If
 
-                    btnProd.BackColor = Color.White
+                    btnProd.BackColor = Color.FromArgb(192, 255, 192)
                     btnProd.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnProd.Font, FontStyle.Bold)
                     btnProd.Font = fuenteNegrita
