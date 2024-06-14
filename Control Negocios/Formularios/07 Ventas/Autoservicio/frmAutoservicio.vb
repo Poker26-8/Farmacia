@@ -374,6 +374,7 @@ Public Class frmAutoservicio
                     Dim producto As String = rd3(0).ToString
                     btnProd = New Button
                     btnProd.Text = producto
+                    btnProd.TextAlign = ContentAlignment.BottomCenter
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
                     btnProd.Height = 135
@@ -812,7 +813,7 @@ Public Class frmAutoservicio
                         btnProd.Top = (prods - 1) * (btnProd.Height + 0.5)
                     End If
 
-                    btnProd.BackColor = Color.FromArgb(192, 255, 192)
+                    btnProd.BackColor = Color.White
                     btnProd.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnProd.Font, FontStyle.Bold)
                     btnProd.Font = fuenteNegrita
@@ -2150,7 +2151,7 @@ Door:
                 Else
                     lbltipoventa.Text = "MOSTRADOR"
                 End If
-                txtbarras.Focus().Equals(True)
+
                 MYFOLIO = 0
                 Exit Sub
             End If
@@ -2183,7 +2184,7 @@ Door:
         Else
             lbltipoventa.Text = "MOSTRADOR"
         End If
-        txtbarras.Focus().Equals(True)
+
 
     End Sub
 
@@ -2199,7 +2200,7 @@ Door:
         Else
             lbltipoventa.Text = "MOSTRADOR"
         End If
-        txtbarras.Focus().Equals(True)
+
     End Sub
 
     Private Sub ImprimeComanda(ByVal Folio As Integer)
@@ -2319,39 +2320,7 @@ Door:
 
     Dim modo_caja As String = DatosRecarga("Modo")
 
-    Private Sub txtbarras_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtbarras.KeyPress
-        If AscW(e.KeyChar) = Keys.Enter Then
-            If txtbarras.Text = "" Then
-                Exit Sub
-            End If
 
-            Try
-                cnn1.Close() : cnn1.Open()
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Productos where CodBarra='" & txtbarras.Text & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        CodigoProducto = rd1("Codigo").ToString
-                        cantidad = 1
-                    End If
-                End If
-                rd1.Close()
-                cnn1.Close()
-
-                If CodigoProducto <> "" Then
-                    ObtenerProducto(CodigoProducto)
-                End If
-                txtbarras.Text = ""
-                txtbarras.Focus().Equals(True)
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-        End If
-    End Sub
 
     Private Sub pVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
 
@@ -2390,7 +2359,7 @@ Door:
         pProductos.Controls.Clear()
         pGrupos.Controls.Clear()
         pDeptos.Controls.Clear()
-        txtbarras.Text = ""
+
         CodigoProducto = ""
         cantidad = 0
         CantidadProd = 0
