@@ -613,6 +613,12 @@
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagarComandas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.Designer.vb">
+      <DependentUpon>frmNuevoPagarTouchS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.Designer.vb">
       <DependentUpon>frmPagarComanda.vb</DependentUpon>
     </Compile>
@@ -2165,6 +2171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagarComandas.resx">
       <DependentUpon>frmNuevoPagarComandas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.resx">
+      <DependentUpon>frmNuevoPagarTouchS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.resx">
       <DependentUpon>frmPagarComanda.vb</DependentUpon>

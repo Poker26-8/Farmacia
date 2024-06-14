@@ -281,7 +281,6 @@ Partial Class frmVTouchR
         Me.lblPagos.Size = New System.Drawing.Size(100, 23)
         Me.lblPagos.TabIndex = 90
         Me.lblPagos.Text = "0.00"
-        Me.lblPagos.Visible = False
         '
         'Label10
         '
@@ -292,7 +291,6 @@ Partial Class frmVTouchR
         Me.Label10.Size = New System.Drawing.Size(101, 23)
         Me.Label10.TabIndex = 89
         Me.Label10.Text = "$ Pagos:"
-        Me.Label10.Visible = False
         '
         'lblImporteEfectivo
         '

@@ -846,6 +846,7 @@ deku:
         Try
             Dim id As Integer = 0
             Dim exacto As Integer = 0
+            Dim simple As Integer = 0
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -864,35 +865,61 @@ deku:
                                 If frmPagarTouch.Visible = False Then
 
                                     cnn1.Close() : cnn1.Open()
+                                    cnn2.Close() : cnn2.Open()
+
+                                    cmd1 = cnn1.CreateCommand
+                                    cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroSimplificado'"
+                                    rd1 = cmd1.ExecuteReader
+                                    If rd1.HasRows Then
+                                        If rd1.Read Then
+                                            simple = rd1(0).ToString
+                                        End If
+                                    End If
+                                    rd1.Close()
+
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroExacto'"
                                     rd1 = cmd1.ExecuteReader
                                     If rd1.HasRows Then
                                         If rd1.Read Then
                                             exacto = rd1(0).ToString
-
-                                            If exacto = 1 Then
-                                                frmPagarTouch.Show(Me)
-                                                frmPagarTouch.txtEfectivo.Focus.Equals(True)
-                                                frmPagarTouch.focomapeo = 1
-                                                frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
-                                                frmPagarTouch.lblfolio.Text = lblfolio.Text
-                                                frmPagarTouch.txtEfectivo.Text = frmPagarTouch.txtTotal.Text
-                                                frmPagarTouch.btnIntro.Focus.Equals(True)
-                                            Else
-                                                frmPagarTouch.Show(Me)
-                                                frmPagarTouch.txtEfectivo.Focus.Equals(True)
-                                                frmPagarTouch.focomapeo = 1
-                                                frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
-                                                frmPagarTouch.lblfolio.Text = lblfolio.Text
-                                            End If
-
                                         End If
                                     End If
                                     rd1.Close()
-                                    cnn1.Close()
 
-
+                                    If exacto = 1 Then
+                                        If simple = 1 Then
+                                            frmNuevoPagarTouchS.Show(Me)
+                                            frmNuevoPagarTouchS.txtEfectivo.Focus.Equals(True)
+                                            frmNuevoPagarTouchS.focomapeo = 1
+                                            frmNuevoPagarTouchS.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                            frmNuevoPagarTouchS.lblfolio.Text = lblfolio.Text
+                                            frmNuevoPagarTouchS.txtEfectivo.Text = frmNuevoPagarTouchS.txtTotal.Text
+                                            frmNuevoPagarTouchS.btnIntro.Focus.Equals(True)
+                                        Else
+                                            frmPagarTouch.Show(Me)
+                                            frmPagarTouch.txtEfectivo.Focus.Equals(True)
+                                            frmPagarTouch.focomapeo = 1
+                                            frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                            frmPagarTouch.lblfolio.Text = lblfolio.Text
+                                            frmPagarTouch.txtEfectivo.Text = frmPagarTouch.txtTotal.Text
+                                            frmPagarTouch.btnIntro.Focus.Equals(True)
+                                        End If
+                                    Else
+                                        If simple = 1 Then
+                                            frmNuevoPagarTouchS.Show(Me)
+                                            frmNuevoPagarTouchS.txtEfectivo.Focus.Equals(True)
+                                            frmNuevoPagarTouchS.focomapeo = 1
+                                            frmNuevoPagarTouchS.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                            frmNuevoPagarTouchS.lblfolio.Text = lblfolio.Text
+                                        Else
+                                            frmPagarTouch.Show(Me)
+                                            frmPagarTouch.txtEfectivo.Focus.Equals(True)
+                                            frmPagarTouch.focomapeo = 1
+                                            frmPagarTouch.txtSubtotalmapeo.Text = FormatNumber(lblTotalPagar.Text, 2)
+                                            frmPagarTouch.lblfolio.Text = lblfolio.Text
+                                        End If
+                                    End If
                                 End If
                             Else
                                 MsgBox("EL usuario no cuenta con el permiso para cerrar las cuentas", vbInformation + vbOKOnly, titulomensajes)
