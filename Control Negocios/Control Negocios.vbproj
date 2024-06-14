@@ -421,6 +421,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmModulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.Designer.vb">
+      <DependentUpon>frmOrdenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.Designer.vb">
       <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
     </Compile>
@@ -479,6 +485,12 @@
       <DependentUpon>frmVentas3.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\07 Ventas\Normales\frmVentas3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.Designer.vb">
+      <DependentUpon>frmOrdenTrabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.Designer.vb">
@@ -2070,6 +2082,9 @@
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmOrdenes.resx">
+      <DependentUpon>frmOrdenes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.resx">
       <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
     </EmbeddedResource>
@@ -2099,6 +2114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas3.resx">
       <DependentUpon>frmVentas3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.resx">
+      <DependentUpon>frmOrdenTrabajo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.resx">
       <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>
@@ -2246,6 +2264,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmVentas1.resx">
       <DependentUpon>frmVentas1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.resx">
       <DependentUpon>frmVentas1_Partes.vb</DependentUpon>
