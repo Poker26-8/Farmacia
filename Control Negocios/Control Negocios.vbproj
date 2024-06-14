@@ -421,6 +421,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmModulos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.Designer.vb">
+      <DependentUpon>frmOrdenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmOrdenes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.Designer.vb">
       <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
     </Compile>
@@ -479,6 +485,12 @@
       <DependentUpon>frmVentas3.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\07 Ventas\Normales\frmVentas3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.Designer.vb">
+      <DependentUpon>frmOrdenTrabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.Designer.vb">
@@ -611,6 +623,12 @@
       <DependentUpon>frmNuevoPagarComandas.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagarComandas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.Designer.vb">
+      <DependentUpon>frmNuevoPagarTouchS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.Designer.vb">
@@ -2069,6 +2087,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmModulos.resx">
       <DependentUpon>frmModulos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmOrdenes.resx">
+      <DependentUpon>frmOrdenes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Cambios\frmElige_Proveedores.resx">
       <DependentUpon>frmElige_Proveedores.vb</DependentUpon>
@@ -2099,6 +2121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas3.resx">
       <DependentUpon>frmVentas3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.resx">
+      <DependentUpon>frmOrdenTrabajo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\SincronizadorExi\frmRepExistenciaSincronizador.resx">
       <DependentUpon>frmRepExistenciaSincronizador.vb</DependentUpon>
@@ -2165,6 +2190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagarComandas.resx">
       <DependentUpon>frmNuevoPagarComandas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\Sencillos\frmNuevoPagarTouchS.resx">
+      <DependentUpon>frmNuevoPagarTouchS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\pagar_comandas\frmPagarComanda.resx">
       <DependentUpon>frmPagarComanda.vb</DependentUpon>
@@ -2246,6 +2274,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmVentas1.resx">
       <DependentUpon>frmVentas1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Numeros de parte\frmVentas1_Partes.resx">
       <DependentUpon>frmVentas1_Partes.vb</DependentUpon>
@@ -2462,6 +2491,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\frmConformaProducto.resx">
       <DependentUpon>frmConformaProducto.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmCtsPagar.resx">
       <DependentUpon>frmCtsPagar.vb</DependentUpon>

@@ -27,7 +27,8 @@
                                                        txtcantidadocasional.Text,
                                                        txtprecioocasional.Text,
                                                        total,
-                                                       1
+                                                       1,
+                                                       ""
                 )
 
                 frmVTouchR.lblTotalPagar.Text = frmVTouchR.lblTotalPagar.Text + total

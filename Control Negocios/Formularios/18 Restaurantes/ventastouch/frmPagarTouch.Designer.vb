@@ -733,10 +733,16 @@ Partial Class frmPagarTouch
         'GroupBox5
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.GroupBox5.Controls.Add(Me.btn1000)
         Me.GroupBox5.Controls.Add(Me.lblidcliente)
+        Me.GroupBox5.Controls.Add(Me.btn20)
+        Me.GroupBox5.Controls.Add(Me.btn200)
         Me.GroupBox5.Controls.Add(Me.txtAfavor)
+        Me.GroupBox5.Controls.Add(Me.btn500)
         Me.GroupBox5.Controls.Add(Me.Label14)
+        Me.GroupBox5.Controls.Add(Me.btn50)
         Me.GroupBox5.Controls.Add(Me.Label13)
+        Me.GroupBox5.Controls.Add(Me.btn100)
         Me.GroupBox5.Controls.Add(Me.Label12)
         Me.GroupBox5.Controls.Add(Me.txtAdeuda)
         Me.GroupBox5.Controls.Add(Me.txtMaxCredito)
@@ -749,10 +755,11 @@ Partial Class frmPagarTouch
         Me.GroupBox5.Controls.Add(Me.Label10)
         Me.GroupBox5.Controls.Add(Me.cboTelefono)
         Me.GroupBox5.Controls.Add(Me.Label9)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 336)
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 349)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(696, 167)
+        Me.GroupBox5.Size = New System.Drawing.Size(1036, 177)
         Me.GroupBox5.TabIndex = 26
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Cliente"
@@ -1101,7 +1108,7 @@ Partial Class frmPagarTouch
         Me.btn1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn1000.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1000.Location = New System.Drawing.Point(872, 466)
+        Me.btn1000.Location = New System.Drawing.Point(899, 123)
         Me.btn1000.Name = "btn1000"
         Me.btn1000.Size = New System.Drawing.Size(131, 49)
         Me.btn1000.TabIndex = 33
@@ -1114,7 +1121,7 @@ Partial Class frmPagarTouch
         Me.btn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn20.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn20.Location = New System.Drawing.Point(735, 353)
+        Me.btn20.Location = New System.Drawing.Point(762, 14)
         Me.btn20.Name = "btn20"
         Me.btn20.Size = New System.Drawing.Size(131, 49)
         Me.btn20.TabIndex = 28
@@ -1127,7 +1134,7 @@ Partial Class frmPagarTouch
         Me.btn200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn200.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn200.Location = New System.Drawing.Point(872, 411)
+        Me.btn200.Location = New System.Drawing.Point(899, 68)
         Me.btn200.Name = "btn200"
         Me.btn200.Size = New System.Drawing.Size(131, 49)
         Me.btn200.TabIndex = 29
@@ -1140,7 +1147,7 @@ Partial Class frmPagarTouch
         Me.btn500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn500.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn500.Location = New System.Drawing.Point(735, 466)
+        Me.btn500.Location = New System.Drawing.Point(762, 123)
         Me.btn500.Name = "btn500"
         Me.btn500.Size = New System.Drawing.Size(131, 49)
         Me.btn500.TabIndex = 32
@@ -1153,7 +1160,7 @@ Partial Class frmPagarTouch
         Me.btn50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn50.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn50.Location = New System.Drawing.Point(872, 353)
+        Me.btn50.Location = New System.Drawing.Point(899, 14)
         Me.btn50.Name = "btn50"
         Me.btn50.Size = New System.Drawing.Size(131, 49)
         Me.btn50.TabIndex = 30
@@ -1166,7 +1173,7 @@ Partial Class frmPagarTouch
         Me.btn100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn100.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn100.Location = New System.Drawing.Point(735, 407)
+        Me.btn100.Location = New System.Drawing.Point(762, 68)
         Me.btn100.Name = "btn100"
         Me.btn100.Size = New System.Drawing.Size(131, 49)
         Me.btn100.TabIndex = 31
@@ -1178,12 +1185,6 @@ Partial Class frmPagarTouch
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1036, 526)
-        Me.Controls.Add(Me.btn1000)
-        Me.Controls.Add(Me.btn20)
-        Me.Controls.Add(Me.btn200)
-        Me.Controls.Add(Me.btn500)
-        Me.Controls.Add(Me.btn50)
-        Me.Controls.Add(Me.btn100)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Panel1)

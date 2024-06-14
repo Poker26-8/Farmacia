@@ -3,7 +3,7 @@ Imports System.Net
 Imports MySql.Data
 
 Module ModGral
-
+    Public ordetrabajo As Integer = 0
     Public HrTiempo As String = ""
     Public HrEntrega As String = ""
 

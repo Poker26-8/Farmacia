@@ -1,15 +1,15 @@
 ﻿Public Class frmModulos
 
-      Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
-            frmAct_Sincronizador.Show()
-            frmAct_Sincronizador.BringToFront()
-      End Sub
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+        frmAct_Sincronizador.Show()
+        frmAct_Sincronizador.BringToFront()
+    End Sub
 
-      Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-            frmAct_Entregas.Show()
-            frmAct_Entregas.txtcontra.Focus().Equals(True)
-            frmAct_Entregas.BringToFront()
-      End Sub
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        frmAct_Entregas.Show()
+        frmAct_Entregas.txtcontra.Focus().Equals(True)
+        frmAct_Entregas.BringToFront()
+    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmAct_Asistencia.Show()
@@ -17,7 +17,7 @@
         frmAct_Asistencia.BringToFront()
     End Sub
 
-    Private Sub frmModulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmModulos_Load(sender As Object, e As EventArgs)
         'Carga las activaciones realizadas
         ' Try
         'cnn1.Close() : cnn1.Open()
@@ -222,9 +222,8 @@
         Me.Close()
     End Sub
 
-    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
-        frmAct_Optica.Show()
-        frmAct_Optica.BringToFront()
-        Me.Close()
+
+    Private Sub frmModulos_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

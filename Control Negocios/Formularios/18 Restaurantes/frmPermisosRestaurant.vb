@@ -53,6 +53,24 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='CobroSimplificado'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cobroexacto = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+
+                    If cobroexacto = 1 Then
+                        cbCobroSimplificado.Checked = True
+                    Else
+                        cbCobroSimplificado.Checked = False
+                    End If
+
+                End If
+            End If
+            rd2.Close()
+
+
+            cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='ToleBillar'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
@@ -1043,5 +1061,42 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmTecladoPersonas.Show()
         frmTecladoPersonas.BringToFront()
+    End Sub
+
+    Private Sub cbCobroSimplificado_Click(sender As Object, e As EventArgs) Handles cbCobroSimplificado.Click
+        Try
+            Dim simple As Integer = 0
+
+            If (cbCobroSimplificado.Checked) Then
+                simple = 1
+            Else
+                simple = 0
+            End If
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Facturas FROM Formatos WHERE Facturas='CobroSimplificado'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "UPDATE Formatos SET NotasCred='" & simple & "' WHERE Facturas='CobroSimplificado'"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+                End If
+            Else
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "INSERT INTO Formatos(Facturas,NotasCred,NumPart) VALUES('CobroSimplificado','" & simple & "','0')"
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class

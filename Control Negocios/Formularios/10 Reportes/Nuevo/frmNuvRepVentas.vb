@@ -4296,6 +4296,9 @@ Public Class frmNuvRepVentas
         cboDatos.Visible = False
         'txtrestante.Text = "0.00"
         'txtVendido.Text = "0.00"
+        txtTotal.Text = "0.00"
+        txtAcuenta.Text = "0.00"
+        txtSubtotal.Text = "0.00"
     End Sub
 
     Private Sub btnAntibiotico_Click(sender As Object, e As EventArgs) Handles btnAntibiotico.Click

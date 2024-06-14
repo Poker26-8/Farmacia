@@ -709,6 +709,10 @@ Public Class datos_delsscom
                         .runSp(cnnprueba, varKeyotrosgastos, sinfo)
                         .runSp(cnnprueba, varAutootrosgastos, sinfo)
 
+                        .runSp(cnnprueba, vartablaordentrabajo, sinfo)
+                        .runSp(cnnprueba, varKeyordentrabajo, sinfo)
+                        .runSp(cnnprueba, varAutoordentrabajo, sinfo)
+
                         .runSp(cnnprueba, vartablaparametros, sinfo)
                         .runSp(cnnprueba, varinsertaparametros, sinfo)
                         .runSp(cnnprueba, varKeyparametros, sinfo)
