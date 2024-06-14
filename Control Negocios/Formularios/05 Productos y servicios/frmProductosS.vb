@@ -773,6 +773,9 @@ Public Class frmProductosS
             Dim iva, compra, compra_iva, venta_siva, venta_civa, porcentaje, existencia, ieps As Double
             Dim conteo As Integer = 0
 
+            Dim lote As String = ""
+            Dim caducidad As String = ""
+
             barsube.Value = 0
             barsube.Maximum = DataGridView1.Rows.Count
 
@@ -800,9 +803,12 @@ Public Class frmProductosS
                 grupo = NulCad(DataGridView1.Rows(zef).Cells(9).Value.ToString())
                 prod_sat = NulCad(DataGridView1.Rows(zef).Cells(10).Value.ToString())
                 unidad_sat = NulCad(DataGridView1.Rows(zef).Cells(11).Value.ToString())
-                existencia = IIf(DataGridView1.Rows(zef).Cells(12).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(12).Value.ToString())
-                ieps = IIf(DataGridView1.Rows(zef).Cells(13).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(13).Value.ToString())
-                numparte = IIf(DataGridView1.Rows(zef).Cells(14).Value.ToString() = "", 0, DataGridView1.Rows(zef).Cells(14).Value.ToString())
+                existencia = NulVa(DataGridView1.Rows(zef).Cells(12).Value.ToString())
+                ieps = NulVa(DataGridView1.Rows(zef).Cells(13).Value.ToString())
+                numparte = NulCad(DataGridView1.Rows(zef).Cells(14).Value.ToString())
+
+                lote = NulCad(DataGridView1.Rows(zef).Cells(15).Value.ToString())
+                caducidad = NulCad(DataGridView1.Rows(zef).Cells(16).Value.ToString())
 
                 If contadorconexion > 499 Then
                     cnn1.Close() : cnn1.Open()
@@ -826,7 +832,9 @@ Public Class frmProductosS
                     cmd1.CommandText =
                         "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,N_Serie,GPrint) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",'" & numparte & "','')"
                     If cmd1.ExecuteNonQuery Then
-
+                        If lote <> "" Then
+                            Lote_Caducidad(codigo, existencia, fecha, lote)
+                        End If
                     Else
                         'MsgBox(codigo, nombre)
                     End If
@@ -853,6 +861,46 @@ Public Class frmProductosS
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
             cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub Lote_Caducidad(ByVal codigo As String, ByVal cantidad As Double, ByVal fecha As String, ByVal lote As String)
+        Dim caduci As Date = Nothing
+
+        If fecha = "" Then
+            caduci = Date.Now
+        Else
+            caduci = fecha
+        End If
+        Try
+            cnn2.Close() : cnn2.Open()
+            cnn3.Close() : cnn3.Open()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "select * from LoteCaducidad where Codigo='" & codigo & "' and Lote='" & lote & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                'Existe
+                If rd2.Read Then
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                        "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "" '"
+                    cmd3.ExecuteNonQuery()
+                End If
+            Else
+                'No existe
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText =
+                    "insert into LoteCaducidad(Codigo,Lote,Caducidad,Cantidad) values('" & codigo & "','" & lote & "','" & Format(caduci, "yyyy-MM-dd") & "'," & cantidad & ")"
+                cmd3.ExecuteNonQuery()
+            End If
+            rd2.Close()
+            cnn2.Close()
+            cnn3.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn2.Close()
         End Try
     End Sub
 

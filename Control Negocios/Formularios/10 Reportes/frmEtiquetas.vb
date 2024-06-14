@@ -221,7 +221,7 @@ Public Class frmEtiquetas
     End Sub
 
     Private Sub GenerarPP()
-        GeneraBarras(PictureBox1, txtbarras.Text)
+        'GeneraBarras(PictureBox1, txtbarras.Text)
         If Medida = "2x4" Then
             For t As Integer = 1 To txtcopias.Text
                 pPP2x4.PrinterSettings.PrinterName = cboimpresora.Text
@@ -254,6 +254,13 @@ Public Class frmEtiquetas
             For t As Integer = 1 To txtcopias.Text
                 pPP25X38.PrinterSettings.PrinterName = cboimpresora.Text
                 pPP25X38.Print()
+            Next
+            Exit Sub
+        End If
+        If Medida = "2x6" Then
+            For t As Integer = 1 To txtcopias.Text
+                pPP2x6.PrinterSettings.PrinterName = cboimpresora.Text
+                pPP2x6.Print()
             Next
             Exit Sub
         End If
@@ -2461,5 +2468,34 @@ Public Class frmEtiquetas
             e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), fuentita, Brushes.Black, 60, Y, sc)
             e.HasMorePages = False
         End If
+    End Sub
+
+    Private Sub pPP2x6_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pPP2x6.PrintPage
+        Dim fuentita As New Drawing.Font("Arial", 8, FontStyle.Bold)
+        Dim Y As Double = 0
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+
+        Dim codigo As String = txtcodigo.Text
+        Dim nombre As String = cbonombre.Text
+
+        Dim cadena As String = codigo & " - " & nombre
+
+        Y += 5
+        Dim caracteresPorLinea As Integer = 30
+        Dim texto As String = cadena
+        Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 5, Y)
+                Y += 8
+                inicio += caracteresPorLinea
+            End While
+        Y += 20
+        e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), New Drawing.Font("Arial", 23, FontStyle.Bold), Brushes.Black, 100, Y, sc)
+        e.HasMorePages = False
+
     End Sub
 End Class
