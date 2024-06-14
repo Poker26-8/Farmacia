@@ -672,7 +672,8 @@ Partial Class frmModulos
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmModulos"
-        Me.Text = "frmModulos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Módulos adicionales"
         Me.ResumeLayout(False)
 
     End Sub
