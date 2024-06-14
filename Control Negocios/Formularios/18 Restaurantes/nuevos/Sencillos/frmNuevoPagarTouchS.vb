@@ -315,9 +315,10 @@
             cobroexacto = efectivocompleto()
 
             If cobroexacto = 1 Then
+                txtEfectivo.Text = "0.00"
                 btnIntro.Focus.Equals(True)
             Else
-                txtEfectivo.Text = "0.00"
+
                 btnIntro.Focus.Equals(True)
             End If
 
@@ -334,9 +335,10 @@
             cobroexacto = efectivocompleto()
 
             If cobroexacto = 1 Then
+                txtEfectivo.Text = "0.00"
                 btnIntro.Focus.Equals(True)
             Else
-                txtEfectivo.Text = "0.00"
+
                 btnIntro.Focus.Equals(True)
             End If
 

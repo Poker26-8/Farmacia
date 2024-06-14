@@ -100,8 +100,8 @@ Partial Class frmNuevoPagarTouchS
         Me.cboTelefono = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.lblidcliente = New System.Windows.Forms.Label()
         Me.lblCuenta = New System.Windows.Forms.Label()
+        Me.lblidcliente = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -186,7 +186,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(147, 140)
+        Me.btn9.Location = New System.Drawing.Point(147, 4)
         Me.btn9.Name = "btn9"
         Me.btn9.Size = New System.Drawing.Size(69, 62)
         Me.btn9.TabIndex = 64
@@ -198,7 +198,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(75, 140)
+        Me.btn8.Location = New System.Drawing.Point(75, 4)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(66, 64)
         Me.btn8.TabIndex = 63
@@ -246,7 +246,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn7.Location = New System.Drawing.Point(6, 140)
+        Me.btn7.Location = New System.Drawing.Point(6, 4)
         Me.btn7.Name = "btn7"
         Me.btn7.Size = New System.Drawing.Size(63, 62)
         Me.btn7.TabIndex = 59
@@ -285,7 +285,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(147, 5)
+        Me.btn3.Location = New System.Drawing.Point(147, 140)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(69, 61)
         Me.btn3.TabIndex = 56
@@ -297,7 +297,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(75, 5)
+        Me.btn2.Location = New System.Drawing.Point(75, 140)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(66, 61)
         Me.btn2.TabIndex = 55
@@ -309,7 +309,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(6, 5)
+        Me.btn1.Location = New System.Drawing.Point(6, 140)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(63, 61)
         Me.btn1.TabIndex = 54
@@ -579,7 +579,7 @@ Partial Class frmNuevoPagarTouchS
         '
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(156, 83)
+        Me.Label27.Location = New System.Drawing.Point(165, 84)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(23, 20)
         Me.Label27.TabIndex = 41
@@ -592,7 +592,7 @@ Partial Class frmNuevoPagarTouchS
         Me.txtPorcentaje.ForeColor = System.Drawing.Color.Orange
         Me.txtPorcentaje.Location = New System.Drawing.Point(110, 82)
         Me.txtPorcentaje.Name = "txtPorcentaje"
-        Me.txtPorcentaje.Size = New System.Drawing.Size(48, 21)
+        Me.txtPorcentaje.Size = New System.Drawing.Size(47, 21)
         Me.txtPorcentaje.TabIndex = 40
         Me.txtPorcentaje.Text = "0"
         Me.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -636,7 +636,7 @@ Partial Class frmNuevoPagarTouchS
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(5, 299)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(154, 21)
+        Me.Label2.Size = New System.Drawing.Size(152, 21)
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "Resta:"
         '
@@ -646,7 +646,7 @@ Partial Class frmNuevoPagarTouchS
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(4, 273)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(154, 20)
+        Me.Label3.Size = New System.Drawing.Size(153, 20)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Cambio:"
         '
@@ -680,7 +680,7 @@ Partial Class frmNuevoPagarTouchS
         '
         Me.txtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescuento.ForeColor = System.Drawing.Color.Orange
-        Me.txtDescuento.Location = New System.Drawing.Point(192, 83)
+        Me.txtDescuento.Location = New System.Drawing.Point(192, 82)
         Me.txtDescuento.Name = "txtDescuento"
         Me.txtDescuento.Size = New System.Drawing.Size(56, 21)
         Me.txtDescuento.TabIndex = 10
@@ -1021,15 +1021,6 @@ Partial Class frmNuevoPagarTouchS
         Me.Panel4.Size = New System.Drawing.Size(599, 139)
         Me.Panel4.TabIndex = 52
         '
-        'lblidcliente
-        '
-        Me.lblidcliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblidcliente.Location = New System.Drawing.Point(6, 8)
-        Me.lblidcliente.Name = "lblidcliente"
-        Me.lblidcliente.Size = New System.Drawing.Size(88, 26)
-        Me.lblidcliente.TabIndex = 40
-        Me.lblidcliente.Visible = False
-        '
         'lblCuenta
         '
         Me.lblCuenta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -1038,6 +1029,15 @@ Partial Class frmNuevoPagarTouchS
         Me.lblCuenta.Size = New System.Drawing.Size(88, 26)
         Me.lblCuenta.TabIndex = 41
         Me.lblCuenta.Visible = False
+        '
+        'lblidcliente
+        '
+        Me.lblidcliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblidcliente.Location = New System.Drawing.Point(6, 8)
+        Me.lblidcliente.Name = "lblidcliente"
+        Me.lblidcliente.Size = New System.Drawing.Size(88, 26)
+        Me.lblidcliente.TabIndex = 40
+        Me.lblidcliente.Visible = False
         '
         'frmNuevoPagarTouchS
         '
