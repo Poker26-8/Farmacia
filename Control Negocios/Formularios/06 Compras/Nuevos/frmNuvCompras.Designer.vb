@@ -23,12 +23,12 @@ Partial Class frmNuvCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvCompras))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuvCompras))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblvalor = New System.Windows.Forms.Label()
         Me.lblmoneda = New System.Windows.Forms.Label()
@@ -120,6 +120,7 @@ Partial Class frmNuvCompras
         Me.cbotpago = New System.Windows.Forms.ComboBox()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.btnimportarxml = New System.Windows.Forms.Button()
         Me.btnimportarxls = New System.Windows.Forms.Button()
         Me.btncopia = New System.Windows.Forms.Button()
@@ -170,7 +171,6 @@ Partial Class frmNuvCompras
         Me.UnicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCancela80 = New System.Drawing.Printing.PrintDocument()
         Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -433,6 +433,7 @@ Partial Class frmNuvCompras
         Me.btnactualiza.TabIndex = 169
         Me.btnactualiza.Text = "Actualizar factura"
         Me.btnactualiza.UseVisualStyleBackColor = False
+        Me.btnactualiza.Visible = False
         '
         'Label14
         '
@@ -1248,6 +1249,21 @@ Partial Class frmNuvCompras
         Me.Panel6.Size = New System.Drawing.Size(68, 598)
         Me.Panel6.TabIndex = 154
         '
+        'Button4
+        '
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button4.Location = New System.Drawing.Point(3, 362)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(61, 69)
+        Me.Button4.TabIndex = 190
+        Me.Button4.Text = "Salir"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'btnimportarxml
         '
         Me.btnimportarxml.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
@@ -1779,21 +1795,6 @@ Partial Class frmNuvCompras
         '
         'pCancela58
         '
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(3, 362)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(61, 69)
-        Me.Button4.TabIndex = 190
-        Me.Button4.Text = "Salir"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.UseVisualStyleBackColor = True
         '
         'frmNuvCompras
         '

@@ -71,7 +71,7 @@ Partial Class frmProductoOcasionalTouch
         '
         Me.btnsaliroca.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnsaliroca.FlatAppearance.BorderSize = 0
-        Me.btnsaliroca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnsaliroca.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsaliroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsaliroca.Image = CType(resources.GetObject("btnsaliroca.Image"), System.Drawing.Image)
         Me.btnsaliroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -87,7 +87,7 @@ Partial Class frmProductoOcasionalTouch
         '
         Me.btnlimpiaroca.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnlimpiaroca.FlatAppearance.BorderSize = 0
-        Me.btnlimpiaroca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnlimpiaroca.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlimpiaroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlimpiaroca.Image = CType(resources.GetObject("btnlimpiaroca.Image"), System.Drawing.Image)
         Me.btnlimpiaroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -103,7 +103,7 @@ Partial Class frmProductoOcasionalTouch
         '
         Me.btnagregaroca.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnagregaroca.FlatAppearance.BorderSize = 0
-        Me.btnagregaroca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnagregaroca.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnagregaroca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnagregaroca.Image = CType(resources.GetObject("btnagregaroca.Image"), System.Drawing.Image)
         Me.btnagregaroca.ImageAlign = System.Drawing.ContentAlignment.TopCenter

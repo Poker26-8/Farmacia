@@ -163,6 +163,7 @@ Partial Class Inicio
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnOptica = New System.Windows.Forms.Button()
         Me.btnpollo = New System.Windows.Forms.Button()
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
@@ -176,7 +177,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.btnOptica = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1262,6 +1262,20 @@ Partial Class Inicio
         Me.Panel2.Size = New System.Drawing.Size(90, 706)
         Me.Panel2.TabIndex = 5
         '
+        'btnOptica
+        '
+        Me.btnOptica.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnOptica.FlatAppearance.BorderSize = 0
+        Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 612)
+        Me.btnOptica.Name = "btnOptica"
+        Me.btnOptica.Size = New System.Drawing.Size(90, 90)
+        Me.btnOptica.TabIndex = 186
+        Me.btnOptica.UseVisualStyleBackColor = True
+        Me.btnOptica.Visible = False
+        '
         'btnpollo
         '
         Me.btnpollo.Dock = System.Windows.Forms.DockStyle.Top
@@ -1448,19 +1462,6 @@ Partial Class Inicio
         Me.pedidos_tienda.Text = "Nuevos pedidos:"
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
-        '
-        'btnOptica
-        '
-        Me.btnOptica.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnOptica.FlatAppearance.BorderSize = 0
-        Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 612)
-        Me.btnOptica.Name = "btnOptica"
-        Me.btnOptica.Size = New System.Drawing.Size(90, 90)
-        Me.btnOptica.TabIndex = 186
-        Me.btnOptica.UseVisualStyleBackColor = True
         '
         'Inicio
         '

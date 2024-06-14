@@ -36,11 +36,13 @@
             End If
 
             If focomesasmostrar = 0 Then
-                frmVTouchR.grdCaptura.Rows.Add(lblcodigo.Text, lblcodigo.Text & vbNewLine & txtdescripcionocasional.Text,
+                frmVTouchR.grdCaptura.Rows.Add(lblcodigo.Text,
+                                               lblcodigo.Text & vbNewLine & txtdescripcionocasional.Text,
                                                        txtcantidadocasional.Text,
                                                        txtprecioocasional.Text,
                                                        total,
-                                                       1
+                                                       1,
+                                                       ""
                 )
 
                 frmVTouchR.lblTotalPagar.Text = frmVTouchR.lblTotalPagar.Text + total
@@ -48,7 +50,7 @@
             End If
             btnlimpiaroca.PerformClick()
             txtdescripcionocasional.Focus.Equals(True)
-
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try

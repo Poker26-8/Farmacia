@@ -627,6 +627,22 @@ Public Class Inicio
             End If
             rd1.Close()
 
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NumPart from Formatos where Facturas='Optica'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString() = 1 Then
+                        btnOptica.Visible = True
+                    Else
+                        btnOptica.Visible = False
+                    End If
+                End If
+            End If
+            rd1.Close()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT NumPart FROM formatos WHERE  Facturas='Mov_Cuenta'"
             rd1 = cmd1.ExecuteReader
@@ -4158,7 +4174,7 @@ Public Class Inicio
     End Sub
 
     Private Sub btnOptica_Click(sender As Object, e As EventArgs) Handles btnOptica.Click
-        frmOptometria.Show()
-        frmOptometria.BringToFront()
+        frmOptica.Show()
+        frmOptica.BringToFront()
     End Sub
 End Class

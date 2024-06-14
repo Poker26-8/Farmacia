@@ -213,11 +213,18 @@
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         frmAct_Consignaciones.Show()
         frmAct_Consignaciones.BringToFront()
+        Me.Close()
     End Sub
 
     Private Sub btnMovCuenta_Click(sender As Object, e As EventArgs) Handles btnMovCuenta.Click
         frmAct_MovCuenta.Show()
         frmAct_MovCuenta.BringToFront()
+        Me.Close()
+    End Sub
+
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        frmAct_Optica.Show()
+        frmAct_Optica.BringToFront()
         Me.Close()
     End Sub
 End Class

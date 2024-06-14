@@ -385,10 +385,10 @@
                 Exit Sub
             End If
 
-            If referencia = "" Then
-                MsgBox("Debe ingresar una refrencia", vbInformation + vbOKOnly, titulomensajes)
-                Exit Sub
-            End If
+            'If referencia = "" Then
+            '    MsgBox("Debe ingresar una refrencia", vbInformation + vbOKOnly, titulomensajes)
+            '    Exit Sub
+            'End If
 
             If monto = 0 Then
                 MsgBox("Debe ingresar un monto", vbInformation + vbOKOnly, titulomensajes)
@@ -410,6 +410,27 @@
         txtRecepcion.Text = ""
         btnIntro.Focus.Equals(True)
         validaMontosTarjeta()
+
+        Dim EXACTO As Integer = 0
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroExacto'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                exacto = rd1(0).ToString
+
+                If exacto = 1 Then
+                    txtEfectivo.Text = "0.00"
+                Else
+
+                End If
+
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
     End Sub
     Public Sub validaMontosTarjeta()
         Try

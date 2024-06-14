@@ -606,7 +606,7 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(632, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(596, 0)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(81, 49)
         Me.btnnuevo.TabIndex = 25
@@ -620,7 +620,7 @@ Partial Class frmAgregarProducto
         Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnOcasional.Location = New System.Drawing.Point(538, 0)
+        Me.btnOcasional.Location = New System.Drawing.Point(502, 0)
         Me.btnOcasional.Name = "btnOcasional"
         Me.btnOcasional.Size = New System.Drawing.Size(94, 49)
         Me.btnOcasional.TabIndex = 27
@@ -632,7 +632,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(465, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(429, 0)
         Me.btntiempo3.Name = "btntiempo3"
         Me.btntiempo3.Size = New System.Drawing.Size(73, 49)
         Me.btntiempo3.TabIndex = 24
@@ -644,7 +644,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(392, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(356, 0)
         Me.btntiempo2.Name = "btntiempo2"
         Me.btntiempo2.Size = New System.Drawing.Size(73, 49)
         Me.btntiempo2.TabIndex = 23
@@ -656,7 +656,7 @@ Partial Class frmAgregarProducto
         Me.btntiempo1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo1.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo1.Location = New System.Drawing.Point(303, 0)
+        Me.btntiempo1.Location = New System.Drawing.Point(267, 0)
         Me.btntiempo1.Name = "btntiempo1"
         Me.btntiempo1.Size = New System.Drawing.Size(89, 49)
         Me.btntiempo1.TabIndex = 22
@@ -669,9 +669,9 @@ Partial Class frmAgregarProducto
         Me.btnRepertir.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnRepertir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRepertir.Location = New System.Drawing.Point(162, 0)
+        Me.btnRepertir.Location = New System.Drawing.Point(156, 0)
         Me.btnRepertir.Name = "btnRepertir"
-        Me.btnRepertir.Size = New System.Drawing.Size(141, 49)
+        Me.btnRepertir.Size = New System.Drawing.Size(111, 49)
         Me.btnRepertir.TabIndex = 26
         Me.btnRepertir.Text = "Repetir producto"
         Me.btnRepertir.UseVisualStyleBackColor = False
@@ -684,7 +684,7 @@ Partial Class frmAgregarProducto
         Me.btnordenar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnordenar.Location = New System.Drawing.Point(0, 0)
         Me.btnordenar.Name = "btnordenar"
-        Me.btnordenar.Size = New System.Drawing.Size(162, 49)
+        Me.btnordenar.Size = New System.Drawing.Size(156, 49)
         Me.btnordenar.TabIndex = 21
         Me.btnordenar.Text = "Enviar a producción"
         Me.btnordenar.UseVisualStyleBackColor = False

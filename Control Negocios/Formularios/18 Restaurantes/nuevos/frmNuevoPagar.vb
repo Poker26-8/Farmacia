@@ -3911,6 +3911,8 @@ Door:
                 rd4.Close()
 
             End If
+
+            articulos = IIf(articulos = 0, 0, articulos)
             Y += 10
             e.Graphics.DrawString("Cantidad de articulos: " & articulos, fuente_r, Brushes.Black, 1, Y)
             Y += 25
@@ -4143,7 +4145,7 @@ Door:
             If autofac = 1 Then
 
                 If siqr = "1" Then
-                    picQR.Image.Dispose()
+                    ' picQR.Image.Dispose()
                     Dim entrada As String = linkauto
                     Dim Gen As New QRCodeGenerator
                     Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)

@@ -666,6 +666,7 @@ Partial Class frmCompras
         Me.btnactualiza.TabIndex = 137
         Me.btnactualiza.Text = "Actualizar factura"
         Me.btnactualiza.UseVisualStyleBackColor = False
+        Me.btnactualiza.Visible = False
         '
         'Label14
         '
@@ -1333,6 +1334,7 @@ Partial Class frmCompras
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Regresar dinero a caja"
         Me.Button3.UseVisualStyleBackColor = False
+        Me.Button3.Visible = False
         '
         'Button2
         '
@@ -1340,7 +1342,7 @@ Partial Class frmCompras
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(12, 82)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(128, 36)
+        Me.Button2.Size = New System.Drawing.Size(262, 36)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Saldo a favor con proveedor"
         Me.Button2.UseVisualStyleBackColor = False
@@ -1385,7 +1387,7 @@ Partial Class frmCompras
         Me.panpago_compra.Controls.Add(Me.boxPago)
         Me.panpago_compra.Location = New System.Drawing.Point(337, 102)
         Me.panpago_compra.Name = "panpago_compra"
-        Me.panpago_compra.Size = New System.Drawing.Size(238, 350)
+        Me.panpago_compra.Size = New System.Drawing.Size(239, 362)
         Me.panpago_compra.TabIndex = 229
         Me.panpago_compra.Visible = False
         '
@@ -1395,7 +1397,7 @@ Partial Class frmCompras
         Me.Button4.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(4, 307)
+        Me.Button4.Location = New System.Drawing.Point(5, 307)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(99, 36)
         Me.Button4.TabIndex = 159
@@ -1408,7 +1410,7 @@ Partial Class frmCompras
         Me.btnpc_aceptar.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnpc_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpc_aceptar.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpc_aceptar.Location = New System.Drawing.Point(129, 305)
+        Me.btnpc_aceptar.Location = New System.Drawing.Point(130, 305)
         Me.btnpc_aceptar.Name = "btnpc_aceptar"
         Me.btnpc_aceptar.Size = New System.Drawing.Size(99, 36)
         Me.btnpc_aceptar.TabIndex = 158

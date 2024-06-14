@@ -1196,8 +1196,8 @@ Public Class frmProductosS
                         End If
 
                     Else
-                        conteo += 1
-                        barsube.Value = conteo
+                        'conteo += 1
+                        'barsube.Value = conteo
                         Continue Do
                     End If
 
