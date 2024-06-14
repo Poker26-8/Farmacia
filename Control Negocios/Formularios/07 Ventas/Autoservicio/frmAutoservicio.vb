@@ -1094,7 +1094,7 @@ keseso:
 
     End Sub
 
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs)
         CantidadProd = 1
     End Sub
 
@@ -1233,7 +1233,7 @@ keseso:
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
         frmVentasTouchBuscar.Show()
     End Sub
 
@@ -2378,25 +2378,12 @@ Door:
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         frmVentasTouch2.Show()
         frmVentasTouch2.BringToFront()
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        If TextBox1.Text = "" Then TextBox1.Text = "0" : lblTotal.Text = FormatNumber(lblTotal.Text, 2)
 
-        soydescuento = TextBox1.Text
-        If soydescuento >= "100" Then MsgBox("No se puede aplicar esa cantidad de descuento", vbInformation + vbOKOnly, "Delsscom Control Negocios") : lblTotal.Text = globaltotal : TextBox1.Text = "0" : Exit Sub
-        CampoDsct = IIf(TextBox1.Text = "", "0", TextBox1.Text)
-        Dim subtotal As Double = 0
-        If lblTotal.Text = "" Then
-            lblTotal.Text = "0.00"
-        End If
-        subtotal = lblTotal.Text
-        lblTotal.Text = CDbl(globaltotal) - ((CampoDsct / 100) * CDbl(globaltotal))
-        lblTotal.Text = FormatNumber(lblTotal.Text, 2)
-    End Sub
 
     Private Sub btnlimpiar_Click(sender As System.Object, e As System.EventArgs) Handles btnlimpiar.Click
         tFolio.Stop()
@@ -2445,7 +2432,7 @@ Door:
         frmVentasTouchPago.txtsaldo.Text = "0.00"
         Refresh()
         Departamentos()
-        TextBox1.Text = "0"
+
         globaltotal = 0
         CampoDsct = 0
         lblTotal.Text = "0.00"
