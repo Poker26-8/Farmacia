@@ -1164,9 +1164,9 @@ keseso:
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        'frmVentasTouchBuscar.Show()
-        frmAutoservicio.Show()
-        frmAutoservicio.BringToFront()
+        frmVentasTouchBuscar.Show()
+        'frmAutoservicio.Show()
+        'frmAutoservicio.BringToFront()
     End Sub
 
     Async Function EnviarSolicitudAPI() As Task
