@@ -2481,6 +2481,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\frmConformaProducto.resx">
       <DependentUpon>frmConformaProducto.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmCtsPagar.resx">
       <DependentUpon>frmCtsPagar.vb</DependentUpon>
