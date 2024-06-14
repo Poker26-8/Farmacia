@@ -200,7 +200,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.Location = New System.Drawing.Point(75, 4)
         Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(66, 64)
+        Me.btn8.Size = New System.Drawing.Size(66, 62)
         Me.btn8.TabIndex = 63
         Me.btn8.Text = "8"
         Me.btn8.UseVisualStyleBackColor = False
@@ -212,7 +212,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btnretro.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnretro.Location = New System.Drawing.Point(147, 208)
         Me.btnretro.Name = "btnretro"
-        Me.btnretro.Size = New System.Drawing.Size(69, 64)
+        Me.btnretro.Size = New System.Drawing.Size(69, 60)
         Me.btnretro.TabIndex = 62
         Me.btnretro.Text = "C0"
         Me.btnretro.UseVisualStyleBackColor = False
@@ -224,7 +224,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.Location = New System.Drawing.Point(75, 208)
         Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(66, 64)
+        Me.btn0.Size = New System.Drawing.Size(66, 60)
         Me.btn0.TabIndex = 61
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
@@ -236,7 +236,7 @@ Partial Class frmNuevoPagarTouchS
         Me.btnPunto.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPunto.Location = New System.Drawing.Point(6, 208)
         Me.btnPunto.Name = "btnPunto"
-        Me.btnPunto.Size = New System.Drawing.Size(63, 64)
+        Me.btnPunto.Size = New System.Drawing.Size(63, 60)
         Me.btnPunto.TabIndex = 60
         Me.btnPunto.Text = "."
         Me.btnPunto.UseVisualStyleBackColor = False

@@ -1536,91 +1536,62 @@ Public Class frmMesas
 
         Else
             Try
-                'Dim idemp As Integer = 0
 
-                'cnn2.Close() : cnn2.Open()
-                'cmd2 = cnn2.CreateCommand
-                'cmd2.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtUsuario.Text & "' AND Alias='" & lblusuario.Text & "'"
-                'rd2 = cmd2.ExecuteReader
-                'If rd2.HasRows Then
-                '    If rd2.Read Then
-                '        idemp = rd2(0).ToString
-
-                '        cnn3.Close() : cnn3.Open()
-                '        cmd3 = cnn3.CreateCommand
-                '        cmd3.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp & ""
-                '        rd3 = cmd3.ExecuteReader
-                '        If rd3.HasRows Then
-                '            If rd3.Read Then
-
-                '                If rd3(0).ToString = 1 Then
-
+                Dim cobrosim As Integer = 0
                 montomapeo = 0
 
-                                    cnn1.Close() : cnn1.Open()
-                                    cmd1 = cnn1.CreateCommand
-                                    cmd1.CommandText = "SELECT SUM(Total) FROM Comandas WHERE NMESA='" & txtMesa.Text & "'"
-                                    rd1 = cmd1.ExecuteReader
-                                    If rd1.HasRows Then
-                                        If rd1.Read Then
-                                            montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
-                                            lbltotalmesa.Text = FormatNumber(montomapeo, 2)
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='CobroSimplificado'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cobrosim = rd1(0).ToString
+                    End If
+                End If
+                rd1.Close()
 
-                                            If lbltotalmesa.Text > 0 Then
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT SUM(Total) FROM Comandas WHERE NMESA='" & txtMesa.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        montomapeo = IIf(montomapeo = 0, 0, montomapeo) + IIf(rd1(0).ToString = 0, 0, rd1(0).ToString)
+                        lbltotalmesa.Text = FormatNumber(montomapeo, 2)
 
-                                                'frmPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
-                                                'frmPagar.subtotalmapeo = lbltotalmesa.Text
-                                                'frmPagar.focomapeo = 1
-                                                'frmPagar.txtEfectivo.Focus.Equals(True)
-                                                'frmPagar.lblmesa.Text = txtMesa.Text
-                                                'frmPagar.lblusuario2.Text = lblusuario.Text
-                                                'frmPagar.contraseñamesero = txtUsuario.Text
-                                                'frmPagar.COMENSALES = txtNComensales.Text
-                                                'frmPagar.Show()
+                        If lbltotalmesa.Text > 0 Then
 
-
-                                                frmNuevoPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
-                                                frmNuevoPagar.subtotalmapeo = lbltotalmesa.Text
-                                                frmNuevoPagar.focomapeo = 1
-                                                frmNuevoPagar.txtEfectivo.Focus.Equals(True)
-                                                frmNuevoPagar.lblmesa.Text = txtMesa.Text
-                                                frmNuevoPagar.lblusuario2.Text = lblusuario.Text
-                                                frmNuevoPagar.contraseñamesero = txtUsuario.Text
-                                                frmNuevoPagar.COMENSALES = txtNComensales.Text
-                                                frmNuevoPagar.Show()
-
-                                            End If
-                                        Else
-                                            MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
-                                            Exit Sub
-                                        End If
-                                    End If
-                                    rd1.Close()
-                                    cnn1.Close()
-
-                '                Else
-                '                    MsgBox("El usuario no cuenta con permisos para cerrar la cuenta", vbInformation + vbOKOnly, titulomensajes)
-                '                    Exit Sub
-                '                End If
-
-                '            End If
-                '        Else
-                '            MsgBox("El usuario no tiene asignados ningun permiso", vbInformation + vbOK, titulomensajes)
-                '            Exit Sub
-                '        End If
-                '        rd3.Close()
-                '        cnn3.Close()
-
-                '    End If
-                'Else
-                '    MsgBox("clave o usuario incorrectos", vbInformation + vbOKOnly, titulomensajes)
-                '    Exit Sub
-                'End If
-                'rd2.Close()
-                'cnn2.Close()
+                            If cobrosim = 1 Then
+                                frmNuevoPagarSencillo.txtSubtotalmapeo.Text = lbltotalmesa.Text
+                                frmNuevoPagarSencillo.subtotalmapeo = lbltotalmesa.Text
+                                frmNuevoPagarSencillo.focomapeo = 1
+                                frmNuevoPagarSencillo.txtEfectivo.Focus.Equals(True)
+                                frmNuevoPagarSencillo.lblmesa.Text = txtMesa.Text
+                                frmNuevoPagarSencillo.lblusuario2.Text = lblusuario.Text
+                                frmNuevoPagarSencillo.contraseñamesero = txtUsuario.Text
+                                frmNuevoPagarSencillo.COMENSALES = txtNComensales.Text
+                                frmNuevoPagarSencillo.Show()
+                            Else
+                                frmNuevoPagar.txtSubtotalmapeo.Text = lbltotalmesa.Text
+                                frmNuevoPagar.subtotalmapeo = lbltotalmesa.Text
+                                frmNuevoPagar.focomapeo = 1
+                                frmNuevoPagar.txtEfectivo.Focus.Equals(True)
+                                frmNuevoPagar.lblmesa.Text = txtMesa.Text
+                                frmNuevoPagar.lblusuario2.Text = lblusuario.Text
+                                frmNuevoPagar.contraseñamesero = txtUsuario.Text
+                                frmNuevoPagar.COMENSALES = txtNComensales.Text
+                                frmNuevoPagar.Show()
+                            End If
 
 
-
+                        End If
+                    Else
+                        MsgBox("La mesa aun no tienen consumo asignado", vbInformation + vbOKOnly, titulomensajes)
+                        Exit Sub
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
