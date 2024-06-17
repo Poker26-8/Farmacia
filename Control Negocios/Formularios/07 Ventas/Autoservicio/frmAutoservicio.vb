@@ -1119,10 +1119,10 @@ keseso:
         Dim TotalImporte As Double = lblTotal.Text
         Dim CantidadLetra As String = ""
         If TotalImporte > 0 Then
-            btnpagar.Enabled = True
+            Button1.Enabled = True
             CantidadLetra = UCase(Letras(TotalImporte))
         Else
-            btnpagar.Enabled = False
+            Button1.Enabled = False
             CantidadLetra = ""
         End If
         lblcantidadletra.Text = CantidadLetra
@@ -1226,13 +1226,13 @@ keseso:
         txtcantidad.Text = "0"
     End Sub
 
-    Private Sub btnpagar_Click(sender As System.Object, e As System.EventArgs) Handles btnpagar.Click
-        If frmVentasTouchPago.Visible = False Then
-            frmVentasTouchPago.Show(Me)
-            frmVentasTouchPago.txtresta.Text = FormatNumber(lblTotal.Text, 2)
-            frmVentasTouchPago.resta = FormatNumber(lblTotal.Text, 2)
-        End If
-    End Sub
+    'Private Sub btnpagar_Click(sender As System.Object, e As System.EventArgs) Handles btnpagar.Click
+    '    If frmVentasTouchPago.Visible = False Then
+    '        frmVentasTouchPago.Show(Me)
+    '        frmVentasTouchPago.txtresta.Text = FormatNumber(lblTotal.Text, 2)
+    '        frmVentasTouchPago.resta = FormatNumber(lblTotal.Text, 2)
+    '    End If
+    'End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
         frmVentasTouchBuscar.Show()
@@ -2354,7 +2354,7 @@ Door:
 
 
 
-    Private Sub btnlimpiar_Click(sender As System.Object, e As System.EventArgs) Handles btnlimpiar.Click
+    Private Sub btnlimpiar_Click(sender As System.Object, e As System.EventArgs)
         tFolio.Stop()
         pProductos.Controls.Clear()
         pGrupos.Controls.Clear()
