@@ -2348,6 +2348,13 @@ Door:
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
+            Exit Sub
+        End If
+        Resta = 0
+        MontoTarjeta = lblTotal.Text
+        validaTarjeta = lblTotal.Text
+        GuardarVenta()
 
     End Sub
 
