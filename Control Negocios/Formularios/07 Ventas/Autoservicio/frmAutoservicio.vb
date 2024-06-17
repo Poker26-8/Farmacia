@@ -1050,14 +1050,14 @@ Public Class frmAutoservicio
         Next
         lblTotal.Text = FormatNumber(TotalVenta, 2)
         globaltotal = TotalVenta
-        grdProducto.DefaultCellStyle.SelectionBackColor = Color.White
-        grdProducto.DefaultCellStyle.SelectionForeColor = Color.Black
-        With grdProducto.Rows
-            .Clear()
-            .Add("Descripción: ", myDescrip)
-            .Add("Cantidad: ", cantidad)
-            .Add("Existencia: ", MyExistencia)
-        End With
+        'grdProducto.DefaultCellStyle.SelectionBackColor = Color.White
+        'grdProducto.DefaultCellStyle.SelectionForeColor = Color.Black
+        'With grdProducto.Rows
+        '    .Clear()
+        '    .Add("Descripción: ", myDescrip)
+        '    .Add("Cantidad: ", cantidad)
+        '    .Add("Existencia: ", MyExistencia)
+        'End With
     End Sub
 
     Private Sub btnProd_Click(sender As Object, e As EventArgs)
@@ -1365,14 +1365,20 @@ keseso:
 
                 If descripcionValue = "0" Then
                     MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incomppleta")
+                    Button1.Enabled = True
+                    btnlimpiar.Enabled = True
                     SiPago = 0
                 ElseIf descripcionValue = "1" Then
                     MsgBox("La operación es rechazada por el banco o cancelada por el usuario", vbCritical + vbOKOnly, "Operación Denegada")
+                    Button1.Enabled = True
+                    btnlimpiar.Enabled = True
                     SiPago = 0
                 ElseIf descripcionValue = "2" Then
                     If descripcionValue2 = "Denegada, Saldo insuficiente" Then
                         MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Fallida")
                         SiPago = 0
+                        Button1.Enabled = True
+                        btnlimpiar.Enabled = True
                     Else
                         SiPago = 1
                         GuardarVenta()
@@ -1380,6 +1386,8 @@ keseso:
                 ElseIf descripcionValue = "3" Then
                     MsgBox("Ya se llevo a cabo el proceso por parte de Pprosepago", vbInformation + vbOKOnly, "Operación Liquidada")
                     SiPago = 0
+                    Button1.Enabled = True
+                    btnlimpiar.Enabled = True
                 End If
 
                 'MessageBox.Show("Respuesta de la API: " & responseFromServer)
@@ -1428,11 +1436,15 @@ keseso:
             If Cliente = "" Then
                 If (lbltipoventa.Text = "MOSTRADOR" And Resta <> 0) Or (lbltipoventa.Text = "" And Resta <> 0) Then
                     MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Button1.Enabled = True
+                    btnlimpiar.Enabled = True
                     Exit Sub
                 End If
                 If Id_Cliente = 0 Then
                     If Resta > 0 Then
                         MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        Button1.Enabled = True
+                        btnlimpiar.Enabled = True
                         Exit Sub
                     End If
                 End If
@@ -1441,6 +1453,8 @@ keseso:
             If modo_caja = "CAJA" Then
                 If Cliente = "" And Resta <> 0 Then
                     MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Button1.Enabled = True
+                    btnlimpiar.Enabled = True
                     frmVentasTouchPago.txtefectivo.Focus().Equals(True)
                     Exit Sub
                 End If
@@ -1450,6 +1464,8 @@ keseso:
                 If modo_caja = "CAJA" Then
                     If Cliente = "" Then
                         MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        Button1.Enabled = True
+                        btnlimpiar.Enabled = True
                         frmVentasTouchPago.txtefectivo.Focus().Equals(True)
                         Exit Sub
                     End If
@@ -1509,10 +1525,10 @@ keseso:
             End If
 
             If validaTarjeta = 0 Then
-                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
             Else
                 If SiPago = 0 Then
-                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
                 End If
             End If
 
@@ -2339,8 +2355,8 @@ Door:
         Next
         lblTotal.Text = FormatNumber(TotalVenta, 2)
 
-        grdProducto.DefaultCellStyle.SelectionBackColor = Color.White
-        grdProducto.DefaultCellStyle.SelectionForeColor = Color.Black
+        'grdProducto.DefaultCellStyle.SelectionBackColor = Color.White
+        'grdProducto.DefaultCellStyle.SelectionForeColor = Color.Black
     End Sub
 
     Private Sub pVenta58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta58.PrintPage
@@ -2351,6 +2367,8 @@ Door:
         If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
             Exit Sub
         End If
+        Button1.Enabled = False
+        btnlimpiar.Enabled = False
         Resta = 0
         MontoTarjeta = lblTotal.Text
         validaTarjeta = lblTotal.Text
@@ -2359,7 +2377,59 @@ Door:
     End Sub
 
     Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+        tFolio.Stop()
+        pProductos.Controls.Clear()
+        pGrupos.Controls.Clear()
+        pDeptos.Controls.Clear()
+        CodigoProducto = ""
+        cantidad = 0
+        CantidadProd = 0
+        Monedero = ""
+        MontoEfectivo = 0
+        MontoTarjeta = 0
+        MontoMonedero = 0
+        Cambio = 0
+        Resta = 0
+        Cliente = ""
+        Id_Cliente = 0
+        Direccion = ""
+        TotDeptos = 0
+        TotGrupos = 0
+        TotProductos = 0
+        MYFOLIO = 0
+        lbltipoventa.Text = "MOSTRADOR"
+        grdcaptura.Rows.Clear()
+        'grdProducto.Rows.Clear()
 
+        'frmVentasTouchPago.txtefectivo.Text = "0.00"
+        'frmVentasTouchPago.txttarjeta.Text = "0.00"
+        'frmVentasTouchPago.txtcambio.Text = "0.00"
+        'frmVentasTouchPago.resta = 0
+        'frmVentasTouchPago.txtresta.Text = "0.00"
+        'frmVentasTouchPago.txtMonedero.Text = ""
+        'frmVentasTouchPago.txtmone.Text = "0.00"
+        'frmVentasTouchPago.cboNombre.Text = ""
+        'frmVentasTouchPago.txtDireccion.Text = ""
+        'frmVentasTouchPago.Label20.Visible = False
+        'frmVentasTouchPago.txtcredito.Visible = False
+        'frmVentasTouchPago.Label17.Visible = False
+        'frmVentasTouchPago.txtafavor.Visible = False
+        'frmVentasTouchPago.Label18.Visible = False
+        'frmVentasTouchPago.txtadeuda.Visible = False
+        'frmVentasTouchPago.txtcredito.Text = "0.00"
+        'frmVentasTouchPago.txtafavor.Text = "0.00"
+        'frmVentasTouchPago.txtadeuda.Text = "0.00"
+        'frmVentasTouchPago.txtsaldo.Text = "0.00"
+        Refresh()
+        Departamentos()
+        globaltotal = 0
+        CampoDsct = 0
+        lblTotal.Text = "0.00"
+        lblcantidadletra.Text = ""
+
+        SiPago = 0
+        validaTarjeta = 0
+        My.Application.DoEvents()
     End Sub
 
     'Private Sub Button2_Click(sender As Object, e As EventArgs)
@@ -2393,7 +2463,7 @@ Door:
         MYFOLIO = 0
         lbltipoventa.Text = "MOSTRADOR"
         grdcaptura.Rows.Clear()
-        grdProducto.Rows.Clear()
+        'grdProducto.Rows.Clear()
 
         frmVentasTouchPago.txtefectivo.Text = "0.00"
         frmVentasTouchPago.txttarjeta.Text = "0.00"
