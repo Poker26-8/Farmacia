@@ -4,7 +4,7 @@ Imports CrystalDecisions.Shared
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Imports System.IO.Ports
-Imports QRCoder
+Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Imports System.Drawing
 Imports System.Security.Cryptography
 Imports System.Threading.Tasks
@@ -9609,16 +9609,14 @@ ecomoda:
 
             If ligaqr <> "" Then
                 ' picQR.Image.Dispose()
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
+                Dim qre As New QrCodeImgControl
+                qre.Size = New System.Drawing.Size(200, 200)
+                qre.Text = ligaqr
+                Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
                 Y += 25
-                e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+                e.Graphics.DrawImage(ima, 50, CInt(Y), 240, 240)
                 picQR.Image.Dispose()
             End If
 
@@ -9626,26 +9624,16 @@ ecomoda:
             If autofac = 1 Then
 
                 If linkauto <> "" Then
-                    picQR.Image.Dispose()
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
-
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
                     ' Usa Using para garantizar la liberación de recursos de la fuente
                     e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
                     Y += 15
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
+                    e.Graphics.DrawImage(ima, 50, CInt(Y), 240, 240)
                     picQR.Image.Dispose()
                 End If
 
@@ -12640,17 +12628,14 @@ ecomoda:
 
 
             If ligaqr <> "" Then
-                'picQR.Image.Dispose()
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
+                Dim qre As New QrCodeImgControl
+                qre.Size = New System.Drawing.Size(200, 200)
+                qre.Text = ligaqr
+                Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 90, Y, sc)
                 Y += 20
-                e.Graphics.DrawImage(picQR.Image, 15, CInt(Y), 160, 160)
+                e.Graphics.DrawImage(ima, 15, CInt(Y), 160, 160)
                 picQR.Image.Dispose()
             End If
 

@@ -4,7 +4,7 @@ Imports CrystalDecisions.Shared
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Imports System.IO.Ports
-Imports QRCoder
+Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Imports System.Drawing
 Imports System.Net7777
 Imports System.Xml
@@ -7726,7 +7726,7 @@ kakaxd:
                 If ordetrabajo = 0 Then
                     ieps = IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString)
                     tasaieps = IIf(grdcaptura.Rows(R).Cells(11).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(11).Value.ToString)
-                    monedero = IIf(grdcaptura(14, R).Value = "", 0, grdcaptura(14, R).Value)
+                    monedero = IIf(grdcaptura.Rows(R).Cells(14).Value.ToString() = "", 0, grdcaptura.Rows(R).Cells(14).Value.ToString())
                 Else
                     ieps = 0
                     tasaieps = 0
@@ -9861,22 +9861,17 @@ ecomoda:
             cnn1.Close()
             If siqrwhats = 1 Then
                 If ligaqr <> "" Then
-                    Dim entrada As String = ligaqr
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = ligaqr
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
                     e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 1, Y)
                     Y += 15
-                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y), 85, 85)
+                    e.Graphics.DrawImage(ima, 50, CInt(Y), 85, 85)
                     Y += 60
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
+
+                    picQR.Image = Nothing
                 End If
 
             End If
@@ -9885,18 +9880,11 @@ ecomoda:
             If autofac = 1 Then
 
                 If siqr = "1" Then
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
                     e.Graphics.DrawString("Codigo para facturar:", fuente_datos, Brushes.Black, 1, Y)
                     Y += 25
                     e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
@@ -9905,7 +9893,7 @@ ecomoda:
                     e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 1, Y)
                     Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
+                    e.Graphics.DrawImage(ima, 50, CInt(Y + 15), 85, 85)
                     Y += 20
 
                 End If
@@ -12737,30 +12725,57 @@ ecomoda:
             cnn1.Close() : cnn1.Open()
             For N As Integer = 0 To grdcaptura.Rows.Count - 1
                 If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
+                    If ordetrabajo = 0 Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
 
-                            If rd1(0).ToString > 0 Then
-                                MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
-                                ivaproducto = MySubtotal / (1 + rd1(0).ToString)
-                                ivaporproducto = MySubtotal - ivaproducto
-                                TotalIVAPrint = TotalIVAPrint + ivaporproducto
-                            End If
+                                If rd1(0).ToString > 0 Then
+                                    MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                    ivaproducto = MySubtotal / (1 + rd1(0).ToString)
+                                    ivaporproducto = MySubtotal - ivaproducto
+                                    TotalIVAPrint = TotalIVAPrint + ivaporproducto
+                                End If
 
-                            'If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
-                            '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-                            '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
-                            'End If
-                            If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
-                                TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString)
+                                'If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                                '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+                                '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                                'End If
+                                If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                                    TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString)
+                                End If
                             End If
                         End If
+                        rd1.Close()
+                    Else
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "select IVA from OrdenTrabajo where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+
+                                If rd1(0).ToString > 0 Then
+                                    MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                    ivaproducto = MySubtotal / (1 + rd1(0).ToString)
+                                    ivaporproducto = MySubtotal - ivaproducto
+                                    TotalIVAPrint = TotalIVAPrint + ivaporproducto
+                                End If
+
+                                'If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                                '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+                                '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                                'End If
+                                If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                                    TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString)
+                                End If
+                            End If
+                        End If
+                        rd1.Close()
                     End If
-                    rd1.Close()
                 End If
             Next
             cnn1.Close()
@@ -12943,22 +12958,17 @@ ecomoda:
             cnn1.Close()
             If siqrwhats = 1 Then
                 If ligaqr <> "" Then
-                    Dim entrada As String = ligaqr
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = ligaqr
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
                     e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_prods, Brushes.Black, 1, Y)
                     Y += 15
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 85, 85)
+                    e.Graphics.DrawImage(ima, 30, CInt(Y), 85, 85)
                     Y += 60
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
+
+                    picQR.Image = Nothing
                 End If
 
             End If
@@ -12967,27 +12977,20 @@ ecomoda:
             If autofac = 1 Then
 
                 If siqr = "1" Then
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
-                    e.Graphics.DrawString("Codigo para facturar:", fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_datos, Brushes.Black, 1, Y)
                     Y += 25
                     e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
                     Y += 25
                     ' Usa Using para garantizar la liberación de recursos de la fuente
-                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 1, Y)
                     Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 15), 85, 85)
+                    e.Graphics.DrawImage(ima, 30, CInt(Y + 15), 85, 85)
                     Y += 20
 
                 End If
@@ -15235,6 +15238,10 @@ doorcita:
     End Sub
 
     Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+
+    End Sub
+
+    Private Sub pDevo58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevo58.PrintPage
 
     End Sub
 End Class

@@ -2471,30 +2471,25 @@ Public Class frmEtiquetas
     End Sub
 
     Private Sub pPP2x6_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pPP2x6.PrintPage
-        Dim fuentita As New Drawing.Font("Arial", 8, FontStyle.Bold)
         Dim Y As Double = 0
         Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim vs As New StringFormat With {.FormatFlags = StringFormatFlags.DirectionVertical}
+        'e.Graphics.DrawString(txtcodigo.Text & " " & Mid(cbonombre.Text, 1, 20), New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 1, 3)
+        e.Graphics.DrawString(txtcodigo.Text & " - " & Mid(cbonombre.Text, 1, 24), New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 1, 3)
+        If Mid(cbonombre.Text, 25, 500) <> "" Then
+            e.Graphics.DrawString(Mid(cbonombre.Text, 25, 500), New Font("Arial", 9, FontStyle.Bold), Brushes.Black, 1, 14)
+        End If
+        If CDec(txtprecio.Text) < 1000 And CDec(txtprecio.Text) > 0 Then
+            e.Graphics.DrawString("$" & FormatNumber(txtprecio.Text, 0), New Font("Arial", 55, FontStyle.Bold), Brushes.Black, 105, 20, sc)
+        End If
+        If CDec(txtprecio.Text) < 10000 And CDec(txtprecio.Text) > 999 Then
+            e.Graphics.DrawString("$" & FormatNumber(txtprecio.Text, 0), New Font("Arial", 50, FontStyle.Bold), Brushes.Black, 105, 20, sc)
+        End If
+        If CDec(txtprecio.Text) > 9999 Then
+            e.Graphics.DrawString("$" & FormatNumber(txtprecio.Text, 0), New Font("Arial", 45, FontStyle.Bold), Brushes.Black, 105, 20, sc)
+        End If
 
-        Dim codigo As String = txtcodigo.Text
-        Dim nombre As String = cbonombre.Text
-
-        Dim cadena As String = codigo & " - " & nombre
-
-        Y += 5
-        Dim caracteresPorLinea As Integer = 40
-        Dim texto As String = cadena
-        Dim inicio As Integer = 0
-            Dim longitudTexto As Integer = texto.Length
-
-            While inicio < longitudTexto
-                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
-                Dim bloque As String = texto.Substring(inicio, longitudBloque)
-            e.Graphics.DrawString(bloque, fuentita, Brushes.Black, 1, Y)
-            Y += 12
-            inicio += caracteresPorLinea
-            End While
-        Y += 30
-        e.Graphics.DrawString("$ " & FormatNumber(txtprecio.Text, 2), New Drawing.Font("Arial", 35, FontStyle.Bold), Brushes.Black, 100, Y, sc)
         e.HasMorePages = False
 
     End Sub

@@ -1320,6 +1320,9 @@ Partial Class frmVentas1
         'pDevo80
         '
         '
+        'pDevo58
+        '
+        '
         'pDevoCarta
         '
         '
@@ -1467,7 +1470,7 @@ Partial Class frmVentas1
         Me.btnOrdenes.Name = "btnOrdenes"
         Me.btnOrdenes.Size = New System.Drawing.Size(79, 107)
         Me.btnOrdenes.TabIndex = 243
-        Me.btnOrdenes.Text = "ORDENES DE ENTREGA"
+        Me.btnOrdenes.Text = "ORDENES DE TRABAJO"
         Me.btnOrdenes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnOrdenes.UseVisualStyleBackColor = False
         '

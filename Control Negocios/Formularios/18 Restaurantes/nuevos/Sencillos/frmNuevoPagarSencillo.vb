@@ -3,7 +3,7 @@ Imports System.Net
 Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Xml
-Imports QRCoder
+Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Public Class frmNuevoPagarSencillo
 
     Public subtotalmapeo As Double = 0
@@ -3612,23 +3612,15 @@ Door:
             cnn1.Close()
             If siqrwhats = 1 Then
                 If ligaqr <> "" Then
-                    picQR.Image.Dispose()
-                    Dim entrada As String = ligaqr
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = ligaqr
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
                     e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_c, Brushes.Black, 1, Y)
                     Y += 15
-                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y), 85, 85)
+                    e.Graphics.DrawImage(ima, 50, CInt(Y), 85, 85)
                     Y += 85
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
                 End If
 
             End If
@@ -3636,19 +3628,11 @@ Door:
             If autofac = 1 Then
 
                 If siqr = "1" Then
-                    ' picQR.Image.Dispose()
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
                     e.Graphics.DrawString("Codigo para facturar:", fuente_c, Brushes.Black, 1, Y)
                     Y += 20
                     e.Graphics.DrawString(Trim(cadenafact), fuente_c, Brushes.Black, 1, Y)
@@ -3657,9 +3641,8 @@ Door:
                     e.Graphics.DrawString("Realiza tu factura aqui", fuente_c, Brushes.Black, 1, Y)
                     Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 83, CInt(Y + 15), 85, 85)
+                    e.Graphics.DrawImage(ima, 50, CInt(Y + 15), 85, 85)
                     Y += 20
-                    picQR.Image.Dispose()
                 End If
 
             Else
@@ -4214,23 +4197,15 @@ Door:
             cnn1.Close()
             If siqrwhats = 1 Then
                 If ligaqr <> "" Then
-                    picQR.Image.Dispose()
-                    Dim entrada As String = ligaqr
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = ligaqr
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
                     e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_c, Brushes.Black, 1, Y)
                     Y += 15
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 85, 85)
+                    e.Graphics.DrawImage(ima, 30, CInt(Y), 85, 85)
                     Y += 60
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
                 End If
 
             End If
@@ -4239,19 +4214,11 @@ Door:
             If autofac = 1 Then
 
                 If siqr = "1" Then
-                    picQR.Image.Dispose()
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
                     e.Graphics.DrawString("Codigo para facturar:", fuente_c, Brushes.Black, 1, Y)
                     Y += 25
                     e.Graphics.DrawString(Trim(cadenafact), fuente_c, Brushes.Black, 1, Y)
@@ -4260,9 +4227,8 @@ Door:
                     e.Graphics.DrawString("Realiza tu factura aqui", fuente_c, Brushes.Black, 1, Y)
                     Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y + 15), 85, 85)
+                    e.Graphics.DrawImage(ima, 30, CInt(Y + 15), 85, 85)
                     Y += 20
-                    picQR.Image.Dispose()
                 End If
 
             Else
@@ -4449,7 +4415,7 @@ Door:
         Dim saldo As Double = txtSubtotalmapeo.Text
         Dim porcentaje As Double = (txtPorcentaje.Text / 100)
         Dim porcentajetot As Double = CDbl(saldo) * CDbl(porcentaje)
-        montopropina = txtDescuento.Text
+        montopropina = IIf(txtDescuento.Text = "", 0, txtDescuento.Text)
 
         txtDescuento.Text = FormatNumber(porcentajetot, 2)
 

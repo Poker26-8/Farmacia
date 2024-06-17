@@ -32,11 +32,6 @@ Partial Class frmAutoservicio
         Me.pProductos = New System.Windows.Forms.Panel()
         Me.pGrupos = New System.Windows.Forms.Panel()
         Me.pDeptos = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnpagar = New System.Windows.Forms.Button()
-        Me.btnlimpiar = New System.Windows.Forms.Button()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -50,6 +45,7 @@ Partial Class frmAutoservicio
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnlimpiar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panDerecha = New System.Windows.Forms.Panel()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
@@ -84,9 +80,6 @@ Partial Class frmAutoservicio
         Me.btnaceptar = New System.Windows.Forms.Button()
         Me.btnsalir = New System.Windows.Forms.Button()
         Me.panCantidad = New System.Windows.Forms.Panel()
-        Me.Panel3.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -104,9 +97,9 @@ Partial Class frmAutoservicio
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pProductos.AutoScroll = True
         Me.pProductos.BackColor = System.Drawing.Color.White
-        Me.pProductos.Location = New System.Drawing.Point(0, 277)
+        Me.pProductos.Location = New System.Drawing.Point(0, 198)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(768, 240)
+        Me.pProductos.Size = New System.Drawing.Size(768, 319)
         Me.pProductos.TabIndex = 19
         '
         'pGrupos
@@ -114,7 +107,7 @@ Partial Class frmAutoservicio
         Me.pGrupos.AutoScroll = True
         Me.pGrupos.BackColor = System.Drawing.Color.LemonChiffon
         Me.pGrupos.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pGrupos.Location = New System.Drawing.Point(0, 175)
+        Me.pGrupos.Location = New System.Drawing.Point(0, 96)
         Me.pGrupos.Name = "pGrupos"
         Me.pGrupos.Size = New System.Drawing.Size(768, 96)
         Me.pGrupos.TabIndex = 18
@@ -122,77 +115,12 @@ Partial Class frmAutoservicio
         'pDeptos
         '
         Me.pDeptos.AutoScroll = True
-        Me.pDeptos.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.pDeptos.BackColor = System.Drawing.Color.PaleTurquoise
         Me.pDeptos.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pDeptos.Location = New System.Drawing.Point(0, 79)
+        Me.pDeptos.Location = New System.Drawing.Point(0, 0)
         Me.pDeptos.Name = "pDeptos"
         Me.pDeptos.Size = New System.Drawing.Size(768, 96)
         Me.pDeptos.TabIndex = 17
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.White
-        Me.Panel3.Controls.Add(Me.btnpagar)
-        Me.Panel3.Controls.Add(Me.btnlimpiar)
-        Me.Panel3.Controls.Add(Me.Panel7)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(768, 79)
-        Me.Panel3.TabIndex = 16
-        '
-        'btnpagar
-        '
-        Me.btnpagar.BackgroundImage = CType(resources.GetObject("btnpagar.BackgroundImage"), System.Drawing.Image)
-        Me.btnpagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnpagar.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.btnpagar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnpagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpagar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpagar.Location = New System.Drawing.Point(618, 0)
-        Me.btnpagar.Name = "btnpagar"
-        Me.btnpagar.Size = New System.Drawing.Size(75, 79)
-        Me.btnpagar.TabIndex = 7
-        Me.btnpagar.Text = "PAGAR"
-        Me.btnpagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnpagar.UseVisualStyleBackColor = True
-        Me.btnpagar.Visible = False
-        '
-        'btnlimpiar
-        '
-        Me.btnlimpiar.BackgroundImage = CType(resources.GetObject("btnlimpiar.BackgroundImage"), System.Drawing.Image)
-        Me.btnlimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.btnlimpiar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpiar.Location = New System.Drawing.Point(693, 0)
-        Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(75, 79)
-        Me.btnlimpiar.TabIndex = 6
-        Me.btnlimpiar.Text = "LIMPIAR"
-        Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnlimpiar.UseVisualStyleBackColor = True
-        '
-        'Panel7
-        '
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Controls.Add(Me.PictureBox1)
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel7.Location = New System.Drawing.Point(0, 0)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(208, 79)
-        Me.Panel7.TabIndex = 4
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(193, 66)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'Panel2
         '
@@ -359,6 +287,7 @@ Partial Class frmAutoservicio
         'Panel1
         '
         Me.TableLayoutPanel1.SetColumnSpan(Me.Panel1, 2)
+        Me.Panel1.Controls.Add(Me.btnlimpiar)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Location = New System.Drawing.Point(455, 3)
         Me.Panel1.Name = "Panel1"
@@ -366,13 +295,30 @@ Partial Class frmAutoservicio
         Me.Panel1.Size = New System.Drawing.Size(313, 83)
         Me.Panel1.TabIndex = 15
         '
+        'btnlimpiar
+        '
+        Me.btnlimpiar.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnlimpiar.BackgroundImage = CType(resources.GetObject("btnlimpiar.BackgroundImage"), System.Drawing.Image)
+        Me.btnlimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.btnlimpiar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlimpiar.Location = New System.Drawing.Point(238, 0)
+        Me.btnlimpiar.Name = "btnlimpiar"
+        Me.btnlimpiar.Size = New System.Drawing.Size(75, 83)
+        Me.btnlimpiar.TabIndex = 7
+        Me.btnlimpiar.Text = "LIMPIAR"
+        Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnlimpiar.UseVisualStyleBackColor = False
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(6, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(301, 76)
+        Me.Button1.Size = New System.Drawing.Size(204, 76)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "PAGAR"
         Me.Button1.UseVisualStyleBackColor = False
@@ -762,7 +708,6 @@ Partial Class frmAutoservicio
         Me.Controls.Add(Me.panCantidad)
         Me.Controls.Add(Me.pGrupos)
         Me.Controls.Add(Me.pDeptos)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.panDerecha)
         Me.Controls.Add(Me.pProductos)
@@ -770,9 +715,6 @@ Partial Class frmAutoservicio
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas AutoServicio"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -788,11 +730,6 @@ Partial Class frmAutoservicio
     Friend WithEvents pProductos As Panel
     Friend WithEvents pGrupos As Panel
     Friend WithEvents pDeptos As Panel
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents btnpagar As Button
-    Friend WithEvents btnlimpiar As Button
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label18 As Label
@@ -840,4 +777,5 @@ Partial Class frmAutoservicio
     Friend WithEvents btnaceptar As Button
     Friend WithEvents btnsalir As Button
     Friend WithEvents panCantidad As Panel
+    Friend WithEvents btnlimpiar As Button
 End Class
