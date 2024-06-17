@@ -2347,10 +2347,18 @@ Door:
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        frmVentasTouch2.Show()
-        frmVentasTouch2.BringToFront()
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+
     End Sub
+
+    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+
+    End Sub
+
+    'Private Sub Button2_Click(sender As Object, e As EventArgs)
+    '    frmVentasTouch2.Show()
+    '    frmVentasTouch2.BringToFront()
+    'End Sub
 
 
 

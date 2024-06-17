@@ -23,12 +23,12 @@ Partial Class frmAutoservicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAutoservicio))
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAutoservicio))
         Me.pProductos = New System.Windows.Forms.Panel()
         Me.pGrupos = New System.Windows.Forms.Panel()
         Me.pDeptos = New System.Windows.Forms.Panel()
@@ -45,6 +45,7 @@ Partial Class frmAutoservicio
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnlimpiar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panDerecha = New System.Windows.Forms.Panel()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
@@ -79,7 +80,6 @@ Partial Class frmAutoservicio
         Me.btnaceptar = New System.Windows.Forms.Button()
         Me.btnsalir = New System.Windows.Forms.Button()
         Me.panCantidad = New System.Windows.Forms.Panel()
-        Me.btnlimpiar = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -294,6 +294,23 @@ Partial Class frmAutoservicio
         Me.TableLayoutPanel1.SetRowSpan(Me.Panel1, 4)
         Me.Panel1.Size = New System.Drawing.Size(313, 83)
         Me.Panel1.TabIndex = 15
+        '
+        'btnlimpiar
+        '
+        Me.btnlimpiar.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btnlimpiar.BackgroundImage = CType(resources.GetObject("btnlimpiar.BackgroundImage"), System.Drawing.Image)
+        Me.btnlimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.btnlimpiar.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlimpiar.Location = New System.Drawing.Point(238, 0)
+        Me.btnlimpiar.Name = "btnlimpiar"
+        Me.btnlimpiar.Size = New System.Drawing.Size(75, 83)
+        Me.btnlimpiar.TabIndex = 7
+        Me.btnlimpiar.Text = "LIMPIAR"
+        Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnlimpiar.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -681,23 +698,6 @@ Partial Class frmAutoservicio
         Me.panCantidad.Size = New System.Drawing.Size(189, 305)
         Me.panCantidad.TabIndex = 20
         Me.panCantidad.Visible = False
-        '
-        'btnlimpiar
-        '
-        Me.btnlimpiar.BackColor = System.Drawing.Color.LemonChiffon
-        Me.btnlimpiar.BackgroundImage = CType(resources.GetObject("btnlimpiar.BackgroundImage"), System.Drawing.Image)
-        Me.btnlimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.btnlimpiar.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpiar.Location = New System.Drawing.Point(238, 0)
-        Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(75, 83)
-        Me.btnlimpiar.TabIndex = 7
-        Me.btnlimpiar.Text = "LIMPIAR"
-        Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnlimpiar.UseVisualStyleBackColor = False
         '
         'frmAutoservicio
         '
