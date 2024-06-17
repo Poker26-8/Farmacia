@@ -4135,12 +4135,6 @@ Public Class Inicio
     End Sub
 
 
-
-    Private Sub btnPagarComa_Click(sender As Object, e As EventArgs) Handles btnPagarComa.Click
-        frmPagarComanda.Show()
-        frmPagarComanda.BringToFront()
-    End Sub
-
     Private Sub ReporteDeVentaDeAntibióticosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeVentaDeAntibióticosToolStripMenuItem.Click
         frmcofepris.Show()
         frmcofepris.BringToFront()

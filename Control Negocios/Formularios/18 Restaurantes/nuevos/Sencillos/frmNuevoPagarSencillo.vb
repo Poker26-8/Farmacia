@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Xml
 Imports QRCoder
@@ -59,6 +60,12 @@ Public Class frmNuevoPagarSencillo
     Public cadenafact As String = ""
     Dim folio As String = ""
     Dim cortesia_venta As Integer = 0
+
+    Dim NewPos As String = ""
+
+    Dim tarjeta As Double = 0
+    Dim transferencia As Double = 0
+
     Private Sub BTNsALIR_Click(sender As Object, e As EventArgs) Handles BTNsALIR.Click
         Me.Close()
     End Sub
@@ -271,8 +278,11 @@ Public Class frmNuevoPagarSencillo
         If Not IsNumeric(txtTarjeta.Text) Then txtTarjeta.Text = "0.00" : Exit Sub
         If Strings.Left(txtTarjeta.Text, 1) = "," Or Strings.Left(txtTarjeta.Text, 1) = "." Then Exit Sub
 
+        tarjeta = IIf(txtTarjeta.Text = "", 0, txtTarjeta.Text)
+        transferencia = IIf(txtTransferencia.Text = "", 0, txtTransferencia.Text)
+
         If idborrado = 0 Then
-            myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtTarjeta.Text = "", 0.00, txtTarjeta.Text)) + CDbl(IIf(txtTransferencia.Text = "", 0.00, txtTransferencia.Text)) - txtPropina.Text)
+            myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(tarjeta) + CDbl(transferencia) - IIf(txtPropina.Text = "", 0, txtPropina.Text))
         Else
             myope = txttotalpropina.Text
         End If
@@ -296,8 +306,11 @@ Public Class frmNuevoPagarSencillo
         If Not IsNumeric(txtTransferencia.Text) Then txtTransferencia.Text = "0.00" : Exit Sub
         If Strings.Left(txtTransferencia.Text, 1) = "," Or Strings.Left(txtTransferencia.Text, 1) = "." Then Exit Sub
 
+        tarjeta = IIf(txtTarjeta.Text = "", 0, txtTarjeta.Text)
+        transferencia = IIf(txtTransferencia.Text = "", 0, txtTransferencia.Text)
+
         If idborrado = 0 Then
-            myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDbl(IIf(txtEfectivo.Text = "", 0.00, txtEfectivo.Text)) + CDbl(IIf(txtTarjeta.Text = "", 0.00, txtTarjeta.Text)) + CDbl(IIf(txtTransferencia.Text = "", 0.00, txtTransferencia.Text)) - txtPropina.Text)
+            myope = IIf(txtTotal.Text = "", 0, txtTotal.Text) - (CDec(IIf(txtEfectivo.Text = "", 0.0, txtEfectivo.Text)) + CDbl(tarjeta) + CDbl(transferencia) - IIf(txtPropina.Text = "", 0, txtPropina.Text))
         Else
             myope = txttotalpropina.Text
         End If
@@ -432,6 +445,8 @@ Public Class frmNuevoPagarSencillo
         txtPorcentaje.Text = "0"
         txtCambio.Text = "0.00"
         txtPropina.Text = "0.00"
+
+        txtMontoMonedero.Visible = False
 
         percent_propina = DatosRecarga("Propina")
 
@@ -617,65 +632,6 @@ Public Class frmNuevoPagarSencillo
             cnn5.Close()
         End Try
     End Sub
-
-    'Async Function EnviarSolicitudAPI() As Task
-
-    '    ' Label1.Visible = True
-    '    ' Valores a enviar a la API
-    '    Dim TipoPlan As String = "00"
-    '    Dim Terminal As String = numTerminal
-    '    Dim Importe As String = validaTarjeta
-    '    Dim pv As String = "DELSSCOM"
-    '    Dim nombre As String = cboComensal.Text
-    '    Dim concepto As String = "Venta"
-    '    Dim referencia As String = lblfolio.Text & FormatDateTime(Date.Now, DateFormat.ShortDate) & FormatDateTime(Date.Now, DateFormat.ShortTime) ' se recomienda poner el folio de la venta y la fecha, asi me dijo el wey de procepago, dice que no se debe de repetir
-
-    '    Dim correo As String = ""
-    '    Dim membresia As String = "false"
-    '    Dim clave As String = numClave
-
-    '    Dim cadenatexto As String = TipoPlan & Terminal & Importe & nombre & concepto & referencia & correo & clave
-    '    ' MsgBox(cadenatexto)
-    '    Dim CadenaEncriptada As String = CalculateSHA1(cadenatexto)
-
-    '    ' URL de la API
-    '    Dim url As String = URLsolicitud
-
-    '    ' Construye la solicitud HTTP
-    '    Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
-    '    request.Method = "POST"
-    '    request.ContentType = "application/x-www-form-urlencoded"
-
-    '    ' datos a enviar con metodo post
-    '    Dim postData As String = $"&tipoPlan={TipoPlan}&terminal={Terminal}&importe={Importe}&nombre={nombre}&concepto={concepto}&referencia={referencia}&correo={correo}&pv={pv}&CadenaEncriptada={CadenaEncriptada}"
-    '    'MsgBox(postData)
-    '    Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
-    '    request.ContentLength = byteArray.Length
-
-    '    Try
-    '        ' Aqui se activa el pago en la terminal
-    '        Using dataStream As Stream = Await request.GetRequestStreamAsync()
-    '            Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
-    '        End Using
-
-
-    '        ' Envía la solicitud y procesa la respuesta
-
-    '        Dim response As WebResponse = Await request.GetResponseAsync()
-
-    '        Using dataStream As Stream = response.GetResponseStream()
-    '            Dim reader As New StreamReader(dataStream)
-    '            Dim responseFromServer As String = Await reader.ReadToEndAsync()
-    '            ' MessageBox.Show("Respuesta de la API: " & responseFromServer)
-    '            valorxd = responseFromServer
-    '            'Thread.Sleep(4000)
-    '            EnviarSolicitudAPI2()
-    '        End Using
-    '    Catch ex As WebException
-    '        MessageBox.Show("Error en la solicitud: " & ex.Message)
-    '    End Try
-    'End Function
-
     Private Function CalculateSHA1(input As String) As String
         Try
             Dim sha1Obj As New System.Security.Cryptography.SHA1CryptoServiceProvider
@@ -692,83 +648,920 @@ Public Class frmNuevoPagarSencillo
 
     End Function
 
-    'Async Function EnviarSolicitudAPI2() As Task
-    '    ' Valores a enviar a la API
-    '    Dim idsolicitud As String = valorxd
-    '    Dim clave As String = numClave
-
-    '    ' Genera el hash SHA-1 de los valores
-    '    Dim CadenaEncriptada As String = CalculateSHA1(idsolicitud & clave)
-
-    '    ' URL de la API
-
-    '    Dim url As String = URLresultado
-
-    '    ' Construye la solicitud HTTP
-    '    Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
-    '    request.Method = "POST"
-    '    request.ContentType = "application/x-www-form-urlencoded"
-
-    '    ' Construye los datos a enviar en la solicitud
-    '    Dim postData As String = $"&idsolicitud={idsolicitud}&cadenaEncriptada={CadenaEncriptada}"
-    '    Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
-    '    request.ContentLength = byteArray.Length
-
-    '    ' Escribe los datos en el cuerpo de la solicitud
-
-    '    Using dataStream As Stream = Await request.GetRequestStreamAsync()
-    '        Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
-    '    End Using
-
-
-    '    ' Envía la solicitud y procesa la respuesta
-    '    Try
-    '        Dim response As WebResponse = Await request.GetResponseAsync()
-    '        Using dataStream As Stream = response.GetResponseStream()
-    '            Dim reader As New StreamReader(dataStream)
-    '            Dim responseFromServer As String = Await reader.ReadToEndAsync()
-
-    '            If responseFromServer = "901" Then
-    '                EnviarSolicitudAPI2()
-    '            End If
-
-    '            Dim xmlDoc As New XmlDocument()
-    '            xmlDoc.LoadXml(responseFromServer)
-    '            Dim descripcionValue2 As String = ""
-    '            ' Obtener el valor de la etiqueta <descripcion>
-    '            Dim descripcionValue As String = xmlDoc.SelectSingleNode("/PVresultado/descripcion").InnerText
-    '            If descripcionValue = "0" Then
-    '            Else
-    '                descripcionValue2 = xmlDoc.SelectSingleNode("/PVresultado/causaDenegada").InnerText
-    '            End If
-
-    '            If descripcionValue = "0" Then
-    '                MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incomppleta")
-    '                SiPago = 0
-    '            ElseIf descripcionValue = "1" Then
-    '                MsgBox("La operación es rechazada por el banco o cancelada por el usuario", vbCritical + vbOKOnly, "Operación Denegada")
-    '                SiPago = 0
-    '            ElseIf descripcionValue = "2" Then
-    '                If descripcionValue2 = "Denegada, Saldo insuficiente" Then
-    '                    MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Fallida")
-    '                    SiPago = 0
-    '                Else
-    '                    SiPago = 1
-    '                    btnIntro.PerformClick()
-    '                End If
-    '            ElseIf descripcionValue = "3" Then
-    '                MsgBox("Ya se llevo a cabo el proceso por parte de Pprosepago", vbInformation + vbOKOnly, "Operación Liquidada")
-    '                SiPago = 0
-    '            End If
-
-    '            'MessageBox.Show("Respuesta de la API: " & responseFromServer)
-    '        End Using
-    '    Catch ex As WebException
-    '        MessageBox.Show("Error en la solicitud: " & ex.Message)
-    '    End Try
-    'End Function
-
     Private Sub btnIntro_Click(sender As Object, e As EventArgs) Handles btnIntro.Click
+
+        Dim varieps As String = ""
+        Dim vartotal As String = ""
+        Dim mypago As Double = 0
+
+
+        Dim tipopago As String = ""
+        Dim montopagomonedero As Double = 0
+
+
+        Dim CLIENTE As String = ""
+        Dim SALDOMONEDERO As Double = 0
+        Dim PORCENTAJEMONEDERO As Double = 0
+        Dim IDMON As Integer = 0
+
+
+        Dim Tiva As Double = 0
+        Dim Cuenta As Double = 0
+
+        Dim saldomonnuevo As Double = 0
+
+        Dim idemp As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cnn2.Close() : cnn2.Open()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT IdEmpleado FROM usuarios WHERE Alias='" & lblusuario2.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                idemp = rd1(0).ToString
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT CobrarM FROM permisosm WHERE IdEmpleado=" & idemp
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        If rd2(0).ToString = 1 Then
+                        Else
+                            MsgBox("No cuentas con permiso para cerrar la cuenta", vbInformation + vbOKOnly, titulorestaurante)
+                            Exit Sub
+                        End If
+                    End If
+                Else
+                    MsgBox("No cuentas con permiso para cerrar la cuenta", vbInformation + vbOKOnly, titulorestaurante)
+                    Exit Sub
+                End If
+                rd2.Close()
+
+            End If
+        Else
+            MsgBox("No tienes asignados permisos contacta a tu administrador", vbInformation + vbOKOnly, titulorestaurante)
+            Exit Sub
+        End If
+        rd1.Close()
+        cnn2.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "DELETE FROM VtaImpresion"
+        cmd1.ExecuteNonQuery()
+        cnn1.Close()
+        btnIntro.Enabled = True
+
+        Dim efectivocom As Double = 0
+        Dim transferencia As Double = 0
+        Dim tarjeta As Double = 0
+
+        efectivocom = txtEfectivo.Text
+
+        Dim pagoscom As Double = 0
+        pagoscom = CDbl(txtTarjeta.Text) + CDbl(txtTransferencia.Text)
+
+        Dim descuentocom As Double = 0
+        descuentocom = txtDescuento.Text
+
+        Dim cambiocom As Double = 0
+        cambiocom = txtCambio.Text
+
+        mypago = CDec(txtEfectivo.Text) + CDec(txtTarjeta.Text) + CDec(txtTransferencia.Text) - CDec(txtCambio.Text)
+
+        If mypago < CDec(txtTotal.Text) Then
+            MsgBox("Debe cerrar la cuenta!.", vbInformation + vbOKOnly, titulomensajes)
+            Exit Sub
+        End If
+
+        If txtMonedero.Text <> "" Then
+            Dim sal_monedero As Double = 0
+            Dim tipo_mone As Integer = 0
+            Dim porcentaje_mone As Double = 0
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM formatos WHERE Facturas='Porc_Mone'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    tipo_mone = rd2("NumPart").ToString()
+                    porcentaje_mone = IIf(rd2("NotasCred").ToString() = "", 0, rd2("NotasCred").ToString())
+                End If
+            End If
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Monedero WHERE Barras='" & txtMonedero.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SALDOMONEDERO = rd2("Saldo").ToString
+                End If
+            End If
+            rd2.Close()
+
+            If validaTarjeta = 0 Then
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+            Else
+                If SiPago = 0 Then
+                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+                End If
+            End If
+
+            'Comienza proceso de guardado de la venta
+            If validaTarjeta <> 0 Then
+                If hayTerminal = 0 Then
+                    GoTo kakaxd
+                End If
+            End If
+
+            If SiPago = 0 Then
+                If validaTarjeta <> 0 Then
+                    EnviarSolicitudAPI()
+                    Exit Sub
+                ElseIf SiPago = 1 Then
+                    GoTo kakaxd
+                End If
+            Else
+                GoTo kakaxd
+            End If
+
+
+
+kakaxd:
+
+            Dim porc_mone As Double = 0
+            Dim precio_prod As Double = 0
+            Dim cantid_prod As Double = 0
+            Dim nvo_saldo As Double = 0
+            Dim porcentaje As Double = 0
+            Dim ope As Double = 0
+
+            Dim total_venta As Double = 0
+            Dim total_bono As Double = 0
+
+            'Por venta
+            If tipo_mone = 1 Then
+                total_venta = txtTotal.Text
+                total_bono = (porcentaje_mone * total_venta) / 100
+
+                nvo_saldo = total_bono + SALDOMONEDERO
+            End If
+
+            'Por producto
+            If tipo_mone = 0 Then
+                For denji As Integer = 0 To grdComanda.Rows.Count - 1
+                    porc_mone = grdComanda(14, denji).Value
+                    precio_prod = grdComanda(5, denji).Value
+                    cantid_prod = grdComanda(4, denji).Value
+
+                    total_bono = (porc_mone * precio_prod) / 100
+                    ope = ope + (total_bono * cantid_prod)
+                Next
+                nvo_saldo = ope + SALDOMONEDERO
+            End If
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText =
+                "update Monedero set Saldo=" & nvo_saldo & " where Barras='" & txtMonedero.Text & "'"
+            cmd2.ExecuteNonQuery()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "insert into MovMonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) values('" & txtMonedero.Text & "','Venta'," & ope & "," & total_bono & "," & nvo_saldo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+            cmd2.ExecuteNonQuery()
+            cnn2.Close()
+
+        End If
+
+        Dim myidcliente As Integer = 0
+
+        'If MsgBox("¿Desea guardar los datos de esta venta?", vbQuestion + vbYesNo + vbDefaultButton1) = vbNo Then
+        '    Exit Sub
+        'End If
+
+        Dim Subtotales1 As Double = 0
+        Dim SubtotalVenta As Double = 0
+        Dim totcomi As Double = 0
+        Dim CODIGO As String = ""
+        Dim CANTI As Double = 0
+
+        Cuenta = CDec(efectivocom) + CDec(pagoscom) - CDec(txtCambio.Text)
+        Cuenta = Cuenta - CDbl(txtPropina.Text)
+
+        If CDec(txtTotal.Text) <= CDec(Cuenta) Then
+            Cuenta = txtTotal.Text
+            txtResta.Text = 0
+        End If
+
+        Cuenta = FormatNumber(Cuenta, 2)
+
+
+        Dim ivaproducto As Double = 0
+        Dim restaiva As Double = 0
+
+        For zi As Integer = 0 To grdComanda.Rows.Count - 1
+
+            CODIGO = grdComanda.Rows(zi).Cells(1).Value.ToString
+            CANTI = grdComanda.Rows(zi).Cells(4).Value.ToString
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & CODIGO & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    totcomi = totcomi + CDec(CDec(CANTI) * CDec(rd2("Comision").ToString))
+                    If rd2("IVA").ToString > 0 Then
+                        Subtotales1 = grdComanda.Rows(zi).Cells(6).Value.ToString
+                        ivaproducto = Subtotales1 / (1 + rd2("IVA").ToString)
+                        restaiva = CDbl(Subtotales1) - CDbl(ivaproducto)
+                        Tiva = Tiva + CDbl(restaiva)
+                        Tiva = FormatNumber(Tiva, 2)
+                    End If
+
+                End If
+            End If
+
+            rd2.Close()
+            cnn2.Close()
+        Next
+
+        If Tiva > 0 Then
+            SubtotalVenta = CDbl(txtTotal.Text) - CDbl(Tiva)
+        Else
+            SubtotalVenta = txtTotal.Text
+        End If
+        SubtotalVenta = FormatNumber(SubtotalVenta, 2)
+
+#Region "CODIGO AUTOFACTURAR"
+        Dim letras As String
+        Dim letters As String = ""
+        Dim pc As String = lblfolio.Text
+        Dim opee As Double = 0
+        Dim lic As String = ""
+        Dim numeros As String
+        Dim car As String
+
+        opee = Math.Cos(CDec(pc))
+        If opee > 0 Then
+            pc = Strings.Left(Replace(CStr(opee), ".", "9"), 10)
+        Else
+            pc = Strings.Left(Replace(CStr(Math.Abs(opee)), ".", "8"), 10)
+        End If
+        For i = 1 To 10
+            car = Mid(lblfolio.Text, i, 1)
+            Select Case car
+                Case Is = 0
+                    letters = letters & "Y"
+                Case Is = 1
+                    letters = letters & "Z"
+                Case Is = 2
+                    letters = letters & "W"
+                Case Is = 3
+                    letters = letters & "X"
+                Case Is = 4
+                    letters = letters & "T"
+                Case Is = 5
+                    letters = letters & "B"
+                Case Is = 6
+                    letters = letters & "A"
+                Case Is = 7
+                    letters = letters & "D"
+                Case Is = 8
+                    letters = letters & "C"
+                Case Is = 9
+                    letters = letters & "P"
+                Case Else
+                    letters = letters & car
+            End Select
+
+        Next
+        For i = 1 To 10 Step 2
+            numeros = Mid(pc, i, 2)
+            letras = Mid(letters, i, 2)
+            lic = lic & numeros & letras & "-"
+        Next
+        lic = Strings.Left(lic, lic.Length - 1)
+        cadenafact = Trim(lic)
+#End Region
+
+        Dim totalventa22 As Double = 0
+        'totalventa22 = txtTotal.Text
+        totalventa22 = txtTotal.Text
+
+        Dim restaventa22 As Double = 0
+        restaventa22 = txtResta.Text
+
+        Dim propinaventa22 As Double = 0
+        propinaventa22 = txtPropina.Text
+
+        Dim descuentoventa22 As Double = 0
+        descuentoventa22 = txtDescuento.Text
+
+        cnn3.Close() : cnn3.Open()
+        cmd3 = cnn3.CreateCommand
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato,IP,Fecha) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET','" & dameIP2() & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+        cmd3.ExecuteNonQuery()
+        cnn3.Close()
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT MAX(Folio) FROM Ventas"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                folio = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        Dim idc As Integer = 0
+        Dim mycodigo As String = ""
+        Dim mydescripcion As String = ""
+        Dim myunidad As String = ""
+        Dim mycantidad As Double = 0
+        Dim myprecio As Double = 0
+        Dim mytotal As Double = 0
+        Dim mycomensal As String = ""
+        Dim mymesero As String = ""
+
+        Dim COSTVUE1 As Double = 0
+        Dim PRECIOSINIVA1 As Double = 0
+        Dim DEPA As String = ""
+        Dim GRUPO As String = ""
+        Dim MULTIPLO As Double = 0
+
+        Dim TOTALSIVA As Double = 0
+
+        Dim kreaper As Integer = 0
+
+        Do While kreaper <> grdComanda.Rows.Count
+
+            idc = grdComanda.Rows(kreaper).Cells(0).Value.ToString
+            mycodigo = grdComanda.Rows(kreaper).Cells(1).Value.ToString
+            mydescripcion = grdComanda.Rows(kreaper).Cells(2).Value.ToString
+            myunidad = grdComanda.Rows(kreaper).Cells(3).Value.ToString
+            mycantidad = grdComanda.Rows(kreaper).Cells(4).Value.ToString
+            myprecio = grdComanda.Rows(kreaper).Cells(5).Value.ToString
+            mytotal = grdComanda.Rows(kreaper).Cells(6).Value.ToString
+            mycomensal = grdComanda.Rows(kreaper).Cells(7).Value.ToString
+            mymesero = grdComanda.Rows(kreaper).Cells(8).Value.ToString
+
+
+            mycantidad = FormatNumber(mycantidad, 2)
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    COSTVUE1 = rd2("PrecioCompra").ToString
+                    PRECIOSINIVA1 = FormatNumber(myprecio / CDec(rd2("IVA").ToString + 1), 2)
+                    DEPA = rd2("Departamento").ToString
+                    GRUPO = rd2("Grupo").ToString
+                    MULTIPLO = rd2("Multiplo").ToString
+                    If CDec(rd2("IVA").ToString) > 0 Then
+                        TOTALSIVA = FormatNumber(mytotal / 1.16, 2)
+                    Else
+                        TOTALSIVA = mytotal
+                    End If
+                End If
+            Else
+                If mycodigo = "WXYZ" Then
+                    COSTVUE1 = 0
+                    PRECIOSINIVA1 = FormatNumber(myprecio, 2)
+                    DEPA = "UNICO"
+                    GRUPO = "UNICO"
+                    MULTIPLO = 1
+                    TOTALSIVA = FormatNumber(mytotal, 2)
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+
+            varieps = 0
+            vartotal = 0
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,Comensal,TasaIEPS,TotalIEPS,Descto,Facturado) VALUES('" & folio & "','" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & COSTVUE1 & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & varieps & "," & vartotal & ",'0','0')"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO VtaImpresion(Folio,Codigo,Nombre,Cantidad,UVenta,CostVUE,CostVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,comensal,Propina) VALUES(" & folio & ",'" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & myprecio & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & txtPropina.Text & ")"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+
+            If cboComensal.Text = "" Then
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "UPDATE Rep_Comandas SET Status='PAGADO' WHERE NMESA='" & lblmesa.Text & "' AND Status<>'CANCELADA' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "'"
+                cmd3.ExecuteNonQuery()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "DELETE FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "' AND IDC=" & idc & ""
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+
+
+            Else
+                cnn3.Close() : cnn3.Open()
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "UPDATE Rep_Comandas SET Status='PAGADO' WHERE NMESA='" & lblmesa.Text & "' AND Status<>'CANCELADA' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "'"
+                cmd3.ExecuteNonQuery()
+
+                cmd3 = cnn3.CreateCommand
+                cmd3.CommandText = "DELETE FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Codigo='" & mycodigo & "' AND Nombre='" & mydescripcion & "' AND IDC=" & idc & ""
+                cmd3.ExecuteNonQuery()
+                cnn3.Close()
+            End If
+
+            kreaper = kreaper + 1
+        Loop
+
+        Dim MontoEffe As Double = 0
+        Dim SLD1 As Double = 0
+        Dim SLD As Double = 0
+        Dim Abon As Double = 0
+        Dim MySaldo As Double = 0
+        Dim MyAcuenta As Double = 0
+        Dim montoefectivo As Double = 0
+        Dim cambioventa22 As Double = 0
+
+
+
+        If txtCambio.Text > 0 Then
+            If txtPropina.Text > 0 Then
+                MontoEffe = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text) - CDec(txtCambio.Text) - CDec(txtPropina.Text)
+            Else
+                MontoEffe = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text) - CDec(txtCambio.Text)
+
+            End If
+
+        Else
+            If txtPropina.Text > 0 Then
+                MontoEffe = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text) - CDec(txtCambio.Text) - CDbl(txtPropina.Text)
+            Else
+                MontoEffe = IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text) - CDec(txtCambio.Text)
+            End If
+
+        End If
+
+
+
+        SLD1 = (CDec(IIf(txtTarjeta.Text = 0, 0, txtTarjeta.Text)) + CDec(IIf(txtEfectivo.Text = 0, 0, txtEfectivo.Text)) + CDec(IIf(txtTransferencia.Text = 0, 0, txtTransferencia.Text)))
+
+        If CDec(SLD1) >= CDec(txtTotal.Text) Then
+            SLD = 0
+        End If
+
+        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtTarjeta.Text = 0, "0", txtTarjeta.Text)) + CDec(IIf(txtTransferencia.Text = 0, "0", txtTransferencia.Text)) + CDec(IIf(txtPropina.Text = 0, "0", txtPropina.Text)) - (CDec(txtCambio.Text + CDbl(IIf(txtDescuento.Text = 0, "0", txtDescuento.Text))))
+
+        Abon = CDec(IIf(txtEfectivo.Text = 0, "0", txtEfectivo.Text)) + CDec(IIf(txtTarjeta.Text = 0, "0", txtTarjeta.Text)) + CDec(IIf(txtTransferencia.Text = 0, "0", txtTransferencia.Text)) - CDbl(IIf(txtCambio.Text = 0, "0", txtCambio.Text)) - txtPropina.Text
+
+        If Abon < 0 Then Exit Sub : Abon = 0
+
+        ' MyAcuenta = FormatNumber(IIf(MontoEffe = 0, 0, MontoEffe) + CDec(txtpagos.Text), 2)
+        MyAcuenta = FormatNumber(IIf(MontoEffe = 0, 0, MontoEffe), 2)
+        montoefectivo = txtEfectivo.Text
+        cambioventa22 = txtCambio.Text
+
+
+        If txtTarjeta.Text > 0 Then
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & txtTarjeta.Text & "," & SLD & ",'TARJETA'," & txtPropina.Text & "," & txtTarjeta.Text & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+        End If
+
+        If txtTransferencia.Text > 0 Then
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & txtTransferencia.Text & "," & SLD & ",'TARJETA'," & txtPropina.Text & "," & txtTransferencia.Text & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+        End If
+
+
+        If txtEfectivo.Text > 0 Then
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & folio
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText = "UPDATE abonoi SET Propina=0 WHERE NumFolio=" & folio & " AND FormaPago<>'EFECTIVO'"
+                    cmd3.ExecuteNonQuery()
+                    cnn3.Close()
+                End If
+            End If
+            rd2.Close()
+            cnn2.Close()
+        End If
+
+
+        If txtMonedero.Text = "MONEDERO" Then
+
+            Dim SALDOMON As Double = 0
+            Dim nuevosaldo As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Saldo FROM monedero WHERE Barras='" & txtMonedero.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    SALDOMON = rd1(0).ToString
+                    nuevosaldo = SALDOMON - CDbl(txtMontoMonedero.Text)
+                    nuevosaldo = FormatNumber(nuevosaldo, 2)
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE monedero set Saldo=" & nuevosaldo & " WHERE Barras='" & txtMonedero.Text & "'"
+                    cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO movmonedero(Monedero,Concepto,Abono,Cargo,Saldo,Fecha,Hora,Folio) VALUES('" & txtMonedero.Text & "','Venta',0," & txtMontoMonedero.Text & "," & nuevosaldo & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & MyFolio & ")"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        End If
+
+
+        If CDec(txtEfectivo.Text) > 0 Then
+
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & MontoEffe & "," & SLD & ",'EFECTIVO'," & txtPropina.Text & "," & MontoEffe & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+        End If
+
+        Dim existencia_inicial As Double = 0
+        Dim opeCantReal As Double = 0
+        Dim opediferencia As Double = 0
+        Dim VarCodigo As String = ""
+        Dim VarDesc As String = ""
+        Dim VarCanti As Double = 0
+
+
+        For koni = 0 To grdComanda.Rows.Count - 1
+
+            existencia_inicial = 0
+            opeCantReal = 0
+            opediferencia = 0
+
+            Dim MYCODIGOP As String = grdComanda.Rows(koni).Cells(1).Value.ToString
+            Dim MYCANT = grdComanda.Rows(koni).Cells(4).Value.ToString
+
+            Dim MyCostVUE As Double = 0
+            Dim MyProm As Double = 0
+            Dim MyDepto As String = ""
+            Dim MyGrupo As String = ""
+            Dim Kit As Integer = 0
+            Dim MyMCD As Double = 0
+            Dim MyMulti2 As Double = 0
+            Dim UNICO As Integer = 0
+            Dim gprint As String = ""
+
+            Dim MyMultiplo As Double = 0
+            Dim Existencia As Double = 0
+            Dim Pre_Comp As Double = 0
+
+            Dim existe As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "' "
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    MULTIPLO = rd1("Multiplo").ToString
+
+                    If rd1("Modo_Almacen").ToString = 1 Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT CodigoP,Codigo,Descrip,Cantidad FROM MiProd WHERE CodigoP='" & Strings.Left(MYCODIGOP, 6) & "'"
+                        rd2 = cmd2.ExecuteReader
+                        Do While rd2.Read
+                            If rd2.HasRows Then
+
+
+                                VarCodigo = rd2("Codigo").ToString
+                                VarDesc = rd2("Descrip").ToString
+                                VarCanti = rd2("Cantidad").ToString * grdComanda.Rows(koni).Cells(4).Value.ToString
+
+                                cnn3.Close() : cnn3.Open()
+                                cmd3 = cnn3.CreateCommand
+                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
+                                rd3 = cmd3.ExecuteReader
+                                If rd3.HasRows Then
+                                    If rd3.Read Then
+
+                                        MyCostVUE = 0
+                                        MyProm = 0
+                                        MyDepto = rd3("Departamento").ToString()
+                                        MyGrupo = rd3("Grupo").ToString()
+                                        Kit = rd3("ProvRes").ToString()
+                                        MyMCD = rd3("MCD").ToString()
+                                        MyMulti2 = rd3("Multiplo").ToString()
+                                        UNICO = rd3("Unico").ToString()
+                                        gprint = rd3("GPrint").ToString
+                                        If CStr(rd3("Departamento").ToString()) = "SERVICIOS" Then
+                                            rd3.Close() : cnn3.Close()
+                                            GoTo Door
+                                        End If
+
+                                    End If
+                                End If
+                                rd3.Close()
+
+
+                                cmd3 = cnn3.CreateCommand
+                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                rd3 = cmd3.ExecuteReader
+                                If rd3.HasRows Then
+                                    If rd3.Read Then
+                                        existe = rd3("Existencia").ToString()
+                                        MyMultiplo = rd3("MCD").ToString()
+                                        Existencia = existe / MyMultiplo
+                                        If rd3("Departamento").ToString() <> "SERVICIOS" Then
+                                            Pre_Comp = rd3("PrecioCompra").ToString()
+                                            MyCostVUE = Pre_Comp * (MYCANT / MyMCD)
+                                        End If
+                                    End If
+                                End If
+                                rd3.Close()
+
+                                opeCantReal = CDbl(VarCanti) * CDbl(MyMulti2)
+                                Dim nueva_existe As Double = 0
+                                nueva_existe = Existencia - (VarCanti / MyMCD)
+
+
+                                cnn4.Close() : cnn4.Open()
+                                cmd4 = cnn4.CreateCommand
+                                cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & Existencia & "," & nueva_existe & "," & folio & ")"
+                                cmd4.ExecuteNonQuery()
+                                cnn4.Close()
+
+                                cnn4.Close() : cnn4.Open()
+                                cmd4 = cnn4.CreateCommand
+                                cmd4.CommandText = "UPDATE Productos SET Cargado=0,CargadoInv=0,Existencia=" & nueva_existe & " WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                cmd4.ExecuteNonQuery()
+
+                                cmd4 = cnn4.CreateCommand
+                                cmd4.CommandText = "INSERT INTO Mov_Ingre(Codigo,Descripcion,Cantidad,Fecha) VALUES('" & VarCodigo & "','" & VarDesc & "'," & VarCanti & ",'" & Format(Date.Now, "yyyy/MM/dd") & "')"
+                                cmd4.ExecuteNonQuery()
+                                cnn4.Close()
+
+                            End If
+                        Loop
+                        rd2.Close()
+                        cnn2.Close()
+                        cnn3.Close()
+
+                    Else
+                        If grdComanda.Rows(koni).Cells(0).Value.ToString = "" Then GoTo Door
+
+                        Dim mycodigod As String = grdComanda.Rows(koni).Cells(1).Value.ToString
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                MyCostVUE = 0
+                                MyProm = 0
+                                MyDepto = rd2("Departamento").ToString()
+                                MyGrupo = rd2("Grupo").ToString()
+                                Kit = rd2("ProvRes").ToString()
+                                MyMCD = rd2("MCD").ToString()
+                                MyMulti2 = rd2("Multiplo").ToString()
+                                UNICO = rd2("Unico").ToString()
+                                gprint = rd2("GPrint").ToString
+                                If CStr(rd2("Departamento").ToString()) = "SERVICIOS" Then
+                                    rd2.Close() : cnn2.Close()
+                                    GoTo Door
+                                End If
+                            End If
+                        End If
+                        rd2.Close()
+
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                existe = rd2("Existencia").ToString()
+                                MyMultiplo = rd2("MCD").ToString()
+                                Existencia = existe / MyMultiplo
+                                If rd2("Departamento").ToString() <> "SERVICIOS" Then
+                                    Pre_Comp = rd2("PrecioCompra").ToString()
+                                    MyCostVUE = Pre_Comp * (MYCANT / MyMCD)
+                                End If
+                            End If
+                        End If
+                        rd2.Close()
+Door:
+
+                        opeCantReal = 0
+                        opeCantReal = CDbl(MYCANT) * CDbl(MyMulti2)
+                        Dim nueva_existe As Double = 0
+                        nueva_existe = Existencia - (MYCANT / MyMCD)
+
+
+                        cnn4.Close() : cnn4.Open()
+                        cmd4 = cnn4.CreateCommand
+                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & Existencia & "," & nueva_existe & "," & folio & ")"
+                        cmd4.ExecuteNonQuery()
+
+                        cmd4 = cnn4.CreateCommand
+                        cmd4.CommandText = "UPDATE Productos SET Existencia=" & nueva_existe & ",Cargado=0,CargadoInv=0 WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        cmd4.ExecuteNonQuery()
+                        cnn4.Close()
+
+                    End If
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Next
+
+        If CDec(txtResta.Text) > 0 Then
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "UPDATE Ventas SET Status='RESTA' WHERE Folio=" & folio & ""
+            cmd2.ExecuteNonQuery()
+            cnn2.Close()
+        End If
+
+        If CDec(txtResta.Text) = 0 Then
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & lblmesa.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM Mesa WHERE Nombre_mesa='" & lblmesa.Text & "' AND Temporal='1'"
+                cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM MesasxEmpleados WHERE Mesa='" & lblmesa.Text & "' AND Temporal='1'"
+                cmd2.ExecuteNonQuery()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "DELETE FROM Comanda1 WHERE Nombre='" & lblmesa.Text & "'"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        End If
+
+
+
+        '--------------------REINICIAR LA LETRA SI YA NO HAY DEPENDENCIAS DE ESA MESA---------------------------------------------------
+
+        Dim cadena As String = lblmesa.Text
+
+        Dim partes() As String = cadena.Split("_"c)
+        Dim parteDeseada As String = partes(0)
+
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT  * from mesa WHERE Nombre_mesa LIKE '%" & parteDeseada & "_" & "%'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+            End If
+        Else
+            cnn3.Close() : cnn3.Open()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "UPDATE mesasxempleados SET Letra='' WHERE Mesa='" & parteDeseada & "'"
+            cmd3.ExecuteNonQuery()
+            cnn3.Close()
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+#Region "TICKET"
+
+        Dim copias As Integer = 0
+        Dim TamImpre As Integer = 0
+        Dim impresora As String = ""
+        Dim imprime As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT Copias FROM Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                copias = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TamImpre'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                TamImpre = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NoPrint FROM Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                imprime = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT Impresora FROM rutasimpresion WHERE Equipo='" & ObtenerNombreEquipo() & "' AND Tipo='TICKET'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                impresora = rd1(0).ToString
+            End If
+        Else
+            MsgBox("No tienes una impresora configurada para imprimir en formato Ticket.", vbInformation + vbOKOnly, titulomensajes)
+            cnn1.Close()
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        If imprime = 1 Then
+
+            If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+
+                If TamImpre = "80" Then
+                    For naruto As Integer = 1 To copias
+                        pVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                        pVentaMapeo80.DefaultPageSettings.PaperSize = ps
+                        pVentaMapeo80.Print()
+                    Next
+                End If
+
+                If TamImpre = "58" Then
+                    For naruto As Integer = 1 To copias
+                        pVentaMapeo58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        pVentaMapeo58.Print()
+                    Next
+                End If
+            End If
+
+        Else
+            If TamImpre = "80" Then
+                For naruto As Integer = 1 To copias
+                    pVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                    pVentaMapeo80.DefaultPageSettings.PaperSize = ps
+                    pVentaMapeo80.Print()
+                Next
+            End If
+
+            If TamImpre = "58" Then
+                For naruto As Integer = 1 To copias
+                    pVentaMapeo58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    pVentaMapeo58.Print()
+                Next
+            End If
+
+        End If
+
+
+#End Region
+
+        btnLimpiar.PerformClick()
+        Me.Close()
 
     End Sub
 
@@ -4257,6 +5050,14 @@ Public Class frmNuevoPagarSencillo
         focomapeo = 3
     End Sub
 
+    Private Sub txtTarjeta_Enter(sender As Object, e As EventArgs) Handles txtTarjeta.Enter
+        focomapeo = 7
+    End Sub
+
+    Private Sub txtTransferencia_Enter(sender As Object, e As EventArgs) Handles txtTransferencia.Enter
+        focomapeo = 8
+    End Sub
+
     Private Sub txtPropina_TextChanged(sender As Object, e As EventArgs) Handles txtPropina.TextChanged
         If Not IsNumeric(txtPropina.Text) Then txtPropina.Text = "0.00" : Exit Sub
         If Strings.Left(txtPropina.Text, 1) = "," Or Strings.Left(txtPropina.Text, 1) = "." Then Exit Sub
@@ -4332,5 +5133,1126 @@ Public Class frmNuevoPagarSencillo
             txtTransferencia.Text = "0.00"
         End If
         focomapeo = 1
+    End Sub
+
+    Async Function EnviarSolicitudAPI() As Task
+
+        ' Label1.Visible = True
+        ' Valores a enviar a la API
+        Dim TipoPlan As String = "00"
+        Dim Terminal As String = numTerminal
+        Dim Importe As String = validaTarjeta
+        Dim pv As String = "DELSSCOM"
+        Dim nombre As String = cboComensal.Text
+        Dim concepto As String = "Venta"
+        Dim referencia As String = lblfolio.Text & FormatDateTime(Date.Now, DateFormat.ShortDate) & FormatDateTime(Date.Now, DateFormat.ShortTime) ' se recomienda poner el folio de la venta y la fecha, asi me dijo el wey de procepago, dice que no se debe de repetir
+
+        Dim correo As String = ""
+        Dim membresia As String = "false"
+        Dim clave As String = numClave
+
+        Dim cadenatexto As String = TipoPlan & Terminal & Importe & nombre & concepto & referencia & correo & clave
+        ' MsgBox(cadenatexto)
+        Dim CadenaEncriptada As String = CalculateSHA1(cadenatexto)
+
+        ' URL de la API
+        Dim url As String = URLsolicitud
+
+        ' Construye la solicitud HTTP
+        Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' datos a enviar con metodo post
+        Dim postData As String = $"&tipoPlan={TipoPlan}&terminal={Terminal}&importe={Importe}&nombre={nombre}&concepto={concepto}&referencia={referencia}&correo={correo}&pv={pv}&CadenaEncriptada={CadenaEncriptada}"
+        'MsgBox(postData)
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentLength = byteArray.Length
+
+        Try
+            ' Aqui se activa el pago en la terminal
+            Using dataStream As Stream = Await request.GetRequestStreamAsync()
+                Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
+            End Using
+
+
+            ' Envía la solicitud y procesa la respuesta
+
+            Dim response As WebResponse = Await request.GetResponseAsync()
+
+            Using dataStream As Stream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim responseFromServer As String = Await reader.ReadToEndAsync()
+                ' MessageBox.Show("Respuesta de la API: " & responseFromServer)
+                valorxd = responseFromServer
+                'Thread.Sleep(4000)
+                EnviarSolicitudAPI2()
+            End Using
+        Catch ex As WebException
+            MessageBox.Show("Error en la solicitud: " & ex.Message)
+        End Try
+    End Function
+    Async Function EnviarSolicitudAPI2() As Task
+        ' Valores a enviar a la API
+        Dim idsolicitud As String = valorxd
+        Dim clave As String = numClave
+
+        ' Genera el hash SHA-1 de los valores
+        Dim CadenaEncriptada As String = CalculateSHA1(idsolicitud & clave)
+
+        ' URL de la API
+
+        Dim url As String = URLresultado
+
+        ' Construye la solicitud HTTP
+        Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' Construye los datos a enviar en la solicitud
+        Dim postData As String = $"&idsolicitud={idsolicitud}&cadenaEncriptada={CadenaEncriptada}"
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentLength = byteArray.Length
+
+        ' Escribe los datos en el cuerpo de la solicitud
+
+        Using dataStream As Stream = Await request.GetRequestStreamAsync()
+            Await dataStream.WriteAsync(byteArray, 0, byteArray.Length)
+        End Using
+
+
+        ' Envía la solicitud y procesa la respuesta
+        Try
+            Dim response As WebResponse = Await request.GetResponseAsync()
+            Using dataStream As Stream = response.GetResponseStream()
+                Dim reader As New StreamReader(dataStream)
+                Dim responseFromServer As String = Await reader.ReadToEndAsync()
+
+                If responseFromServer = "901" Then
+                    EnviarSolicitudAPI2()
+                End If
+
+                Dim xmlDoc As New XmlDocument()
+                xmlDoc.LoadXml(responseFromServer)
+                Dim descripcionValue2 As String = ""
+                ' Obtener el valor de la etiqueta <descripcion>
+                Dim descripcionValue As String = xmlDoc.SelectSingleNode("/PVresultado/descripcion").InnerText
+                If descripcionValue = "0" Then
+                Else
+                    descripcionValue2 = xmlDoc.SelectSingleNode("/PVresultado/causaDenegada").InnerText
+                End If
+
+                If descripcionValue = "0" Then
+                    MsgBox("El proceso de la transacción no ah sido completado", vbCritical + vbOKOnly, "Operación Incomppleta")
+                    SiPago = 0
+                ElseIf descripcionValue = "1" Then
+                    MsgBox("La operación es rechazada por el banco o cancelada por el usuario", vbCritical + vbOKOnly, "Operación Denegada")
+                    SiPago = 0
+                ElseIf descripcionValue = "2" Then
+                    If descripcionValue2 = "Denegada, Saldo insuficiente" Then
+                        MsgBox("Tarjeta Denegada, Saldo insuficiente", vbCritical + vbOKOnly, "Operación Fallida")
+                        SiPago = 0
+                    Else
+                        SiPago = 1
+                        btnIntro.PerformClick()
+                    End If
+                ElseIf descripcionValue = "3" Then
+                    MsgBox("Ya se llevo a cabo el proceso por parte de Pprosepago", vbInformation + vbOKOnly, "Operación Liquidada")
+                    SiPago = 0
+                End If
+
+                'MessageBox.Show("Respuesta de la API: " & responseFromServer)
+            End Using
+        Catch ex As WebException
+            MessageBox.Show("Error en la solicitud: " & ex.Message)
+        End Try
+    End Function
+
+    Private Sub txtMonedero_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMonedero.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtMontoMonedero.Visible = True
+        End If
+    End Sub
+
+    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn1.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "1"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn1.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "1"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn1.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn1.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn2.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "2"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn2.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "2"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn2.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn2.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn3.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "3"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn3.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "3"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn3.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn3.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn4.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "4"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn4.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "4"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn4.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn4.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn5.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "5"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn5.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "5"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn5.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn5.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn6.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "6"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn6.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "6"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn6.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn6.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn7.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "7"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn7.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "7"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn7.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn7.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn8.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "8"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn8.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "8"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn8.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn8.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn9.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "9"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn9.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "9"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn9.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn9.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btn0.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "0"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btn0.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "0"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btn0.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btn0.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btnPunto_Click(sender As Object, e As EventArgs) Handles btnPunto.Click
+        Select Case focomapeo
+            Case Is = 1
+
+                NewPos = txtEfectivo.SelectionStart
+                txtEfectivo.Text = PosCad(txtEfectivo.Text, btnPunto.Text, txtEfectivo.SelectionStart, Len(txtEfectivo.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtEfectivo.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtEfectivo.SelectionStart = NewPos
+                txtEfectivo.Focus.Equals(True)
+
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "."
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+
+            Case Is = 3
+
+                NewPos = txtPropina.SelectionStart
+                txtPropina.Text = PosCad(txtPropina.Text, btnPunto.Text, txtPropina.SelectionStart, Len(txtPropina.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtPropina.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtPropina.SelectionStart = NewPos
+                txtPropina.Focus.Equals(True)
+
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "."
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                NewPos = txtTarjeta.SelectionStart
+                txtTarjeta.Text = PosCad(txtTarjeta.Text, btnPunto.Text, txtTarjeta.SelectionStart, Len(txtTarjeta.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTarjeta.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTarjeta.SelectionStart = NewPos
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                NewPos = txtTransferencia.SelectionStart
+                txtTransferencia.Text = PosCad(txtTransferencia.Text, btnPunto.Text, txtTransferencia.SelectionStart, Len(txtTransferencia.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtTransferencia.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtTransferencia.SelectionStart = NewPos
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn20_Click(sender As Object, e As EventArgs) Handles btn20.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "20"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "20"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "20"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "20"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "20"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "20"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn50_Click(sender As Object, e As EventArgs) Handles btn50.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "50"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "50"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "50"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "50"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "50"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn100_Click(sender As Object, e As EventArgs) Handles btn100.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "100"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "100"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "100"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "100"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "100"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn200_Click(sender As Object, e As EventArgs) Handles btn200.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "200"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "200"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "200"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "200"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "200"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn500_Click(sender As Object, e As EventArgs) Handles btn500.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "500"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "500"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "500"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "500"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "500"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
+    End Sub
+
+    Private Sub btn1000_Click(sender As Object, e As EventArgs) Handles btn1000.Click
+        Select Case focomapeo
+            Case Is = 1
+                Dim monto As Double = IIf(txtEfectivo.Text = "", "0.00", txtEfectivo.Text)
+                Dim nuevo = monto + "1000"
+                txtEfectivo.Text = FormatNumber(nuevo, 2)
+                txtEfectivo.Focus.Equals(True)
+            Case Is = 2
+                Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
+                Dim nuevo = monto + "1000"
+                txtDescuento.Text = FormatNumber(nuevo, 2)
+                txtDescuento.Focus.Equals(True)
+            Case Is = 3
+                'Dim monto As Double = IIf(txtPropina.Text = "", "0.00", txtPropina.Text)
+                'Dim nuevo = monto + "50"
+                'txtPropina.Text = FormatNumber(nuevo, 2)
+                'txtPropina.Focus.Equals(True)
+            Case Is = 29
+                Dim monto As Double = IIf(txtPorcentaje.Text = "", "0.00", txtPorcentaje.Text)
+                Dim nuevo = monto + "1000"
+                txtPorcentaje.Text = FormatNumber(nuevo, 2)
+                txtPorcentaje.Focus.Equals(True)
+            Case Is = 7
+                Dim monto As Double = IIf(txtTarjeta.Text = "", "0.00", txtTarjeta.Text)
+                Dim nuevo = monto + "1000"
+                txtTarjeta.Text = FormatNumber(nuevo, 2)
+                txtTarjeta.Focus.Equals(True)
+            Case Is = 8
+                Dim monto As Double = IIf(txtTransferencia.Text = "", "0.00", txtTransferencia.Text)
+                Dim nuevo = monto + "1000"
+                txtTransferencia.Text = FormatNumber(nuevo, 2)
+                txtTransferencia.Focus.Equals(True)
+        End Select
     End Sub
 End Class

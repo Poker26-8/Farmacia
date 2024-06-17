@@ -1299,7 +1299,7 @@ Public Class frmPolleria
                                         frmPagarPollos.lblmesa.Text = lblAtiende.Text
                                         frmPagarPollos.lblusuario2.Text = usuariologueo
                                         'frmPagarPollos.contraseñamesero = contralogueo
-                                        frmPagar.COMENSALES = 1
+                                        'frmPagarPollos.COMENSALES = 1
                                         frmPagarPollos.Show()
                                         Me.Close()
 

@@ -845,7 +845,8 @@ Public Class frmMesas
         Dim total_billar As Double = 0
 
         Dim totalc As Double = 0
-        frmPagar.Close()
+        frmNuevoPagar.Close()
+        frmNuevoPagarSencillo.Close()
 
         frmCalcula.Close()
 
@@ -1134,7 +1135,7 @@ Public Class frmMesas
                 Dim VarArea As String = ""
                 Dim VarComen As String = ""
 
-                If frmPagar.Visible = False Then
+                If frmNuevoPagar.Visible = False Then
                     If txtUsuario.Text <> "" And lblusuario.Text <> "" Then
 
                         Try
