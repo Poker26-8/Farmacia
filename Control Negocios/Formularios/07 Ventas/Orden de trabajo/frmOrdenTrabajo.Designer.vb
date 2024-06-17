@@ -725,6 +725,7 @@ Partial Class frmOrdenTrabajo
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
         '
         'frmOrdenTrabajo
         '

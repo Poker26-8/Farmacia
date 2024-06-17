@@ -142,13 +142,14 @@
                             grdcaptura.Rows.Add(rd2("Codigo").ToString, rd2("Descrip").ToString, rd2("UVenta").ToString, rd2("Cantidad").ToString, FormatNumber(mypre, 2), FormatNumber(mytotal, 2), myexist)
                         Loop
                         rd2.Close()
-                        txtPrecio.Text = FormatNumber(mytotal, 2)
-                        txttotal.Text = FormatNumber(mytotal, 2)
+                        'txtPrecio.Text = FormatNumber(mytotal, 2)
+                        'txttotal.Text = FormatNumber(mytotal, 2)
                     End If
                     cnn2.Close()
                 End If
                 rd1.Close()
                 cnn1.Close()
+                SumaTotal()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()
@@ -538,11 +539,11 @@
     End Sub
 
     Private Sub cboCodigoListo_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCodigoListo.SelectedValueChanged
-        Try
-            cboCodigoListo_KeyPress(cboCodigoListo, New KeyPressEventArgs(ChrW(Keys.Enter)))
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-        End Try
+        'Try
+        '    cboCodigoListo_KeyPress(cboCodigoListo, New KeyPressEventArgs(ChrW(Keys.Enter)))
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        'End Try
     End Sub
     Public Sub guardaProducto()
         Try
