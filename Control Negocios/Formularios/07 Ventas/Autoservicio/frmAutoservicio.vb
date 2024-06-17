@@ -377,7 +377,7 @@ Public Class frmAutoservicio
                     btnProd.TextAlign = ContentAlignment.BottomCenter
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 135
+                    btnProd.Height = 130
                     btnProd.Width = 200
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
@@ -817,7 +817,7 @@ Public Class frmAutoservicio
                     btnProd.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnProd.Font, FontStyle.Bold)
                     btnProd.Font = fuenteNegrita
-                    btnProd.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+                    btnProd.Font = New Font("Segoe UI", 11, FontStyle.Bold)
 
                     btnProd.FlatAppearance.BorderSize = 0
                     If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd3(1).ToString & ".jpg") Then
