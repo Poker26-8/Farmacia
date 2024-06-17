@@ -339,6 +339,11 @@
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
 
                         End If
                     Else
@@ -394,7 +399,7 @@
 
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Ano FROM refaccionaria WHERE Ano<>'' ORDER BY Ano"
+            cmd5.CommandText = "SELECT DISTINCT Ano FROM refaccionaria WHERE Ano<>'' ORDER BY ano desc"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then

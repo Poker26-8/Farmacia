@@ -24,9 +24,9 @@ Partial Class frmRegistros
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistros))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cboCliente = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,14 +56,13 @@ Partial Class frmRegistros
         Me.Panel1.Size = New System.Drawing.Size(1025, 48)
         Me.Panel1.TabIndex = 0
         '
-        'Panel2
+        'cboCliente
         '
-        Me.Panel2.Controls.Add(Me.grdCaptura)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 48)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1025, 402)
-        Me.Panel2.TabIndex = 1
+        Me.cboCliente.FormattingEnabled = True
+        Me.cboCliente.Location = New System.Drawing.Point(75, 6)
+        Me.cboCliente.Name = "cboCliente"
+        Me.cboCliente.Size = New System.Drawing.Size(239, 21)
+        Me.cboCliente.TabIndex = 1
         '
         'Label1
         '
@@ -75,13 +74,14 @@ Partial Class frmRegistros
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Cliente:"
         '
-        'cboCliente
+        'Panel2
         '
-        Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Location = New System.Drawing.Point(75, 6)
-        Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(239, 21)
-        Me.cboCliente.TabIndex = 1
+        Me.Panel2.Controls.Add(Me.grdCaptura)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 48)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1025, 342)
+        Me.Panel2.TabIndex = 1
         '
         'grdCaptura
         '
@@ -90,11 +90,12 @@ Partial Class frmRegistros
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13})
-        Me.grdCaptura.Location = New System.Drawing.Point(1, 17)
+        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(1012, 226)
+        Me.grdCaptura.Size = New System.Drawing.Size(1025, 342)
         Me.grdCaptura.TabIndex = 0
         '
         'Column1
@@ -206,7 +207,7 @@ Partial Class frmRegistros
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1025, 450)
+        Me.ClientSize = New System.Drawing.Size(1025, 390)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

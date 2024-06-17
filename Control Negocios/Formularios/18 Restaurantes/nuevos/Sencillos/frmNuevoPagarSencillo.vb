@@ -144,7 +144,31 @@ Public Class frmNuevoPagarSencillo
             sumacomandas = 0
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+
+            If cboComanda.Text <> "" Then
+
+                If cboComensal.Text = "" Then
+                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text & " AND Comensal='" & cboComensal.Text & "'"
+                Else
+                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text
+                End If
+
+            End If
+
+            If cboComensal.Text <> "" Then
+                If cboComanda.Text = "" Then
+                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "' AND Comanda" & cboComanda.Text
+                Else
+                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "'"
+                End If
+
+            End If
+
+            If cboComensal.Text = "" And cboComanda.Text = "" Then
+                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            End If
+
+
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then

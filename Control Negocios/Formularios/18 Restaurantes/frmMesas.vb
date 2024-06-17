@@ -1593,6 +1593,7 @@ Public Class frmMesas
                 End If
                 rd1.Close()
                 cnn1.Close()
+
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
                 cnn1.Close()

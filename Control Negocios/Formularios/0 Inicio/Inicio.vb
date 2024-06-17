@@ -4143,6 +4143,8 @@ Public Class Inicio
     Private Sub btnPagarComandas_Click(sender As Object, e As EventArgs) Handles btnPagarComandas.Click
         'frmPagarComanda.Show()
         'frmPagarComanda.BringToFront()
+        'frmPagarT.Show()
+
 
         frmNuevoPagarComandas.Show()
         frmNuevoPagarComandas.BringToFront()

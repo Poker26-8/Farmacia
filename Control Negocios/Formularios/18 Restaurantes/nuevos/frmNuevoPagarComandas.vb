@@ -91,7 +91,24 @@ Public Class frmNuevoPagarComandas
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
+
+            If cboComensal.Text <> "" Then
+                If cboComanda.Text <> "" Then
+                    cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Comensal='" & cboComensal.Text & "' AND Id=" & cboComanda.Text
+                Else
+
+                End If
+                cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Comensal='" & cboComensal.Text & "'"
+            End If
+
+            If cboComanda.Text <> "" Then
+                cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Id=" & cboComanda.Text
+            End If
+
+            If cboComanda.Text = "" And cboComensal.Text = "" Then
+                cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
+            End If
+
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then

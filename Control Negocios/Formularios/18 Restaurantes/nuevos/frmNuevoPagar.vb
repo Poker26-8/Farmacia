@@ -74,7 +74,22 @@ Public Class frmNuevoPagar
             sumacomandas = 0
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+
+            If cboComensal.Text <> "" Then
+                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "'"
+
+            End If
+
+            If cboComanda.Text <> "" Then
+                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text
+
+            End If
+
+            If cboComanda.Text = "" And cboComensal.Text = "" Then
+                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            End If
+
+
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -243,8 +258,8 @@ Public Class frmNuevoPagar
         End If
 
 
-        If myope < 0 Then
-            txtCambio.Text = FormatNumber(-myope, 2)
+        If myope <0 Then
+            txtCambio.Text= FormatNumber(-myope, 2)
             txtResta.Text = "0.00"
         Else
             txtResta.Text = FormatNumber(myope, 2)

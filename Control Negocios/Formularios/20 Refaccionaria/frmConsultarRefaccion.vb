@@ -18,7 +18,7 @@ Public Class frmConsultarRefaccion
         Dim añoActual As Integer = DateTime.Now.Year
 
         ' Agregar años desde 1900 hasta el año actual al ComboBox
-        For i As Integer = 1900 To añoActual
+        For i As Integer = añoActual To 1920 Step -1
             cboaño.Items.Add(i.ToString())
         Next
 
