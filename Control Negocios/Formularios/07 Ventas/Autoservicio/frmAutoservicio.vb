@@ -392,10 +392,10 @@ Public Class frmAutoservicio
             Loop
             rd1.Close()
 
-            If totextras <= 10 Then
+            If totextras <= 8 Then
                 pExtras.AutoScroll = False
             Else
-                pExtras.AutoScroll = True - 17
+                pExtras.AutoScroll = True
             End If
 
             cmd1 = cnn1.CreateCommand
