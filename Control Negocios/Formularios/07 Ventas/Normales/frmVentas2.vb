@@ -5610,25 +5610,43 @@ kaka:
         For wy As Integer = 0 To grdpago.Rows.Count - 1
             pagos = pagos + CDbl(grdpago.Rows(wy).Cells(3).Value.ToString)
         Next
-
         txtMontoP.Text = FormatNumber(pagos, 4)
-        cbotpago.Text = ""
-        cbobanco.Text = ""
-        txtnumref.Text = ""
-        txtmonto.Text = "0.00"
-        lblsaldo_monedero.Visible = False
-        txtsaldo_monedero.Text = ""
-        txtsaldo_monedero.Visible = False
-        dtpFecha_P.Value = Date.Now
-        cbotpago.Focus().Equals(True)
 
-        txtComentarioPago.Text = ""
-        cboCuentaRecepcion.Text = ""
-        cboCuentaRecepcion.Text = ""
-        cboBancoRecepcion.Text = ""
-        txtvalor.Text = "0.00"
-        txtequivale.Text = "0.00"
-        validaMontosTarjeta()
+        Dim totalventa As Double = 0
+        Dim resta As Double = 0
+        Dim efectivo As Double = 0
+
+
+        totalventa = txtPagar.Text
+        efectivo = txtefectivo.Text
+        resta = CDbl(totalventa) - CDbl(efectivo)
+
+
+        If CDbl(txtMontoP.Text) > CDbl(resta) Then
+            grdpago.Rows.Clear()
+            txtMontoP.Text = "0.00"
+            txtResta.Text = FormatNumber(resta, 2)
+            MsgBox("El monto a revasado el total de la venta", vbInformation + vbOKOnly, titulocentral)
+
+        Else
+            cbotpago.Text = ""
+            cbobanco.Text = ""
+            txtnumref.Text = ""
+            txtmonto.Text = "0.00"
+            lblsaldo_monedero.Visible = False
+            txtsaldo_monedero.Text = ""
+            txtsaldo_monedero.Visible = False
+            dtpFecha_P.Value = Date.Now
+            cbotpago.Focus().Equals(True)
+
+            txtComentarioPago.Text = ""
+            cboCuentaRecepcion.Text = ""
+            cboCuentaRecepcion.Text = ""
+            cboBancoRecepcion.Text = ""
+            txtvalor.Text = "0.00"
+            txtequivale.Text = "0.00"
+            validaMontosTarjeta()
+        End If
     End Sub
     Public Sub validaMontosTarjeta()
         Try

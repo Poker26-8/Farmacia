@@ -920,22 +920,24 @@ kakaxd:
         SubtotalVenta = FormatNumber(SubtotalVenta, 2)
 
 #Region "CODIGO AUTOFACTURAR"
+        Dim CodCadena As String = ""
+        Dim cadenaa As String = ""
         Dim letras As String
         Dim letters As String = ""
         Dim pc As String = lblfolio.Text
-        Dim opee As Double = 0
+        Dim ope1 As Double = 0
         Dim lic As String = ""
         Dim numeros As String
         Dim car As String
 
-        opee = Math.Cos(CDec(pc))
-        If opee > 0 Then
-            pc = Strings.Left(Replace(CStr(opee), ".", "9"), 10)
+        ope1 = Math.Cos(CDbl(lblfolio.Text))
+        If ope1 > 0 Then
+            cadenaa = Strings.Left(Replace(CStr(ope1), ".", "9"), 10)
         Else
-            pc = Strings.Left(Replace(CStr(Math.Abs(opee)), ".", "8"), 10)
+            cadenaa = Strings.Left(Replace(CStr(Math.Abs(ope1)), ".", "8"), 10)
         End If
         For i = 1 To 10
-            car = Mid(lblfolio.Text, i, 1)
+            car = Mid(cadenaa, i, 1)
             Select Case car
                 Case Is = 0
                     letters = letters & "Y"
@@ -944,31 +946,31 @@ kakaxd:
                 Case Is = 2
                     letters = letters & "W"
                 Case Is = 3
-                    letters = letters & "X"
+                    letters = letters & "H"
                 Case Is = 4
-                    letters = letters & "T"
+                    letters = letters & "S"
                 Case Is = 5
                     letters = letters & "B"
                 Case Is = 6
-                    letters = letters & "A"
-                Case Is = 7
-                    letters = letters & "D"
-                Case Is = 8
                     letters = letters & "C"
-                Case Is = 9
+                Case Is = 7
                     letters = letters & "P"
+                Case Is = 8
+                    letters = letters & "Q"
+                Case Is = 9
+                    letters = letters & "A"
                 Case Else
                     letters = letters & car
             End Select
-
         Next
-        For i = 1 To 10 Step 2
-            numeros = Mid(pc, i, 2)
-            letras = Mid(letters, i, 2)
+        For w = 1 To 10 Step 2
+            numeros = Mid(lblfolio.Text, w, 4)
+            letras = Mid(letters, w, 4)
             lic = lic & numeros & letras & "-"
         Next
-        lic = Strings.Left(lic, lic.Length - 1)
-        cadenafact = Trim(lic)
+        lic = Strings.Left(lic, Len(lic) - 1)
+        CodCadena = lic
+        cadenafact = Trim(CodCadena)
 #End Region
 
         Dim totalventa22 As Double = 0
@@ -986,7 +988,7 @@ kakaxd:
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato,IP,Fecha) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & lic & "','TICKET','" & dameIP2() & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+        cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato,IP,Fecha) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & cadenafact & "','TICKET','" & dameIP2() & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()
 

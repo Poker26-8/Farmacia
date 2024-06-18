@@ -5624,24 +5624,57 @@ kaka:
         Next
 
         txtMontoP.Text = FormatNumber(pagos, 4)
-        cbotpago.Text = ""
-        cbobanco.Text = ""
-        txtnumref.Text = ""
-        txtmonto.Text = "0.00"
-        lblsaldo_monedero.Visible = False
-        txtsaldo_monedero.Text = ""
-        txtsaldo_monedero.Visible = False
-        dtpFecha_P.Value = Date.Now
-        cbotpago.Focus().Equals(True)
 
-        txtComentarioPago.Text = ""
-        cboCuentaRecepcion.Text = ""
-        cboCuentaRecepcion.Text = ""
-        cboBancoRecepcion.Text = ""
-        txtvalor.Text = "0.00"
-        txtequivale.Text = "0.00"
+        Dim totalventa As Double = 0
+        Dim resta As Double = 0
+        Dim efectivo As Double = 0
+
+
+        totalventa = txtPagar.Text
+        efectivo = txtefectivo.Text
+        resta = CDbl(totalventa) - CDbl(efectivo)
+
+        If CDbl(txtMontoP.Text) > CDbl(resta) Then
+            grdpago.Rows.Clear()
+            txtMontoP.Text = "0.00"
+            txtResta.Text = FormatNumber(resta, 2)
+            MsgBox("El monto a revasado el total de la venta", vbInformation + vbOKOnly, titulocentral)
+
+        Else
+            cbotpago.Text = ""
+            cbobanco.Text = ""
+            txtnumref.Text = ""
+            txtmonto.Text = "0.00"
+            lblsaldo_monedero.Visible = False
+            txtsaldo_monedero.Text = ""
+            txtsaldo_monedero.Visible = False
+            dtpFecha_P.Value = Date.Now
+            cbotpago.Focus().Equals(True)
+
+            txtComentarioPago.Text = ""
+            cboCuentaRecepcion.Text = ""
+            cboCuentaRecepcion.Text = ""
+            cboBancoRecepcion.Text = ""
+            txtvalor.Text = "0.00"
+            txtequivale.Text = "0.00"
+            validaMontosTarjeta()
+        End If
     End Sub
-
+    Public Sub validaMontosTarjeta()
+        Try
+            Dim cuantopaga As Double = 0
+            For xxx As Integer = 0 To grdpago.Rows.Count - 1
+                Dim primer As String = grdpago.Rows(xxx).Cells(0).Value.ToString
+                If primer.ToUpper().Contains("TARJETA") Then
+                    cuantopaga = cuantopaga + CDec(grdpago.Rows(xxx).Cells(3).Value)
+                End If
+            Next
+            validaTarjeta = cuantopaga
+            'MsgBox("La suma de pagos con tarjeta es: " & cuantopaga)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
     Private Sub btncomentario_Click(sender As Object, e As EventArgs) Handles btncomentario.Click
         If grdcaptura.Rows.Count = 0 Then
             MsgBox("Agrega productos a la venta para asignar un comentario.", vbInformation + vbOK, "Delsscom Control Negocios Pro")
