@@ -122,11 +122,12 @@ Public Class frmAutoservicio
         End Try
 
 
+        'PictureBox1.Location = New Point(500, 200)
 
-        If File.Exists(My.Application.Info.DirectoryPath & "\Fondo.jpg") Then
-            pProductos.BackgroundImage = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\Fondo.jpg")
-            pProductos.BackgroundImageLayout = ImageLayout.Stretch
-        End If
+        'If File.Exists(My.Application.Info.DirectoryPath & "\Fondo.jpg") Then
+        '    pProductos.BackgroundImage = System.Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\Fondo.jpg")
+        '    pProductos.BackgroundImageLayout = ImageLayout.Stretch
+        'End If
 
         tFecha.Start()
         tFolio.Start()
@@ -170,6 +171,7 @@ Public Class frmAutoservicio
         pGrupos.Controls.Clear()
         pProductos.Controls.Clear()
         Departamentos()
+        pProductos.Controls.Add(PictureBox1)
     End Sub
 
     Private Sub Departamentos()
@@ -245,6 +247,7 @@ Public Class frmAutoservicio
         CantidadProd = 0
         pExtras.Controls.Clear()
         Grupos(btnDepartamento.Text)
+        pProductos.Controls.Add(PictureBox1)
     End Sub
 
     Private Sub Grupos(ByVal depto As String)
@@ -375,6 +378,7 @@ Public Class frmAutoservicio
         pExtras.Controls.Clear()
         CantidadProd = 0
         Productos(btnGrupos.Tag, btnGrupos.Text)
+        pProductos.Controls.Add(PictureBox1)
     End Sub
 
     Public Sub Extras(ByVal producto As String)
@@ -411,7 +415,7 @@ Public Class frmAutoservicio
                     btnExtra.Tag = rd1(1).ToString
                     btnExtra.Name = "btnExtra(" & extra & ")"
                     btnExtra.Width = 200
-                    btnExtra.Height = 138
+                    btnExtra.Height = 145
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
                         btnExtra.Left = (btnExtra.Width * 1)
@@ -537,11 +541,17 @@ Public Class frmAutoservicio
                         btnExtra.Top = (prods - 1) * (btnExtra.Height + 0.5)
                     End If
 
-                    btnExtra.BackColor = pExtras.BackColor
+                    btnExtra.BackColor = Color.White
                     btnExtra.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnExtra.Font, FontStyle.Bold)
                     btnExtra.Font = fuenteNegrita
                     btnExtra.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+                    If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd1(1).ToString & ".jpg") Then
+                        btnExtra.BackgroundImage = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & base & "\" & rd1(1).ToString & ".jpg")
+                        btnExtra.BackgroundImageLayout = ImageLayout.Zoom
+
+                        btnExtra.TextAlign = ContentAlignment.BottomCenter
+                    End If
                     AddHandler btnExtra.Click, AddressOf btnExtra_Click
                     pExtras.Controls.Add(btnExtra)
                     prods += 1
@@ -590,7 +600,7 @@ Public Class frmAutoservicio
                     btnProd.TextAlign = ContentAlignment.BottomCenter
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 138
+                    btnProd.Height = 130
                     btnProd.Width = 200
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
@@ -1332,7 +1342,7 @@ keseso:
         End If
     End Sub
 
-    Private Sub lblTotal_TextChanged(sender As Object, e As System.EventArgs) Handles lblTotal.TextChanged
+    Private Sub lblTotal_TextChanged(sender As Object, e As System.EventArgs)
         If lblTotal.Text = "" Then Exit Sub
         Dim TotalImporte As Double = lblTotal.Text
         Dim CantidadLetra As String = ""
@@ -1600,6 +1610,8 @@ keseso:
                     Else
                         SiPago = 1
                         GuardarVenta()
+                        Button1.Enabled = True
+                        btnlimpiar.Enabled = True
                     End If
                 ElseIf descripcionValue = "3" Then
                     MsgBox("Ya se llevo a cabo el proceso por parte de Pprosepago", vbInformation + vbOKOnly, "Operación Liquidada")
@@ -2413,6 +2425,8 @@ Door:
         Call BorraLotes()
 
         btnlimpiar.PerformClick()
+        limpiaTodo()
+        My.Application.DoEvents()
 
         If modo_caja = "CAJA" Then
         Else
@@ -2900,7 +2914,7 @@ Door:
 
     End Sub
 
-    Private Sub btnlimpiar_Click_2(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+    Private Sub btnlimpiar_Click(sender As Object, e As EventArgs) Handles btnlimpiar.Click
         tFolio.Stop()
         pExtras.Controls.Clear()
         pProductos.Controls.Clear()
@@ -2955,40 +2969,11 @@ Door:
         SiPago = 0
         validaTarjeta = 0
         My.Application.DoEvents()
+        pProductos.Controls.Add(PictureBox1)
     End Sub
-
-    Private Sub grdcaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellContentClick
-
-        If e.ColumnIndex = 4 AndAlso e.RowIndex >= 0 Then
-            Dim row As DataGridViewRow = grdcaptura.Rows(e.RowIndex)
-            grdcaptura.Rows.Remove(row)
-        End If
-        My.Application.DoEvents()
-        Dim TotalVenta As Double = 0
-        For T As Integer = 0 To grdcaptura.Rows.Count - 1
-            TotalVenta = TotalVenta + CDbl(grdcaptura.Rows(T).Cells(3).Value.ToString)
-        Next
-        lblTotal.Text = FormatNumber(TotalVenta, 2)
-    End Sub
-
-    Private Sub lbltipoventa_Click(sender As Object, e As EventArgs) Handles lbltipoventa.Click
-        Me.Close()
-    End Sub
-
-    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
-        If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
-            Exit Sub
-        End If
-        Button1.Enabled = False
-        btnlimpiar.Enabled = False
-        Resta = 0
-        MontoTarjeta = lblTotal.Text
-        validaTarjeta = lblTotal.Text
-        GuardarVenta()
-    End Sub
-
-    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs)
+    Public Sub limpiaTodo()
         tFolio.Stop()
+        pExtras.Controls.Clear()
         pProductos.Controls.Clear()
         pGrupos.Controls.Clear()
         pDeptos.Controls.Clear()
@@ -3041,7 +3026,55 @@ Door:
         SiPago = 0
         validaTarjeta = 0
         My.Application.DoEvents()
+        pProductos.Controls.Add(PictureBox1)
     End Sub
+
+    Private Sub grdcaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellContentClick
+
+        If e.ColumnIndex = 4 AndAlso e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = grdcaptura.Rows(e.RowIndex)
+            grdcaptura.Rows.Remove(row)
+        End If
+        My.Application.DoEvents()
+        Dim TotalVenta As Double = 0
+        For T As Integer = 0 To grdcaptura.Rows.Count - 1
+            TotalVenta = TotalVenta + CDbl(grdcaptura.Rows(T).Cells(3).Value.ToString)
+        Next
+        lblTotal.Text = FormatNumber(TotalVenta, 2)
+    End Sub
+
+    Private Sub lbltipoventa_Click(sender As Object, e As EventArgs) Handles lbltipoventa.Click
+        Me.Close()
+    End Sub
+
+    Private Sub pDeptos_Paint(sender As Object, e As PaintEventArgs) Handles pDeptos.Paint
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
+            Exit Sub
+        End If
+        Button1.Enabled = False
+        btnlimpiar.Enabled = False
+        Resta = 0
+        MontoTarjeta = lblTotal.Text
+        validaTarjeta = lblTotal.Text
+        GuardarVenta()
+        My.Application.DoEvents()
+        'limpiaTodo()
+        'My.Application.DoEvents()
+    End Sub
+
+
 
     'Private Sub Button2_Click(sender As Object, e As EventArgs)
     '    frmVentasTouch2.Show()
@@ -3050,61 +3083,5 @@ Door:
 
 
 
-    Private Sub btnlimpiar_Click(sender As System.Object, e As System.EventArgs)
-        tFolio.Stop()
-        pProductos.Controls.Clear()
-        pGrupos.Controls.Clear()
-        pDeptos.Controls.Clear()
 
-        CodigoProducto = ""
-        cantidad = 0
-        CantidadProd = 0
-        Monedero = ""
-        MontoEfectivo = 0
-        MontoTarjeta = 0
-        MontoMonedero = 0
-        Cambio = 0
-        Resta = 0
-        Cliente = ""
-        Id_Cliente = 0
-        Direccion = ""
-        TotDeptos = 0
-        TotGrupos = 0
-        TotProductos = 0
-        MYFOLIO = 0
-        lbltipoventa.Text = "MOSTRADOR"
-        grdcaptura.Rows.Clear()
-        'grdProducto.Rows.Clear()
-
-        frmVentasTouchPago.txtefectivo.Text = "0.00"
-        frmVentasTouchPago.txttarjeta.Text = "0.00"
-        frmVentasTouchPago.txtcambio.Text = "0.00"
-        frmVentasTouchPago.resta = 0
-        frmVentasTouchPago.txtresta.Text = "0.00"
-        frmVentasTouchPago.txtMonedero.Text = ""
-        frmVentasTouchPago.txtmone.Text = "0.00"
-        frmVentasTouchPago.cboNombre.Text = ""
-        frmVentasTouchPago.txtDireccion.Text = ""
-        frmVentasTouchPago.Label20.Visible = False
-        frmVentasTouchPago.txtcredito.Visible = False
-        frmVentasTouchPago.Label17.Visible = False
-        frmVentasTouchPago.txtafavor.Visible = False
-        frmVentasTouchPago.Label18.Visible = False
-        frmVentasTouchPago.txtadeuda.Visible = False
-        frmVentasTouchPago.txtcredito.Text = "0.00"
-        frmVentasTouchPago.txtafavor.Text = "0.00"
-        frmVentasTouchPago.txtadeuda.Text = "0.00"
-        frmVentasTouchPago.txtsaldo.Text = "0.00"
-        Refresh()
-        Departamentos()
-
-        globaltotal = 0
-        CampoDsct = 0
-        lblTotal.Text = "0.00"
-        lblcantidadletra.Text = ""
-
-        SiPago = 0
-        validaTarjeta = 0
-        My.Application.DoEvents()
-    End Sub
 End Class

@@ -23,13 +23,13 @@ Partial Class frmAutoservicio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAutoservicio))
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pProductos = New System.Windows.Forms.Panel()
         Me.panDerecha = New System.Windows.Forms.Panel()
         Me.pGrupos = New System.Windows.Forms.Panel()
@@ -73,13 +73,15 @@ Partial Class frmAutoservicio
         Me.pExtras = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.lblTotal = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
         Me.pProductos.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -87,6 +89,7 @@ Partial Class frmAutoservicio
         Me.panCantidad.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pProductos
@@ -96,10 +99,11 @@ Partial Class frmAutoservicio
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pProductos.AutoScroll = True
         Me.pProductos.BackColor = System.Drawing.Color.White
+        Me.pProductos.Controls.Add(Me.PictureBox1)
         Me.pProductos.Controls.Add(Me.panDerecha)
         Me.pProductos.Location = New System.Drawing.Point(0, 198)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(1258, 67)
+        Me.pProductos.Size = New System.Drawing.Size(1258, 106)
         Me.pProductos.TabIndex = 19
         '
         'panDerecha
@@ -107,7 +111,7 @@ Partial Class frmAutoservicio
         Me.panDerecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.panDerecha.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.panDerecha.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.panDerecha.Location = New System.Drawing.Point(1009, 126)
+        Me.panDerecha.Location = New System.Drawing.Point(1009, 165)
         Me.panDerecha.Name = "panDerecha"
         Me.panDerecha.Size = New System.Drawing.Size(249, 76)
         Me.panDerecha.TabIndex = 14
@@ -115,7 +119,7 @@ Partial Class frmAutoservicio
         'pGrupos
         '
         Me.pGrupos.AutoScroll = True
-        Me.pGrupos.BackColor = System.Drawing.Color.LemonChiffon
+        Me.pGrupos.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.pGrupos.Dock = System.Windows.Forms.DockStyle.Top
         Me.pGrupos.Location = New System.Drawing.Point(0, 96)
         Me.pGrupos.Name = "pGrupos"
@@ -125,7 +129,7 @@ Partial Class frmAutoservicio
         'pDeptos
         '
         Me.pDeptos.AutoScroll = True
-        Me.pDeptos.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(106, Byte), Integer))
+        Me.pDeptos.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.pDeptos.Dock = System.Windows.Forms.DockStyle.Top
         Me.pDeptos.Location = New System.Drawing.Point(0, 0)
         Me.pDeptos.Name = "pDeptos"
@@ -139,7 +143,7 @@ Partial Class frmAutoservicio
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 972)
+        Me.Panel2.Location = New System.Drawing.Point(0, 1011)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1258, 89)
         Me.Panel2.TabIndex = 15
@@ -175,8 +179,9 @@ Partial Class frmAutoservicio
         '
         Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Location = New System.Drawing.Point(1015, 7)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(149, 76)
@@ -336,7 +341,7 @@ Partial Class frmAutoservicio
         Me.lblcantidadletra.BackColor = System.Drawing.Color.White
         Me.lblcantidadletra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblcantidadletra.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblcantidadletra.Location = New System.Drawing.Point(0, 621)
+        Me.lblcantidadletra.Location = New System.Drawing.Point(0, 680)
         Me.lblcantidadletra.Name = "lblcantidadletra"
         Me.lblcantidadletra.Size = New System.Drawing.Size(1257, 23)
         Me.lblcantidadletra.TabIndex = 3
@@ -551,7 +556,7 @@ Partial Class frmAutoservicio
         Me.panCantidad.Controls.Add(Me.btn2)
         Me.panCantidad.Controls.Add(Me.btn1)
         Me.panCantidad.Controls.Add(Me.txtcantidad)
-        Me.panCantidad.Location = New System.Drawing.Point(535, 378)
+        Me.panCantidad.Location = New System.Drawing.Point(535, 398)
         Me.panCantidad.Name = "panCantidad"
         Me.panCantidad.Size = New System.Drawing.Size(189, 305)
         Me.panCantidad.TabIndex = 20
@@ -562,8 +567,8 @@ Partial Class frmAutoservicio
         Me.pExtras.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pExtras.AutoScroll = True
-        Me.pExtras.BackColor = System.Drawing.Color.LemonChiffon
-        Me.pExtras.Location = New System.Drawing.Point(0, 263)
+        Me.pExtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pExtras.Location = New System.Drawing.Point(0, 302)
         Me.pExtras.Name = "pExtras"
         Me.pExtras.Size = New System.Drawing.Size(1254, 295)
         Me.pExtras.TabIndex = 21
@@ -575,10 +580,11 @@ Partial Class frmAutoservicio
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1254, 19)
+        Me.Label1.Size = New System.Drawing.Size(1254, 41)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "VENTA TOTAL"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label1.Visible = False
         '
         'Panel8
         '
@@ -586,24 +592,10 @@ Partial Class frmAutoservicio
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel8.BackColor = System.Drawing.Color.White
         Me.Panel8.Controls.Add(Me.Label1)
-        Me.Panel8.Location = New System.Drawing.Point(0, 564)
+        Me.Panel8.Location = New System.Drawing.Point(0, 603)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(1254, 18)
         Me.Panel8.TabIndex = 2
-        '
-        'lblTotal
-        '
-        Me.lblTotal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotal.BackColor = System.Drawing.Color.White
-        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI Semilight", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTotal.Location = New System.Drawing.Point(0, 585)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(1257, 36)
-        Me.lblTotal.TabIndex = 4
-        Me.lblTotal.Text = "0.00"
-        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'grdcaptura
         '
@@ -617,28 +609,28 @@ Partial Class frmAutoservicio
         Me.grdcaptura.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle30.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdcaptura.DefaultCellStyle = DataGridViewCellStyle30
         Me.grdcaptura.GridColor = System.Drawing.Color.WhiteSmoke
-        Me.grdcaptura.Location = New System.Drawing.Point(0, 647)
+        Me.grdcaptura.Location = New System.Drawing.Point(0, 709)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 40
-        Me.grdcaptura.Size = New System.Drawing.Size(1261, 322)
+        Me.grdcaptura.Size = New System.Drawing.Size(1261, 299)
         Me.grdcaptura.TabIndex = 22
         '
         'Column1
         '
         Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle25
         Me.Column1.HeaderText = "Item"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -647,9 +639,9 @@ Partial Class frmAutoservicio
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle26
         Me.Column2.HeaderText = "Cant."
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
@@ -657,18 +649,18 @@ Partial Class frmAutoservicio
         'Column3
         '
         Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle27
         Me.Column3.HeaderText = "Precio"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
         'Column4
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle28
         Me.Column4.FillWeight = 70.0!
         Me.Column4.HeaderText = "Total"
         Me.Column4.Name = "Column4"
@@ -678,22 +670,61 @@ Partial Class frmAutoservicio
         'Column5
         '
         Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Red
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle29.ForeColor = System.Drawing.Color.Red
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle29
         Me.Column5.HeaderText = "Acciones"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(485, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox1.Size = New System.Drawing.Size(600, 339)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1, 598)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(1260, 36)
+        Me.Label2.TabIndex = 23
+        Me.Label2.Text = "VENTA TOTAL"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblTotal
+        '
+        Me.lblTotal.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(-1, 634)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(1260, 46)
+        Me.lblTotal.TabIndex = 24
+        Me.lblTotal.Text = "0.00"
+        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmAutoservicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1258, 1061)
-        Me.Controls.Add(Me.grdcaptura)
+        Me.ClientSize = New System.Drawing.Size(1258, 1100)
         Me.Controls.Add(Me.lblTotal)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.grdcaptura)
         Me.Controls.Add(Me.pExtras)
         Me.Controls.Add(Me.lblcantidadletra)
         Me.Controls.Add(Me.panCantidad)
@@ -715,6 +746,7 @@ Partial Class frmAutoservicio
         Me.panCantidad.PerformLayout()
         Me.Panel8.ResumeLayout(False)
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -756,7 +788,6 @@ Partial Class frmAutoservicio
     Friend WithEvents btnsalir As Button
     Friend WithEvents panCantidad As Panel
     Friend WithEvents pExtras As Panel
-    Friend WithEvents lblTotal As Label
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
@@ -768,4 +799,7 @@ Partial Class frmAutoservicio
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblTotal As Label
 End Class
