@@ -3012,6 +3012,7 @@
     <None Include="Resources\confirmar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Formularios\18 Restaurantes\nuevos\LevantarComandas\" />
     <Folder Include="Resorces\" />
   </ItemGroup>
   <ItemGroup>

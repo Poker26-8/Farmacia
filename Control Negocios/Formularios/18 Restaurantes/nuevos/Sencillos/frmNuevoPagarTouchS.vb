@@ -123,6 +123,7 @@
         txtResta.Text = FormatNumber(txtResta.Text, 2)
         frmVTouchR.lblImporteEfectivo.Text = txtEfectivo.Text
         frmVTouchR.lblCambio.Text = txtCambio.Text
+        frmVTouchR.lblPagos.Text = CDbl(txtTarjeta.Text) + CDbl(txtTransferencia.Text)
         myope = 0
     End Sub
 
@@ -147,6 +148,7 @@
         txtResta.Text = FormatNumber(txtResta.Text, 2)
         frmVTouchR.lblImporteEfectivo.Text = txtEfectivo.Text
         frmVTouchR.lblCambio.Text = txtCambio.Text
+        frmVTouchR.lblPagos.Text = CDbl(tarjeta) + CDbl(transferencia)
         myope = 0
     End Sub
 

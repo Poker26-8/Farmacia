@@ -26,14 +26,22 @@ Partial Class frmPagarT
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnPropina = New System.Windows.Forms.Button()
         Me.btnAmerican = New System.Windows.Forms.Button()
         Me.btnMaster = New System.Windows.Forms.Button()
         Me.btnVisa = New System.Windows.Forms.Button()
         Me.btnEfectivo = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.grdPagos = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.lbltotales = New System.Windows.Forms.Label()
+        Me.lblpropina = New System.Windows.Forms.Label()
+        Me.lblimporte = New System.Windows.Forms.Label()
+        Me.lblResta = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -53,28 +61,20 @@ Partial Class frmPagarT
         Me.lbltotalpropina = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnpagar = New System.Windows.Forms.Button()
-        Me.lblimporte = New System.Windows.Forms.Label()
-        Me.lblpropina = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.txtMontos = New System.Windows.Forms.RichTextBox()
-        Me.btn7 = New System.Windows.Forms.Button()
-        Me.btn8 = New System.Windows.Forms.Button()
-        Me.btn9 = New System.Windows.Forms.Button()
-        Me.btn6 = New System.Windows.Forms.Button()
-        Me.btn5 = New System.Windows.Forms.Button()
-        Me.btn4 = New System.Windows.Forms.Button()
-        Me.btn3 = New System.Windows.Forms.Button()
-        Me.btn2 = New System.Windows.Forms.Button()
-        Me.btn1 = New System.Windows.Forms.Button()
         Me.btnBorrar = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.btnpunto = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnPropina = New System.Windows.Forms.Button()
+        Me.btn3 = New System.Windows.Forms.Button()
+        Me.btn2 = New System.Windows.Forms.Button()
+        Me.btn1 = New System.Windows.Forms.Button()
+        Me.btn6 = New System.Windows.Forms.Button()
+        Me.btn5 = New System.Windows.Forms.Button()
+        Me.btn4 = New System.Windows.Forms.Button()
+        Me.btn9 = New System.Windows.Forms.Button()
+        Me.btn8 = New System.Windows.Forms.Button()
+        Me.btn7 = New System.Windows.Forms.Button()
+        Me.txtMontos = New System.Windows.Forms.RichTextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +98,20 @@ Partial Class frmPagarT
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(142, 396)
         Me.Panel1.TabIndex = 0
+        '
+        'btnPropina
+        '
+        Me.btnPropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnPropina.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPropina.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPropina.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPropina.Location = New System.Drawing.Point(0, 314)
+        Me.btnPropina.Name = "btnPropina"
+        Me.btnPropina.Size = New System.Drawing.Size(142, 82)
+        Me.btnPropina.TabIndex = 9
+        Me.btnPropina.Text = "PROPINA"
+        Me.btnPropina.UseVisualStyleBackColor = False
         '
         'btnAmerican
         '
@@ -202,13 +216,37 @@ Partial Class frmPagarT
         Me.grdPagos.Size = New System.Drawing.Size(570, 123)
         Me.grdPagos.TabIndex = 15
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Descripción"
+        Me.Column1.Name = "Column1"
+        Me.Column1.Width = 195
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Importe"
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 124
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Propina"
+        Me.Column3.Name = "Column3"
+        Me.Column3.Width = 124
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Total"
+        Me.Column4.Name = "Column4"
+        Me.Column4.Width = 124
+        '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Panel6.Controls.Add(Me.Label17)
+        Me.Panel6.Controls.Add(Me.lbltotales)
         Me.Panel6.Controls.Add(Me.lblpropina)
         Me.Panel6.Controls.Add(Me.lblimporte)
-        Me.Panel6.Controls.Add(Me.Label12)
+        Me.Panel6.Controls.Add(Me.lblResta)
         Me.Panel6.Controls.Add(Me.Label11)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel6.Location = New System.Drawing.Point(0, 356)
@@ -216,17 +254,56 @@ Partial Class frmPagarT
         Me.Panel6.Size = New System.Drawing.Size(570, 40)
         Me.Panel6.TabIndex = 14
         '
-        'Label12
+        'lbltotales
         '
-        Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(87, 3)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(104, 29)
-        Me.Label12.TabIndex = 11
-        Me.Label12.Text = "0.00"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbltotales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.lbltotales.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltotales.ForeColor = System.Drawing.Color.Black
+        Me.lbltotales.Location = New System.Drawing.Point(454, 3)
+        Me.lbltotales.Name = "lbltotales"
+        Me.lbltotales.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lbltotales.Size = New System.Drawing.Size(99, 29)
+        Me.lbltotales.TabIndex = 17
+        Me.lbltotales.Text = "0.00"
+        Me.lbltotales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblpropina
+        '
+        Me.lblpropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.lblpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpropina.ForeColor = System.Drawing.Color.Black
+        Me.lblpropina.Location = New System.Drawing.Point(328, 3)
+        Me.lblpropina.Name = "lblpropina"
+        Me.lblpropina.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblpropina.Size = New System.Drawing.Size(104, 29)
+        Me.lblpropina.TabIndex = 15
+        Me.lblpropina.Text = "0.00"
+        Me.lblpropina.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblimporte
+        '
+        Me.lblimporte.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.lblimporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblimporte.ForeColor = System.Drawing.Color.Black
+        Me.lblimporte.Location = New System.Drawing.Point(213, 3)
+        Me.lblimporte.Name = "lblimporte"
+        Me.lblimporte.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblimporte.Size = New System.Drawing.Size(93, 29)
+        Me.lblimporte.TabIndex = 13
+        Me.lblimporte.Text = "0.00"
+        Me.lblimporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblResta
+        '
+        Me.lblResta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.lblResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResta.ForeColor = System.Drawing.Color.Black
+        Me.lblResta.Location = New System.Drawing.Point(87, 3)
+        Me.lblResta.Name = "lblResta"
+        Me.lblResta.Size = New System.Drawing.Size(104, 29)
+        Me.lblResta.TabIndex = 11
+        Me.lblResta.Text = "0.00"
+        Me.lblResta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label11
         '
@@ -448,45 +525,6 @@ Partial Class frmPagarT
         Me.btnpagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnpagar.UseVisualStyleBackColor = False
         '
-        'lblimporte
-        '
-        Me.lblimporte.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.lblimporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblimporte.ForeColor = System.Drawing.Color.Black
-        Me.lblimporte.Location = New System.Drawing.Point(213, 3)
-        Me.lblimporte.Name = "lblimporte"
-        Me.lblimporte.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblimporte.Size = New System.Drawing.Size(93, 29)
-        Me.lblimporte.TabIndex = 13
-        Me.lblimporte.Text = "0.00"
-        Me.lblimporte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblpropina
-        '
-        Me.lblpropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.lblpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblpropina.ForeColor = System.Drawing.Color.Black
-        Me.lblpropina.Location = New System.Drawing.Point(328, 3)
-        Me.lblpropina.Name = "lblpropina"
-        Me.lblpropina.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblpropina.Size = New System.Drawing.Size(104, 29)
-        Me.lblpropina.TabIndex = 15
-        Me.lblpropina.Text = "0.00"
-        Me.lblpropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label17
-        '
-        Me.Label17.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.Black
-        Me.Label17.Location = New System.Drawing.Point(454, 3)
-        Me.Label17.Name = "Label17"
-        Me.Label17.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label17.Size = New System.Drawing.Size(99, 29)
-        Me.Label17.TabIndex = 17
-        Me.Label17.Text = "0.00"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -508,133 +546,6 @@ Partial Class frmPagarT
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(286, 396)
         Me.Panel7.TabIndex = 2
-        '
-        'txtMontos
-        '
-        Me.txtMontos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.txtMontos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMontos.Location = New System.Drawing.Point(3, 12)
-        Me.txtMontos.Name = "txtMontos"
-        Me.txtMontos.Size = New System.Drawing.Size(277, 51)
-        Me.txtMontos.TabIndex = 0
-        Me.txtMontos.Text = ""
-        '
-        'btn7
-        '
-        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn7.FlatAppearance.BorderSize = 0
-        Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn7.Location = New System.Drawing.Point(4, 69)
-        Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(88, 69)
-        Me.btn7.TabIndex = 67
-        Me.btn7.Text = "7"
-        Me.btn7.UseVisualStyleBackColor = False
-        '
-        'btn8
-        '
-        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn8.FlatAppearance.BorderSize = 0
-        Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn8.Location = New System.Drawing.Point(98, 69)
-        Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(88, 69)
-        Me.btn8.TabIndex = 68
-        Me.btn8.Text = "8"
-        Me.btn8.UseVisualStyleBackColor = False
-        '
-        'btn9
-        '
-        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn9.FlatAppearance.BorderSize = 0
-        Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn9.Location = New System.Drawing.Point(192, 69)
-        Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(88, 69)
-        Me.btn9.TabIndex = 69
-        Me.btn9.Text = "9"
-        Me.btn9.UseVisualStyleBackColor = False
-        '
-        'btn6
-        '
-        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn6.FlatAppearance.BorderSize = 0
-        Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn6.Location = New System.Drawing.Point(192, 144)
-        Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(88, 69)
-        Me.btn6.TabIndex = 72
-        Me.btn6.Text = "6"
-        Me.btn6.UseVisualStyleBackColor = False
-        '
-        'btn5
-        '
-        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn5.FlatAppearance.BorderSize = 0
-        Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn5.Location = New System.Drawing.Point(98, 144)
-        Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(88, 69)
-        Me.btn5.TabIndex = 71
-        Me.btn5.Text = "5"
-        Me.btn5.UseVisualStyleBackColor = False
-        '
-        'btn4
-        '
-        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn4.FlatAppearance.BorderSize = 0
-        Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn4.Location = New System.Drawing.Point(4, 144)
-        Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(88, 69)
-        Me.btn4.TabIndex = 70
-        Me.btn4.Text = "4"
-        Me.btn4.UseVisualStyleBackColor = False
-        '
-        'btn3
-        '
-        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn3.FlatAppearance.BorderSize = 0
-        Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn3.Location = New System.Drawing.Point(192, 219)
-        Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(88, 69)
-        Me.btn3.TabIndex = 75
-        Me.btn3.Text = "3"
-        Me.btn3.UseVisualStyleBackColor = False
-        '
-        'btn2
-        '
-        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn2.FlatAppearance.BorderSize = 0
-        Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn2.Location = New System.Drawing.Point(98, 219)
-        Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(88, 69)
-        Me.btn2.TabIndex = 74
-        Me.btn2.Text = "2"
-        Me.btn2.UseVisualStyleBackColor = False
-        '
-        'btn1
-        '
-        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn1.FlatAppearance.BorderSize = 0
-        Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1.Location = New System.Drawing.Point(4, 219)
-        Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(88, 69)
-        Me.btn1.TabIndex = 73
-        Me.btn1.Text = "1"
-        Me.btn1.UseVisualStyleBackColor = False
         '
         'btnBorrar
         '
@@ -675,43 +586,132 @@ Partial Class frmPagarT
         Me.btnpunto.Text = "."
         Me.btnpunto.UseVisualStyleBackColor = False
         '
-        'Column1
+        'btn3
         '
-        Me.Column1.HeaderText = "Descripción"
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 195
+        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn3.FlatAppearance.BorderSize = 0
+        Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn3.Location = New System.Drawing.Point(192, 219)
+        Me.btn3.Name = "btn3"
+        Me.btn3.Size = New System.Drawing.Size(88, 69)
+        Me.btn3.TabIndex = 75
+        Me.btn3.Text = "3"
+        Me.btn3.UseVisualStyleBackColor = False
         '
-        'Column2
+        'btn2
         '
-        Me.Column2.HeaderText = "Importe"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 124
+        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn2.FlatAppearance.BorderSize = 0
+        Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn2.Location = New System.Drawing.Point(98, 219)
+        Me.btn2.Name = "btn2"
+        Me.btn2.Size = New System.Drawing.Size(88, 69)
+        Me.btn2.TabIndex = 74
+        Me.btn2.Text = "2"
+        Me.btn2.UseVisualStyleBackColor = False
         '
-        'Column3
+        'btn1
         '
-        Me.Column3.HeaderText = "Propina"
-        Me.Column3.Name = "Column3"
-        Me.Column3.Width = 124
+        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn1.FlatAppearance.BorderSize = 0
+        Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1.Location = New System.Drawing.Point(4, 219)
+        Me.btn1.Name = "btn1"
+        Me.btn1.Size = New System.Drawing.Size(88, 69)
+        Me.btn1.TabIndex = 73
+        Me.btn1.Text = "1"
+        Me.btn1.UseVisualStyleBackColor = False
         '
-        'Column4
+        'btn6
         '
-        Me.Column4.HeaderText = "Total"
-        Me.Column4.Name = "Column4"
-        Me.Column4.Width = 124
+        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn6.FlatAppearance.BorderSize = 0
+        Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn6.Location = New System.Drawing.Point(192, 144)
+        Me.btn6.Name = "btn6"
+        Me.btn6.Size = New System.Drawing.Size(88, 69)
+        Me.btn6.TabIndex = 72
+        Me.btn6.Text = "6"
+        Me.btn6.UseVisualStyleBackColor = False
         '
-        'btnPropina
+        'btn5
         '
-        Me.btnPropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnPropina.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPropina.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPropina.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPropina.Location = New System.Drawing.Point(0, 314)
-        Me.btnPropina.Name = "btnPropina"
-        Me.btnPropina.Size = New System.Drawing.Size(142, 82)
-        Me.btnPropina.TabIndex = 9
-        Me.btnPropina.Text = "PROPINA"
-        Me.btnPropina.UseVisualStyleBackColor = False
+        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn5.FlatAppearance.BorderSize = 0
+        Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn5.Location = New System.Drawing.Point(98, 144)
+        Me.btn5.Name = "btn5"
+        Me.btn5.Size = New System.Drawing.Size(88, 69)
+        Me.btn5.TabIndex = 71
+        Me.btn5.Text = "5"
+        Me.btn5.UseVisualStyleBackColor = False
+        '
+        'btn4
+        '
+        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn4.FlatAppearance.BorderSize = 0
+        Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn4.Location = New System.Drawing.Point(4, 144)
+        Me.btn4.Name = "btn4"
+        Me.btn4.Size = New System.Drawing.Size(88, 69)
+        Me.btn4.TabIndex = 70
+        Me.btn4.Text = "4"
+        Me.btn4.UseVisualStyleBackColor = False
+        '
+        'btn9
+        '
+        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn9.FlatAppearance.BorderSize = 0
+        Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn9.Location = New System.Drawing.Point(192, 69)
+        Me.btn9.Name = "btn9"
+        Me.btn9.Size = New System.Drawing.Size(88, 69)
+        Me.btn9.TabIndex = 69
+        Me.btn9.Text = "9"
+        Me.btn9.UseVisualStyleBackColor = False
+        '
+        'btn8
+        '
+        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn8.FlatAppearance.BorderSize = 0
+        Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn8.Location = New System.Drawing.Point(98, 69)
+        Me.btn8.Name = "btn8"
+        Me.btn8.Size = New System.Drawing.Size(88, 69)
+        Me.btn8.TabIndex = 68
+        Me.btn8.Text = "8"
+        Me.btn8.UseVisualStyleBackColor = False
+        '
+        'btn7
+        '
+        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn7.FlatAppearance.BorderSize = 0
+        Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn7.Location = New System.Drawing.Point(4, 69)
+        Me.btn7.Name = "btn7"
+        Me.btn7.Size = New System.Drawing.Size(88, 69)
+        Me.btn7.TabIndex = 67
+        Me.btn7.Text = "7"
+        Me.btn7.UseVisualStyleBackColor = False
+        '
+        'txtMontos
+        '
+        Me.txtMontos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.txtMontos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMontos.Location = New System.Drawing.Point(3, 12)
+        Me.txtMontos.Name = "txtMontos"
+        Me.txtMontos.Size = New System.Drawing.Size(277, 51)
+        Me.txtMontos.TabIndex = 0
+        Me.txtMontos.Text = ""
         '
         'frmPagarT
         '
@@ -766,8 +766,8 @@ Partial Class frmPagarT
     Friend WithEvents grdPagos As DataGridView
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label17 As Label
+    Friend WithEvents lblResta As Label
+    Friend WithEvents lbltotales As Label
     Friend WithEvents lblpropina As Label
     Friend WithEvents lblimporte As Label
     Friend WithEvents Panel7 As Panel

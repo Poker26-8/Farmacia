@@ -1582,6 +1582,11 @@ Public Class frmMesas
                                 frmNuevoPagar.contraseñamesero = txtUsuario.Text
                                 frmNuevoPagar.COMENSALES = txtNComensales.Text
                                 frmNuevoPagar.Show()
+
+                                frmPagarT.lblSubtotal.Text = lbltotalmesa.Text
+                                frmPagarT.lblTotal.Text = lbltotalmesa.Text
+                                frmPagarT.lblResta.Text = lbltotalmesa.Text
+                                frmPagarT.Show()
                             End If
 
 

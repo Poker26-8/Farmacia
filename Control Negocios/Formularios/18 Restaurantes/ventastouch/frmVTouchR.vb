@@ -2702,7 +2702,77 @@ deku:
         Dim montomonerdero As Double = 0
         Dim formamonedero As String = ""
 
+        Dim formapagov As Double = 0
+
+        formapagov = IIf(lblPagos.Text = 0, 0, lblPagos.Text)
+
+        If formapagov > CDec(lbltotalventa.Text) Then
+            MsgBox("La suma de las forma de pago no deben revasar el total de la venta", vbInformation + vbOKOnly, titulorestaurante)
+            frmNuevoPagarTouchS.btnIntro.Enabled = True
+            frmPagarTouch.btnIntro.Enabled = True
+            Exit Sub
+        End If
+
         Try
+            If lblCliente.Text = "" Then
+                If (lblTipoVenta.Text = "MOSTRADOR" And lblRestaPagar.Text <> 0) Then
+                    MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom® Restaurant")
+                    Exit Sub
+                End If
+
+                If lblNumCliente.Text = 0 Then
+                    If lblRestaPagar.Text > 0 Then
+                        MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, titulomensajes)
+                        Exit Sub
+                    End If
+                End If
+            End If
+
+            If grdCaptura.Rows.Count < 1 Then
+                Exit Sub
+            End If
+
+            If Resta <> 0 Then
+                If lblCliente.Text = "" Then
+                    MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    frmVentasTouchPago.txtefectivo.Focus().Equals(True)
+                    Exit Sub
+                End If
+            End If
+            If validaTarjeta = 0 Then
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                    cnn1.Close()
+                    frmPagarTouch.btnIntro.Enabled = True
+                    frmNuevoPagarTouchS.btnIntro.Enabled = True
+                    Exit Sub
+                End If
+            Else
+                If SiPago = 0 Then
+                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
+                        cnn1.Close()
+                        frmPagarTouch.btnIntro.Enabled = True
+                        Exit Sub
+                    End If
+                End If
+            End If
+
+            'Comienza proceso de guardado de la venta
+            If validaTarjeta <> 0 Then
+                If hayTerminal = 0 Then
+                    GoTo kakaxd
+                End If
+            End If
+
+            If SiPago = 0 Then
+                If validaTarjeta <> 0 Then
+                    EnviarSolicitudAPI()
+                    Exit Sub
+                ElseIf SiPago = 1 Then
+                    GoTo kakaxd
+                End If
+            Else
+                GoTo kakaxd
+            End If
 
             If frmPagarTouch.txtmonedero.Text <> "" Then
                 Dim sal_monedero As Double = 0
@@ -2814,75 +2884,8 @@ deku:
 
             TotalIVAPrint = FormatNumber(TotalIVAPrint, 2)
 
-            If lblCliente.Text = "" Then
-                If (lblTipoVenta.Text = "MOSTRADOR" And lblRestaPagar.Text <> 0) Then
-                    MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom® Restaurant")
-                    Exit Sub
-                End If
-
-                If lblNumCliente.Text = 0 Then
-                    If lblRestaPagar.Text > 0 Then
-                        MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, titulomensajes)
-                        Exit Sub
-                    End If
-                End If
-            End If
-
-            If grdCaptura.Rows.Count < 1 Then
-                Exit Sub
-            End If
-
-            If Resta <> 0 Then
-                If lblCliente.Text = "" Then
-                    MsgBox("Debes liquidar el total de la venta para continuar." & vbNewLine & "De la contrario selecciona un cliente con crédito disponible.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    frmVentasTouchPago.txtefectivo.Focus().Equals(True)
-                    Exit Sub
-                End If
-            End If
-            If validaTarjeta = 0 Then
-                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                    cnn1.Close()
-                    frmPagarTouch.btnIntro.Enabled = True
-                    frmNuevoPagarTouchS.btnIntro.Enabled = True
-                    Exit Sub
-                End If
-            Else
-                If SiPago = 0 Then
-                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
-                        cnn1.Close()
-                        frmPagarTouch.btnIntro.Enabled = True
-                        Exit Sub
-                    End If
-                End If
-            End If
-
-            'Comienza proceso de guardado de la venta
-            If validaTarjeta <> 0 Then
-                If hayTerminal = 0 Then
-                    GoTo kakaxd
-                End If
-            End If
-
-            If SiPago = 0 Then
-                If validaTarjeta <> 0 Then
-                    EnviarSolicitudAPI()
-                    Exit Sub
-                ElseIf SiPago = 1 Then
-                    GoTo kakaxd
-                End If
-            Else
-                GoTo kakaxd
-            End If
-
-
-
 kakaxd:
 
-
-            'If MsgBox("Desea guardar los datos de esta venta", vbInformation + vbOKCancel, "Delsscom® Restaurant") = vbCancel Then
-            '    Exit Sub
-            '    frmPagarTouch.btnIntro.Enabled = True
-            'End If
 
             Dim Credito_Cliente As Double = 0
             Dim AFavor_Cliente As Double = 0

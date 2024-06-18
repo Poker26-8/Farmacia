@@ -752,7 +752,16 @@ Public Class frmNuevoPagarSencillo
         Dim cambiocom As Double = 0
         cambiocom = txtCambio.Text
 
+
+
         mypago = CDec(txtEfectivo.Text) + CDec(txtTarjeta.Text) + CDec(txtTransferencia.Text) - CDec(txtCambio.Text)
+
+        If pagoscom > CDec(txtTotal.Text) Then
+            MsgBox("El monto no debe de revasar el total de la venta", vbInformation + vbOKOnly, titulocentral)
+            txtTarjeta.Text = "0.00"
+            txtTransferencia.Text = "0.00"
+            Exit Sub
+        End If
 
         If mypago < CDec(txtTotal.Text) Then
             MsgBox("Debe cerrar la cuenta!.", vbInformation + vbOKOnly, titulomensajes)
@@ -1170,7 +1179,7 @@ kakaxd:
         If txtTransferencia.Text > 0 Then
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & txtTransferencia.Text & "," & SLD & ",'TARJETA'," & txtPropina.Text & "," & txtTransferencia.Text & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
+            cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Propina,Monto,Banco,Referencia,Comentario,Usuario,Comisiones,Mesero,Descuento) VALUES(" & folio & ",0,'" & lblmesa.Text & "','ABONO','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','0'," & txtTransferencia.Text & "," & SLD & ",'TARJETA'," & txtTransferencia.Text & "," & txtTransferencia.Text & ",'','','','" & lblusuario2.Text & "'," & totcomi & ",'" & lblMesero.Text & "'," & descuentoventa22 & ")"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
         End If
@@ -1224,7 +1233,6 @@ kakaxd:
             rd1.Close()
             cnn1.Close()
         End If
-
 
         If CDec(txtEfectivo.Text) > 0 Then
 

@@ -3,6 +3,12 @@
     Dim focoforma As Integer = 0
     Dim forma As String = ""
     Dim importe As Double = 0
+
+    Dim importev As Double = 0
+    Dim propina As Double = 0
+    Dim totales As Double = 0
+    Dim resta As Double = 0
+    Dim restatotal As Double = 0
     Private Sub btnpagar_Click(sender As Object, e As EventArgs) Handles btnpagar.Click
         MsgBox("canciones pa llorar")
     End Sub
@@ -78,5 +84,19 @@
             Case Is = 1
 
         End Select
+    End Sub
+
+    Private Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
+        lblimporte.Text = "0.00"
+        lblpropina.Text = "0.00"
+        lbltotales.Text = "0.00"
+    End Sub
+
+    Private Sub lblimporte_TextChanged(sender As Object, e As EventArgs) Handles lblimporte.TextChanged
+
+        importev = IIf(lblimporte.Text = "", 0, lblimporte.Text)
+        propina = IIf(lblpropina.Text = "", 0, lblpropina.Text)
+        restatotal = CDbl(resta) - (CDec(importev) +)
+
     End Sub
 End Class
