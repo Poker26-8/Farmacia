@@ -2665,11 +2665,6 @@ quepaso_wey:
                         End If
                     End If
                     rd1.Close()
-
-
-
-
-
                 Else
                     conteo += 1
                     barCarga.Value = conteo
