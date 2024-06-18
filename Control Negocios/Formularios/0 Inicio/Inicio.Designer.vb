@@ -177,6 +177,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
+        Me.btnAuto = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -187,6 +188,7 @@ Partial Class Inicio
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnAuto)
         Me.Panel1.Controls.Add(Me.Button11)
         Me.Panel1.Controls.Add(Me.Button10)
         Me.Panel1.Controls.Add(Me.Button9)
@@ -211,10 +213,10 @@ Partial Class Inicio
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(900, 0)
+        Me.Button1.Location = New System.Drawing.Point(990, 0)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 90)
-        Me.Button1.TabIndex = 11
+        Me.Button1.TabIndex = 12
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button11
@@ -1463,6 +1465,20 @@ Partial Class Inicio
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
         '
+        'btnAuto
+        '
+        Me.btnAuto.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnAuto.FlatAppearance.BorderSize = 0
+        Me.btnAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAuto.Image = CType(resources.GetObject("btnAuto.Image"), System.Drawing.Image)
+        Me.btnAuto.Location = New System.Drawing.Point(900, 0)
+        Me.btnAuto.Name = "btnAuto"
+        Me.btnAuto.Size = New System.Drawing.Size(90, 90)
+        Me.btnAuto.TabIndex = 11
+        Me.btnAuto.UseVisualStyleBackColor = True
+        '
         'Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1646,4 +1662,5 @@ Partial Class Inicio
     Friend WithEvents EliminarAbonosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeHotelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnOptica As Button
+    Friend WithEvents btnAuto As Button
 End Class

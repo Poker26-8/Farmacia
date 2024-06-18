@@ -79,6 +79,14 @@ Public Class frmAutoservicio
     Public Resta As Double = 0
     Public Monedero As String = ""
     Public Direccion As String = ""
+    Private Sub frmVentasTouch_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        ' Verificar si la tecla presionada es F4
+        If e.KeyCode = Keys.F4 Then
+            ' Ejecutar la acción deseada
+            MessageBox.Show("Has presionado la tecla F4")
+            ' Puedes añadir aquí cualquier código adicional que necesites ejecutar
+        End If
+    End Sub
 
     Private Sub frmVentasTouch_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
@@ -377,7 +385,7 @@ Public Class frmAutoservicio
                     btnProd.TextAlign = ContentAlignment.BottomCenter
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 130
+                    btnProd.Height = 138
                     btnProd.Width = 200
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
@@ -1092,7 +1100,9 @@ keseso:
     End Sub
 
     Private Sub tFolio_Tick(sender As System.Object, e As System.EventArgs) Handles tFolio.Tick
-
+        tFolio.Stop()
+        Folio()
+        tFolio.Start()
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs)
@@ -2172,17 +2182,17 @@ Door:
                 Exit Sub
             End If
             cnn1.Close()
-            If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
-                If Tamaño = "80" Then
-                    pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                    pVenta80.Print()
-                End If
-                If Tamaño = "58" Then
-                    pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                    pVenta58.Print()
-                End If
+            ' If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
+            If Tamaño = "80" Then
+                pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pVenta80.Print()
             End If
+            If Tamaño = "58" Then
+                pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pVenta58.Print()
+            End If
+            '  End If
 
 
         Catch ex As Exception
@@ -2342,7 +2352,7 @@ Door:
 
     End Sub
 
-    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
+    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
         Dim index As Integer = grdcaptura.CurrentRow.Index
 
         With grdcaptura.Rows
@@ -2363,7 +2373,7 @@ Door:
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
             Exit Sub
         End If
@@ -2376,7 +2386,75 @@ Door:
 
     End Sub
 
-    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+    Private Sub btnlimpiar_Click_2(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+        tFolio.Stop()
+        pProductos.Controls.Clear()
+        pGrupos.Controls.Clear()
+        pDeptos.Controls.Clear()
+        CodigoProducto = ""
+        cantidad = 0
+        CantidadProd = 0
+        Monedero = ""
+        MontoEfectivo = 0
+        MontoTarjeta = 0
+        MontoMonedero = 0
+        Cambio = 0
+        Resta = 0
+        Cliente = ""
+        Id_Cliente = 0
+        Direccion = ""
+        TotDeptos = 0
+        TotGrupos = 0
+        TotProductos = 0
+        MYFOLIO = 0
+        lbltipoventa.Text = "MOSTRADOR"
+        grdcaptura.Rows.Clear()
+        'grdProducto.Rows.Clear()
+
+        'frmVentasTouchPago.txtefectivo.Text = "0.00"
+        'frmVentasTouchPago.txttarjeta.Text = "0.00"
+        'frmVentasTouchPago.txtcambio.Text = "0.00"
+        'frmVentasTouchPago.resta = 0
+        'frmVentasTouchPago.txtresta.Text = "0.00"
+        'frmVentasTouchPago.txtMonedero.Text = ""
+        'frmVentasTouchPago.txtmone.Text = "0.00"
+        'frmVentasTouchPago.cboNombre.Text = ""
+        'frmVentasTouchPago.txtDireccion.Text = ""
+        'frmVentasTouchPago.Label20.Visible = False
+        'frmVentasTouchPago.txtcredito.Visible = False
+        'frmVentasTouchPago.Label17.Visible = False
+        'frmVentasTouchPago.txtafavor.Visible = False
+        'frmVentasTouchPago.Label18.Visible = False
+        'frmVentasTouchPago.txtadeuda.Visible = False
+        'frmVentasTouchPago.txtcredito.Text = "0.00"
+        'frmVentasTouchPago.txtafavor.Text = "0.00"
+        'frmVentasTouchPago.txtadeuda.Text = "0.00"
+        'frmVentasTouchPago.txtsaldo.Text = "0.00"
+        Refresh()
+        Departamentos()
+        globaltotal = 0
+        CampoDsct = 0
+        lblTotal.Text = "0.00"
+        lblcantidadletra.Text = ""
+
+        SiPago = 0
+        validaTarjeta = 0
+        My.Application.DoEvents()
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
+            Exit Sub
+        End If
+        Button1.Enabled = False
+        btnlimpiar.Enabled = False
+        Resta = 0
+        MontoTarjeta = lblTotal.Text
+        validaTarjeta = lblTotal.Text
+        GuardarVenta()
+    End Sub
+
+    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs)
         tFolio.Stop()
         pProductos.Controls.Clear()
         pGrupos.Controls.Clear()
