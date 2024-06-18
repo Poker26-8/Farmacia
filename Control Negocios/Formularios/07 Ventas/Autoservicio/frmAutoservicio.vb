@@ -4,6 +4,7 @@ Imports System.Threading.Tasks
 Imports System.Xml
 Imports System.Text
 Imports System.Data.SqlClient
+Imports Microsoft.VisualBasic.Devices
 Public Class frmAutoservicio
     Public valorxd As Integer = 0
     Public SiPago As Integer = 0
@@ -34,14 +35,23 @@ Public Class frmAutoservicio
     Public Id_Cliente As Integer = 0
     Dim Tipo_Precio As String = ""
     Dim MYFOLIO As Integer = 0
+    Dim TotPromociones As Integer = 0
+
+    Dim totextras As Integer = 0
 
     Friend WithEvents pComanda As System.Drawing.Printing.PrintDocument
 
     Public G_Comanda As String = ""
     Public cadenafact As String = ""
 
-    Friend WithEvents btnDepto, btnGrupo, btnProd As System.Windows.Forms.Button
+    Friend WithEvents btnDepto, btnGrupo, btnExtra, btnProd As System.Windows.Forms.Button
+    Private Sub btnExtra_Click(sender As Object, e As EventArgs)
 
+        Dim btnExt As Button = CType(sender, Button)
+        CodigoProducto = btnExt.Tag
+
+        ObtenerProducto(CodigoProducto)
+    End Sub
     Public Sub Folio()
         If cnn9.State = 1 Then cnn9.Close()
         cnn9.Open()
@@ -79,6 +89,14 @@ Public Class frmAutoservicio
     Public Resta As Double = 0
     Public Monedero As String = ""
     Public Direccion As String = ""
+    Private Sub frmVentasTouch_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        ' Verificar si la tecla presionada es F4
+        If e.KeyCode = Keys.F4 Then
+            ' Ejecutar la acción deseada
+            MessageBox.Show("Has presionado la tecla F4")
+            ' Puedes añadir aquí cualquier código adicional que necesites ejecutar
+        End If
+    End Sub
 
     Private Sub frmVentasTouch_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
@@ -225,6 +243,7 @@ Public Class frmAutoservicio
             cnn2.Close()
         End If
         CantidadProd = 0
+        pExtras.Controls.Clear()
         Grupos(btnDepartamento.Text)
     End Sub
 
@@ -353,8 +372,202 @@ Public Class frmAutoservicio
         If cnn3.State = 1 Then
             cnn3.Close()
         End If
+        pExtras.Controls.Clear()
         CantidadProd = 0
         Productos(btnGrupos.Tag, btnGrupos.Text)
+    End Sub
+
+    Public Sub Extras(ByVal producto As String)
+
+        Try
+            Dim cuantos As UInteger = Math.Truncate(pExtras.Height / 100)
+            Dim prods As Integer = 1
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT DISTINCT Descx,Codigo FROM extras WHERE CodigoAlpha='" & producto & "' order by Descx"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then totextras = totextras + 1
+            Loop
+            rd1.Close()
+
+            If totextras <= 8 Then
+                pExtras.AutoScroll = False
+            Else
+                pExtras.AutoScroll = True
+            End If
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT DISTINCT Descx,Codigo FROM    Extras WHERE CodigoAlpha='" & producto & "' order by Descx"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    Dim extra As String = rd1(0).ToString
+
+                    btnExtra = New Button
+                    btnExtra.Text = extra
+                    btnExtra.Tag = rd1(1).ToString
+                    btnExtra.Name = "btnExtra(" & extra & ")"
+                    btnExtra.Width = 200
+                    btnExtra.Height = 138
+
+                    If prods > cuantos And prods < ((cuantos * 2) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 1)
+                        btnExtra.Top = (prods - (cuantos + 1)) * (btnExtra.Height + 0.5)
+                        '2
+                    ElseIf prods > (cuantos * 2) And prods < ((cuantos * 3) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 2)
+                        btnExtra.Top = (prods - ((cuantos * 2) + 1)) * (btnExtra.Height + 0.5)
+                        '3
+                    ElseIf prods > (cuantos * 3) And prods < ((cuantos * 4) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 3)
+                        btnExtra.Top = (prods - ((cuantos * 3) + 1)) * (btnExtra.Height + 0.5)
+                        '4
+                    ElseIf prods > (cuantos * 4) And prods < ((cuantos * 5) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 4)
+                        btnExtra.Top = (prods - ((cuantos * 4) + 1)) * (btnExtra.Height + 0.5)
+                        '5
+                    ElseIf prods > (cuantos * 5) And prods < ((cuantos * 6) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 5)
+                        btnExtra.Top = (prods - ((cuantos * 5) + 1)) * (btnExtra.Height + 0.5)
+                        '6
+                    ElseIf prods > (cuantos * 6) And prods < ((cuantos * 7) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 6)
+                        btnExtra.Top = (prods - ((cuantos * 6) + 1)) * (btnExtra.Height + 0.5)
+                        '7
+                    ElseIf prods > (cuantos * 7) And prods < ((cuantos * 8) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 7)
+                        btnExtra.Top = (prods - ((cuantos * 7) + 1)) * (btnExtra.Height + 0.5)
+                        '8
+                    ElseIf prods > (cuantos * 8) And prods < ((cuantos * 9) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 8)
+                        btnExtra.Top = (prods - ((cuantos * 8) + 1)) * (btnExtra.Height + 0.5)
+                        '9
+                    ElseIf prods > (cuantos * 9) And prods < ((cuantos * 10) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 9)
+                        btnExtra.Top = (prods - ((cuantos * 9) + 1)) * (btnExtra.Height + 0.5)
+                        '10
+                    ElseIf prods > (cuantos * 10) And prods < ((cuantos * 11) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 10)
+                        btnExtra.Top = (prods - ((cuantos * 10) + 1)) * (btnExtra.Height + 0.5)
+                        '11
+                    ElseIf prods > (cuantos * 11) And prods < ((cuantos * 12) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 11)
+                        btnExtra.Top = (prods - ((cuantos * 11) + 1)) * (btnExtra.Height + 0.5)
+                        '12
+                    ElseIf prods > (cuantos * 12) And prods < ((cuantos * 13) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 12)
+                        btnExtra.Top = (prods - ((cuantos * 12) + 1)) * (btnExtra.Height + 0.5)
+                        '13
+                    ElseIf prods > (cuantos * 13) And prods < ((cuantos * 14) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 13)
+                        btnExtra.Top = (prods - ((cuantos * 13) + 1)) * (btnExtra.Height + 0.5)
+                        '14
+                    ElseIf prods > (cuantos * 14) And prods < ((cuantos * 15) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 14)
+                        btnExtra.Top = (prods - ((cuantos * 14) + 1)) * (btnExtra.Height + 0.5)
+                        '15
+                    ElseIf prods > (cuantos * 15) And prods < ((cuantos * 16) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 15)
+                        btnExtra.Top = (prods - ((cuantos * 15) + 1)) * (btnExtra.Height + 0.5)
+                        '16
+                    ElseIf prods > (cuantos * 16) And prods < ((cuantos * 17) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 16)
+                        btnExtra.Top = (prods - ((cuantos * 16) + 1)) * (btnExtra.Height + 0.5)
+                        '17
+                    ElseIf prods > (cuantos * 17) And prods < ((cuantos * 18) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 17)
+                        btnExtra.Top = (prods - ((cuantos * 17) + 1)) * (btnExtra.Height + 0.5)
+                        '18
+                    ElseIf prods > (cuantos * 18) And prods < ((cuantos * 19) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 18)
+                        btnExtra.Top = (prods - ((cuantos * 18) + 1)) * (btnExtra.Height + 0.5)
+                        '19
+                    ElseIf prods > (cuantos * 19) And prods < ((cuantos * 20) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 19)
+                        btnExtra.Top = (prods - ((cuantos * 19) + 1)) * (btnExtra.Height + 0.5)
+                        '20
+                    ElseIf prods > (cuantos * 20) And prods < ((cuantos * 21) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 20)
+                        btnExtra.Top = (prods - ((cuantos * 20) + 1)) * (btnExtra.Height + 0.5)
+                        '21
+                    ElseIf prods > (cuantos * 21) And prods < ((cuantos * 22) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 21)
+                        btnExtra.Top = (prods - ((cuantos * 21) + 1)) * (btnExtra.Height + 0.5)
+                        '22
+                    ElseIf prods > (cuantos * 22) And prods < ((cuantos * 23) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 22)
+                        btnExtra.Top = (prods - ((cuantos * 22) + 1)) * (btnExtra.Height + 0.5)
+                        '23
+                    ElseIf prods > (cuantos * 23) And prods < ((cuantos * 24) + 1) Then
+                        btnExtra.Left = (btnProd.Width * 23)
+                        btnExtra.Top = (prods - ((cuantos * 23) + 1)) * (btnExtra.Height + 0.5)
+                        '24
+                    ElseIf prods > (cuantos * 24) And prods < ((cuantos * 25) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 24)
+                        btnExtra.Top = (prods - ((cuantos * 24) + 1)) * (btnExtra.Height + 0.5)
+                        '25
+                    ElseIf prods > (cuantos * 25) And prods < ((cuantos * 26) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 25)
+                        btnExtra.Top = (prods - ((cuantos * 25) + 1)) * (btnExtra.Height + 0.5)
+                        '26
+                    ElseIf prods > (cuantos * 26) And prods < ((cuantos * 27) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 26)
+                        btnExtra.Top = (prods - ((cuantos * 26) + 1)) * (btnExtra.Height + 0.5)
+                        '27
+                    ElseIf prods > (cuantos * 27) And prods < ((cuantos * 28) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 27)
+                        btnExtra.Top = (prods - ((cuantos * 27) + 1)) * (btnExtra.Height + 0.5)
+                        '28
+                    ElseIf prods > (cuantos * 28) And prods < ((cuantos * 29) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 28)
+                        btnExtra.Top = (prods - ((cuantos * 28) + 1)) * (btnExtra.Height + 0.5)
+                        '29
+                    ElseIf prods > (cuantos * 29) And prods < ((cuantos * 30) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 29)
+                        btnExtra.Top = (prods - ((cuantos * 29) + 1)) * (btnExtra.Height + 0.5)
+                        '30
+                    ElseIf prods > (cuantos * 30) And prods < ((cuantos * 31) + 1) Then
+                        btnExtra.Left = (btnExtra.Width * 30)
+                        btnExtra.Top = (prods - ((cuantos * 30) + 1)) * (btnExtra.Height + 0.5)
+                    Else
+                        btnExtra.Left = 0
+                        btnExtra.Top = (prods - 1) * (btnExtra.Height + 0.5)
+                    End If
+
+                    btnExtra.BackColor = pExtras.BackColor
+                    btnExtra.FlatStyle = FlatStyle.Popup
+                    Dim fuenteNegrita As New Font(btnExtra.Font, FontStyle.Bold)
+                    btnExtra.Font = fuenteNegrita
+                    btnExtra.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+                    AddHandler btnExtra.Click, AddressOf btnExtra_Click
+                    pExtras.Controls.Add(btnExtra)
+                    prods += 1
+                    'btnExtra.Left = 0
+                    'If extras = 0 Then
+                    '    btnExtra.Left = extras
+                    'Else
+                    '    btnExtra.Left = extras * (btnExtra.Width + 2)
+                    'End If
+                    '' Espacio vertical entre botones: 5
+                    'btnExtra.BackColor = btnExtra.BackColor
+                    'btnExtra.FlatStyle = FlatStyle.Popup
+                    'btnExtra.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+                    'btnExtra.FlatAppearance.BorderSize = 0
+                    'AddHandler btnExtra.Click, AddressOf btnExtra_Click
+                    'pExtras.Controls.Add(btnExtra)
+                    'extras += 1
+
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub Productos(ByVal depto As String, ByVal grupo As String)
@@ -377,7 +590,7 @@ Public Class frmAutoservicio
                     btnProd.TextAlign = ContentAlignment.BottomCenter
                     btnProd.Tag = rd3(1).ToString
                     btnProd.Name = "btnProducto(" & prods & ")"
-                    btnProd.Height = 130
+                    btnProd.Height = 138
                     btnProd.Width = 200
 
                     If prods > cuantos And prods < ((cuantos * 2) + 1) Then
@@ -926,6 +1139,7 @@ Public Class frmAutoservicio
         Dim ATemp1, ATemp2, ATemp3, ATemp4 As Double
 
         Try
+            cantidad = 1
             cnn3.Close() : cnn3.Open()
 
             cmd3 = cnn3.CreateCommand
@@ -1040,9 +1254,9 @@ Public Class frmAutoservicio
     Public Sub UpGrid()
         grdcaptura.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke
         grdcaptura.DefaultCellStyle.SelectionForeColor = Color.Blue
-        If cantidad = 0 Then Exit Sub
+        If cantidad = 0 Then cantidad = 1
         With grdcaptura.Rows
-            .Add(CodigoProducto & vbNewLine & myDescrip, FormatNumber(cantidad, 2), FormatNumber(MyPrecio, 2), FormatNumber(MyImporte, 2), MyUnidad)
+            .Add(CodigoProducto & vbNewLine & myDescrip, FormatNumber(cantidad, 2), FormatNumber(MyPrecio, 2), FormatNumber(MyImporte, 2), "ELIMINAR", MyUnidad)
         End With
         Dim TotalVenta As Double = 0
         For T As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -1064,9 +1278,11 @@ Public Class frmAutoservicio
         On Error GoTo keseso
         Dim btnProducto As Button = CType(sender, Button)
 
+        pExtras.Controls.Clear()
         CodigoProducto = ""
         CodigoProducto = btnProducto.Tag
         Ajusta_Grid()
+        Extras(btnProducto.Tag)
         T_Precio = DatosRecarga("TipoPrecio")
         H_Inicia = DatosRecarga("HoraInicia")
         H_Final = DatosRecarga("HoraTermina")
@@ -1092,7 +1308,9 @@ keseso:
     End Sub
 
     Private Sub tFolio_Tick(sender As System.Object, e As System.EventArgs) Handles tFolio.Tick
-
+        tFolio.Stop()
+        Folio()
+        tFolio.Start()
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs)
@@ -2172,17 +2390,17 @@ Door:
                 Exit Sub
             End If
             cnn1.Close()
-            If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
-                If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
-                If Tamaño = "80" Then
-                    pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                    pVenta80.Print()
-                End If
-                If Tamaño = "58" Then
-                    pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                    pVenta58.Print()
-                End If
+            ' If MsgBox("¿Deseas imprimir nota de venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+            If Impresora = "" Then MsgBox("No se encontró una impresora.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Termina_Error_Ventas() : Exit Sub
+            If Tamaño = "80" Then
+                pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pVenta80.Print()
             End If
+            If Tamaño = "58" Then
+                pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
+                pVenta58.Print()
+            End If
+            '  End If
 
 
         Catch ex As Exception
@@ -2339,10 +2557,316 @@ Door:
 
 
     Private Sub pVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New System.Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New System.Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New System.Drawing.Font(tipografia, 8, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
+        Try
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                    Y += 130
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                    Y += 120
+                End If
+            Else
+                Y = 0
+            End If
+
+            '[°]. Datos del negocio
+            cnn1.Close() : cnn1.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Pie = rd1("Pie3").ToString
+                    'Razón social
+                    If rd1("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab0").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd1("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab1").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd1("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab2").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd1("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab3").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd1("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab4").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd1("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab5").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd1("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab6").ToString, New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    Y += 17
+                End If
+            Else
+                Y += 0
+            End If
+            rd1.Close()
+
+            '[1]. Datos de la venta
+            e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("N O T A  D E  V E N T A", New System.Drawing.Font(tipografia, 12, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 12
+            e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 285, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 285, Y, sf)
+            Y += 19
+
+            '[2]. Datos del cliente
+            If Cliente <> "" Then
+                e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+                e.Graphics.DrawString("C L I E N T E", New System.Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+
+                e.Graphics.DrawString("Nombre: " & Mid(Cliente, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                Y += 13.5
+                If Mid(Cliente, 29, 100) <> "" Then
+                    e.Graphics.DrawString(Mid(Cliente, 29, 100), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                End If
+                Y += 3
+                If Direccion <> "" Then
+                    e.Graphics.DrawString(Mid(Direccion, 1, 35), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(Direccion, 36, 70) <> "" Then
+                        e.Graphics.DrawString(Mid(Direccion, 36, 70), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                    If Mid(Direccion, 71, 105) <> "" Then
+                        e.Graphics.DrawString(Mid(Direccion, 71, 105), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                Y += 8
+                e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            Else
+                Y += 4
+                e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            End If
+
+
+            e.Graphics.DrawString("PRODUCTO", New System.Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("CANTIDAD", New System.Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRECIO U.", New System.Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
+            e.Graphics.DrawString("TOTAL", New System.Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
+            Y += 6
+            e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            Dim total_prods As Double = 0
+
+            For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+                Dim myvalor As String = grdcaptura.Rows(miku).Cells(0).Value.ToString
+                Dim mycode As String = Mid(myvalor, 1, InStr(1, myvalor, vbNewLine) - 1)
+                Dim nombre As String = Replace(Replace(grdcaptura.Rows(miku).Cells(0).Value.ToString(), mycode, ""), vbCrLf, "")
+                Dim canti As Double = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+                Dim precio As Double = grdcaptura.Rows(miku).Cells(2).Value.ToString()
+                Dim total As Double = FormatNumber(canti * precio, 2)
+
+                e.Graphics.DrawString(Mid(nombre, 1, 28), fuente_prods, Brushes.Black, 1, Y)
+                Y += 12.5
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 50, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 1), fuente_prods, Brushes.Black, 180, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 1), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 21
+                total_prods = total_prods + canti
+            Next
+            Y -= 3
+            e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New System.Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 7
+            e.Graphics.DrawString("--------------------------------------------------------", New System.Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            Dim MySubtotal As Double = 0
+            Dim TotalIVAPrint As Double = 0
+            Dim TotalIEPS As Double = 0
+
+            cnn1.Close() : cnn1.Open()
+            For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select IVA from Productos where Nombre='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) <> 0 Then
+                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString)))
+                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(11).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(10).Value.ToString)) * CDbl(rd1(0).ToString))
+                            End If
+                            If CDbl(grdcaptura.Rows(N).Cells(8).Value.ToString) <> 0 Then
+                                TotalIEPS = TotalIEPS + CDbl(grdcaptura.Rows(N).Cells(8).Value.ToString)
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                End If
+            Next
+            cnn1.Close()
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            MySubtotal = FormatNumber(MySubtotal, 4)
+
+            If soydescuento <> "0" Then
+                e.Graphics.DrawString("Subtotal:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(globaltotal, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+
+                e.Graphics.DrawString("Porcentaje Descuento:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString("% " & FormatNumber(soydescuento, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+
+            e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(lblTotal.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+            Y += 18
+
+            e.Graphics.DrawString(convLetras(lblTotal.Text), New System.Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+            Y += 18
+
+            If CDbl(MontoEfectivo) > 0 Then
+                e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(MontoEfectivo, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If CDbl(Cambio) > 0 Then
+                e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(Cambio, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+
+
+            If MontoTarjeta > 0 Then
+                e.Graphics.DrawString("Pago con tarjeta(s):", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(MontoTarjeta, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+            If MontoMonedero > 0 Then
+                e.Graphics.DrawString("Pago con monedero(s):", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(MontoMonedero, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                Y += 13.5
+            End If
+
+            If Cliente <> "" Then
+                If Resta > 0 Then
+                    e.Graphics.DrawString("PResta:", fuente_prods, Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(Resta, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                    Y += 13.5
+                End If
+            End If
+
+
+            Dim IVA As Double = CDbl(lblTotal.Text) - TotalIVAPrint
+            If DesglosaIVA = "1" Then
+                If TotalIVAPrint > 0 Then
+                    If IVA > 0 And IVA <> CDbl(lblTotal.Text) Then
+                        Y += 12
+                        e.Graphics.DrawString("*** IVA 16%", New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(IVA, 2), New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                        Y += 13.5
+                    End If
+                End If
+                If TotalIEPS > 0 Then
+                    e.Graphics.DrawString("*** IEPS 8%", New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New System.Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 285, Y, sf)
+                    Y += 13.5
+                End If
+            End If
+
+            Y += 19
+
+            e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 142.5, Y, sc)
+            Y += 13.5
+            If Mid(Pie, 36, 70) <> "" Then
+                e.Graphics.DrawString(Mid(Pie, 36, 70), fuente_prods, Brushes.Black, 142.5, Y, sc)
+                Y += 13.5
+            End If
+            If Mid(Pie, 71, 105) <> "" Then
+                e.Graphics.DrawString(Mid(Pie, 71, 105), fuente_prods, Brushes.Black, 142.5, Y, sc)
+                Y += 13.5
+            End If
+            Y += 18
+            e.Graphics.DrawString("Lo atiende " & lblatiende.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
+
+            Dim va_whatsapp As Integer = 0
+            Try
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "select NumPart from Formatos where Facturas='Whatsapp'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        va_whatsapp = rd1(0).ToString()
+                    End If
+                End If
+                rd1.Close() : cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
+            cnn1.Close()
+        End Try
     End Sub
 
-    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
+    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
         Dim index As Integer = grdcaptura.CurrentRow.Index
 
         With grdcaptura.Rows
@@ -2363,7 +2887,7 @@ Door:
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
             Exit Sub
         End If
@@ -2376,7 +2900,94 @@ Door:
 
     End Sub
 
-    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+    Private Sub btnlimpiar_Click_2(sender As Object, e As EventArgs) Handles btnlimpiar.Click
+        tFolio.Stop()
+        pExtras.Controls.Clear()
+        pProductos.Controls.Clear()
+        pGrupos.Controls.Clear()
+        pDeptos.Controls.Clear()
+        CodigoProducto = ""
+        cantidad = 0
+        CantidadProd = 0
+        Monedero = ""
+        MontoEfectivo = 0
+        MontoTarjeta = 0
+        MontoMonedero = 0
+        Cambio = 0
+        Resta = 0
+        Cliente = ""
+        Id_Cliente = 0
+        Direccion = ""
+        TotDeptos = 0
+        TotGrupos = 0
+        TotProductos = 0
+        MYFOLIO = 0
+        lbltipoventa.Text = "MOSTRADOR"
+        grdcaptura.Rows.Clear()
+        'grdProducto.Rows.Clear()
+
+        'frmVentasTouchPago.txtefectivo.Text = "0.00"
+        'frmVentasTouchPago.txttarjeta.Text = "0.00"
+        'frmVentasTouchPago.txtcambio.Text = "0.00"
+        'frmVentasTouchPago.resta = 0
+        'frmVentasTouchPago.txtresta.Text = "0.00"
+        'frmVentasTouchPago.txtMonedero.Text = ""
+        'frmVentasTouchPago.txtmone.Text = "0.00"
+        'frmVentasTouchPago.cboNombre.Text = ""
+        'frmVentasTouchPago.txtDireccion.Text = ""
+        'frmVentasTouchPago.Label20.Visible = False
+        'frmVentasTouchPago.txtcredito.Visible = False
+        'frmVentasTouchPago.Label17.Visible = False
+        'frmVentasTouchPago.txtafavor.Visible = False
+        'frmVentasTouchPago.Label18.Visible = False
+        'frmVentasTouchPago.txtadeuda.Visible = False
+        'frmVentasTouchPago.txtcredito.Text = "0.00"
+        'frmVentasTouchPago.txtafavor.Text = "0.00"
+        'frmVentasTouchPago.txtadeuda.Text = "0.00"
+        'frmVentasTouchPago.txtsaldo.Text = "0.00"
+        Refresh()
+        Departamentos()
+        globaltotal = 0
+        CampoDsct = 0
+        lblTotal.Text = "0.00"
+        lblcantidadletra.Text = ""
+
+        SiPago = 0
+        validaTarjeta = 0
+        My.Application.DoEvents()
+    End Sub
+
+    Private Sub grdcaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellContentClick
+
+        If e.ColumnIndex = 4 AndAlso e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = grdcaptura.Rows(e.RowIndex)
+            grdcaptura.Rows.Remove(row)
+        End If
+        My.Application.DoEvents()
+        Dim TotalVenta As Double = 0
+        For T As Integer = 0 To grdcaptura.Rows.Count - 1
+            TotalVenta = TotalVenta + CDbl(grdcaptura.Rows(T).Cells(3).Value.ToString)
+        Next
+        lblTotal.Text = FormatNumber(TotalVenta, 2)
+    End Sub
+
+    Private Sub lbltipoventa_Click(sender As Object, e As EventArgs) Handles lbltipoventa.Click
+        Me.Close()
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        If lblTotal.Text = "0" Or lblTotal.Text = "0.00" Then
+            Exit Sub
+        End If
+        Button1.Enabled = False
+        btnlimpiar.Enabled = False
+        Resta = 0
+        MontoTarjeta = lblTotal.Text
+        validaTarjeta = lblTotal.Text
+        GuardarVenta()
+    End Sub
+
+    Private Sub btnlimpiar_Click_1(sender As Object, e As EventArgs)
         tFolio.Stop()
         pProductos.Controls.Clear()
         pGrupos.Controls.Clear()

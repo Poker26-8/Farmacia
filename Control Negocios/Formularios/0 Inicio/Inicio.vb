@@ -4210,4 +4210,9 @@ Public Class Inicio
         frmOptica.Show()
         frmOptica.BringToFront()
     End Sub
+
+    Private Sub btnAuto_Click(sender As Object, e As EventArgs) Handles btnAuto.Click
+        frmAutoservicio.Show()
+        frmAutoservicio.BringToFront()
+    End Sub
 End Class
