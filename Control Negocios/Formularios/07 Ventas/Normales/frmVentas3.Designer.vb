@@ -179,8 +179,8 @@ Partial Class frmVentas3
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblExistencia = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtProdClave = New System.Windows.Forms.TextBox()
@@ -849,8 +849,8 @@ Partial Class frmVentas3
         Me.pCentral.Controls.Add(Me.Label4)
         Me.pCentral.Controls.Add(Me.Label5)
         Me.pCentral.Controls.Add(Me.Label6)
-        Me.pCentral.Controls.Add(Me.Label7)
-        Me.pCentral.Controls.Add(Me.Label8)
+        Me.pCentral.Controls.Add(Me.lblTotal)
+        Me.pCentral.Controls.Add(Me.lblExistencia)
         Me.pCentral.Controls.Add(Me.Panel5)
         Me.pCentral.Controls.Add(Me.txtcoment)
         Me.pCentral.Controls.Add(Me.grdcaptura)
@@ -2087,33 +2087,33 @@ Partial Class frmVentas3
         Me.Label6.Text = "Precio"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label7
+        'lblTotal
         '
-        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(650, 167)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(105, 20)
-        Me.Label7.TabIndex = 265
-        Me.Label7.Text = "Total"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotal.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
+        Me.lblTotal.ForeColor = System.Drawing.Color.White
+        Me.lblTotal.Location = New System.Drawing.Point(650, 167)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(105, 20)
+        Me.lblTotal.TabIndex = 265
+        Me.lblTotal.Text = "Total"
+        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label8
+        'lblExistencia
         '
-        Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(753, 167)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(85, 20)
-        Me.Label8.TabIndex = 266
-        Me.Label8.Text = "Existencia"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblExistencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblExistencia.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.lblExistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblExistencia.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
+        Me.lblExistencia.ForeColor = System.Drawing.Color.White
+        Me.lblExistencia.Location = New System.Drawing.Point(753, 167)
+        Me.lblExistencia.Name = "lblExistencia"
+        Me.lblExistencia.Size = New System.Drawing.Size(85, 20)
+        Me.lblExistencia.TabIndex = 266
+        Me.lblExistencia.Text = "Existencia"
+        Me.lblExistencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel5
         '
@@ -2931,8 +2931,8 @@ Partial Class frmVentas3
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
+    Friend WithEvents lblTotal As Label
+    Friend WithEvents lblExistencia As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents txtProdClave As TextBox

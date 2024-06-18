@@ -32,32 +32,7 @@
 
     End Sub
 
-    Private Sub grdPagos_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles grdPagos.CellEnter
-        Dim elda As Integer = grdPagos.CurrentRow.Index
-        Dim celda As DataGridViewCellEventArgs = e
 
-
-        If focoforma = 1 Then
-            forma = grdPagos.Rows(elda).Cells(0).Value.ToString
-            importe = grdPagos.Rows(elda).Cells(1).Value.ToString
-            If forma = "EFECTIVO" Then
-                forma = ""
-                importe = 0
-            End If
-        End If
-
-        Dim importef As Double = 0
-        Dim totalimporte As Double = 0
-        For deku As Integer = 0 To grdPagos.Rows.Count - 1
-            If grdPagos.Rows(deku).Cells(1).Value > 0 Then
-                importef = grdPagos.Rows(deku).Cells(1).Value
-
-                totalimporte = totalimporte + importef
-            End If
-        Next
-        lblimporte.Text = "0.00"
-        lblimporte.Text = FormatNumber(totalimporte, 2)
-    End Sub
 
     Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
         focoforma = 1
@@ -75,6 +50,93 @@
         focoforma = 4
     End Sub
 
+    Private Sub btnPropina_Click(sender As Object, e As EventArgs) Handles btnPropina.Click
+        focoforma = 5
+    End Sub
+
+    Private Sub grdPagos_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles grdPagos.CellEnter
+        Dim elda As Integer = grdPagos.CurrentRow.Index
+        Dim celda As DataGridViewCellEventArgs = e
+
+
+        If focoforma = 1 Then
+            forma = grdPagos.Rows(elda).Cells(0).Value.ToString
+            importe = grdPagos.Rows(elda).Cells(1).Value.ToString
+            If forma = "EFECTIVO" Then
+                forma = ""
+                importe = 0
+            End If
+        End If
+
+        If focoforma = 2 Then
+            forma = grdPagos.Rows(elda).Cells(0).Value.ToString
+            importe = grdPagos.Rows(elda).Cells(1).Value.ToString
+            If forma = "VISA" Then
+                forma = ""
+                importe = 0
+            End If
+        End If
+
+        If focoforma = 3 Then
+            forma = grdPagos.Rows(elda).Cells(0).Value.ToString
+            importe = grdPagos.Rows(elda).Cells(1).Value.ToString
+            If forma = "MASTERCARD" Then
+                forma = ""
+                importe = 0
+            End If
+        End If
+
+        If focoforma = 4 Then
+            forma = grdPagos.Rows(elda).Cells(0).Value.ToString
+            importe = grdPagos.Rows(elda).Cells(1).Value.ToString
+            If forma = "AMERICAN EXPRESS" Then
+                forma = ""
+                importe = 0
+            End If
+        End If
+
+        If focoforma = 5 Then
+
+        End If
+
+
+        Dim importef As Double = 0
+        Dim propina As Double = 0
+        Dim totalf As Double = 0
+
+        Dim totalimporte As Double = 0
+        Dim totaltotal As Double = 0
+        Dim totalpropina As Double = 0
+
+        For deku As Integer = 0 To grdPagos.Rows.Count - 1
+            If grdPagos.Rows(deku).Cells(1).Value > 0 Then
+
+                If grdPagos.Rows(deku).Cells(0).Value.ToString = "EFECTIVO" Then
+
+                    importef = grdPagos.Rows(deku).Cells(1).Value
+                    propina = grdPagos.Rows(deku).Cells(2).Value
+
+                    grdPagos.Rows(deku).Cells(3).Value = importef + propina
+
+                    totalimporte = totalimporte + importef
+                    totaltotal = totalimporte + totalf + propina
+                    totalpropina = totalpropina + propina
+
+
+                    lblimporte.Text = "0.00"
+                    lblimporte.Text = FormatNumber(totalimporte, 2)
+                    lbltotales.Text = "0.00"
+                    lbltotales.Text = FormatNumber(totaltotal, 2)
+                    lblpropina.Text = "0.00"
+                    lblpropina.Text = FormatNumber(totalpropina, 2)
+                End If
+
+            End If
+        Next
+
+
+    End Sub
+
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Me.Close()
     End Sub
@@ -90,13 +152,17 @@
         lblimporte.Text = "0.00"
         lblpropina.Text = "0.00"
         lbltotales.Text = "0.00"
+        lblResta.Text = lblSubtotal.Text
     End Sub
 
     Private Sub lblimporte_TextChanged(sender As Object, e As EventArgs) Handles lblimporte.TextChanged
+        resta = IIf(lblSubtotal.Text = "", 0, lblSubtotal.Text)
+        totales = IIf(lbltotales.Text = "", 0, lbltotales.Text)
 
-        importev = IIf(lblimporte.Text = "", 0, lblimporte.Text)
-        propina = IIf(lblpropina.Text = "", 0, lblpropina.Text)
-        restatotal = CDbl(resta) - (CDec(importev) +)
+        restatotal = CDbl(resta) - CDbl(totales)
+        lblResta.Text = FormatNumber(restatotal, 2)
 
     End Sub
+
+
 End Class

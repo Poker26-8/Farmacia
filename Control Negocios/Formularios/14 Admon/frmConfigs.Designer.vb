@@ -339,6 +339,7 @@ Partial Class frmConfigs
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
+        Me.cbVerExistencias = New System.Windows.Forms.CheckBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -419,9 +420,9 @@ Partial Class frmConfigs
         Me.tabCFDI.Controls.Add(Me.GroupBox13)
         Me.tabCFDI.Controls.Add(Me.GroupBox14)
         Me.tabCFDI.Controls.Add(Me.GroupBox15)
-        Me.tabCFDI.Location = New System.Drawing.Point(4, 84)
+        Me.tabCFDI.Location = New System.Drawing.Point(4, 58)
         Me.tabCFDI.Name = "tabCFDI"
-        Me.tabCFDI.Size = New System.Drawing.Size(478, 437)
+        Me.tabCFDI.Size = New System.Drawing.Size(478, 463)
         Me.tabCFDI.TabIndex = 5
         Me.tabCFDI.Text = "Certificado CFDI"
         Me.tabCFDI.UseVisualStyleBackColor = True
@@ -748,9 +749,9 @@ Partial Class frmConfigs
         '
         Me.tabFactura.Controls.Add(Me.Label40)
         Me.tabFactura.Controls.Add(Me.GroupBox10)
-        Me.tabFactura.Location = New System.Drawing.Point(4, 84)
+        Me.tabFactura.Location = New System.Drawing.Point(4, 58)
         Me.tabFactura.Name = "tabFactura"
-        Me.tabFactura.Size = New System.Drawing.Size(478, 437)
+        Me.tabFactura.Size = New System.Drawing.Size(478, 463)
         Me.tabFactura.TabIndex = 3
         Me.tabFactura.Text = "Configuración de factura"
         Me.tabFactura.UseVisualStyleBackColor = True
@@ -1175,9 +1176,9 @@ Partial Class frmConfigs
         Me.tabCorreo.Controls.Add(Me.Button12)
         Me.tabCorreo.Controls.Add(Me.GroupBox12)
         Me.tabCorreo.Controls.Add(Me.GroupBox11)
-        Me.tabCorreo.Location = New System.Drawing.Point(4, 84)
+        Me.tabCorreo.Location = New System.Drawing.Point(4, 58)
         Me.tabCorreo.Name = "tabCorreo"
-        Me.tabCorreo.Size = New System.Drawing.Size(478, 437)
+        Me.tabCorreo.Size = New System.Drawing.Size(478, 463)
         Me.tabCorreo.TabIndex = 6
         Me.tabCorreo.Text = "Configuración de correo"
         Me.tabCorreo.UseVisualStyleBackColor = True
@@ -1478,9 +1479,9 @@ Partial Class frmConfigs
         Me.tabMoneda.Controls.Add(Me.GroupBox8)
         Me.tabMoneda.Controls.Add(Me.GroupBox6)
         Me.tabMoneda.Controls.Add(Me.GroupBox7)
-        Me.tabMoneda.Location = New System.Drawing.Point(4, 84)
+        Me.tabMoneda.Location = New System.Drawing.Point(4, 58)
         Me.tabMoneda.Name = "tabMoneda"
-        Me.tabMoneda.Size = New System.Drawing.Size(478, 437)
+        Me.tabMoneda.Size = New System.Drawing.Size(478, 463)
         Me.tabMoneda.TabIndex = 2
         Me.tabMoneda.Text = "Tipo de moneda"
         Me.tabMoneda.UseVisualStyleBackColor = True
@@ -1892,9 +1893,9 @@ Partial Class frmConfigs
         Me.tabEtiquetas.Controls.Add(Me.GroupBox21)
         Me.tabEtiquetas.Controls.Add(Me.GroupBox22)
         Me.tabEtiquetas.Controls.Add(Me.TextBox2)
-        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 84)
+        Me.tabEtiquetas.Location = New System.Drawing.Point(4, 58)
         Me.tabEtiquetas.Name = "tabEtiquetas"
-        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 437)
+        Me.tabEtiquetas.Size = New System.Drawing.Size(478, 463)
         Me.tabEtiquetas.TabIndex = 4
         Me.tabEtiquetas.Text = "Configuración de etiquetas"
         Me.tabEtiquetas.UseVisualStyleBackColor = True
@@ -2128,10 +2129,10 @@ Partial Class frmConfigs
         Me.tabPuertos.Controls.Add(Me.GroupBox2)
         Me.tabPuertos.Controls.Add(Me.GroupBox1)
         Me.tabPuertos.Controls.Add(Me.TextBox1)
-        Me.tabPuertos.Location = New System.Drawing.Point(4, 84)
+        Me.tabPuertos.Location = New System.Drawing.Point(4, 58)
         Me.tabPuertos.Name = "tabPuertos"
         Me.tabPuertos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPuertos.Size = New System.Drawing.Size(478, 437)
+        Me.tabPuertos.Size = New System.Drawing.Size(478, 463)
         Me.tabPuertos.TabIndex = 0
         Me.tabPuertos.Text = "Configurar puertos"
         Me.tabPuertos.UseVisualStyleBackColor = True
@@ -3302,7 +3303,7 @@ Partial Class frmConfigs
         Me.GroupBox24.Controls.Add(Me.txtwhats)
         Me.GroupBox24.Controls.Add(Me.Button19)
         Me.GroupBox24.Controls.Add(Me.chkwhats)
-        Me.GroupBox24.Location = New System.Drawing.Point(8, 239)
+        Me.GroupBox24.Location = New System.Drawing.Point(8, 254)
         Me.GroupBox24.Name = "GroupBox24"
         Me.GroupBox24.Size = New System.Drawing.Size(238, 89)
         Me.GroupBox24.TabIndex = 17
@@ -3450,6 +3451,7 @@ Partial Class frmConfigs
         '
         'GroupBox9
         '
+        Me.GroupBox9.Controls.Add(Me.cbVerExistencias)
         Me.GroupBox9.Controls.Add(Me.chkImg_PDF)
         Me.GroupBox9.Controls.Add(Me.chkFranquicia)
         Me.GroupBox9.Controls.Add(Me.chkDesc_Ventas)
@@ -3459,7 +3461,7 @@ Partial Class frmConfigs
         Me.GroupBox9.Controls.Add(Me.chkMinAlmacen)
         Me.GroupBox9.Location = New System.Drawing.Point(8, 12)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(238, 221)
+        Me.GroupBox9.Size = New System.Drawing.Size(238, 236)
         Me.GroupBox9.TabIndex = 14
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Adaptables"
@@ -3546,9 +3548,9 @@ Partial Class frmConfigs
         'tabFuncionalidades2
         '
         Me.tabFuncionalidades2.Controls.Add(Me.GroupBox27)
-        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades2.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades2.Name = "tabFuncionalidades2"
-        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades2.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades2.TabIndex = 11
         Me.tabFuncionalidades2.Text = " Funcionalidades 2"
         Me.tabFuncionalidades2.UseVisualStyleBackColor = True
@@ -3632,10 +3634,10 @@ Partial Class frmConfigs
         Me.TabPage2.Controls.Add(Me.Label75)
         Me.TabPage2.Controls.Add(Me.Label77)
         Me.TabPage2.Controls.Add(Me.Label78)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 58)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(478, 437)
+        Me.TabPage2.Size = New System.Drawing.Size(478, 463)
         Me.TabPage2.TabIndex = 9
         Me.TabPage2.Text = "Recargas Telefonicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -3737,10 +3739,10 @@ Partial Class frmConfigs
         Me.TabPage3.Controls.Add(Me.Label86)
         Me.TabPage3.Controls.Add(Me.Label85)
         Me.TabPage3.Controls.Add(Me.Label84)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 58)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(478, 437)
+        Me.TabPage3.Size = New System.Drawing.Size(478, 463)
         Me.TabPage3.TabIndex = 10
         Me.TabPage3.Text = "Configuración de Prosepago"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -3844,6 +3846,17 @@ Partial Class frmConfigs
         Me.Label84.Size = New System.Drawing.Size(227, 21)
         Me.Label84.TabIndex = 0
         Me.Label84.Text = "Configuración de Prosepago"
+        '
+        'cbVerExistencias
+        '
+        Me.cbVerExistencias.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbVerExistencias.Location = New System.Drawing.Point(8, 209)
+        Me.cbVerExistencias.Name = "cbVerExistencias"
+        Me.cbVerExistencias.Size = New System.Drawing.Size(203, 19)
+        Me.cbVerExistencias.TabIndex = 10
+        Me.cbVerExistencias.Text = "No ver existencias en ventas"
+        Me.cbVerExistencias.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '
@@ -4270,4 +4283,5 @@ Partial Class frmConfigs
     Friend WithEvents Label89 As Label
     Friend WithEvents optEM25X38 As RadioButton
     Friend WithEvents chkauto As CheckBox
+    Friend WithEvents cbVerExistencias As CheckBox
 End Class

@@ -23,8 +23,8 @@ Partial Class frmPagarT
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarT))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnPropina = New System.Windows.Forms.Button()
         Me.btnAmerican = New System.Windows.Forms.Button()
@@ -195,17 +195,17 @@ Partial Class frmPagarT
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdPagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdPagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.grdPagos.Dock = System.Windows.Forms.DockStyle.Fill
@@ -482,9 +482,9 @@ Partial Class frmPagarT
         Me.lblSubtotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.lblSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSubtotal.ForeColor = System.Drawing.Color.Black
-        Me.lblSubtotal.Location = New System.Drawing.Point(148, 4)
+        Me.lblSubtotal.Location = New System.Drawing.Point(163, 4)
         Me.lblSubtotal.Name = "lblSubtotal"
-        Me.lblSubtotal.Size = New System.Drawing.Size(180, 29)
+        Me.lblSubtotal.Size = New System.Drawing.Size(165, 29)
         Me.lblSubtotal.TabIndex = 1
         Me.lblSubtotal.Text = "0.00"
         Me.lblSubtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -493,9 +493,9 @@ Partial Class frmPagarT
         '
         Me.lbltotalpropina.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.lbltotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltotalpropina.Location = New System.Drawing.Point(145, 42)
+        Me.lbltotalpropina.Location = New System.Drawing.Point(160, 42)
         Me.lbltotalpropina.Name = "lbltotalpropina"
-        Me.lbltotalpropina.Size = New System.Drawing.Size(183, 29)
+        Me.lbltotalpropina.Size = New System.Drawing.Size(168, 29)
         Me.lbltotalpropina.TabIndex = 2
         Me.lbltotalpropina.Text = "0.00"
         Me.lbltotalpropina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -505,7 +505,7 @@ Partial Class frmPagarT
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(3, 42)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(157, 29)
+        Me.Label4.Size = New System.Drawing.Size(151, 29)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "PROP. INCLUIDA:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

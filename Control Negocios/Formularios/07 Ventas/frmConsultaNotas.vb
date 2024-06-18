@@ -3040,10 +3040,15 @@ Public Class frmConsultaNotas
                                     End If
                                     rd3.Close()
 
+
                                     cmd4 = cnn4.CreateCommand
-                                    cmd4.CommandText =
-                                 "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & sumapagos & "," & monto_efectivo2 & ",'" & cuentapagar & "'," & sumapagos & ",'','','" & lblusuario.Text & "',0,0)"
+                                    cmd4.CommandText = "UPDATE abonoi SET Concepto='NOTA CANCELADA' WHERE NumFolio='" & cbofolio.Text & "'"
                                     cmd4.ExecuteNonQuery()
+
+                                    '   cmd4 = cnn4.CreateCommand
+                                    '   cmd4.CommandText =
+                                    '"insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & sumapagos & "," & monto_efectivo2 & ",'" & cuentapagar & "'," & sumapagos & ",'','','" & lblusuario.Text & "',0,0)"
+                                    '   cmd4.ExecuteNonQuery()
                                 End If
 
 
@@ -3066,9 +3071,13 @@ Public Class frmConsultaNotas
                                     rd3.Close()
 
                                     cmd4 = cnn4.CreateCommand
-                                    cmd4.CommandText =
-                             "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & sumapagos & "," & monto_efectivo2 & ",'" & cuentapagar & "'," & sumapagos & ",'','','" & lblusuario.Text & "',0,0)"
+                                    cmd4.CommandText = "UPDATE abonoi SET Concepto='NOTA CANCELADA' WHERE NumFolio='" & cbofolio.Text & "'"
                                     cmd4.ExecuteNonQuery()
+
+                                    '       cmd4 = cnn4.CreateCommand
+                                    '       cmd4.CommandText =
+                                    '"insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Corte,CorteU) values('" & cbofolio.Text & "'," & IIf(lblNumCliente.Text = "MOSTRADOR", 0, lblNumCliente.Text) & ",'" & cbonombre.Text & "','NOTA CANCELADA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & sumapagos & "," & monto_efectivo2 & ",'" & cuentapagar & "'," & sumapagos & ",'','','" & lblusuario.Text & "',0,0)"
+                                    '       cmd4.ExecuteNonQuery()
                                 End If
 
                             End If

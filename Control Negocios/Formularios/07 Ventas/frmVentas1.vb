@@ -250,6 +250,27 @@ Public Class frmVentas1
                 btnOrdenes.Visible = False
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='VerExistencias'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
+                        lblExistencia.Visible = False
+                        txtexistencia.Visible = False
+                        lblTotal.Size = New Size(188, 20)
+                        txttotal.Size = New Size(188, 20)
+                    Else
+                        lblExistencia.Visible = True
+                        txtexistencia.Visible = True
+                    End If
+                End If
+            Else
+                lblExistencia.Visible = True
+                txtexistencia.Visible = True
+            End If
+            rd1.Close()
             cnn1.Close()
         Catch ex As Exception
 

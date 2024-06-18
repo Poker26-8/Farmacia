@@ -612,7 +612,23 @@ Public Class frmConfigs
                     End If
                 End If
             End If                  '
-            rd4.Close() : cnn4.Close()
+            rd4.Close()
+
+            cmd4 = cnn4.CreateCommand
+            cmd4.CommandText =
+                "select NotasCred from Formatos where Facturas='VerExistencias'"
+            rd4 = cmd4.ExecuteReader
+            If rd4.HasRows Then
+                If rd4.Read Then
+                    If rd4(0).ToString = 1 Then
+                        cbVerExistencias.Checked = True
+                    Else
+                        cbVerExistencias.Checked = False
+                    End If
+                End If
+            End If                  '
+            rd4.Close()
+            cnn4.Close()
 
             'Ticket
             'Esto va a ser por máquina/IP
@@ -3380,6 +3396,35 @@ Public Class frmConfigs
     Private Sub txtporc_venta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtporc_venta.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             Button26.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub cbVerExistencias_Click(sender As Object, e As EventArgs) Handles cbVerExistencias.Click
+        SFormatos("VerExistencias", "")
+        If (cbVerExistencias.Checked) Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Formatos set NotasCred='1' where Facturas='VerExistencias'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+        Else
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText =
+                    "update Formatos set NotasCred='0' where Facturas='VerExistencias'"
+                cmd1.ExecuteNonQuery()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
         End If
     End Sub
 End Class
