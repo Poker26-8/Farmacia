@@ -89,14 +89,6 @@ Public Class frmAutoservicio
     Public Resta As Double = 0
     Public Monedero As String = ""
     Public Direccion As String = ""
-    Private Sub frmVentasTouch_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        ' Verificar si la tecla presionada es F4
-        If e.KeyCode = Keys.F4 Then
-            ' Ejecutar la acción deseada
-            MessageBox.Show("Has presionado la tecla F4")
-            ' Puedes añadir aquí cualquier código adicional que necesites ejecutar
-        End If
-    End Sub
 
     Private Sub frmVentasTouch_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
