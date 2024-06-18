@@ -164,6 +164,7 @@ Public Class frmAutoservicio
         pProductos.Controls.Clear()
         Departamentos()
         pProductos.Controls.Add(PictureBox1)
+        pExtras.BackColor = Color.White
     End Sub
 
     Private Sub Departamentos()
@@ -382,11 +383,17 @@ Public Class frmAutoservicio
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT DISTINCT Descx,Codigo FROM extras WHERE CodigoAlpha='" & producto & "' order by Descx"
+            totextras = 0
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then totextras = totextras + 1
             Loop
             rd1.Close()
+            If totextras <> 0 Then
+                pExtras.BackColor = Color.FromArgb(192, 255, 255)
+            ElseIf totextras = 0 Then
+                pExtras.BackColor = Color.White
+            End If
 
             If totextras <= 8 Then
                 pExtras.AutoScroll = False
@@ -1746,13 +1753,13 @@ keseso:
                 rd1.Close()
             End If
 
-            If validaTarjeta = 0 Then
-                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
-            Else
-                If SiPago = 0 Then
-                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
-                End If
-            End If
+            'If validaTarjeta = 0 Then
+            '    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
+            'Else
+            '    If SiPago = 0 Then
+            '        If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Button1.Enabled = True : btnlimpiar.Enabled = True : cnn1.Close() : Exit Sub
+            '    End If
+            'End If
 
             'Comienza proceso de guardado de la venta
             If validaTarjeta <> 0 Then
@@ -3040,6 +3047,10 @@ Door:
     End Sub
 
     Private Sub pDeptos_Paint(sender As Object, e As PaintEventArgs) Handles pDeptos.Paint
+
+    End Sub
+
+    Private Sub lblTotal_Click(sender As Object, e As EventArgs)
 
     End Sub
 
