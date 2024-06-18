@@ -537,7 +537,7 @@ Public Class frmAutoservicio
                         btnExtra.Top = (prods - 1) * (btnExtra.Height + 0.5)
                     End If
 
-                    btnExtra.BackColor = Color.White
+                    btnExtra.BackColor = pExtras.BackColor
                     btnExtra.FlatStyle = FlatStyle.Popup
                     Dim fuenteNegrita As New Font(btnExtra.Font, FontStyle.Bold)
                     btnExtra.Font = fuenteNegrita
@@ -2969,6 +2969,10 @@ Door:
             TotalVenta = TotalVenta + CDbl(grdcaptura.Rows(T).Cells(3).Value.ToString)
         Next
         lblTotal.Text = FormatNumber(TotalVenta, 2)
+    End Sub
+
+    Private Sub lbltipoventa_Click(sender As Object, e As EventArgs) Handles lbltipoventa.Click
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
