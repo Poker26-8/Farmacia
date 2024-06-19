@@ -2755,6 +2755,7 @@ Public Class frmConfigs
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
 
         If cboGPrint.Text = "" Then MsgBox("Selecciona un grupo de impresión.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboGPrint.Focus().Equals(True) : Exit Sub
+
         If cboImpre_Comanda.Text = "" Then MsgBox("Selecciona la impresora del grupo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboImpre_Comanda.Focus().Equals(True) : Exit Sub
 
         If MsgBox("¿Deseas actualizar la ruta de impresión?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
