@@ -23,8 +23,8 @@ Partial Class frmPagarT
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPagarT))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnPropina = New System.Windows.Forms.Button()
         Me.btnAmerican = New System.Windows.Forms.Button()
@@ -75,6 +75,8 @@ Partial Class frmPagarT
         Me.btn8 = New System.Windows.Forms.Button()
         Me.btn7 = New System.Windows.Forms.Button()
         Me.txtMontos = New System.Windows.Forms.RichTextBox()
+        Me.BTNacEPTAR = New System.Windows.Forms.Button()
+        Me.btnQuitar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +98,7 @@ Partial Class frmPagarT
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(142, 396)
+        Me.Panel1.Size = New System.Drawing.Size(142, 426)
         Me.Panel1.TabIndex = 0
         '
         'btnPropina
@@ -188,24 +190,24 @@ Partial Class frmPagarT
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(142, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(570, 396)
+        Me.Panel2.Size = New System.Drawing.Size(570, 426)
         Me.Panel2.TabIndex = 1
         '
         'grdPagos
         '
         Me.grdPagos.AllowUserToAddRows = False
         Me.grdPagos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdPagos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdPagos.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdPagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdPagos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdPagos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.grdPagos.Dock = System.Windows.Forms.DockStyle.Fill
@@ -213,7 +215,7 @@ Partial Class frmPagarT
         Me.grdPagos.Location = New System.Drawing.Point(0, 233)
         Me.grdPagos.Name = "grdPagos"
         Me.grdPagos.RowHeadersVisible = False
-        Me.grdPagos.Size = New System.Drawing.Size(570, 123)
+        Me.grdPagos.Size = New System.Drawing.Size(570, 153)
         Me.grdPagos.TabIndex = 15
         '
         'Column1
@@ -249,7 +251,7 @@ Partial Class frmPagarT
         Me.Panel6.Controls.Add(Me.lblResta)
         Me.Panel6.Controls.Add(Me.Label11)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(0, 356)
+        Me.Panel6.Location = New System.Drawing.Point(0, 386)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(570, 40)
         Me.Panel6.TabIndex = 14
@@ -344,7 +346,7 @@ Partial Class frmPagarT
         Me.txtCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCliente.Location = New System.Drawing.Point(315, 41)
         Me.txtCliente.Name = "txtCliente"
-        Me.txtCliente.Size = New System.Drawing.Size(249, 22)
+        Me.txtCliente.Size = New System.Drawing.Size(248, 22)
         Me.txtCliente.TabIndex = 8
         '
         'Label9
@@ -469,9 +471,9 @@ Partial Class frmPagarT
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(457, 3)
+        Me.Button5.Location = New System.Drawing.Point(457, 4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(106, 76)
+        Me.Button5.Size = New System.Drawing.Size(106, 75)
         Me.Button5.TabIndex = 11
         Me.Button5.Text = "CANCELAR"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -519,7 +521,7 @@ Partial Class frmPagarT
         Me.btnpagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnpagar.Location = New System.Drawing.Point(345, 4)
         Me.btnpagar.Name = "btnpagar"
-        Me.btnpagar.Size = New System.Drawing.Size(106, 76)
+        Me.btnpagar.Size = New System.Drawing.Size(106, 75)
         Me.btnpagar.TabIndex = 4
         Me.btnpagar.Text = "PAGAR"
         Me.btnpagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -528,6 +530,8 @@ Partial Class frmPagarT
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.btnQuitar)
+        Me.Panel7.Controls.Add(Me.BTNacEPTAR)
         Me.Panel7.Controls.Add(Me.btnBorrar)
         Me.Panel7.Controls.Add(Me.btn0)
         Me.Panel7.Controls.Add(Me.btnpunto)
@@ -544,7 +548,7 @@ Partial Class frmPagarT
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel7.Location = New System.Drawing.Point(712, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(286, 396)
+        Me.Panel7.Size = New System.Drawing.Size(286, 426)
         Me.Panel7.TabIndex = 2
         '
         'btnBorrar
@@ -706,19 +710,48 @@ Partial Class frmPagarT
         'txtMontos
         '
         Me.txtMontos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.txtMontos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMontos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMontos.Location = New System.Drawing.Point(3, 12)
         Me.txtMontos.Name = "txtMontos"
-        Me.txtMontos.Size = New System.Drawing.Size(277, 51)
+        Me.txtMontos.Size = New System.Drawing.Size(183, 51)
         Me.txtMontos.TabIndex = 0
         Me.txtMontos.Text = ""
+        '
+        'BTNacEPTAR
+        '
+        Me.BTNacEPTAR.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BTNacEPTAR.FlatAppearance.BorderSize = 0
+        Me.BTNacEPTAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTNacEPTAR.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BTNacEPTAR.Location = New System.Drawing.Point(3, 369)
+        Me.BTNacEPTAR.Name = "BTNacEPTAR"
+        Me.BTNacEPTAR.Size = New System.Drawing.Size(277, 51)
+        Me.BTNacEPTAR.TabIndex = 79
+        Me.BTNacEPTAR.Text = "ENTER"
+        Me.BTNacEPTAR.UseVisualStyleBackColor = False
+        '
+        'btnQuitar
+        '
+        Me.btnQuitar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnQuitar.FlatAppearance.BorderSize = 0
+        Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnQuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQuitar.Image = CType(resources.GetObject("btnQuitar.Image"), System.Drawing.Image)
+        Me.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnQuitar.Location = New System.Drawing.Point(192, 12)
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(88, 51)
+        Me.btnQuitar.TabIndex = 80
+        Me.btnQuitar.Text = "Borrar"
+        Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnQuitar.UseVisualStyleBackColor = False
         '
         'frmPagarT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(998, 396)
+        Me.ClientSize = New System.Drawing.Size(998, 426)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel7)
@@ -789,4 +822,6 @@ Partial Class frmPagarT
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents BTNacEPTAR As Button
+    Friend WithEvents btnQuitar As Button
 End Class
