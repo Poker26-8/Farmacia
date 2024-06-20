@@ -435,6 +435,12 @@
     <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirQ.Designer.vb">
+      <DependentUpon>frmProducirQ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirQ.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\06 Compras\Cambios\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -2113,6 +2119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.resx">
       <DependentUpon>frmProducirF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmProducirQ.resx">
+      <DependentUpon>frmProducirQ.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\Cambios\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

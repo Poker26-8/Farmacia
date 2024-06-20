@@ -332,7 +332,8 @@ Public Class frmProducirF
                 mytotal += total
             Next
             txtcostod.Text = FormatNumber(mytotal, 2)
-            btnguardar.Focus().Equals(True)
+            cboLote.Focus.Equals(True)
+
         End If
     End Sub
 
@@ -429,6 +430,16 @@ Public Class frmProducirF
                         cnn3.Close()
 
                     End If
+                Else
+                    If cboLote.Text <> "" Then
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & cbocodigo.Text & "','" & cboLote.Text & "','" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "'," & txtcantidad.Text & ")"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+                    End If
+
+
                 End If
                 rd1.Close()
                 'se crea el ciclo para recorrer todos los insumos y actualizar las existencias y agregar los cardex de cada uno
@@ -465,13 +476,15 @@ Public Class frmProducirF
                     End If
                     rd2.Close()
 
+                    Dim cantidadlotes As Double = 0
+                    Dim nuevacoantidadlotes As Double = 0
+
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "SELECT * FROM lotecaducidad WHERE Codigo='" & codinsumo & "' AND Lote='" & loteinsumo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
-                            Dim cantidadlotes As Double = 0
-                            Dim nuevacoantidadlotes As Double = 0
+
 
                             cantidadlotes = rd2("Cantidad").ToString
                             nuevacoantidadlotes = CDec(cantidadlotes) - CDec(cantidadinsumo)
@@ -481,7 +494,21 @@ Public Class frmProducirF
                             cmd3.CommandText = "UPDATE lotecaducidad SET Cantidad=" & nuevacoantidadlotes & " WHERE Codigo='" & codinsumo & "' AND lote='" & loteinsumo & "'"
                             cmd3.ExecuteNonQuery()
                             cnn3.Close()
+
                         End If
+                    Else
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & codinsumo & "','" & loteinsumo & "','" & fechaloteinsumo & "'," & cantidadinsumo & ")"
+                        cmd3.ExecuteNonQuery()
+
+                        nuevacoantidadlotes = CDec(cantidadinsumo) - cantidadinsumo
+
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "UPDATE lotecaducidad SET Cantidad=" & nuevacoantidadlotes & " WHERE Codigo='" & codinsumo & "' AND lote='" & loteinsumo & "'"
+                        cmd3.ExecuteNonQuery()
+                        cnn3.Close()
+
                     End If
                     rd2.Close()
 
@@ -522,6 +549,17 @@ Public Class frmProducirF
 
             tamticket = TamImpre()
             impresoraticket = ImpresoraImprimir()
+
+            If tamticket = "80" Then
+                pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoraticket
+                pDocumento80.Print()
+            End If
+
+            If tamticket = "58" Then
+
+            End If
+
+            grdcaptura.Rows.Clear()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -791,34 +829,119 @@ Public Class frmProducirF
             Y += 11
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
+
             e.Graphics.DrawString(cbonombre.Text, fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Cantidad: " & txtcantidad.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Lote: " & cboLote.Text, fuente_b, Brushes.Black, 1, Y)
             Y += 11
-            e.Graphics.DrawString("Lote" & cboLote.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("Cantidad" & txtcantidad.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
             e.Graphics.DrawString("Codigo: " & txtCodigo.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("Revision: " & txtRevision.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            e.Graphics.DrawString("Revision: " & txtRevision.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
             e.Graphics.DrawString("Aprobación: " & Format(dtpAprobación.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 15
             e.Graphics.DrawString("N° Cliente: " & txtnumcliente.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            e.Graphics.DrawString("SKU: " & txtSKU.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
             e.Graphics.DrawString("Cliente: " & cboCliente.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
-            e.Graphics.DrawString("SKU: " & txtSKU.Text, fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            Y += 15
+
             e.Graphics.DrawString("Recepción: " & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("MATERIALES  Y  EQUIPOS", fuente_b, Brushes.Black, 135, Y, sc)
             Y += 11
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
-            Y += 15
-        Catch ex As Exception
+            Y += 11
 
+            e.Graphics.DrawString("REACTIVO", fuente_b, Brushes.Black, 140, Y, sc)
+            Y += 15
+            e.Graphics.DrawString("FASE", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("LOTE", fuente_b, Brushes.Black, 34, Y)
+            e.Graphics.DrawString("%(P/P)", fuente_b, Brushes.Black, 69, Y)
+            e.Graphics.DrawString("P.teórico(g)", fuente_b, Brushes.Black, 119, Y)
+            e.Graphics.DrawString("P.real(g)", fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                Dim fase As String = grdcaptura.Rows(luffy).Cells(10).Value.ToString
+                Dim lote As String = grdcaptura.Rows(luffy).Cells(8).Value.ToString
+                Dim reactivo As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+                Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+
+                e.Graphics.DrawString(reactivo, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 70, Y)
+                Y += 15
+                e.Graphics.DrawString(fase, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(lote, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 35, Y)
+                e.Graphics.DrawString(cantidad, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 95, Y)
+                Y += 20
+            Next
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("PROCEDEMIENTO", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub cboCliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCliente.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtSKU.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtSKU_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSKU.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            dtpAprobación.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub dtpAprobación_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpAprobación.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtnumcliente.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtnumcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnumcliente.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCodigo.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtRevision.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtRevision_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRevision.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            dtpFechaRecepcion.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboLote_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboLote.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnguardar.Focus.Equals(True)
+        End If
     End Sub
 End Class

@@ -2049,7 +2049,7 @@ Door:
 
         If imprime = 1 Then
 
-            If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            If MessageBox.Show("Desea imprimir esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
 
                 If TamImpre = "80" Then
                     For naruto As Integer = 1 To copias
@@ -2091,6 +2091,8 @@ Door:
 #End Region
 
         btnlimpiar.PerformClick()
+        tim.Stop()
+
         Me.Close()
 
     End Sub
@@ -6286,5 +6288,9 @@ Door:
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmNuevoPagar_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        tim.Stop()
     End Sub
 End Class

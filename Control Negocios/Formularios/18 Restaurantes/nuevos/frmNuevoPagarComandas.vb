@@ -161,6 +161,7 @@ Public Class frmNuevoPagarComandas
 
         TFecha.Start()
         TFolio.Start()
+        tim.Start()
 
         Try
             cnn1.Close()
@@ -5087,5 +5088,9 @@ Door:
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmNuevoPagarComandas_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        tim.Stop()
     End Sub
 End Class
