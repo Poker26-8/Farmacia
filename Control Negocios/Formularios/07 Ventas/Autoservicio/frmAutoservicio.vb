@@ -246,61 +246,7 @@ Public Class frmAutoservicio
     Private Sub Grupos(ByVal depto As String)
         Dim grupos As Integer = 0
         TotGrupos = 0
-        'Try
-        '    cnn2.Close() : cnn2.Open()
 
-        '    cmd2 = cnn2.CreateCommand
-        '    cmd2.CommandText =
-        '        "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
-        '    rd2 = cmd2.ExecuteReader
-        '    Do While rd2.Read
-        '        If rd2.HasRows Then TotGrupos = TotGrupos + 1
-        '    Loop
-        '    rd2.Close()
-
-        '    If TotGrupos <= 10 Then
-        '        pGrupos.AutoScroll = False
-        '    Else
-        '        pGrupos.AutoScroll = True
-        '    End If
-
-        '    cmd2 = cnn2.CreateCommand
-        '    cmd2.CommandText =
-        '        "select distinct Grupo from Productos where Departamento='" & depto & "' AND Grupo<>'INSUMO' order by Grupo asc"
-        '    rd2 = cmd2.ExecuteReader
-        '    Do While rd2.Read
-        '        If rd2.HasRows Then
-        '            Dim grupo As String = rd2(0).ToString
-        '            btnGrupo = New Button
-        '            btnGrupo.Text = grupo
-        '            btnGrupo.Tag = depto
-        '            btnGrupo.Name = "btnGrupo(" & grupos & ")"
-        '            btnGrupo.Height = 55
-        '            btnGrupo.Left = 0
-        '            If TotGrupos <= 10 Then
-        '                btnGrupo.Width = pGrupos.Width
-        '            Else
-        '                btnGrupo.Width = pGrupos.Width - 17
-        '            End If
-        '            btnGrupo.Top = grupos * (btnGrupo.Height + 0.5)
-        '            btnGrupo.BackColor = pGrupos.BackColor
-        '            btnGrupo.FlatStyle = FlatStyle.Popup
-        '            btnGrupo.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        '            btnGrupo.FlatAppearance.BorderSize = 0
-        '            AddHandler btnGrupo.Click, AddressOf btnGrupo_Click
-        '            pGrupos.Controls.Add(btnGrupo)
-        '            If grupos = 0 Then
-        '                Productos(depto, grupo)
-        '            End If
-        '            grupos += 1
-        '        End If
-        '    Loop
-        '    rd2.Close()
-        '    cnn2.Close()
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.ToString)
-        '    cnn2.Close()
-        'End Try
         Try
             cnn2.Close()
             cnn2.Open()
