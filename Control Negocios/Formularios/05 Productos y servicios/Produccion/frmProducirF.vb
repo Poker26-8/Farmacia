@@ -1,4 +1,5 @@
-﻿Public Class frmProducirF
+﻿Imports System.IO
+Public Class frmProducirF
 
     Dim renglon As Integer = 0
     Dim codigoseleccionado As String = ""
@@ -514,9 +515,13 @@
                 Next
                 cnn1.Close()
                 cnn2.Close()
-
-
             End If
+
+            Dim tamticket As Integer = 0
+            Dim impresoraticket As String = ""
+
+            tamticket = TamImpre()
+            impresoraticket = ImpresoraImprimir()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
