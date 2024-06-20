@@ -134,7 +134,6 @@ Public Class frmAutoservicio
         Resta = 0
         Try
             cnn1.Close() : cnn1.Open()
-
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
                 "select distinct Departamento from Productos"
@@ -2915,6 +2914,7 @@ Door:
         validaTarjeta = 0
         My.Application.DoEvents()
         pProductos.Controls.Add(PictureBox1)
+        pExtras.BackColor = Color.White
     End Sub
     Public Sub limpiaTodo()
         tFolio.Stop()
@@ -2972,6 +2972,7 @@ Door:
         validaTarjeta = 0
         My.Application.DoEvents()
         pProductos.Controls.Add(PictureBox1)
+        pExtras.BackColor = Color.White
     End Sub
 
     Private Sub grdcaptura_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellContentClick
