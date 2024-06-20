@@ -179,7 +179,7 @@ Public Class frmAutoservicio
             cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select distinct Departamento from Productos order by Departamento asc"
+            cmd1.CommandText = "select distinct Departamento from Productos where Departamento<>'EXTRAS' order by Departamento asc"
             rd1 = cmd1.ExecuteReader
 
 
