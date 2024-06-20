@@ -23,8 +23,8 @@ Partial Class frmNuevoPagar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagar))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblMesero = New System.Windows.Forms.Label()
@@ -337,6 +337,7 @@ Partial Class frmNuevoPagar
         '
         Me.txttotalpropina.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txttotalpropina.BackColor = System.Drawing.Color.White
+        Me.txttotalpropina.Enabled = False
         Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotalpropina.Location = New System.Drawing.Point(398, 115)
         Me.txttotalpropina.Name = "txttotalpropina"
@@ -390,6 +391,7 @@ Partial Class frmNuevoPagar
         '
         Me.txtSubtotalmapeo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
+        Me.txtSubtotalmapeo.Enabled = False
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubtotalmapeo.Location = New System.Drawing.Point(397, 9)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
@@ -437,6 +439,7 @@ Partial Class frmNuevoPagar
         '
         Me.txtResta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtResta.BackColor = System.Drawing.Color.White
+        Me.txtResta.Enabled = False
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
         Me.txtResta.Location = New System.Drawing.Point(398, 219)
@@ -484,6 +487,7 @@ Partial Class frmNuevoPagar
         '
         Me.txtCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCambio.BackColor = System.Drawing.Color.White
+        Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtCambio.Location = New System.Drawing.Point(398, 193)
@@ -498,6 +502,7 @@ Partial Class frmNuevoPagar
         '
         Me.txtTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotal.BackColor = System.Drawing.Color.White
+        Me.txtTotal.Enabled = False
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(398, 63)
         Me.txtTotal.Name = "txtTotal"
@@ -916,8 +921,8 @@ Partial Class frmNuevoPagar
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -926,8 +931,8 @@ Partial Class frmNuevoPagar
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True

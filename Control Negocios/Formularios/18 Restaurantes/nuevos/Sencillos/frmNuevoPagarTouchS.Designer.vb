@@ -445,6 +445,8 @@ Partial Class frmNuevoPagarTouchS
         '
         'txtTransferencia
         '
+        Me.txtTransferencia.BackColor = System.Drawing.Color.White
+        Me.txtTransferencia.Enabled = False
         Me.txtTransferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransferencia.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txtTransferencia.Location = New System.Drawing.Point(164, 244)
@@ -556,6 +558,7 @@ Partial Class frmNuevoPagarTouchS
         'txttotalpropina
         '
         Me.txttotalpropina.BackColor = System.Drawing.Color.White
+        Me.txttotalpropina.Enabled = False
         Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotalpropina.Location = New System.Drawing.Point(164, 164)
         Me.txttotalpropina.Name = "txttotalpropina"
@@ -666,6 +669,7 @@ Partial Class frmNuevoPagarTouchS
         'txtCambio
         '
         Me.txtCambio.BackColor = System.Drawing.Color.White
+        Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtCambio.Location = New System.Drawing.Point(164, 272)
@@ -741,6 +745,7 @@ Partial Class frmNuevoPagarTouchS
         'txtTotal
         '
         Me.txtTotal.BackColor = System.Drawing.Color.White
+        Me.txtTotal.Enabled = False
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(164, 110)
         Me.txtTotal.Name = "txtTotal"
@@ -763,6 +768,7 @@ Partial Class frmNuevoPagarTouchS
         'txtSubtotalmapeo
         '
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
+        Me.txtSubtotalmapeo.Enabled = False
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubtotalmapeo.Location = New System.Drawing.Point(164, 52)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"

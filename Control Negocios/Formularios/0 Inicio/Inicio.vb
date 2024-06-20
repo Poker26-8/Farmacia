@@ -2485,6 +2485,9 @@ Public Class Inicio
     Private Sub ProducirToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pProducir.Click
         frmProduccion.Show()
         frmProduccion.BringToFront()
+
+        frmProducirF.Show()
+        frmProducirF.BringToFront()
     End Sub
 
     Private Sub NotasDeCréditoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pNotasC.Click

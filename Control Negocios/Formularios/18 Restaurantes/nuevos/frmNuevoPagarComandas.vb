@@ -148,7 +148,7 @@ Public Class frmNuevoPagarComandas
             End If
             totalventa = 0
             foco = 1
-
+            btnCancelar.Enabled = True
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn2.Close()
@@ -808,6 +808,7 @@ Public Class frmNuevoPagarComandas
                     If MsgBox("¿Seguro que desea continuar con la cancelacion?", vbInformation + vbOKCancel, "Delsscom® Restaurant") = vbCancel Then
                         Exit Sub
                     End If
+                    btnCancelar.Enabled = False
                     canc = Val(CantidadP)
 
                     cnn3.Close() : cnn3.Open()

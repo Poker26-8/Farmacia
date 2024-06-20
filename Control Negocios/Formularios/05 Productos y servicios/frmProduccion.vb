@@ -426,11 +426,6 @@
                     cmd1.ExecuteNonQuery()
                 Next
 
-                'cmd1 = cnn1.CreateCommand
-                'cmd1.CommandText =
-                '    "insert into ComprasDetalle() values()"
-                'cmd1.ExecuteNonQuery()
-
                 cbocodigo.Items.Clear()
                 cbocodigo.Text = ""
                 cbonombre.Items.Clear()

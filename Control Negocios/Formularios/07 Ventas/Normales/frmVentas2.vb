@@ -9656,7 +9656,7 @@ ecomoda:
                 e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
                 Y += 25
                 e.Graphics.DrawImage(ima, 50, CInt(Y), 240, 240)
-                picQR.Image.Dispose()
+                ' picQR.Image.Dispose()
             End If
 
             Y += 20
@@ -9673,7 +9673,7 @@ ecomoda:
                     Y += 15
                     ' Dibuja la imagen en el contexto gráfico
                     e.Graphics.DrawImage(ima, 50, CInt(Y), 240, 240)
-                    picQR.Image.Dispose()
+                    'picQR.Image.Dispose()
                 End If
 
             Else

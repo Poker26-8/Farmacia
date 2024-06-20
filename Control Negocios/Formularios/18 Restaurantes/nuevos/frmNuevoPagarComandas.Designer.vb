@@ -1044,6 +1044,7 @@ Partial Class frmNuevoPagarComandas
         'txttotal
         '
         Me.txttotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
+        Me.txttotal.Enabled = False
         Me.txttotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotal.Location = New System.Drawing.Point(160, 111)
         Me.txttotal.Name = "txttotal"
@@ -1066,6 +1067,7 @@ Partial Class frmNuevoPagarComandas
         'txttotaldescuento
         '
         Me.txttotaldescuento.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
+        Me.txttotaldescuento.Enabled = False
         Me.txttotaldescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotaldescuento.Location = New System.Drawing.Point(159, 43)
         Me.txttotaldescuento.Name = "txttotaldescuento"
@@ -1124,9 +1126,9 @@ Partial Class frmNuevoPagarComandas
         Me.txtResta.Enabled = False
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
-        Me.txtResta.Location = New System.Drawing.Point(159, 247)
+        Me.txtResta.Location = New System.Drawing.Point(160, 247)
         Me.txtResta.Name = "txtResta"
-        Me.txtResta.Size = New System.Drawing.Size(96, 29)
+        Me.txtResta.Size = New System.Drawing.Size(95, 29)
         Me.txtResta.TabIndex = 26
         Me.txtResta.Text = "0.00"
         Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1170,9 +1172,9 @@ Partial Class frmNuevoPagarComandas
         Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.Green
-        Me.txtCambio.Location = New System.Drawing.Point(159, 213)
+        Me.txtCambio.Location = New System.Drawing.Point(160, 213)
         Me.txtCambio.Name = "txtCambio"
-        Me.txtCambio.Size = New System.Drawing.Size(96, 29)
+        Me.txtCambio.Size = New System.Drawing.Size(95, 29)
         Me.txtCambio.TabIndex = 24
         Me.txtCambio.Text = "0.00"
         Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1182,9 +1184,9 @@ Partial Class frmNuevoPagarComandas
         Me.txtPagos.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.txtPagos.Enabled = False
         Me.txtPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPagos.Location = New System.Drawing.Point(159, 145)
+        Me.txtPagos.Location = New System.Drawing.Point(160, 145)
         Me.txtPagos.Name = "txtPagos"
-        Me.txtPagos.Size = New System.Drawing.Size(96, 29)
+        Me.txtPagos.Size = New System.Drawing.Size(95, 29)
         Me.txtPagos.TabIndex = 20
         Me.txtPagos.Text = "0.00"
         Me.txtPagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1216,9 +1218,9 @@ Partial Class frmNuevoPagarComandas
         Me.txtEfectivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(205, Byte), Integer))
         Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEfectivo.ForeColor = System.Drawing.Color.Blue
-        Me.txtEfectivo.Location = New System.Drawing.Point(159, 179)
+        Me.txtEfectivo.Location = New System.Drawing.Point(160, 179)
         Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(96, 29)
+        Me.txtEfectivo.Size = New System.Drawing.Size(95, 29)
         Me.txtEfectivo.TabIndex = 22
         Me.txtEfectivo.Text = "0.00"
         Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right

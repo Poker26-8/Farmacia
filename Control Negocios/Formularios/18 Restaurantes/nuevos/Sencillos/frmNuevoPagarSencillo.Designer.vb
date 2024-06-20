@@ -24,8 +24,8 @@ Partial Class frmNuevoPagarSencillo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoPagarSencillo))
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.BTNsALIR = New System.Windows.Forms.Button()
@@ -840,6 +840,7 @@ Partial Class frmNuevoPagarSencillo
         'txttotalpropina
         '
         Me.txttotalpropina.BackColor = System.Drawing.Color.White
+        Me.txttotalpropina.Enabled = False
         Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotalpropina.Location = New System.Drawing.Point(125, 115)
         Me.txttotalpropina.Name = "txttotalpropina"
@@ -880,6 +881,7 @@ Partial Class frmNuevoPagarSencillo
         'txtSubtotalmapeo
         '
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
+        Me.txtSubtotalmapeo.Enabled = False
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubtotalmapeo.Location = New System.Drawing.Point(125, 3)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
@@ -912,6 +914,7 @@ Partial Class frmNuevoPagarSencillo
         'txtResta
         '
         Me.txtResta.BackColor = System.Drawing.Color.White
+        Me.txtResta.Enabled = False
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
         Me.txtResta.Location = New System.Drawing.Point(385, 30)
@@ -955,6 +958,7 @@ Partial Class frmNuevoPagarSencillo
         'txtCambio
         '
         Me.txtCambio.BackColor = System.Drawing.Color.White
+        Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtCambio.Location = New System.Drawing.Point(385, 4)
@@ -968,6 +972,7 @@ Partial Class frmNuevoPagarSencillo
         'txtTotal
         '
         Me.txtTotal.BackColor = System.Drawing.Color.White
+        Me.txtTotal.Enabled = False
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(125, 59)
         Me.txtTotal.Name = "txtTotal"
@@ -1076,8 +1081,8 @@ Partial Class frmNuevoPagarSencillo
         'Column6
         '
         Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column6.HeaderText = "Precio"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -1086,8 +1091,8 @@ Partial Class frmNuevoPagarSencillo
         'Column7
         '
         Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column7.HeaderText = "Total"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True

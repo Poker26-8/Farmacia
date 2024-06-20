@@ -82,10 +82,16 @@ Partial Class frmPagarTouch
         Me.txtmonedero = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.btn1000 = New System.Windows.Forms.Button()
         Me.lblidcliente = New System.Windows.Forms.Label()
+        Me.btn20 = New System.Windows.Forms.Button()
+        Me.btn200 = New System.Windows.Forms.Button()
         Me.txtAfavor = New System.Windows.Forms.TextBox()
+        Me.btn500 = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.btn50 = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.btn100 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtAdeuda = New System.Windows.Forms.TextBox()
         Me.txtMaxCredito = New System.Windows.Forms.TextBox()
@@ -113,12 +119,6 @@ Partial Class frmPagarTouch
         Me.btn3 = New System.Windows.Forms.Button()
         Me.btn2 = New System.Windows.Forms.Button()
         Me.btn1 = New System.Windows.Forms.Button()
-        Me.btn1000 = New System.Windows.Forms.Button()
-        Me.btn20 = New System.Windows.Forms.Button()
-        Me.btn200 = New System.Windows.Forms.Button()
-        Me.btn500 = New System.Windows.Forms.Button()
-        Me.btn50 = New System.Windows.Forms.Button()
-        Me.btn100 = New System.Windows.Forms.Button()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,6 +159,7 @@ Partial Class frmPagarTouch
         'txttotalpropina
         '
         Me.txttotalpropina.BackColor = System.Drawing.Color.White
+        Me.txttotalpropina.Enabled = False
         Me.txttotalpropina.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotalpropina.Location = New System.Drawing.Point(166, 170)
         Me.txttotalpropina.Name = "txttotalpropina"
@@ -267,6 +268,7 @@ Partial Class frmPagarTouch
         'txtResta
         '
         Me.txtResta.BackColor = System.Drawing.Color.White
+        Me.txtResta.Enabled = False
         Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
         Me.txtResta.Location = New System.Drawing.Point(166, 278)
@@ -280,6 +282,7 @@ Partial Class frmPagarTouch
         'txtCambio
         '
         Me.txtCambio.BackColor = System.Drawing.Color.White
+        Me.txtCambio.Enabled = False
         Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCambio.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtCambio.Location = New System.Drawing.Point(166, 251)
@@ -355,6 +358,7 @@ Partial Class frmPagarTouch
         'txtTotal
         '
         Me.txtTotal.BackColor = System.Drawing.Color.White
+        Me.txtTotal.Enabled = False
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(167, 116)
         Me.txtTotal.Name = "txtTotal"
@@ -377,6 +381,7 @@ Partial Class frmPagarTouch
         'txtSubtotalmapeo
         '
         Me.txtSubtotalmapeo.BackColor = System.Drawing.Color.White
+        Me.txtSubtotalmapeo.Enabled = False
         Me.txtSubtotalmapeo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubtotalmapeo.Location = New System.Drawing.Point(167, 62)
         Me.txtSubtotalmapeo.Name = "txtSubtotalmapeo"
@@ -764,12 +769,51 @@ Partial Class frmPagarTouch
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Cliente"
         '
+        'btn1000
+        '
+        Me.btn1000.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn1000.BackgroundImage = CType(resources.GetObject("btn1000.BackgroundImage"), System.Drawing.Image)
+        Me.btn1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn1000.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1000.Location = New System.Drawing.Point(899, 123)
+        Me.btn1000.Name = "btn1000"
+        Me.btn1000.Size = New System.Drawing.Size(131, 49)
+        Me.btn1000.TabIndex = 33
+        Me.btn1000.UseVisualStyleBackColor = False
+        '
         'lblidcliente
         '
         Me.lblidcliente.Location = New System.Drawing.Point(11, 134)
         Me.lblidcliente.Name = "lblidcliente"
         Me.lblidcliente.Size = New System.Drawing.Size(88, 26)
         Me.lblidcliente.TabIndex = 22
+        '
+        'btn20
+        '
+        Me.btn20.BackColor = System.Drawing.Color.White
+        Me.btn20.BackgroundImage = CType(resources.GetObject("btn20.BackgroundImage"), System.Drawing.Image)
+        Me.btn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn20.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn20.Location = New System.Drawing.Point(762, 14)
+        Me.btn20.Name = "btn20"
+        Me.btn20.Size = New System.Drawing.Size(131, 49)
+        Me.btn20.TabIndex = 28
+        Me.btn20.UseVisualStyleBackColor = False
+        '
+        'btn200
+        '
+        Me.btn200.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn200.BackgroundImage = CType(resources.GetObject("btn200.BackgroundImage"), System.Drawing.Image)
+        Me.btn200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn200.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn200.Location = New System.Drawing.Point(899, 68)
+        Me.btn200.Name = "btn200"
+        Me.btn200.Size = New System.Drawing.Size(131, 49)
+        Me.btn200.TabIndex = 29
+        Me.btn200.UseVisualStyleBackColor = False
         '
         'txtAfavor
         '
@@ -778,6 +822,19 @@ Partial Class frmPagarTouch
         Me.txtAfavor.Size = New System.Drawing.Size(83, 24)
         Me.txtAfavor.TabIndex = 21
         Me.txtAfavor.Text = "0.00"
+        '
+        'btn500
+        '
+        Me.btn500.BackColor = System.Drawing.Color.White
+        Me.btn500.BackgroundImage = CType(resources.GetObject("btn500.BackgroundImage"), System.Drawing.Image)
+        Me.btn500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn500.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn500.Location = New System.Drawing.Point(762, 123)
+        Me.btn500.Name = "btn500"
+        Me.btn500.Size = New System.Drawing.Size(131, 49)
+        Me.btn500.TabIndex = 32
+        Me.btn500.UseVisualStyleBackColor = False
         '
         'Label14
         '
@@ -788,6 +845,19 @@ Partial Class frmPagarTouch
         Me.Label14.TabIndex = 20
         Me.Label14.Text = "A Favor:"
         '
+        'btn50
+        '
+        Me.btn50.BackColor = System.Drawing.Color.White
+        Me.btn50.BackgroundImage = CType(resources.GetObject("btn50.BackgroundImage"), System.Drawing.Image)
+        Me.btn50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn50.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn50.Location = New System.Drawing.Point(899, 14)
+        Me.btn50.Name = "btn50"
+        Me.btn50.Size = New System.Drawing.Size(131, 49)
+        Me.btn50.TabIndex = 30
+        Me.btn50.UseVisualStyleBackColor = False
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -796,6 +866,19 @@ Partial Class frmPagarTouch
         Me.Label13.Size = New System.Drawing.Size(68, 18)
         Me.Label13.TabIndex = 19
         Me.Label13.Text = "Adeuda:"
+        '
+        'btn100
+        '
+        Me.btn100.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btn100.BackgroundImage = CType(resources.GetObject("btn100.BackgroundImage"), System.Drawing.Image)
+        Me.btn100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn100.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn100.Location = New System.Drawing.Point(762, 68)
+        Me.btn100.Name = "btn100"
+        Me.btn100.Size = New System.Drawing.Size(131, 49)
+        Me.btn100.TabIndex = 31
+        Me.btn100.UseVisualStyleBackColor = False
         '
         'Label12
         '
@@ -1100,84 +1183,6 @@ Partial Class frmPagarTouch
         Me.btn1.TabIndex = 0
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
-        '
-        'btn1000
-        '
-        Me.btn1000.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn1000.BackgroundImage = CType(resources.GetObject("btn1000.BackgroundImage"), System.Drawing.Image)
-        Me.btn1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn1000.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn1000.Location = New System.Drawing.Point(899, 123)
-        Me.btn1000.Name = "btn1000"
-        Me.btn1000.Size = New System.Drawing.Size(131, 49)
-        Me.btn1000.TabIndex = 33
-        Me.btn1000.UseVisualStyleBackColor = False
-        '
-        'btn20
-        '
-        Me.btn20.BackColor = System.Drawing.Color.White
-        Me.btn20.BackgroundImage = CType(resources.GetObject("btn20.BackgroundImage"), System.Drawing.Image)
-        Me.btn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn20.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn20.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn20.Location = New System.Drawing.Point(762, 14)
-        Me.btn20.Name = "btn20"
-        Me.btn20.Size = New System.Drawing.Size(131, 49)
-        Me.btn20.TabIndex = 28
-        Me.btn20.UseVisualStyleBackColor = False
-        '
-        'btn200
-        '
-        Me.btn200.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn200.BackgroundImage = CType(resources.GetObject("btn200.BackgroundImage"), System.Drawing.Image)
-        Me.btn200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn200.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn200.Location = New System.Drawing.Point(899, 68)
-        Me.btn200.Name = "btn200"
-        Me.btn200.Size = New System.Drawing.Size(131, 49)
-        Me.btn200.TabIndex = 29
-        Me.btn200.UseVisualStyleBackColor = False
-        '
-        'btn500
-        '
-        Me.btn500.BackColor = System.Drawing.Color.White
-        Me.btn500.BackgroundImage = CType(resources.GetObject("btn500.BackgroundImage"), System.Drawing.Image)
-        Me.btn500.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn500.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn500.Location = New System.Drawing.Point(762, 123)
-        Me.btn500.Name = "btn500"
-        Me.btn500.Size = New System.Drawing.Size(131, 49)
-        Me.btn500.TabIndex = 32
-        Me.btn500.UseVisualStyleBackColor = False
-        '
-        'btn50
-        '
-        Me.btn50.BackColor = System.Drawing.Color.White
-        Me.btn50.BackgroundImage = CType(resources.GetObject("btn50.BackgroundImage"), System.Drawing.Image)
-        Me.btn50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn50.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn50.Location = New System.Drawing.Point(899, 14)
-        Me.btn50.Name = "btn50"
-        Me.btn50.Size = New System.Drawing.Size(131, 49)
-        Me.btn50.TabIndex = 30
-        Me.btn50.UseVisualStyleBackColor = False
-        '
-        'btn100
-        '
-        Me.btn100.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btn100.BackgroundImage = CType(resources.GetObject("btn100.BackgroundImage"), System.Drawing.Image)
-        Me.btn100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn100.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn100.Location = New System.Drawing.Point(762, 68)
-        Me.btn100.Name = "btn100"
-        Me.btn100.Size = New System.Drawing.Size(131, 49)
-        Me.btn100.TabIndex = 31
-        Me.btn100.UseVisualStyleBackColor = False
         '
         'frmPagarTouch
         '
