@@ -471,7 +471,12 @@
     End Sub
 
     Public Sub enviaDescripcion()
-        frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", "", "", "", "", "")
+        If cbocod.Text = "" Then
+            frmVentas1.grdcaptura.Rows.Add(lblCodigo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", "", "", "", "", "")
+        Else
+            frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", "", "", "", "", "")
+        End If
+
 
         My.Application.DoEvents()
         Dim VarSumXD As Double = 0
