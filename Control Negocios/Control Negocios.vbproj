@@ -639,6 +639,12 @@
     <Compile Include="Formularios\18 Restaurantes\frmPasa_Mesa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoAgregarProductos.Designer.vb">
+      <DependentUpon>frmNuevoAgregarProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoAgregarProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagar.Designer.vb">
       <DependentUpon>frmNuevoPagar.vb</DependentUpon>
     </Compile>
@@ -2221,6 +2227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPasa_Mesa.resx">
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoAgregarProductos.resx">
+      <DependentUpon>frmNuevoAgregarProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoPagar.resx">
       <DependentUpon>frmNuevoPagar.vb</DependentUpon>

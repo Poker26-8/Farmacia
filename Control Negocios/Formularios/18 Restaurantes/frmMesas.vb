@@ -1058,6 +1058,8 @@ Public Class frmMesas
                         frmAgregarProducto.lblNcomensales.Text = txtNComensales.Text
                         frmAgregarProducto.Show()
                         frmAgregarProducto.BringToFront()
+
+                        frmNuevoAgregarProductos.Show()
                         Me.Close()
                     End If
 
