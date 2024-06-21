@@ -19,6 +19,20 @@ Public Class frmNuevoAgregarProductos
     Dim cantidad2 As Double = 0
 
     Dim CodigoProducto As String = ""
+    Dim existencia As Double = 0
+    Dim descripcion As String = ""
+    Dim unidadventa As String = ""
+    Dim grupo As String = ""
+    Dim doxuno As Integer = 0
+    Dim tresxdos As Integer = 0
+
+    Dim PU As Double = 0
+    Dim descuentoseleccionado As Double = 0
+
+    Dim importe As Double = 0
+    Dim importedes As Double = 0
+    Dim importemenosdes As Double = 0
+    Dim totalventa As Double = 0
     Private Sub frmNuevoAgregarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
@@ -728,6 +742,120 @@ Public Class frmNuevoAgregarProductos
 
     End Sub
     Public Sub ObtenerProducto(Codigo As String)
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & Codigo & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1("Grupo").ToString = "SERVICIOS" Then
+                        existencia = 0
+                    End If
+                    descripcion = rd1("Nombre").ToString
+                    unidadventa = rd1("UVenta").ToString
+                    existencia = rd1("Existencia").ToString
+                    grupo = rd1("Grupo").ToString
+                    doxuno = rd1("E1").ToString
+                    tresxdos = rd1("E2").ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            Call find_preciovta(Codigo)
+
+            importedes = CDec(descuentoseleccionado / 100)
+            importe = CDec(lblCantidad.Text) * CDec(PU)
+            importemenosdes = CDec(importe * importedes)
+            totalventa = CDec(importe) - CDec(importemenosdes)
+
+            If grupo = "PROMOCIONES" Then
+                UpGridCaptura()
+            Else
+                UpGridCaptura()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Public Sub find_preciovta(codigo As String)
+        Dim MyPrecio As Double = 0
+
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                If PEDI = False Then
+                    If rd2("Grupo").ToString() = "PROMOCIONES" Then
+                        MyPrecio = 0
+                    Else
+                        MyPrecio = rd2("PrecioVentaIVA").ToString()
+                    End If
+                ElseIf PEDI = True Then
+                    If rd2("Grupo").ToString() = "PROMOCIONES" Then
+                        MyPrecio = 0
+                    Else
+                        'MyPrecio = rd2("PrecioVentaMinIVA").ToString()
+                        MyPrecio = rd2("PrecioVentaIVA").ToString()
+                    End If
+                End If
+                PU = MyPrecio
+            End If
+        End If
+        rd2.Close() : cnn2.Close()
+    End Sub
+
+    Public Sub UpGridCaptura()
+
+        Dim esta As String = ""
+        Dim acumula As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT * FROM Ticket"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                esta = rd1("Comensal").ToString
+            End If
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Acumula'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                acumula = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        If esta = 1 Then
+            With Me.grdCaptura
+                Dim banderaentraa As Integer = 0
+                banderaentraa = 0
+
+                For qq As Integer = 0 To .Rows.Count - 1
+
+                Next
+
+                If banderaentraa = 0 Then
+                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2),, FormatNumber(descuentoseleccionado, 2), FormatNumber(totalventa, 2), respuesta, "", lblpromo.Text, "")
+
+                    lblTotalVenta.Text = lblTotalVenta.Text + importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                End If
+            End With
+        End If
 
     End Sub
 End Class
