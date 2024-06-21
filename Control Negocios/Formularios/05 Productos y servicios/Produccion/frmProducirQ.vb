@@ -1,4 +1,5 @@
-﻿Public Class frmProducirQ
+﻿Imports System.IO
+Public Class frmProducirQ
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbonombre.SelectedValueChanged
         Try
             grdcaptura.Rows.Clear()
@@ -654,7 +655,60 @@
                 Next
                 cnn1.Close()
                 cnn2.Close()
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE miprod SET Comentario='" & rtComentario.Text & "' WHERE CodigoP='" & cbocodigo.Text & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+                Dim tamticket As Integer = 0
+                Dim impresoratickett As String = ""
+
+                tamticket = TamImpre()
+                impresoratickett = ImpresoraImprimir()
+
+                If tamticket = "80" Then
+                    pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                    pDocumento80.Print()
+                End If
+
+                rtComentario.Text = ""
+                grdcaptura.Rows.Clear()
+                txtnumcliente.Text = ""
+                cboCliente.Text = ""
+                txtCodigo.Text = ""
+                txtSKU.Text = ""
+                txtRevision.Text = ""
+                dtpAprobación.Value = Date.Now
+                dtpFechaRecepcion.Value = Date.Now
+
+                cbocodigo.Text = ""
+                cbonombre.Text = ""
+                txtunidad.Text = ""
+                txtcantidad.Text = ""
+                txtcostod.Text = "0.00"
+                cboLote.Text = ""
+                dtpFechaLote.Value = Date.Now
+
+                rtObservaciones.Text = ""
+                txtPh.Text = ""
+                txtOlor.Text = ""
+                txtColor.Text = ""
+                txtAspecto.Text = ""
             End If
+
+
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -693,10 +747,291 @@
                 End If
                 rd1.Close()
                 cnn1.Close()
+                btnguardar.Focus.Equals(True)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub btnProceso_Click(sender As Object, e As EventArgs) Handles btnProceso.Click
+        rtComentario.Visible = True
+    End Sub
+
+    Private Sub rtComentario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtComentario.KeyPress
+        If AscW(e.KeyChar) = 0 Then
+            rtComentario.Text = ""
+            rtComentario.Visible = False
+            Exit Sub
+        End If
+
+        If AscW(e.KeyChar) = Keys.Enter Then
+            rtComentario.Visible = False
+            btnguardar.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub pDocumento80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDocumento80.PrintPage
+
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_r As New Font("Lucida Sans Typewriter", 8, FontStyle.Regular)
+        Dim fuente_b As New Font("Lucida Sans Typewriter", 8, FontStyle.Bold)
+        Dim fuente_c As New Font("Lucida Sans Typewriter", 10, FontStyle.Regular)
+        Dim fuente_p As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_a As New Font("Lucida Sans Typewriter", 12, FontStyle.Bold)
+
+        Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim hoja As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+
+
+        Try
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                    Y += 130
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                    Y += 120
+                End If
+            Else
+                Y = 0
+            End If
+
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("P R O C E D I M I E N T O", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString(cbonombre.Text, fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Cantidad: " & txtcantidad.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Lote: " & cboLote.Text, fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("Codigo: " & txtCodigo.Text, fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Revision: " & txtRevision.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Aprobación: " & Format(dtpAprobación.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("N° Cliente: " & txtnumcliente.Text, fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("SKU: " & txtSKU.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Cliente: " & cboCliente.Text, fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+
+            e.Graphics.DrawString("Recepción: " & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("MATERIALES  Y  EQUIPOS", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+            e.Graphics.DrawString("REACTIVO", fuente_b, Brushes.Black, 140, Y, sc)
+            Y += 15
+            e.Graphics.DrawString("FASE", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("LOTE", fuente_b, Brushes.Black, 34, Y)
+            e.Graphics.DrawString("%(P/P)", fuente_b, Brushes.Black, 69, Y)
+            e.Graphics.DrawString("P.teórico(g)", fuente_b, Brushes.Black, 119, Y)
+            e.Graphics.DrawString("P.real(g)", fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                Dim reactivo As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+                Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+                Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+                Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+                Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
+
+                e.Graphics.DrawString(reactivo, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 70, Y)
+                Y += 15
+                e.Graphics.DrawString(fase, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(lote, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 35, Y)
+                e.Graphics.DrawString(cantidad, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 95, Y)
+                e.Graphics.DrawString(teorico, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 150, Y)
+                e.Graphics.DrawString(real, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 270, Y, derecha)
+                Y += 20
+            Next
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("P R O C E D E M I E N T O", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+
+
+            Dim caracteresPorLinea As Integer = 45
+            Dim texto As String = rtComentario.Text
+            Dim inicio As Integer = 0
+            Dim longitudTexto As Integer = texto.Length
+
+            While inicio < longitudTexto
+                Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 13
+                inicio += caracteresPorLinea
+            End While
+            Y += 3
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("O B S E R V A C I O N E S", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            Dim caracteresPorLinea1 As Integer = 45
+            Dim texto1 As String = rtObservaciones.Text
+            Dim inicio1 As Integer = 0
+            Dim longitudTexto1 As Integer = texto1.Length
+
+            While inicio1 < longitudTexto1
+                Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                Dim bloque1 As String = texto.Substring(inicio1, longitudBloque1)
+                e.Graphics.DrawString(bloque1, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 13
+                inicio1 += caracteresPorLinea1
+            End While
+            Y += 3
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 11
+            e.Graphics.DrawString("PROPIEDADES FISICAS Y QUIMICAS", fuente_b, Brushes.Black, 135, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("PH: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtPh.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("OLOR: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtOlor.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("COLOR: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtColor.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+            e.Graphics.DrawString("ASPECTO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(txtAspecto.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("REALIZO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(lblUsuario.Text, fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 20
+
+            e.Graphics.DrawString("FIRMA: ", fuente_b, Brushes.Black, 140, Y, sc)
+            Y += 35
+            e.Graphics.DrawString("____________________________________", fuente_b, Brushes.Black, 140, Y, sc)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cboCliente_DropDown(sender As Object, e As EventArgs) Handles cboCliente.DropDown
+        Try
+            cboCliente.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Nombre FROM clientes WHERE Nombre<>'' ORDER BY Nombre"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboCliente.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboCliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCliente.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtnumcliente.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtnumcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnumcliente.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCodigo.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtSKU.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtSKU_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSKU.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtRevision.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtRevision_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRevision.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cbonombre.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtPh_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPh.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtOlor.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtOlor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtOlor.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtColor.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtColor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtColor.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtAspecto.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtAspecto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAspecto.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            rtObservaciones.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub rtObservaciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtObservaciones.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnguardar.Focus.Equals(True)
+        End If
     End Sub
 End Class

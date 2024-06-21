@@ -2489,8 +2489,8 @@ Public Class Inicio
         'frmProducirF.Show()
         'frmProducirF.BringToFront()
 
-        ' frmProducirQ.Show()
-        ' frmProducirQ.BringToFront()
+        frmProducirQ.Show()
+        frmProducirQ.BringToFront()
     End Sub
 
     Private Sub NotasDeCréditoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pNotasC.Click
