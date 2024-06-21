@@ -2744,8 +2744,6 @@ Door:
                 e.Graphics.DrawString(simbolo & FormatNumber(Cambio, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 13.5
             End If
-
-
             If MontoTarjeta > 0 Then
                 e.Graphics.DrawString("Pago con tarjeta(s):", fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(MontoTarjeta, 2), fuente_prods, Brushes.Black, 285, Y, sf)
@@ -2756,7 +2754,6 @@ Door:
                 e.Graphics.DrawString(simbolo & FormatNumber(MontoMonedero, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 13.5
             End If
-
             If Cliente <> "" Then
                 If Resta > 0 Then
                     e.Graphics.DrawString("PResta:", fuente_prods, Brushes.Black, 1, Y)
