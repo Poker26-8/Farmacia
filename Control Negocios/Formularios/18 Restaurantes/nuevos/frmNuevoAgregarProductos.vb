@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports Microsoft.VisualBasic.Devices
 Public Class frmNuevoAgregarProductos
 
     Friend WithEvents btnDepto, btnGrupo, btnProd, btnPrefe, btnExtra, btnPromo As System.Windows.Forms.Button
@@ -33,6 +34,15 @@ Public Class frmNuevoAgregarProductos
     Dim importedes As Double = 0
     Dim importemenosdes As Double = 0
     Dim totalventa As Double = 0
+    Dim TestStr As String = ""
+
+    Dim codigoseleccionado As String = ""
+    Dim comandaeliminar As String = ""
+
+    Dim ivaproducto As Double = 0
+    Dim iva As Double = 0
+    Dim totaliva As Double = 0
+
     Private Sub frmNuevoAgregarProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         If File.Exists(My.Application.Info.DirectoryPath & "\ImagenesProductos\FondoComanda.jpg") Then
@@ -672,7 +682,6 @@ Public Class frmNuevoAgregarProductos
             cnn3.Close()
         End Try
     End Sub
-
     Private Sub btnProd_Click(sender As Object, e As EventArgs)
         Dim btnProducto As Button = CType(sender, Button)
         '  pPreferencias.Controls.Clear()
@@ -682,6 +691,8 @@ Public Class frmNuevoAgregarProductos
         CodigoProducto = ""
         CodigoProducto = btnProducto.Tag
         cantidadPromo = 0
+
+        descuentoseleccionado = lblDescuento.Text
 
         If cnn3.State = 1 Then
             cnn3.Close()
@@ -811,7 +822,6 @@ Public Class frmNuevoAgregarProductos
         End If
         rd2.Close() : cnn2.Close()
     End Sub
-
     Public Sub UpGridCaptura()
 
         Dim esta As String = ""
@@ -846,16 +856,474 @@ Public Class frmNuevoAgregarProductos
 
                 For qq As Integer = 0 To .Rows.Count - 1
 
+                    If .Rows(qq).Cells(0).Value = CodigoProducto Then
+                        .Rows(qq).Cells(1).Value = descripcion
+                        .Rows(qq).Cells(2).Value = .Rows(qq).Cells(2).Value.ToString + CDec(FormatNumber(cantidad, 2))
+                        .Rows(qq).Cells(3).Value = FormatNumber(PU, 2)
+                        .Rows(qq).Cells(4).Value = .Rows(qq).Cells(4).Value.ToString + CDec(FormatNumber(importe, 2))
+                        .Rows(qq).Cells(5).Value = lblComensal.Text
+
+                        'grdcaptura.Rows(qq).Cells(6).Value = lblPromo.Text
+
+                        lblTotalVenta.Text = lblTotalVenta.Text + importe
+                        lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                        banderaentraa = 1
+                    End If
                 Next
 
                 If banderaentraa = 0 Then
-                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2),, FormatNumber(descuentoseleccionado, 2), FormatNumber(totalventa, 2), respuesta, "", lblpromo.Text, "")
+                    .Rows.Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(totalventa, 2), lblComensal.Text, "", "")
 
                     lblTotalVenta.Text = lblTotalVenta.Text + importe
                     lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
                 End If
             End With
+        Else
+            Dim dia As Integer = Date.Now.DayOfWeek
+            '2x1
+            If doxuno = 1 Then
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT * FROM Promos WHERE Codigo='" & CodigoProducto & "' AND Promo2x1=1"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        If rd2("Promo2x1").ToString = 1 Then
+                            dia = Weekday(Date.Now)
+                            Select Case dia
+                                Case = 1
+                                    If rd2("Domingo").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioD").ToString And TestStr <= rd2("HFinD").ToString Or TestStr >= rd2("HInicioD2").ToString And TestStr <= rd2("HFinD2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 2
+                                    If rd2("Lunes").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioL").ToString And TestStr <= rd2("HFinL").ToString Or TestStr >= rd2("HInicioL2").ToString And TestStr <= rd2("HFinL2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 3
+                                    If rd2("Martes").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioM").ToString And TestStr <= rd2("HFinM").ToString Or TestStr >= rd2("HInicioM2").ToString And TestStr <= rd2("HFinM2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 4
+                                    If rd2("Miercoles").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioMi").ToString And TestStr <= rd2("HFinMi").ToString Or TestStr >= rd2("HInicioMi2").ToString And TestStr <= rd2("HFinMi2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 5
+                                    If rd2("Jueves").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioJ").ToString And TestStr <= rd2("HFinJ").ToString Or TestStr >= rd2("HInicioJ2").ToString And TestStr <= rd2("HFinJ2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 6
+                                    If rd2("Viernes").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioV").ToString And TestStr <= rd2("HFinV").ToString Or TestStr >= rd2("HInicioV2").ToString And TestStr <= rd2("HFinV2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case = 7
+                                    If rd2("Sabado").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioS").ToString And TestStr <= rd2("HFinS").ToString Or TestStr >= rd2("HInicioS2").ToString And TestStr <= rd2("HFinS2").ToString Then
+                                            doxuno = 1
+                                        Else
+                                            doxuno = 0
+                                        End If
+                                    Else
+                                        doxuno = 0
+                                    End If
+
+                                Case Else
+                                    doxuno = 0
+                            End Select
+                        End If
+                    Else
+                        doxuno = 0
+                    End If
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+                With grdCaptura.Rows
+                    .Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(importe, 2), "", "")
+
+                    lblTotalVenta.Text = lblTotalVenta.Text + importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                End With
+
+                With Me.grdCaptura
+                    For ii As Integer = 0 To grdCaptura.Rows.Count - 1
+                        grdCaptura.Rows.Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "")
+                    Next
+                End With
+                Exit Sub
+            End If
+
+
+            If tresxdos = 1 Then
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT * FROM promos WHERE Codigo='" & CodigoProducto & "' AND Promo3x2=1"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        If rd2("Promo3x2").ToString = 1 Then
+                            dia = Weekday(Date.Now)
+                            Select Case dia
+                                Case = 1
+                                    If rd2("Domingo2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioD3").ToString And TestStr <= rd2("HFinD3").ToString Or TestStr >= rd2("HInicioD33").ToString And TestStr <= rd2("HFinD33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 2
+                                    If rd2("Lunes2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioL3").ToString And TestStr <= rd2("HFinL3").ToString Or TestStr >= rd2("HInicioL33").ToString And TestStr <= rd2("HFinL33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 3
+                                    If rd2("Martes2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioM3").ToString And TestStr <= rd2("HFin1M3").ToString Or TestStr >= rd2("HInicioM33").ToString And TestStr <= rd2("HFinM33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 4
+                                    If rd2("Miercoles2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioMi3").ToString And TestStr <= rd2("HFinMi3").ToString Or TestStr >= rd2("HInicioMi33").ToString And TestStr <= rd2("HFinMi33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 5
+                                    If rd2("Jueves2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioJ3").ToString And TestStr <= rd2("HFinJ3").ToString Or TestStr >= rd2("HInicioJ33").ToString And TestStr <= rd2("HFinJ33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 6
+                                    If rd2("Viernes2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioV3").ToString And TestStr <= rd2("HFinV3").ToString Or TestStr >= rd2("HInicioV33").ToString And TestStr <= rd2("HFinV33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+
+                                Case = 7
+                                    If rd2("Sabado2").ToString = 1 Then
+                                        TestStr = Format(Date.Now, "HH:mm:ss")
+                                        If TestStr >= rd2("HInicioS3").ToString And TestStr <= rd2("HFinS3").ToString Or TestStr >= rd2("HInicioS33").ToString And TestStr <= rd2("HFinS33").ToString Then
+                                            tresxdos = 1
+                                        Else
+                                            tresxdos = 0
+                                        End If
+                                    Else
+                                        tresxdos = 0
+                                    End If
+                                Case Else
+                                    tresxdos = 0
+                            End Select
+                        End If
+                    Else
+                        tresxdos = 0
+                    End If
+                Else
+                    tresxdos = 0
+                End If
+                rd2.Close()
+                cnn2.Close()
+
+                With grdCaptura.Rows.Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(importe, 2), "", "")
+
+                End With
+
+                With Me.grdCaptura.Rows.Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(importe, 2), "", "")
+
+                End With
+                For q As Integer = 0 To grdCaptura.Rows.Count - 1
+                    totalventa = totalventa + CDbl(grdCaptura.Rows(q).Cells(4).Value.ToString)
+                    lblTotalVenta.Text = FormatNumber(totalventa, 2)
+                Next
+
+                With Me.grdCaptura.Rows.Add(CodigoProducto, descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(2, 0), FormatNumber(0, 2), "", "")
+
+                End With
+                Exit Sub
+            End If
+
+            With Me.grdCaptura
+                Dim banderaentraa As Integer = 0
+                banderaentraa = 0
+                If acumula = 1 Then
+                    For dx As Integer = 0 To grdCaptura.Rows.Count - 1
+                        If CodigoProducto = grdCaptura.Rows(dx).Cells(0).Value.ToString Then
+                            grdCaptura.Rows(dx).Cells(2).Value = cantidad + CDbl(grdCaptura.Rows(dx).Cells(2).Value.ToString)
+                            grdCaptura.Rows(dx).Cells(4).Value = FormatNumber(importe + CDbl(grdCaptura.Rows(dx).Cells(4).Value.ToString), 2)
+
+                            lblTotalVenta.Text = lblTotalVenta.Text + totalventa
+                            lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+                            GoTo deku
+                        End If
+                    Next
+
+                    .Rows.Add(CodigoProducto, descripcion, FormatNumber(lblCantidad.Text, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(totalventa, 2), 1, lblComensal.Text, "", "")
+
+                    lblTotalVenta.Text = lblTotalVenta.Text + importe
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                Else
+                    .Rows.Add(CodigoProducto, descripcion, FormatNumber(lblCantidad.Text, 2), FormatNumber(PU, 2), FormatNumber(descuentoseleccionado, 2), FormatNumber(totalventa, 2), lblComensal.Text, "", "")
+
+                    lblTotalVenta.Text = lblTotalVenta.Text + totalventa
+                    lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+                End If
+deku:
+            End With
+            lblCantidad.Text = "1.00"
+            lblDescuento.Text = "0"
+            lblComensal.Text = "1"
         End If
+
+    End Sub
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
+        EnviarComanda()
+    End Sub
+    Private Sub btnComanda_Click(sender As Object, e As EventArgs) Handles btnComanda.Click
+
+    End Sub
+
+    Private Sub btnResumen_Click(sender As Object, e As EventArgs) Handles btnResumen.Click
+
+    End Sub
+
+    Private Sub btnTeclado_Click(sender As Object, e As EventArgs) Handles btnTeclado.Click
+        frmTecladoNum.cantidad = 1
+        frmTecladoNum.Show()
+        frmTecladoNum.BringToFront()
+    End Sub
+
+    Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
+        lblCantidad.Text = lblCantidad.Text - 1
+
+        If lblCantidad.Text <= 0 Then
+            lblCantidad.Text = "1.00"
+        End If
+        lblCantidad.Text = FormatNumber(lblCantidad.Text, 2)
+    End Sub
+    Private Sub btnAumentar_Click(sender As Object, e As EventArgs) Handles btnAumentar.Click
+        lblCantidad.Text = lblCantidad.Text + 1
+        lblCantidad.Text = FormatNumber(lblCantidad.Text, 2)
+    End Sub
+    Private Sub btnComensal_Click(sender As Object, e As EventArgs) Handles btnComensal.Click
+        frmTecladoNum.comensal = 1
+        frmTecladoNum.Show()
+        frmTecladoNum.BringToFront()
+    End Sub
+    Private Sub btn1Tiempo_Click(sender As Object, e As EventArgs) Handles btn1Tiempo.Click
+        Tiempos("5")
+    End Sub
+
+    Private Sub btnElminarTodo_Click(sender As Object, e As EventArgs) Handles btnElminarTodo.Click
+        grdCaptura.Rows.Clear()
+        lblTotalVenta.Text = "0.00"
+    End Sub
+
+    Private Sub btnEliminarPro_Click(sender As Object, e As EventArgs) Handles btnEliminarPro.Click
+        If comandaeliminar <> "" Then
+
+            Dim index As Integer = grdCaptura.CurrentRow.Index
+
+            Dim total As Double = grdCaptura.Rows(index).Cells(5).Value.ToString
+            lblTotalVenta.Text = lblTotalVenta.Text - CDec(total)
+            lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+            grdCaptura.Rows.Remove(grdCaptura.CurrentRow)
+        End If
+    End Sub
+
+    Private Sub btn2Tiempo_Click(sender As Object, e As EventArgs) Handles btn2Tiempo.Click
+        Tiempos("10")
+    End Sub
+
+    Private Sub btn3Tiempo_Click(sender As Object, e As EventArgs) Handles btn3Tiempo.Click
+        Tiempos("15")
+    End Sub
+
+    Private Sub Tiempos(ByVal min As Integer)
+        Dim tiempo As Integer = 0
+
+
+        For zi = 0 To grdCaptura.Rows.Count - 1
+            grdCaptura.Rows(zi).Cells(7).Value = min
+        Next
+        If min = 5 Then
+            grdCaptura.Rows.Add("--------------------", "Primer Tiempo", "0", "0", "0", "0", "", "", "")
+        ElseIf min = 10 Then
+            grdCaptura.Rows.Add("--------------------", "Segundo Tiempo", "0", "0", "0", "0", "", "", "")
+        ElseIf min = 15 Then
+            grdCaptura.Rows.Add("--------------------", "Tercer Tiempo", "0", "0", "0", "0", "", "", "")
+        End If
+
+
+    End Sub
+
+    Private Sub btnDescuento_Click(sender As Object, e As EventArgs) Handles btnDescuento.Click
+        frmTecladoNum.descuento = 1
+        frmTecladoNum.Show()
+        frmTecladoNum.BringToFront()
+    End Sub
+
+    Private Sub btnComentario_Click(sender As Object, e As EventArgs) Handles btnComentario.Click
+        frmTecladoAgregarPro.comentario = 1
+        frmTecladoAgregarPro.CODIGO = codigoseleccionado
+        frmTecladoAgregarPro.Show()
+        frmTecladoAgregarPro.BringToFront()
+    End Sub
+
+    Private Sub grdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellClick
+
+
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+        Dim celda As DataGridViewCellEventArgs = e
+
+        codigoseleccionado = grdCaptura.CurrentRow.Cells(0).Value.ToString
+        comandaeliminar = grdCaptura.CurrentRow.Cells(0).Value.ToString
+    End Sub
+
+    Public Sub EnviarComanda()
+
+        For n As Integer = 0 To grdCaptura.Rows.Count - 1
+            If grdCaptura.Rows(n).Cells(0).Value <> "" Then
+
+                CodigoProducto = grdCaptura.Rows(n).Cells(0).Value.ToString
+
+                If CodigoProducto = "--------------------" Then
+                    Continue For
+                End If
+
+                Dim TOTAL As Double = grdCaptura.Rows(n).Cells(4).Value.ToString
+
+                If CodigoProducto <> "WXYZ" Then
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "select IVA from Productos where Codigo='" & CodigoProducto & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.Read Then
+                        If grdCaptura.Rows(n).Cells(3).Value.ToString <> "" Then
+
+                            If rd1(0).ToString > 0 Then
+                                IVAPRODUCTO = CDbl(TOTAL) / (1 + rd1(0).ToString)
+                                iva = CDbl(TOTAL) - CDbl(IVAPRODUCTO)
+                                totaliva = totaliva + CDbl(iva)
+                            End If
+
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                End If
+            End If
+        Next n
+        totaliva = FormatNumber(totaliva, 2)
+
+
+        If grdCaptura.Rows.Count < 1 Then
+            Exit Sub
+        End If
+
+        If MsgBox("Desea enviar a producccion", vbInformation + vbOKCancel, titulomensajes) = vbCancel Then
+            Exit Sub
+        End If
+
+        Dim mysubtotal As Double = 0
+        Dim mytotalventa As Double = 0
+
+        mytotalventa = lblTotalVenta.Text
+        mysubtotal = CDbl(mytotalventa) - CDbl(totaliva)
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "INSERT INTO Comanda1(Nombre,Subtotal,IVA,Totales,Resta,TComensales,IdCliente,Direccion,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista) VALUES('" & lblMesa.Text & "'," & mysubtotal & "," & totaliva & "," & mytotalventa & "," & mytotalventa & "," & CInt(lblComensal.Text) & ",'','','" & lblmesero.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','','','','')"
+        cmd1.ExecuteNonQuery()
+        cnn1.Close()
 
     End Sub
 End Class

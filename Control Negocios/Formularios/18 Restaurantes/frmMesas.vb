@@ -1059,7 +1059,9 @@ Public Class frmMesas
                         frmAgregarProducto.Show()
                         frmAgregarProducto.BringToFront()
 
-                        frmNuevoAgregarProductos.Show()
+                        'frmNuevoAgregarProductos.lblMesa.Text = txtMesa.Text
+                        'frmNuevoAgregarProductos.lblmesero.Text = lblusuario.Text
+                        'frmNuevoAgregarProductos.Show()
                         Me.Close()
                     End If
 
