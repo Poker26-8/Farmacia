@@ -1,6 +1,8 @@
 ﻿Public Class frmProductoOcasional
 
-      Public focomesasmostrar As Integer = 0
+    Public focomesasmostrar As Integer = 0
+    Public agregarpro As Integer = 0
+
     Private Sub frmProductoOcasional_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtdescripcionocasional.Focus.Equals(True)
     End Sub
@@ -40,6 +42,41 @@
 
                 frmAgregarProducto.lblTotalVenta.Text = frmAgregarProducto.lblTotalVenta.Text + total
                 frmAgregarProducto.lblTotalVenta.Text = FormatNumber(frmAgregarProducto.lblTotalVenta.Text, 2)
+            End If
+
+            If agregarpro = 1 Then
+
+                If focomesasmostrar = 1 Then
+                    frmNuevoAgregarProductos.grdCaptura.Rows.Add(lblcodigo.Text, txtdescripcionocasional.Text,
+                                                           txtcantidadocasional.Text,
+                                                           txtprecioocasional.Text,
+                                                           "0",
+                                                           total,
+                                                           1,
+                                                           "",
+                                                           ""
+                    )
+
+                    frmNuevoAgregarProductos.lblTotalVenta.Text = frmNuevoAgregarProductos.lblTotalVenta.Text + total
+                    frmNuevoAgregarProductos.lblTotalVenta.Text = FormatNumber(frmNuevoAgregarProductos.lblTotalVenta.Text, 2)
+                End If
+
+                If focomesasmostrar = 0 Then
+                    frmNuevoAgregarProductos.grdCaptura.Rows.Add(lblcodigo.Text,
+                                                                 txtdescripcionocasional.Text,
+                                                          txtcantidadocasional.Text,
+                                                          txtprecioocasional.Text,
+                                                          "0",
+                                                          total,
+                                                          1,
+                                                          "",
+                                                          ""
+                   )
+
+                    frmNuevoAgregarProductos.lblTotalVenta.Text = frmNuevoAgregarProductos.lblTotalVenta.Text + total
+                    frmNuevoAgregarProductos.lblTotalVenta.Text = FormatNumber(frmNuevoAgregarProductos.lblTotalVenta.Text, 2)
+                End If
+
             End If
             btnlimpiaroca.PerformClick()
             txtdescripcionocasional.Focus.Equals(True)

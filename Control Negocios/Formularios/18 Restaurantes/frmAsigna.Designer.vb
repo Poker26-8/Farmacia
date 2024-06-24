@@ -90,7 +90,7 @@ Partial Class frmAsigna
         '
         'btnSalir
         '
-        Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -103,7 +103,7 @@ Partial Class frmAsigna
         '
         'btnIniciarTiempo
         '
-        Me.btnIniciarTiempo.BackColor = System.Drawing.Color.White
+        Me.btnIniciarTiempo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnIniciarTiempo.FlatAppearance.BorderSize = 0
         Me.btnIniciarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnIniciarTiempo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

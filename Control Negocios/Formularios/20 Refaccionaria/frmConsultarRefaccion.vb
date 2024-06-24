@@ -42,7 +42,7 @@ Public Class frmConsultarRefaccion
             End If
 
             If cboModelo.Text <> "" Then
-                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboaño.Text & "'"
+                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboaño.Text & "' AND Motor='" & cboMotor.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -146,7 +146,7 @@ Public Class frmConsultarRefaccion
         cboModelo.Text = ""
         grdProductos.Rows.Clear()
         cboaño.Focused.Equals(True)
-
+        cboMotor.Text = ""
         PicProducto.Image = Nothing
     End Sub
 
@@ -174,7 +174,7 @@ Public Class frmConsultarRefaccion
     Private Sub cboModelo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboModelo.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            Button3.Focus.Equals(True)
+            cboMotor.Focus.Equals(True)
         End If
     End Sub
 
@@ -209,5 +209,33 @@ Public Class frmConsultarRefaccion
         '    isImageEnlarged = False
         'End If
 
+    End Sub
+
+    Private Sub cboMotor_DropDown(sender As Object, e As EventArgs) Handles cboMotor.DropDown
+        Try
+            cboMotor.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Motor FROM vehiculo2 WHERE Motor<>'' AND Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' ORDER BY Motor"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboMotor.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboMotor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMotor.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Button3.Focus.Equals(True)
+        End If
     End Sub
 End Class

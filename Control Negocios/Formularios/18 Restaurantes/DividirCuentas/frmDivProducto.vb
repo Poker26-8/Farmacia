@@ -160,7 +160,6 @@ Public Class frmDivProducto
         lblTotalVenta.Text = FormatNumber(nuevot, 2)
 
         btnAceptar.Enabled = True
-        btnImprimir.Enabled = True
     End Sub
 
     Private Sub btnAdd2_Click(sender As Object, e As EventArgs) Handles btnAdd2.Click
@@ -207,7 +206,6 @@ Public Class frmDivProducto
         lblTotalVenta.Text = FormatNumber(nuevot, 2)
 
         btnAceptar.Enabled = True
-        btnImprimir.Enabled = True
     End Sub
 
     Private Sub btnAdd3_Click(sender As Object, e As EventArgs) Handles btnAdd3.Click
@@ -254,7 +252,6 @@ Public Class frmDivProducto
         lblTotalVenta.Text = FormatNumber(nuevot, 2)
 
         btnAceptar.Enabled = True
-        btnImprimir.Enabled = True
     End Sub
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -262,6 +259,7 @@ Public Class frmDivProducto
 
             Dim nuevonombre As String = ""
             Dim NUEVOFOLIO As Integer = 0
+            Dim ubi As String = ""
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
@@ -275,7 +273,17 @@ Public Class frmDivProducto
                 NUEVOFOLIO = 1
             End If
             rd3.Close()
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "SELECT Ubicacion FROM mesa WHERE Nombre_mesa='" & lblorigen.Text & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    ubi = rd3(0).ToString
+                End If
+            End If
+            rd3.Close()
             cnn3.Close()
+
 
             If grd1.Rows.Count <> 0 Then
 
@@ -296,7 +304,7 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','" & ubi & "',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
@@ -388,7 +396,7 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','" & ubi & "',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
@@ -474,7 +482,7 @@ Public Class frmDivProducto
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','',0,0,'2',0)"
+                    cmd2.CommandText = "INSERT INTO mesa(Nombre_mesa,Temporal,Status,Contabiliza,Precio,Orden,TempNom,IdEmpleado,Mesero,Ubicacion,X,Y,Tipo,Impresion) VALUES('" & nuevonombre & "',1,'Ocupada',0,0,0,''," & idempleas & ",'','" & ubi & "',0,0,'2',0)"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
@@ -595,7 +603,7 @@ Public Class frmDivProducto
         Return nuevoNombre
     End Function
 
-    Private Sub btnImprimir_Click(sender As Object, e As EventArgs) Handles btnImprimir.Click
+    Private Sub btnImprimir_Click(sender As Object, e As EventArgs)
 
 
 

@@ -151,10 +151,14 @@
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    cboCodigo.Text = rd2("Codigo").ToString
-                    cboNombre.Text = rd2("Nombre").ToString
-                    txtbarras.Text = rd2("CodBarra").ToString
-                    cboUbicaicon.Text = rd2("Ubicacion").ToString
+                    If txtnumparte.Text = "" Then
+                    Else
+                        cboCodigo.Text = rd2("Codigo").ToString
+                        cboNombre.Text = rd2("Nombre").ToString
+                        txtbarras.Text = IIf(rd2("CodBarra").ToString = "", "", rd2("CodBarra").ToString)
+                        cboUbicaicon.Text = rd2("Ubicacion").ToString
+                    End If
+
                 End If
             End If
             rd2.Close()
@@ -200,14 +204,14 @@
     Private Sub cboMarca_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMarca.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            cboAno.Focus.Equals(True)
+            cboModelo.Focus.Equals(True)
         End If
     End Sub
 
     Private Sub cboModelo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboModelo.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtObservacion.Focus.Equals(True)
+            cboAno.Focus.Equals(True)
         End If
     End Sub
 
@@ -229,7 +233,8 @@
                                 txtObservacion.Text,
                                 cboUbicaicon.Text,
                                 txtpiezas.Text,
-                                cboAno.Text
+                                cboAno.Text,
+                                cboMotor.Text
 )
 
 
@@ -332,6 +337,7 @@
                     Dim ubicacion As String = grdCaptura.Rows(monkey).Cells(8).Value.ToString
                     Dim pieza As String = grdCaptura.Rows(monkey).Cells(9).Value.ToString
                     Dim ano As String = grdCaptura.Rows(monkey).Cells(10).Value.ToString
+                    Dim motor As String = grdCaptura.Rows(monkey).Cells(11).Value.ToString
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
@@ -341,7 +347,7 @@
                         If rd1.Read Then
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
+                            cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Motor,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & motor & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
 
@@ -349,7 +355,7 @@
                     Else
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
+                        cmd2.CommandText = "INSERT INTO refaccionaria(CodigoPro,NumParte,CodBarra,Nombre,Marca,Modelo,Motor,Observaciones,Ubicacion,Servicio,Npiezas,Ano) VALUES('" & codigo & "','" & parte & "','" & barras & "','" & nombre & "','" & marca & "','" & modelo & "','" & motor & "','" & observacion & "','" & ubicacion & "','" & servicioo & "','" & pieza & "','" & ano & "')"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -378,12 +384,14 @@
         cboModelo.Text = ""
         cboAno.Text = ""
         cboServicio.Text = ""
+        cboMotor.Text = ""
         txtObservacion.Text = ""
+        cboUbicaicon.Text = ""
     End Sub
 
     Private Sub cboAno_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboAno.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            cboModelo.Focus.Equals(True)
+            cboMotor.Focus.Equals(True)
         End If
     End Sub
 
@@ -439,5 +447,33 @@
 
     Private Sub frmAsignarRefa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmMenuPrincipal.Show()
+    End Sub
+
+    Private Sub cboMotor_DropDown(sender As Object, e As EventArgs) Handles cboMotor.DropDown
+        Try
+            cboMotor.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Motor FROM vehiculo2 WHERE Motor<>'' AND Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboAno.Text & "'"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboMotor.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboMotor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboMotor.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtObservacion.Focus.Equals(True)
+        End If
     End Sub
 End Class

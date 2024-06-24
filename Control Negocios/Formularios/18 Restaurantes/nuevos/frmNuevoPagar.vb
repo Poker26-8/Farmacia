@@ -1995,6 +1995,10 @@ Door:
         rd1.Close()
         cnn1.Close()
 
+        ' btnlimpiar.PerformClick()
+        tim.Stop()
+        My.Application.DoEvents()
+
 #Region "TICKET"
 
         Dim copias As Integer = 0
@@ -2090,8 +2094,7 @@ Door:
 
 #End Region
 
-        btnlimpiar.PerformClick()
-        tim.Stop()
+
 
         Me.Close()
 
@@ -4196,6 +4199,7 @@ Door:
             cnn2.Close()
             cnn3.Close()
             cnn4.Close()
+            btnlimpiar.PerformClick()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -4784,6 +4788,8 @@ Door:
             cnn2.Close()
             cnn3.Close()
             cnn4.Close()
+
+            btnlimpiar.PerformClick()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -5635,6 +5641,8 @@ Door:
                 MsgBox("Usuario sin privilegios para la cortesia", vbInformation + vbOKOnly, "Delsscom® Restaurant")
                 Exit Sub
             End If
+
+            If MsgBox("¿Desea continuar con el proceso, si continua no podra cancelarce el proceso?", vbInformation + vbYesNo, titulorestaurante) = vbNo Then Exit Sub
 
             subb = CDec(txtTotal.Text) * 0.16
             cuenta = CDec(CDec(txtEfectivo.Text) + CDec(txtpagos.Text)) - CDec(txtCambio.Text)

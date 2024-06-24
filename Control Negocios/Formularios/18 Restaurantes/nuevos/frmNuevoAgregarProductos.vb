@@ -1170,7 +1170,9 @@ deku:
         EnviarComanda()
     End Sub
     Private Sub btnComanda_Click(sender As Object, e As EventArgs) Handles btnComanda.Click
-
+        frmProductoOcasional.focomesasmostrar = 1
+        frmProductoOcasional.agregarpro = 1
+        frmProductoOcasional.Show()
     End Sub
 
     Private Sub btnResumen_Click(sender As Object, e As EventArgs) Handles btnResumen.Click
@@ -1548,7 +1550,8 @@ safo:
 
         grdCaptura.Rows.Clear()
         lblTotalVenta.Text = "0.00"
-
+        Me.Close()
+        frmMesas.Show()
     End Sub
 
     Private Sub PComanda80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PComanda80.PrintPage
@@ -1730,7 +1733,7 @@ safo:
 
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint,Comisionista from Comandas where id=" & MyFolio & " and GPrint='" & rutacomanda & "' AND Comisionista='" & tiempo & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint,Comisionista Order By Comensal"
+                        cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint,Comisionista from Comandas where id=" & CFOLIO & " and GPrint='" & rutacomanda & "' AND Comisionista='" & tiempo & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint,Comisionista Order By Comensal"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -1798,7 +1801,233 @@ safo:
     End Sub
 
     Private Sub PComanda58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PComanda58.PrintPage
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_r As New Font("Lucida Sans Typewriter", 6, FontStyle.Regular)
+        Dim fuente_b As New Font("Lucida Sans Typewriter", 7, FontStyle.Bold)
+        Dim fuente_c As New Font("Lucida Sans Typewriter", 7, FontStyle.Regular)
+        Dim fuente_p As New Font("Lucida Sans Typewriter", 6, FontStyle.Regular)
+        Dim derecha As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim pluma As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
 
+        Dim SinNumCoemensal As Integer = 0
+
+        Dim conta As Integer = 0
+        Dim contband As Integer = 0
+        Dim comen_sal As String = ""
+
+        Try
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "select NotasCred from Formatos where Facturas='SinNumComensal'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    SinNumCoemensal = rd2(0).ToString
+                End If
+            Else
+                SinNumCoemensal = 0
+            End If
+            rd2.Close()
+
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "select * from Ticket"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+                    If rd2("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab0").ToString, fuente_c, Brushes.Black, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab1").ToString, fuente_c, Brushes.Black, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab2").ToString, fuente_c, Brushes.Gray, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab3").ToString, fuente_c, Brushes.Gray, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab4").ToString, fuente_c, Brushes.Gray, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd2("Cab5").ToString, fuente_c, Brushes.Gray, 90, Y, sc)
+                        Y += 11
+                    End If
+
+                    If rd2("Cab6").ToString <> "" Then
+                        e.Graphics.DrawString(rd2("Cab6").ToString, fuente_c, Brushes.Gray, 90, Y, sc)
+                        Y += 11
+                    End If
+                    Y += 4
+                End If
+            Else
+            End If
+            rd2.Close()
+
+            e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 14
+
+            e.Graphics.DrawString("C O M A N D A", fuente_b, Brushes.Black, 90, Y, sc)
+            Y += 11
+            e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 17
+
+            e.Graphics.DrawString("Folio: " & MyFolio, fuente_b, Brushes.Black, 1, Y)
+            Y += 14
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(FormatDateTime(Date.Now, DateFormat.LongTime), fuente_b, Brushes.Black, 180, Y, derecha)
+            Y += 18
+            e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 16
+
+            If SinNumCoemensal = 1 Then
+                e.Graphics.DrawString("MESA: " & lblMesa.Text, fuente_b, Brushes.Black, 1, Y)
+                Y += 14
+            Else
+                e.Graphics.DrawString("NMESA: " & lblMesa.Text, fuente_b, Brushes.Black, 1, Y)
+                Y += 11
+                e.Graphics.DrawString("Comensales: " & "1", fuente_b, Brushes.Black, 1, Y)
+                Y += 14
+            End If
+
+            e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 13
+
+            e.Graphics.DrawString("CANTIDAD", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRODUCTO", fuente_b, Brushes.Black, 130, Y, derecha)
+            Y += 6
+            e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Y += 14
+
+            Dim codigo As String = ""
+            Dim nombre As String = ""
+            Dim cantidad As Double = 0
+            Dim comensall As String = ""
+            Dim comentario As String = ""
+            Dim idc As Integer = 0
+            Dim tiempo As String = ""
+            If SinNumCoemensal = 1 Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Comisionista from Comandas  where GPrint='" & rutacomanda & "' and Id=" & CFOLIO & " group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Comisionista order by comensal"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+
+                        codigo = rd1("Codigo").ToString
+                        nombre = rd1("Nombre").ToString
+                        cantidad = rd1("Cantidad").ToString
+                        comensall = rd1("Comensal").ToString
+                        comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionista").ToString
+
+                        idc = rd1("IDC").ToString
+
+                        e.Graphics.DrawString(cantidad, fuente_b, Brushes.Black, 1, Y)
+
+                        Dim caracteresPorLinea As Integer = 25
+                        Dim texto As String = nombre
+                        Dim inicio As Integer = 0
+                        Dim longitudTexto As Integer = texto.Length
+
+                        While inicio < longitudTexto
+                            Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                            Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                            Y += 15
+                            inicio += caracteresPorLinea
+                        End While
+
+
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_b, Brushes.Black, 1, Y)
+                            Y += 13
+                        End If
+
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+                e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            Else
+                cnn1.Close() : cnn1.Open()
+
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "select IDC,Codigo,Nombre,Cantidad,Comensal,Comentario,Gprint,Comisionista from Comandas where id=" & CFOLIO & " and GPrint='" & rutacomanda & "' group by Comensal,IDC,Codigo,Nombre,Cantidad,Comentario,Gprint,Comisionista Order By Comensal"
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then
+                        codigo = rd1("Codigo").ToString
+                        nombre = rd1("Nombre").ToString
+                        cantidad = rd1("Cantidad").ToString
+                        comensall = rd1("Comensal").ToString
+                        comentario = rd1("Comentario").ToString
+                        tiempo = rd1("Comisionista").ToString
+                        idc = rd1("IDC").ToString
+
+                        e.Graphics.DrawString(cantidad, fuente_b, Brushes.Black, 1, Y)
+
+                        Dim caracteresPorLinea As Integer = 25
+                        Dim texto As String = nombre
+                        Dim inicio As Integer = 0
+                        Dim longitudTexto As Integer = texto.Length
+
+                        While inicio < longitudTexto
+                            Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                            Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
+                            Y += 15
+                            inicio += caracteresPorLinea
+                        End While
+
+                        If comentario <> "" Then
+                            e.Graphics.DrawString("NOTA: " & comentario, fuente_b, Brushes.Black, 1, Y)
+                            Y += 14
+                        End If
+
+                        If tiempo = "LN" Then
+                            e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                            Y += 15
+                        End If
+
+                    End If
+                Loop
+                rd1.Close()
+                cnn1.Close()
+                e.Graphics.DrawString("-------------------------------", fuente_b, Brushes.Black, 1, Y)
+            End If
+            Y += 13
+            e.Graphics.DrawString("MESERO: ", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(lblmesero.Text, fuente_b, Brushes.Black, 70, Y)
+
+            cnn2.Close()
+            cnn1.Close()
+
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+
+            cnn2.Close()
+            cnn1.Close()
+        End Try
     End Sub
 
 End Class

@@ -23,8 +23,10 @@ Partial Class frmConsultarRefaccion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConsultarRefaccion))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PSuperior = New System.Windows.Forms.Panel()
+        Me.cboMotor = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -57,6 +59,8 @@ Partial Class frmConsultarRefaccion
         '
         'PSuperior
         '
+        Me.PSuperior.Controls.Add(Me.cboMotor)
+        Me.PSuperior.Controls.Add(Me.Label5)
         Me.PSuperior.Controls.Add(Me.Panel1)
         Me.PSuperior.Controls.Add(Me.Button3)
         Me.PSuperior.Controls.Add(Me.btnLimpiar)
@@ -72,6 +76,26 @@ Partial Class frmConsultarRefaccion
         Me.PSuperior.Name = "PSuperior"
         Me.PSuperior.Size = New System.Drawing.Size(928, 124)
         Me.PSuperior.TabIndex = 0
+        '
+        'cboMotor
+        '
+        Me.cboMotor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMotor.FormattingEnabled = True
+        Me.cboMotor.Location = New System.Drawing.Point(419, 71)
+        Me.cboMotor.Name = "cboMotor"
+        Me.cboMotor.Size = New System.Drawing.Size(253, 24)
+        Me.cboMotor.TabIndex = 11
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(419, 48)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(253, 20)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Motor"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Panel1
         '
@@ -130,17 +154,18 @@ Partial Class frmConsultarRefaccion
         '
         Me.cboModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboModelo.FormattingEnabled = True
-        Me.cboModelo.Location = New System.Drawing.Point(330, 71)
+        Me.cboModelo.Location = New System.Drawing.Point(245, 71)
         Me.cboModelo.Name = "cboModelo"
-        Me.cboModelo.Size = New System.Drawing.Size(306, 24)
+        Me.cboModelo.Size = New System.Drawing.Size(167, 24)
         Me.cboModelo.TabIndex = 6
         '
         'Label3
         '
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(330, 48)
+        Me.Label3.Location = New System.Drawing.Point(245, 48)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(306, 20)
+        Me.Label3.Size = New System.Drawing.Size(167, 20)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Modelo"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -149,17 +174,18 @@ Partial Class frmConsultarRefaccion
         '
         Me.cboMarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMarca.FormattingEnabled = True
-        Me.cboMarca.Location = New System.Drawing.Point(127, 71)
+        Me.cboMarca.Location = New System.Drawing.Point(85, 71)
         Me.cboMarca.Name = "cboMarca"
-        Me.cboMarca.Size = New System.Drawing.Size(197, 24)
+        Me.cboMarca.Size = New System.Drawing.Size(153, 24)
         Me.cboMarca.TabIndex = 4
         '
         'Label2
         '
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(127, 48)
+        Me.Label2.Location = New System.Drawing.Point(85, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(197, 20)
+        Me.Label2.Size = New System.Drawing.Size(153, 20)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Marca"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -170,15 +196,16 @@ Partial Class frmConsultarRefaccion
         Me.cboaño.FormattingEnabled = True
         Me.cboaño.Location = New System.Drawing.Point(5, 71)
         Me.cboaño.Name = "cboaño"
-        Me.cboaño.Size = New System.Drawing.Size(116, 24)
+        Me.cboaño.Size = New System.Drawing.Size(73, 24)
         Me.cboaño.TabIndex = 2
         '
         'Label1
         '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 51)
+        Me.Label1.Location = New System.Drawing.Point(5, 48)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(116, 23)
+        Me.Label1.Size = New System.Drawing.Size(73, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Año"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -213,14 +240,14 @@ Partial Class frmConsultarRefaccion
         Me.grdProductos.AllowUserToAddRows = False
         Me.grdProductos.AllowUserToDeleteRows = False
         Me.grdProductos.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdProductos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdProductos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grdProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdProductos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column6, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
         Me.grdProductos.Dock = System.Windows.Forms.DockStyle.Fill
@@ -353,4 +380,6 @@ Partial Class frmConsultarRefaccion
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents cboMotor As ComboBox
+    Friend WithEvents Label5 As Label
 End Class

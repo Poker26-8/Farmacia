@@ -161,7 +161,10 @@ Public Class frmNuevoPagarComandas
 
         TFecha.Start()
         TFolio.Start()
+        tim.Interval = 5000
+        AddHandler tim.Tick, AddressOf Timer_Tick
         tim.Start()
+
 
         Try
             cnn1.Close()

@@ -1059,9 +1059,9 @@ Public Class frmMesas
                         frmAgregarProducto.Show()
                         frmAgregarProducto.BringToFront()
 
-                        frmNuevoAgregarProductos.lblMesa.Text = txtMesa.Text
-                        frmNuevoAgregarProductos.lblmesero.Text = lblusuario.Text
-                        frmNuevoAgregarProductos.Show()
+                        'frmNuevoAgregarProductos.lblMesa.Text = txtMesa.Text
+                        'frmNuevoAgregarProductos.lblmesero.Text = lblusuario.Text
+                        'frmNuevoAgregarProductos.Show()
                         Me.Close()
                     End If
 
@@ -1538,7 +1538,6 @@ Public Class frmMesas
     Private Sub btncobro_Click(sender As Object, e As EventArgs) Handles btncobro.Click
         If lbltotalmesa.Text = "0.00" Then
             Exit Sub
-
         Else
             Try
 

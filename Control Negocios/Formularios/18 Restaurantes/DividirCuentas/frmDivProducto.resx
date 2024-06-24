@@ -204,31 +204,6 @@
         oDB+Krd3AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnImprimir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACwAAAAtCAYAAADV2ImkAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAABFdJREFUaEPtmf1PU1cYx/kT+h/Ij0QRiZtzU6e1oDGAEbSU+rZsOOMyUBuRIi+G
-        qlREiqlDjQZIIGOajb1gJ+ALgRFoWjEuTKNx0bnqNjUx8QUiFPzh+DzX3vbe06f33l46XxJO8knT5577
-        fD89Pfc2XJIYY7roG/QnA0adGKieWiCLamAgEACYTkaovlogi2pAIK4SJaIZvqdWyKIaEDgjrBWyqAYE
-        zghrhSyqAYEzwlohizzui/eMUjr6r9soiXjge4ZQ/UEhiyLQwA08AzAgTEvvbVIiHvieEhyUiwhZRODE
-        Vq5RmP9ZGLFRTghZhBMcXAMZb0AY+ZxyiyrgRO5EGZsrT7KNJfWTRaUHJrfbnUwPRaU1U5ZdrmCRq4PM
-        CIFbMZ33k72BCYqyu453sdRleQlj3nJz8FDnTTIrRJS0VDY9NIE6MQxKJwrH6WEygyMAhO8eccm+RUYA
-        QRplDa6ewB3JwXeShp7An/BqSDIfGXZb3FfY+4C5YTgnKXP/oANg7wnGsPAqp5fZ2m6w1XU+auK7QkQY
-        lxz3SnHLdWriG2dZ1UWqHhFGUBZXWnz/tlhS0c1SNjhZ2rZT/DG5sFaW7GxjC80lY/OztjzVwyfWiuDy
-        8l/J3kjqF26WYt0nSHMrHRHGvXvIc5dtbrwqnSDDtPcSW5i/ezJ1aS5LBIs+q6FzqvsFaVxp7lh8e/ij
-        vB1TVPB0iCUdA+3CuA2owESgtD04tAsvyC1+QYUlgsVb6mVZ5n29bMC6idWUt8rqgHbhtIyCUSosESxY
-        8/UzPq/ZVieIc3X5Refq/jvmRUcFJQq8c0izMg4OsOzTx9iKhksyByAijCjdg6UBc00FoykFjnHh1qOT
-        tKytisI53x9RF1ZCKjw7v+oRJREPc9baJ2IJIyubOgRxrq5PmBKIl9n5lf/FEkbRdZ49LPNkp8wBEISN
-        XJFEbP6xxc4W289OG/xRmJ9VSAoL1PXJ3teducWu3X5uFf7igELUVcrzunEhy3D0B6njejBVnX+RZrLQ
-        whLWwg3h4ePgGLgaReF0QFEaGxvLOseoY9Ph0+Lmlx/mfBkzG1c2JIvjtTACBw0Abg/c01EYy37phldZ
-        s1UHBscbvvNPfOvxMy1UNvtG+R5Iu+cPwUbDiAgrAU1z+RDEfso3ST0kUWJ9vTfqW8p2eoOBB+MQpTrU
-        haFhMkB+ZWd7IyKO2kaWbf2KpKX9p/C8Ex2Xo/og2xqvajHWJPwb3xzZ6vZOiBKIvdpFPiz5INMifBjp
-        3DW1Q+S10HzubhAylYayMDTB/RvVGME9ieGeC33k4yiew0ebwsK1bX6yJ3LlxhOIjjmUhXNrh8qppptc
-        3vDexa+bWlkeU16h8OHwnJ5+P8uuGZqiet/8axSiYw5lYWerb1Z1i88m5cQP/h8xUBRGzvzcxY41tSsi
-        yoqcH/hdkONRGep7mEIarJfA/X/V9is1dAvjvwwc0+HePw++gV74tD0OmOEV7nQc5N1iTl8AAAAASUVO
-        RK5CYII=
-</value>
-  </data>
   <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAzCAYAAADVY1sUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
