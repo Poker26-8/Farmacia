@@ -3877,7 +3877,7 @@ Public Class Inicio
         'frmRepVentas.BringToFront()
 
         'frmEtiquetas2.Show()
-        ' frmEtiquetas2.BringToFront()
+        'frmEtiquetas2.BringToFront()
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
