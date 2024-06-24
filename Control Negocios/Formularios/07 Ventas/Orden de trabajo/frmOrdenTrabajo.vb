@@ -101,7 +101,7 @@
                     txtuni.Text = rd1("UVenta").ToString
                     txtexistencia.Text = "1"
 
-
+                    
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
@@ -214,7 +214,7 @@
                 If rd1.Read Then
                     cbocodigoP.Text = rd1("Codigo").ToString
                     txtunidadP.Text = rd1("UVenta").ToString
-                    txtPrecioP.Text = rd1("PrecioVentaIVA")
+                    txtPrecioP.Text = rd1("PrecioVentaIVA").ToString
                     txtPrecio1.Text = rd1("PrecioVentaIVA2").ToString
                     txtPrecio2.Text = rd1("PreEsp").ToString
                     txtExistLocal.Text = rd1("Existencia").ToString
