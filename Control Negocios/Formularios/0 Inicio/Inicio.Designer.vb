@@ -26,6 +26,7 @@ Partial Class Inicio
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAuto = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
@@ -177,7 +178,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
-        Me.btnAuto = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -218,6 +218,21 @@ Partial Class Inicio
         Me.Button1.Size = New System.Drawing.Size(90, 90)
         Me.Button1.TabIndex = 12
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnAuto
+        '
+        Me.btnAuto.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnAuto.FlatAppearance.BorderSize = 0
+        Me.btnAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
+        Me.btnAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAuto.Image = CType(resources.GetObject("btnAuto.Image"), System.Drawing.Image)
+        Me.btnAuto.Location = New System.Drawing.Point(900, 0)
+        Me.btnAuto.Name = "btnAuto"
+        Me.btnAuto.Size = New System.Drawing.Size(90, 90)
+        Me.btnAuto.TabIndex = 11
+        Me.btnAuto.UseVisualStyleBackColor = True
+        Me.btnAuto.Visible = False
         '
         'Button11
         '
@@ -1464,20 +1479,6 @@ Partial Class Inicio
         Me.pedidos_tienda.Text = "Nuevos pedidos:"
         Me.pedidos_tienda.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.pedidos_tienda.Visible = False
-        '
-        'btnAuto
-        '
-        Me.btnAuto.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnAuto.FlatAppearance.BorderSize = 0
-        Me.btnAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.btnAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAuto.Image = CType(resources.GetObject("btnAuto.Image"), System.Drawing.Image)
-        Me.btnAuto.Location = New System.Drawing.Point(900, 0)
-        Me.btnAuto.Name = "btnAuto"
-        Me.btnAuto.Size = New System.Drawing.Size(90, 90)
-        Me.btnAuto.TabIndex = 11
-        Me.btnAuto.UseVisualStyleBackColor = True
         '
         'Inicio
         '

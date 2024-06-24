@@ -57,7 +57,7 @@ Public Class frmEtiquetas2
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Insert into Productos(Codigo,CodBarra,Nombre,UCompra,UVenta,UMinima,Departamento,Grupo) values('" & txtcodigo.Text & "','" & txtbarras.Text & "','" & cbonombre.Text & "','PZA','PZA','PZA','" & cbonombre.Text & "','" & cbonombre.Text & "')"
+                cmd1.CommandText = "Insert into Productos(Codigo,CodBarra,Nombre,UCompra,UVenta,UMinima,Departamento,Grupo,Fecha,Fecha_Inicial,Fecha_Final) values('" & txtcodigo.Text & "','" & txtbarras.Text & "','" & cbonombre.Text & "','PZA','PZA','PZA','" & cbonombre.Text & "','" & cbonombre.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "')"
                 If cmd1.ExecuteNonQuery Then
 
                 Else
@@ -87,7 +87,7 @@ kakita:
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Insert into Productos(Codigo,CodBarra,Nombre,UCompra,UVenta,UMinima,Departamento,Grupo) values('" & txtcodigo.Text & "','" & txtbarras.Text & "','" & cbonombre.Text & "','PZA','PZA','PZA','" & cbonombre.Text & "','" & cbonombre.Text & "')"
+                cmd1.CommandText = "Insert into Productos(Codigo,CodBarra,Nombre,UCompra,UVenta,UMinima,Departamento,GrupoFecha,Fecha_Inicial,Fecha_Final) values('" & txtcodigo.Text & "','" & txtbarras.Text & "','" & cbonombre.Text & "','PZA','PZA','PZA','" & cbonombre.Text & "','" & cbonombre.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "')"
                 If cmd1.ExecuteNonQuery Then
 
                 Else
