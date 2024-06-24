@@ -22,9 +22,9 @@ Partial Class frmNuevoAgregarProductos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevoAgregarProductos))
         Me.pDepartamento = New System.Windows.Forms.Panel()
         Me.pgrupo = New System.Windows.Forms.Panel()
@@ -40,23 +40,18 @@ Partial Class frmNuevoAgregarProductos
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblComensal = New System.Windows.Forms.Label()
         Me.btnComentario = New System.Windows.Forms.Button()
         Me.btn2Tiempo = New System.Windows.Forms.Button()
+        Me.btnElminarTodo = New System.Windows.Forms.Button()
+        Me.btnEliminarPro = New System.Windows.Forms.Button()
         Me.lblDescuento = New System.Windows.Forms.Label()
         Me.btn3Tiempo = New System.Windows.Forms.Button()
         Me.btnDescuento = New System.Windows.Forms.Button()
         Me.btn1Tiempo = New System.Windows.Forms.Button()
         Me.btnComensal = New System.Windows.Forms.Button()
         Me.lblCantidad = New System.Windows.Forms.Label()
-        Me.pProductos = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblTotalVenta = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblMesa = New System.Windows.Forms.Label()
-        Me.btnElminarTodo = New System.Windows.Forms.Button()
-        Me.btnEliminarPro = New System.Windows.Forms.Button()
         Me.btnAumentar = New System.Windows.Forms.Button()
         Me.btnQuitar = New System.Windows.Forms.Button()
         Me.btnTeclado = New System.Windows.Forms.Button()
@@ -64,9 +59,16 @@ Partial Class frmNuevoAgregarProductos
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.btnComanda = New System.Windows.Forms.Button()
         Me.btnResumen = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.pProductos = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblTotalVenta = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblmesero = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblMesa = New System.Windows.Forms.Label()
+        Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
+        Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel2.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -108,36 +110,36 @@ Partial Class frmNuevoAgregarProductos
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column9, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle8
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 370)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(388, 351)
         Me.grdCaptura.TabIndex = 1
@@ -242,6 +244,16 @@ Partial Class frmNuevoAgregarProductos
         Me.Panel3.Size = New System.Drawing.Size(388, 370)
         Me.Panel3.TabIndex = 0
         '
+        'Label2
+        '
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(259, 292)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(27, 35)
+        Me.Label2.TabIndex = 19
+        Me.Label2.Text = "%"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'lblComensal
         '
         Me.lblComensal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -277,6 +289,34 @@ Partial Class frmNuevoAgregarProductos
         Me.btn2Tiempo.Text = "2° TIEMPO"
         Me.btn2Tiempo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn2Tiempo.UseVisualStyleBackColor = False
+        '
+        'btnElminarTodo
+        '
+        Me.btnElminarTodo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnElminarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnElminarTodo.Image = CType(resources.GetObject("btnElminarTodo.Image"), System.Drawing.Image)
+        Me.btnElminarTodo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnElminarTodo.Location = New System.Drawing.Point(102, 280)
+        Me.btnElminarTodo.Name = "btnElminarTodo"
+        Me.btnElminarTodo.Size = New System.Drawing.Size(90, 85)
+        Me.btnElminarTodo.TabIndex = 14
+        Me.btnElminarTodo.Text = "ELIMINAR TODO"
+        Me.btnElminarTodo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnElminarTodo.UseVisualStyleBackColor = False
+        '
+        'btnEliminarPro
+        '
+        Me.btnEliminarPro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.btnEliminarPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEliminarPro.Image = CType(resources.GetObject("btnEliminarPro.Image"), System.Drawing.Image)
+        Me.btnEliminarPro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminarPro.Location = New System.Drawing.Point(6, 280)
+        Me.btnEliminarPro.Name = "btnEliminarPro"
+        Me.btnEliminarPro.Size = New System.Drawing.Size(90, 84)
+        Me.btnEliminarPro.TabIndex = 13
+        Me.btnEliminarPro.Text = "ELIMINAR PROD"
+        Me.btnEliminarPro.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminarPro.UseVisualStyleBackColor = False
         '
         'lblDescuento
         '
@@ -350,99 +390,6 @@ Partial Class frmNuevoAgregarProductos
         Me.lblCantidad.TabIndex = 7
         Me.lblCantidad.Text = "1.00"
         Me.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pProductos
-        '
-        Me.pProductos.BackColor = System.Drawing.Color.White
-        Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(237, 59)
-        Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(531, 721)
-        Me.pProductos.TabIndex = 8
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(850, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(110, 47)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "TOTAL:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblTotalVenta
-        '
-        Me.lblTotalVenta.BackColor = System.Drawing.Color.PeachPuff
-        Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalVenta.Location = New System.Drawing.Point(966, 9)
-        Me.lblTotalVenta.Name = "lblTotalVenta"
-        Me.lblTotalVenta.Size = New System.Drawing.Size(186, 47)
-        Me.lblTotalVenta.TabIndex = 1
-        Me.lblTotalVenta.Text = "0.00"
-        Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(2, 6)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(110, 47)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "MESA:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.lblmesero)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.lblMesa)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.lblTotalVenta)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1156, 59)
-        Me.Panel1.TabIndex = 0
-        '
-        'lblMesa
-        '
-        Me.lblMesa.BackColor = System.Drawing.Color.PeachPuff
-        Me.lblMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMesa.Location = New System.Drawing.Point(112, 6)
-        Me.lblMesa.Name = "lblMesa"
-        Me.lblMesa.Size = New System.Drawing.Size(192, 47)
-        Me.lblMesa.TabIndex = 3
-        Me.lblMesa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'btnElminarTodo
-        '
-        Me.btnElminarTodo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnElminarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnElminarTodo.Image = CType(resources.GetObject("btnElminarTodo.Image"), System.Drawing.Image)
-        Me.btnElminarTodo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnElminarTodo.Location = New System.Drawing.Point(102, 280)
-        Me.btnElminarTodo.Name = "btnElminarTodo"
-        Me.btnElminarTodo.Size = New System.Drawing.Size(90, 85)
-        Me.btnElminarTodo.TabIndex = 14
-        Me.btnElminarTodo.Text = "ELIMINAR TODO"
-        Me.btnElminarTodo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnElminarTodo.UseVisualStyleBackColor = False
-        '
-        'btnEliminarPro
-        '
-        Me.btnEliminarPro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnEliminarPro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnEliminarPro.Image = CType(resources.GetObject("btnEliminarPro.Image"), System.Drawing.Image)
-        Me.btnEliminarPro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminarPro.Location = New System.Drawing.Point(6, 280)
-        Me.btnEliminarPro.Name = "btnEliminarPro"
-        Me.btnEliminarPro.Size = New System.Drawing.Size(90, 84)
-        Me.btnEliminarPro.TabIndex = 13
-        Me.btnEliminarPro.Text = "ELIMINAR PROD"
-        Me.btnEliminarPro.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEliminarPro.UseVisualStyleBackColor = False
         '
         'btnAumentar
         '
@@ -519,7 +466,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnComanda.Name = "btnComanda"
         Me.btnComanda.Size = New System.Drawing.Size(90, 84)
         Me.btnComanda.TabIndex = 1
-        Me.btnComanda.Text = "COMANDA"
+        Me.btnComanda.Text = "OCASIONAL"
         Me.btnComanda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnComanda.UseVisualStyleBackColor = False
         '
@@ -537,15 +484,70 @@ Partial Class frmNuevoAgregarProductos
         Me.btnResumen.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnResumen.UseVisualStyleBackColor = False
         '
-        'Label2
+        'pProductos
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(259, 292)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(27, 35)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "%"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.pProductos.BackColor = System.Drawing.Color.White
+        Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pProductos.Location = New System.Drawing.Point(237, 59)
+        Me.pProductos.Name = "pProductos"
+        Me.pProductos.Size = New System.Drawing.Size(531, 721)
+        Me.pProductos.TabIndex = 8
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(850, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(110, 47)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "TOTAL:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblTotalVenta
+        '
+        Me.lblTotalVenta.BackColor = System.Drawing.Color.PeachPuff
+        Me.lblTotalVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalVenta.Location = New System.Drawing.Point(966, 9)
+        Me.lblTotalVenta.Name = "lblTotalVenta"
+        Me.lblTotalVenta.Size = New System.Drawing.Size(186, 47)
+        Me.lblTotalVenta.TabIndex = 1
+        Me.lblTotalVenta.Text = "0.00"
+        Me.lblTotalVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(2, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(110, 47)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "MESA:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblmesero)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.lblMesa)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblTotalVenta)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1156, 59)
+        Me.Panel1.TabIndex = 0
+        '
+        'lblmesero
+        '
+        Me.lblmesero.BackColor = System.Drawing.Color.PeachPuff
+        Me.lblmesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmesero.Location = New System.Drawing.Point(422, 6)
+        Me.lblmesero.Name = "lblmesero"
+        Me.lblmesero.Size = New System.Drawing.Size(190, 47)
+        Me.lblmesero.TabIndex = 5
+        Me.lblmesero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
         '
@@ -557,15 +559,21 @@ Partial Class frmNuevoAgregarProductos
         Me.Label4.Text = "Mesero:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblmesero
+        'lblMesa
         '
-        Me.lblmesero.BackColor = System.Drawing.Color.PeachPuff
-        Me.lblmesero.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblmesero.Location = New System.Drawing.Point(422, 6)
-        Me.lblmesero.Name = "lblmesero"
-        Me.lblmesero.Size = New System.Drawing.Size(190, 47)
-        Me.lblmesero.TabIndex = 5
-        Me.lblmesero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblMesa.BackColor = System.Drawing.Color.PeachPuff
+        Me.lblMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMesa.Location = New System.Drawing.Point(112, 6)
+        Me.lblMesa.Name = "lblMesa"
+        Me.lblMesa.Size = New System.Drawing.Size(192, 47)
+        Me.lblMesa.TabIndex = 3
+        Me.lblMesa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PComanda80
+        '
+        '
+        'PComanda58
+        '
         '
         'frmNuevoAgregarProductos
         '
@@ -630,4 +638,6 @@ Partial Class frmNuevoAgregarProductos
     Friend WithEvents Label2 As Label
     Friend WithEvents lblmesero As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents PComanda80 As Printing.PrintDocument
+    Friend WithEvents PComanda58 As Printing.PrintDocument
 End Class
