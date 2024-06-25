@@ -303,6 +303,7 @@ Partial Class frmConfigs
         Me.Button3 = New System.Windows.Forms.Button()
         Me.chkCodAuto = New System.Windows.Forms.CheckBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.cbVerExistencias = New System.Windows.Forms.CheckBox()
         Me.chkImg_PDF = New System.Windows.Forms.CheckBox()
         Me.chkFranquicia = New System.Windows.Forms.CheckBox()
         Me.chkDesc_Ventas = New System.Windows.Forms.CheckBox()
@@ -339,7 +340,6 @@ Partial Class frmConfigs
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
         Me.Label84 = New System.Windows.Forms.Label()
-        Me.cbVerExistencias = New System.Windows.Forms.CheckBox()
         Me.tabCFDI.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -3158,7 +3158,7 @@ Partial Class frmConfigs
         'cboventas
         '
         Me.cboventas.FormattingEnabled = True
-        Me.cboventas.Items.AddRange(New Object() {"TICKET", "PDF - CARTA"})
+        Me.cboventas.Items.AddRange(New Object() {"TICKET", "PDF - CARTA 1", "PDF - CARTA 2"})
         Me.cboventas.Location = New System.Drawing.Point(6, 19)
         Me.cboventas.Name = "cboventas"
         Me.cboventas.Size = New System.Drawing.Size(215, 23)
@@ -3232,9 +3232,9 @@ Partial Class frmConfigs
         Me.tabFuncionalidades1.Controls.Add(Me.boxCosteo)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox23)
         Me.tabFuncionalidades1.Controls.Add(Me.GroupBox9)
-        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 84)
+        Me.tabFuncionalidades1.Location = New System.Drawing.Point(4, 58)
         Me.tabFuncionalidades1.Name = "tabFuncionalidades1"
-        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 437)
+        Me.tabFuncionalidades1.Size = New System.Drawing.Size(478, 463)
         Me.tabFuncionalidades1.TabIndex = 7
         Me.tabFuncionalidades1.Text = "Funcionalidades 1"
         Me.tabFuncionalidades1.UseVisualStyleBackColor = True
@@ -3466,6 +3466,17 @@ Partial Class frmConfigs
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Adaptables"
         '
+        'cbVerExistencias
+        '
+        Me.cbVerExistencias.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbVerExistencias.Location = New System.Drawing.Point(8, 209)
+        Me.cbVerExistencias.Name = "cbVerExistencias"
+        Me.cbVerExistencias.Size = New System.Drawing.Size(203, 19)
+        Me.cbVerExistencias.TabIndex = 10
+        Me.cbVerExistencias.Text = "No ver existencias en ventas"
+        Me.cbVerExistencias.UseVisualStyleBackColor = True
+        '
         'chkImg_PDF
         '
         Me.chkImg_PDF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -3665,7 +3676,7 @@ Partial Class frmConfigs
         Me.Label76.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label76.Location = New System.Drawing.Point(92, 83)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(310, 32)
+        Me.Label76.Size = New System.Drawing.Size(311, 32)
         Me.Label76.TabIndex = 27
         Me.Label76.Text = "Configuración de Accesos"
         '
@@ -3846,17 +3857,6 @@ Partial Class frmConfigs
         Me.Label84.Size = New System.Drawing.Size(227, 21)
         Me.Label84.TabIndex = 0
         Me.Label84.Text = "Configuración de Prosepago"
-        '
-        'cbVerExistencias
-        '
-        Me.cbVerExistencias.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbVerExistencias.Location = New System.Drawing.Point(8, 209)
-        Me.cbVerExistencias.Name = "cbVerExistencias"
-        Me.cbVerExistencias.Size = New System.Drawing.Size(203, 19)
-        Me.cbVerExistencias.TabIndex = 10
-        Me.cbVerExistencias.Text = "No ver existencias en ventas"
-        Me.cbVerExistencias.UseVisualStyleBackColor = True
         '
         'frmConfigs
         '

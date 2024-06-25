@@ -231,6 +231,12 @@
       <DependentUpon>PruebaMesa.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Ventas2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ventas2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Formularios\0 Inicio\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
@@ -2063,6 +2069,10 @@
     <EmbeddedResource Include="CrystalReports\Restaurantes\PruebaMesa.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PruebaMesa.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Ventas2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ventas2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\0 Inicio\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
