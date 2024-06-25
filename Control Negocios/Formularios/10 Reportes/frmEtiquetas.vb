@@ -384,9 +384,9 @@ Public Class frmEtiquetas
         Y = 0
         e.Graphics.DrawString(cbonombre.Text, fuentita, Brushes.Black, 1, Y)
         Y += 10
-        e.Graphics.DrawImage(bm, 10, 20, 160, 50)
-        e.Graphics.DrawImage(PictureBox2.Image, 25, 58, 130, 15)
-        e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 105, 58, sc)
+        e.Graphics.DrawImage(bm, 10, 20, 130, 50)
+        'e.Graphics.DrawImage(PictureBox2.Image, 25, 58, 100, 15)
+        'e.Graphics.DrawString(txtbarras.Text, fuentita, Brushes.Black, 70, 58, sc)
         e.HasMorePages = False
     End Sub
 

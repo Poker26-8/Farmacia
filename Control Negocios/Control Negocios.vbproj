@@ -531,6 +531,36 @@
     <Compile Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmAcreedores.Designer.vb">
+      <DependentUpon>frmAcreedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmAcreedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmActivosFijos.Designer.vb">
+      <DependentUpon>frmActivosFijos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmActivosFijos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmBalance.Designer.vb">
+      <DependentUpon>frmBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmCreditosAd.Designer.vb">
+      <DependentUpon>frmCreditosAd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmCreditosAd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmDocCobrar.Designer.vb">
+      <DependentUpon>frmDocCobrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\10 Reportes\Balance\frmDocCobrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\10 Reportes\frmcofepris.Designer.vb">
       <DependentUpon>frmcofepris.vb</DependentUpon>
     </Compile>
@@ -2185,6 +2215,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\auditoria\frmRepAuditoria.resx">
       <DependentUpon>frmRepAuditoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\Balance\frmActivosFijos.resx">
+      <DependentUpon>frmActivosFijos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\10 Reportes\Balance\frmBalance.resx">
+      <DependentUpon>frmBalance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\10 Reportes\frmcofepris.resx">
       <DependentUpon>frmcofepris.vb</DependentUpon>
