@@ -1504,7 +1504,7 @@ deku:
 
 
         e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
-        e.Graphics.DrawString(FormatNumber(CDbl(lbltotalventa.Text) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
+        e.Graphics.DrawString(FormatNumber(CDbl(cuentatotal) + CDbl(lblPropina.Text), 2), fuente_b, Brushes.Black, 270, Y, derecha)
         Y += 20
 
         If Resta > 0 Then
