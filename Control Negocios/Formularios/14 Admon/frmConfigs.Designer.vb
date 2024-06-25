@@ -3178,7 +3178,7 @@ Partial Class frmConfigs
         'cbocompras
         '
         Me.cbocompras.FormattingEnabled = True
-        Me.cbocompras.Items.AddRange(New Object() {"TICKET", "PDF - CARTA"})
+        Me.cbocompras.Items.AddRange(New Object() {"TICKET", "PDF - CARTA 1", "PDF - CARTA 2"})
         Me.cbocompras.Location = New System.Drawing.Point(6, 19)
         Me.cbocompras.Name = "cbocompras"
         Me.cbocompras.Size = New System.Drawing.Size(215, 23)
@@ -3198,7 +3198,7 @@ Partial Class frmConfigs
         'cbocotiza
         '
         Me.cbocotiza.FormattingEnabled = True
-        Me.cbocotiza.Items.AddRange(New Object() {"TICKET", "PDF - CARTA"})
+        Me.cbocotiza.Items.AddRange(New Object() {"TICKET", "PDF - CARTA 1", "PDF - CARTA 2"})
         Me.cbocotiza.Location = New System.Drawing.Point(6, 19)
         Me.cbocotiza.Name = "cbocotiza"
         Me.cbocotiza.Size = New System.Drawing.Size(215, 23)
