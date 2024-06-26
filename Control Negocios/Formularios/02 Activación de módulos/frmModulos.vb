@@ -110,6 +110,7 @@
     End Sub
 
     Private Sub btnFarmacia_Click(sender As Object, e As EventArgs) Handles btnFarmacia.Click
+
         frmAct_Farmacia.Show()
         frmAct_Farmacia.BringToFront()
         Me.Close()
