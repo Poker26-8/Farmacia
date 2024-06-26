@@ -1878,7 +1878,7 @@ Public Class frmConsultaNotas
                              "UPDATE pedidosven SET Resta=" & n_resta & ", ACuenta=" & n_acuenta & ", Descuento=" & n_descu & " WHERE Folio=" & cbofolio.Text
                         Else
                             cmd2.CommandText =
-                             "update Ventas set Resta=" & n_resta & ", ACuenta=" & n_acuenta & " where Folio=" & cbofolio.Text
+                             "update Ventas set Resta=" & n_resta & ", ACuenta=" & n_acuenta & ",Cargado=0,CargadoAndroid=0 where Folio=" & cbofolio.Text
                         End If
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
@@ -1894,7 +1894,7 @@ Public Class frmConsultaNotas
                         "UPDATE pedidosven set Resta=0, ACuenta=" & n_acuenta & ",Descuento=" & n_descu & ", Status='PAGADO' WHERE Folio=" & cbofolio.Text
                         Else
                             cmd2.CommandText =
-                        "update Ventas set Resta=0, ACuenta=" & n_acuenta & ", Status='PAGADO' where Folio=" & cbofolio.Text
+                        "update Ventas set Resta=0, ACuenta=" & n_acuenta & ", Status='PAGADO',Cargado=0,CargadoAndroid=0 where Folio=" & cbofolio.Text
                         End If
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
@@ -2046,8 +2046,6 @@ Public Class frmConsultaNotas
                     End If
                     rd2.Close()
                     cnn2.Close()
-
-
                 Next
             End If
             cnn1.Close()
