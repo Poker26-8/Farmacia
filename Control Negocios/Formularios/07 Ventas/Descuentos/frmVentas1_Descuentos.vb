@@ -3745,8 +3745,13 @@ Public Class frmVentas1_Descuentos
                     Continue For
 doorcita:
                     If grdcaptura.Rows(pipo).Cells(1).Value.ToString() <> "" Then
+                        Dim id_a As Integer = 0
+
+                        If .getDr(a_cnn, dr, "select MAX(Id) from CotPedDetalle", sInfo) Then
+                            id_a = dr(0).ToString()
+                        End If
                         'Es comentario
-                        .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Codigo='" & cod_temp & "' and Folio=" & my_folio, sInfo)
+                        .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' Id=" & id_a, sInfo)
                         sInfo = ""
                     End If
                 Next
@@ -4085,7 +4090,7 @@ Door:
                 End If
                 rd1.Close()
 
-                If TPrint = "PDF - CARTA" Then
+                If TPrint = "PDF - CARTA 1" Or TPrint = "PDF - CARTA 2" Then
 
                     Panel6.Visible = True
                     My.Application.DoEvents()
@@ -4399,8 +4404,13 @@ Door:
                     Continue For
 doorcita:
                     If grdcaptura.Rows(pipo).Cells(1).Value.ToString() <> "" Then
+                        Dim id_a As Integer = 0
+
+                        If .getDr(a_cnn, dr, "select MAX(Id) from VentasDetalle", sinfo) Then
+                            id_a = dr(0).ToString()
+                        End If
                         'Es comentario
-                        .runSp(a_cnn, "update VentasDetalle set CostVR='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Codigo='" & cod_temp & "' and Folio=" & my_folio, sinfo)
+                        .runSp(a_cnn, "update VentasDetalle set CostVR='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Id=" & id_a, sinfo)
                         sinfo = ""
                     End If
                 Next
@@ -5508,7 +5518,7 @@ Door:
             End If
             rd1.Close()
 
-            If TPrint = "PDF - CARTA" Then
+            If TPrint = "PDF - CARTA 1" Or TPrint = "PDF - CARTA 2" Then
 
                 'Genera PDF y lo guarda en la ruta
                 Panel6.Visible = True

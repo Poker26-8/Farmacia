@@ -49,7 +49,7 @@ Partial Class frmActivosFijos
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmActivosFijos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Catálogo de activos fijos"
+        Me.Text = "Catálogo de activos no circulantes (activos fijos)"
         Me.ResumeLayout(False)
 
     End Sub
