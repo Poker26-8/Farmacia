@@ -394,6 +394,7 @@ Public Class frmNuevoPagar
         txtCambio.Text = "0.00"
         grdPagos.Rows.Clear()
         txtPropina.Text = "0.00"
+        txtmonto.Text = "0.00"
 
         percent_propina = DatosRecarga("Propina")
 
@@ -4893,6 +4894,21 @@ Door:
                 Dim nuevo = monto + "1"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn1.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4935,6 +4951,21 @@ Door:
                 Dim nuevo = monto + "2"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn2.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -4977,6 +5008,21 @@ Door:
                 Dim nuevo = monto + "3"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn3.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5019,6 +5065,21 @@ Door:
                 Dim nuevo = monto + "4"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn4.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5061,6 +5122,21 @@ Door:
                 Dim nuevo = monto + "5"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn5.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5102,6 +5178,21 @@ Door:
                 Dim nuevo = monto + "6"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn6.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5143,6 +5234,21 @@ Door:
                 Dim nuevo = monto + "7"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn7.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5161,6 +5267,7 @@ Door:
                 End If
 
                 txtEfectivo.SelectionStart = NewPos
+
             Case Is = 2
                 Dim monto As Double = IIf(txtDescuento.Text = "", "0.00", txtDescuento.Text)
                 Dim nuevo = monto + "8"
@@ -5184,6 +5291,21 @@ Door:
                 Dim nuevo = monto + "8"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn8.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5225,6 +5347,21 @@ Door:
                 Dim nuevo = monto + "9"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn9.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5266,6 +5403,21 @@ Door:
                 Dim nuevo = monto + "0"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn0.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5291,6 +5443,12 @@ Door:
                 Dim nuevo = monto + "20"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "20"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5316,6 +5474,11 @@ Door:
                 Dim nuevo = monto + "50"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "50"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5341,6 +5504,12 @@ Door:
                 Dim nuevo = monto + "100"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "100"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5366,6 +5535,11 @@ Door:
                 Dim nuevo = monto + "200"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "200"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5391,6 +5565,11 @@ Door:
                 Dim nuevo = monto + "500"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "500"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -5416,6 +5595,11 @@ Door:
                 Dim nuevo = monto + "1000"
                 txtPorcentaje.Text = FormatNumber(nuevo, 2)
                 txtPorcentaje.Focus.Equals(True)
+            Case Is = 4
+                Dim monto As Double = IIf(txtmonto.Text = "", "0.00", txtmonto.Text)
+                Dim nuevo = monto + "1000"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -6269,6 +6453,20 @@ Door:
 
                 txtPropina.SelectionStart = NewPos
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btnpunto.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -6300,5 +6498,15 @@ Door:
 
     Private Sub frmNuevoPagar_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         tim.Stop()
+    End Sub
+
+    Private Sub txtmonto_Click(sender As Object, e As EventArgs) Handles txtmonto.Click
+        txtmonto.SelectionStart = 0
+        txtmonto.SelectionLength = Len(txtmonto.Text)
+        focomapeo = 4
+    End Sub
+
+    Private Sub txtmonto_Enter(sender As Object, e As EventArgs) Handles txtmonto.Enter
+        focomapeo = 4
     End Sub
 End Class

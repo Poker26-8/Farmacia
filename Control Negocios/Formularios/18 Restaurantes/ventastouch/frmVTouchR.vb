@@ -3888,15 +3888,24 @@ Door:
                 End If
                 rd1.Close()
 
+                Dim copiast As Integer = 0
+                copiast = TraerNumCopias()
+
                 If impresoracomanda <> "" Then
 
                     If tamcomanda = "80" Then
-                        PVentaTouch80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PVentaTouch80.Print()
+                        For susuke = 1 To copiast
+                            PVentaTouch80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                            PVentaTouch80.Print()
+                        Next
 
                     ElseIf tamcomanda = "58" Then
-                        PVentaTouch58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
-                        PVentaTouch58.Print()
+
+                        For naruto = 1 To copiast
+                            PVentaTouch58.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
+                            PVentaTouch58.Print()
+                        Next
+
                     End If
 
                 End If

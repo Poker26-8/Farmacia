@@ -118,6 +118,7 @@
         txtPropina.Text = "0.00"
         grdPagos.Rows.Clear()
         txtPorcentaje.Text = "0.00"
+        txtmonto.Text = "0.00"
 
         txtmonedero.Text = ""
         txtsaldomon.Text = ""
@@ -757,6 +758,18 @@
                 txtPropina.Focus.Equals(True)
 
 
+            Case Is = 4 'efectivo
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn1.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -793,6 +806,19 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn2.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -831,6 +857,20 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn3.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -868,6 +908,20 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto  
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn4.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -904,6 +958,20 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn5.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -941,6 +1009,20 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn6.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -981,6 +1063,19 @@
 
                 txtPropina.SelectionStart = NewPos
 
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn7.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -1017,6 +1112,20 @@
                 End If
 
                 txtPropina.SelectionStart = NewPos
+
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn8.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
 
         End Select
     End Sub
@@ -1057,6 +1166,19 @@
 
                 txtPropina.SelectionStart = NewPos
 
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn9.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -1092,6 +1214,19 @@
 
                 txtPropina.SelectionStart = NewPos
 
+            Case Is = 4 'monto
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btnPunto.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -1131,6 +1266,19 @@
 
                 txtPropina.SelectionStart = NewPos
 
+            Case Is = 4 'monto 
+
+                txtmonto.Focus.Equals(True)
+                NewPos = txtmonto.SelectionStart
+                txtmonto.Text = PosCad(txtmonto.Text, btn0.Text, txtmonto.SelectionStart, Len(txtmonto.Text))
+
+                If NewPos = 0 Then
+                    NewPos = Len(txtmonto.Text)
+                Else
+                    NewPos = NewPos + 1
+                End If
+
+                txtmonto.SelectionStart = NewPos
         End Select
     End Sub
 
@@ -1153,6 +1301,12 @@
                 Dim nuevo As Double = monto + "20"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "20"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
 
     End Sub
@@ -1176,6 +1330,12 @@
                 Dim nuevo As Double = monto + "50"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "50"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -1198,6 +1358,12 @@
                 Dim nuevo As Double = monto + "100"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "100"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -1220,6 +1386,12 @@
                 Dim nuevo As Double = monto + "200"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "200"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -1242,6 +1414,13 @@
                 Dim nuevo As Double = monto + "500"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "500"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
+
         End Select
     End Sub
 
@@ -1264,6 +1443,12 @@
                 Dim nuevo As Double = monto + "1000"
                 txtPropina.Text = FormatNumber(nuevo, 2)
                 txtPropina.Focus.Equals(True)
+
+            Case Is = 4
+                Dim monto As Double = txtmonto.Text
+                Dim nuevo As Double = monto + "1000"
+                txtmonto.Text = FormatNumber(nuevo, 2)
+                txtmonto.Focus.Equals(True)
         End Select
     End Sub
 
@@ -1435,5 +1620,12 @@
         rd1.Close()
         cnn1.Close()
 
+    End Sub
+
+    Private Sub txtmonto_Click(sender As Object, e As EventArgs) Handles txtmonto.Click
+
+        txtmonto.SelectionStart = 0
+        txtmonto.SelectionLength = Len(txtmonto.Text)
+        focomapeo = 4
     End Sub
 End Class
