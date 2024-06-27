@@ -271,7 +271,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnComentario.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnComentario.Location = New System.Drawing.Point(294, 280)
         Me.btnComentario.Name = "btnComentario"
-        Me.btnComentario.Size = New System.Drawing.Size(88, 85)
+        Me.btnComentario.Size = New System.Drawing.Size(90, 84)
         Me.btnComentario.TabIndex = 17
         Me.btnComentario.Text = "COMENTARIO"
         Me.btnComentario.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -284,7 +284,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btn2Tiempo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn2Tiempo.Location = New System.Drawing.Point(198, 189)
         Me.btn2Tiempo.Name = "btn2Tiempo"
-        Me.btn2Tiempo.Size = New System.Drawing.Size(90, 84)
+        Me.btn2Tiempo.Size = New System.Drawing.Size(90, 85)
         Me.btn2Tiempo.TabIndex = 15
         Me.btn2Tiempo.Text = "2° TIEMPO"
         Me.btn2Tiempo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -298,7 +298,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnElminarTodo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnElminarTodo.Location = New System.Drawing.Point(102, 280)
         Me.btnElminarTodo.Name = "btnElminarTodo"
-        Me.btnElminarTodo.Size = New System.Drawing.Size(90, 85)
+        Me.btnElminarTodo.Size = New System.Drawing.Size(90, 84)
         Me.btnElminarTodo.TabIndex = 14
         Me.btnElminarTodo.Text = "ELIMINAR TODO"
         Me.btnElminarTodo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -335,7 +335,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btn3Tiempo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn3Tiempo.Location = New System.Drawing.Point(294, 188)
         Me.btn3Tiempo.Name = "btn3Tiempo"
-        Me.btn3Tiempo.Size = New System.Drawing.Size(88, 85)
+        Me.btn3Tiempo.Size = New System.Drawing.Size(90, 85)
         Me.btn3Tiempo.TabIndex = 11
         Me.btn3Tiempo.Text = "3° TIEMPO"
         Me.btn3Tiempo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -386,7 +386,7 @@ Partial Class frmNuevoAgregarProductos
         Me.lblCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCantidad.Location = New System.Drawing.Point(294, 96)
         Me.lblCantidad.Name = "lblCantidad"
-        Me.lblCantidad.Size = New System.Drawing.Size(88, 84)
+        Me.lblCantidad.Size = New System.Drawing.Size(90, 83)
         Me.lblCantidad.TabIndex = 7
         Me.lblCantidad.Text = "1.00"
         Me.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -398,7 +398,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnAumentar.Image = CType(resources.GetObject("btnAumentar.Image"), System.Drawing.Image)
         Me.btnAumentar.Location = New System.Drawing.Point(198, 96)
         Me.btnAumentar.Name = "btnAumentar"
-        Me.btnAumentar.Size = New System.Drawing.Size(90, 84)
+        Me.btnAumentar.Size = New System.Drawing.Size(90, 83)
         Me.btnAumentar.TabIndex = 6
         Me.btnAumentar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnAumentar.UseVisualStyleBackColor = False
@@ -410,7 +410,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnQuitar.Image = CType(resources.GetObject("btnQuitar.Image"), System.Drawing.Image)
         Me.btnQuitar.Location = New System.Drawing.Point(102, 96)
         Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(90, 84)
+        Me.btnQuitar.Size = New System.Drawing.Size(90, 83)
         Me.btnQuitar.TabIndex = 5
         Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnQuitar.UseVisualStyleBackColor = False
@@ -422,7 +422,7 @@ Partial Class frmNuevoAgregarProductos
         Me.btnTeclado.Image = CType(resources.GetObject("btnTeclado.Image"), System.Drawing.Image)
         Me.btnTeclado.Location = New System.Drawing.Point(6, 97)
         Me.btnTeclado.Name = "btnTeclado"
-        Me.btnTeclado.Size = New System.Drawing.Size(90, 84)
+        Me.btnTeclado.Size = New System.Drawing.Size(90, 83)
         Me.btnTeclado.TabIndex = 4
         Me.btnTeclado.Text = "TECLADO"
         Me.btnTeclado.TextAlign = System.Drawing.ContentAlignment.BottomCenter

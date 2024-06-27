@@ -1043,6 +1043,13 @@ Public Class frmProductos
                 End If
 
                 MsgBox("Producto eliminado correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO productoeliminado(Codigo,Nombre,CargadoAndroid) VALUES('" & cboCodigo.Text & "','" & cboNombre.Text & "',0)"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+
                 btnNuevo.PerformClick()
             End If
             cnn1.Close() : cnn1.Open()

@@ -127,7 +127,7 @@
             cboAno.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Ano FROM vehiculo2 WHERE Ano<>'' ORDER BY Ano"
+            cmd5.CommandText = "SELECT DISTINCT Ano FROM vehiculo2 WHERE Ano<>'' ORDER BY Ano desc"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then

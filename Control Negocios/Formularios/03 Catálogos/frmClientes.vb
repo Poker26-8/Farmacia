@@ -450,17 +450,27 @@ Public Class frmClientes
             If MsgBox("¿Deseas eliminar los datos de éste cliente?" & vbNewLine & "Ésta acción no se puede deshacer.", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                 Try
                     cnn1.Close() : cnn1.Open()
+                    cnn2.Close() : cnn2.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                          "delete from Clientes where Id=" & txtId.Text
-                    cmd1.ExecuteNonQuery()
+                    If cmd1.ExecuteNonQuery() Then
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "INSERT INTO clienteeliminado(Nombre,CargadoAndroid) VALUES('" & cboNombre.Text & "',0)"
+                        cmd2.ExecuteNonQuery()
+
+                    End If
+
+
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                          "delete from Entregas where IdCliente=" & txtId.Text
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
+                    cnn2.Close()
 
                     btnNuveo.PerformClick()
                 Catch ex As Exception
