@@ -23,7 +23,7 @@ Partial Class frmProducirQ
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProducirQ))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
@@ -100,6 +100,17 @@ Partial Class frmProducirQ
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.rtObservaciones = New System.Windows.Forms.RichTextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtAspecto = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.txtColor = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.txtOlor = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.txtPh = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.btnProceso = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
@@ -120,17 +131,7 @@ Partial Class frmProducirQ
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.rtComentario = New System.Windows.Forms.RichTextBox()
         Me.pDocumento80 = New System.Drawing.Printing.PrintDocument()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtPh = New System.Windows.Forms.TextBox()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.txtOlor = New System.Windows.Forms.TextBox()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.txtColor = New System.Windows.Forms.TextBox()
-        Me.txtAspecto = New System.Windows.Forms.TextBox()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.rtObservaciones = New System.Windows.Forms.RichTextBox()
+        Me.pDocumento58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -138,8 +139,8 @@ Partial Class frmProducirQ
         Me.GroupBox2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -358,7 +359,7 @@ Partial Class frmProducirQ
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1205, 62)
+        Me.GroupBox1.Size = New System.Drawing.Size(1205, 61)
         Me.GroupBox1.TabIndex = 144
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Artículo"
@@ -369,7 +370,7 @@ Partial Class frmProducirQ
         Me.txtComentario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtComentario.Location = New System.Drawing.Point(883, 32)
         Me.txtComentario.Name = "txtComentario"
-        Me.txtComentario.Size = New System.Drawing.Size(235, 23)
+        Me.txtComentario.Size = New System.Drawing.Size(316, 23)
         Me.txtComentario.TabIndex = 104
         Me.txtComentario.Visible = False
         '
@@ -537,14 +538,14 @@ Partial Class frmProducirQ
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 67)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1211, 70)
+        Me.Panel2.Size = New System.Drawing.Size(1211, 64)
         Me.Panel2.TabIndex = 145
         '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.GroupBox2)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 137)
+        Me.Panel4.Location = New System.Drawing.Point(0, 131)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1211, 63)
         Me.Panel4.TabIndex = 146
@@ -874,7 +875,7 @@ Partial Class frmProducirQ
         Me.Panel3.Controls.Add(Me.Label16)
         Me.Panel3.Controls.Add(Me.Label17)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 200)
+        Me.Panel3.Location = New System.Drawing.Point(0, 194)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1211, 31)
         Me.Panel3.TabIndex = 147
@@ -1050,6 +1051,115 @@ Partial Class frmProducirQ
         Me.Panel5.Size = New System.Drawing.Size(1211, 102)
         Me.Panel5.TabIndex = 148
         '
+        'rtObservaciones
+        '
+        Me.rtObservaciones.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.rtObservaciones.Location = New System.Drawing.Point(484, 6)
+        Me.rtObservaciones.Name = "rtObservaciones"
+        Me.rtObservaciones.Size = New System.Drawing.Size(379, 89)
+        Me.rtObservaciones.TabIndex = 168
+        Me.rtObservaciones.Text = ""
+        '
+        'Label45
+        '
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(377, 17)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(113, 22)
+        Me.Label45.TabIndex = 173
+        Me.Label45.Text = "Observaciones"
+        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.txtAspecto)
+        Me.GroupBox3.Controls.Add(Me.Label44)
+        Me.GroupBox3.Controls.Add(Me.txtColor)
+        Me.GroupBox3.Controls.Add(Me.Label43)
+        Me.GroupBox3.Controls.Add(Me.txtOlor)
+        Me.GroupBox3.Controls.Add(Me.Label42)
+        Me.GroupBox3.Controls.Add(Me.txtPh)
+        Me.GroupBox3.Controls.Add(Me.Label41)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(10, 6)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(361, 89)
+        Me.GroupBox3.TabIndex = 172
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Propiedades fisicas y quimicas"
+        '
+        'txtAspecto
+        '
+        Me.txtAspecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAspecto.Location = New System.Drawing.Point(237, 54)
+        Me.txtAspecto.Name = "txtAspecto"
+        Me.txtAspecto.Size = New System.Drawing.Size(118, 22)
+        Me.txtAspecto.TabIndex = 178
+        '
+        'Label44
+        '
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(162, 54)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(78, 22)
+        Me.Label44.TabIndex = 177
+        Me.Label44.Text = "Aspecto:"
+        Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtColor
+        '
+        Me.txtColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtColor.Location = New System.Drawing.Point(237, 26)
+        Me.txtColor.Name = "txtColor"
+        Me.txtColor.Size = New System.Drawing.Size(118, 22)
+        Me.txtColor.TabIndex = 176
+        '
+        'Label43
+        '
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(178, 24)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(53, 22)
+        Me.Label43.TabIndex = 175
+        Me.Label43.Text = "Color:"
+        Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtOlor
+        '
+        Me.txtOlor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOlor.Location = New System.Drawing.Point(55, 54)
+        Me.txtOlor.Name = "txtOlor"
+        Me.txtOlor.Size = New System.Drawing.Size(104, 22)
+        Me.txtOlor.TabIndex = 174
+        '
+        'Label42
+        '
+        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.Location = New System.Drawing.Point(6, 55)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(43, 22)
+        Me.Label42.TabIndex = 173
+        Me.Label42.Text = "Olor:"
+        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtPh
+        '
+        Me.txtPh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPh.Location = New System.Drawing.Point(55, 26)
+        Me.txtPh.Name = "txtPh"
+        Me.txtPh.Size = New System.Drawing.Size(104, 22)
+        Me.txtPh.TabIndex = 172
+        '
+        'Label41
+        '
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(6, 28)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(43, 22)
+        Me.Label41.TabIndex = 171
+        Me.Label41.Text = "pH:"
+        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'btnProceso
         '
         Me.btnProceso.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1058,9 +1168,9 @@ Partial Class frmProducirQ
         Me.btnProceso.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProceso.Image = CType(resources.GetObject("btnProceso.Image"), System.Drawing.Image)
         Me.btnProceso.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnProceso.Location = New System.Drawing.Point(862, 6)
+        Me.btnProceso.Location = New System.Drawing.Point(869, 24)
         Me.btnProceso.Name = "btnProceso"
-        Me.btnProceso.Size = New System.Drawing.Size(141, 70)
+        Me.btnProceso.Size = New System.Drawing.Size(141, 66)
         Me.btnProceso.TabIndex = 170
         Me.btnProceso.Text = "Procedimiento"
         Me.btnProceso.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1074,9 +1184,9 @@ Partial Class frmProducirQ
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardar.Location = New System.Drawing.Point(1009, 6)
+        Me.btnguardar.Location = New System.Drawing.Point(1016, 24)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(60, 70)
+        Me.btnguardar.Size = New System.Drawing.Size(60, 66)
         Me.btnguardar.TabIndex = 169
         Me.btnguardar.Text = "Guardar"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1089,9 +1199,9 @@ Partial Class frmProducirQ
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnnuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(1075, 6)
+        Me.btnnuevo.Location = New System.Drawing.Point(1082, 24)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(60, 70)
+        Me.btnnuevo.Size = New System.Drawing.Size(60, 66)
         Me.btnnuevo.TabIndex = 168
         Me.btnnuevo.Text = "Nuevo"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1105,9 +1215,9 @@ Partial Class frmProducirQ
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(1141, 6)
+        Me.Button1.Location = New System.Drawing.Point(1148, 24)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(60, 70)
+        Me.Button1.Size = New System.Drawing.Size(60, 66)
         Me.Button1.TabIndex = 167
         Me.Button1.Text = "Salir"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1117,19 +1227,19 @@ Partial Class frmProducirQ
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Beige
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Beige
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column13, Me.Column9, Me.Column10, Me.Column11, Me.Column12})
         Me.grdcaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdcaptura.GridColor = System.Drawing.Color.White
-        Me.grdcaptura.Location = New System.Drawing.Point(0, 231)
+        Me.grdcaptura.Location = New System.Drawing.Point(0, 225)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
-        Me.grdcaptura.Size = New System.Drawing.Size(1211, 157)
+        Me.grdcaptura.Size = New System.Drawing.Size(1211, 163)
         Me.grdcaptura.TabIndex = 166
         '
         'Column1
@@ -1225,9 +1335,9 @@ Partial Class frmProducirQ
         'rtComentario
         '
         Me.rtComentario.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.rtComentario.Location = New System.Drawing.Point(10, 243)
+        Me.rtComentario.Location = New System.Drawing.Point(10, 231)
         Me.rtComentario.Name = "rtComentario"
-        Me.rtComentario.Size = New System.Drawing.Size(454, 106)
+        Me.rtComentario.Size = New System.Drawing.Size(529, 139)
         Me.rtComentario.TabIndex = 167
         Me.rtComentario.Text = ""
         Me.rtComentario.Visible = False
@@ -1235,114 +1345,8 @@ Partial Class frmProducirQ
         'pDocumento80
         '
         '
-        'Label41
+        'pDocumento58
         '
-        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(6, 28)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(43, 22)
-        Me.Label41.TabIndex = 171
-        Me.Label41.Text = "pH:"
-        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.txtAspecto)
-        Me.GroupBox3.Controls.Add(Me.Label44)
-        Me.GroupBox3.Controls.Add(Me.txtColor)
-        Me.GroupBox3.Controls.Add(Me.Label43)
-        Me.GroupBox3.Controls.Add(Me.txtOlor)
-        Me.GroupBox3.Controls.Add(Me.Label42)
-        Me.GroupBox3.Controls.Add(Me.txtPh)
-        Me.GroupBox3.Controls.Add(Me.Label41)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(10, 6)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(361, 89)
-        Me.GroupBox3.TabIndex = 172
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Propiedades fisicas y quimicas"
-        '
-        'txtPh
-        '
-        Me.txtPh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPh.Location = New System.Drawing.Point(61, 28)
-        Me.txtPh.Name = "txtPh"
-        Me.txtPh.Size = New System.Drawing.Size(104, 22)
-        Me.txtPh.TabIndex = 172
-        '
-        'Label42
-        '
-        Me.Label42.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(6, 55)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(43, 22)
-        Me.Label42.TabIndex = 173
-        Me.Label42.Text = "Olor:"
-        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtOlor
-        '
-        Me.txtOlor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOlor.Location = New System.Drawing.Point(61, 56)
-        Me.txtOlor.Name = "txtOlor"
-        Me.txtOlor.Size = New System.Drawing.Size(104, 22)
-        Me.txtOlor.TabIndex = 174
-        '
-        'Label43
-        '
-        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(188, 26)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(53, 22)
-        Me.Label43.TabIndex = 175
-        Me.Label43.Text = "Color:"
-        Me.Label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtColor
-        '
-        Me.txtColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtColor.Location = New System.Drawing.Point(247, 28)
-        Me.txtColor.Name = "txtColor"
-        Me.txtColor.Size = New System.Drawing.Size(109, 22)
-        Me.txtColor.TabIndex = 176
-        '
-        'txtAspecto
-        '
-        Me.txtAspecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAspecto.Location = New System.Drawing.Point(247, 56)
-        Me.txtAspecto.Name = "txtAspecto"
-        Me.txtAspecto.Size = New System.Drawing.Size(109, 22)
-        Me.txtAspecto.TabIndex = 178
-        '
-        'Label44
-        '
-        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(172, 56)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(78, 22)
-        Me.Label44.TabIndex = 177
-        Me.Label44.Text = "Aspecto:"
-        Me.Label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label45
-        '
-        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.Location = New System.Drawing.Point(377, 17)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(113, 22)
-        Me.Label45.TabIndex = 173
-        Me.Label45.Text = "Observaciones"
-        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'rtObservaciones
-        '
-        Me.rtObservaciones.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.rtObservaciones.Location = New System.Drawing.Point(484, 6)
-        Me.rtObservaciones.Name = "rtObservaciones"
-        Me.rtObservaciones.Size = New System.Drawing.Size(372, 89)
-        Me.rtObservaciones.TabIndex = 168
-        Me.rtObservaciones.Text = ""
         '
         'frmProducirQ
         '
@@ -1371,9 +1375,9 @@ Partial Class frmProducirQ
         Me.GroupBox2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
-        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1485,4 +1489,5 @@ Partial Class frmProducirQ
     Friend WithEvents Label42 As Label
     Friend WithEvents txtPh As TextBox
     Friend WithEvents Label41 As Label
+    Friend WithEvents pDocumento58 As Printing.PrintDocument
 End Class

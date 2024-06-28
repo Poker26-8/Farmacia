@@ -2519,14 +2519,48 @@ Public Class Inicio
     End Sub
 
     Private Sub ProducirToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pProducir.Click
-        frmProduccion.Show()
-        frmProduccion.BringToFront()
 
-        'frmProducirF.Show()
-        'frmProducirF.BringToFront()
+        Try
+            Dim produccion As Integer = 0
+            Dim produccionpro As Integer = 0
 
-        frmProducirQ.Show()
-        frmProducirQ.BringToFront()
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Produccion'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    produccion = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='ProduccionPro'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    produccionpro = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If produccionpro = 1 Then
+                frmProducirQ.Show()
+                frmProducirQ.BringToFront()
+            Else
+                frmProduccion.Show()
+                frmProduccion.BringToFront()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+
+
     End Sub
 
     Private Sub NotasDeCréditoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pNotasC.Click

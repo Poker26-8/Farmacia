@@ -138,4 +138,10 @@
         frmOrdenes.Show()
         frmOrdenes.BringToFront()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        frmAct_produccionPro.ShowDialog()
+        frmAct_produccionPro.BringToFront()
+        Me.Close()
+    End Sub
 End Class

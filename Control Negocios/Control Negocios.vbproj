@@ -381,6 +381,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Produccion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_produccionPro.Designer.vb">
+      <DependentUpon>frmAct_produccionPro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_produccionPro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Refaccionaria.Designer.vb">
       <DependentUpon>frmAct_Refaccionaria.vb</DependentUpon>
     </Compile>
@@ -2147,6 +2153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Produccion.resx">
       <DependentUpon>frmAct_Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_produccionPro.resx">
+      <DependentUpon>frmAct_produccionPro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Refaccionaria.resx">
       <DependentUpon>frmAct_Refaccionaria.vb</DependentUpon>
