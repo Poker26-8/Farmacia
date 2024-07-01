@@ -5422,7 +5422,8 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            ' MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtnumref.Focus.Equals(True)
                             txtnumref.Text = ""
                             rd1.Close() : cnn1.Close()
                             Exit Sub
@@ -5445,7 +5446,8 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            ' MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtnumref.Focus.Equals(True)
                             txtnumref.Text = ""
                             rd1.Close() : cnn1.Close()
                             Exit Sub
@@ -5468,7 +5470,8 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            '  MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtnumref.Focus.Equals(True)
                             txtnumref.Text = ""
                             rd1.Close() : cnn1.Close()
                             Exit Sub

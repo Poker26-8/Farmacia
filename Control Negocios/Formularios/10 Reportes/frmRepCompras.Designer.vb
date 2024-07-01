@@ -46,6 +46,8 @@ Partial Class frmRepCompras
         Me.barcarga = New System.Windows.Forms.ProgressBar()
         Me.optnotascredprov = New System.Windows.Forms.RadioButton()
         Me.optconcentrado = New System.Windows.Forms.RadioButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TXTTOTAL = New System.Windows.Forms.TextBox()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cms1.SuspendLayout()
         Me.SuspendLayout()
@@ -291,11 +293,30 @@ Partial Class frmRepCompras
         Me.optconcentrado.Text = "Productos recibidos (concentrado)"
         Me.optconcentrado.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(795, 499)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(69, 20)
+        Me.Label2.TabIndex = 209
+        Me.Label2.Text = "Cantidad"
+        '
+        'TXTTOTAL
+        '
+        Me.TXTTOTAL.Location = New System.Drawing.Point(870, 496)
+        Me.TXTTOTAL.Name = "TXTTOTAL"
+        Me.TXTTOTAL.Size = New System.Drawing.Size(97, 23)
+        Me.TXTTOTAL.TabIndex = 210
+        '
         'frmRepCompras
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(977, 540)
+        Me.Controls.Add(Me.TXTTOTAL)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.optconcentrado)
         Me.Controls.Add(Me.optnotascredprov)
         Me.Controls.Add(Me.barcarga)
@@ -351,4 +372,6 @@ Partial Class frmRepCompras
     Friend WithEvents optconcentrado As RadioButton
     Friend WithEvents cms1 As ContextMenuStrip
     Friend WithEvents EliminarCompraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TXTTOTAL As TextBox
 End Class

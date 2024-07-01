@@ -23,7 +23,7 @@ Partial Class frmProducirQ
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProducirQ))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
@@ -100,6 +100,7 @@ Partial Class frmProducirQ
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btnRegistro = New System.Windows.Forms.Button()
         Me.rtObservaciones = New System.Windows.Forms.RichTextBox()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -1038,6 +1039,7 @@ Partial Class frmProducirQ
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.btnRegistro)
         Me.Panel5.Controls.Add(Me.rtObservaciones)
         Me.Panel5.Controls.Add(Me.Label45)
         Me.Panel5.Controls.Add(Me.GroupBox3)
@@ -1051,12 +1053,28 @@ Partial Class frmProducirQ
         Me.Panel5.Size = New System.Drawing.Size(1211, 102)
         Me.Panel5.TabIndex = 148
         '
+        'btnRegistro
+        '
+        Me.btnRegistro.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRegistro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRegistro.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegistro.Image = CType(resources.GetObject("btnRegistro.Image"), System.Drawing.Image)
+        Me.btnRegistro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRegistro.Location = New System.Drawing.Point(950, 24)
+        Me.btnRegistro.Name = "btnRegistro"
+        Me.btnRegistro.Size = New System.Drawing.Size(60, 66)
+        Me.btnRegistro.TabIndex = 174
+        Me.btnRegistro.Text = "Guardar Registro"
+        Me.btnRegistro.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRegistro.UseVisualStyleBackColor = True
+        '
         'rtObservaciones
         '
         Me.rtObservaciones.BackColor = System.Drawing.Color.PaleTurquoise
         Me.rtObservaciones.Location = New System.Drawing.Point(484, 6)
         Me.rtObservaciones.Name = "rtObservaciones"
-        Me.rtObservaciones.Size = New System.Drawing.Size(379, 89)
+        Me.rtObservaciones.Size = New System.Drawing.Size(363, 89)
         Me.rtObservaciones.TabIndex = 168
         Me.rtObservaciones.Text = ""
         '
@@ -1168,9 +1186,9 @@ Partial Class frmProducirQ
         Me.btnProceso.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProceso.Image = CType(resources.GetObject("btnProceso.Image"), System.Drawing.Image)
         Me.btnProceso.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnProceso.Location = New System.Drawing.Point(869, 24)
+        Me.btnProceso.Location = New System.Drawing.Point(853, 24)
         Me.btnProceso.Name = "btnProceso"
-        Me.btnProceso.Size = New System.Drawing.Size(141, 66)
+        Me.btnProceso.Size = New System.Drawing.Size(91, 66)
         Me.btnProceso.TabIndex = 170
         Me.btnProceso.Text = "Procedimiento"
         Me.btnProceso.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1188,7 +1206,7 @@ Partial Class frmProducirQ
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 66)
         Me.btnguardar.TabIndex = 169
-        Me.btnguardar.Text = "Guardar"
+        Me.btnguardar.Text = "Producir"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnguardar.UseVisualStyleBackColor = True
         '
@@ -1227,8 +1245,8 @@ Partial Class frmProducirQ
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Beige
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -1490,4 +1508,5 @@ Partial Class frmProducirQ
     Friend WithEvents txtPh As TextBox
     Friend WithEvents Label41 As Label
     Friend WithEvents pDocumento58 As Printing.PrintDocument
+    Friend WithEvents btnRegistro As Button
 End Class

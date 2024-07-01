@@ -314,7 +314,7 @@ Partial Class frmMesas
         Me.lblusuario.BackColor = System.Drawing.Color.SteelBlue
         Me.lblusuario.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(7, 465)
+        Me.lblusuario.Location = New System.Drawing.Point(7, 474)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(250, 24)
         Me.lblusuario.TabIndex = 100
@@ -326,7 +326,7 @@ Partial Class frmMesas
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(7, 442)
+        Me.Label4.Location = New System.Drawing.Point(7, 451)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(250, 23)
         Me.Label4.TabIndex = 99
@@ -335,7 +335,7 @@ Partial Class frmMesas
         '
         'btnok
         '
-        Me.btnok.BackColor = System.Drawing.Color.White
+        Me.btnok.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(108, Byte), Integer))
         Me.btnok.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnok.Font = New System.Drawing.Font("Segoe UI Emoji", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnok.Location = New System.Drawing.Point(178, 378)
@@ -347,7 +347,7 @@ Partial Class frmMesas
         '
         'btn0
         '
-        Me.btn0.BackColor = System.Drawing.Color.White
+        Me.btn0.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn0.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.Location = New System.Drawing.Point(92, 378)
@@ -359,7 +359,7 @@ Partial Class frmMesas
         '
         'btnborra
         '
-        Me.btnborra.BackColor = System.Drawing.Color.White
+        Me.btnborra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnborra.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnborra.Font = New System.Drawing.Font("Segoe UI Emoji", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnborra.Location = New System.Drawing.Point(6, 378)
@@ -371,7 +371,7 @@ Partial Class frmMesas
         '
         'btn9
         '
-        Me.btn9.BackColor = System.Drawing.Color.White
+        Me.btn9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn9.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.Location = New System.Drawing.Point(178, 177)
@@ -383,7 +383,7 @@ Partial Class frmMesas
         '
         'btn8
         '
-        Me.btn8.BackColor = System.Drawing.Color.White
+        Me.btn8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn8.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.Location = New System.Drawing.Point(92, 177)
@@ -395,7 +395,7 @@ Partial Class frmMesas
         '
         'btn7
         '
-        Me.btn7.BackColor = System.Drawing.Color.White
+        Me.btn7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn7.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.Location = New System.Drawing.Point(6, 177)
@@ -407,7 +407,7 @@ Partial Class frmMesas
         '
         'btn6
         '
-        Me.btn6.BackColor = System.Drawing.Color.White
+        Me.btn6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn6.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.Location = New System.Drawing.Point(178, 244)
@@ -419,7 +419,7 @@ Partial Class frmMesas
         '
         'btn5
         '
-        Me.btn5.BackColor = System.Drawing.Color.White
+        Me.btn5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn5.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.Location = New System.Drawing.Point(92, 244)
@@ -431,7 +431,7 @@ Partial Class frmMesas
         '
         'btn4
         '
-        Me.btn4.BackColor = System.Drawing.Color.White
+        Me.btn4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn4.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.Location = New System.Drawing.Point(6, 244)
@@ -443,7 +443,7 @@ Partial Class frmMesas
         '
         'btn3
         '
-        Me.btn3.BackColor = System.Drawing.Color.White
+        Me.btn3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn3.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.Location = New System.Drawing.Point(178, 311)
@@ -455,7 +455,7 @@ Partial Class frmMesas
         '
         'btn2
         '
-        Me.btn2.BackColor = System.Drawing.Color.White
+        Me.btn2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn2.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.Location = New System.Drawing.Point(92, 311)
@@ -467,7 +467,7 @@ Partial Class frmMesas
         '
         'btn1
         '
-        Me.btn1.BackColor = System.Drawing.Color.White
+        Me.btn1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn1.Font = New System.Drawing.Font("Segoe UI Emoji", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.Location = New System.Drawing.Point(6, 311)
@@ -506,7 +506,7 @@ Partial Class frmMesas
         '
         Me.txtMesa.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtMesa.BackColor = System.Drawing.Color.White
+        Me.txtMesa.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.txtMesa.Enabled = False
         Me.txtMesa.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMesa.Location = New System.Drawing.Point(6, 91)
@@ -532,6 +532,7 @@ Partial Class frmMesas
         '
         Me.txtNComensales.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNComensales.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.txtNComensales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNComensales.Location = New System.Drawing.Point(6, 40)
         Me.txtNComensales.Name = "txtNComensales"
@@ -561,9 +562,9 @@ Partial Class frmMesas
         Me.Panel6.Controls.Add(Me.lbltotalmesa)
         Me.Panel6.Controls.Add(Me.lblfolio)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(0, 504)
+        Me.Panel6.Location = New System.Drawing.Point(0, 515)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(264, 136)
+        Me.Panel6.Size = New System.Drawing.Size(264, 125)
         Me.Panel6.TabIndex = 0
         '
         'Button1

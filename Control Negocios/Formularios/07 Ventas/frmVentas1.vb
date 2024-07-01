@@ -5065,6 +5065,7 @@ kaka:
     Private Sub txtnumref_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtnumref.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             Dim saldo As Double = 0
+
             If cbotpago.Text = "MONEDERO" Then
                 Try
                     cnn1.Close() : cnn1.Open()
@@ -5094,8 +5095,9 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            ' MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                             txtnumref.Text = ""
+                            txtnumref.Focus.Equals(True)
                             rd1.Close() : cnn1.Close()
                             Exit Sub
                         End If
@@ -5117,8 +5119,10 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            ' MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtnumref.Focus.Equals(True)
                             txtnumref.Text = ""
+
                             rd1.Close() : cnn1.Close()
                             Exit Sub
                         End If
@@ -5140,7 +5144,8 @@ kaka:
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            'MsgBox("Ya fue registrado este pago en una venta diferente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            txtnumref.Focus.Equals(True)
                             txtnumref.Text = ""
                             rd1.Close() : cnn1.Close()
                             Exit Sub

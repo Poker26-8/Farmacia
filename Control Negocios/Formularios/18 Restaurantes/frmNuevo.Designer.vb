@@ -26,15 +26,15 @@ Partial Class frmNuevo
         Me.psuperior = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnPdf = New System.Windows.Forms.Button()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.grdCaptura2 = New System.Windows.Forms.DataGridView()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.assasa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.aaa = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grdCaptura2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pmesas
@@ -56,9 +56,8 @@ Partial Class frmNuevo
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.grdcaptura)
         Me.Panel1.Controls.Add(Me.btnPdf)
-        Me.Panel1.Controls.Add(Me.grdCaptura)
-        Me.Panel1.Controls.Add(Me.grdCaptura2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(447, 100)
         Me.Panel1.Name = "Panel1"
@@ -67,57 +66,73 @@ Partial Class frmNuevo
         '
         'btnPdf
         '
-        Me.btnPdf.Location = New System.Drawing.Point(304, 220)
+        Me.btnPdf.Location = New System.Drawing.Point(272, 20)
         Me.btnPdf.Name = "btnPdf"
         Me.btnPdf.Size = New System.Drawing.Size(95, 55)
         Me.btnPdf.TabIndex = 3
-        Me.btnPdf.Text = "PDF"
+        Me.btnPdf.Text = "TXT"
         Me.btnPdf.UseVisualStyleBackColor = True
         '
-        'grdCaptura
+        'grdcaptura
         '
-        Me.grdCaptura.AllowUserToAddRows = False
-        Me.grdCaptura.AllowUserToDeleteRows = False
-        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.assasa, Me.aaa})
-        Me.grdCaptura.Location = New System.Drawing.Point(44, 18)
-        Me.grdCaptura.Name = "grdCaptura"
-        Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(240, 150)
-        Me.grdCaptura.TabIndex = 2
+        Me.grdcaptura.AllowUserToAddRows = False
+        Me.grdcaptura.AllowUserToDeleteRows = False
+        Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column11, Me.Column13, Me.Column15, Me.Column16, Me.Column17, Me.Column18})
+        Me.grdcaptura.Location = New System.Drawing.Point(6, 130)
+        Me.grdcaptura.Name = "grdcaptura"
+        Me.grdcaptura.ReadOnly = True
+        Me.grdcaptura.RowHeadersVisible = False
+        Me.grdcaptura.Size = New System.Drawing.Size(465, 150)
+        Me.grdcaptura.TabIndex = 4
         '
-        'grdCaptura2
+        'Column11
         '
-        Me.grdCaptura2.AllowUserToAddRows = False
-        Me.grdCaptura2.AllowUserToDeleteRows = False
-        Me.grdCaptura2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4})
-        Me.grdCaptura2.Location = New System.Drawing.Point(15, 352)
-        Me.grdCaptura2.Name = "grdCaptura2"
-        Me.grdCaptura2.Size = New System.Drawing.Size(456, 150)
-        Me.grdCaptura2.TabIndex = 1
+        Me.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column11.HeaderText = "CodBarra"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        Me.Column11.Width = 76
         '
-        'Column3
+        'Column13
         '
-        Me.Column3.HeaderText = "NOMBRE"
-        Me.Column3.Name = "Column3"
+        Me.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column13.HeaderText = "Codigo"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        Me.Column13.Width = 65
         '
-        'Column4
+        'Column15
         '
-        Me.Column4.HeaderText = "OTRO NOMBRE"
-        Me.Column4.Name = "Column4"
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column15.HeaderText = "Descripcion"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        Me.Column15.Width = 88
         '
-        'assasa
+        'Column16
         '
-        Me.assasa.HeaderText = "nombre"
-        Me.assasa.Name = "assasa"
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column16.HeaderText = "Precio1"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Width = 68
         '
-        'aaa
+        'Column17
         '
-        Me.aaa.HeaderText = "Traspasar"
-        Me.aaa.Name = "aaa"
-        Me.aaa.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.aaa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column17.HeaderText = "Precio2"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        Me.Column17.Width = 68
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column18.HeaderText = "precio3"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        Me.Column18.Width = 67
         '
         'frmNuevo
         '
@@ -132,8 +147,7 @@ Partial Class frmNuevo
         Me.Text = "frmNuevo"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grdCaptura2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -144,11 +158,12 @@ Partial Class frmNuevo
     Friend WithEvents grdCaptura1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents grdCaptura2 As DataGridView
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents btnPdf As Button
-    Friend WithEvents assasa As DataGridViewTextBoxColumn
-    Friend WithEvents aaa As DataGridViewButtonColumn
+    Friend WithEvents grdcaptura As DataGridView
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
 End Class

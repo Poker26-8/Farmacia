@@ -205,7 +205,7 @@ Partial Class Inicio
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1194, 90)
+        Me.Panel1.Size = New System.Drawing.Size(1196, 90)
         Me.Panel1.TabIndex = 0
         '
         'Button1
@@ -392,7 +392,7 @@ Partial Class Inicio
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1194, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1196, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1439,7 +1439,7 @@ Partial Class Inicio
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1033, 768)
+        Me.Label1.Location = New System.Drawing.Point(1035, 768)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 38)
         Me.Label1.TabIndex = 10
@@ -1453,7 +1453,7 @@ Partial Class Inicio
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1139, 766)
+        Me.Button3.Location = New System.Drawing.Point(1141, 766)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(43, 42)
         Me.Button3.TabIndex = 9
@@ -1464,7 +1464,7 @@ Partial Class Inicio
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(417, 339)
+        Me.PictureBox1.Location = New System.Drawing.Point(418, 339)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
         Me.PictureBox1.Size = New System.Drawing.Size(403, 142)
@@ -1475,7 +1475,7 @@ Partial Class Inicio
         'pedidos_tienda
         '
         Me.pedidos_tienda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pedidos_tienda.Location = New System.Drawing.Point(1020, 125)
+        Me.pedidos_tienda.Location = New System.Drawing.Point(1022, 125)
         Me.pedidos_tienda.Name = "pedidos_tienda"
         Me.pedidos_tienda.Size = New System.Drawing.Size(163, 25)
         Me.pedidos_tienda.TabIndex = 12
@@ -1511,7 +1511,7 @@ Partial Class Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1194, 820)
+        Me.ClientSize = New System.Drawing.Size(1196, 820)
         Me.Controls.Add(Me.POpciones)
         Me.Controls.Add(Me.pedidos_tienda)
         Me.Controls.Add(Me.Label1)

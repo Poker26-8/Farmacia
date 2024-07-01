@@ -4060,6 +4060,8 @@ Public Class Inicio
                                 frmVTouchR.txtUsuario.Text = rd2("Clave").ToString
                                 frmVTouchR.Show()
                                 frmVTouchR.BringToFront()
+
+                                frmNuevo.Show()
                             End If
                         End If
                         rd2.Close()

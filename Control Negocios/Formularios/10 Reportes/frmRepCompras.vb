@@ -8,7 +8,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = True
-
+            TXTTOTAL.Text = "0.00"
             grdcaptura.ColumnCount = 8
             With grdcaptura
                 With .Columns(0)
@@ -88,6 +88,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = True
+            TXTTOTAL.Text = "0.00"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -782,6 +783,8 @@
 
         Dim cuantas As Double = 0
 
+        Dim totpro As Double = 0
+
         barcarga.Visible = False
         barcarga.Value = 0
         grdcaptura.Rows.Clear()
@@ -912,9 +915,13 @@
 
                     grdcaptura.Rows.Add(MyRemi, MyFact, MyProv, MyCodi, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
                     barcarga.Value = barcarga.Value + 1
+
+                    totpro = totpro + CDec(MyCant)
+
                 End If
             Loop
             rd1.Close() : cnn1.Close()
+            TXTTOTAL.Text = FormatNumber(totpro, 2)
             barcarga.Value = 0
             barcarga.Visible = False
         End If

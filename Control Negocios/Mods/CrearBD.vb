@@ -1986,7 +1986,7 @@
 
 
     'MiProd
-    Public vartablamiprod As String = "CREATE TABLE IF NOT EXISTS `miprod` (
+    Public vartablamiprod As String = "CREATE TABLE `miprod` (
                                               `CodigoP` varchar(10) NOT NULL DEFAULT '',
                                               `DescripP` varchar(255) NOT NULL DEFAULT '',
                                               `UVentaP` varchar(10) NOT NULL DEFAULT '',
@@ -1996,7 +1996,13 @@
                                               `UVenta` varchar(10) NOT NULL DEFAULT '',
                                               `Cantidad` float NOT NULL DEFAULT '0',
                                               `Grupo` varchar(80) NOT NULL DEFAULT '',
-                                              `Lote` varchar(80) NOT NULL DEFAULT ''
+                                              `Lote` varchar(80) NOT NULL DEFAULT '',
+                                              `Precio` double DEFAULT '0',
+                                              `PrecioIVA` double DEFAULT '0',
+                                              `Fase` varchar(50) DEFAULT '',
+                                              `Teorico` double DEFAULT '0',
+                                              `RealT` varchar(50) DEFAULT '',
+                                              `Comentario` text
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

@@ -286,6 +286,7 @@ Public Class frmProducirQ
             Dim teo As Double = 0
 
             teo = CDec(cantidad * 1000) * (cantidadpro / 100)
+            txtTotalI.Text = CDbl(cantidadpro) * CDec(txtPrecioI.Text)
             txtTeorico.Text = FormatNumber(teo, 2)
             txtPrecioI.Focus.Equals(True)
         End If
@@ -1213,6 +1214,114 @@ Public Class frmProducirQ
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub btnRegistro_Click(sender As Object, e As EventArgs) Handles btnRegistro.Click
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                        Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+                        Dim descripcion As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+                        Dim unidad As String = grdcaptura.Rows(luffy).Cells(2).Value.ToString
+                        Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                        Dim precio As Double = grdcaptura.Rows(luffy).Cells(4).Value.ToString
+                        Dim total As Double = grdcaptura.Rows(luffy).Cells(5).Value.ToString
+                        Dim EXISTENCIA As Double = 0
+                        Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+                        Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
+                        Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+                        Dim fechalote As String = ""
+                        Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+
+
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE miprod SET UVentaP='" & txtunidad.Text & "',CantidadP=" & txtcantidad.Text & ",UVenta='" & unidad & "',Cantidad=" & cantidad & ",Lote='" & lote & "',Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "' AND Codigo='" & codigo & "' AND Descrip='" & descripcion & "'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    Next
+
+                End If
+            Else
+                For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                    Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+                    Dim descripcion As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+                    Dim unidad As String = grdcaptura.Rows(luffy).Cells(2).Value.ToString
+                    Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                    Dim precio As Double = grdcaptura.Rows(luffy).Cells(4).Value.ToString
+                    Dim total As Double = grdcaptura.Rows(luffy).Cells(5).Value.ToString
+                    Dim EXISTENCIA As Double = 0
+                    Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+                    Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
+                    Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+                    Dim fechalote As String = ""
+                    Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+
+
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo,Lote,Precio,PrecioIVA,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'','" & lote & "'," & precio & ",0,'" & fase & "'," & teorico & ",'" & real & "')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                Next
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+
+            Dim tamticket As Integer = 0
+            Dim impresoratickett As String = ""
+
+            tamticket = TamImpre()
+            impresoratickett = ImpresoraImprimir()
+
+            If tamticket = "80" Then
+                pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                pDocumento80.Print()
+            End If
+
+            If tamticket = "58" Then
+                pDocumento58.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                pDocumento58.Print()
+            End If
+
+            rtComentario.Text = ""
+            grdcaptura.Rows.Clear()
+            txtnumcliente.Text = ""
+            cboCliente.Text = ""
+            txtCodigo.Text = ""
+            txtSKU.Text = ""
+            txtRevision.Text = ""
+            dtpAprobación.Value = Date.Now
+            dtpFechaRecepcion.Value = Date.Now
+
+            cbocodigo.Text = ""
+            cbonombre.Text = ""
+            txtunidad.Text = ""
+            txtcantidad.Text = ""
+            txtcostod.Text = "0.00"
+            cboLote.Text = ""
+            dtpFechaLote.Value = Date.Now
+
+            rtObservaciones.Text = ""
+            txtPh.Text = ""
+            txtOlor.Text = ""
+            txtColor.Text = ""
+            txtAspecto.Text = ""
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
         End Try
     End Sub
 End Class

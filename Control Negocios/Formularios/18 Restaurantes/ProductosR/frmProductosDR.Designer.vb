@@ -140,7 +140,7 @@ Partial Class frmProductosDR
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
@@ -155,7 +155,7 @@ Partial Class frmProductosDR
         '
         'btnImagen
         '
-        Me.btnImagen.BackColor = System.Drawing.Color.White
+        Me.btnImagen.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImagen.Image = CType(resources.GetObject("btnImagen.Image"), System.Drawing.Image)
@@ -179,7 +179,7 @@ Partial Class frmProductosDR
         '
         'btnSalirNormal
         '
-        Me.btnSalirNormal.BackColor = System.Drawing.Color.White
+        Me.btnSalirNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSalirNormal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalirNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalirNormal.Image = CType(resources.GetObject("btnSalirNormal.Image"), System.Drawing.Image)
@@ -194,7 +194,7 @@ Partial Class frmProductosDR
         '
         'btnGuardarNormal
         '
-        Me.btnGuardarNormal.BackColor = System.Drawing.Color.White
+        Me.btnGuardarNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnGuardarNormal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnGuardarNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardarNormal.Image = CType(resources.GetObject("btnGuardarNormal.Image"), System.Drawing.Image)
@@ -209,7 +209,7 @@ Partial Class frmProductosDR
         '
         'btnEliminarNormal
         '
-        Me.btnEliminarNormal.BackColor = System.Drawing.Color.White
+        Me.btnEliminarNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnEliminarNormal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnEliminarNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarNormal.Image = CType(resources.GetObject("btnEliminarNormal.Image"), System.Drawing.Image)
@@ -224,7 +224,7 @@ Partial Class frmProductosDR
         '
         'btnNuevoNormal
         '
-        Me.btnNuevoNormal.BackColor = System.Drawing.Color.White
+        Me.btnNuevoNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnNuevoNormal.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnNuevoNormal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoNormal.Image = CType(resources.GetObject("btnNuevoNormal.Image"), System.Drawing.Image)
