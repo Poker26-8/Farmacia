@@ -23,15 +23,15 @@ Partial Class frmVentas2_Descuentos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle55 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle56 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle57 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle58 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle59 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle60 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle61 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle62 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle63 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVentas2_Descuentos))
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -61,12 +61,12 @@ Partial Class frmVentas2_Descuentos
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbocodigo = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cbocomisionista = New System.Windows.Forms.ComboBox()
-        Me.lblusuario = New System.Windows.Forms.Label()
         Me.btndevo = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -110,6 +110,14 @@ Partial Class frmVentas2_Descuentos
         Me.Label30 = New System.Windows.Forms.Label()
         Me.dtpFecha_P = New System.Windows.Forms.DateTimePicker()
         Me.grdpago = New System.Windows.Forms.DataGridView()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.btncomentario = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
@@ -144,7 +152,14 @@ Partial Class frmVentas2_Descuentos
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.cboimpresion = New System.Windows.Forms.ComboBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.lblusuario = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.cboBancoRecepcion = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.cboCuentaRecepcion = New System.Windows.Forms.ComboBox()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.txtComentarioPago = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -171,9 +186,7 @@ Partial Class frmVentas2_Descuentos
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtadeuda = New System.Windows.Forms.TextBox()
-        Me.txtsaldo_monedero = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.lblsaldo_monedero = New System.Windows.Forms.Label()
         Me.txtcredito = New System.Windows.Forms.TextBox()
         Me.txtafavor = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -186,18 +199,8 @@ Partial Class frmVentas2_Descuentos
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cboNombre = New System.Windows.Forms.ComboBox()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cboBancoRecepcion = New System.Windows.Forms.TextBox()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.cboCuentaRecepcion = New System.Windows.Forms.ComboBox()
-        Me.Label41 = New System.Windows.Forms.Label()
+        Me.txtsaldo_monedero = New System.Windows.Forms.TextBox()
+        Me.lblsaldo_monedero = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -210,6 +213,8 @@ Partial Class frmVentas2_Descuentos
         Me.pDerecha.SuspendLayout()
         Me.pDer_Arriba.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -391,30 +396,30 @@ Partial Class frmVentas2_Descuentos
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle55.BackColor = System.Drawing.Color.AliceBlue
-        DataGridViewCellStyle55.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle55
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
-        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column8, Me.Column6, Me.Column7, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26, Me.Column9})
+        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column8, Me.Column6, Me.Column7, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26, Me.Column9, Me.Column22})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(10, 242)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.RowTemplate.Height = 30
-        Me.grdcaptura.Size = New System.Drawing.Size(947, 272)
+        Me.grdcaptura.Size = New System.Drawing.Size(947, 304)
         Me.grdcaptura.TabIndex = 87
         '
         'Column1
         '
-        DataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle56.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle56
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
@@ -423,17 +428,17 @@ Partial Class frmVentas2_Descuentos
         'Column2
         '
         Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle57.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle57
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column2.HeaderText = "Descipcion"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
         '
         'Column3
         '
-        DataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle58.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle58
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -441,9 +446,9 @@ Partial Class frmVentas2_Descuentos
         '
         'Column4
         '
-        DataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle59.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle59
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column4.HeaderText = "Cantidad"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -451,9 +456,9 @@ Partial Class frmVentas2_Descuentos
         '
         'Column5
         '
-        DataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle60.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle60
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column5.HeaderText = "Precio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
@@ -461,9 +466,9 @@ Partial Class frmVentas2_Descuentos
         '
         'Column8
         '
-        DataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle61.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle61
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column8.HeaderText = "Descuento"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
@@ -471,9 +476,9 @@ Partial Class frmVentas2_Descuentos
         '
         'Column6
         '
-        DataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle62.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle62
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column6.HeaderText = "Total"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -481,9 +486,9 @@ Partial Class frmVentas2_Descuentos
         '
         'Column7
         '
-        DataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle63.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle63
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column7.HeaderText = "Existencia"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -531,6 +536,13 @@ Partial Class frmVentas2_Descuentos
         Me.Column9.ReadOnly = True
         Me.Column9.Visible = False
         '
+        'Column22
+        '
+        Me.Column22.HeaderText = "por_monedero"
+        Me.Column22.Name = "Column22"
+        Me.Column22.ReadOnly = True
+        Me.Column22.Visible = False
+        '
         'cbocodigo
         '
         Me.cbocodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -568,13 +580,15 @@ Partial Class frmVentas2_Descuentos
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(278, 22)
         Me.Button1.Margin = New System.Windows.Forms.Padding(8)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(98, 92)
+        Me.Button1.Size = New System.Drawing.Size(98, 102)
         Me.Button1.TabIndex = 148
         Me.Button1.Text = "VENTAS"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = False
         '
         'cbocomisionista
@@ -585,30 +599,20 @@ Partial Class frmVentas2_Descuentos
         Me.cbocomisionista.Size = New System.Drawing.Size(98, 23)
         Me.cbocomisionista.TabIndex = 151
         '
-        'lblusuario
-        '
-        Me.lblusuario.BackColor = System.Drawing.Color.Navy
-        Me.lblusuario.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblusuario.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblusuario.ForeColor = System.Drawing.Color.White
-        Me.lblusuario.Location = New System.Drawing.Point(0, 0)
-        Me.lblusuario.Name = "lblusuario"
-        Me.lblusuario.Size = New System.Drawing.Size(400, 30)
-        Me.lblusuario.TabIndex = 150
-        Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'btndevo
         '
         Me.btndevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btndevo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btndevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndevo.Location = New System.Drawing.Point(278, 150)
+        Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndevo.Image = CType(resources.GetObject("btndevo.Image"), System.Drawing.Image)
+        Me.btndevo.Location = New System.Drawing.Point(278, 160)
         Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
         Me.btndevo.Name = "btndevo"
-        Me.btndevo.Size = New System.Drawing.Size(98, 92)
+        Me.btndevo.Size = New System.Drawing.Size(98, 102)
         Me.btndevo.TabIndex = 149
         Me.btndevo.Text = "DEVOLUCIÓN"
+        Me.btndevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btndevo.UseVisualStyleBackColor = False
         '
         'Label13
@@ -646,7 +650,7 @@ Partial Class frmVentas2_Descuentos
         '
         Me.dtpFecha_E.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtpFecha_E.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha_E.Location = New System.Drawing.Point(142, 418)
+        Me.dtpFecha_E.Location = New System.Drawing.Point(142, 448)
         Me.dtpFecha_E.Margin = New System.Windows.Forms.Padding(0)
         Me.dtpFecha_E.Name = "dtpFecha_E"
         Me.dtpFecha_E.Size = New System.Drawing.Size(114, 23)
@@ -657,7 +661,7 @@ Partial Class frmVentas2_Descuentos
         '
         Me.lblentrega.AutoSize = True
         Me.lblentrega.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblentrega.Location = New System.Drawing.Point(145, 398)
+        Me.lblentrega.Location = New System.Drawing.Point(145, 428)
         Me.lblentrega.Name = "lblentrega"
         Me.lblentrega.Size = New System.Drawing.Size(108, 20)
         Me.lblentrega.TabIndex = 152
@@ -695,11 +699,11 @@ Partial Class frmVentas2_Descuentos
         Me.picProd.BackColor = System.Drawing.Color.White
         Me.picProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picProd.Location = New System.Drawing.Point(152, 280)
+        Me.picProd.Location = New System.Drawing.Point(152, 300)
         Me.picProd.Margin = New System.Windows.Forms.Padding(10)
         Me.picProd.Name = "picProd"
         Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picProd.Size = New System.Drawing.Size(94, 88)
+        Me.picProd.Size = New System.Drawing.Size(94, 98)
         Me.picProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picProd.TabIndex = 155
         Me.picProd.TabStop = False
@@ -941,13 +945,16 @@ Partial Class frmVentas2_Descuentos
         Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button7.Location = New System.Drawing.Point(150, 22)
         Me.Button7.Margin = New System.Windows.Forms.Padding(8)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(98, 92)
+        Me.Button7.Size = New System.Drawing.Size(98, 102)
         Me.Button7.TabIndex = 176
         Me.Button7.Text = "CONSULTAR FOLIOS"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button7.UseVisualStyleBackColor = False
         '
         'btnnuevo
@@ -1121,6 +1128,61 @@ Partial Class frmVentas2_Descuentos
         Me.grdpago.Size = New System.Drawing.Size(418, 51)
         Me.grdpago.TabIndex = 181
         '
+        'Column15
+        '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column15.HeaderText = "Tipo"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column16.HeaderText = "Banco"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column17.HeaderText = "Número"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column18.HeaderText = "Monto"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        '
+        'Column19
+        '
+        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column19.HeaderText = "Fecha"
+        Me.Column19.Name = "Column19"
+        Me.Column19.ReadOnly = True
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "Comentario"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        '
+        'Column20
+        '
+        Me.Column20.HeaderText = "cuentar"
+        Me.Column20.Name = "Column20"
+        Me.Column20.ReadOnly = True
+        Me.Column20.Visible = False
+        '
+        'Column21
+        '
+        Me.Column21.HeaderText = "bancor"
+        Me.Column21.Name = "Column21"
+        Me.Column21.ReadOnly = True
+        Me.Column21.Visible = False
+        '
         'Button9
         '
         Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -1131,6 +1193,7 @@ Partial Class frmVentas2_Descuentos
         Me.Button9.Size = New System.Drawing.Size(129, 27)
         Me.Button9.TabIndex = 182
         Me.Button9.Text = "Agregar pago"
+        Me.Button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button9.UseVisualStyleBackColor = True
         '
         'btncomentario
@@ -1151,13 +1214,15 @@ Partial Class frmVentas2_Descuentos
         Me.Button11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button11.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(22, 278)
+        Me.Button11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
+        Me.Button11.Location = New System.Drawing.Point(22, 298)
         Me.Button11.Margin = New System.Windows.Forms.Padding(8)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(98, 92)
+        Me.Button11.Size = New System.Drawing.Size(98, 102)
         Me.Button11.TabIndex = 184
         Me.Button11.Text = "ENTREGAS"
+        Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button11.UseVisualStyleBackColor = False
         '
         'Timer1
@@ -1175,7 +1240,7 @@ Partial Class frmVentas2_Descuentos
         'lblfecha
         '
         Me.lblfecha.AutoSize = True
-        Me.lblfecha.Location = New System.Drawing.Point(17, 438)
+        Me.lblfecha.Location = New System.Drawing.Point(17, 468)
         Me.lblfecha.Name = "lblfecha"
         Me.lblfecha.Size = New System.Drawing.Size(43, 15)
         Me.lblfecha.TabIndex = 187
@@ -1189,7 +1254,7 @@ Partial Class frmVentas2_Descuentos
         Me.cbonota.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbonota.FormattingEnabled = True
-        Me.cbonota.Location = New System.Drawing.Point(19, 418)
+        Me.cbonota.Location = New System.Drawing.Point(19, 448)
         Me.cbonota.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.cbonota.Name = "cbonota"
         Me.cbonota.Size = New System.Drawing.Size(104, 23)
@@ -1200,7 +1265,7 @@ Partial Class frmVentas2_Descuentos
         '
         Me.lbldevo.AutoSize = True
         Me.lbldevo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbldevo.Location = New System.Drawing.Point(24, 398)
+        Me.lbldevo.Location = New System.Drawing.Point(24, 428)
         Me.lbldevo.Margin = New System.Windows.Forms.Padding(10, 0, 5, 0)
         Me.lbldevo.Name = "lbldevo"
         Me.lbldevo.Size = New System.Drawing.Size(99, 20)
@@ -1298,6 +1363,7 @@ Partial Class frmVentas2_Descuentos
         '
         Me.pDerecha.Controls.Add(Me.Panel5)
         Me.pDerecha.Controls.Add(Me.pDer_Arriba)
+        Me.pDerecha.Controls.Add(Me.Panel8)
         Me.pDerecha.Dock = System.Windows.Forms.DockStyle.Right
         Me.pDerecha.Location = New System.Drawing.Point(964, 0)
         Me.pDerecha.Name = "pDerecha"
@@ -1309,18 +1375,17 @@ Partial Class frmVentas2_Descuentos
         Me.Panel5.BackColor = System.Drawing.Color.White
         Me.Panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(0, 514)
+        Me.Panel5.Location = New System.Drawing.Point(0, 646)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(400, 250)
+        Me.Panel5.Size = New System.Drawing.Size(400, 118)
         Me.Panel5.TabIndex = 191
         '
         'pDer_Arriba
         '
         Me.pDer_Arriba.BackColor = System.Drawing.Color.White
         Me.pDer_Arriba.Controls.Add(Me.TableLayoutPanel1)
-        Me.pDer_Arriba.Controls.Add(Me.lblusuario)
         Me.pDer_Arriba.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pDer_Arriba.Location = New System.Drawing.Point(0, 0)
+        Me.pDer_Arriba.Location = New System.Drawing.Point(0, 132)
         Me.pDer_Arriba.MaximumSize = New System.Drawing.Size(0, 560)
         Me.pDer_Arriba.Name = "pDer_Arriba"
         Me.pDer_Arriba.Size = New System.Drawing.Size(400, 514)
@@ -1352,7 +1417,7 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.Controls.Add(Me.Label34, 1, 10)
         Me.TableLayoutPanel1.Controls.Add(Me.cboimpresion, 2, 10)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 30)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 11
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
@@ -1366,7 +1431,7 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(400, 484)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(400, 514)
         Me.TableLayoutPanel1.TabIndex = 190
         '
         'Button2
@@ -1374,13 +1439,15 @@ Partial Class frmVentas2_Descuentos
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(150, 150)
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.Location = New System.Drawing.Point(150, 160)
         Me.Button2.Margin = New System.Windows.Forms.Padding(8)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(98, 92)
+        Me.Button2.Size = New System.Drawing.Size(98, 102)
         Me.Button2.TabIndex = 190
         Me.Button2.Text = "MONEDERO"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button4
@@ -1388,13 +1455,16 @@ Partial Class frmVentas2_Descuentos
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(22, 150)
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button4.Location = New System.Drawing.Point(22, 160)
         Me.Button4.Margin = New System.Windows.Forms.Padding(8)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(98, 92)
+        Me.Button4.Size = New System.Drawing.Size(98, 102)
         Me.Button4.TabIndex = 191
         Me.Button4.Text = "CORTE DE CAJA"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button4.UseVisualStyleBackColor = False
         '
         'Button5
@@ -1402,20 +1472,23 @@ Partial Class frmVentas2_Descuentos
         Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button5.Location = New System.Drawing.Point(22, 22)
         Me.Button5.Margin = New System.Windows.Forms.Padding(8)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 92)
+        Me.Button5.Size = New System.Drawing.Size(98, 102)
         Me.Button5.TabIndex = 192
         Me.Button5.Text = "ABONO A VENTAS"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button5.UseVisualStyleBackColor = False
         Me.Button5.Visible = False
         '
         'Label34
         '
         Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label34.Location = New System.Drawing.Point(17, 458)
+        Me.Label34.Location = New System.Drawing.Point(17, 488)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(108, 26)
         Me.Label34.TabIndex = 193
@@ -1428,10 +1501,47 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.SetColumnSpan(Me.cboimpresion, 4)
         Me.cboimpresion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboimpresion.FormattingEnabled = True
-        Me.cboimpresion.Location = New System.Drawing.Point(131, 461)
+        Me.cboimpresion.Location = New System.Drawing.Point(131, 491)
         Me.cboimpresion.Name = "cboimpresion"
         Me.cboimpresion.Size = New System.Drawing.Size(250, 23)
         Me.cboimpresion.TabIndex = 194
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.White
+        Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel8.Controls.Add(Me.PictureBox3)
+        Me.Panel8.Controls.Add(Me.lblusuario)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(400, 132)
+        Me.Panel8.TabIndex = 192
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(76, 37)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.PictureBox3.Size = New System.Drawing.Size(248, 88)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 107
+        Me.PictureBox3.TabStop = False
+        '
+        'lblusuario
+        '
+        Me.lblusuario.BackColor = System.Drawing.Color.Navy
+        Me.lblusuario.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblusuario.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblusuario.ForeColor = System.Drawing.Color.White
+        Me.lblusuario.Location = New System.Drawing.Point(0, 0)
+        Me.lblusuario.Name = "lblusuario"
+        Me.lblusuario.Size = New System.Drawing.Size(400, 30)
+        Me.lblusuario.TabIndex = 150
+        Me.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel3
         '
@@ -1462,9 +1572,7 @@ Partial Class frmVentas2_Descuentos
         Me.Panel3.Controls.Add(Me.boxcomentario)
         Me.Panel3.Controls.Add(Me.Label20)
         Me.Panel3.Controls.Add(Me.txtadeuda)
-        Me.Panel3.Controls.Add(Me.txtsaldo_monedero)
         Me.Panel3.Controls.Add(Me.Label17)
-        Me.Panel3.Controls.Add(Me.lblsaldo_monedero)
         Me.Panel3.Controls.Add(Me.txtcredito)
         Me.Panel3.Controls.Add(Me.txtafavor)
         Me.Panel3.Controls.Add(Me.btncomentario)
@@ -1519,11 +1627,49 @@ Partial Class frmVentas2_Descuentos
         Me.Panel3.Controls.Add(Me.GroupBox4)
         Me.Panel3.Controls.Add(Me.txtcotped)
         Me.Panel3.Controls.Add(Me.txtdia)
+        Me.Panel3.Controls.Add(Me.txtsaldo_monedero)
+        Me.Panel3.Controls.Add(Me.lblsaldo_monedero)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(964, 764)
         Me.Panel3.TabIndex = 196
+        '
+        'cboBancoRecepcion
+        '
+        Me.cboBancoRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cboBancoRecepcion.Location = New System.Drawing.Point(296, 640)
+        Me.cboBancoRecepcion.Name = "cboBancoRecepcion"
+        Me.cboBancoRecepcion.Size = New System.Drawing.Size(130, 23)
+        Me.cboBancoRecepcion.TabIndex = 235
+        '
+        'Label43
+        '
+        Me.Label43.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(19, 646)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(48, 15)
+        Me.Label43.TabIndex = 234
+        Me.Label43.Text = "Cuenta:"
+        '
+        'cboCuentaRecepcion
+        '
+        Me.cboCuentaRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cboCuentaRecepcion.FormattingEnabled = True
+        Me.cboCuentaRecepcion.Location = New System.Drawing.Point(76, 643)
+        Me.cboCuentaRecepcion.Name = "cboCuentaRecepcion"
+        Me.cboCuentaRecepcion.Size = New System.Drawing.Size(134, 23)
+        Me.cboCuentaRecepcion.TabIndex = 233
+        '
+        'Label41
+        '
+        Me.Label41.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label41.Location = New System.Drawing.Point(221, 638)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(67, 30)
+        Me.Label41.TabIndex = 232
+        Me.Label41.Text = "Recepción Banco:"
         '
         'txtComentarioPago
         '
@@ -1810,19 +1956,6 @@ Partial Class frmVentas2_Descuentos
         Me.txtadeuda.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtadeuda.Visible = False
         '
-        'txtsaldo_monedero
-        '
-        Me.txtsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtsaldo_monedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtsaldo_monedero.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsaldo_monedero.Location = New System.Drawing.Point(296, 520)
-        Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
-        Me.txtsaldo_monedero.Size = New System.Drawing.Size(129, 25)
-        Me.txtsaldo_monedero.TabIndex = 196
-        Me.txtsaldo_monedero.Text = "0.00"
-        Me.txtsaldo_monedero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.txtsaldo_monedero.Visible = False
-        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -1833,17 +1966,6 @@ Partial Class frmVentas2_Descuentos
         Me.Label17.TabIndex = 201
         Me.Label17.Text = "Saldo a favor:"
         Me.Label17.Visible = False
-        '
-        'lblsaldo_monedero
-        '
-        Me.lblsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblsaldo_monedero.AutoSize = True
-        Me.lblsaldo_monedero.Location = New System.Drawing.Point(245, 525)
-        Me.lblsaldo_monedero.Name = "lblsaldo_monedero"
-        Me.lblsaldo_monedero.Size = New System.Drawing.Size(39, 15)
-        Me.lblsaldo_monedero.TabIndex = 195
-        Me.lblsaldo_monedero.Text = "Saldo:"
-        Me.lblsaldo_monedero.Visible = False
         '
         'txtcredito
         '
@@ -1968,96 +2090,29 @@ Partial Class frmVentas2_Descuentos
         Me.Label36.TabIndex = 8
         Me.Label36.Text = "Nombre:"
         '
-        'Column15
+        'txtsaldo_monedero
         '
-        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column15.HeaderText = "Tipo"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
+        Me.txtsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtsaldo_monedero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsaldo_monedero.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsaldo_monedero.Location = New System.Drawing.Point(296, 520)
+        Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
+        Me.txtsaldo_monedero.Size = New System.Drawing.Size(129, 25)
+        Me.txtsaldo_monedero.TabIndex = 196
+        Me.txtsaldo_monedero.Text = "0.00"
+        Me.txtsaldo_monedero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtsaldo_monedero.Visible = False
         '
-        'Column16
+        'lblsaldo_monedero
         '
-        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column16.HeaderText = "Banco"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        '
-        'Column17
-        '
-        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column17.HeaderText = "Número"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        '
-        'Column18
-        '
-        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column18.HeaderText = "Monto"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        '
-        'Column19
-        '
-        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column19.HeaderText = "Fecha"
-        Me.Column19.Name = "Column19"
-        Me.Column19.ReadOnly = True
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Comentario"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        '
-        'Column20
-        '
-        Me.Column20.HeaderText = "cuentar"
-        Me.Column20.Name = "Column20"
-        Me.Column20.ReadOnly = True
-        Me.Column20.Visible = False
-        '
-        'Column21
-        '
-        Me.Column21.HeaderText = "bancor"
-        Me.Column21.Name = "Column21"
-        Me.Column21.ReadOnly = True
-        Me.Column21.Visible = False
-        '
-        'cboBancoRecepcion
-        '
-        Me.cboBancoRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cboBancoRecepcion.Location = New System.Drawing.Point(296, 640)
-        Me.cboBancoRecepcion.Name = "cboBancoRecepcion"
-        Me.cboBancoRecepcion.Size = New System.Drawing.Size(130, 23)
-        Me.cboBancoRecepcion.TabIndex = 235
-        '
-        'Label43
-        '
-        Me.Label43.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(19, 646)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(48, 15)
-        Me.Label43.TabIndex = 234
-        Me.Label43.Text = "Cuenta:"
-        '
-        'cboCuentaRecepcion
-        '
-        Me.cboCuentaRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cboCuentaRecepcion.FormattingEnabled = True
-        Me.cboCuentaRecepcion.Location = New System.Drawing.Point(76, 643)
-        Me.cboCuentaRecepcion.Name = "cboCuentaRecepcion"
-        Me.cboCuentaRecepcion.Size = New System.Drawing.Size(134, 23)
-        Me.cboCuentaRecepcion.TabIndex = 233
-        '
-        'Label41
-        '
-        Me.Label41.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label41.Location = New System.Drawing.Point(221, 638)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(67, 30)
-        Me.Label41.TabIndex = 232
-        Me.Label41.Text = "Recepción Banco:"
+        Me.lblsaldo_monedero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblsaldo_monedero.AutoSize = True
+        Me.lblsaldo_monedero.Location = New System.Drawing.Point(245, 525)
+        Me.lblsaldo_monedero.Name = "lblsaldo_monedero"
+        Me.lblsaldo_monedero.Size = New System.Drawing.Size(39, 15)
+        Me.lblsaldo_monedero.TabIndex = 195
+        Me.lblsaldo_monedero.Text = "Saldo:"
+        Me.lblsaldo_monedero.Visible = False
         '
         'frmVentas2_Descuentos
         '
@@ -2089,6 +2144,8 @@ Partial Class frmVentas2_Descuentos
         Me.pDer_Arriba.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel6.ResumeLayout(False)
@@ -2128,7 +2185,6 @@ Partial Class frmVentas2_Descuentos
     Friend WithEvents btndevo As System.Windows.Forms.Button
     Friend WithEvents lblentrega As System.Windows.Forms.Label
     Friend WithEvents cbocomisionista As System.Windows.Forms.ComboBox
-    Friend WithEvents lblusuario As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents txtcontraseña As System.Windows.Forms.TextBox
     Friend WithEvents lblNumCliente As System.Windows.Forms.Label
@@ -2235,20 +2291,6 @@ Partial Class frmVentas2_Descuentos
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents txtProdClave As TextBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column26 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents lblid As Label
     Friend WithEvents Panel6 As Panel
@@ -2270,4 +2312,22 @@ Partial Class frmVentas2_Descuentos
     Friend WithEvents Label43 As Label
     Friend WithEvents cboCuentaRecepcion As ComboBox
     Friend WithEvents Label41 As Label
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents lblusuario As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column26 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column22 As DataGridViewTextBoxColumn
 End Class

@@ -65,10 +65,11 @@ Partial Class frmVentas1_Descuentos
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbocodigo = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.piclogo = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cbocomisionista = New System.Windows.Forms.ComboBox()
         Me.lblusuario = New System.Windows.Forms.Label()
@@ -236,7 +237,7 @@ Partial Class frmVentas1_Descuentos
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.piclogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
@@ -438,7 +439,7 @@ Partial Class frmVentas1_Descuentos
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
-        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column8, Me.Column6, Me.Column7, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26, Me.Column9})
+        Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column8, Me.Column6, Me.Column7, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column26, Me.Column9, Me.Column27})
         Me.grdcaptura.GridColor = System.Drawing.Color.White
         Me.grdcaptura.Location = New System.Drawing.Point(8, 211)
         Me.grdcaptura.Name = "grdcaptura"
@@ -569,6 +570,13 @@ Partial Class frmVentas1_Descuentos
         Me.Column9.ReadOnly = True
         Me.Column9.Visible = False
         '
+        'Column27
+        '
+        Me.Column27.HeaderText = "procentaje mon"
+        Me.Column27.Name = "Column27"
+        Me.Column27.ReadOnly = True
+        Me.Column27.Visible = False
+        '
         'cbocodigo
         '
         Me.cbocodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -595,22 +603,22 @@ Partial Class frmVentas1_Descuentos
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.piclogo)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 692)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(318, 48)
         Me.Panel1.TabIndex = 147
         '
-        'PictureBox2
+        'piclogo
         '
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(316, 46)
-        Me.PictureBox2.TabIndex = 215
-        Me.PictureBox2.TabStop = False
+        Me.piclogo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.piclogo.Location = New System.Drawing.Point(0, 0)
+        Me.piclogo.Name = "piclogo"
+        Me.piclogo.Size = New System.Drawing.Size(316, 46)
+        Me.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.piclogo.TabIndex = 0
+        Me.piclogo.TabStop = False
         '
         'Button1
         '
@@ -618,6 +626,7 @@ Partial Class frmVentas1_Descuentos
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(222, 13)
         Me.Button1.Margin = New System.Windows.Forms.Padding(8)
@@ -654,6 +663,7 @@ Partial Class frmVentas1_Descuentos
         Me.btndevo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btndevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndevo.Image = CType(resources.GetObject("btndevo.Image"), System.Drawing.Image)
         Me.btndevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btndevo.Location = New System.Drawing.Point(222, 114)
         Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
@@ -1278,6 +1288,7 @@ Partial Class frmVentas1_Descuentos
         Me.Button11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
         Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button11.Location = New System.Drawing.Point(16, 215)
         Me.Button11.Margin = New System.Windows.Forms.Padding(8)
@@ -1473,7 +1484,7 @@ Partial Class frmVentas1_Descuentos
         Me.TableLayoutPanel1.Controls.Add(Me.txtcotped, 3, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.cbocomisionista, 5, 9)
         Me.TableLayoutPanel1.Controls.Add(Me.Label13, 5, 8)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 13
@@ -1517,6 +1528,7 @@ Partial Class frmVentas1_Descuentos
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button2.Location = New System.Drawing.Point(119, 114)
         Me.Button2.Margin = New System.Windows.Forms.Padding(8)
@@ -1533,6 +1545,7 @@ Partial Class frmVentas1_Descuentos
         Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button4.Location = New System.Drawing.Point(16, 114)
         Me.Button4.Margin = New System.Windows.Forms.Padding(8)
@@ -2528,7 +2541,7 @@ Partial Class frmVentas1_Descuentos
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.piclogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.picProd, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2687,21 +2700,6 @@ Partial Class frmVentas1_Descuentos
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label12 As Label
     Friend WithEvents txtProdClave As TextBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column26 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents lblid As Label
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel7 As Panel
@@ -2756,4 +2754,20 @@ Partial Class frmVentas1_Descuentos
     Friend WithEvents Label48 As Label
     Friend WithEvents txtcant_productos As TextBox
     Friend WithEvents Button8 As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column26 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column27 As DataGridViewTextBoxColumn
+    Friend WithEvents piclogo As PictureBox
 End Class

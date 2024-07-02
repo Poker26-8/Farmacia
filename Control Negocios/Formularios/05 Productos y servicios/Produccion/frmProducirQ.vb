@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
+
 Public Class frmProducirQ
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbonombre.SelectedValueChanged
         Try
@@ -675,8 +676,7 @@ Public Class frmProducirQ
                 rd1.Close()
                 cnn1.Close()
 
-                Inserta_miprod()
-                PDF_MIPROD()
+
 
                 Dim tamticket As Integer = 0
                 Dim impresoratickett As String = ""
@@ -684,17 +684,27 @@ Public Class frmProducirQ
                 tamticket = TamImpre()
                 impresoratickett = ImpresoraImprimir()
 
-                If tamticket = "80" Then
-                    pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
-                    pDocumento80.Print()
+                If cboImprimir.Text = "PDF" Then
+                    Inserta_miprod()
+                    PDF_MIPROD()
                 End If
 
-                If tamticket = "58" Then
-                    pDocumento58.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
-                    pDocumento58.Print()
+                If cboImprimir.Text = "TICKET" Then
+                    If tamticket = "80" Then
+                        pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                        pDocumento80.Print()
+                    End If
+
+                    If tamticket = "58" Then
+                        pDocumento58.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                        pDocumento58.Print()
+                    End If
                 End If
+
+
 
                 rtComentario.Text = ""
+                rtComentario.Visible = False
                 grdcaptura.Rows.Clear()
                 txtnumcliente.Text = ""
                 cboCliente.Text = ""
@@ -1383,6 +1393,23 @@ Public Class frmProducirQ
             CrTable.ApplyLogOnInfo(crtableLogoninfo)
         Next
         Try
+
+            Dim procedimiento As String = ""
+            procedimiento = rtComentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+            Dim observaciones As String = ""
+            observaciones = rtObservaciones.Text.TrimEnd(vbCrLf.ToCharArray)
+
+            Dim nLogo As String = DatosRecarga("LogoG")
+            Dim imagenURL As String = Convert.ToString(nLogo)
+            Dim imagenBMP As iTextSharp.text.Image
+            imagenBMP = iTextSharp.text.Image.GetInstance(imagenURL)
+            imagenBMP.ScaleToFit(150.0F, 90.0F)
+            imagenBMP.SpacingBefore = 20.0F
+            imagenBMP.SpacingAfter = 10.0F
+            imagenBMP.SetAbsolutePosition(410, 754)
+            ' pdfDoc.Add(imagenBMP)
+
             'Los totales los va a mandar directos
             FileNta.SetDatabaseLogon("", "jipl22")
             FileNta.DataDefinition.FormulaFields("cliente").Text = "'" & cboCliente.Text & "'"
@@ -1393,6 +1420,13 @@ Public Class frmProducirQ
             FileNta.DataDefinition.FormulaFields("revision").Text = "'" & txtRevision.Text & "'"
             FileNta.DataDefinition.FormulaFields("aprobacion").Text = "'" & Format(dtpAprobación.Value, "dd/MM/yyyy") & "'"
             FileNta.DataDefinition.FormulaFields("recepcion").Text = "'" & Format(dtpFechaRecepcion.Value, "dd/MM/yyyy") & "'"
+            FileNta.DataDefinition.FormulaFields("ph").Text = "'" & txtPh.Text & "'"
+            FileNta.DataDefinition.FormulaFields("olor").Text = "'" & txtOlor.Text & "'"
+            FileNta.DataDefinition.FormulaFields("color").Text = "'" & txtColor.Text & "'"
+            FileNta.DataDefinition.FormulaFields("aspecto").Text = "'" & txtAspecto.Text & "'"
+            FileNta.DataDefinition.FormulaFields("procedimiento").Text = "'" & procedimiento & "'"
+            FileNta.DataDefinition.FormulaFields("observacion").Text = "'" & observaciones & "'"
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -1486,4 +1520,7 @@ doorcita:
 
     End Sub
 
+    Private Sub frmProducirQ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboImprimir.Text = "PDF"
+    End Sub
 End Class

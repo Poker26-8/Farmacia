@@ -23,7 +23,7 @@ Partial Class frmProducirQ
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProducirQ))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
@@ -44,6 +44,8 @@ Partial Class frmProducirQ
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cboImprimir = New System.Windows.Forms.ComboBox()
+        Me.Label46 = New System.Windows.Forms.Label()
         Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.dtpFechaLote = New System.Windows.Forms.DateTimePicker()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -342,6 +344,8 @@ Partial Class frmProducirQ
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cboImprimir)
+        Me.GroupBox1.Controls.Add(Me.Label46)
         Me.GroupBox1.Controls.Add(Me.txtComentario)
         Me.GroupBox1.Controls.Add(Me.dtpFechaLote)
         Me.GroupBox1.Controls.Add(Me.Label31)
@@ -365,13 +369,37 @@ Partial Class frmProducirQ
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Artículo"
         '
+        'cboImprimir
+        '
+        Me.cboImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboImprimir.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboImprimir.FormattingEnabled = True
+        Me.cboImprimir.Items.AddRange(New Object() {"TICKET", "PDF"})
+        Me.cboImprimir.Location = New System.Drawing.Point(1105, 32)
+        Me.cboImprimir.Name = "cboImprimir"
+        Me.cboImprimir.Size = New System.Drawing.Size(93, 23)
+        Me.cboImprimir.TabIndex = 106
+        '
+        'Label46
+        '
+        Me.Label46.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label46.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label46.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.ForeColor = System.Drawing.Color.White
+        Me.Label46.Location = New System.Drawing.Point(1105, 15)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(93, 18)
+        Me.Label46.TabIndex = 105
+        Me.Label46.Text = "Imprimir en"
+        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'txtComentario
         '
         Me.txtComentario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtComentario.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComentario.Location = New System.Drawing.Point(883, 32)
+        Me.txtComentario.Location = New System.Drawing.Point(1026, 32)
         Me.txtComentario.Name = "txtComentario"
-        Me.txtComentario.Size = New System.Drawing.Size(316, 23)
+        Me.txtComentario.Size = New System.Drawing.Size(73, 23)
         Me.txtComentario.TabIndex = 104
         Me.txtComentario.Visible = False
         '
@@ -1108,10 +1136,10 @@ Partial Class frmProducirQ
         '
         'txtAspecto
         '
-        Me.txtAspecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAspecto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAspecto.Location = New System.Drawing.Point(237, 54)
         Me.txtAspecto.Name = "txtAspecto"
-        Me.txtAspecto.Size = New System.Drawing.Size(118, 22)
+        Me.txtAspecto.Size = New System.Drawing.Size(118, 20)
         Me.txtAspecto.TabIndex = 178
         '
         'Label44
@@ -1245,8 +1273,8 @@ Partial Class frmProducirQ
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Beige
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -1382,7 +1410,7 @@ Partial Class frmProducirQ
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmProducirQ"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Producir"
+        Me.Text = "Producción sobre pedido"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1509,4 +1537,6 @@ Partial Class frmProducirQ
     Friend WithEvents Label41 As Label
     Friend WithEvents pDocumento58 As Printing.PrintDocument
     Friend WithEvents btnRegistro As Button
+    Friend WithEvents cboImprimir As ComboBox
+    Friend WithEvents Label46 As Label
 End Class
