@@ -225,6 +225,12 @@
       <DependentUpon>Cotización_Img.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Produccion\Produccion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produccion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\Restaurantes\PruebaMesa.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -523,6 +529,12 @@
       <DependentUpon>frmVentas3.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\07 Ventas\Normales\frmVentas3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentaSencilla.Designer.vb">
+      <DependentUpon>frmVentaSencilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\07 Ventas\Normales\frmVentaSencilla.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.Designer.vb">
@@ -2072,6 +2084,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cotización_Img.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Produccion\Produccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Produccion.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\Restaurantes\PruebaMesa.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PruebaMesa.vb</LastGenOutput>
@@ -2225,6 +2241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentas3.resx">
       <DependentUpon>frmVentas3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\07 Ventas\Normales\frmVentaSencilla.resx">
+      <DependentUpon>frmVentaSencilla.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Orden de trabajo\frmOrdenTrabajo.resx">
       <DependentUpon>frmOrdenTrabajo.vb</DependentUpon>

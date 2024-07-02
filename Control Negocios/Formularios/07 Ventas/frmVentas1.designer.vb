@@ -254,6 +254,7 @@ Partial Class frmVentas1
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido80 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido58 = New System.Drawing.Printing.PrintDocument()
+        Me.pVentaMediaCarta = New System.Drawing.Printing.PrintDocument()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -1210,7 +1211,7 @@ Partial Class frmVentas1
         Me.txtdia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtdia.Location = New System.Drawing.Point(895, 263)
         Me.txtdia.Name = "txtdia"
-        Me.txtdia.Size = New System.Drawing.Size(59, 23)
+        Me.txtdia.Size = New System.Drawing.Size(26, 23)
         Me.txtdia.TabIndex = 186
         Me.txtdia.Visible = False
         '
@@ -1270,7 +1271,7 @@ Partial Class frmVentas1
         '
         Me.txtfechacad.Location = New System.Drawing.Point(780, 218)
         Me.txtfechacad.Name = "txtfechacad"
-        Me.txtfechacad.Size = New System.Drawing.Size(139, 23)
+        Me.txtfechacad.Size = New System.Drawing.Size(62, 23)
         Me.txtfechacad.TabIndex = 191
         '
         'boxcomentario
@@ -1297,7 +1298,7 @@ Partial Class frmVentas1
         '
         Me.txtcotped.Location = New System.Drawing.Point(312, 326)
         Me.txtcotped.Name = "txtcotped"
-        Me.txtcotped.Size = New System.Drawing.Size(3, 23)
+        Me.txtcotped.Size = New System.Drawing.Size(1, 23)
         Me.txtcotped.TabIndex = 193
         Me.txtcotped.Visible = False
         '
@@ -2278,7 +2279,7 @@ Partial Class frmVentas1
         Me.cboBancoRecepcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cboBancoRecepcion.Location = New System.Drawing.Point(294, 570)
         Me.cboBancoRecepcion.Name = "cboBancoRecepcion"
-        Me.cboBancoRecepcion.Size = New System.Drawing.Size(130, 23)
+        Me.cboBancoRecepcion.Size = New System.Drawing.Size(58, 23)
         Me.cboBancoRecepcion.TabIndex = 232
         '
         'Label43
@@ -2452,7 +2453,7 @@ Partial Class frmVentas1
         Me.txtcredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcredito.Location = New System.Drawing.Point(712, 61)
         Me.txtcredito.Name = "txtcredito"
-        Me.txtcredito.Size = New System.Drawing.Size(120, 23)
+        Me.txtcredito.Size = New System.Drawing.Size(53, 23)
         Me.txtcredito.TabIndex = 203
         Me.txtcredito.Text = "0.00"
         Me.txtcredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -2644,7 +2645,7 @@ Partial Class frmVentas1
         '
         Me.txttel.Location = New System.Drawing.Point(96, 131)
         Me.txttel.Name = "txttel"
-        Me.txttel.Size = New System.Drawing.Size(199, 23)
+        Me.txttel.Size = New System.Drawing.Size(89, 23)
         Me.txttel.TabIndex = 230
         '
         'Label39
@@ -2815,6 +2816,9 @@ Partial Class frmVentas1
         '
         '
         'PPedido58
+        '
+        '
+        'pVentaMediaCarta
         '
         '
         'frmVentas1
@@ -3084,4 +3088,5 @@ Partial Class frmVentas1
     Friend WithEvents Column31 As DataGridViewTextBoxColumn
     Friend WithEvents Button10 As Button
     Friend WithEvents btnOrdenes As Button
+    Friend WithEvents pVentaMediaCarta As Printing.PrintDocument
 End Class

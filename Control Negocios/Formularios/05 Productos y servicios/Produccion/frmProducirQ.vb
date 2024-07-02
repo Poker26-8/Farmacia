@@ -1,4 +1,6 @@
 ﻿Imports System.IO
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Public Class frmProducirQ
     Private Sub cbonombre_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbonombre.SelectedValueChanged
         Try
@@ -673,6 +675,9 @@ Public Class frmProducirQ
                 rd1.Close()
                 cnn1.Close()
 
+                Inserta_miprod()
+                PDF_MIPROD()
+
                 Dim tamticket As Integer = 0
                 Dim impresoratickett As String = ""
 
@@ -986,6 +991,7 @@ Public Class frmProducirQ
     Private Sub txtnumcliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnumcliente.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
+
             txtCodigo.Focus.Equals(True)
         End If
     End Sub
@@ -1007,7 +1013,7 @@ Public Class frmProducirQ
     Private Sub txtRevision_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRevision.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
-            cbonombre.Focus.Equals(True)
+            dtpFechaRecepcion.Focus.Equals(True)
         End If
     End Sub
 
@@ -1324,4 +1330,160 @@ Public Class frmProducirQ
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub dtpFechaRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpFechaRecepcion.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+
+            Dim fecha As String = Format(dtpFechaRecepcion.Value, "dd-MM-yyyy")
+            Dim nuvf As String = ""
+
+            nuvf = fecha.Replace("-", "")
+            cboLote.Text = ""
+            cboLote.Text = cboLote.Text & txtnumcliente.Text & nuvf & txtSKU.Text
+
+            cbonombre.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub PDF_MIPROD()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Produccion
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+        Try
+            'Los totales los va a mandar directos
+            FileNta.SetDatabaseLogon("", "jipl22")
+            FileNta.DataDefinition.FormulaFields("cliente").Text = "'" & cboCliente.Text & "'"
+            FileNta.DataDefinition.FormulaFields("ncliente").Text = "'" & txtnumcliente.Text & "'"
+            FileNta.DataDefinition.FormulaFields("codigo").Text = "'" & txtCodigo.Text & "'"
+            FileNta.DataDefinition.FormulaFields("sku").Text = "'" & txtSKU.Text & "'"
+            FileNta.DataDefinition.FormulaFields("lote").Text = "'" & cboLote.Text & "'"
+            FileNta.DataDefinition.FormulaFields("revision").Text = "'" & txtRevision.Text & "'"
+            FileNta.DataDefinition.FormulaFields("aprobacion").Text = "'" & Format(dtpAprobación.Value, "dd/MM/yyyy") & "'"
+            FileNta.DataDefinition.FormulaFields("recepcion").Text = "'" & Format(dtpFechaRecepcion.Value, "dd/MM/yyyy") & "'"
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Process.Start(FileOpen)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+        End If
+    End Sub
+    Private Sub Inserta_miprod()
+
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New DataTable
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from miprod", sinfo)
+                sinfo = ""
+
+
+                For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+                    Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString()
+                    If codigo = "" Then GoTo doorcita
+
+                    Dim descripcion As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+                    Dim unidad As String = grdcaptura.Rows(luffy).Cells(2).Value.ToString
+                    Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+                    Dim precio As Double = grdcaptura.Rows(luffy).Cells(4).Value.ToString
+                    Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+                    Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value.ToString
+                    Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+                    Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+
+                    'Inserta en la tabla de miprod
+                    If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
+                        sinfo = ""
+                    Else
+                        MsgBox(sinfo)
+                    End If
+                    Continue For
+doorcita:
+                Next
+
+                a_cnn.Close()
+
+            End If
+        End With
+
+    End Sub
+
 End Class

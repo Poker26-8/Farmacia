@@ -214,7 +214,7 @@ Partial Class frmProducirQ
         '
         Me.dtpFechaRecepcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaRecepcion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaRecepcion.Location = New System.Drawing.Point(690, 34)
+        Me.dtpFechaRecepcion.Location = New System.Drawing.Point(721, 33)
         Me.dtpFechaRecepcion.Name = "dtpFechaRecepcion"
         Me.dtpFechaRecepcion.Size = New System.Drawing.Size(110, 24)
         Me.dtpFechaRecepcion.TabIndex = 26
@@ -224,9 +224,9 @@ Partial Class frmProducirQ
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(600, 36)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(98, 22)
+        Me.Label3.Size = New System.Drawing.Size(125, 22)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Fecha recep:"
+        Me.Label3.Text = "Fecha recepcion:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dtpAprobación
@@ -289,7 +289,7 @@ Partial Class frmProducirQ
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.Location = New System.Drawing.Point(633, 7)
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(167, 22)
+        Me.txtCodigo.Size = New System.Drawing.Size(198, 22)
         Me.txtCodigo.TabIndex = 18
         '
         'Label19
