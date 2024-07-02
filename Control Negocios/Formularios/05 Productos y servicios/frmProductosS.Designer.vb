@@ -997,7 +997,6 @@ Partial Class frmProductosS
         Me.Label28.Size = New System.Drawing.Size(124, 15)
         Me.Label28.TabIndex = 251
         Me.Label28.Text = "Descripción producto:"
-        Me.Label28.Visible = False
         '
         'Label20
         '
@@ -1008,7 +1007,6 @@ Partial Class frmProductosS
         Me.Label20.Size = New System.Drawing.Size(111, 15)
         Me.Label20.TabIndex = 250
         Me.Label20.Text = "Resumen producto:"
-        Me.Label20.Visible = False
         '
         'txt_descripcion
         '

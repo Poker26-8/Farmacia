@@ -144,4 +144,10 @@
         frmAct_produccionPro.BringToFront()
         Me.Close()
     End Sub
+
+    Private Sub btnTiendaLinea_Click(sender As Object, e As EventArgs) Handles btnTiendaLinea.Click
+        frmAct_TiendaLinea.ShowDialog()
+        frmAct_TiendaLinea.BringToFront()
+        Me.Close()
+    End Sub
 End Class

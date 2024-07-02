@@ -3005,6 +3005,8 @@ Public Class frmVentas2_Descuentos
             Serchi = False
             Panel4.Visible = True
             txtProdClave.Focus().Equals(True)
+        Else
+            Panel4.Visible = False
         End If
     End Sub
     Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress

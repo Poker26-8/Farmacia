@@ -147,6 +147,7 @@ Partial Class frmVentas2_Descuentos
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.pDer_Arriba = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnRecargas = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -585,7 +586,7 @@ Partial Class frmVentas2_Descuentos
         Me.Button1.Location = New System.Drawing.Point(278, 22)
         Me.Button1.Margin = New System.Windows.Forms.Padding(8)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(98, 102)
+        Me.Button1.Size = New System.Drawing.Size(98, 95)
         Me.Button1.TabIndex = 148
         Me.Button1.Text = "VENTAS"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -606,10 +607,10 @@ Partial Class frmVentas2_Descuentos
         Me.btndevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndevo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndevo.Image = CType(resources.GetObject("btndevo.Image"), System.Drawing.Image)
-        Me.btndevo.Location = New System.Drawing.Point(278, 160)
+        Me.btndevo.Location = New System.Drawing.Point(278, 141)
         Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
         Me.btndevo.Name = "btndevo"
-        Me.btndevo.Size = New System.Drawing.Size(98, 102)
+        Me.btndevo.Size = New System.Drawing.Size(98, 95)
         Me.btndevo.TabIndex = 149
         Me.btndevo.Text = "DEVOLUCIÓN"
         Me.btndevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -650,7 +651,7 @@ Partial Class frmVentas2_Descuentos
         '
         Me.dtpFecha_E.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtpFecha_E.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha_E.Location = New System.Drawing.Point(142, 448)
+        Me.dtpFecha_E.Location = New System.Drawing.Point(142, 493)
         Me.dtpFecha_E.Margin = New System.Windows.Forms.Padding(0)
         Me.dtpFecha_E.Name = "dtpFecha_E"
         Me.dtpFecha_E.Size = New System.Drawing.Size(114, 23)
@@ -661,9 +662,9 @@ Partial Class frmVentas2_Descuentos
         '
         Me.lblentrega.AutoSize = True
         Me.lblentrega.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblentrega.Location = New System.Drawing.Point(145, 428)
+        Me.lblentrega.Location = New System.Drawing.Point(145, 475)
         Me.lblentrega.Name = "lblentrega"
-        Me.lblentrega.Size = New System.Drawing.Size(108, 20)
+        Me.lblentrega.Size = New System.Drawing.Size(108, 18)
         Me.lblentrega.TabIndex = 152
         Me.lblentrega.Text = "Fecha entrega:"
         Me.lblentrega.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -699,11 +700,11 @@ Partial Class frmVentas2_Descuentos
         Me.picProd.BackColor = System.Drawing.Color.White
         Me.picProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.picProd.Location = New System.Drawing.Point(152, 300)
+        Me.picProd.Location = New System.Drawing.Point(280, 373)
         Me.picProd.Margin = New System.Windows.Forms.Padding(10)
         Me.picProd.Name = "picProd"
         Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.picProd.Size = New System.Drawing.Size(94, 98)
+        Me.picProd.Size = New System.Drawing.Size(94, 92)
         Me.picProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picProd.TabIndex = 155
         Me.picProd.TabStop = False
@@ -951,7 +952,7 @@ Partial Class frmVentas2_Descuentos
         Me.Button7.Location = New System.Drawing.Point(150, 22)
         Me.Button7.Margin = New System.Windows.Forms.Padding(8)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(98, 102)
+        Me.Button7.Size = New System.Drawing.Size(98, 95)
         Me.Button7.TabIndex = 176
         Me.Button7.Text = "CONSULTAR FOLIOS"
         Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1216,10 +1217,10 @@ Partial Class frmVentas2_Descuentos
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
-        Me.Button11.Location = New System.Drawing.Point(22, 298)
+        Me.Button11.Location = New System.Drawing.Point(22, 260)
         Me.Button11.Margin = New System.Windows.Forms.Padding(8)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(98, 102)
+        Me.Button11.Size = New System.Drawing.Size(98, 95)
         Me.Button11.TabIndex = 184
         Me.Button11.Text = "ENTREGAS"
         Me.Button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1240,7 +1241,7 @@ Partial Class frmVentas2_Descuentos
         'lblfecha
         '
         Me.lblfecha.AutoSize = True
-        Me.lblfecha.Location = New System.Drawing.Point(17, 468)
+        Me.lblfecha.Location = New System.Drawing.Point(17, 513)
         Me.lblfecha.Name = "lblfecha"
         Me.lblfecha.Size = New System.Drawing.Size(43, 15)
         Me.lblfecha.TabIndex = 187
@@ -1254,7 +1255,7 @@ Partial Class frmVentas2_Descuentos
         Me.cbonota.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonota.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbonota.FormattingEnabled = True
-        Me.cbonota.Location = New System.Drawing.Point(19, 448)
+        Me.cbonota.Location = New System.Drawing.Point(19, 493)
         Me.cbonota.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.cbonota.Name = "cbonota"
         Me.cbonota.Size = New System.Drawing.Size(104, 23)
@@ -1265,10 +1266,10 @@ Partial Class frmVentas2_Descuentos
         '
         Me.lbldevo.AutoSize = True
         Me.lbldevo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbldevo.Location = New System.Drawing.Point(24, 428)
+        Me.lbldevo.Location = New System.Drawing.Point(24, 475)
         Me.lbldevo.Margin = New System.Windows.Forms.Padding(10, 0, 5, 0)
         Me.lbldevo.Name = "lbldevo"
-        Me.lbldevo.Size = New System.Drawing.Size(99, 20)
+        Me.lbldevo.Size = New System.Drawing.Size(99, 18)
         Me.lbldevo.TabIndex = 189
         Me.lbldevo.Text = "Folio devo."
         Me.lbldevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1375,9 +1376,9 @@ Partial Class frmVentas2_Descuentos
         Me.Panel5.BackColor = System.Drawing.Color.White
         Me.Panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(0, 646)
+        Me.Panel5.Location = New System.Drawing.Point(0, 692)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(400, 118)
+        Me.Panel5.Size = New System.Drawing.Size(400, 72)
         Me.Panel5.TabIndex = 191
         '
         'pDer_Arriba
@@ -1388,7 +1389,7 @@ Partial Class frmVentas2_Descuentos
         Me.pDer_Arriba.Location = New System.Drawing.Point(0, 132)
         Me.pDer_Arriba.MaximumSize = New System.Drawing.Size(0, 560)
         Me.pDer_Arriba.Name = "pDer_Arriba"
-        Me.pDer_Arriba.Size = New System.Drawing.Size(400, 514)
+        Me.pDer_Arriba.Size = New System.Drawing.Size(400, 560)
         Me.pDer_Arriba.TabIndex = 190
         '
         'TableLayoutPanel1
@@ -1401,6 +1402,7 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.btnRecargas, 3, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.lbldevo, 1, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.cbonota, 1, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.Button1, 5, 1)
@@ -1408,7 +1410,7 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.Controls.Add(Me.lblentrega, 3, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.dtpFecha_E, 3, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.Button7, 3, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.picProd, 3, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.picProd, 5, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 3, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Button4, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Button11, 1, 5)
@@ -1422,17 +1424,34 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.RowCount = 11
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(400, 514)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(400, 560)
         Me.TableLayoutPanel1.TabIndex = 190
+        '
+        'btnRecargas
+        '
+        Me.btnRecargas.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnRecargas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnRecargas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRecargas.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRecargas.Image = CType(resources.GetObject("btnRecargas.Image"), System.Drawing.Image)
+        Me.btnRecargas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRecargas.Location = New System.Drawing.Point(150, 260)
+        Me.btnRecargas.Margin = New System.Windows.Forms.Padding(8)
+        Me.btnRecargas.Name = "btnRecargas"
+        Me.btnRecargas.Size = New System.Drawing.Size(98, 95)
+        Me.btnRecargas.TabIndex = 195
+        Me.btnRecargas.Text = "RECARGAS MOVILES"
+        Me.btnRecargas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRecargas.UseVisualStyleBackColor = False
         '
         'Button2
         '
@@ -1441,10 +1460,10 @@ Partial Class frmVentas2_Descuentos
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(150, 160)
+        Me.Button2.Location = New System.Drawing.Point(150, 141)
         Me.Button2.Margin = New System.Windows.Forms.Padding(8)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(98, 102)
+        Me.Button2.Size = New System.Drawing.Size(98, 95)
         Me.Button2.TabIndex = 190
         Me.Button2.Text = "MONEDERO"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1458,10 +1477,10 @@ Partial Class frmVentas2_Descuentos
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(22, 160)
+        Me.Button4.Location = New System.Drawing.Point(22, 141)
         Me.Button4.Margin = New System.Windows.Forms.Padding(8)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(98, 102)
+        Me.Button4.Size = New System.Drawing.Size(98, 95)
         Me.Button4.TabIndex = 191
         Me.Button4.Text = "CORTE DE CAJA"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1478,7 +1497,7 @@ Partial Class frmVentas2_Descuentos
         Me.Button5.Location = New System.Drawing.Point(22, 22)
         Me.Button5.Margin = New System.Windows.Forms.Padding(8)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(98, 102)
+        Me.Button5.Size = New System.Drawing.Size(98, 95)
         Me.Button5.TabIndex = 192
         Me.Button5.Text = "ABONO A VENTAS"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -1488,9 +1507,9 @@ Partial Class frmVentas2_Descuentos
         'Label34
         '
         Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label34.Location = New System.Drawing.Point(17, 488)
+        Me.Label34.Location = New System.Drawing.Point(17, 533)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(108, 26)
+        Me.Label34.Size = New System.Drawing.Size(108, 27)
         Me.Label34.TabIndex = 193
         Me.Label34.Text = "Imprimir en:"
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1501,7 +1520,7 @@ Partial Class frmVentas2_Descuentos
         Me.TableLayoutPanel1.SetColumnSpan(Me.cboimpresion, 4)
         Me.cboimpresion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboimpresion.FormattingEnabled = True
-        Me.cboimpresion.Location = New System.Drawing.Point(131, 491)
+        Me.cboimpresion.Location = New System.Drawing.Point(131, 536)
         Me.cboimpresion.Name = "cboimpresion"
         Me.cboimpresion.Size = New System.Drawing.Size(250, 23)
         Me.cboimpresion.TabIndex = 194
@@ -2330,4 +2349,5 @@ Partial Class frmVentas2_Descuentos
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column22 As DataGridViewTextBoxColumn
+    Friend WithEvents btnRecargas As Button
 End Class

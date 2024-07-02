@@ -132,6 +132,10 @@ Public Class frmProductosS
                     txtpventa.Enabled = False
                     txtpcompra2.Enabled = False
                     txtutilidad.Enabled = False
+
+                    'TIENDA LINEA
+                    txt_resumen.Text = rd2("Resumen").ToString
+                    txt_descripcion.Text = rd2("Descripcion_Tienda").ToString
                 End If
             End If
             rd2.Close()
@@ -486,6 +490,9 @@ Public Class frmProductosS
         chkUnico.Checked = False
         cboCodigo.Focus().Equals(True)
         cboComanda.Text = ""
+        'TIENDA EN LINEA
+        txt_resumen.Text = ""
+        txt_descripcion.Text = ""
     End Sub
 
     Private Sub btnImagen_Click(sender As System.Object, e As System.EventArgs) Handles btnImagen.Click
@@ -726,9 +733,37 @@ Public Class frmProductosS
 
     Private Sub frmProductosS_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         txtbarras.Focus().Equals(True)
-        If tienda_enlinea = True Then
-            btn_tienda.Visible = True
-        End If
+
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='TiendaLinea'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    If rd1(0).ToString = 1 Then
+                        tienda_enlinea = 1
+                    Else
+                        tienda_enlinea = 0
+                    End If
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If tienda_enlinea = 1 Then
+                btn_tienda.Visible = True
+            Else
+                btn_tienda.Visible = False
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
     End Sub
 
 

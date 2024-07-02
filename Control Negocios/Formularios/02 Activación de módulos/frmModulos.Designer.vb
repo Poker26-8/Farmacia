@@ -74,6 +74,8 @@ Partial Class frmModulos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.btnTiendaLinea = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -639,12 +641,36 @@ Partial Class frmModulos
         Me.Button2.TabIndex = 50
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.Black
+        Me.Label27.Location = New System.Drawing.Point(701, 303)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(93, 37)
+        Me.Label27.TabIndex = 51
+        Me.Label27.Text = "Tienda en Linea"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnTiendaLinea
+        '
+        Me.btnTiendaLinea.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTiendaLinea.Image = CType(resources.GetObject("btnTiendaLinea.Image"), System.Drawing.Image)
+        Me.btnTiendaLinea.Location = New System.Drawing.Point(701, 343)
+        Me.btnTiendaLinea.Name = "btnTiendaLinea"
+        Me.btnTiendaLinea.Size = New System.Drawing.Size(93, 71)
+        Me.btnTiendaLinea.TabIndex = 52
+        Me.btnTiendaLinea.UseVisualStyleBackColor = True
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 424)
+        Me.Controls.Add(Me.btnTiendaLinea)
+        Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.Button1)
@@ -755,4 +781,6 @@ Partial Class frmModulos
     Friend WithEvents Button1 As Button
     Friend WithEvents Label26 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents Label27 As Label
+    Friend WithEvents btnTiendaLinea As Button
 End Class

@@ -429,6 +429,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Telefonia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_TiendaLinea.Designer.vb">
+      <DependentUpon>frmAct_TiendaLinea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_TiendaLinea.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Zapaterias.Designer.vb">
       <DependentUpon>frmAct_Zapaterias.vb</DependentUpon>
     </Compile>
@@ -2190,6 +2196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Telefonia.resx">
       <DependentUpon>frmAct_Telefonia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_TiendaLinea.resx">
+      <DependentUpon>frmAct_TiendaLinea.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Zapaterias.resx">
       <DependentUpon>frmAct_Zapaterias.vb</DependentUpon>

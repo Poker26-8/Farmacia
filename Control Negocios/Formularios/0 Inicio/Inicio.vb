@@ -255,7 +255,25 @@ Public Class Inicio
 
         'Validaciones del módulo de asistencia
 
-        If tienda_enlinea = True Then
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='TiendaLinea'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1(0).ToString = 1 Then
+                    tienda_enlinea = 1
+                Else
+                    tienda_enlinea = 0
+                End If
+            End If
+        Else
+            tienda_enlinea = 0
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        If tienda_enlinea = 1 Then
             PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
             pedidos_tienda.Visible = True
         Else
