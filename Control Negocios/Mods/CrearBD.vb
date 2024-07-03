@@ -1142,7 +1142,8 @@
                                       `Template` longtext NOT NULL DEFAULT '',
                                       `FingerIndex` varchar(250) NOT NULL DEFAULT '',
                                       `SaldoFavor` float NOT NULL DEFAULT '0',
-                                      `Observaciones` varchar(150) NOT NULL DEFAULT ''
+                                      `Observaciones` varchar(150) NOT NULL DEFAULT '',
+                                      `Id_Tienda` int(11) NOT NULL DEFAULT '0',
                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
 

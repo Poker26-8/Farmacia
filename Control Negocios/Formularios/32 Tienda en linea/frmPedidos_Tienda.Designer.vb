@@ -138,6 +138,7 @@ Partial Class frmPedidos_Tienda
         Me.Label29 = New System.Windows.Forms.Label()
         Me.pVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.pVenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.box_Pago.SuspendLayout()
@@ -670,6 +671,7 @@ Partial Class frmPedidos_Tienda
         'box_Pago
         '
         Me.box_Pago.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.box_Pago.Controls.Add(Me.Button2)
         Me.box_Pago.Controls.Add(Me.Label20)
         Me.box_Pago.Controls.Add(Me.txtResta)
         Me.box_Pago.Controls.Add(Me.TextBox1)
@@ -718,7 +720,7 @@ Partial Class frmPedidos_Tienda
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.Label20.Location = New System.Drawing.Point(737, 235)
+        Me.Label20.Location = New System.Drawing.Point(647, 235)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(52, 20)
         Me.Label20.TabIndex = 280
@@ -731,7 +733,7 @@ Partial Class frmPedidos_Tienda
         Me.txtResta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtResta.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtResta.ForeColor = System.Drawing.Color.Red
-        Me.txtResta.Location = New System.Drawing.Point(809, 229)
+        Me.txtResta.Location = New System.Drawing.Point(719, 229)
         Me.txtResta.Name = "txtResta"
         Me.txtResta.ReadOnly = True
         Me.txtResta.Size = New System.Drawing.Size(117, 29)
@@ -747,7 +749,7 @@ Partial Class frmPedidos_Tienda
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(607, 183)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(319, 25)
+        Me.TextBox1.Size = New System.Drawing.Size(229, 25)
         Me.TextBox1.TabIndex = 278
         '
         'Label19
@@ -1342,7 +1344,7 @@ Partial Class frmPedidos_Tienda
         Me.lblt_pago.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblt_pago.Location = New System.Drawing.Point(269, 530)
         Me.lblt_pago.Name = "lblt_pago"
-        Me.lblt_pago.Size = New System.Drawing.Size(224, 25)
+        Me.lblt_pago.Size = New System.Drawing.Size(424, 25)
         Me.lblt_pago.TabIndex = 269
         Me.lblt_pago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -1358,6 +1360,23 @@ Partial Class frmPedidos_Tienda
         '
         'pVenta80
         '
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(855, 180)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(71, 78)
+        Me.Button2.TabIndex = 281
+        Me.Button2.Text = "Cancelar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'frmPedidos_Tienda
         '
@@ -1533,4 +1552,5 @@ Partial Class frmPedidos_Tienda
     Friend WithEvents Column31 As DataGridViewTextBoxColumn
     Friend WithEvents pVenta80 As Printing.PrintDocument
     Friend WithEvents pVenta58 As Printing.PrintDocument
+    Friend WithEvents Button2 As Button
 End Class

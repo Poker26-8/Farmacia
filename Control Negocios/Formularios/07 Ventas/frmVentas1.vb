@@ -10008,6 +10008,7 @@ ecomoda:
                 Dim lote As String = ""
                 Dim caducidad As Date = Date.Now
                 Dim fechacaducidad As String = ""
+
                 If ordetrabajo = 0 Then
                     If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
                     Else

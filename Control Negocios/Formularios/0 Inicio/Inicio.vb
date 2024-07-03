@@ -704,6 +704,24 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+        'clientes
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Id_Tienda FROM clientes"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE clientes add column Id_Tienda INTEGER(11) default '0'"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
         'refaccionaria
         Try
             cnn1.Close()
