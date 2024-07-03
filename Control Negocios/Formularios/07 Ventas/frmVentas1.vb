@@ -3615,7 +3615,6 @@ kaka:
                 Dim descu As Double = 0
                 Try
                     cnn1.Close() : cnn1.Open()
-
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
                         "select NotasCred from Formatos where Facturas='MDescuento'"

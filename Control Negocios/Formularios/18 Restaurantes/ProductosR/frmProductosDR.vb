@@ -178,10 +178,10 @@ Public Class frmProductosDR
             My.Application.DoEvents()
             If servidor <> "" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
-                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg\" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
+                    picImagen.Image = Image.FromFile(My.Application.Info.DirectoryPath & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             Else
-                If File.Exists(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
+                If File.Exists(equipo_servidor & "\ProductosImg\" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg") Then
                     picImagen.Image = Image.FromFile(equipo_servidor & "\ProductosImg" & baseseleccionada & "\" & cboCodCortoNormal.Text & ".jpg")
                 End If
             End If

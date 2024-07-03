@@ -482,7 +482,7 @@ Partial Class frmProductos
         Me.txtComi.BackColor = System.Drawing.Color.White
         Me.txtComi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtComi.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComi.Location = New System.Drawing.Point(377, 345)
+        Me.txtComi.Location = New System.Drawing.Point(377, 343)
         Me.txtComi.Name = "txtComi"
         Me.txtComi.Size = New System.Drawing.Size(141, 23)
         Me.txtComi.TabIndex = 122
@@ -492,7 +492,7 @@ Partial Class frmProductos
         'chkKIT
         '
         Me.chkKIT.AutoSize = True
-        Me.chkKIT.Location = New System.Drawing.Point(436, 398)
+        Me.chkKIT.Location = New System.Drawing.Point(492, 398)
         Me.chkKIT.Name = "chkKIT"
         Me.chkKIT.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkKIT.Size = New System.Drawing.Size(140, 19)
@@ -550,13 +550,12 @@ Partial Class frmProductos
         '
         'btnGuardar
         '
-        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(622, 430)
+        Me.btnGuardar.Location = New System.Drawing.Point(886, 270)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 137
@@ -566,12 +565,11 @@ Partial Class frmProductos
         '
         'btnNuevo
         '
-        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnNuevo.BackgroundImage = CType(resources.GetObject("btnNuevo.BackgroundImage"), System.Drawing.Image)
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(688, 430)
+        Me.btnNuevo.Location = New System.Drawing.Point(951, 270)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 136
@@ -581,14 +579,13 @@ Partial Class frmProductos
         '
         'btnEliminar
         '
-        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnEliminar.BackColor = System.Drawing.Color.White
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(556, 430)
+        Me.btnEliminar.Location = New System.Drawing.Point(821, 270)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 135
@@ -598,13 +595,12 @@ Partial Class frmProductos
         '
         'btnImportar
         '
-        Me.btnImportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnImportar.BackColor = System.Drawing.Color.White
         Me.btnImportar.BackgroundImage = CType(resources.GetObject("btnImportar.BackgroundImage"), System.Drawing.Image)
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Location = New System.Drawing.Point(8, 430)
+        Me.btnImportar.Location = New System.Drawing.Point(754, 339)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(62, 49)
         Me.btnImportar.TabIndex = 138
@@ -615,15 +611,14 @@ Partial Class frmProductos
         '
         'btnImagen
         '
-        Me.btnImagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnImagen.BackColor = System.Drawing.Color.White
         Me.btnImagen.BackgroundImage = CType(resources.GetObject("btnImagen.BackgroundImage"), System.Drawing.Image)
         Me.btnImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImagen.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImagen.Location = New System.Drawing.Point(490, 430)
+        Me.btnImagen.Location = New System.Drawing.Point(754, 270)
         Me.btnImagen.Name = "btnImagen"
-        Me.btnImagen.Size = New System.Drawing.Size(60, 63)
+        Me.btnImagen.Size = New System.Drawing.Size(62, 63)
         Me.btnImagen.TabIndex = 139
         Me.btnImagen.Text = "Imagen"
         Me.btnImagen.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -631,18 +626,16 @@ Partial Class frmProductos
         '
         'picImagen
         '
-        Me.picImagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.picImagen.Location = New System.Drawing.Point(420, 430)
+        Me.picImagen.Location = New System.Drawing.Point(754, 40)
         Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(64, 63)
+        Me.picImagen.Size = New System.Drawing.Size(258, 224)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picImagen.TabIndex = 140
         Me.picImagen.TabStop = False
         '
         'barsube
         '
-        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(8, 479)
+        Me.barsube.Location = New System.Drawing.Point(754, 391)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 141
@@ -671,7 +664,7 @@ Partial Class frmProductos
         Me.Label14.Location = New System.Drawing.Point(0, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label14.Size = New System.Drawing.Size(757, 31)
+        Me.Label14.Size = New System.Drawing.Size(1015, 31)
         Me.Label14.TabIndex = 176
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -826,28 +819,28 @@ Partial Class frmProductos
         Me.grdcaptura.AllowUserToDeleteRows = False
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdcaptura.Location = New System.Drawing.Point(257, 499)
+        Me.grdcaptura.Location = New System.Drawing.Point(7, 396)
         Me.grdcaptura.Name = "grdcaptura"
         Me.grdcaptura.ReadOnly = True
-        Me.grdcaptura.Size = New System.Drawing.Size(203, 144)
+        Me.grdcaptura.Size = New System.Drawing.Size(63, 17)
         Me.grdcaptura.TabIndex = 227
         Me.grdcaptura.Visible = False
         '
         'txtrutaimagen
         '
-        Me.txtrutaimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(76, 470)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(96, 396)
         Me.txtrutaimagen.Name = "txtrutaimagen"
-        Me.txtrutaimagen.Size = New System.Drawing.Size(175, 23)
+        Me.txtrutaimagen.Size = New System.Drawing.Size(93, 23)
         Me.txtrutaimagen.TabIndex = 232
+        Me.txtrutaimagen.Visible = False
         '
         'chkUnico
         '
         Me.chkUnico.AutoSize = True
-        Me.chkUnico.Location = New System.Drawing.Point(638, 398)
+        Me.chkUnico.Location = New System.Drawing.Point(640, 396)
         Me.chkUnico.Name = "chkUnico"
         Me.chkUnico.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkUnico.Size = New System.Drawing.Size(108, 19)
@@ -951,9 +944,8 @@ Partial Class frmProductos
         '
         'lblInfo
         '
-        Me.lblInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblInfo.AutoSize = True
-        Me.lblInfo.Location = New System.Drawing.Point(135, 430)
+        Me.lblInfo.Location = New System.Drawing.Point(218, 402)
         Me.lblInfo.Name = "lblInfo"
         Me.lblInfo.Size = New System.Drawing.Size(116, 15)
         Me.lblInfo.TabIndex = 250
@@ -1153,7 +1145,7 @@ Partial Class frmProductos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(757, 505)
+        Me.ClientSize = New System.Drawing.Size(1015, 423)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.lblInfo)
         Me.Controls.Add(Me.txtBarras2)
@@ -1223,8 +1215,9 @@ Partial Class frmProductos
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1031, 462)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(773, 544)
+        Me.MinimumSize = New System.Drawing.Size(1031, 462)
         Me.Name = "frmProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Captura de productos (derivados)"

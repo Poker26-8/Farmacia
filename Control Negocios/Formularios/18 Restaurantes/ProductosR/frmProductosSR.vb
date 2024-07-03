@@ -13,9 +13,28 @@ Public Class frmProductosSR
         cboDescripcion.Focused.Equals(True)
         rboDescProductos.Checked = True
 
-        If tienda_enlinea = True Then
-            btn_tienda.Visible = True
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='TiendaLinea'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1(0).ToString = 1 Then
+                    tienda_enlinea = 1
+                Else
+                    tienda_enlinea = 0
+                End If
+            End If
         End If
+        rd1.Close()
+        cnn1.Close()
+
+        If tienda_enlinea = 1 Then
+            btn_tienda.Visible = True
+        Else
+            btn_tienda.Visible = False
+        End If
+
     End Sub
 
     Private Sub txtCodBarras_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodBarras.KeyPress
@@ -1166,15 +1185,15 @@ nopasowey:
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
             If dato = "barra" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
             End If
 
             If dato = "NOMBRE" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
             End If
 
             If dato = "CODIGO" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
             End If
 
             rd3 = cmd3.ExecuteReader
@@ -1193,6 +1212,10 @@ nopasowey:
                     cboGrupo.Text = rd3("Grupo").ToString
                     cboComanda.Text = rd3("GPrint").ToString
                     txtExistencia.Text = rd3("Existencia").ToString
+
+                    txt_resumen.Text = rd3("Resumen").ToString
+                    txt_descripcion.Text = rd3("Descripcion_Tienda").ToString
+
                 End If
             End If
             rd3.Close()

@@ -3322,10 +3322,10 @@ kaka:
                     txtdescuento1.ReadOnly = True
                 End If
             End If
-            If Me.Text = "Ventas (1)" Then
+            If Me.Text = "Ventas Refaccionaria" Then
                 txtefectivo.Focus().Equals(True)
             End If
-            If Me.Text = "Cotización (1)" Then
+            If Me.Text = "Cotización Refaccionaria" Then
                 Button3.Focus().Equals(True)
             End If
         End If
@@ -6891,7 +6891,7 @@ Door:
                     If IMPRE = "" Then
                     Else
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT Impresora FROM RutasImpresion where Tipo='" & IMPRE & "'"
+                        cmd3.CommandText = "SELECT Impresora FROM RutasImpresion where Tipo='" & IMPRE & "' AND Equipo='" & ObtenerNombreEquipo() & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then

@@ -172,7 +172,7 @@ Partial Class frmProductosDR
         '
         Me.picImagen.Location = New System.Drawing.Point(618, 431)
         Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(65, 67)
+        Me.picImagen.Size = New System.Drawing.Size(136, 209)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picImagen.TabIndex = 327
         Me.picImagen.TabStop = False
@@ -930,9 +930,9 @@ Partial Class frmProductosDR
         'PCopeo
         '
         Me.PCopeo.Controls.Add(Me.GroupBox1)
-        Me.PCopeo.Location = New System.Drawing.Point(573, 504)
+        Me.PCopeo.Location = New System.Drawing.Point(476, 522)
         Me.PCopeo.Name = "PCopeo"
-        Me.PCopeo.Size = New System.Drawing.Size(181, 78)
+        Me.PCopeo.Size = New System.Drawing.Size(136, 121)
         Me.PCopeo.TabIndex = 333
         Me.PCopeo.Visible = False
         '
@@ -944,16 +944,16 @@ Partial Class frmProductosDR
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(7, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(171, 70)
+        Me.GroupBox1.Size = New System.Drawing.Size(126, 107)
         Me.GroupBox1.TabIndex = 334
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Control de botellas"
         '
         'txtcopas
         '
-        Me.txtcopas.Location = New System.Drawing.Point(116, 41)
+        Me.txtcopas.Location = New System.Drawing.Point(9, 81)
         Me.txtcopas.Name = "txtcopas"
-        Me.txtcopas.Size = New System.Drawing.Size(49, 20)
+        Me.txtcopas.Size = New System.Drawing.Size(101, 20)
         Me.txtcopas.TabIndex = 3
         Me.txtcopas.Text = "0"
         '
@@ -968,18 +968,18 @@ Partial Class frmProductosDR
         '
         'txtmilitros
         '
-        Me.txtmilitros.Location = New System.Drawing.Point(116, 15)
+        Me.txtmilitros.Location = New System.Drawing.Point(9, 39)
         Me.txtmilitros.Name = "txtmilitros"
-        Me.txtmilitros.Size = New System.Drawing.Size(49, 20)
+        Me.txtmilitros.Size = New System.Drawing.Size(101, 20)
         Me.txtmilitros.TabIndex = 2
         Me.txtmilitros.Text = "0"
         '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(54, 41)
+        Me.Label3.Location = New System.Drawing.Point(9, 62)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(56, 19)
+        Me.Label3.Size = New System.Drawing.Size(101, 19)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Copas"
         '
