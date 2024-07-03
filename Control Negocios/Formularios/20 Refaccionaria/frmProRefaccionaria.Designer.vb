@@ -505,7 +505,7 @@ Partial Class frmProRefaccionaria
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(591, 238)
+        Me.btnNuevo.Location = New System.Drawing.Point(853, 236)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 306
@@ -520,7 +520,7 @@ Partial Class frmProRefaccionaria
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(525, 238)
+        Me.btnGuardar.Location = New System.Drawing.Point(787, 236)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 307
@@ -535,7 +535,7 @@ Partial Class frmProRefaccionaria
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(459, 238)
+        Me.btnEliminar.Location = New System.Drawing.Point(721, 236)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 308
@@ -545,10 +545,10 @@ Partial Class frmProRefaccionaria
         '
         'picImagen
         '
-        Me.picImagen.Location = New System.Drawing.Point(323, 238)
+        Me.picImagen.Location = New System.Drawing.Point(657, 9)
         Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(64, 63)
-        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picImagen.Size = New System.Drawing.Size(256, 224)
+        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picImagen.TabIndex = 310
         Me.picImagen.TabStop = False
         '
@@ -559,7 +559,7 @@ Partial Class frmProRefaccionaria
         Me.btnImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImagen.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImagen.Location = New System.Drawing.Point(393, 238)
+        Me.btnImagen.Location = New System.Drawing.Point(655, 236)
         Me.btnImagen.Name = "btnImagen"
         Me.btnImagen.Size = New System.Drawing.Size(60, 63)
         Me.btnImagen.TabIndex = 309
@@ -569,23 +569,21 @@ Partial Class frmProRefaccionaria
         '
         'barsube
         '
-        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(258, 287)
+        Me.barsube.Location = New System.Drawing.Point(496, 239)
         Me.barsube.Name = "barsube"
-        Me.barsube.Size = New System.Drawing.Size(62, 14)
+        Me.barsube.Size = New System.Drawing.Size(85, 14)
         Me.barsube.TabIndex = 312
         '
         'btnImportar
         '
-        Me.btnImportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnImportar.BackColor = System.Drawing.Color.White
         Me.btnImportar.BackgroundImage = CType(resources.GetObject("btnImportar.BackgroundImage"), System.Drawing.Image)
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Location = New System.Drawing.Point(258, 238)
+        Me.btnImportar.Location = New System.Drawing.Point(587, 236)
         Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(62, 49)
+        Me.btnImportar.Size = New System.Drawing.Size(62, 63)
         Me.btnImportar.TabIndex = 311
         Me.btnImportar.Text = "Importar"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -593,11 +591,10 @@ Partial Class frmProRefaccionaria
         '
         'txtrutaimagen
         '
-        Me.txtrutaimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(77, 278)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(406, 265)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(175, 23)
         Me.txtrutaimagen.TabIndex = 313
@@ -606,17 +603,18 @@ Partial Class frmProRefaccionaria
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(685, 35)
+        Me.DataGridView1.Location = New System.Drawing.Point(310, 239)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(171, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(76, 49)
         Me.DataGridView1.TabIndex = 314
+        Me.DataGridView1.Visible = False
         '
         'frmProRefaccionaria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(662, 311)
+        Me.ClientSize = New System.Drawing.Size(918, 303)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.txtrutaimagen)
         Me.Controls.Add(Me.barsube)
