@@ -353,7 +353,7 @@ Public Class frmPedidos_Tienda
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Clientes where Id_Tienda=" & id_tienda
+                "select * from Clientes where Id=" & id_tienda
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
