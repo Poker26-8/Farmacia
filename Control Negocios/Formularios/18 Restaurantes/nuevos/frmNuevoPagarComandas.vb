@@ -1670,6 +1670,9 @@ Public Class frmNuevoPagarComandas
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
 
+        tim.Stop()
+        My.Application.DoEvents()
+
         Try
             Dim mypagop As Double = CDbl(txtEfectivo.Text) + CDbl(txtPagos.Text)
 
@@ -1716,10 +1719,20 @@ Public Class frmNuevoPagarComandas
             End If
 
             If validaTarjeta = 0 Then
-                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Restaurant") = vbCancel Then cnn1.Close() : Exit Sub
+
+                If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Restaurant") = vbCancel Then
+                    tim.Start()
+                    cnn1.Close()
+                    Exit Sub
+                End If
+
             Else
                 If SiPago = 0 Then
-                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Restaurant") = vbCancel Then cnn1.Close() : Exit Sub
+                    If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, "Delsscom Restaurant") = vbCancel Then
+                        tim.Start()
+                        cnn1.Close()
+                        Exit Sub
+                    End If
                 End If
             End If
 
@@ -2462,7 +2475,7 @@ Door:
             cnn1.Close()
 
             If imprime = 1 Then
-                If MessageBox.Show("Desea Cerrar esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                If MessageBox.Show("Desea Imprimir el ticket", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
 
                     If TamImpre = "80" Then
                         For naruto As Integer = 1 To copias

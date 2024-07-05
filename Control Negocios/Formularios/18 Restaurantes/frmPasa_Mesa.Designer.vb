@@ -29,11 +29,10 @@ Partial Class frmPasa_Mesa
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 9)
+        Me.Label1.Location = New System.Drawing.Point(5, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(152, 38)
+        Me.Label1.Size = New System.Drawing.Size(180, 38)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Ingresa tu contraseña" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ingresar"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -41,7 +40,7 @@ Partial Class frmPasa_Mesa
         'txtclave
         '
         Me.txtclave.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtclave.Location = New System.Drawing.Point(19, 59)
+        Me.txtclave.Location = New System.Drawing.Point(9, 50)
         Me.txtclave.Name = "txtclave"
         Me.txtclave.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtclave.Size = New System.Drawing.Size(176, 29)
@@ -53,7 +52,7 @@ Partial Class frmPasa_Mesa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(207, 105)
+        Me.ClientSize = New System.Drawing.Size(189, 90)
         Me.Controls.Add(Me.txtclave)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

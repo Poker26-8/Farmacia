@@ -8,7 +8,8 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = True
-            TXTTOTAL.Text = "0.00"
+            TXTTOTAL.Text = "0"
+
             grdcaptura.ColumnCount = 8
             With grdcaptura
                 With .Columns(0)
@@ -88,7 +89,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = True
-            TXTTOTAL.Text = "0.00"
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -169,7 +170,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = False
-
+            TXTTOTAL.Text = "0"
             grdcaptura.ColumnCount = 10
             With grdcaptura
                 With .Columns(0)
@@ -265,6 +266,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -345,6 +347,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -425,6 +428,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 9
             With grdcaptura
@@ -513,7 +517,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = False
-
+            TXTTOTAL.Text = "0"
             grdcaptura.ColumnCount = 9
             With grdcaptura
                 With .Columns(0)
@@ -601,6 +605,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 8
             With grdcaptura
@@ -681,6 +686,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = False
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 11
             With grdcaptura
@@ -971,10 +977,13 @@
 
                         total = cantidad * precio
 
+                        totpro = totpro + cantidad
+
                         grdcaptura.Rows.Add(mycode, nombre, unidad, cantidad, precio, total)
                     End If
                 Loop
                 rd1.Close() : cnn1.Close()
+                TXTTOTAL.Text = FormatNumber(totpro, 2)
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn1.Close()
@@ -1017,10 +1026,12 @@
                     Dim MyFech As String = rd1("FechaC").ToString
 
                     grdcaptura.Rows.Add(MyProv, MyCode, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
+                    totpro = totpro + MyCant
                     barcarga.Value = barcarga.Value + 1
                 End If
             Loop
             rd1.Close() : cnn1.Close()
+            TXTTOTAL.Text = FormatNumber(totpro, 2)
             barcarga.Value = 0
             barcarga.Visible = False
         End If
@@ -1061,10 +1072,13 @@
                     Dim MyFech As String = rd1("FechaC").ToString
 
                     grdcaptura.Rows.Add(MyProv, MyCode, MyDesc, MyUnid, MyCant, FormatNumber(MyPrec, 2), FormatNumber(MyTota, 2), FormatDateTime(MyFech, DateFormat.ShortDate))
+
+                    totpro = totpro + MyCant
                     barcarga.Value = barcarga.Value + 1
                 End If
             Loop
             rd1.Close() : cnn1.Close()
+            TXTTOTAL.Text = FormatNumber(totpro, 2)
             barcarga.Value = 0
             barcarga.Visible = False
         End If
@@ -1352,6 +1366,7 @@
             ComboBox1.Text = ""
             ComboBox1.Visible = True
             cms1.Enabled = False
+            TXTTOTAL.Text = "0"
 
             grdcaptura.ColumnCount = 7
             With grdcaptura
@@ -1536,6 +1551,7 @@
             grdcaptura.ColumnCount = 0
             ComboBox1.Items.Clear()
             ComboBox1.Text = ""
+            TXTTOTAL.Text = "0"
             ComboBox1.Visible = False
             cms1.Enabled = False
 

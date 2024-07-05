@@ -24,8 +24,8 @@ Partial Class frmProductos_Escuelas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos_Escuelas))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -35,6 +35,10 @@ Partial Class frmProductos_Escuelas
         Me.txttotal = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cms1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.elimina_concepto = New System.Windows.Forms.ToolStripMenuItem()
         Me.edita_concepto = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,15 +52,18 @@ Partial Class frmProductos_Escuelas
         Me.btnagregar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.boxConcepto = New System.Windows.Forms.GroupBox()
+        Me.lblanterior_concepto = New System.Windows.Forms.Label()
         Me.btn_concepto = New System.Windows.Forms.Button()
         Me.txtnuevo_concepto = New System.Windows.Forms.TextBox()
         Me.boxFecha = New System.Windows.Forms.GroupBox()
+        Me.lblnombre_fecha = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtfecha_actual = New System.Windows.Forms.TextBox()
         Me.dtpnuevo_fecha = New System.Windows.Forms.DateTimePicker()
         Me.btn_fecha = New System.Windows.Forms.Button()
         Me.boxMonto = New System.Windows.Forms.GroupBox()
+        Me.lblnombre_monto = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtnuevo_monto = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -64,13 +71,6 @@ Partial Class frmProductos_Escuelas
         Me.btn_monto = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtregistros = New System.Windows.Forms.TextBox()
-        Me.lblanterior_concepto = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblnombre_fecha = New System.Windows.Forms.Label()
-        Me.lblnombre_monto = New System.Windows.Forms.Label()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cms1.SuspendLayout()
         Me.boxConcepto.SuspendLayout()
@@ -94,10 +94,11 @@ Partial Class frmProductos_Escuelas
         'btnGuardar
         '
         Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnGuardar.BackgroundImage = CType(resources.GetObject("btnGuardar.BackgroundImage"), System.Drawing.Image)
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGuardar.Location = New System.Drawing.Point(525, 447)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
@@ -197,6 +198,38 @@ Partial Class frmProductos_Escuelas
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(573, 314)
         Me.grdcaptura.TabIndex = 226
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Concepto"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Column3.HeaderText = "Fecha de pago"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 130
+        '
+        'Column4
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Column4.HeaderText = "Monto"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         '
         'cms1
         '
@@ -323,6 +356,14 @@ Partial Class frmProductos_Escuelas
         Me.boxConcepto.Text = "Edita concepto"
         Me.boxConcepto.Visible = False
         '
+        'lblanterior_concepto
+        '
+        Me.lblanterior_concepto.Location = New System.Drawing.Point(8, 49)
+        Me.lblanterior_concepto.Name = "lblanterior_concepto"
+        Me.lblanterior_concepto.Size = New System.Drawing.Size(365, 23)
+        Me.lblanterior_concepto.TabIndex = 237
+        Me.lblanterior_concepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'btn_concepto
         '
         Me.btn_concepto.BackColor = System.Drawing.Color.White
@@ -361,6 +402,15 @@ Partial Class frmProductos_Escuelas
         Me.boxFecha.TabStop = False
         Me.boxFecha.Text = "Edita concepto"
         Me.boxFecha.Visible = False
+        '
+        'lblnombre_fecha
+        '
+        Me.lblnombre_fecha.Location = New System.Drawing.Point(12, 49)
+        Me.lblnombre_fecha.Name = "lblnombre_fecha"
+        Me.lblnombre_fecha.Size = New System.Drawing.Size(235, 23)
+        Me.lblnombre_fecha.TabIndex = 241
+        Me.lblnombre_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblnombre_fecha.Visible = False
         '
         'Label5
         '
@@ -427,6 +477,15 @@ Partial Class frmProductos_Escuelas
         Me.boxMonto.TabStop = False
         Me.boxMonto.Text = "Edita concepto"
         Me.boxMonto.Visible = False
+        '
+        'lblnombre_monto
+        '
+        Me.lblnombre_monto.Location = New System.Drawing.Point(8, 49)
+        Me.lblnombre_monto.Name = "lblnombre_monto"
+        Me.lblnombre_monto.Size = New System.Drawing.Size(176, 23)
+        Me.lblnombre_monto.TabIndex = 242
+        Me.lblnombre_monto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblnombre_monto.Visible = False
         '
         'Label6
         '
@@ -505,64 +564,6 @@ Partial Class frmProductos_Escuelas
         Me.txtregistros.TabIndex = 240
         Me.txtregistros.Text = "0"
         Me.txtregistros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblanterior_concepto
-        '
-        Me.lblanterior_concepto.Location = New System.Drawing.Point(8, 49)
-        Me.lblanterior_concepto.Name = "lblanterior_concepto"
-        Me.lblanterior_concepto.Size = New System.Drawing.Size(365, 23)
-        Me.lblanterior_concepto.TabIndex = 237
-        Me.lblanterior_concepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Concepto"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column3.HeaderText = "Fecha de pago"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 130
-        '
-        'Column4
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column4.HeaderText = "Monto"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'lblnombre_fecha
-        '
-        Me.lblnombre_fecha.Location = New System.Drawing.Point(12, 49)
-        Me.lblnombre_fecha.Name = "lblnombre_fecha"
-        Me.lblnombre_fecha.Size = New System.Drawing.Size(235, 23)
-        Me.lblnombre_fecha.TabIndex = 241
-        Me.lblnombre_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblnombre_fecha.Visible = False
-        '
-        'lblnombre_monto
-        '
-        Me.lblnombre_monto.Location = New System.Drawing.Point(8, 49)
-        Me.lblnombre_monto.Name = "lblnombre_monto"
-        Me.lblnombre_monto.Size = New System.Drawing.Size(176, 23)
-        Me.lblnombre_monto.TabIndex = 242
-        Me.lblnombre_monto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblnombre_monto.Visible = False
         '
         'frmProductos_Escuelas
         '

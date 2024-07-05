@@ -303,7 +303,7 @@ Partial Class frmVentas_refa
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button8, 3, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Button16, 5, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.lbldevo, 1, 7)
@@ -351,7 +351,7 @@ Partial Class frmVentas_refa
         Me.Button8.Image = Global.Control_Negocios.My.Resources.Resources.recargas2Recurso_87
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button8.Location = New System.Drawing.Point(140, 249)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(8)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(94, 88)
         Me.Button8.TabIndex = 238
@@ -369,7 +369,7 @@ Partial Class frmVentas_refa
         Me.Button16.Image = Global.Control_Negocios.My.Resources.Resources.pagoservicos1Recurso_88
         Me.Button16.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button16.Location = New System.Drawing.Point(258, 249)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button16.Margin = New System.Windows.Forms.Padding(8)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(94, 88)
         Me.Button16.TabIndex = 237
@@ -413,7 +413,7 @@ Partial Class frmVentas_refa
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(258, 22)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(94, 88)
         Me.Button1.TabIndex = 148
@@ -430,7 +430,7 @@ Partial Class frmVentas_refa
         Me.btndevo.Image = CType(resources.GetObject("btndevo.Image"), System.Drawing.Image)
         Me.btndevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btndevo.Location = New System.Drawing.Point(258, 137)
-        Me.btndevo.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.btndevo.Margin = New System.Windows.Forms.Padding(8)
         Me.btndevo.Name = "btndevo"
         Me.btndevo.Size = New System.Drawing.Size(94, 88)
         Me.btndevo.TabIndex = 149
@@ -470,7 +470,7 @@ Partial Class frmVentas_refa
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button7.Location = New System.Drawing.Point(140, 22)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(8)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(94, 88)
         Me.Button7.TabIndex = 176
@@ -484,7 +484,7 @@ Partial Class frmVentas_refa
         Me.picProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picProd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.picProd.Location = New System.Drawing.Point(142, 355)
-        Me.picProd.Margin = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.picProd.Margin = New System.Windows.Forms.Padding(10)
         Me.picProd.Name = "picProd"
         Me.picProd.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
         Me.picProd.Size = New System.Drawing.Size(90, 98)
@@ -501,7 +501,7 @@ Partial Class frmVentas_refa
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button2.Location = New System.Drawing.Point(140, 137)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(8)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(94, 88)
         Me.Button2.TabIndex = 190
@@ -518,7 +518,7 @@ Partial Class frmVentas_refa
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button4.Location = New System.Drawing.Point(16, 137)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(8)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(94, 88)
         Me.Button4.TabIndex = 191
@@ -535,7 +535,7 @@ Partial Class frmVentas_refa
         Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
         Me.Button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button11.Location = New System.Drawing.Point(16, 249)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button11.Margin = New System.Windows.Forms.Padding(8)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(94, 88)
         Me.Button11.TabIndex = 184
@@ -552,7 +552,7 @@ Partial Class frmVentas_refa
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button5.Location = New System.Drawing.Point(16, 22)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(8)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(94, 88)
         Me.Button5.TabIndex = 192
@@ -1368,7 +1368,7 @@ Partial Class frmVentas_refa
         Me.picQR.BackColor = System.Drawing.Color.White
         Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picQR.Location = New System.Drawing.Point(-43, -60)
-        Me.picQR.Margin = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(10)
         Me.picQR.Name = "picQR"
         Me.picQR.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
         Me.picQR.Size = New System.Drawing.Size(57, 55)

@@ -271,9 +271,11 @@ Partial Class frmFaltantes
         Me.btnsalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnsalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnsalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsalir.Location = New System.Drawing.Point(759, 115)
+        Me.btnsalir.Image = CType(resources.GetObject("btnsalir.Image"), System.Drawing.Image)
+        Me.btnsalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnsalir.Location = New System.Drawing.Point(759, 103)
         Me.btnsalir.Name = "btnsalir"
-        Me.btnsalir.Size = New System.Drawing.Size(82, 63)
+        Me.btnsalir.Size = New System.Drawing.Size(82, 75)
         Me.btnsalir.TabIndex = 249
         Me.btnsalir.Text = "Nuevo"
         Me.btnsalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -286,7 +288,7 @@ Partial Class frmFaltantes
         Me.btnexportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnexportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexportar.Location = New System.Drawing.Point(759, 46)
+        Me.btnexportar.Location = New System.Drawing.Point(759, 34)
         Me.btnexportar.Name = "btnexportar"
         Me.btnexportar.Size = New System.Drawing.Size(82, 63)
         Me.btnexportar.TabIndex = 248

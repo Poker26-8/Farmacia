@@ -150,9 +150,11 @@ Partial Class frmCatGrupos
         'btnlimpiar
         '
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
+        Me.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnlimpiar.Location = New System.Drawing.Point(231, 127)
         Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(75, 52)
+        Me.btnlimpiar.Size = New System.Drawing.Size(75, 83)
         Me.btnlimpiar.TabIndex = 71
         Me.btnlimpiar.Text = "Limpiar"
         Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -161,9 +163,11 @@ Partial Class frmCatGrupos
         'btnguardar
         '
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnguardar.Location = New System.Drawing.Point(312, 127)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(75, 52)
+        Me.btnguardar.Size = New System.Drawing.Size(75, 83)
         Me.btnguardar.TabIndex = 70
         Me.btnguardar.Text = "Guardar"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -182,9 +186,11 @@ Partial Class frmCatGrupos
         'btneliminar
         '
         Me.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btneliminar.Image = CType(resources.GetObject("btneliminar.Image"), System.Drawing.Image)
+        Me.btneliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btneliminar.Location = New System.Drawing.Point(150, 127)
         Me.btneliminar.Name = "btneliminar"
-        Me.btneliminar.Size = New System.Drawing.Size(75, 52)
+        Me.btneliminar.Size = New System.Drawing.Size(75, 83)
         Me.btneliminar.TabIndex = 75
         Me.btneliminar.Text = "Eliminar"
         Me.btneliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -194,7 +200,7 @@ Partial Class frmCatGrupos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(399, 190)
+        Me.ClientSize = New System.Drawing.Size(399, 214)
         Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.btnlimpiar)

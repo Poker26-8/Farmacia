@@ -389,7 +389,7 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pVentas, Me.pCompras, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pAsistencia, Me.pProductos_Serv, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1196, 24)

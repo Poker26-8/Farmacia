@@ -437,7 +437,7 @@ Partial Class frmAlumnos
         Me.txthorario.Location = New System.Drawing.Point(319, 318)
         Me.txthorario.Name = "txthorario"
         Me.txthorario.ReadOnly = True
-        Me.txthorario.Size = New System.Drawing.Size(164, 23)
+        Me.txthorario.Size = New System.Drawing.Size(172, 23)
         Me.txthorario.TabIndex = 78
         Me.txthorario.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -485,9 +485,11 @@ Partial Class frmAlumnos
         '
         Me.btnlimpiar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnlimpiar.Location = New System.Drawing.Point(254, 415)
+        Me.btnlimpiar.Image = CType(resources.GetObject("btnlimpiar.Image"), System.Drawing.Image)
+        Me.btnlimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnlimpiar.Location = New System.Drawing.Point(254, 405)
         Me.btnlimpiar.Name = "btnlimpiar"
-        Me.btnlimpiar.Size = New System.Drawing.Size(75, 52)
+        Me.btnlimpiar.Size = New System.Drawing.Size(75, 78)
         Me.btnlimpiar.TabIndex = 89
         Me.btnlimpiar.Text = "Limpiar"
         Me.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -497,9 +499,9 @@ Partial Class frmAlumnos
         '
         Me.btneliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btneliminar.Location = New System.Drawing.Point(335, 415)
+        Me.btneliminar.Location = New System.Drawing.Point(335, 405)
         Me.btneliminar.Name = "btneliminar"
-        Me.btneliminar.Size = New System.Drawing.Size(75, 52)
+        Me.btneliminar.Size = New System.Drawing.Size(75, 78)
         Me.btneliminar.TabIndex = 88
         Me.btneliminar.Text = "Dar de baja"
         Me.btneliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -518,9 +520,11 @@ Partial Class frmAlumnos
         '
         Me.btnguardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnguardar.Location = New System.Drawing.Point(416, 415)
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnguardar.Location = New System.Drawing.Point(416, 405)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(75, 52)
+        Me.btnguardar.Size = New System.Drawing.Size(75, 78)
         Me.btnguardar.TabIndex = 91
         Me.btnguardar.Text = "Actualizar"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -553,7 +557,7 @@ Partial Class frmAlumnos
         Me.TextBox1.Location = New System.Drawing.Point(325, 372)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(158, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(166, 23)
         Me.TextBox1.TabIndex = 233
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -570,7 +574,7 @@ Partial Class frmAlumnos
         'LBLID
         '
         Me.LBLID.AutoSize = True
-        Me.LBLID.Location = New System.Drawing.Point(62, 429)
+        Me.LBLID.Location = New System.Drawing.Point(8, 415)
         Me.LBLID.Name = "LBLID"
         Me.LBLID.Size = New System.Drawing.Size(19, 15)
         Me.LBLID.TabIndex = 234
@@ -581,7 +585,7 @@ Partial Class frmAlumnos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(499, 479)
+        Me.ClientSize = New System.Drawing.Size(499, 485)
         Me.Controls.Add(Me.LBLID)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label18)

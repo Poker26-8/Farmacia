@@ -469,7 +469,7 @@ Partial Class frmProcesos_Prod
         Me.txtencargado.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtencargado.Location = New System.Drawing.Point(391, 35)
         Me.txtencargado.Name = "txtencargado"
-        Me.txtencargado.Size = New System.Drawing.Size(92, 23)
+        Me.txtencargado.Size = New System.Drawing.Size(84, 23)
         Me.txtencargado.TabIndex = 109
         '
         'cboproceso
@@ -487,9 +487,9 @@ Partial Class frmProcesos_Prod
         Me.btnfin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnfin.Image = CType(resources.GetObject("btnfin.Image"), System.Drawing.Image)
         Me.btnfin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnfin.Location = New System.Drawing.Point(489, 18)
+        Me.btnfin.Location = New System.Drawing.Point(481, 18)
         Me.btnfin.Name = "btnfin"
-        Me.btnfin.Size = New System.Drawing.Size(135, 40)
+        Me.btnfin.Size = New System.Drawing.Size(143, 40)
         Me.btnfin.TabIndex = 107
         Me.btnfin.Text = "Terminar proceso"
         Me.btnfin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -524,7 +524,7 @@ Partial Class frmProcesos_Prod
         Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(391, 18)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(92, 18)
+        Me.Label19.Size = New System.Drawing.Size(84, 18)
         Me.Label19.TabIndex = 93
         Me.Label19.Text = "Encargado"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

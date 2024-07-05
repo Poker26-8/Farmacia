@@ -988,7 +988,7 @@ Partial Class frmProductosDR
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(766, 655)
+        Me.ClientSize = New System.Drawing.Size(760, 655)
         Me.Controls.Add(Me.PCopeo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pbimportar)

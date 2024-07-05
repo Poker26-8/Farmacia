@@ -2805,58 +2805,73 @@ Public Class Inicio
     End Sub
 
     Private Sub VentasMostradorToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pVentasM.Click
-        'Dim partes As Integer = 0
-        'Dim series As Integer = 0
-        'Dim descuento As Integer = 0
+        Dim partes As Integer = 0
+        Dim series As Integer = 0
+        Dim descuento As Integer = 0
+        Dim refaccion As Integer = 0
 
-        'cnn1.Close() : cnn1.Open()
-        'cmd1 = cnn1.CreateCommand
-        'cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Partes'"
-        'rd1 = cmd1.ExecuteReader
-        'If rd1.HasRows Then
-        '    If rd1.Read Then
-        '        partes = rd1(0).ToString
-        '    End If
-        'End If
-        'rd1.Close()
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Partes'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                partes = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
 
-        'cmd1 = cnn1.CreateCommand
-        'cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Desc_Ventas'"
-        'rd1 = cmd1.ExecuteReader
-        'If rd1.HasRows Then
-        '    If rd1.Read Then
-        '        descuento = rd1(0).ToString
-        '    End If
-        'End If
-        'rd1.Close()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Desc_Ventas'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                descuento = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
 
-        'cmd1 = cnn1.CreateCommand
-        'cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
-        'rd1 = cmd1.ExecuteReader
-        'If rd1.HasRows Then
-        '    If rd1.Read Then
-        '        series = rd1(0).ToString
-        '    End If
-        'End If
-        'rd1.Close()
-        'cnn1.Close()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                series = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
 
-        'If partes = 1 Then
-        '    frmVentas1_Partes.Show()
-        '    frmVentas1_Partes.BringToFront()
-        'ElseIf descuento Then
-        '    frmVentas1_Descuentos.Show()
-        '    frmVentas1_Descuentos.BringToFront()
-        'ElseIf series Then
-        '    frmVentas_Series.Show()
-        '    frmVentas_Series.BringToFront()
-        'Else
-        '    frmVentas1.Show()
-        '    frmVentas1.BringToFront()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                refaccion = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
 
-        'End If
-        frmVentas1.Show()
-        frmVentas1.BringToFront()
+        If partes = 1 Then
+            frmVentas1_Partes.Show()
+            frmVentas1_Partes.BringToFront()
+        ElseIf descuento = 1 Then
+            frmVentas1_Descuentos.Show()
+            frmVentas1_Descuentos.BringToFront()
+        ElseIf series = 1 Then
+            frmVentas_Series.Show()
+            frmVentas_Series.BringToFront()
+
+        ElseIf refaccion = 1 Then
+            frmVentas_refa.Show()
+            frmVentas_refa.BringToFront()
+        Else
+            frmVentas1.Show()
+            frmVentas1.BringToFront()
+
+        End If
+        'frmVentas1.Show()
+        'frmVentas1.BringToFront()
     End Sub
 
     Private Sub RegistroDeEmpleadoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pHorariosEmp.Click
@@ -4097,7 +4112,7 @@ Public Class Inicio
                                 frmVTouchR.Show()
                                 frmVTouchR.BringToFront()
 
-                                frmNuevo.Show()
+                                ' frmNuevo.Show()
                             End If
                         End If
                         rd2.Close()

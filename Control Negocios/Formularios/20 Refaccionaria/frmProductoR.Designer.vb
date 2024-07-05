@@ -186,10 +186,10 @@ Partial Class frmProductoR
         'btnguardar
         '
         Me.btnguardar.BackColor = System.Drawing.Color.White
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnguardar.Location = New System.Drawing.Point(826, 540)
         Me.btnguardar.Name = "btnguardar"

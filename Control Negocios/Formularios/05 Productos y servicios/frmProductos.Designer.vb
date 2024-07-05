@@ -492,7 +492,7 @@ Partial Class frmProductos
         'chkKIT
         '
         Me.chkKIT.AutoSize = True
-        Me.chkKIT.Location = New System.Drawing.Point(492, 398)
+        Me.chkKIT.Location = New System.Drawing.Point(492, 401)
         Me.chkKIT.Name = "chkKIT"
         Me.chkKIT.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkKIT.Size = New System.Drawing.Size(140, 19)
@@ -840,7 +840,7 @@ Partial Class frmProductos
         'chkUnico
         '
         Me.chkUnico.AutoSize = True
-        Me.chkUnico.Location = New System.Drawing.Point(640, 396)
+        Me.chkUnico.Location = New System.Drawing.Point(640, 400)
         Me.chkUnico.Name = "chkUnico"
         Me.chkUnico.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.chkUnico.Size = New System.Drawing.Size(108, 19)

@@ -82,7 +82,7 @@ Partial Class frmProductosSSerie
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(592, 31)
+        Me.Label1.Size = New System.Drawing.Size(835, 31)
         Me.Label1.TabIndex = 176
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -92,7 +92,7 @@ Partial Class frmProductosSSerie
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(76, 336)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(76, 300)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(175, 23)
         Me.txtrutaimagen.TabIndex = 273
@@ -176,7 +176,7 @@ Partial Class frmProductosSSerie
         'barsube
         '
         Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(8, 349)
+        Me.barsube.Location = New System.Drawing.Point(76, 329)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 266
@@ -551,9 +551,9 @@ Partial Class frmProductosSSerie
         'picImagen
         '
         Me.picImagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.picImagen.Location = New System.Drawing.Point(257, 300)
+        Me.picImagen.Location = New System.Drawing.Point(591, 39)
         Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(64, 63)
+        Me.picImagen.Size = New System.Drawing.Size(239, 255)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picImagen.TabIndex = 265
         Me.picImagen.TabStop = False
@@ -566,7 +566,7 @@ Partial Class frmProductosSSerie
         Me.btnImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImagen.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImagen.Location = New System.Drawing.Point(327, 300)
+        Me.btnImagen.Location = New System.Drawing.Point(572, 300)
         Me.btnImagen.Name = "btnImagen"
         Me.btnImagen.Size = New System.Drawing.Size(60, 63)
         Me.btnImagen.TabIndex = 264
@@ -584,7 +584,7 @@ Partial Class frmProductosSSerie
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Location = New System.Drawing.Point(8, 300)
         Me.btnImportar.Name = "btnImportar"
-        Me.btnImportar.Size = New System.Drawing.Size(62, 49)
+        Me.btnImportar.Size = New System.Drawing.Size(62, 63)
         Me.btnImportar.TabIndex = 263
         Me.btnImportar.Text = "Importar"
         Me.btnImportar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -598,7 +598,7 @@ Partial Class frmProductosSSerie
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(459, 300)
+        Me.btnGuardar.Location = New System.Drawing.Point(704, 300)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 262
@@ -613,7 +613,7 @@ Partial Class frmProductosSSerie
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(525, 300)
+        Me.btnNuevo.Location = New System.Drawing.Point(770, 300)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 261
@@ -630,7 +630,7 @@ Partial Class frmProductosSSerie
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(393, 300)
+        Me.btnEliminar.Location = New System.Drawing.Point(638, 300)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 260
@@ -642,7 +642,7 @@ Partial Class frmProductosSSerie
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(592, 371)
+        Me.ClientSize = New System.Drawing.Size(835, 371)
         Me.Controls.Add(Me.cboComanda)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.cboubicacion)

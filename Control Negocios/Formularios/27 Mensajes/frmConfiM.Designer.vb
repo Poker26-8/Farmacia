@@ -227,7 +227,7 @@ Partial Class frmConfiM
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button3.Location = New System.Drawing.Point(523, 21)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(84, 72)
+        Me.Button3.Size = New System.Drawing.Size(84, 85)
         Me.Button3.TabIndex = 12
         Me.Button3.Text = "Salir"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -239,7 +239,7 @@ Partial Class frmConfiM
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(524, 99)
+        Me.Button2.Location = New System.Drawing.Point(523, 112)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 72)
         Me.Button2.TabIndex = 11
@@ -255,7 +255,7 @@ Partial Class frmConfiM
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.Location = New System.Drawing.Point(433, 21)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(84, 72)
+        Me.Button1.Size = New System.Drawing.Size(84, 85)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Guardar"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter

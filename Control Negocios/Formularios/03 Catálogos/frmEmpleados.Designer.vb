@@ -84,9 +84,9 @@ Partial Class frmEmpleados
         Me.cboNombre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboNombre.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboNombre.FormattingEnabled = True
-        Me.cboNombre.Location = New System.Drawing.Point(79, 46)
+        Me.cboNombre.Location = New System.Drawing.Point(88, 46)
         Me.cboNombre.Name = "cboNombre"
-        Me.cboNombre.Size = New System.Drawing.Size(350, 23)
+        Me.cboNombre.Size = New System.Drawing.Size(367, 23)
         Me.cboNombre.TabIndex = 3
         '
         'Label2
@@ -103,7 +103,7 @@ Partial Class frmEmpleados
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(227, 76)
+        Me.Label3.Location = New System.Drawing.Point(240, 76)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 15)
         Me.Label3.TabIndex = 5
@@ -114,16 +114,16 @@ Partial Class frmEmpleados
         Me.dtpIngreso.CalendarMonthBackground = System.Drawing.Color.White
         Me.dtpIngreso.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpIngreso.Location = New System.Drawing.Point(287, 72)
+        Me.dtpIngreso.Location = New System.Drawing.Point(296, 72)
         Me.dtpIngreso.Name = "dtpIngreso"
-        Me.dtpIngreso.Size = New System.Drawing.Size(142, 23)
+        Me.dtpIngreso.Size = New System.Drawing.Size(159, 23)
         Me.dtpIngreso.TabIndex = 6
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(227, 102)
+        Me.Label4.Location = New System.Drawing.Point(240, 102)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 15)
         Me.Label4.TabIndex = 8
@@ -135,9 +135,9 @@ Partial Class frmEmpleados
         Me.cboArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboArea.FormattingEnabled = True
         Me.cboArea.Items.AddRange(New Object() {"VENTAS", "ADMINISTRACIÓN", "OPERACIÓN"})
-        Me.cboArea.Location = New System.Drawing.Point(287, 98)
+        Me.cboArea.Location = New System.Drawing.Point(296, 98)
         Me.cboArea.Name = "cboArea"
-        Me.cboArea.Size = New System.Drawing.Size(142, 23)
+        Me.cboArea.Size = New System.Drawing.Size(159, 23)
         Me.cboArea.TabIndex = 7
         '
         'txtPuesto
@@ -145,16 +145,16 @@ Partial Class frmEmpleados
         Me.txtPuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPuesto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPuesto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPuesto.Location = New System.Drawing.Point(287, 124)
+        Me.txtPuesto.Location = New System.Drawing.Point(296, 124)
         Me.txtPuesto.Name = "txtPuesto"
-        Me.txtPuesto.Size = New System.Drawing.Size(142, 23)
+        Me.txtPuesto.Size = New System.Drawing.Size(159, 23)
         Me.txtPuesto.TabIndex = 9
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(227, 128)
+        Me.Label5.Location = New System.Drawing.Point(240, 128)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 15)
         Me.Label5.TabIndex = 10
@@ -176,7 +176,7 @@ Partial Class frmEmpleados
         Me.txtSueldo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSueldo.Location = New System.Drawing.Point(118, 72)
         Me.txtSueldo.Name = "txtSueldo"
-        Me.txtSueldo.Size = New System.Drawing.Size(103, 23)
+        Me.txtSueldo.Size = New System.Drawing.Size(116, 23)
         Me.txtSueldo.TabIndex = 17
         Me.txtSueldo.Text = "0.00"
         Me.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -197,14 +197,14 @@ Partial Class frmEmpleados
         Me.txtSeguro.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSeguro.Location = New System.Drawing.Point(118, 150)
         Me.txtSeguro.Name = "txtSeguro"
-        Me.txtSeguro.Size = New System.Drawing.Size(103, 23)
+        Me.txtSeguro.Size = New System.Drawing.Size(116, 23)
         Me.txtSeguro.TabIndex = 15
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(227, 154)
+        Me.Label10.Location = New System.Drawing.Point(240, 154)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(35, 15)
         Me.Label10.TabIndex = 20
@@ -215,9 +215,9 @@ Partial Class frmEmpleados
         Me.txtAlias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtAlias.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtAlias.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAlias.Location = New System.Drawing.Point(287, 150)
+        Me.txtAlias.Location = New System.Drawing.Point(296, 150)
         Me.txtAlias.Name = "txtAlias"
-        Me.txtAlias.Size = New System.Drawing.Size(142, 23)
+        Me.txtAlias.Size = New System.Drawing.Size(159, 23)
         Me.txtAlias.TabIndex = 19
         '
         'chkComi
@@ -532,7 +532,7 @@ Partial Class frmEmpleados
         Me.txthoras.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txthoras.Location = New System.Drawing.Point(118, 98)
         Me.txthoras.Name = "txthoras"
-        Me.txthoras.Size = New System.Drawing.Size(103, 23)
+        Me.txthoras.Size = New System.Drawing.Size(116, 23)
         Me.txthoras.TabIndex = 44
         Me.txthoras.Text = "0"
         Me.txthoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -553,7 +553,7 @@ Partial Class frmEmpleados
         Me.txtsueldo_hora.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsueldo_hora.Location = New System.Drawing.Point(118, 124)
         Me.txtsueldo_hora.Name = "txtsueldo_hora"
-        Me.txtsueldo_hora.Size = New System.Drawing.Size(103, 23)
+        Me.txtsueldo_hora.Size = New System.Drawing.Size(116, 23)
         Me.txtsueldo_hora.TabIndex = 46
         Me.txtsueldo_hora.Text = "0.00"
         Me.txtsueldo_hora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right

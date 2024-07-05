@@ -129,7 +129,7 @@ Partial Class frmProductosSR
         Me.BTNpORMOCIONES.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BTNpORMOCIONES.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTNpORMOCIONES.Image = CType(resources.GetObject("BTNpORMOCIONES.Image"), System.Drawing.Image)
-        Me.BTNpORMOCIONES.Location = New System.Drawing.Point(563, 374)
+        Me.BTNpORMOCIONES.Location = New System.Drawing.Point(619, 374)
         Me.BTNpORMOCIONES.Name = "BTNpORMOCIONES"
         Me.BTNpORMOCIONES.Size = New System.Drawing.Size(136, 64)
         Me.BTNpORMOCIONES.TabIndex = 233
@@ -143,7 +143,7 @@ Partial Class frmProductosSR
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(563, 504)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(829, 416)
         Me.txtrutaimagen.Name = "txtrutaimagen"
         Me.txtrutaimagen.Size = New System.Drawing.Size(65, 23)
         Me.txtrutaimagen.TabIndex = 232
@@ -186,7 +186,7 @@ Partial Class frmProductosSR
         'pbimportar
         '
         Me.pbimportar.BackColor = System.Drawing.Color.White
-        Me.pbimportar.Location = New System.Drawing.Point(563, 444)
+        Me.pbimportar.Location = New System.Drawing.Point(619, 444)
         Me.pbimportar.Name = "pbimportar"
         Me.pbimportar.Size = New System.Drawing.Size(136, 12)
         Me.pbimportar.TabIndex = 219
@@ -201,7 +201,7 @@ Partial Class frmProductosSR
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
         Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImportar.Location = New System.Drawing.Point(918, 301)
+        Me.btnImportar.Location = New System.Drawing.Point(974, 304)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(65, 67)
         Me.btnImportar.TabIndex = 218
@@ -251,7 +251,7 @@ Partial Class frmProductosSR
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(989, 302)
+        Me.Button1.Location = New System.Drawing.Point(1045, 305)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(65, 67)
         Me.Button1.TabIndex = 34
@@ -284,7 +284,7 @@ Partial Class frmProductosSR
         Me.TabControl2.Location = New System.Drawing.Point(12, 305)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(548, 248)
+        Me.TabControl2.Size = New System.Drawing.Size(601, 248)
         Me.TabControl2.TabIndex = 31
         '
         'TabPage3
@@ -296,7 +296,7 @@ Partial Class frmProductosSR
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(540, 222)
+        Me.TabPage3.Size = New System.Drawing.Size(593, 222)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "              Preferencias              "
         '
@@ -311,7 +311,7 @@ Partial Class frmProductosSR
         Me.grdpreferencia.Name = "grdpreferencia"
         Me.grdpreferencia.ReadOnly = True
         Me.grdpreferencia.RowHeadersVisible = False
-        Me.grdpreferencia.Size = New System.Drawing.Size(528, 169)
+        Me.grdpreferencia.Size = New System.Drawing.Size(581, 169)
         Me.grdpreferencia.TabIndex = 2
         '
         'Column1
@@ -326,7 +326,7 @@ Partial Class frmProductosSR
         Me.cbopreferencia.FormattingEnabled = True
         Me.cbopreferencia.Location = New System.Drawing.Point(99, 15)
         Me.cbopreferencia.Name = "cbopreferencia"
-        Me.cbopreferencia.Size = New System.Drawing.Size(435, 21)
+        Me.cbopreferencia.Size = New System.Drawing.Size(488, 21)
         Me.cbopreferencia.TabIndex = 1
         '
         'Label37
@@ -348,7 +348,7 @@ Partial Class frmProductosSR
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(540, 222)
+        Me.TabPage4.Size = New System.Drawing.Size(593, 222)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "                     Extras                   "
         '
@@ -357,7 +357,7 @@ Partial Class frmProductosSR
         Me.cboextras.FormattingEnabled = True
         Me.cboextras.Location = New System.Drawing.Point(62, 9)
         Me.cboextras.Name = "cboextras"
-        Me.cboextras.Size = New System.Drawing.Size(472, 21)
+        Me.cboextras.Size = New System.Drawing.Size(525, 21)
         Me.cboextras.TabIndex = 2
         '
         'Label38
@@ -381,7 +381,7 @@ Partial Class frmProductosSR
         Me.grdextras.Name = "grdextras"
         Me.grdextras.ReadOnly = True
         Me.grdextras.RowHeadersVisible = False
-        Me.grdextras.Size = New System.Drawing.Size(525, 175)
+        Me.grdextras.Size = New System.Drawing.Size(578, 175)
         Me.grdextras.TabIndex = 0
         '
         'Column3
@@ -409,7 +409,7 @@ Partial Class frmProductosSR
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(540, 222)
+        Me.TabPage5.Size = New System.Drawing.Size(593, 222)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "             Promociones             "
         '
@@ -424,7 +424,7 @@ Partial Class frmProductosSR
         Me.grdpromociones.Name = "grdpromociones"
         Me.grdpromociones.ReadOnly = True
         Me.grdpromociones.RowHeadersVisible = False
-        Me.grdpromociones.Size = New System.Drawing.Size(431, 173)
+        Me.grdpromociones.Size = New System.Drawing.Size(481, 173)
         Me.grdpromociones.TabIndex = 4
         '
         'Column4
@@ -442,7 +442,7 @@ Partial Class frmProductosSR
         '
         'txtcantidadpromo
         '
-        Me.txtcantidadpromo.Location = New System.Drawing.Point(446, 78)
+        Me.txtcantidadpromo.Location = New System.Drawing.Point(499, 78)
         Me.txtcantidadpromo.Name = "txtcantidadpromo"
         Me.txtcantidadpromo.Size = New System.Drawing.Size(88, 20)
         Me.txtcantidadpromo.TabIndex = 3
@@ -451,7 +451,7 @@ Partial Class frmProductosSR
         'Label40
         '
         Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.Location = New System.Drawing.Point(443, 11)
+        Me.Label40.Location = New System.Drawing.Point(496, 11)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(91, 64)
         Me.Label40.TabIndex = 2
@@ -462,7 +462,7 @@ Partial Class frmProductosSR
         Me.cbopromociones.FormattingEnabled = True
         Me.cbopromociones.Location = New System.Drawing.Point(110, 11)
         Me.cbopromociones.Name = "cbopromociones"
-        Me.cbopromociones.Size = New System.Drawing.Size(330, 21)
+        Me.cbopromociones.Size = New System.Drawing.Size(380, 21)
         Me.cbopromociones.TabIndex = 1
         '
         'Label39
@@ -494,7 +494,7 @@ Partial Class frmProductosSR
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(705, 301)
+        Me.btnSalir.Location = New System.Drawing.Point(761, 304)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(65, 67)
         Me.btnSalir.TabIndex = 30
@@ -510,7 +510,7 @@ Partial Class frmProductosSR
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(634, 301)
+        Me.btnGuardar.Location = New System.Drawing.Point(690, 304)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(65, 67)
         Me.btnGuardar.TabIndex = 29
@@ -526,7 +526,7 @@ Partial Class frmProductosSR
         Me.btnEliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(776, 301)
+        Me.btnEliminar.Location = New System.Drawing.Point(832, 304)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(65, 67)
         Me.btnEliminar.TabIndex = 28
@@ -542,7 +542,7 @@ Partial Class frmProductosSR
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(563, 301)
+        Me.btnNuevo.Location = New System.Drawing.Point(619, 304)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(65, 67)
         Me.btnNuevo.TabIndex = 27
@@ -849,7 +849,7 @@ Partial Class frmProductosSR
         Me.grdsql.AllowUserToDeleteRows = False
         Me.grdsql.BackgroundColor = System.Drawing.Color.White
         Me.grdsql.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdsql.Location = New System.Drawing.Point(566, 462)
+        Me.grdsql.Location = New System.Drawing.Point(832, 374)
         Me.grdsql.Name = "grdsql"
         Me.grdsql.ReadOnly = True
         Me.grdsql.Size = New System.Drawing.Size(28, 36)
@@ -864,7 +864,7 @@ Partial Class frmProductosSR
         Me.btnMigrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMigrar.Image = CType(resources.GetObject("btnMigrar.Image"), System.Drawing.Image)
         Me.btnMigrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnMigrar.Location = New System.Drawing.Point(847, 301)
+        Me.btnMigrar.Location = New System.Drawing.Point(903, 304)
         Me.btnMigrar.Name = "btnMigrar"
         Me.btnMigrar.Size = New System.Drawing.Size(65, 67)
         Me.btnMigrar.TabIndex = 234
@@ -882,7 +882,7 @@ Partial Class frmProductosSR
         Me.box_tienda.Controls.Add(Me.txt_resumen)
         Me.box_tienda.Location = New System.Drawing.Point(108, 219)
         Me.box_tienda.Name = "box_tienda"
-        Me.box_tienda.Size = New System.Drawing.Size(633, 122)
+        Me.box_tienda.Size = New System.Drawing.Size(634, 121)
         Me.box_tienda.TabIndex = 255
         Me.box_tienda.TabStop = False
         Me.box_tienda.Text = "Datos tienda en linea"
@@ -896,7 +896,7 @@ Partial Class frmProductosSR
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_guardar.Location = New System.Drawing.Point(9, 86)
+        Me.btn_guardar.Location = New System.Drawing.Point(9, 85)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(114, 26)
         Me.btn_guardar.TabIndex = 253
@@ -907,7 +907,7 @@ Partial Class frmProductosSR
         '
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 45)
+        Me.Label28.Location = New System.Drawing.Point(6, 44)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(111, 13)
         Me.Label28.TabIndex = 251
@@ -917,7 +917,7 @@ Partial Class frmProductosSR
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 20)
+        Me.Label20.Location = New System.Drawing.Point(6, 19)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(100, 13)
         Me.Label20.TabIndex = 250
@@ -946,7 +946,7 @@ Partial Class frmProductosSR
         Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_tienda.Location = New System.Drawing.Point(705, 374)
+        Me.btn_tienda.Location = New System.Drawing.Point(761, 374)
         Me.btn_tienda.Name = "btn_tienda"
         Me.btn_tienda.Size = New System.Drawing.Size(65, 64)
         Me.btn_tienda.TabIndex = 256
