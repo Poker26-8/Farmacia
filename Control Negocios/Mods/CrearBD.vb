@@ -177,7 +177,8 @@
                                                   `Id` int(11) NOT NULL,
                                                   `Codigo` varchar(50) NOT NULL DEFAULT '',
                                                   `Nombre` varchar(255) NOT NULL DEFAULT '',
-                                                  `CargadoAndroid` int(11) NOT NULL DEFAULT '0'
+                                                  `CargadoAndroid` int(11) NOT NULL DEFAULT '0',
+                                                  `Departamento` varchar(100) NOT NULL DEFAULT ''
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'pedidostemporal

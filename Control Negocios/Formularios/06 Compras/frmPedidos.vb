@@ -364,4 +364,8 @@ Public Class frmPedidos
     Private Sub txtcodigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txtcodigo.KeyUp
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class

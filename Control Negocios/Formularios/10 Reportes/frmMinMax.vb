@@ -286,21 +286,134 @@
         If MsgBox("¿Deseas asignar el tiempo de entrega a este proveedor?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Try
                 cnn2.Close() : cnn2.Open()
-
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "update Productos set T_Entrega=" & TextBox1.Text & " where ProvPri='" & lblprove.Text & "'"
+
+                If (optProveedor.Checked) Then
+                    cmd2.CommandText =
+                   "update Productos set T_Entrega=" & TextBox1.Text & " where ProvPri='" & cbofiltro.Text & "'"
+                End If
+
+                If (optDepartamento.Checked) Then
+                    cmd2.CommandText = "UPDATE Productos SET T_Entrega=" & TextBox1.Text & " WHERE Departamento='" & cbofiltro.Text & "'"
+                End If
+
+                If (optGrupo.Checked) Then
+                    cmd2.CommandText = "UPDATE Productos SET T_Entrega=" & TextBox1.Text & " WHERE Grupo='" & cbofiltro.Text & "'"
+                End If
+
+                If (optTodos.Checked) Then
+                    cmd2.CommandText = "UPDATE Productos SET T_Entrega=" & TextBox1.Text & ""
+                End If
+
                 If cmd2.ExecuteNonQuery() Then
                     lblprove.Text = ""
                     TextBox1.Text = "0"
                     GroupBox1.Visible = False
                 End If
 
+                GroupBox1.Visible = False
                 cnn2.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString())
                 cnn2.Close()
             End Try
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        gbFecha.Visible = True
+    End Sub
+
+    Private Sub btnGFecha_Click(sender As Object, e As EventArgs) Handles btnGFecha.Click
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "select NotasCred from Formatos where Facturas='MinMax'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "UPDATE Formatos SET NotasCred='" & dtpFecha.Value & "' WHERE Facturas='MinMax'"
+                If cmd2.ExecuteNonQuery() Then
+                    MsgBox("Fecha de inicio actualizada", vbInformation + vbOKOnly, titulocentral)
+                    gbFecha.Visible = False
+                End If
+                cnn2.Close()
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+    End Sub
+
+    Private Sub btnCance_Click(sender As Object, e As EventArgs) Handles btnCance.Click
+        GroupBox1.Visible = False
+    End Sub
+
+    Private Sub btnCanceF_Click(sender As Object, e As EventArgs) Handles btnCanceF.Click
+        gbFecha.Visible = False
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If grdcaptura.Rows.Count = 0 Then
+            Exit Sub
+        End If
+
+        If MsgBox("¿Desea exportar la información a Excel?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
+
+        'Creamos las variables
+        Dim exApp As New Microsoft.Office.Interop.Excel.Application
+        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
+        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
+
+        Try
+            'Añadimos el Libro al programa, y la hoja al libro
+            exLibro = exApp.Workbooks.Add
+            exHoja = exLibro.Worksheets.Application.ActiveSheet
+
+            'exHoja.Columns("A").NumberFormat = "@"
+            'exHoja.Columns("B").NumberFormat = "@"
+            'exHoja.Columns("C").NumberFormat = "@"
+            'exHoja.Columns("D").NumberFormat = "@"
+            'exHoja.Columns("I").NumberFormat = "@"
+            'exHoja.Columns("G").NumberFormat = "@"
+            'exHoja.Columns("K").NumberFormat = "@"
+
+            Dim Fila As Integer = 0
+            Dim Col As Integer = 0
+
+            ' ¿Cuantas columnas y cuantas filas?
+            Dim NCol As Integer = grdcaptura.ColumnCount
+            Dim NRow As Integer = grdcaptura.RowCount
+
+            'Aqui recorremos todas las filas, y por cada fila todas las columnas y vamos escribiendo.
+            For i As Integer = 1 To NCol
+                exHoja.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                'exHoja.Cells.Item(1, i).HorizontalAlignment = 3
+            Next
+
+            For Fila = 0 To NRow - 1
+                For Col = 0 To NCol - 1
+                    exHoja.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+
+                Next
+            Next
+
+            'Titulo en negrita, Alineado al centro y que el tamaño de la columna se
+            exHoja.Rows.Item(1).Font.Bold = 1
+            exHoja.Rows.Item(1).HorizontalAlignment = 3
+            exHoja.Columns.AutoFit()
+
+            'Aplicación visible
+            exApp.Application.Visible = True
+
+            exHoja = Nothing
+            exLibro = Nothing
+            exApp = Nothing
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
+        End Try
     End Sub
 End Class
