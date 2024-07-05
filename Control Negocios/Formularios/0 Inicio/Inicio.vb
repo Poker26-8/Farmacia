@@ -427,7 +427,7 @@ Public Class Inicio
                     End If
 
                 End If
-                End If
+            End If
             rd1.Close()
             cnn1.Close()
 
@@ -4363,14 +4363,5 @@ Public Class Inicio
     Private Sub btnAuto_Click(sender As Object, e As EventArgs) Handles btnAuto.Click
         frmAutoservicio.Show()
         frmAutoservicio.BringToFront()
-    End Sub
-
-    Private Sub pRegistro_Precios_Click(sender As Object, e As EventArgs) Handles pRegistro_Precios.Click
-        frmCompaador.Show()
-        frmCompaador.BringToFront()
-    End Sub
-
-    Private Sub pReporte_Precios_Click(sender As Object, e As EventArgs) Handles pReporte_Precios.Click
-
     End Sub
 End Class

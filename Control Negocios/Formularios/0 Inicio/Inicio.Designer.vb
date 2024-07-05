@@ -471,14 +471,14 @@ Partial Class Inicio
         '
         Me.ProcesosToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
-        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
         '
         'ReporteToolStripMenuItem
         '
         Me.ReporteToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteToolStripMenuItem.Name = "ReporteToolStripMenuItem"
-        Me.ReporteToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.ReporteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteToolStripMenuItem.Text = "Reporte"
         '
         'pMod_Precios
