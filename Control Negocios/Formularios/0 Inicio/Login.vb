@@ -108,9 +108,15 @@ Public Class Login
             End If
             varrutabase = txtRuta.Text
             empresa_activa = lblEmpresa.Text
-            Inicio.Show()
-            Inicio.Text = "Delsscom Solutions® Control Negocios Pro" & Strings.Space(40) & FormatDateTime(Date.Now, DateFormat.ShortDate) & Strings.Space(50) & lblEmpresa.Text
-            Me.Hide()
+
+
+            If txtUsuario.Text = "" Then
+            Else
+                Inicio.Show()
+                Inicio.Text = "Delsscom Solutions® Control Negocios Pro" & Strings.Space(40) & FormatDateTime(Date.Now, DateFormat.ShortDate) & Strings.Space(50) & lblEmpresa.Text
+                Me.Hide()
+            End If
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
@@ -380,6 +386,7 @@ Public Class Login
                     End If
                 Else
                     MsgBox("No existe el usuario o se está ingresando una contraseña incorrecta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    Exit Sub
                     txtContrasena.SelectAll()
                 End If
                 rd1.Close()

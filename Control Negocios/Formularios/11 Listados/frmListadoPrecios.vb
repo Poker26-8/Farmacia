@@ -2793,7 +2793,7 @@ Public Class frmListadoPrecios
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos order by " & order_by
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos order by " & order_by
                 rd1 = cmd1.ExecuteReader
                 cnn2.Close() : cnn2.Open()
                 Do While rd1.Read

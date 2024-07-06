@@ -1020,11 +1020,11 @@ kak:
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select Folio,Codigo,Cantidad from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & codigo & "' order by Nombre"
+                "select Folio,Codigo,sum(Cantidad) from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & codigo & "' order by Nombre"
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then
-                    canti = rd5("Cantidad").ToString
+                    canti = rd5(2).ToString
                     If CDbl(txtcantidad.Text) > canti Then
                         MsgBox("No puedes devolver una cantidad mayor a la vendida.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         txtcantidad.SelectionStart = 0
@@ -3940,6 +3940,7 @@ kaka:
                 rd4.Close()
             End If
             cnn4.Close()
+
 
             If btndevo.Text = "GUARDAR DEVOLUCIÓN" Then
                 txtprecio.Text = CalPreDevo(cbonota.Text, cbocodigo.Text)
@@ -9029,10 +9030,15 @@ Door:
 
         'Los totales los va a mandar directos
         FileNta.SetDatabaseLogon("", "jipl22")
+
+        Dim observaciones As String = ""
+        observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
         FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & MYFOLIO & "'"
         'FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
         FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txtPagar.Text) & "'"
-
+        FileNta.DataDefinition.FormulaFields("comentario").Text = "'" & observaciones & "'"
+        FileNta.DataDefinition.FormulaFields("pie").Text = "'" & PieNota & "'"
         ''Pagos
         'If DesglosaIVA = "1" Then
         '    If SubTotal > 0 Then
@@ -15734,4 +15740,6 @@ doorcita:
     Private Sub pVentaMediaCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMediaCarta.PrintPage
 
     End Sub
+
+
 End Class

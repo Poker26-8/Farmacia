@@ -344,9 +344,9 @@ Partial Class Login
         Me.GroupBox1.BackColor = System.Drawing.Color.SkyBlue
         Me.GroupBox1.Controls.Add(Me.btnCrearBase)
         Me.GroupBox1.Controls.Add(Me.txtContraCreaBase)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 124)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 124)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(211, 82)
+        Me.GroupBox1.Size = New System.Drawing.Size(214, 82)
         Me.GroupBox1.TabIndex = 31
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Contraseña Delsscom"
@@ -391,9 +391,9 @@ Partial Class Login
         Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 115)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 115)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(199, 199)
+        Me.GroupBox2.Size = New System.Drawing.Size(215, 195)
         Me.GroupBox2.TabIndex = 33
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Recuperacion de contraseña"
