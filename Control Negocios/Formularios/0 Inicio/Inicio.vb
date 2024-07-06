@@ -3903,9 +3903,9 @@ Public Class Inicio
             If rd5.HasRows Then
                 If rd5.Read Then
                     If rd5(0).ToString = "" Then
-                        pMod_Precios.Enabled = False
+                        pMod_Precios.Visible = False
                     Else
-                        pMod_Precios.Enabled = True
+                        pMod_Precios.Visible = True
                     End If
                 End If
             End If
@@ -4363,5 +4363,14 @@ Public Class Inicio
     Private Sub btnAuto_Click(sender As Object, e As EventArgs) Handles btnAuto.Click
         frmAutoservicio.Show()
         frmAutoservicio.BringToFront()
+    End Sub
+
+    Private Sub pRegistro_Precios_Click(sender As Object, e As EventArgs) Handles pRegistro_Precios.Click
+        frmCompaador.Show()
+        frmCompaador.BringToFront()
+    End Sub
+
+    Private Sub pReporte_Precios_Click(sender As Object, e As EventArgs) Handles pReporte_Precios.Click
+
     End Sub
 End Class

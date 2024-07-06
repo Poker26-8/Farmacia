@@ -828,9 +828,9 @@ Partial Class frmNuvRepVentas
         Me.boxcantidad.Controls.Add(Me.txtcodigo)
         Me.boxcantidad.Controls.Add(Me.txtcantidad)
         Me.boxcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxcantidad.Location = New System.Drawing.Point(424, 102)
+        Me.boxcantidad.Location = New System.Drawing.Point(418, 102)
         Me.boxcantidad.Name = "boxcantidad"
-        Me.boxcantidad.Size = New System.Drawing.Size(219, 58)
+        Me.boxcantidad.Size = New System.Drawing.Size(225, 60)
         Me.boxcantidad.TabIndex = 236
         Me.boxcantidad.TabStop = False
         Me.boxcantidad.Text = "Ingrese el número de parcialidad"
