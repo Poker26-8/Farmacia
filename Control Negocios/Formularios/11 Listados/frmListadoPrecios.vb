@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.Office.Interop
 Imports System.Data.OleDb
 Imports MySql.Data
+Imports MySql.Data.MySqlClient
 
 Public Class frmListadoPrecios
     Dim Partes As Boolean = False
@@ -2327,6 +2328,24 @@ Public Class frmListadoPrecios
 
     Private Sub opttodos_Click(sender As System.Object, e As System.EventArgs) Handles opttodos.Click
         If (opttodos.Checked) Then
+
+            Dim cnn100 As MySqlConnection = New MySqlConnection()
+            cnn100 = New MySqlClient.MySqlConnection("server=" & servidor & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300")
+
+
+            Dim cmd100 As MySqlCommand
+            Dim rd100 As MySqlDataReader
+
+
+
+
+            Dim cnn200 As MySqlConnection = New MySqlConnection()
+
+            cnn200 = New MySqlClient.MySqlConnection("server=" & servidor & ";uid=Delsscom;password=jipl22;database=cn1;persist security info=false;connect timeout=300")
+            Dim cmd200 As MySqlCommand
+            Dim rd200 As MySqlDataReader
+
+
             grdcaptura.Rows.Clear()
             cbofiltro.Text = ""
             cbofiltro.Enabled = False
@@ -2774,115 +2793,117 @@ Public Class frmListadoPrecios
             If (optord_grupo.Checked) Then order_by = "Grupo"
 
             Try
-                cnn1.Close() : cnn1.Open()
+                cnn100.Close() : cnn100.Open()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
+                cmd100 = cnn100.CreateCommand
+                cmd100.CommandText =
                     "select count(Codigo) from Productos"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        conteo = rd1(0).ToString
+                rd100 = cmd100.ExecuteReader
+                If rd100.HasRows Then
+                    If rd100.Read Then
+                        conteo = rd100(0).ToString
                     End If
                 End If
-                rd1.Close()
+                rd100.Close()
 
                 ProgressBar1.Value = 0
                 ProgressBar1.Visible = True
                 ProgressBar1.Maximum = conteo
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos order by " & order_by
-                rd1 = cmd1.ExecuteReader
-                cnn2.Close() : cnn2.Open()
-                Do While rd1.Read
-                    codigo = rd1("Codigo").ToString
-                    barras = rd1("CodBarra").ToString
-                    nombre = rd1("Nombre").ToString
-                    unidad = rd1("UVenta").ToString
-                    provee = rd1("ProvPri").ToString
+                cmd100 = cnn100.CreateCommand
+                cmd100.CommandText =
+                    "select * from Productos order by " & order_by
+                rd100 = cmd100.ExecuteReader
+                ' cnn200.Close() : cnn200.Open()
+                Do While rd100.Read
 
-                    desdecantlista = rd1("CantLst1").ToString
-                    hastacanlista = rd1("CantLst2").ToString
+                    codigo = rd100("Codigo").ToString
+                    barras = rd100("CodBarra").ToString
+                    nombre = rd100("Nombre").ToString
+                    unidad = rd100("UVenta").ToString
+                    provee = rd100("ProvPri").ToString
 
-                    pormin = rd1("PorcMin").ToString
-                    desdecantmin = rd1("CantMin1").ToString
-                    hastacantmin = rd1("CantMin2").ToString
+                    desdecantlista = rd100("CantLst1").ToString
+                    hastacanlista = rd100("CantLst2").ToString
 
-                    pormay = rd1("PorcMay").ToString
-                    desdecantmay = rd1("CantMay1").ToString
-                    hastacantmay = rd1("CantMay2").ToString
+                    pormin = rd100("PorcMin").ToString
+                    desdecantmin = rd100("CantMin1").ToString
+                    hastacantmin = rd100("CantMin2").ToString
 
-                    pormedio = rd1("PorcMM").ToString
-                    desdecantmedio = rd1("CantMM1").ToString
-                    hastacantmedio = rd1("CantMM2").ToString
+                    pormay = rd100("PorcMay").ToString
+                    desdecantmay = rd100("CantMay1").ToString
+                    hastacantmay = rd100("CantMay2").ToString
 
-                    poresp = rd1("PorcEsp").ToString
-                    desdecantesp = rd1("CantEsp1").ToString
-                    hastacantesp = rd1("CantEsp2").ToString
+                    pormedio = rd100("PorcMM").ToString
+                    desdecantmedio = rd100("CantMM1").ToString
+                    hastacantmedio = rd100("CantMM2").ToString
 
-                    cantlista3 = rd1("CantLst3").ToString
-                    cantlista4 = rd1("CantLst4").ToString
+                    poresp = rd100("PorcEsp").ToString
+                    desdecantesp = rd100("CantEsp1").ToString
+                    hastacantesp = rd100("CantEsp2").ToString
 
-                    cantmin3 = rd1("CantMin3").ToString
-                    cantmin4 = rd1("CantMin4").ToString
+                    cantlista3 = rd100("CantLst3").ToString
+                    cantlista4 = rd100("CantLst4").ToString
 
-                    cantmay3 = rd1("CantMay3").ToString
-                    cantmay4 = rd1("CantMay4").ToString
+                    cantmin3 = rd100("CantMin3").ToString
+                    cantmin4 = rd100("CantMin4").ToString
 
-                    cantmedio3 = rd1("CantMM3").ToString
-                    cantmedio4 = rd1("CantMM4").ToString
+                    cantmay3 = rd100("CantMay3").ToString
+                    cantmay4 = rd100("CantMay4").ToString
 
-                    cantesp3 = rd1("CantEsp3").ToString
-                    cantesp4 = rd1("CantEsp4").ToString
+                    cantmedio3 = rd100("CantMM3").ToString
+                    cantmedio4 = rd100("CantMM4").ToString
 
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
+                    cantesp3 = rd100("CantEsp3").ToString
+                    cantesp4 = rd100("CantEsp4").ToString
+
+                    cnn200.Close() : cnn200.Open()
+                    cmd200 = cnn200.CreateCommand
+                    cmd200.CommandText =
                         "select * from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            TiCamb = rd2("tipo_cambio").ToString
+                    rd200 = cmd200.ExecuteReader
+                    If rd200.HasRows Then
+                        If rd200.Read Then
+                            TiCamb = rd200("tipo_cambio").ToString
 
-                            cost_siva = IIf(rd2("PrecioCompra").ToString = "", 0, rd2("PrecioCompra").ToString)
-                            cost_civa = CDbl(IIf(rd2("PrecioCompra").ToString = "", 0, rd2("PrecioCompra").ToString)) * (1 + CDbl(rd2("IVA").ToString))
+                            cost_siva = IIf(rd200("PrecioCompra").ToString = "", 0, rd200("PrecioCompra").ToString)
+                            cost_civa = CDbl(IIf(rd200("PrecioCompra").ToString = "", 0, rd200("PrecioCompra").ToString)) * (1 + CDbl(rd200("IVA").ToString))
 
-                            pre_list = IIf(rd2("PrecioVentaIVA").ToString = "", 0, rd2("PrecioVentaIVA").ToString)
-                            pre_mini = IIf(rd2("PreMin").ToString = "", 0, rd2("PreMin").ToString)
-                            pre_medi = IIf(rd2("PreMM").ToString = "", 0, rd2("PreMM").ToString)
-                            pre_mayo = IIf(rd2("PreMay").ToString = "", 0, rd2("PreMay").ToString)
-                            pre_espe = IIf(rd2("PreEsp").ToString = "", 0, rd2("PreEsp").ToString)
-                            porcentaje = IIf(rd2("Porcentaje").ToString = "", 0, rd2("Porcentaje").ToString)
+                            pre_list = IIf(rd200("PrecioVentaIVA").ToString = "", 0, rd200("PrecioVentaIVA").ToString)
+                            pre_mini = IIf(rd200("PreMin").ToString = "", 0, rd200("PreMin").ToString)
+                            pre_medi = IIf(rd200("PreMM").ToString = "", 0, rd200("PreMM").ToString)
+                            pre_mayo = IIf(rd200("PreMay").ToString = "", 0, rd200("PreMay").ToString)
+                            pre_espe = IIf(rd200("PreEsp").ToString = "", 0, rd200("PreEsp").ToString)
+                            porcentaje = IIf(rd200("Porcentaje").ToString = "", 0, rd200("Porcentaje").ToString)
 
-                            porcentaje2 = IIf(rd2("Porcentaje2").ToString = "", 0, rd2("Porcentaje2").ToString)
-                            preciolista2 = IIf(rd2("PrecioVentaIVA2").ToString = "", 0, rd2("PrecioVentaIVA2").ToString)
+                            porcentaje2 = IIf(rd200("Porcentaje2").ToString = "", 0, rd200("Porcentaje2").ToString)
+                            preciolista2 = IIf(rd200("PrecioVentaIVA2").ToString = "", 0, rd200("PrecioVentaIVA2").ToString)
 
-                            porcentajemin2 = IIf(rd2("PorcMin2").ToString = "", 0, rd2("PorcMin2").ToString)
-                            preciomin2 = IIf(rd2("PreMin2").ToString = "", 0, rd2("PreMin2").ToString)
+                            porcentajemin2 = IIf(rd200("PorcMin2").ToString = "", 0, rd200("PorcMin2").ToString)
+                            preciomin2 = IIf(rd200("PreMin2").ToString = "", 0, rd200("PreMin2").ToString)
 
-                            porcentajemay2 = IIf(rd2("PorcMay2").ToString = "", 0, rd2("PorcMay2").ToString)
-                            preciomay2 = IIf(rd2("PreMay2").ToString = "", 0, rd2("PreMay2").ToString)
+                            porcentajemay2 = IIf(rd200("PorcMay2").ToString = "", 0, rd200("PorcMay2").ToString)
+                            preciomay2 = IIf(rd200("PreMay2").ToString = "", 0, rd200("PreMay2").ToString)
 
-                            porcentajemedio2 = IIf(rd2("PorcMM2").ToString = "", 0, rd2("PorcMM2").ToString)
-                            preciomedio2 = IIf(rd2("PreMM2").ToString = "", 0, rd2("PreMM2").ToString)
+                            porcentajemedio2 = IIf(rd200("PorcMM2").ToString = "", 0, rd200("PorcMM2").ToString)
+                            preciomedio2 = IIf(rd200("PreMM2").ToString = "", 0, rd200("PreMM2").ToString)
 
-                            porcentajeesp2 = IIf(rd2("PorcEsp2").ToString = "", 0, rd2("PorcEsp2").ToString)
-                            precioesp2 = IIf(rd2("PreEsp2").ToString = "", 0, rd2("PreEsp2").ToString)
+                            porcentajeesp2 = IIf(rd200("PorcEsp2").ToString = "", 0, rd200("PorcEsp2").ToString)
+                            precioesp2 = IIf(rd200("PreEsp2").ToString = "", 0, rd200("PreEsp2").ToString)
                         End If
                     End If
-                    rd2.Close()
+                    rd200.Close()
 
                     grdcaptura.Rows.Add(codigo, barras, nombre, unidad, provee, FormatNumber(cost_siva, 2), FormatNumber(cost_civa, 2), FormatNumber(pre_mini * TiCamb, 2), FormatNumber(pre_mayo * TiCamb, 2), FormatNumber(pre_medi * TiCamb, 2), FormatNumber(pre_espe * TiCamb, 2), FormatNumber(pre_list * TiCamb, 2), FormatNumber(porcentaje, 2), desdecantlista, hastacanlista, pormin, desdecantmin, hastacantmin, pormay, desdecantmay, hastacantmay, pormedio, desdecantmedio, hastacantmedio, poresp, desdecantesp, hastacantesp, porcentaje2, preciolista2, cantlista3, cantlista4, porcentajemin2, preciomin2, cantmin3, cantmin4, porcentajemay2, preciomay2, cantmay3, cantmay4, porcentajemedio2, preciomedio2, cantmedio3, cantmedio4, porcentajeesp2, precioesp2, cantesp3, cantesp4)
                     ProgressBar1.Value = ProgressBar1.Value + 1
                 Loop
-                cnn2.Close()
-                rd1.Close() : cnn1.Close()
+                cnn200.Close()
+                rd100.Close() : cnn100.Close()
                 ProgressBar1.Value = 0
                 ProgressBar1.Visible = False
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
-                cnn1.Close()
+                cnn100.Close()
             End Try
         End If
     End Sub

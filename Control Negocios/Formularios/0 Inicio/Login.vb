@@ -225,6 +225,7 @@ Public Class Login
             conexion.Close()
         End Try
 
+
         cnn1 = New MySqlClient.MySqlConnection("server=" & servidor & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
         cnn2 = New MySqlClient.MySqlConnection("server=" & servidor & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
         cnn3 = New MySqlClient.MySqlConnection("server=" & servidor & ";uid=Delsscom;password=jipl22;database=cn" & cboEmpresa.Text & ";persist security info=false;connect timeout=300")
