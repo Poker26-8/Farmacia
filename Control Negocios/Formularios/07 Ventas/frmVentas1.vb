@@ -1020,7 +1020,7 @@ kak:
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select Folio,Codigo,sum(Cantidad) from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & codigo & "' order by Nombre"
+                "select Folio,Codigo,Cantidad from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & codigo & "' order by Nombre"
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then
