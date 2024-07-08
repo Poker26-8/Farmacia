@@ -664,10 +664,11 @@ Partial Class frmOrdenTrabajo
         '
         'btnguardar
         '
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnguardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
+        Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnguardar.Location = New System.Drawing.Point(814, 393)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(60, 63)
@@ -745,6 +746,7 @@ Partial Class frmOrdenTrabajo
         Me.Controls.Add(Me.cboCodigoListo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmOrdenTrabajo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Orden de trabajo"

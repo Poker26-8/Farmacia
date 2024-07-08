@@ -1935,6 +1935,211 @@ doorcita:
             System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
         End If
     End Sub
+
+    Private Sub PDF_Venta_2()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Ventas2
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        Dim TotalIEPSPrint As Double = 0
+        Dim SubtotalPrint As Double = 0
+        Dim MySubtotal As Double = 0
+        Dim TotalIVAPrint As Double = 0
+
+        Dim SubTotal As Double = 0
+        Dim IVA_Vent As Double = 0
+        Dim Total_Ve As Double = 0
+
+        Dim PieNota As String = ""
+        Dim Pagare As String = ""
+
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+        Try
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+            If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
+
+            cnn1.Close() : cnn1.Open()
+            For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
+                                MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                End If
+            Next
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            MySubtotal = FormatNumber(MySubtotal, 4)
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Pie1, Pagare from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    PieNota = rd1(0).ToString()
+                    Pagare = rd1(1).ToString()
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+        IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
+        SubTotal = FormatNumber(TotalIVAPrint, 4)
+        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
+
+        Dim TotTarjeta As Double = 0, TotTransfe As Double = 0, TotMonedero As Double = 0, TotOtros As Double = 0
+        If grdpago.Rows.Count > 0 Then
+            For R As Integer = 0 To grdpago.Rows.Count - 1
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "TARJETA" Then
+                    TotTarjeta = TotTarjeta + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "TRANSFERENCIA" Then
+                    TotTransfe = TotTransfe + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "MONEDERO" Then
+                    TotMonedero = TotMonedero + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+                If CStr(grdpago.Rows(R).Cells(0).Value.ToString) = "OTRO" Then
+                    TotOtros = TotOtros + CDbl(grdpago.Rows(R).Cells(3).Value.ToString)
+                End If
+            Next
+        End If
+
+        'Los totales los va a mandar directos
+        FileNta.SetDatabaseLogon("", "jipl22")
+
+        Dim observaciones As String = ""
+        observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+        FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & MYFOLIO & "'"
+        'FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
+        FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txtPagar.Text) & "'"
+        FileNta.DataDefinition.FormulaFields("comentario").Text = "'" & observaciones & "'"
+        FileNta.DataDefinition.FormulaFields("pie").Text = "'" & PieNota & "'"
+        ''Pagos
+        'If DesglosaIVA = "1" Then
+        '    If SubTotal > 0 Then
+        '        FileNta.DataDefinition.FormulaFields("subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"       'Subtotal
+        '    End If
+        '    If IVA_Vent > 0 Then
+        '        If IVA_Vent > 0 And IVA_Vent <> CDbl(txtPagar.Text) Then
+        '            FileNta.DataDefinition.FormulaFields("iva_vent").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"   'IVA
+        '        End If
+        '    End If
+        'End If
+        FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+        If CDbl(txtefectivo.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("efectivo").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
+        End If
+        If CDbl(txtCambio.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("cambio").Text = "'" & FormatNumber(txtCambio.Text, 4) & "'"      'Cambio
+        End If
+        Dim tot_otros As Double = TotTarjeta + TotTransfe + TotMonedero + TotOtros
+        If tot_otros > 0 Then
+            FileNta.DataDefinition.FormulaFields("otros").Text = "'" & FormatNumber(TotTarjeta, 4) & "'"
+        End If
+        If CDbl(txtResta.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("resta").Text = "'" & FormatNumber(txtResta.Text, 4) & "'"        'Resta
+        End If
+
+        If Entrega = True Then
+            FileNta.DataDefinition.FormulaFields("Fecha_Entrega").Text = "'" & FormatDateTime(dtpFecha_E.Value, DateFormat.ShortDate) & "'"
+        End If
+        'If Pagare <> "" Then
+        '    FileNta.DataDefinition.FormulaFields("Pagare").Text = "'" & Pagare & "'"
+        'End If
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Process.Start(FileOpen)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & MYFOLIO & ".pdf")
+        End If
+    End Sub
     Public Sub Termina_Error_Ventas()
         Dim pide As String = "", contra As String = txtcontraseña.Text, usu As String = lblusuario.Text
 
@@ -2540,7 +2745,8 @@ doorcita:
     Private Sub cboimpresion_DropDown(sender As Object, e As EventArgs) Handles cboimpresion.DropDown
         cboimpresion.Items.Clear()
         cboimpresion.Items.Add("TICKET")
-        cboimpresion.Items.Add("PDF - CARTA")
+        cboimpresion.Items.Add("PDF - CARTA 1")
+        cboimpresion.Items.Add("PDF - CARTA 2")
     End Sub
 
     Private Sub chkBuscaCliente_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaCliente.CheckedChanged
@@ -8560,7 +8766,7 @@ Door:
             End If
             rd1.Close()
 
-            If TPrint = "PDF - CARTA" Then
+            If TPrint = "PDF - CARTA 1" Then
 
                 'Genera PDF y lo guarda en la ruta
                 Panel6.Visible = True
@@ -8570,7 +8776,18 @@ Door:
                 Panel6.Visible = False
                 My.Application.DoEvents()
 
-            Else
+            ElseIf TPrint = "PDF - CARTA 2" Then
+
+                'Genera PDF y lo guarda en la ruta
+                Panel6.Visible = True
+                My.Application.DoEvents()
+                Insert_Venta()
+                PDF_Venta_2()
+                Panel6.Visible = False
+                My.Application.DoEvents()
+
+            ElseIf TPrint = "TICKET" Then
+
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
                     "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"

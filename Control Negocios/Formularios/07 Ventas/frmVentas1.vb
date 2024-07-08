@@ -11045,17 +11045,18 @@ ecomoda:
         Dim DesglosaIVA As String = DatosRecarga("Desglosa")
 
         Try
+
             '[°]. Logotipo
             If tLogo <> "SIN" Then
                 If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
                     If tLogo = "CUAD" Then
                         e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                        Y += 130
+                        Y += 153
                     End If
                     If tLogo = "RECT" Then
-                        e.Graphics.DrawImage(Logotipo, 30, 0, 110, 110)
-                        Y += 120
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 250, 150)
+                        Y += 153
                     End If
                 End If
             Else
@@ -11066,8 +11067,7 @@ ecomoda:
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Ticket"
+            cmd1.CommandText = "select * from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -11107,7 +11107,7 @@ ecomoda:
                         e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
                         Y += 12
                     End If
-                    Y += 17
+                    Y += 10
                 End If
             Else
                 Y += 0

@@ -4364,4 +4364,9 @@ Public Class Inicio
         frmAutoservicio.Show()
         frmAutoservicio.BringToFront()
     End Sub
+
+    Private Sub pRegistro_Precios_Click(sender As Object, e As EventArgs) Handles pRegistro_Precios.Click
+        frmComparador.Show()
+        frmComparador.BringToFront()
+    End Sub
 End Class

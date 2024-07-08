@@ -2557,7 +2557,8 @@ Public Class frmConsultaNotas
                     pVentasCarta.PrinterSettings.PrinterName = imp_carta
                     pVentasCarta.Print()
                 End If
-                If formato = "PDF - CARTA" Then
+
+                If formato = "PDF - CARTA 1" Then
                     If varrutabase <> "" Then
                         'root_name_recibo2 = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & Folio & ".pdf"
                         If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
@@ -2569,6 +2570,20 @@ Public Class frmConsultaNotas
                         End If
                     End If
                 End If
+
+                If formato = "PDF - CARTA 2" Then
+                    If varrutabase <> "" Then
+                        'root_name_recibo2 = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & Folio & ".pdf"
+                        If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                            Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+                        End If
+                    Else
+                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+                        End If
+                    End If
+                End If
+
             End If
             If (optPedidos.Checked) Then
                 If formato = "TICKET" Then
