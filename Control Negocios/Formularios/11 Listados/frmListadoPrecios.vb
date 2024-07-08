@@ -2812,7 +2812,7 @@ Public Class frmListadoPrecios
 
                 cmd100 = cnn100.CreateCommand
                 cmd100.CommandText =
-                    "select * from Productos order by " & order_by
+                    "select Codigo,CodBarra,Nombre,UVenta,ProvPri,CantLst1,CantLst2,PorcMin,CantMin1,CantMin2,PorcMay,CantMay1,CantMay2,PorcMM,CantMM1,CantMM2,PorcEsp,CantEsp1,CantEsp2,CantLst3,CantLst4,CantMin3,CantMin4,CantMay3,CantMay4,CantMM3,CantMM4,CantEsp3,CantEsp4 from Productos order by " & order_by
                 rd100 = cmd100.ExecuteReader
                 ' cnn200.Close() : cnn200.Open()
                 Do While rd100.Read
@@ -2860,7 +2860,7 @@ Public Class frmListadoPrecios
                     cnn200.Close() : cnn200.Open()
                     cmd200 = cnn200.CreateCommand
                     cmd200.CommandText =
-                        "select * from Productos INNER JOIN tb_moneda ON Productos.id_tbMoneda=tb_moneda.id where Codigo='" & codigo & "' order by Nombre"
+                        "select * from Productos p INNER JOIN tb_moneda tm ON p.id_tbMoneda=tm.id where Codigo='" & codigo & "' order by Nombre"
                     rd200 = cmd200.ExecuteReader
                     If rd200.HasRows Then
                         If rd200.Read Then
