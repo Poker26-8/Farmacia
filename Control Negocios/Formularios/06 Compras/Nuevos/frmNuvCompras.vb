@@ -98,7 +98,7 @@ Public Class frmNuvCompras
         cnn1.Close()
         cnn2.Close()
 
-        grdcaptura.Rows.Clear()
+        ' grdcaptura.Rows.Clear()
         grdcaptura.DefaultCellStyle.ForeColor = Color.Black
         printLine = 0
         Contador = 0
@@ -837,6 +837,23 @@ Public Class frmNuvCompras
             If (CodBarra()) Then
                 txtcantidad.Focus().Equals(True)
             Else
+                Try
+                    cnn1.Close() : cnn1.Open()
+
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText = "SELECT Codigo FROM Productos where Nombre='" & cbonombre.Text & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            txtcodigo.Text = Strings.Left(rd1("Codigo").ToString, 6)
+                        End If
+                    End If
+                    rd1.Close()
+                    cnn1.Close()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                    cnn1.Close()
+                End Try
                 txtcodigo.Focus().Equals(True)
             End If
         End If
@@ -901,7 +918,8 @@ Public Class frmNuvCompras
                     Bool = True
                 End If
             Else
-                cbonombre.Text = ""
+
+                ' cbonombre.Text = ""
                 cbonombre.Focus().Equals(True)
             End If
 

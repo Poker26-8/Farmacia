@@ -416,4 +416,27 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
         End Try
     End Sub
+
+    Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
+        Dim INDEX As Integer = grdcaptura.CurrentRow.Index
+        Dim COD As String = grdcaptura.Rows(INDEX).Cells(0).Value.ToString
+
+        Dim codbarra As String = ""
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT CodBarra FROM productos WHERE Codigo='" & COD & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                codbarra = rd1(0).ToString
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
+        frmComparador.txtCodBarra.Text = codbarra
+        frmComparador.Show()
+        frmComparador.BringToFront()
+    End Sub
 End Class

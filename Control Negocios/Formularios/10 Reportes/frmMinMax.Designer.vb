@@ -22,14 +22,14 @@ Partial Class frmMinMax
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMinMax))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.optTodos = New System.Windows.Forms.RadioButton()
@@ -52,14 +52,14 @@ Partial Class frmMinMax
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnCance = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.lblprove = New System.Windows.Forms.Label()
         Me.gbFecha = New System.Windows.Forms.GroupBox()
-        Me.btnGFecha = New System.Windows.Forms.Button()
-        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
-        Me.btnCance = New System.Windows.Forms.Button()
         Me.btnCanceF = New System.Windows.Forms.Button()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.btnGFecha = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -136,8 +136,8 @@ Partial Class frmMinMax
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -168,8 +168,8 @@ Partial Class frmMinMax
         '
         'Column3
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column3.HeaderText = "Unidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
@@ -177,8 +177,8 @@ Partial Class frmMinMax
         '
         'Column4
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Existencia"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -186,42 +186,42 @@ Partial Class frmMinMax
         '
         'Column8
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column8.HeaderText = "Total cantidad vendida"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
         '
         'Column5
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column5.HeaderText = "Consumo diario promedio"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
         'Column9
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column9.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column9.HeaderText = "Tiempo de entrega"
         Me.Column9.Name = "Column9"
         Me.Column9.ReadOnly = True
         '
         'Column6
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Blue
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Mínimo recomendado"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         '
         'Column7
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Blue
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column7.HeaderText = "Máximo recomendado"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -288,6 +288,20 @@ Partial Class frmMinMax
         Me.GroupBox1.Text = "Proveedor"
         Me.GroupBox1.Visible = False
         '
+        'btnCance
+        '
+        Me.btnCance.BackColor = System.Drawing.Color.White
+        Me.btnCance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCance.Image = CType(resources.GetObject("btnCance.Image"), System.Drawing.Image)
+        Me.btnCance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCance.Location = New System.Drawing.Point(271, 40)
+        Me.btnCance.Name = "btnCance"
+        Me.btnCance.Size = New System.Drawing.Size(110, 42)
+        Me.btnCance.TabIndex = 246
+        Me.btnCance.Text = "Cancelar"
+        Me.btnCance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCance.UseVisualStyleBackColor = False
+        '
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.Color.White
@@ -335,43 +349,6 @@ Partial Class frmMinMax
         Me.gbFecha.Text = "Fecha Inicial"
         Me.gbFecha.Visible = False
         '
-        'btnGFecha
-        '
-        Me.btnGFecha.BackColor = System.Drawing.Color.White
-        Me.btnGFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGFecha.Image = CType(resources.GetObject("btnGFecha.Image"), System.Drawing.Image)
-        Me.btnGFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGFecha.Location = New System.Drawing.Point(155, 22)
-        Me.btnGFecha.Name = "btnGFecha"
-        Me.btnGFecha.Size = New System.Drawing.Size(110, 44)
-        Me.btnGFecha.TabIndex = 245
-        Me.btnGFecha.Text = "Guardar"
-        Me.btnGFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGFecha.UseVisualStyleBackColor = False
-        '
-        'dtpFecha
-        '
-        Me.dtpFecha.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(6, 31)
-        Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(143, 29)
-        Me.dtpFecha.TabIndex = 246
-        '
-        'btnCance
-        '
-        Me.btnCance.BackColor = System.Drawing.Color.White
-        Me.btnCance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCance.Image = CType(resources.GetObject("btnCance.Image"), System.Drawing.Image)
-        Me.btnCance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCance.Location = New System.Drawing.Point(271, 40)
-        Me.btnCance.Name = "btnCance"
-        Me.btnCance.Size = New System.Drawing.Size(110, 42)
-        Me.btnCance.TabIndex = 246
-        Me.btnCance.Text = "Cancelar"
-        Me.btnCance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCance.UseVisualStyleBackColor = False
-        '
         'btnCanceF
         '
         Me.btnCanceF.BackColor = System.Drawing.Color.White
@@ -385,6 +362,29 @@ Partial Class frmMinMax
         Me.btnCanceF.Text = "Cancelar"
         Me.btnCanceF.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCanceF.UseVisualStyleBackColor = False
+        '
+        'dtpFecha
+        '
+        Me.dtpFecha.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecha.Location = New System.Drawing.Point(6, 31)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(143, 29)
+        Me.dtpFecha.TabIndex = 246
+        '
+        'btnGFecha
+        '
+        Me.btnGFecha.BackColor = System.Drawing.Color.White
+        Me.btnGFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGFecha.Image = CType(resources.GetObject("btnGFecha.Image"), System.Drawing.Image)
+        Me.btnGFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGFecha.Location = New System.Drawing.Point(155, 22)
+        Me.btnGFecha.Name = "btnGFecha"
+        Me.btnGFecha.Size = New System.Drawing.Size(110, 44)
+        Me.btnGFecha.TabIndex = 245
+        Me.btnGFecha.Text = "Guardar"
+        Me.btnGFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGFecha.UseVisualStyleBackColor = False
         '
         'Button5
         '
