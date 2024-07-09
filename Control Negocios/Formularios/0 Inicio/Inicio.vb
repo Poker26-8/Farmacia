@@ -3145,6 +3145,9 @@ Public Class Inicio
     Private Sub PedidosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pPedidos.Click
         frmPedidos.Show()
         frmPedidos.BringToFront()
+
+        frmPedidosN.Show()
+        frmPedidosN.BringToFront()
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -4373,5 +4376,7 @@ Public Class Inicio
     Private Sub pReporte_Precios_Click(sender As Object, e As EventArgs) Handles pReporte_Precios.Click
         frmRepComparador.Show()
         frmRepComparador.BringToFront()
+
+
     End Sub
 End Class

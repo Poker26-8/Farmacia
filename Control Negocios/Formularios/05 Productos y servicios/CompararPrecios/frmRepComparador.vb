@@ -22,7 +22,7 @@
 
     Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
         Try
-
+            grdPrecios.Rows.Clear()
             Dim codigo As String = ""
             Dim preciominimo As Double = 0
             Dim proveedormin As String = ""

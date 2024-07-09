@@ -780,6 +780,10 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                            'precios
+                            .runSp(cnnprueba, vartablaprecios, sinfo)
+                            .runSp(cnnprueba, VarKeyprecios, sinfo)
+                            .runSp(cnnprueba, varAutoprecios, sinfo)
 
                             'marcas
                             .runSp(cnnprueba, vartablamarcas, sinfo)

@@ -1279,12 +1279,12 @@ Public Class frmProductosS
                     departamento = Trim(Replace(departamento, "‘", "''"))
                     grupo = Trim(Replace(grupo, "‘", "''"))
 
-                    If (Comprueba(codigo, nombre, codbarras)) Then
+                    'If (Comprueba(codigo, nombre, codbarras)) Then
 
-                        cnn2.Close()
-                        cnn2.Open()
+                    cnn2.Close()
+                    cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "Insert into Productos(Codigo, CodBarra, nombre, nombrelargo, provpri, proveme, provres, ucompra, uventa, UMinima, mcd, multiplo, departamento, grupo, ubicacion, min, max, comision, preciocompra, PorcMin, Porcentaje, precioventa, precioventaiva, iva, existencia, PorcMay, PorcMM, PorcEsp, premay, premm, preesp, CantMin1, CantMay1, CantMM1, CantEsp1, CantLst1, cantmin2, cantmay2, cantmm2, cantesp2, CantLst2, pres_vol, id_tbmoneda, almacen3, clavesat, UnidadSat, isr,Fecha,Fecha_inicial,fecha_final) values('" & codigo & "','" & codbarras & "','" & nombre & "','" & nombrelargo & "','" & provpri & "','" & proveme & "'," & provres & ",'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & min & "," & max & ",'" & comision & "'," & preciocompra & "," & porcentagemin & "," & porcentage & "," & precioventa & "," & precioventaiva & "," & iva & "," & existencia & "," & pormay & "," & pormm & "," & poresp & "," & premay & "," & premm & "," & preesp & "," & cantmin & "," & cantmay & "," & cantmm & "," & cantesp & "," & cantlta & "," & cantmin2 & "," & cantmay2 & "," & cantmm2 & "," & cantesp2 & "," & cantlta & "," & presvol & "," & id_tbmoneda & "," & almacen3 & ",'" & clavesat & "','" & claveunidad & "'," & isr & ",'" & fecha & "','" & fecha & "','" & fecha & "')"
+                        cmd2.CommandText = "Insert into Productos(Codigo, CodBarra, nombre, nombrelargo, provpri, proveme, provres, ucompra, uventa, UMinima, mcd, multiplo, departamento, grupo, ubicacion, min, max, comision, preciocompra, PorcMin, Porcentaje, precioventa, precioventaiva,PreMin, iva, existencia, PorcMay, PorcMM, PorcEsp, premay, premm, preesp, CantMin1, CantMay1, CantMM1, CantEsp1, CantLst1, cantmin2, cantmay2, cantmm2, cantesp2, CantLst2, pres_vol, id_tbmoneda, almacen3, clavesat, UnidadSat, isr,Fecha,Fecha_inicial,fecha_final) values('" & codigo & "','" & codbarras & "','" & nombre & "','" & nombrelargo & "','" & provpri & "','" & proveme & "'," & provres & ",'" & ucompra & "','" & uventa & "','" & ventamin & "'," & mcd & "," & multiplo & ",'" & departamento & "','" & grupo & "','" & ubicacion & "'," & min & "," & max & ",'" & comision & "'," & preciocompra & "," & porcentagemin & "," & porcentage & "," & precioventa & "," & precioventaiva & "," & precioventaminiva & "," & iva & "," & existencia & "," & pormay & "," & pormm & "," & poresp & "," & premay & "," & premm & "," & preesp & "," & cantmin & "," & cantmay & "," & cantmm & "," & cantesp & "," & cantlta & "," & cantmin2 & "," & cantmay2 & "," & cantmm2 & "," & cantesp2 & "," & cantlta & "," & presvol & "," & id_tbmoneda & "," & almacen3 & ",'" & clavesat & "','" & claveunidad & "'," & isr & ",'" & fecha & "','" & fecha & "','" & fecha & "')"
                         If cmd2.ExecuteNonQuery Then
                             cuantos = cuantos + 1
                             txtbarras.Text = cuantos
@@ -1293,11 +1293,11 @@ Public Class frmProductosS
                             MsgBox("Revisa el codigo " & codigo & " hay un error", vbCritical + vbOKOnly)
                         End If
 
-                    Else
-                        'conteo += 1
-                        'barsube.Value = conteo
-                        Continue Do
-                    End If
+                    'Else
+                    '    'conteo += 1
+                    '    'barsube.Value = conteo
+                    '    Continue Do
+                    'End If
 
 
                 Loop
@@ -1771,5 +1771,9 @@ Public Class frmProductosS
             cnn2.Close()
         End Try
 
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
     End Sub
 End Class
