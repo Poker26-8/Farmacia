@@ -4369,4 +4369,9 @@ Public Class Inicio
         frmComparador.Show()
         frmComparador.BringToFront()
     End Sub
+
+    Private Sub pReporte_Precios_Click(sender As Object, e As EventArgs) Handles pReporte_Precios.Click
+        frmRepComparador.Show()
+        frmRepComparador.BringToFront()
+    End Sub
 End Class

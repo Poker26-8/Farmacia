@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmComparador
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmComparador
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmComparador))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -69,7 +69,7 @@ Partial Class frmComparador
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(569, 31)
+        Me.Label1.Size = New System.Drawing.Size(568, 31)
         Me.Label1.TabIndex = 6
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -167,7 +167,7 @@ Partial Class frmComparador
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 364)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(569, 91)
+        Me.Panel1.Size = New System.Drawing.Size(568, 91)
         Me.Panel1.TabIndex = 18
         '
         'DataGridView1
@@ -197,7 +197,7 @@ Partial Class frmComparador
         Me.btnImportar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImportar.Image = CType(resources.GetObject("btnImportar.Image"), System.Drawing.Image)
         Me.btnImportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImportar.Location = New System.Drawing.Point(239, 3)
+        Me.btnImportar.Location = New System.Drawing.Point(238, 3)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(75, 81)
         Me.btnImportar.TabIndex = 3
@@ -212,7 +212,7 @@ Partial Class frmComparador
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(320, 3)
+        Me.btnLimpiar.Location = New System.Drawing.Point(319, 3)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 81)
         Me.btnLimpiar.TabIndex = 2
@@ -227,7 +227,7 @@ Partial Class frmComparador
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(401, 3)
+        Me.btnGuardar.Location = New System.Drawing.Point(400, 3)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 81)
         Me.btnGuardar.TabIndex = 1
@@ -242,7 +242,7 @@ Partial Class frmComparador
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(482, 3)
+        Me.btnSalir.Location = New System.Drawing.Point(481, 3)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 81)
         Me.btnSalir.TabIndex = 0
@@ -285,7 +285,7 @@ Partial Class frmComparador
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 31)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(569, 162)
+        Me.Panel2.Size = New System.Drawing.Size(568, 162)
         Me.Panel2.TabIndex = 21
         '
         'Panel3
@@ -295,7 +295,7 @@ Partial Class frmComparador
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 193)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(569, 171)
+        Me.Panel3.Size = New System.Drawing.Size(568, 171)
         Me.Panel3.TabIndex = 22
         '
         'gbCantidad
@@ -305,9 +305,9 @@ Partial Class frmComparador
         Me.gbCantidad.Controls.Add(Me.btnGC)
         Me.gbCantidad.Controls.Add(Me.txtCantidad)
         Me.gbCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbCantidad.Location = New System.Drawing.Point(91, 39)
+        Me.gbCantidad.Location = New System.Drawing.Point(71, 39)
         Me.gbCantidad.Name = "gbCantidad"
-        Me.gbCantidad.Size = New System.Drawing.Size(387, 79)
+        Me.gbCantidad.Size = New System.Drawing.Size(390, 77)
         Me.gbCantidad.TabIndex = 245
         Me.gbCantidad.TabStop = False
         Me.gbCantidad.Text = "Cantidad"
@@ -321,7 +321,7 @@ Partial Class frmComparador
         Me.btnCance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCance.Location = New System.Drawing.Point(271, 25)
         Me.btnCance.Name = "btnCance"
-        Me.btnCance.Size = New System.Drawing.Size(110, 42)
+        Me.btnCance.Size = New System.Drawing.Size(113, 42)
         Me.btnCance.TabIndex = 248
         Me.btnCance.Text = "Cancelar"
         Me.btnCance.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -363,7 +363,7 @@ Partial Class frmComparador
         Me.GrdCaptura.Name = "GrdCaptura"
         Me.GrdCaptura.ReadOnly = True
         Me.GrdCaptura.RowHeadersVisible = False
-        Me.GrdCaptura.Size = New System.Drawing.Size(569, 171)
+        Me.GrdCaptura.Size = New System.Drawing.Size(568, 171)
         Me.GrdCaptura.TabIndex = 0
         '
         'Column1
@@ -376,11 +376,10 @@ Partial Class frmComparador
         '
         'Column2
         '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Column2.HeaderText = "Nombre"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 69
         '
         'Column3
         '
@@ -403,7 +402,7 @@ Partial Class frmComparador
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(569, 455)
+        Me.ClientSize = New System.Drawing.Size(568, 455)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -443,14 +442,14 @@ Partial Class frmComparador
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents GrdCaptura As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents pbsube As ProgressBar
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents gbCantidad As GroupBox
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents btnCance As Button
     Friend WithEvents btnGC As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
 End Class

@@ -459,6 +459,12 @@
     <Compile Include="Formularios\05 Productos y servicios\CompararPrecios\frmComparador.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\05 Productos y servicios\CompararPrecios\frmRepComparador.Designer.vb">
+      <DependentUpon>frmRepComparador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\05 Productos y servicios\CompararPrecios\frmRepComparador.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.Designer.vb">
       <DependentUpon>frmProducirF.vb</DependentUpon>
     </Compile>
@@ -2217,6 +2223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\CompararPrecios\frmComparador.resx">
       <DependentUpon>frmComparador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\05 Productos y servicios\CompararPrecios\frmRepComparador.resx">
+      <DependentUpon>frmRepComparador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.resx">
       <DependentUpon>frmProducirF.vb</DependentUpon>

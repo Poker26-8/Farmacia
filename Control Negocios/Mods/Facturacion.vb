@@ -6855,8 +6855,8 @@ puertaXD1:
                 Dim vartotalimpuestos As Double = 0
                 Dim varsum_vali As Double = 0
 
-                Dim variepspasados_vali(20) As String
-                For iz_vali = 0 To 19
+                Dim variepspasados_vali(50) As String
+                For iz_vali = 0 To 49
                     variepspasados_vali(iz_vali) = ""
                 Next
 
@@ -6864,7 +6864,7 @@ puertaXD1:
 
                     Dim variepssi_vali As Integer = 0
 
-                    For iz_vali = 0 To 19
+                    For iz_vali = 0 To 49
                         If variepspasados_vali(iz_vali) = arreg(i_vali) Then
                             variepssi_vali = 1
                             Exit For
@@ -6925,8 +6925,8 @@ puertaXD1:
                         Dim varsum As Double = 0
                         Dim varieps As String = ""
                         Dim varsumbase As Double = 0
-                        Dim variepspasados(20) As String
-                        For iz = 0 To 19
+                        Dim variepspasados(50) As String
+                        For iz = 0 To 49
                             variepspasados(iz) = ""
                         Next
 
@@ -6934,7 +6934,7 @@ puertaXD1:
 
                             Dim variepssi As Integer = 0
 
-                            For iz = 0 To 19
+                            For iz = 0 To 49
                                 If variepspasados(iz) = arreg(i) Then
                                     variepssi = 1
                                     Exit For
@@ -7195,15 +7195,15 @@ puertaXD1:
                             Dim varsum As Double = 0
                             Dim varieps As String = ""
                             Dim varsumbase As Double = 0
-                            Dim variepspasados(20) As String
-                            For iz = 0 To 19
+                            Dim variepspasados(50) As String
+                            For iz = 0 To 49
                                 variepspasados(iz) = ""
                             Next
                             For i = 0 To ieps_val - 1
 
                                 Dim variepssi As Integer = 0
 
-                                For iz = 0 To 19
+                                For iz = 0 To 49
                                     If variepspasados(iz) = arreg(i) Then
                                         variepssi = 1
                                         Exit For
@@ -7261,8 +7261,8 @@ puertaXD1:
                     Dim varieps As String = ""
                     Dim varsumbase As Double = 0
 
-                    Dim variepspasados(20) As String
-                    For iz = 0 To 19
+                    Dim variepspasados(50) As String
+                    For iz = 0 To 49
                         variepspasados(iz) = ""
                     Next
 
@@ -7270,7 +7270,7 @@ puertaXD1:
 
                         Dim variepssi As Integer = 0
 
-                        For iz = 0 To 19
+                        For iz = 0 To 49
                             If variepspasados(iz) = arreg(i) Then
                                 variepssi = 1
                                 Exit For
@@ -7463,15 +7463,15 @@ puertaXD1:
 
                             Dim varsumbase As Double = 0
 
-                            Dim variepspasados(20) As String
-                            For iz = 0 To 19
+                            Dim variepspasados(50) As String
+                            For iz = 0 To 49
                                 variepspasados(iz) = ""
                             Next
 
                             For i = 0 To ieps_val - 1
 
                                 Dim variepssi As Integer = 0
-                                For iz = 0 To 19
+                                For iz = 0 To 49
                                     If variepspasados(iz) = arreg(i) Then
                                         variepssi = 1
                                         Exit For
@@ -7666,8 +7666,8 @@ puertaXD4:
                             Else
 
                                 Dim varsumbase As Double = 0
-                                Dim variepspasados(20) As String
-                                For iz = 0 To 19
+                                Dim variepspasados(50) As String
+                                For iz = 0 To 49
                                     variepspasados(iz) = ""
                                 Next
 
@@ -7675,7 +7675,7 @@ puertaXD4:
 
                                     Dim variepssi As Integer = 0
 
-                                    For iz = 0 To 19
+                                    For iz = 0 To 49
                                         If variepspasados(iz) = arreg(i) Then
                                             variepssi = 1
                                             Exit For
@@ -7720,15 +7720,15 @@ puertaXD:
                     Else
 
                         Dim varsumbase As Double = 0
-                        Dim variepspasados(20) As String
-                        For iz = 0 To 19
+                        Dim variepspasados(50) As String
+                        For iz = 0 To 49
                             variepspasados(iz) = ""
                         Next
 
                         For i = 0 To ieps_val - 1
                             Dim variepssi As Integer = 0
 
-                            For iz = 0 To 19
+                            For iz = 0 To 49
                                 If variepspasados(iz) = arreg(i) Then
                                     variepssi = 1
                                     Exit For

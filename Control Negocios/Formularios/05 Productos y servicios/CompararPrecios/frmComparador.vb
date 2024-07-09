@@ -5,7 +5,7 @@
     Dim nombreseleccionado As String = ""
     Dim precioseleccionado As Double = 0
     Private Sub frmComparador_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        cboDescripcion.Focus.Equals(True)
+        txtCodBarra.Focus.Equals(True)
     End Sub
 
     Private Sub cboDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboDescripcion.KeyPress
@@ -34,8 +34,13 @@
 
     Private Sub txtCodBarra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodBarra.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            Datos()
-            cboDescripcion.Focus.Equals(True)
+            If cboDescripcion.Text = "" Then
+                Datos()
+                cboDescripcion.Focus.Equals(True)
+            Else
+                cboDescripcion.Focus.Equals(True)
+            End If
+
         End If
     End Sub
 
@@ -105,6 +110,7 @@
 
     Public Sub Datos()
         Try
+            GrdCaptura.Rows.Clear()
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Codigo,Nombre,PrecioVentaIVA,ProvPri FROM productos WHERE CodBarra='" & txtCodBarra.Text & "'"
@@ -391,6 +397,10 @@
         'frmNuvCompras.txtprecio.Text = precioseleccionado
 
         Dim total As Double = CDec(txtCantidad.Text) * CDec(precioseleccionado)
+        Dim iva As Double = 0
+        Dim preciosiniva As Double = 0
+        Dim ivaproducto As Double = 0
+        Dim cantidadiva As Double = 0
 
         frmNuvCompras.grdcaptura.Rows.Add(
                 codigoseleccionado,
@@ -406,9 +416,36 @@
                 ""
                 )
 
-        gbCantidad.Visible = False
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT IVA FROM productos WHERE Codigo='" & codigoseleccionado & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1(0).ToString > 0 Then
+                    iva = rd1(0).ToString
+                    preciosiniva = CDec(precioseleccionado) / (1 + iva)
+                    ivaproducto = CDec(precioseleccionado) - CDec(preciosiniva)
+                    cantidadiva = ivaproducto * CDec(txtCantidad.Text)
+                End If
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
         frmNuvCompras.Show()
         frmNuvCompras.BringToFront()
+
+        frmNuvCompras.txtsub1.Text = frmNuvCompras.txtsub1.Text + total
+        frmNuvCompras.txtTotalC.Text = frmNuvCompras.txtTotalC.Text + total
+        frmNuvCompras.txtTotalC.Text = FormatNumber(frmNuvCompras.txtTotalC.Text, 2)
+        'frmNuvCompras.txtiva.Text = frmNuvCompras.txtiva.Text + cantidadiva
+        'frmNuvCompras.txtiva.Text = FormatNumber(frmNuvCompras.txtiva.Text, 2)
+
+
+        gbCantidad.Visible = False
+        Me.Close()
+
     End Sub
 
     Private Sub GrdCaptura_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles GrdCaptura.CellClick
@@ -420,7 +457,9 @@
             nombreseleccionado = GrdCaptura.Rows(index).Cells(1).Value.ToString
             proveedorseleccionado = GrdCaptura.Rows(index).Cells(2).Value.ToString
             precioseleccionado = GrdCaptura.Rows(index).Cells(3).Value.ToString
+
             gbCantidad.Visible = True
+            txtCantidad.Focus.Equals(True)
         End If
 
 
@@ -431,5 +470,9 @@
         If AscW(e.KeyChar) = Keys.Enter Then
             btnGC.Focus.Equals(True)
         End If
+    End Sub
+
+    Private Sub frmComparador_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

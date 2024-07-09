@@ -353,7 +353,7 @@ Public Class frmPedidos
     Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
         Dim codigo As String = grdcaptura.CurrentRow.Cells(0).Value.ToString()
 
-        grid_activo.Rows.Add(codigo)
+
     End Sub
 
     Private Sub btnguarda_Click(sender As Object, e As EventArgs) Handles btnguarda.Click
@@ -366,6 +366,10 @@ Public Class frmPedidos
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private Sub btnlimpia_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

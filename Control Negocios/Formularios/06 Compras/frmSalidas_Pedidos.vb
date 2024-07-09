@@ -6,7 +6,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select distinct Codigo from VentasDetalle where (Fecha between '" & Format(DateTimePicker1.Value, "yyyy-MM-dd") & "' and '" & Format(DateTimePicker2.Value, "yyyy-MM-dd") & "') and Len(Codigo)<7"
+                "select distinct Codigo from VentasDetalle where (Fecha between '" & Format(DateTimePicker1.Value, "yyyy-MM-dd") & "' and '" & Format(DateTimePicker2.Value, "yyyy-MM-dd") & "') and LENGTH(Codigo)<7"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -54,13 +54,12 @@
             frmPedidos.grdcaptura.Rows.Clear()
 
             cnn1.Close() : cnn1.Open()
-            For pipi As Integer = 0 To DataGridView1.Rows.Count - 1
-                Dim codigo As String = DataGridView1.Rows(pipi).Cells(0).Value.ToString()
-                Dim cantidad As Double = DataGridView1.Rows(pipi).Cells(2).Value.ToString()
+            For DEKU As Integer = 0 To DataGridView1.Rows.Count - 1
+                Dim codigo As String = DataGridView1.Rows(DEKU).Cells(0).Value.ToString()
+                Dim cantidad As Double = DataGridView1.Rows(DEKU).Cells(2).Value.ToString()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText =
-                    "select * from Productos where Codigo='" & codigo & "'"
+                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

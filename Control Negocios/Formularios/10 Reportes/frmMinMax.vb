@@ -38,6 +38,8 @@
 
         Dim diferencia_dias As Integer = 0
 
+        Dim comprasugerida As Double = 0
+
         'Primero consulta la fecha del último reporte.
         Try
             cnn1.Close() : cnn1.Open()
@@ -143,7 +145,9 @@
                     min_r = promedio_venta * t_entrega
                     max_r = min_r * 2
 
-                    grdcaptura.Rows.Add(Codigo, nombre, unidad, existencia, cantidad, FormatNumber(promedio_venta, 2), t_entrega, FormatNumber(min_r, 0), FormatNumber(max_r, 0))
+                    comprasugerida = CDec(existencia) - CDec(max_r)
+
+                    grdcaptura.Rows.Add(Codigo, nombre, unidad, existencia, cantidad, FormatNumber(promedio_venta, 2), t_entrega, FormatNumber(comprasugerida, 2), FormatNumber(min_r, 0), FormatNumber(max_r, 0))
                 End If
             Loop
             rd1.Close()
