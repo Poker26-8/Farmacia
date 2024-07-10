@@ -128,6 +128,7 @@ Partial Class frmConsultaNotas
         Me.btnTicket = New System.Windows.Forms.Button()
         Me.boxpagos = New System.Windows.Forms.GroupBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.txtComentario = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.txtdescu_porc = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
@@ -1164,6 +1165,7 @@ Partial Class frmConsultaNotas
         '
         'Panel8
         '
+        Me.Panel8.Controls.Add(Me.txtComentario)
         Me.Panel8.Controls.Add(Me.btnAbono)
         Me.Panel8.Controls.Add(Me.Label16)
         Me.Panel8.Controls.Add(Me.Label15)
@@ -1194,6 +1196,14 @@ Partial Class frmConsultaNotas
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(437, 227)
         Me.Panel8.TabIndex = 159
+        '
+        'txtComentario
+        '
+        Me.txtComentario.Location = New System.Drawing.Point(3, 28)
+        Me.txtComentario.Name = "txtComentario"
+        Me.txtComentario.Size = New System.Drawing.Size(59, 23)
+        Me.txtComentario.TabIndex = 159
+        Me.txtComentario.Visible = False
         '
         'Label35
         '
@@ -1784,13 +1794,6 @@ Partial Class frmConsultaNotas
     Friend WithEvents Label35 As Label
     Friend WithEvents txtdescu_porc As TextBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Total As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel5 As Panel
@@ -1831,4 +1834,12 @@ Partial Class frmConsultaNotas
     Friend WithEvents pCancelacion58 As Printing.PrintDocument
     Friend WithEvents btnPdf As Button
     Friend WithEvents btnTicket As Button
+    Friend WithEvents txtComentario As TextBox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
 End Class

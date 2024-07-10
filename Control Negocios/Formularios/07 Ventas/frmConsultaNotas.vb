@@ -219,6 +219,8 @@ Public Class frmConsultaNotas
                             txtresta.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
                         '  txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()) - CDbl(txtacuenta.Text), 2)
                         txttotal.Text = FormatNumber(IIf(rd1("Totales").ToString() = "", 0, rd1("Totales").ToString()), 2)
+                        txtComentario.Text = rd1("Comentario").ToString
+
                         If (optcobrar.Checked) Then
                                 txtrestaabono.Text = FormatNumber(IIf(rd1("Resta").ToString() = "", 0, rd1("Resta").ToString()), 2)
                             End If
@@ -250,13 +252,13 @@ Public Class frmConsultaNotas
                                     cantidad = rd2("Cantidad").ToString()
                                     precio = rd2("Precio").ToString()
                                     total = rd2("Total").ToString()
-
-                                    grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0")
-                                    If comentario <> "" Then
-                                        grdcaptura.Rows.Add("", comentario, "", "", "", "")
-                                    End If
+                                comentario = rd2("Comentario").ToString
+                                grdcaptura.Rows.Add(codigo, nombre, unidad, cantidad, FormatNumber(precio, 4), FormatNumber(total, 4), "0", comentario)
+                                If comentario <> "" Then
+                                    grdcaptura.Rows.Add("", comentario, "", "", "", "")
                                 End If
-                            Loop
+                            End If
+                        Loop
                             rd2.Close() : cnn2.Close()
                             For t As Integer = 0 To grdcaptura.Rows.Count - 1
                                 If CStr(grdcaptura.Rows(t).Cells(0).Value.ToString) = "" Then
@@ -437,7 +439,7 @@ Public Class frmConsultaNotas
             cboCunetaRep.Text = ""
             txtBancoRep.Text = ""
             txtefectivo.Enabled = False
-
+            txtComentario.Text = ""
             Try
                 cnn1.Close() : cnn1.Open()
 
@@ -501,6 +503,7 @@ Public Class frmConsultaNotas
             txtcambio.Text = "0.00"
             cboCunetaRep.Text = ""
             txtBancoRep.Text = ""
+            txtComentario.Text = ""
         End If
     End Sub
     Public Sub otropago()
@@ -555,6 +558,7 @@ Public Class frmConsultaNotas
             boxpagos.Enabled = False
             btnVentas.Visible = True
             lblNumCliente.Text = "MOSTRADOR"
+            txtComentario.Text = ""
         End If
     End Sub
     Private Sub optanceladas_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles optanceladas.CheckedChanged
@@ -590,6 +594,7 @@ Public Class frmConsultaNotas
             txtefectivo.Text = "0.00"
             lblNumCliente.Text = "MOSTRADOR"
             boxpagos.Enabled = False
+            txtComentario.Text = ""
         End If
     End Sub
     Private Sub optcotiz_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles optcotiz.CheckedChanged
@@ -625,6 +630,7 @@ Public Class frmConsultaNotas
             boxpagos.Enabled = False
             txtefectivo.Enabled = False
             txtefectivo.Text = "0.00"
+            txtComentario.Text = ""
         End If
     End Sub
 
@@ -645,6 +651,7 @@ Public Class frmConsultaNotas
             boxpagos.Enabled = False
             txtefectivo.Enabled = False
             txtefectivo.Text = "0.00"
+            txtComentario.Text = ""
         End If
     End Sub
 
@@ -2813,7 +2820,7 @@ Public Class frmConsultaNotas
         FileNta.SetDatabaseLogon("", "jipl22")
 
         Dim observaciones As String = ""
-        '  observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+        observaciones = txtComentario.Text.TrimEnd(vbCrLf.ToCharArray)
 
         FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & cbofolio.Text & "'"
         'FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
@@ -3031,7 +3038,7 @@ Public Class frmConsultaNotas
         FileNta.SetDatabaseLogon("", "jipl22")
 
         Dim observaciones As String = ""
-        'observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+        observaciones = txtComentario.Text.TrimEnd(vbCrLf.ToCharArray)
 
         FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & cbofolio.Text & "'"
         FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
@@ -3169,7 +3176,7 @@ Public Class frmConsultaNotas
                 End If
 
                 Dim comentariogen As String = ""
-                'comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+                comentariogen = txtComentario.Text.TrimEnd(vbCrLf.ToCharArray)
 
                 'Inserta en la tabla de Ventas
                 If .runSp(a_cnn, "insert into Ventas(Nombre,Direccion,Totales,Descuento,ACuenta,Resta,Usuario,FVenta,HVenta,Status,Comentario,FolMonedero,CodFactura,Entregas,Telefono) values('" & cbonombre.Text & "','" & txtdireccion.Text & "'," & CDbl(txttotal.Text) & "," & CDbl(txtdescuento.Text) & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "',#" & FormatDateTime(Date.Now, DateFormat.ShortDate) & "#,#" & FormatDateTime(Date.Now, DateFormat.ShortTime) & "#,'" & MyStatus & "','" & comentariogen & "','','',0,'" & tel_cliente & "')", sinfo) Then
@@ -3204,6 +3211,8 @@ Public Class frmConsultaNotas
                     End If
                     Continue For
 doorcita:
+
+
                     If grdcaptura.Rows(pipo).Cells(1).Value.ToString() <> "" Then
                         Dim id_a As Integer = 0
                         If .getDr(a_cnn, dr, "select MAX(Id) from VentasDetalle", sinfo) Then
@@ -7756,6 +7765,7 @@ doorcita:
             boxpagos.Enabled = True
             txtefectivo.Enabled = True
             txtefectivo.Text = "0.00"
+            txtComentario.Text = ""
         End If
     End Sub
 
