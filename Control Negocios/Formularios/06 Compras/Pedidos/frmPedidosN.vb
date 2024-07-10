@@ -155,32 +155,97 @@
 
     Private Sub UpGrid1()
         Try
+
+            Dim cod As String = ""
+            Dim barras As String = ""
+            Dim descripcion As String = ""
+            Dim unidad As String = ""
+            Dim precio As Double = 0
+            Dim importe As Double = 0
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = ""
+            cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,UCompra,PrecioCompra FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
+                    cod = rd1("Codigo").ToString
+                    barras = rd1("CodBarra").ToString
+                    descripcion = rd1("Nombre").ToString
+                    unidad = rd1("UCompra").ToString
 
+                    If (chk_mPrecio.Checked) Then
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "SELECT MIN(PrecioAnt) FROM precios WHERE Codigo='" & cod & "'"
+                        rd2 = cmd2.ExecuteReader
+                        If rd2.HasRows Then
+                            If rd2.Read Then
+                                precio = rd2(0).ToString
+                            End If
+                        End If
+                        rd2.Close()
+                        cnn2.Close()
+                    Else
+                        precio = rd1("PrecioCompra").ToString
+                    End If
+
+                    importe = CDec(txtcantidad.Text) * CDec(precio)
                 End If
             End If
             rd1.Close()
             cnn1.Close()
 
+            grdCaptura.Rows.Add(cod,
+                                barras,
+                                descripcion,
+                                unidad,
+                                FormatNumber(txtexistencia.Text, 2),
+                                FormatNumber(txtcantidad.Text, 2),
+                                0,
+                                FormatNumber(precio, 2),
+                                FormatNumber(importe, 2)
+                                )
+            Limpiar()
         Catch ex As Exception
-
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
 
     End Sub
 
-    Private Sub chk_mPrecio_CheckedChanged(sender As Object, e As EventArgs) Handles chk_mPrecio.CheckedChanged
+    Public Sub Limpiar()
+        cbonombre.Text = ""
+        txtcodigo.Text = ""
+        txtunidad.Text = ""
+        txtexistencia.Text = ""
+        txtcantidad.Text = "1"
+        cbonombre.Focus.Equals(True)
+    End Sub
 
-        If (chk_mPrecio.Checked) Then
-            lblProveedorMin.Visible = True
-            txtProveedorMin.Visible = True
-        Else
-            lblProveedorMin.Visible = False
-            txtProveedorMin.Visible = False
+    Private Sub txtusuario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtusuario.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Alias FROM usuarios WHERE Clave='" & txtusuario.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        lblusuario.Text = rd1(0).ToString
+                    End If
+                Else
+                    MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulocentral)
+                    Exit Sub
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
         End If
+
     End Sub
 End Class

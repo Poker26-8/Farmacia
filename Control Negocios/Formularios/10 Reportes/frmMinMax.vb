@@ -1,4 +1,6 @@
 ﻿Public Class frmMinMax
+
+    Public sugerencia As Double = 0
     Private Sub optProveedor_CheckedChanged(sender As Object, e As EventArgs) Handles optProveedor.CheckedChanged
         If (optProveedor.Checked) Then
             Limpia()
@@ -424,6 +426,7 @@
     Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
         Dim INDEX As Integer = grdcaptura.CurrentRow.Index
         Dim COD As String = grdcaptura.Rows(INDEX).Cells(0).Value.ToString
+        sugerencia = grdcaptura.Rows(INDEX).Cells(7).Value.ToString
 
         Dim codbarra As String = ""
 
@@ -440,6 +443,7 @@
         cnn1.Close()
 
         frmComparador.txtCodBarra.Text = codbarra
+        frmComparador.suge = sugerencia
         frmComparador.Show()
         frmComparador.BringToFront()
     End Sub

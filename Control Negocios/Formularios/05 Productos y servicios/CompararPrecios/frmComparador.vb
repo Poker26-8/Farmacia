@@ -4,6 +4,8 @@
     Dim codigoseleccionado As String = ""
     Dim nombreseleccionado As String = ""
     Dim precioseleccionado As Double = 0
+
+    Public suge As Double = 0
     Private Sub frmComparador_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         txtCodBarra.Focus.Equals(True)
     End Sub
@@ -113,7 +115,7 @@
             GrdCaptura.Rows.Clear()
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Codigo,Nombre,PrecioVentaIVA,ProvPri FROM productos WHERE CodBarra='" & txtCodBarra.Text & "'"
+            cmd1.CommandText = "SELECT Codigo,Nombre,PrecioCompra,ProvPri FROM productos WHERE CodBarra='" & txtCodBarra.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -154,7 +156,7 @@
             GrdCaptura.Rows.Clear()
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Codigo,CodBarra,Nombre,ProvPri,PrecioVentaIVA FROM productos WHERE Nombre='" & cboDescripcion.Text & "'"
+            cmd2.CommandText = "SELECT Codigo,CodBarra,Nombre,ProvPri,PrecioCompra FROM productos WHERE Nombre='" & cboDescripcion.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -239,6 +241,7 @@
             End If
             rd1.Close()
             cnn1.Close()
+            cboDescripcion.Focus.Equals(True)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -391,10 +394,8 @@
 
     Private Sub btnGC_Click(sender As Object, e As EventArgs) Handles btnGC.Click
 
-        frmNuvCompras.cboproveedor.Text = proveedorseleccionado
-        'frmNuvCompras.cbonombre.Text = nombreseleccionado
-        'frmNuvCompras.txtcodigo.Text = codigoseleccionado
-        'frmNuvCompras.txtprecio.Text = precioseleccionado
+        frmPedidosN.cboProveedor.Text = proveedorseleccionado
+
 
         Dim total As Double = CDec(txtCantidad.Text) * CDec(precioseleccionado)
         Dim iva As Double = 0
@@ -402,26 +403,18 @@
         Dim ivaproducto As Double = 0
         Dim cantidadiva As Double = 0
 
-        frmNuvCompras.grdcaptura.Rows.Add(
-                codigoseleccionado,
-                nombreseleccionado,
-                codigoseleccionado,
-                FormatNumber(txtCantidad.Text, 2),
-                FormatNumber(precioseleccionado, 2),
-                FormatNumber(total, 2),
-                0,
-                "",
-                "",
-                0,
-                ""
-                )
+        Dim unidad As String = ""
+        Dim existencia As Double = 0
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT IVA FROM productos WHERE Codigo='" & codigoseleccionado & "'"
+        cmd1.CommandText = "SELECT IVA,UCompra,Existencia FROM productos WHERE Codigo='" & codigoseleccionado & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
+                unidad = rd1("UCompra").ToString
+                existencia = rd1("Existencia").ToString
+
                 If rd1(0).ToString > 0 Then
                     iva = rd1(0).ToString
                     preciosiniva = CDec(precioseleccionado) / (1 + iva)
@@ -433,14 +426,24 @@
         rd1.Close()
         cnn1.Close()
 
-        frmNuvCompras.Show()
-        frmNuvCompras.BringToFront()
+        frmPedidosN.grdCaptura.Rows.Add(
+                codigoseleccionado,
+                txtCodBarra.Text,
+                nombreseleccionado,
+                unidad,
+                existencia,
+                FormatNumber(txtCantidad.Text, 2),
+                suge,
+                FormatNumber(precioseleccionado, 2),
+                FormatNumber(total, 2)
+                )
 
-        frmNuvCompras.txtsub1.Text = frmNuvCompras.txtsub1.Text + total
-        frmNuvCompras.txtTotalC.Text = frmNuvCompras.txtTotalC.Text + total
-        frmNuvCompras.txtTotalC.Text = FormatNumber(frmNuvCompras.txtTotalC.Text, 2)
-        'frmNuvCompras.txtiva.Text = frmNuvCompras.txtiva.Text + cantidadiva
-        'frmNuvCompras.txtiva.Text = FormatNumber(frmNuvCompras.txtiva.Text, 2)
+        frmPedidosN.txtSubtotal.Text = frmPedidosN.txtSubtotal.Text + CDec(total)
+
+
+        frmPedidosN.Show()
+        frmPedidosN.BringToFront()
+
 
 
         gbCantidad.Visible = False
