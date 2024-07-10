@@ -124,8 +124,8 @@ Partial Class frmConsultaNotas
         Me.pVentasCarta = New System.Drawing.Printing.PrintDocument()
         Me.pCotizCarta = New System.Drawing.Printing.PrintDocument()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.btnPdf = New System.Windows.Forms.Button()
+        Me.btnTicket = New System.Windows.Forms.Button()
         Me.boxpagos = New System.Windows.Forms.GroupBox()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -176,7 +176,6 @@ Partial Class frmConsultaNotas
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
-        Me.Panel7.SuspendLayout()
         Me.boxpagos.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1075,13 +1074,14 @@ Partial Class frmConsultaNotas
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(122, 219)
+        Me.Button1.Location = New System.Drawing.Point(838, 6)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(151, 25)
         Me.Button1.TabIndex = 154
         Me.Button1.Text = "Formato de entrega"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = False
+        Me.Button1.Visible = False
         '
         'pVentas80
         '
@@ -1102,34 +1102,37 @@ Partial Class frmConsultaNotas
         '
         Me.Panel6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel6.BackColor = System.Drawing.Color.LightCoral
-        Me.Panel6.Controls.Add(Me.Panel7)
+        Me.Panel6.Controls.Add(Me.btnPdf)
+        Me.Panel6.Controls.Add(Me.btnTicket)
         Me.Panel6.Location = New System.Drawing.Point(470, 280)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(254, 88)
+        Me.Panel6.Size = New System.Drawing.Size(292, 88)
         Me.Panel6.TabIndex = 218
         Me.Panel6.Visible = False
         '
-        'Panel7
+        'btnPdf
         '
-        Me.Panel7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Controls.Add(Me.Label30)
-        Me.Panel7.Location = New System.Drawing.Point(8, 9)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(238, 71)
-        Me.Panel7.TabIndex = 0
+        Me.btnPdf.BackColor = System.Drawing.Color.White
+        Me.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPdf.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPdf.Location = New System.Drawing.Point(154, 12)
+        Me.btnPdf.Name = "btnPdf"
+        Me.btnPdf.Size = New System.Drawing.Size(126, 66)
+        Me.btnPdf.TabIndex = 1
+        Me.btnPdf.Text = "PDF"
+        Me.btnPdf.UseVisualStyleBackColor = False
         '
-        'Label30
+        'btnTicket
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Segoe UI Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(13, 20)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(213, 30)
-        Me.Label30.TabIndex = 0
-        Me.Label30.Text = "Imprimiendo PDF..."
+        Me.btnTicket.BackColor = System.Drawing.Color.White
+        Me.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTicket.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTicket.Location = New System.Drawing.Point(12, 12)
+        Me.btnTicket.Name = "btnTicket"
+        Me.btnTicket.Size = New System.Drawing.Size(136, 66)
+        Me.btnTicket.TabIndex = 0
+        Me.btnTicket.Text = "Ticket"
+        Me.btnTicket.UseVisualStyleBackColor = False
         '
         'boxpagos
         '
@@ -1633,6 +1636,7 @@ Partial Class frmConsultaNotas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1202, 738)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblhoraventa)
         Me.Controls.Add(Me.Label39)
@@ -1657,7 +1661,6 @@ Partial Class frmConsultaNotas
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label48)
@@ -1673,8 +1676,6 @@ Partial Class frmConsultaNotas
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
         Me.boxpagos.ResumeLayout(False)
         Me.boxpagos.PerformLayout()
         Me.Panel8.ResumeLayout(False)
@@ -1762,8 +1763,6 @@ Partial Class frmConsultaNotas
     Friend WithEvents pVentasCarta As Printing.PrintDocument
     Friend WithEvents pCotizCarta As Printing.PrintDocument
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents Label30 As Label
     Friend WithEvents grdAbonos As DataGridView
     Friend WithEvents pVenta58 As Printing.PrintDocument
     Friend WithEvents pDevos58 As Printing.PrintDocument
@@ -1830,4 +1829,6 @@ Partial Class frmConsultaNotas
     Friend WithEvents Panel8 As Panel
     Friend WithEvents pCancelacion80 As Printing.PrintDocument
     Friend WithEvents pCancelacion58 As Printing.PrintDocument
+    Friend WithEvents btnPdf As Button
+    Friend WithEvents btnTicket As Button
 End Class

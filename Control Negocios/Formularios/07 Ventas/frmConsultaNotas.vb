@@ -2424,52 +2424,22 @@ Public Class frmConsultaNotas
         End Try
     End Sub
 
-    Private Sub btnCopia_Click(sender As System.Object, e As System.EventArgs) Handles btnCopia.Click
-        If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder imprimir una copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
+    Private Sub btnTicket_Click(sender As Object, e As EventArgs) Handles btnTicket.Click
 
         Dim formato As String = ""
         Dim imp_ticket As String = ""
-        Dim imp_carta As String = ""
         Dim tamticket As Integer = 0
 
         If (optcotiz.Checked) Then
-            Try
-                cnn2.Close() : cnn2.Open()
-
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText =
-                    "select Comentario from CotPed where Folio=" & cbofolio.Text
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        formato = rd2(0).ToString()
-                    End If
-                End If
-                rd2.Close()
-                cnn2.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString())
-                cnn2.Close()
-            End Try
+            formato = "TICKET"
         Else
             If (optdevos.Checked) Then
                 formato = "TICKET"
             Else
                 Try
                     formato = "TICKET"
+
                     cnn2.Close() : cnn2.Open()
-
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText =
-                        "select Formato from Ventas where Folio=" & cbofolio.Text
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            formato = rd2(0).ToString()
-                        End If
-                    End If
-                    rd2.Close()
-
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TamImpre'"
                     rd2 = cmd2.ExecuteReader
@@ -2480,6 +2450,7 @@ Public Class frmConsultaNotas
                     End If
                     rd2.Close()
                     cnn2.Close()
+
                 Catch ex As Exception
                     MessageBox.Show(ex.ToString())
                     cnn2.Close()
@@ -2507,6 +2478,120 @@ Public Class frmConsultaNotas
             End Try
         End If
 
+        If MsgBox("¿Deseas imprimir una copia?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+
+            If (optnotas.Checked) Then TipoVenta = 1
+            If (optcobrar.Checked) Then TipoVenta = 2
+            If (optpagadas.Checked) Then TipoVenta = 3
+            If (optanceladas.Checked) Then TipoVenta = 4
+
+            If (optcotiz.Checked) Then TipoVenta = 5
+
+            If (optdevos.Checked) Then TipoVenta = 7
+            If (optPedidos.Checked) Then TipoVenta = 6
+
+
+            If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Then
+
+                If formato = "TICKET" Then
+                    If tamticket = "80" Then
+                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        pVentas80.PrinterSettings.PrinterName = imp_ticket
+                        pVentas80.Print()
+                    Else
+                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        pVenta58.PrinterSettings.PrinterName = imp_ticket
+                        pVenta58.Print()
+                    End If
+                End If
+
+                If (optPedidos.Checked) Then
+                    If formato = "TICKET" Then
+                        If tamticket = "80" Then
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pCotiz80.PrinterSettings.PrinterName = imp_ticket
+                            pCotiz80.Print()
+                        Else
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pCotiz58.PrinterSettings.PrinterName = imp_ticket
+                            pCotiz58.Print()
+                        End If
+                    End If
+                End If
+
+                If (optcotiz.Checked) Then
+                    If formato = "TICKET" Then
+
+                        If tamticket = "80" Then
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pCotiz80.PrinterSettings.PrinterName = imp_ticket
+                            pCotiz80.Print()
+                        Else
+                            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                            pCotiz58.PrinterSettings.PrinterName = imp_ticket
+                            pCotiz58.Print()
+                        End If
+
+                    End If
+                End If
+
+                If (optdevos.Checked) Then
+                    If tamticket = "80" Then
+                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        pDevos80.PrinterSettings.PrinterName = imp_ticket
+                        pDevos80.Print()
+                    Else
+                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        pDevos58.PrinterSettings.PrinterName = imp_ticket
+                        pDevos58.Print()
+                    End If
+
+                End If
+
+            End If
+            Panel6.Visible = False
+        End If
+    End Sub
+
+    Private Sub btnPdf_Click(sender As Object, e As EventArgs) Handles btnPdf.Click
+
+        Dim formato As String = ""
+        Dim imp_carta As String = ""
+
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT Formato FROM rutasimpresion WHERE Equipo='" & ObtenerNombreEquipo() & "' AND  Tipo='Venta'"
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                formato = rd2(0).ToString
+            End If
+        End If
+        rd2.Close()
+        cnn2.Close()
+
+        'If (optcotiz.Checked) Then
+        '    Try
+        '        formato
+
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString())
+        '        cnn2.Close()
+        '    End Try
+        'Else
+        '    If (optdevos.Checked) Then
+        '        formato
+        '    Else
+        '        Try
+        '            formato
+
+        '        Catch ex As Exception
+        '            MessageBox.Show(ex.ToString())
+        '            cnn2.Close()
+        '        End Try
+        '    End If
+        'End If
+
         If formato = "CARTA" Then
             Try
                 cnn3.Close() : cnn3.Open()
@@ -2527,7 +2612,7 @@ Public Class frmConsultaNotas
             End Try
         End If
 
-        If MsgBox("¿Deseas imprimir una copia?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        If MsgBox("¿Deseas abrir el pdf?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             If (optnotas.Checked) Then TipoVenta = 1
             If (optcobrar.Checked) Then TipoVenta = 2
             If (optpagadas.Checked) Then TipoVenta = 3
@@ -2540,18 +2625,6 @@ Public Class frmConsultaNotas
 
             If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Then
 
-
-                If formato = "TICKET" Then
-                    If tamticket = "80" Then
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pVentas80.PrinterSettings.PrinterName = imp_ticket
-                        pVentas80.Print()
-                    Else
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pVenta58.PrinterSettings.PrinterName = imp_ticket
-                        pVenta58.Print()
-                    End If
-                End If
                 If formato = "CARTA" Then
                     If imp_carta = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                     pVentasCarta.PrinterSettings.PrinterName = imp_carta
@@ -2567,6 +2640,10 @@ Public Class frmConsultaNotas
                     Else
                         If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
                             Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+                        Else
+                            Insert_Venta()
+                            PDF_Venta()
+                            My.Application.DoEvents()
                         End If
                     End If
                 End If
@@ -2580,65 +2657,789 @@ Public Class frmConsultaNotas
                     Else
                         If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
                             Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+                        Else
+                            Insert_Venta()
+                            PDF_Venta_2()
+                            My.Application.DoEvents()
                         End If
                     End If
                 End If
 
-            End If
-            If (optPedidos.Checked) Then
-                If formato = "TICKET" Then
-                    If tamticket = "80" Then
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pCotiz80.PrinterSettings.PrinterName = imp_ticket
-                        pCotiz80.Print()
-                    Else
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pCotiz58.PrinterSettings.PrinterName = imp_ticket
-                        pCotiz58.Print()
+                If (optcotiz.Checked) Then
+
+                    If formato = "CARTA" Then
+                        If imp_carta = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                        pCotizCarta.PrinterSettings.PrinterName = imp_carta
+                        pCotizCarta.Print()
                     End If
-                End If
-            End If
-            If (optcotiz.Checked) Then
-                If formato = "TICKET" Then
-
-                    If tamticket = "80" Then
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pCotiz80.PrinterSettings.PrinterName = imp_ticket
-                        pCotiz80.Print()
-                    Else
-                        If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        pCotiz58.PrinterSettings.PrinterName = imp_ticket
-                        pCotiz58.Print()
-                    End If
-
-                End If
-
-                If formato = "CARTA" Then
-                    If imp_carta = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    pCotizCarta.PrinterSettings.PrinterName = imp_carta
-                    pCotizCarta.Print()
-                End If
-                If formato = "PDF - CARTA" Then
-                    If (optcotiz.Checked) Then
-                        If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf") Then
-                            Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf")
+                    If formato = "PDF - CARTA 1" Then
+                        If (optcotiz.Checked) Then
+                            If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf") Then
+                                Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf")
+                            End If
                         End If
                     End If
-                End If
-            End If
-            If (optdevos.Checked) Then
-                If tamticket = "80" Then
-                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    pDevos80.PrinterSettings.PrinterName = imp_ticket
-                    pDevos80.Print()
-                Else
-                    If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    pDevos58.PrinterSettings.PrinterName = imp_ticket
-                    pDevos58.Print()
+
                 End If
 
+            End If
+            Panel6.Visible = False
+        End If
+
+    End Sub
+
+    Private Sub PDF_Venta_2()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Ventas2
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
             End If
         End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        Dim TotalIEPSPrint As Double = 0
+        Dim SubtotalPrint As Double = 0
+        Dim MySubtotal As Double = 0
+        Dim TotalIVAPrint As Double = 0
+
+        Dim SubTotal As Double = 0
+        Dim IVA_Vent As Double = 0
+        Dim Total_Ve As Double = 0
+
+        Dim PieNota As String = ""
+        Dim Pagare As String = ""
+
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+        Try
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+            If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
+
+            cnn1.Close() : cnn1.Open()
+            For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If rd1(0).ToString > 0 Then
+                                'MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento.Text) / 100)))
+                                'TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento.Text) / 100)) * CDbl(rd1(0).ToString))
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                End If
+            Next
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            MySubtotal = FormatNumber(MySubtotal, 4)
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Pie1, Pagare from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    PieNota = rd1(0).ToString()
+                    Pagare = rd1(1).ToString()
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+        IVA_Vent = FormatNumber(CDbl(txttotal.Text) - CDbl(TotalIVAPrint), 4)
+        SubTotal = FormatNumber(TotalIVAPrint, 4)
+        Total_Ve = FormatNumber(CDbl(txttotal.Text), 4)
+
+        Dim TotTarjeta As Double = 0, TotTransfe As Double = 0, TotMonedero As Double = 0, TotOtros As Double = 0, TotEfectivo As Double = 0
+        If grdAbonos.Rows.Count > 0 Then
+            For R As Integer = 0 To grdAbonos.Rows.Count - 1
+
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "EFECTIVO" Then
+                    TotEfectivo = TotEfectivo + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "TARJETA" Then
+                    TotTarjeta = TotTarjeta + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "TRANSFERENCIA" Then
+                    TotTransfe = TotTransfe + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "MONEDERO" Then
+                    TotMonedero = TotMonedero + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "OTRO" Then
+                    TotOtros = TotOtros + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+            Next
+        End If
+        txtefectivo.Text = TotEfectivo
+        'Los totales los va a mandar directos
+        FileNta.SetDatabaseLogon("", "jipl22")
+
+        Dim observaciones As String = ""
+        '  observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+        FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & cbofolio.Text & "'"
+        'FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
+        FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txttotal.Text) & "'"
+        FileNta.DataDefinition.FormulaFields("comentario").Text = "'" & observaciones & "'"
+        FileNta.DataDefinition.FormulaFields("pie").Text = "'" & PieNota & "'"
+
+        ''Pagos
+        'If DesglosaIVA = "1" Then
+        '    If SubTotal > 0 Then
+        '        FileNta.DataDefinition.FormulaFields("subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"       'Subtotal
+        '    End If
+        '    If IVA_Vent > 0 Then
+        '        If IVA_Vent > 0 And IVA_Vent <> CDbl(txtPagar.Text) Then
+        '            FileNta.DataDefinition.FormulaFields("iva_vent").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"   'IVA
+        '        End If
+        '    End If
+        'End If
+        FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+        If CDbl(txtefectivo.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("efectivo").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
+        End If
+        If CDbl(txtcambio.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("cambio").Text = "'" & FormatNumber(txtcambio.Text, 4) & "'"      'Cambio
+        End If
+        Dim tot_otros As Double = TotTarjeta + TotTransfe + TotMonedero + TotOtros
+        If tot_otros > 0 Then
+            FileNta.DataDefinition.FormulaFields("otros").Text = "'" & FormatNumber(TotTarjeta, 4) & "'"
+        End If
+        If CDbl(txtresta.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("resta").Text = "'" & FormatNumber(txtresta.Text, 4) & "'"        'Resta
+        End If
+
+        'If Entrega = True Then
+        '    FileNta.DataDefinition.FormulaFields("Fecha_Entrega").Text = "'" & FormatDateTime(dtpFecha_E.Value, DateFormat.ShortDate) & "'"
+        'End If
+        'If Pagare <> "" Then
+        '    FileNta.DataDefinition.FormulaFields("Pagare").Text = "'" & Pagare & "'"
+        'End If
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Process.Start(FileOpen)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        End If
+    End Sub
+    Private Sub PDF_Venta()
+        Dim root_name_recibo As String = ""
+        Dim FileOpen As New ProcessStartInfo
+        Dim FileNta As New Venta
+        Dim strServerName As String = Application.StartupPath
+        Dim crtableLogoninfos As New TableLogOnInfos
+        Dim crtableLogoninfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim CrTables As Tables
+        Dim CrTable As Table
+
+        crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\")
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf"
+
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        End If
+
+        If varrutabase <> "" Then
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+            End If
+        End If
+
+        With crConnectionInfo
+            .ServerName = "C:\ControlNegociosPro\DL1.mdb"
+            .DatabaseName = "C:\ControlNegociosPro\DL1.mdb"
+            .UserID = ""
+            .Password = "jipl22"
+        End With
+
+        CrTables = FileNta.Database.Tables
+        For Each CrTable In CrTables
+            crtableLogoninfo = CrTable.LogOnInfo
+            crtableLogoninfo.ConnectionInfo = crConnectionInfo
+            CrTable.ApplyLogOnInfo(crtableLogoninfo)
+        Next
+
+        Dim TotalIEPSPrint As Double = 0
+        Dim SubtotalPrint As Double = 0
+        Dim MySubtotal As Double = 0
+        Dim TotalIVAPrint As Double = 0
+
+        Dim SubTotal As Double = 0
+        Dim IVA_Vent As Double = 0
+        Dim Total_Ve As Double = 0
+
+        Dim PieNota As String = ""
+        Dim Pagare As String = ""
+
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+
+        Dim IVAPRODUCTO As Double = 0
+
+        Try
+            txtefectivo.Text = FormatNumber(txtefectivo.Text, 2)
+            If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
+
+            cnn1.Close() : cnn1.Open()
+            For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                    rd1 = cmd1.ExecuteReader
+                    If rd1.HasRows Then
+                        If rd1.Read Then
+                            If rd1(0).ToString > 0 Then
+
+                                IVAPRODUCTO = (CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) / (1 + rd1(0).ToString))
+                                TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(5).Value.ToString) - IVAPRODUCTO)
+
+
+                                'MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento.Text) / 100)))
+                                'TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento.Text) / 100)) * CDbl(rd1(0).ToString))
+
+
+                            End If
+                        End If
+                    End If
+                    rd1.Close()
+                End If
+            Next
+            TotalIVAPrint = FormatNumber(TotalIVAPrint, 4)
+            MySubtotal = FormatNumber(MySubtotal, 4)
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Pie1, Pagare from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    PieNota = rd1(0).ToString()
+                    Pagare = rd1(1).ToString()
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+            cnn1.Close()
+        End Try
+
+        IVA_Vent = FormatNumber(CDbl(txttotal.Text) - CDbl(TotalIVAPrint), 4)
+        SubTotal = FormatNumber(TotalIVAPrint, 4)
+        Total_Ve = FormatNumber(CDbl(txttotal.Text), 4)
+
+        Dim TotTarjeta As Double = 0, TotTransfe As Double = 0, TotMonedero As Double = 0, TotOtros As Double = 0, TotEfectivo As Double = 0
+        If grdAbonos.Rows.Count > 0 Then
+            For R As Integer = 0 To grdAbonos.Rows.Count - 1
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "EFECTIVO" Then
+                    TotEfectivo = TotEfectivo + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "TARJETA" Then
+                    TotTarjeta = TotTarjeta + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "TRANSFERENCIA" Then
+                    TotTransfe = TotTransfe + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "MONEDERO" Then
+                    TotMonedero = TotMonedero + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+                If CStr(grdAbonos.Rows(R).Cells(3).Value.ToString) = "OTRO" Then
+                    TotOtros = TotOtros + CDbl(grdAbonos.Rows(R).Cells(2).Value.ToString)
+                End If
+            Next
+        End If
+        txtefectivo.Text = TotEfectivo
+        'Los totales los va a mandar directos
+        FileNta.SetDatabaseLogon("", "jipl22")
+
+        Dim observaciones As String = ""
+        'observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+        FileNta.DataDefinition.FormulaFields("Folio").Text = "'" & cbofolio.Text & "'"
+        FileNta.DataDefinition.FormulaFields("Usuario").Text = "'" & lblusuario.Text & "'"
+        FileNta.DataDefinition.FormulaFields("conLetra").Text = "'" & convLetras(txttotal.Text) & "'"
+        FileNta.DataDefinition.FormulaFields("comentario").Text = "'" & observaciones & "'"
+        'Pagos
+        If DesglosaIVA = "1" Then
+            If SubTotal > 0 Then
+                FileNta.DataDefinition.FormulaFields("subtotal").Text = "'" & FormatNumber(IVA_Vent, 4) & "'"       'Subtotal
+            End If
+            If IVA_Vent > 0 Then
+                If IVA_Vent > 0 And IVA_Vent <> CDbl(txttotal.Text) Then
+                    FileNta.DataDefinition.FormulaFields("iva_vent").Text = "'" & FormatNumber(SubTotal, 4) & "'"   'IVA
+                End If
+            End If
+        End If
+
+        FileNta.DataDefinition.FormulaFields("total_vent").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+        If CDbl(txtefectivo.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("efectivo_vent").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
+        End If
+        If CDbl(txtcambio.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("cambio_vent").Text = "'" & FormatNumber(txtcambio.Text, 4) & "'"      'Cambio
+        End If
+        If TotTarjeta > 0 Then
+            FileNta.DataDefinition.FormulaFields("tarjeta_vent").Text = "'" & FormatNumber(TotTarjeta, 4) & "'"         'Tarjeta
+        End If
+        If TotTransfe > 0 Then
+            FileNta.DataDefinition.FormulaFields("transferencia_vent").Text = "'" & FormatNumber(TotTransfe, 4) & "'"   'Transferencia
+        End If
+        If TotMonedero > 0 Then
+            FileNta.DataDefinition.FormulaFields("monedero_vent").Text = "'" & FormatNumber(TotMonedero, 4) & "'"       'Monedero
+        End If
+        If TotOtros > 0 Then
+            FileNta.DataDefinition.FormulaFields("otros_vent").Text = "'" & FormatNumber(txtcambio.Text, 4) & "'"       'Otros
+        End If
+        If CDbl(txtresta.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("resta_vent").Text = "'" & FormatNumber(txtresta.Text, 4) & "'"        'Resta
+        End If
+
+        'If Entrega = True Then
+        '    FileNta.DataDefinition.FormulaFields("Fecha_Entrega").Text = "'" & FormatDateTime(dtpFecha_E.Value, DateFormat.ShortDate) & "'"
+        'End If
+        If Pagare <> "" Then
+            FileNta.DataDefinition.FormulaFields("Pagare").Text = "'" & Pagare & "'"
+        End If
+
+        FileNta.Refresh()
+        FileNta.Refresh()
+        FileNta.Refresh()
+        If File.Exists(root_name_recibo) Then
+            File.Delete(root_name_recibo)
+        End If
+
+        Try
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+
+            CrDiskFileDestinationOptions.DiskFileName = root_name_recibo '"c:\crystalExport.pdf"
+            CrExportOptions = FileNta.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.PortableDocFormat
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+
+            FileNta.Export()
+            FileOpen.UseShellExecute = True
+            FileOpen.FileName = root_name_recibo
+
+            My.Application.DoEvents()
+
+            If MsgBox("¿Deseas abrir el archivo?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                Process.Start(FileOpen)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        FileNta.Close()
+
+        If varrutabase <> "" Then
+
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+            End If
+
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        End If
+
+    End Sub
+    Private Sub Insert_Venta()
+        Dim oData As New ToolKitSQL.oledbdata
+        Dim sSql As String = ""
+        Dim a_cnn As OleDb.OleDbConnection = New OleDb.OleDbConnection
+        Dim sinfo As String = ""
+        Dim dr As DataRow = Nothing
+        Dim dt As New DataTable
+
+        Dim my_folio As Integer = 0
+        Dim MyStatus As String = ""
+        Dim ACuenta As Double = 0
+        Dim Resta As Double = 0
+        Dim tel_cliente As String = ""
+
+        With oData
+            If .dbOpen(a_cnn, Direcc_Access, sinfo) Then
+                .runSp(a_cnn, "delete from VentasDetalle", sinfo)
+                .runSp(a_cnn, "delete from Ventas", sinfo)
+                sinfo = ""
+
+                'ACuenta = FormatNumber((CDbl(txtefectivo.Text) - CDbl(txtcambio.Text)) + CDbl(txtpagos.Text), 4)
+                ACuenta = FormatNumber(CDbl(txtacuenta.Text), 4)
+                Resta = FormatNumber(txtresta.Text, 4)
+
+                If CDbl(txtresta.Text) = 0 Then
+                    MyStatus = "PAGADO"
+                Else
+                    MyStatus = "RESTA"
+                End If
+
+                If cbonombre.Text <> "" Then
+                    cnn3.Close() : cnn3.Open()
+                    cmd3 = cnn3.CreateCommand
+                    cmd3.CommandText =
+                        "select * from Clientes where Nombre='" & cbonombre.Text & "'"
+                    rd3 = cmd3.ExecuteReader
+                    If rd3.HasRows Then
+                        If rd3.Read Then
+                            tel_cliente = rd3("Telefono").ToString()
+                        End If
+                    End If
+                    rd3.Close() : cnn3.Close()
+                End If
+
+                Dim comentariogen As String = ""
+                'comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+                'Inserta en la tabla de Ventas
+                If .runSp(a_cnn, "insert into Ventas(Nombre,Direccion,Totales,Descuento,ACuenta,Resta,Usuario,FVenta,HVenta,Status,Comentario,FolMonedero,CodFactura,Entregas,Telefono) values('" & cbonombre.Text & "','" & txtdireccion.Text & "'," & CDbl(txttotal.Text) & "," & CDbl(txtdescuento.Text) & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "',#" & FormatDateTime(Date.Now, DateFormat.ShortDate) & "#,#" & FormatDateTime(Date.Now, DateFormat.ShortTime) & "#,'" & MyStatus & "','" & comentariogen & "','','',0,'" & tel_cliente & "')", sinfo) Then
+                    sinfo = ""
+                Else
+                    MsgBox(sinfo)
+                End If
+
+                If .getDr(a_cnn, dr, "select MAX(Folio) from Ventas", sinfo) Then
+                    my_folio = dr(0).ToString()
+                End If
+
+                Dim cod_temp As String = ""
+
+                For pipo As Integer = 0 To grdcaptura.Rows.Count - 1
+                    Dim codigo As String = grdcaptura.Rows(pipo).Cells(0).Value.ToString()
+                    If codigo = "" Then GoTo doorcita
+
+                    Dim nombre As String = grdcaptura.Rows(pipo).Cells(1).Value.ToString()
+                    Dim unidad As String = grdcaptura.Rows(pipo).Cells(2).Value.ToString()
+                    Dim cantidad As Double = grdcaptura.Rows(pipo).Cells(3).Value.ToString()
+                    Dim precio_original As Double = grdcaptura.Rows(pipo).Cells(4).Value.ToString()
+                    Dim total_original As Double = precio_original * cantidad
+
+                    If codigo <> "" Then
+                        cod_temp = codigo
+                        If .runSp(a_cnn, "insert into VentasDetalle(Folio,Codigo,Nombre,Cantidad,UVenta,Precio_Original,Total_Original,Dscto_Unitario,Dscto_Total,Precio_Descuento,Total_Descuento,Depto,Grupo,CostVR,FechaCad,LoteCad,NumParte) values(" & my_folio & ",'" & codigo & "','" & nombre & "'," & cantidad & ",'" & unidad & "'," & precio_original & "," & total_original & ",0,0,0,0,'','','','','','')", sinfo) Then
+                            sinfo = ""
+                        Else
+                            MsgBox(sinfo)
+                        End If
+                    End If
+                    Continue For
+doorcita:
+                    If grdcaptura.Rows(pipo).Cells(1).Value.ToString() <> "" Then
+                        Dim id_a As Integer = 0
+                        If .getDr(a_cnn, dr, "select MAX(Id) from VentasDetalle", sinfo) Then
+                            id_a = dr(0).ToString()
+                        End If
+                        'Es comentario
+                        .runSp(a_cnn, "update VentasDetalle set CostVR='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Id=" & id_a, sinfo)
+                        sinfo = ""
+                    End If
+                Next
+                a_cnn.Close()
+            End If
+        End With
+    End Sub
+
+    Private Sub btnCopia_Click(sender As System.Object, e As System.EventArgs) Handles btnCopia.Click
+        If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder imprimir una copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
+
+        Panel6.Visible = True
+
+        'Dim formato As String = ""
+        'Dim imp_ticket As String = ""
+        'Dim imp_carta As String = ""
+        'Dim tamticket As Integer = 0
+
+        'If (optcotiz.Checked) Then
+        '    Try
+        '        cnn2.Close() : cnn2.Open()
+
+        '        cmd2 = cnn2.CreateCommand
+        '        cmd2.CommandText =
+        '            "select Comentario from CotPed where Folio=" & cbofolio.Text
+        '        rd2 = cmd2.ExecuteReader
+        '        If rd2.HasRows Then
+        '            If rd2.Read Then
+        '                formato = rd2(0).ToString()
+        '            End If
+        '        End If
+        '        rd2.Close()
+        '        cnn2.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString())
+        '        cnn2.Close()
+        '    End Try
+        'Else
+        '    If (optdevos.Checked) Then
+        '        formato = "TICKET"
+        '    Else
+        '        Try
+        '            formato = "TICKET"
+        '            cnn2.Close() : cnn2.Open()
+
+        '            cmd2 = cnn2.CreateCommand
+        '            cmd2.CommandText =
+        '                "select Formato from Ventas where Folio=" & cbofolio.Text
+        '            rd2 = cmd2.ExecuteReader
+        '            If rd2.HasRows Then
+        '                If rd2.Read Then
+        '                    formato = rd2(0).ToString()
+        '                End If
+        '            End If
+        '            rd2.Close()
+
+        '            cmd2 = cnn2.CreateCommand
+        '            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TamImpre'"
+        '            rd2 = cmd2.ExecuteReader
+        '            If rd2.HasRows Then
+        '                If rd2.Read Then
+        '                    tamticket = rd2(0).ToString
+        '                End If
+        '            End If
+        '            rd2.Close()
+        '            cnn2.Close()
+        '        Catch ex As Exception
+        '            MessageBox.Show(ex.ToString())
+        '            cnn2.Close()
+        '        End Try
+        '    End If
+        'End If
+
+        'If formato = "TICKET" Then
+        '    Try
+        '        cnn3.Close() : cnn3.Open()
+
+        '        cmd3 = cnn3.CreateCommand
+        '        cmd3.CommandText =
+        '            "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+        '        rd3 = cmd3.ExecuteReader
+        '        If rd3.HasRows Then
+        '            If rd3.Read Then
+        '                imp_ticket = rd3(0).ToString()
+        '            End If
+        '        End If
+        '        rd3.Close() : cnn3.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString())
+        '        cnn3.Close()
+        '    End Try
+        'End If
+
+        'If formato = "CARTA" Then
+        '    Try
+        '        cnn3.Close() : cnn3.Open()
+
+        '        cmd3 = cnn3.CreateCommand
+        '        cmd3.CommandText =
+        '            "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='CARTA'"
+        '        rd3 = cmd3.ExecuteReader
+        '        If rd3.HasRows Then
+        '            If rd3.Read Then
+        '                imp_carta = rd3(0).ToString()
+        '            End If
+        '        End If
+        '        rd3.Close() : cnn3.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString())
+        '        cnn3.Close()
+        '    End Try
+        'End If
+
+        'If MsgBox("¿Deseas imprimir una copia?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+        '    If (optnotas.Checked) Then TipoVenta = 1
+        '    If (optcobrar.Checked) Then TipoVenta = 2
+        '    If (optpagadas.Checked) Then TipoVenta = 3
+        '    If (optanceladas.Checked) Then TipoVenta = 4
+
+        '    If (optcotiz.Checked) Then TipoVenta = 5
+
+        '    If (optdevos.Checked) Then TipoVenta = 7
+        '    If (optPedidos.Checked) Then TipoVenta = 6
+
+        '    If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Then
+
+
+        '        If formato = "TICKET" Then
+        '            If tamticket = "80" Then
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pVentas80.PrinterSettings.PrinterName = imp_ticket
+        '                pVentas80.Print()
+        '            Else
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pVenta58.PrinterSettings.PrinterName = imp_ticket
+        '                pVenta58.Print()
+        '            End If
+        '        End If
+
+        '        If formato = "CARTA" Then
+        '            If imp_carta = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '            pVentasCarta.PrinterSettings.PrinterName = imp_carta
+        '            pVentasCarta.Print()
+        '        End If
+
+        '        If formato = "PDF - CARTA 1" Then
+        '            If varrutabase <> "" Then
+        '                'root_name_recibo2 = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & Folio & ".pdf"
+        '                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+        '                    Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        '                End If
+        '            Else
+        '                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+        '                    Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        '                End If
+        '            End If
+        '        End If
+
+        '        If formato = "PDF - CARTA 2" Then
+        '            If varrutabase <> "" Then
+        '                'root_name_recibo2 = "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\" & Folio & ".pdf"
+        '                If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+        '                    Process.Start("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        '                End If
+        '            Else
+        '                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf") Then
+        '                    Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\VENTAS\Venta_" & cbofolio.Text & ".pdf")
+        '                End If
+        '            End If
+        '        End If
+
+        '    End If
+
+        '    If (optPedidos.Checked) Then
+        '        If formato = "TICKET" Then
+        '            If tamticket = "80" Then
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pCotiz80.PrinterSettings.PrinterName = imp_ticket
+        '                pCotiz80.Print()
+        '            Else
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pCotiz58.PrinterSettings.PrinterName = imp_ticket
+        '                pCotiz58.Print()
+        '            End If
+        '        End If
+        '    End If
+
+        '    If (optcotiz.Checked) Then
+        '        If formato = "TICKET" Then
+
+        '            If tamticket = "80" Then
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pCotiz80.PrinterSettings.PrinterName = imp_ticket
+        '                pCotiz80.Print()
+        '            Else
+        '                If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '                pCotiz58.PrinterSettings.PrinterName = imp_ticket
+        '                pCotiz58.Print()
+        '            End If
+
+        '        End If
+
+        '        If formato = "CARTA" Then
+        '            If imp_carta = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '            pCotizCarta.PrinterSettings.PrinterName = imp_carta
+        '            pCotizCarta.Print()
+        '        End If
+        '        If formato = "PDF - CARTA" Then
+        '            If (optcotiz.Checked) Then
+        '                If File.Exists(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf") Then
+        '                    Process.Start(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & cbofolio.Text & ".pdf")
+        '                End If
+        '            End If
+        '        End If
+        '    End If
+
+        '    If (optdevos.Checked) Then
+        '        If tamticket = "80" Then
+        '            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '            pDevos80.PrinterSettings.PrinterName = imp_ticket
+        '            pDevos80.Print()
+        '        Else
+        '            If imp_ticket = "" Then MsgBox("No hay una impresora configurada para imprimir la copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+        '            pDevos58.PrinterSettings.PrinterName = imp_ticket
+        '            pDevos58.Print()
+        '        End If
+        '    End If
+
+        'End If
     End Sub
 
     Private Sub txtusuario_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtusuario.KeyPress
