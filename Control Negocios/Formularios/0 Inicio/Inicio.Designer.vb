@@ -635,14 +635,14 @@ Partial Class Inicio
         '
         Me.pRegistro_Precios.BackColor = System.Drawing.Color.White
         Me.pRegistro_Precios.Name = "pRegistro_Precios"
-        Me.pRegistro_Precios.Size = New System.Drawing.Size(180, 22)
+        Me.pRegistro_Precios.Size = New System.Drawing.Size(117, 22)
         Me.pRegistro_Precios.Text = "Registro"
         '
         'pReporte_Precios
         '
         Me.pReporte_Precios.BackColor = System.Drawing.Color.White
         Me.pReporte_Precios.Name = "pReporte_Precios"
-        Me.pReporte_Precios.Size = New System.Drawing.Size(180, 22)
+        Me.pReporte_Precios.Size = New System.Drawing.Size(117, 22)
         Me.pReporte_Precios.Text = "Reporte"
         '
         'ControlDeServiciosToolStripMenuItem

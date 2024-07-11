@@ -2061,6 +2061,18 @@
     <Compile Include="Formularios\34 Opticas\frmRegistros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\FrmDentistas.Designer.vb">
+      <DependentUpon>FrmDentistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\FrmDentistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmHClinica.Designer.vb">
+      <DependentUpon>frmHClinica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmHClinica.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -3038,6 +3050,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\34 Opticas\frmRegistros.resx">
       <DependentUpon>frmRegistros.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\FrmDentistas.resx">
+      <DependentUpon>FrmDentistas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmHClinica.resx">
+      <DependentUpon>frmHClinica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
