@@ -227,7 +227,7 @@ Public Class Inicio
         SFormatos("Cuartos", "")
         SFormatos("CobroExacto", "")
 
-        ' Licencia()
+        'Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
@@ -4027,6 +4027,7 @@ Public Class Inicio
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         frmfacturacion.Show()
         frmfacturacion.BringToFront()
+
     End Sub
 
     Private Sub ReporteDeEgresosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeEgresosToolStripMenuItem.Click
@@ -4378,5 +4379,10 @@ Public Class Inicio
         frmRepComparador.BringToFront()
 
 
+    End Sub
+
+    Private Sub pedidos_tienda_Click(sender As Object, e As EventArgs) Handles pedidos_tienda.Click
+        FrmDentistas.Show()
+        FrmDentistas.BringToFront()
     End Sub
 End Class
