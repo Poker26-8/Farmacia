@@ -635,14 +635,14 @@ Partial Class Inicio
         '
         Me.pRegistro_Precios.BackColor = System.Drawing.Color.White
         Me.pRegistro_Precios.Name = "pRegistro_Precios"
-        Me.pRegistro_Precios.Size = New System.Drawing.Size(180, 22)
+        Me.pRegistro_Precios.Size = New System.Drawing.Size(117, 22)
         Me.pRegistro_Precios.Text = "Registro"
         '
         'pReporte_Precios
         '
         Me.pReporte_Precios.BackColor = System.Drawing.Color.White
         Me.pReporte_Precios.Name = "pReporte_Precios"
-        Me.pReporte_Precios.Size = New System.Drawing.Size(180, 22)
+        Me.pReporte_Precios.Size = New System.Drawing.Size(117, 22)
         Me.pReporte_Precios.Text = "Reporte"
         '
         'ControlDeServiciosToolStripMenuItem
@@ -1289,7 +1289,7 @@ Partial Class Inicio
         Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 612)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 625)
         Me.btnOptica.Name = "btnOptica"
         Me.btnOptica.Size = New System.Drawing.Size(90, 90)
         Me.btnOptica.TabIndex = 186
@@ -1303,7 +1303,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 522)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 535)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1317,7 +1317,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 432)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 445)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1331,7 +1331,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 342)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 355)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 90)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1347,7 +1347,7 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 270)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 283)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
@@ -1376,9 +1376,10 @@ Partial Class Inicio
         Me.btnPagarComandas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPagarComandas.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagarComandas.Image = CType(resources.GetObject("btnPagarComandas.Image"), System.Drawing.Image)
+        Me.btnPagarComandas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPagarComandas.Location = New System.Drawing.Point(0, 180)
         Me.btnPagarComandas.Name = "btnPagarComandas"
-        Me.btnPagarComandas.Size = New System.Drawing.Size(90, 90)
+        Me.btnPagarComandas.Size = New System.Drawing.Size(90, 103)
         Me.btnPagarComandas.TabIndex = 185
         Me.btnPagarComandas.Text = "PAGAR COMANDA"
         Me.btnPagarComandas.TextAlign = System.Drawing.ContentAlignment.BottomCenter

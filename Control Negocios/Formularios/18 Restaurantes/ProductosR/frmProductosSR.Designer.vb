@@ -129,9 +129,10 @@ Partial Class frmProductosSR
         Me.BTNpORMOCIONES.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BTNpORMOCIONES.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BTNpORMOCIONES.Image = CType(resources.GetObject("BTNpORMOCIONES.Image"), System.Drawing.Image)
+        Me.BTNpORMOCIONES.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.BTNpORMOCIONES.Location = New System.Drawing.Point(619, 374)
         Me.BTNpORMOCIONES.Name = "BTNpORMOCIONES"
-        Me.BTNpORMOCIONES.Size = New System.Drawing.Size(136, 64)
+        Me.BTNpORMOCIONES.Size = New System.Drawing.Size(136, 74)
         Me.BTNpORMOCIONES.TabIndex = 233
         Me.BTNpORMOCIONES.Text = "Promociones"
         Me.BTNpORMOCIONES.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -186,7 +187,7 @@ Partial Class frmProductosSR
         'pbimportar
         '
         Me.pbimportar.BackColor = System.Drawing.Color.White
-        Me.pbimportar.Location = New System.Drawing.Point(619, 444)
+        Me.pbimportar.Location = New System.Drawing.Point(619, 454)
         Me.pbimportar.Name = "pbimportar"
         Me.pbimportar.Size = New System.Drawing.Size(136, 12)
         Me.pbimportar.TabIndex = 219
@@ -948,7 +949,7 @@ Partial Class frmProductosSR
         Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_tienda.Location = New System.Drawing.Point(761, 374)
         Me.btn_tienda.Name = "btn_tienda"
-        Me.btn_tienda.Size = New System.Drawing.Size(65, 64)
+        Me.btn_tienda.Size = New System.Drawing.Size(65, 74)
         Me.btn_tienda.TabIndex = 256
         Me.btn_tienda.Text = "Datos tienda"
         Me.btn_tienda.UseVisualStyleBackColor = False

@@ -6531,7 +6531,7 @@ Door:
                 comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
 
                 'Inserta en la tabla de Ventas
-                If .runSp(a_cnn, "insert into Ventas(Nombre,Direccion,Totales,Descuento,ACuenta,Resta,Usuario,FVenta,HVenta,Status,Comentario,FolMonedero,CodFactura,Entregas,Telefono) values('" & cboNombre.Text & "','" & txtdireccion.Text & "'," & CDbl(txtPagar.Text) & "," & CDbl(txtdescuento1.Text) & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "',#" & FormatDateTime(Date.Now, DateFormat.ShortDate) & "#,#" & FormatDateTime(Date.Now, DateFormat.ShortTime) & "#,'" & MyStatus & "','" & comentariogen & "','',''," & IIf(Entrega = True, 1, 0) & ",'" & tel_cliente & "')", sinfo) Then
+                If .runSp(a_cnn, "insert into Ventas(Nombre,Direccion,Totales,Descuento,ACuenta,Resta,Usuario,FVenta,HVenta,Status,Comentario,FolMonedero,CodFactura,Entregas,Telefono) values('" & cboNombre.Text & "','" & txtdireccion.Text & "'," & CDbl(txtPagar.Text) & "," & CDbl(txtdescu.Text) & "," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "',#" & FormatDateTime(Date.Now, DateFormat.ShortDate) & "#,#" & FormatDateTime(Date.Now, DateFormat.ShortTime) & "#,'" & MyStatus & "','" & comentariogen & "','',''," & IIf(Entrega = True, 1, 0) & ",'" & tel_cliente & "')", sinfo) Then
                     sinfo = ""
                 Else
                     MsgBox(sinfo)
@@ -9067,7 +9067,13 @@ Door:
         End Try
 
         IVA_Vent = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
-        SubTotal = FormatNumber(TotalIVAPrint, 4)
+
+        If TotalIVAPrint > 0 Then
+            SubTotal = FormatNumber(TotalIVAPrint, 4)
+        Else
+            SubTotal = FormatNumber(txtSubTotal.Text, 4)
+        End If
+
         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
 
         Dim TotTarjeta As Double = 0, TotTransfe As Double = 0, TotMonedero As Double = 0, TotOtros As Double = 0
@@ -9110,17 +9116,26 @@ Door:
         '        End If
         '    End If
         'End If
+        FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"
         FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+
         If CDbl(txtefectivo.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("efectivo").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
         End If
+
+        If CDbl(txtdescuento2.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("DescuentoV").Text = "'" & FormatNumber(txtdescuento2.Text, 4) & "'"  'Descuento
+        End If
+
         If CDbl(txtCambio.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("cambio").Text = "'" & FormatNumber(txtCambio.Text, 4) & "'"      'Cambio
         End If
+
         Dim tot_otros As Double = TotTarjeta + TotTransfe + TotMonedero + TotOtros
         If tot_otros > 0 Then
             FileNta.DataDefinition.FormulaFields("otros").Text = "'" & FormatNumber(TotTarjeta, 4) & "'"
         End If
+
         If CDbl(txtResta.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("resta").Text = "'" & FormatNumber(txtResta.Text, 4) & "'"        'Resta
         End If

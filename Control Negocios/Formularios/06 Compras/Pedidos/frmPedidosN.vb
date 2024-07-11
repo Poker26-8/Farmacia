@@ -162,6 +162,7 @@
             Dim unidad As String = ""
             Dim precio As Double = 0
             Dim importe As Double = 0
+
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,UCompra,PrecioCompra FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
@@ -206,6 +207,11 @@
                                 FormatNumber(precio, 2),
                                 FormatNumber(importe, 2)
                                 )
+            lblCantidad.Text = lblCantidad.Text + CDec(txtcantidad.Text)
+            lblCantidad.Text = FormatNumber(lblCantidad.Text, 2)
+
+            txtSubtotal.Text = txtSubtotal.Text + CDec(importe)
+            txtSubtotal.Text = FormatNumber(txtSubtotal.Text, 2)
             Limpiar()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -228,14 +234,24 @@
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Alias FROM usuarios WHERE Clave='" & txtusuario.Text & "'"
+                cmd1.CommandText = "SELECT Alias,Status FROM usuarios WHERE Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
-                        lblusuario.Text = rd1(0).ToString
+                        If rd1(1).ToString = 1 Then
+                            lblusuario.Text = rd1(0).ToString
+                        Else
+                            MsgBox("El usuario esta inactivo, consulte a su administrador", vbInformation + vbOKOnly, titulocentral)
+                            lblusuario.Text = ""
+                            txtusuario.Text = ""
+                            Exit Sub
+                        End If
+
                     End If
                 Else
                     MsgBox("Contraseña incorrecta", vbInformation + vbOKOnly, titulocentral)
+                    lblusuario.Text = ""
+                    txtusuario.Text = ""
                     Exit Sub
                 End If
                 rd1.Close()
@@ -247,5 +263,113 @@
             End Try
         End If
 
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        Dim codigo As String = grdCaptura.Rows(index).Cells(0).Value.ToString
+        Dim descripciona As String = grdCaptura.Rows(index).Cells(2).Value.ToString
+        Dim unidad As String = grdCaptura.Rows(index).Cells(3).Value.ToString
+        Dim esxistencia As Double = grdCaptura.Rows(index).Cells(4).Value.ToString
+        Dim cantidad As Double = grdCaptura.Rows(index).Cells(5).Value.ToString
+        Dim importe As Double = grdCaptura.Rows(index).Cells(8).Value.ToString
+
+        txtcodigo.Text = codigo
+        cbonombre.Text = descripciona
+        txtunidad.Text = unidad
+        txtexistencia.Text = esxistencia
+        txtcantidad.Text = cantidad
+
+        lblCantidad.Text = lblCantidad.Text - cantidad
+        lblCantidad.Text = FormatNumber(lblCantidad.Text, 2)
+
+        txtSubtotal.Text = txtSubtotal.Text - CDec(importe)
+        txtSubtotal.Text = FormatNumber(txtSubtotal.Text, 2)
+        grdCaptura.Rows.Remove(grdCaptura.Rows(index))
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        txtSubtotal.Text = "0.00"
+        grdCaptura.Rows.Clear()
+        txtcodigo.Text = ""
+        cbonombre.Text = ""
+        txtunidad.Text = ""
+        txtexistencia.Text = ""
+        txtcantidad.Text = "1"
+        cboProveedor.Text = ""
+        lblMoneda.Text = ""
+        lblValor.Text = ""
+        txtmoneda.Text = "0.00"
+        chk_mPrecio.Checked = False
+    End Sub
+
+    Private Sub btnCargar_Click(sender As Object, e As EventArgs) Handles btnCargar.Click
+
+        If grdCaptura.Rows.Count < 1 Then MsgBox("Necesita agregar información para el pedido") : Exit Sub
+
+        If MsgBox("Desea guardar la información del pedido", vbInformation + vbYesNo) = vbYes Then
+
+            If cboProveedor.Text <> "" Then
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Id FROM pedidos WHERE Id=" & lblFolio.Text
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+
+                    End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO pedidos(Num,Proveedor,Total,Anticipo,Fecha,Hora,Status,Usuario,Cargado,TipoPago,Banco,Referencia) VALUES('" & txtNumPed.Text & "','" & cboProveedor.Text & "'," & txtSubtotal.Text & ",0,'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','" & lblusuario.Text & "',0,'','','')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+                If grdCaptura.Rows.Count - 1 Then
+
+
+
+                End If
+
+            End If
+
+        End If
+    End Sub
+
+    Private Sub frmPedidosN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TFolio.Start()
+    End Sub
+
+    Public Sub Folio()
+        TFolio.Stop()
+
+        cnntimer.Close() : cnntimer.Open()
+        cmdtimer = cnntimer.CreateCommand
+        cmdtimer.CommandText = "SELECT MAX(Id) FROM pedidos"
+        rdtimer = cmdtimer.ExecuteReader
+        If rdtimer.HasRows Then
+            If rdtimer.Read Then
+                lblFolio.Text = IIf(rdtimer(0).ToString = "", 0, rdtimer(0).ToString) + 1
+            Else
+                lblFolio.Text = "1"
+            End If
+        Else
+            lblFolio.Text = "1"
+        End If
+        rdtimer.Close()
+        cnntimer.Close()
+
+        TFolio.Start()
+    End Sub
+
+    Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
+        Folio()
     End Sub
 End Class

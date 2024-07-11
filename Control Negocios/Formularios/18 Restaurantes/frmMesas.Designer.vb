@@ -144,6 +144,7 @@ Partial Class frmMesas
         Me.btntemporales.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btntemporales.ForeColor = System.Drawing.Color.Black
         Me.btntemporales.Image = CType(resources.GetObject("btntemporales.Image"), System.Drawing.Image)
+        Me.btntemporales.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btntemporales.Location = New System.Drawing.Point(1, 0)
         Me.btntemporales.Name = "btntemporales"
         Me.btntemporales.Size = New System.Drawing.Size(100, 104)
@@ -252,6 +253,7 @@ Partial Class frmMesas
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.ForeColor = System.Drawing.Color.Black
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnLimpiar.Location = New System.Drawing.Point(501, 0)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(80, 104)
@@ -269,6 +271,7 @@ Partial Class frmMesas
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.Color.Black
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalir.Location = New System.Drawing.Point(581, 0)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(74, 104)

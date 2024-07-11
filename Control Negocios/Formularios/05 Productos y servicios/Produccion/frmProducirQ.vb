@@ -1296,6 +1296,11 @@ Public Class frmProducirQ
             cnn1.Close()
 
 
+            If cboImprimir.Text = "PDF" Then
+                Inserta_miprod()
+                PDF_MIPROD()
+            End If
+
             Dim tamticket As Integer = 0
             Dim impresoratickett As String = ""
 

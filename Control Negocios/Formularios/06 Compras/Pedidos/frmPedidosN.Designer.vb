@@ -22,9 +22,10 @@ Partial Class frmPedidosN
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPedidosN))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblusuario = New System.Windows.Forms.Label()
@@ -61,10 +62,22 @@ Partial Class frmPedidosN
         Me.cboProveedor = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtSubtotal = New System.Windows.Forms.TextBox()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnCargar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.txtSubtotal = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblCantidad = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.lblFolio = New System.Windows.Forms.Label()
+        Me.TFolio = New System.Windows.Forms.Timer(Me.components)
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtEfectivo = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.dtpFpedido = New System.Windows.Forms.DateTimePicker()
+        Me.txtNumPed = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -179,9 +192,10 @@ Partial Class frmPedidosN
         'chk_mPrecio
         '
         Me.chk_mPrecio.AutoSize = True
-        Me.chk_mPrecio.Location = New System.Drawing.Point(448, 31)
+        Me.chk_mPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chk_mPrecio.Location = New System.Drawing.Point(571, 29)
         Me.chk_mPrecio.Name = "chk_mPrecio"
-        Me.chk_mPrecio.Size = New System.Drawing.Size(137, 17)
+        Me.chk_mPrecio.Size = New System.Drawing.Size(157, 19)
         Me.chk_mPrecio.TabIndex = 247
         Me.chk_mPrecio.Text = "Mejor precio de compra"
         Me.chk_mPrecio.UseVisualStyleBackColor = True
@@ -316,28 +330,28 @@ Partial Class frmPedidosN
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -419,6 +433,12 @@ Partial Class frmPedidosN
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.txtNumPed)
+        Me.Panel2.Controls.Add(Me.dtpFpedido)
+        Me.Panel2.Controls.Add(Me.Label13)
+        Me.Panel2.Controls.Add(Me.Label11)
+        Me.Panel2.Controls.Add(Me.lblFolio)
+        Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.cboProveedor)
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -463,6 +483,11 @@ Partial Class frmPedidosN
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.txtEfectivo)
+        Me.Panel3.Controls.Add(Me.Label12)
+        Me.Panel3.Controls.Add(Me.lblCantidad)
+        Me.Panel3.Controls.Add(Me.Label9)
+        Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.btnCargar)
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Controls.Add(Me.txtSubtotal)
@@ -472,6 +497,43 @@ Partial Class frmPedidosN
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(839, 100)
         Me.Panel3.TabIndex = 250
+        '
+        'btnCargar
+        '
+        Me.btnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCargar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCargar.Image = CType(resources.GetObject("btnCargar.Image"), System.Drawing.Image)
+        Me.btnCargar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnCargar.Location = New System.Drawing.Point(680, 5)
+        Me.btnCargar.Name = "btnCargar"
+        Me.btnCargar.Size = New System.Drawing.Size(75, 75)
+        Me.btnCargar.TabIndex = 3
+        Me.btnCargar.Text = "Cargar"
+        Me.btnCargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCargar.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(761, 5)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(75, 75)
+        Me.btnSalir.TabIndex = 2
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'txtSubtotal
+        '
+        Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubtotal.Location = New System.Drawing.Point(77, 8)
+        Me.txtSubtotal.Name = "txtSubtotal"
+        Me.txtSubtotal.Size = New System.Drawing.Size(100, 22)
+        Me.txtSubtotal.TabIndex = 1
+        Me.txtSubtotal.Text = "0.00"
         '
         'Label7
         '
@@ -483,42 +545,130 @@ Partial Class frmPedidosN
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Subtotal"
         '
-        'txtSubtotal
+        'Button1
         '
-        Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotal.Location = New System.Drawing.Point(77, 8)
-        Me.txtSubtotal.Name = "txtSubtotal"
-        Me.txtSubtotal.Size = New System.Drawing.Size(100, 22)
-        Me.txtSubtotal.TabIndex = 1
-        Me.txtSubtotal.Text = "0.00"
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(599, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 75)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Limpiar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'btnSalir
+        'Label9
         '
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(752, 13)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 75)
-        Me.btnSalir.TabIndex = 2
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = True
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(361, 9)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(141, 18)
+        Me.Label9.TabIndex = 5
+        Me.Label9.Text = "Cantidad productos:"
         '
-        'btnCargar
+        'lblCantidad
         '
-        Me.btnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCargar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCargar.Image = CType(resources.GetObject("btnCargar.Image"), System.Drawing.Image)
-        Me.btnCargar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCargar.Location = New System.Drawing.Point(671, 13)
-        Me.btnCargar.Name = "btnCargar"
-        Me.btnCargar.Size = New System.Drawing.Size(75, 75)
-        Me.btnCargar.TabIndex = 3
-        Me.btnCargar.Text = "Cargar"
-        Me.btnCargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCargar.UseVisualStyleBackColor = True
+        Me.lblCantidad.BackColor = System.Drawing.Color.LightBlue
+        Me.lblCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCantidad.ForeColor = System.Drawing.Color.Black
+        Me.lblCantidad.Location = New System.Drawing.Point(508, 5)
+        Me.lblCantidad.Name = "lblCantidad"
+        Me.lblCantidad.Size = New System.Drawing.Size(76, 27)
+        Me.lblCantidad.TabIndex = 6
+        Me.lblCantidad.Text = "0"
+        Me.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label10.Font = New System.Drawing.Font("Arial Unicode MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(732, 5)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(98, 21)
+        Me.Label10.TabIndex = 250
+        Me.Label10.Text = "Folio"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblFolio
+        '
+        Me.lblFolio.BackColor = System.Drawing.Color.LightBlue
+        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFolio.ForeColor = System.Drawing.Color.Black
+        Me.lblFolio.Location = New System.Drawing.Point(732, 26)
+        Me.lblFolio.Name = "lblFolio"
+        Me.lblFolio.Size = New System.Drawing.Size(98, 27)
+        Me.lblFolio.TabIndex = 251
+        Me.lblFolio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TFolio
+        '
+        Me.TFolio.Interval = 5000
+        '
+        'Label11
+        '
+        Me.Label11.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label11.Font = New System.Drawing.Font("Arial Unicode MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(438, 5)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(125, 21)
+        Me.Label11.TabIndex = 252
+        Me.Label11.Text = "Num Pedido"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(183, 9)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(65, 18)
+        Me.Label12.TabIndex = 7
+        Me.Label12.Text = "Efectivo:"
+        '
+        'txtEfectivo
+        '
+        Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEfectivo.Location = New System.Drawing.Point(254, 8)
+        Me.txtEfectivo.Name = "txtEfectivo"
+        Me.txtEfectivo.Size = New System.Drawing.Size(100, 22)
+        Me.txtEfectivo.TabIndex = 8
+        Me.txtEfectivo.Text = "0.00"
+        '
+        'Label13
+        '
+        Me.Label13.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label13.Font = New System.Drawing.Font("Arial Unicode MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.Location = New System.Drawing.Point(732, 54)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(98, 21)
+        Me.Label13.TabIndex = 253
+        Me.Label13.Text = "F Pedido"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dtpFpedido
+        '
+        Me.dtpFpedido.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFpedido.Location = New System.Drawing.Point(732, 77)
+        Me.dtpFpedido.Name = "dtpFpedido"
+        Me.dtpFpedido.Size = New System.Drawing.Size(98, 20)
+        Me.dtpFpedido.TabIndex = 254
+        '
+        'txtNumPed
+        '
+        Me.txtNumPed.FormattingEnabled = True
+        Me.txtNumPed.Location = New System.Drawing.Point(438, 29)
+        Me.txtNumPed.Name = "txtNumPed"
+        Me.txtNumPed.Size = New System.Drawing.Size(125, 21)
+        Me.txtNumPed.TabIndex = 255
         '
         'frmPedidosN
         '
@@ -592,4 +742,16 @@ Partial Class frmPedidosN
     Friend WithEvents btnSalir As Button
     Friend WithEvents txtSubtotal As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents lblCantidad As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents lblFolio As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TFolio As Timer
+    Friend WithEvents Label11 As Label
+    Friend WithEvents txtEfectivo As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtNumPed As ComboBox
+    Friend WithEvents dtpFpedido As DateTimePicker
+    Friend WithEvents Label13 As Label
 End Class

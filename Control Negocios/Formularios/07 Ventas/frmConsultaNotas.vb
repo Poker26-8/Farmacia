@@ -2839,7 +2839,13 @@ Public Class frmConsultaNotas
         '        End If
         '    End If
         'End If
+        FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(txtsubtotal.Text, 4) & "'"
         FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+
+        If CDbl(txtdescuento.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("DescuentoV").Text = "'" & FormatNumber(txtdescuento.Text, 4) & "'"  'Efectivo
+        End If
+
         If CDbl(txtefectivo.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("efectivo").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
         End If
