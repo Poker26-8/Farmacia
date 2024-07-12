@@ -655,6 +655,7 @@ Partial Class frmModulos
         '
         'btnTiendaLinea
         '
+        Me.btnTiendaLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnTiendaLinea.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTiendaLinea.Image = CType(resources.GetObject("btnTiendaLinea.Image"), System.Drawing.Image)
         Me.btnTiendaLinea.Location = New System.Drawing.Point(701, 343)

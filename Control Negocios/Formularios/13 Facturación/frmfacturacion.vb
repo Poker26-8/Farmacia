@@ -1023,7 +1023,7 @@ malo:
         End With
     End Sub
 
-    Private Sub Cmb_RazonS_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Cmb_RazonS.KeyPress
+    Public Sub Cmb_RazonS_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Cmb_RazonS.KeyPress
         If e.KeyChar = ChrW(13) Then
             If Cmb_RazonS.Text <> "" Then
                 If dame_IdClienteRS(Cmb_RazonS.Text) = 0 Then MsgBox("El cliente no existe hay que registrarlo en la base de datos") : Exit Sub
@@ -6477,7 +6477,7 @@ malo:
         End If
     End Sub
 
-    Private Sub txtNotaVenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNotaVenta.KeyPress
+    Public Sub txtNotaVenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNotaVenta.KeyPress
         If e.KeyChar = ChrW(13) Then
             If txtNotaVenta.Text = "" Then Exit Sub
 
