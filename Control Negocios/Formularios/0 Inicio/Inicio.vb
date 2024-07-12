@@ -227,7 +227,7 @@ Public Class Inicio
         SFormatos("Cuartos", "")
         SFormatos("CobroExacto", "")
 
-        'Licencia()
+        Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
