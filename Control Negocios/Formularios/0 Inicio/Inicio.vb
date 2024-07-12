@@ -4382,7 +4382,7 @@ Public Class Inicio
     End Sub
 
     Private Sub pedidos_tienda_Click(sender As Object, e As EventArgs) Handles pedidos_tienda.Click
-        FrmDentistas.Show()
-        FrmDentistas.BringToFront()
+        'FrmDentistas.Show()
+        'FrmDentistas.BringToFront()
     End Sub
 End Class

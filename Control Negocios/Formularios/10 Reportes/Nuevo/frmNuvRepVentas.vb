@@ -5087,6 +5087,19 @@ Public Class frmNuvRepVentas
             If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
                 Dim celda As DataGridViewCellEventArgs = e
                 Dim fila As Integer = grdCaptura.CurrentRow.Index
+                If celda.ColumnIndex = 0 Then
+                    Dim selectedRow As DataGridViewRow = grdCaptura.Rows(e.RowIndex)
+                    If selectedRow.Cells(0).Value.ToString <> "" And selectedRow.Cells(4).Value.ToString = "0" Then
+                        frmfacturacion.Close()
+                        My.Application.DoEvents()
+                        frmfacturacion.Show()
+                        frmfacturacion.BringToFront()
+                        frmfacturacion.Cmb_RazonS.Text = selectedRow.Cells(1).Value.ToString
+                        frmfacturacion.Cmb_RazonS_KeyPress(frmfacturacion.Cmb_RazonS, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                        frmfacturacion.txtNotaVenta.Text = selectedRow.Cells(0).Value.ToString
+                        frmfacturacion.txtNotaVenta_KeyPress(frmfacturacion.txtNotaVenta, New KeyPressEventArgs(ChrW(Keys.Enter)))
+                    End If
+                End If
 
                 If celda.ColumnIndex = 4 Then
                     boxcantidad.Visible = True
