@@ -3242,6 +3242,8 @@ Public Class Inicio
                 frmVentas1.Show()
                 frmVentas1.BringToFront()
 
+                frmVentaSencilla.Show()
+                frmVentaSencilla.BringToFront()
             End If
 
 
