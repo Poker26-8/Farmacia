@@ -2074,17 +2074,31 @@ doorcita:
         '        End If
         '    End If
         'End If
+        If txtdescuento2.Text > 0 Then
+            FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(txtSubTotal.Text, 4) & "'"
+        Else
+            FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"
+        End If
+
         FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
+
         If CDbl(txtefectivo.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("efectivo").Text = "'" & FormatNumber(txtefectivo.Text, 4) & "'"  'Efectivo
         End If
+
+        If CDbl(txtdescuento2.Text) > 0 Then
+            FileNta.DataDefinition.FormulaFields("DescuentoV").Text = "'" & FormatNumber(txtdescuento2.Text, 4) & "'"  'Descuento
+        End If
+
         If CDbl(txtCambio.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("cambio").Text = "'" & FormatNumber(txtCambio.Text, 4) & "'"      'Cambio
         End If
+
         Dim tot_otros As Double = TotTarjeta + TotTransfe + TotMonedero + TotOtros
         If tot_otros > 0 Then
             FileNta.DataDefinition.FormulaFields("otros").Text = "'" & FormatNumber(TotTarjeta, 4) & "'"
         End If
+
         If CDbl(txtResta.Text) > 0 Then
             FileNta.DataDefinition.FormulaFields("resta").Text = "'" & FormatNumber(txtResta.Text, 4) & "'"        'Resta
         End If

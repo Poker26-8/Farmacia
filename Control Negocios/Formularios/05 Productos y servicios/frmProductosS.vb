@@ -62,6 +62,10 @@ Public Class frmProductosS
                     txtpventa.Enabled = False
                     txtpcompra2.Enabled = False
                     txtutilidad.Enabled = False
+
+                    lblExistencia.Visible = False
+                    txtExistencia.Visible = False
+                    txtExistencia.Text = "0"
                 End If
             End If
             rd1.Close()
@@ -136,6 +140,10 @@ Public Class frmProductosS
                     'TIENDA LINEA
                     txt_resumen.Text = rd2("Resumen").ToString
                     txt_descripcion.Text = rd2("Descripcion_Tienda").ToString
+
+                    lblExistencia.Visible = False
+                    txtExistencia.Visible = False
+                    txtExistencia.Text = "0"
                 End If
             End If
             rd2.Close()
@@ -337,7 +345,12 @@ Public Class frmProductosS
 
         If AscW(e.KeyChar) = Keys.Enter Then
             If txtpventa.Text = "" Then MsgBox("Campo obligatorio.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : Exit Sub
-            cboProvP.Focus().Equals(True)
+            If cboCodigo.Text <> "" Then
+                cboProvP.Focus().Equals(True)
+            Else
+                txtExistencia.Focus().Equals(True)
+            End If
+
             txtpventa.Text = FormatNumber(txtpventa.Text, 2)
             If CDec(txtpcompra2.Text) = 0 Then txtutilidad.Text = "0" : Exit Sub
             If Not txtpcompra2.Text = "" And Not txtpventa.Text = "" Then
@@ -493,6 +506,10 @@ Public Class frmProductosS
         'TIENDA EN LINEA
         txt_resumen.Text = ""
         txt_descripcion.Text = ""
+
+        lblExistencia.Visible = True
+        txtExistencia.Text = "0"
+        txtExistencia.Visible = True
     End Sub
 
     Private Sub btnImagen_Click(sender As System.Object, e As System.EventArgs) Handles btnImagen.Click
@@ -549,7 +566,7 @@ Public Class frmProductosS
         Dim porcentaje As Double = txtutilidad.Text
         Dim iva As Double = cboIVA.Text
         Dim p_ventaiva As Double = p_venta
-        Dim existencia As Double = 0
+        Dim existencia As Double = txtExistencia.Text
         Dim fecha As String = Format(Date.Now, "yyyy-MM-dd")
 
         Dim img As String = ""
@@ -1775,5 +1792,11 @@ Public Class frmProductosS
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub txtExistencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtExistencia.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            cboProvP.Focus().Equals(True)
+        End If
     End Sub
 End Class

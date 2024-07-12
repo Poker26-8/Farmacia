@@ -9071,7 +9071,7 @@ Door:
         If TotalIVAPrint > 0 Then
             SubTotal = FormatNumber(TotalIVAPrint, 4)
         Else
-            SubTotal = FormatNumber(txtSubTotal.Text, 4)
+            SubTotal = FormatNumber(txtPagar.Text, 4)
         End If
 
         Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
@@ -9116,7 +9116,12 @@ Door:
         '        End If
         '    End If
         'End If
-        FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"
+        If txtdescuento2.Text > 0 Then
+            FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(txtSubTotal.Text, 4) & "'"
+        Else
+            FileNta.DataDefinition.FormulaFields("Subtotal").Text = "'" & FormatNumber(SubTotal, 4) & "'"
+        End If
+
         FileNta.DataDefinition.FormulaFields("total").Text = "'" & FormatNumber(Total_Ve, 4) & "'"             'Total
 
         If CDbl(txtefectivo.Text) > 0 Then

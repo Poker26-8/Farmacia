@@ -73,6 +73,7 @@ Partial Class frmRepEntradas
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.cboFormaPago = New System.Windows.Forms.ComboBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -321,7 +322,7 @@ Partial Class frmRepEntradas
         Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(5, 65)
+        Me.ComboBox1.Location = New System.Drawing.Point(5, 94)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(246, 23)
         Me.ComboBox1.TabIndex = 282
@@ -619,11 +620,23 @@ Partial Class frmRepEntradas
         Me.cboFormaPago.TabIndex = 337
         Me.cboFormaPago.Visible = False
         '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(8, 65)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(140, 19)
+        Me.RadioButton2.TabIndex = 339
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Ver todos los registros"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'frmRepEntradas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1015, 640)
+        Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -670,7 +683,7 @@ Partial Class frmRepEntradas
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmRepEntradas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Reporte de ingresos y egresos"
+        Me.Text = "Reporte de ingresos"
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdpagos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdCanceñlaciones, System.ComponentModel.ISupportInitialize).EndInit()
@@ -732,4 +745,5 @@ Partial Class frmRepEntradas
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents cboFormaPago As ComboBox
+    Friend WithEvents RadioButton2 As RadioButton
 End Class

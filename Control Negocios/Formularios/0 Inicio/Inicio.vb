@@ -2778,8 +2778,8 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            '   frmCompras.Show()
-            '  frmCompras.BringToFront()
+            ' frmCompras.Show()
+            ' frmCompras.BringToFront()
 
             frmNuvCompras.Show()
             frmNuvCompras.BringToFront()
@@ -3143,8 +3143,8 @@ Public Class Inicio
     End Sub
 
     Private Sub PedidosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pPedidos.Click
-        frmPedidos.Show()
-        frmPedidos.BringToFront()
+        'frmPedidos.Show()
+        ' frmPedidos.BringToFront()
 
         frmPedidosN.Show()
         frmPedidosN.BringToFront()

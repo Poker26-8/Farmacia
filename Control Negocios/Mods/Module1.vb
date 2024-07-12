@@ -562,6 +562,27 @@ Module Module1
         End Try
     End Function
 
+    Public Function PreguntaImprime()
+        Try
+            Dim preg As Integer = 0
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NoPrint FROM ticket WHERE Id=1"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    preg = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            Return preg
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Function
+
     Public Function ImpresoraImprimir()
         Try
             Dim impre As String = ""

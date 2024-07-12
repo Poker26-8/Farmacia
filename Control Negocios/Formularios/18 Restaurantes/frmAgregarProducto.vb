@@ -2813,54 +2813,54 @@ SAFO:
             End If
             rd2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    Pie1 = rd2("Pie1")
-                    pie2 = rd2("Pie2")
-                    pie3 = rd2("Pie3")
+            'cmd2 = cnn2.CreateCommand
+            'cmd2.CommandText = "select * from Ticket"
+            'rd2 = cmd2.ExecuteReader
+            'If rd2.HasRows Then
+            '    If rd2.Read Then
+            '        Pie1 = rd2("Pie1")
+            '        pie2 = rd2("Pie2")
+            '        pie3 = rd2("Pie3")
 
-                    If rd2("Cab0").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                        Y += 12.5
-                    End If
+            '        If rd2("Cab0").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            '            Y += 12.5
+            '        End If
 
-                    If rd2("Cab1").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-                        Y += 12.5
-                    End If
+            '        If rd2("Cab1").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            '            Y += 12.5
+            '        End If
 
-                    If rd2("Cab2").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                        Y += 12
-                    End If
+            '        If rd2("Cab2").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+            '            Y += 12
+            '        End If
 
-                    If rd2("Cab3").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                        Y += 12
-                    End If
+            '        If rd2("Cab3").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+            '            Y += 12
+            '        End If
 
-                    If rd2("Cab4").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                        Y += 12
-                    End If
+            '        If rd2("Cab4").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+            '            Y += 12
+            '        End If
 
-                    If rd2("Cab5").ToString() <> "" Then
-                        e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                        Y += 12
-                    End If
+            '        If rd2("Cab5").ToString() <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+            '            Y += 12
+            '        End If
 
-                    If rd2("Cab6").ToString <> "" Then
-                        e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-                        Y += 12
-                    End If
-                    Y += 4
-                End If
-            Else
-            End If
-            rd2.Close()
+            '        If rd2("Cab6").ToString <> "" Then
+            '            e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+            '            Y += 12
+            '        End If
+            '        Y += 4
+            '    End If
+            'Else
+            'End If
+            'rd2.Close()
 
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
@@ -2890,9 +2890,9 @@ SAFO:
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
 
-            e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 150, Y, sf)
-            Y += 6
+            e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 13, FontStyle.Bold), Brushes.Black, 200, Y, sf)
+            Y += 10
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
 
@@ -2934,8 +2934,8 @@ SAFO:
                         While inicio < longitudTexto
                             Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                             Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
-                            Y += 15
+                            e.Graphics.DrawString(bloque, New Font("Arial", 13, FontStyle.Regular), Brushes.Black, 25, Y)
+                            Y += 16
                             inicio += caracteresPorLinea
                         End While
 
@@ -2990,8 +2990,8 @@ SAFO:
                                 While inicio < longitudTexto
                                     Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                                     Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                                    e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 25, Y)
-                                    Y += 15
+                                    e.Graphics.DrawString(bloque, New Font("Arial", 13, FontStyle.Regular), Brushes.Black, 25, Y)
+                                    Y += 16
                                     inicio += caracteresPorLinea
                                 End While
 
@@ -3019,8 +3019,8 @@ SAFO:
                 e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             End If
             Y += 15
-            e.Graphics.DrawString("MESERO: ", fuente_datos, Brushes.Black, 1, Y)
-            e.Graphics.DrawString(lblatiende.Text, fuente_prods, Brushes.Black, 70, Y)
+            e.Graphics.DrawString("MESERO", New Font("Arial", 15, FontStyle.Regular), Brushes.Black, 1, Y)
+            e.Graphics.DrawString(lblatiende.Text, New Font("Arial", 15, FontStyle.Regular), Brushes.Black, 285, Y, sf)
 
             cnn2.Close()
             cnn1.Close()

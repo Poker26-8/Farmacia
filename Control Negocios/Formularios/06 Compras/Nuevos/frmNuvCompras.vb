@@ -1717,7 +1717,15 @@ kaka:
 
     Private Sub txtpagos_TextChanged(sender As Object, e As EventArgs) Handles txtpagos.TextChanged
         txtresta.Text = CDbl(IIf(txtapagar.Text = "", 0, txtapagar.Text)) - (CDbl(IIf(txtanticipo.Text = "", 0, txtanticipo.Text)) + CDbl(IIf(txtefectivo.Text = "", 0, txtefectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0, txtpagos.Text)))
-        txtresta.Text = FormatNumber(txtresta.Text, 2)
+
+        If txtresta.Text < 0 Then
+            txtCambio.Text = FormatNumber(-txtresta.Text, 2)
+            txtresta.Text = "0.00"
+        Else
+            txtresta.Text = FormatNumber(txtresta.Text, 2)
+            txtCambio.Text = "0.00"
+        End If
+
     End Sub
 
     Private Sub txtefectivo_Click(sender As Object, e As EventArgs) Handles txtefectivo.Click
@@ -1737,9 +1745,11 @@ kaka:
         txtresta.Text = CDbl(IIf(txtapagar.Text = "", 0, txtapagar.Text)) - (CDbl(IIf(txtanticipo.Text = "", 0, txtanticipo.Text)) + CDbl(IIf(txtefectivo.Text = "", 0, txtefectivo.Text)) + CDbl(IIf(txtpagos.Text = "", 0, txtpagos.Text)))
 
         If txtresta.Text < 0 Then
-            txtresta.Text = FormatNumber(-txtresta.Text, 2)
+            txtCambio.Text = FormatNumber(-txtresta.Text, 2)
+            txtresta.Text = "0.00"
         Else
             txtresta.Text = FormatNumber(txtresta.Text, 2)
+            txtCambio.Text = "0.00"
         End If
 
     End Sub

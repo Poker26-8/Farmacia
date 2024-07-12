@@ -87,6 +87,8 @@ Partial Class frmProductosS
         Me.btn_tienda = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.lblExistencia = New System.Windows.Forms.Label()
+        Me.txtExistencia = New System.Windows.Forms.TextBox()
         CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.box_tienda.SuspendLayout()
@@ -108,15 +110,14 @@ Partial Class frmProductosS
         'barsube
         '
         Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(21, 281)
+        Me.barsube.Location = New System.Drawing.Point(21, 278)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 220
         '
         'picImagen
         '
-        Me.picImagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.picImagen.Location = New System.Drawing.Point(735, 31)
+        Me.picImagen.Location = New System.Drawing.Point(735, 39)
         Me.picImagen.Name = "picImagen"
         Me.picImagen.Size = New System.Drawing.Size(305, 250)
         Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -131,7 +132,7 @@ Partial Class frmProductosS
         Me.btnImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImagen.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImagen.Location = New System.Drawing.Point(716, 300)
+        Me.btnImagen.Location = New System.Drawing.Point(716, 297)
         Me.btnImagen.Name = "btnImagen"
         Me.btnImagen.Size = New System.Drawing.Size(60, 64)
         Me.btnImagen.TabIndex = 218
@@ -147,7 +148,7 @@ Partial Class frmProductosS
         Me.btnImportar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImportar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImportar.Location = New System.Drawing.Point(89, 299)
+        Me.btnImportar.Location = New System.Drawing.Point(89, 296)
         Me.btnImportar.Name = "btnImportar"
         Me.btnImportar.Size = New System.Drawing.Size(62, 65)
         Me.btnImportar.TabIndex = 217
@@ -164,7 +165,7 @@ Partial Class frmProductosS
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(848, 299)
+        Me.btnGuardar.Location = New System.Drawing.Point(848, 296)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 65)
         Me.btnGuardar.TabIndex = 216
@@ -179,7 +180,7 @@ Partial Class frmProductosS
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(914, 299)
+        Me.btnNuevo.Location = New System.Drawing.Point(914, 296)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 65)
         Me.btnNuevo.TabIndex = 215
@@ -196,7 +197,7 @@ Partial Class frmProductosS
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(782, 300)
+        Me.btnEliminar.Location = New System.Drawing.Point(782, 297)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 64)
         Me.btnEliminar.TabIndex = 214
@@ -520,7 +521,7 @@ Partial Class frmProductosS
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(643, 300)
+        Me.Button1.Location = New System.Drawing.Point(643, 297)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(67, 64)
         Me.Button1.TabIndex = 242
@@ -537,7 +538,7 @@ Partial Class frmProductosS
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(8, 299)
+        Me.Button2.Location = New System.Drawing.Point(8, 296)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 65)
         Me.Button2.TabIndex = 251
@@ -554,7 +555,7 @@ Partial Class frmProductosS
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button3.Location = New System.Drawing.Point(157, 299)
+        Me.Button3.Location = New System.Drawing.Point(157, 296)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(83, 65)
         Me.Button3.TabIndex = 252
@@ -581,7 +582,7 @@ Partial Class frmProductosS
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(37, 262)
+        Me.DataGridView1.Location = New System.Drawing.Point(89, 388)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(56, 27)
@@ -632,9 +633,9 @@ Partial Class frmProductosS
         Me.txtrutaimagen.BackColor = System.Drawing.Color.White
         Me.txtrutaimagen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtrutaimagen.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrutaimagen.Location = New System.Drawing.Point(303, 272)
+        Me.txtrutaimagen.Location = New System.Drawing.Point(477, 316)
         Me.txtrutaimagen.Name = "txtrutaimagen"
-        Me.txtrutaimagen.Size = New System.Drawing.Size(155, 23)
+        Me.txtrutaimagen.Size = New System.Drawing.Size(47, 23)
         Me.txtrutaimagen.TabIndex = 231
         Me.txtrutaimagen.Visible = False
         '
@@ -746,7 +747,7 @@ Partial Class frmProductosS
         '
         Me.lblInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblInfo.AutoSize = True
-        Me.lblInfo.Location = New System.Drawing.Point(464, 284)
+        Me.lblInfo.Location = New System.Drawing.Point(474, 342)
         Me.lblInfo.Name = "lblInfo"
         Me.lblInfo.Size = New System.Drawing.Size(116, 15)
         Me.lblInfo.TabIndex = 249
@@ -761,9 +762,9 @@ Partial Class frmProductosS
         Me.box_tienda.Controls.Add(Me.Label20)
         Me.box_tienda.Controls.Add(Me.txt_descripcion)
         Me.box_tienda.Controls.Add(Me.txt_resumen)
-        Me.box_tienda.Location = New System.Drawing.Point(96, 167)
+        Me.box_tienda.Location = New System.Drawing.Point(96, 140)
         Me.box_tienda.Name = "box_tienda"
-        Me.box_tienda.Size = New System.Drawing.Size(633, 122)
+        Me.box_tienda.Size = New System.Drawing.Size(633, 99)
         Me.box_tienda.TabIndex = 253
         Me.box_tienda.TabStop = False
         Me.box_tienda.Text = "Datos tienda en linea"
@@ -777,7 +778,7 @@ Partial Class frmProductosS
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_guardar.Location = New System.Drawing.Point(9, 86)
+        Me.btn_guardar.Location = New System.Drawing.Point(9, 63)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(114, 26)
         Me.btn_guardar.TabIndex = 253
@@ -788,7 +789,7 @@ Partial Class frmProductosS
         '
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 45)
+        Me.Label28.Location = New System.Drawing.Point(6, 22)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(124, 15)
         Me.Label28.TabIndex = 251
@@ -798,7 +799,7 @@ Partial Class frmProductosS
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 20)
+        Me.Label20.Location = New System.Drawing.Point(6, -3)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(111, 15)
         Me.Label20.TabIndex = 250
@@ -827,7 +828,7 @@ Partial Class frmProductosS
         Me.btn_tienda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_tienda.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_tienda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_tienda.Location = New System.Drawing.Point(373, 299)
+        Me.btn_tienda.Location = New System.Drawing.Point(373, 296)
         Me.btn_tienda.Name = "btn_tienda"
         Me.btn_tienda.Size = New System.Drawing.Size(95, 65)
         Me.btn_tienda.TabIndex = 254
@@ -844,7 +845,7 @@ Partial Class frmProductosS
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(246, 299)
+        Me.Button4.Location = New System.Drawing.Point(246, 296)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(121, 65)
         Me.Button4.TabIndex = 256
@@ -860,7 +861,7 @@ Partial Class frmProductosS
         Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(980, 299)
+        Me.btnSalir.Location = New System.Drawing.Point(980, 296)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(60, 65)
         Me.btnSalir.TabIndex = 257
@@ -868,11 +869,38 @@ Partial Class frmProductosS
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = True
         '
+        'lblExistencia
+        '
+        Me.lblExistencia.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.lblExistencia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblExistencia.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExistencia.ForeColor = System.Drawing.Color.White
+        Me.lblExistencia.Location = New System.Drawing.Point(332, 265)
+        Me.lblExistencia.Name = "lblExistencia"
+        Me.lblExistencia.Size = New System.Drawing.Size(84, 24)
+        Me.lblExistencia.TabIndex = 258
+        Me.lblExistencia.Text = "Existencia"
+        Me.lblExistencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtExistencia
+        '
+        Me.txtExistencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtExistencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtExistencia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtExistencia.Location = New System.Drawing.Point(417, 266)
+        Me.txtExistencia.Name = "txtExistencia"
+        Me.txtExistencia.Size = New System.Drawing.Size(101, 23)
+        Me.txtExistencia.TabIndex = 259
+        Me.txtExistencia.Text = "0"
+        Me.txtExistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmProductosS
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1044, 372)
+        Me.ClientSize = New System.Drawing.Size(1044, 369)
+        Me.Controls.Add(Me.txtExistencia)
+        Me.Controls.Add(Me.lblExistencia)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.box_tienda)
         Me.Controls.Add(Me.Button3)
@@ -933,8 +961,6 @@ Partial Class frmProductosS
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(1060, 411)
-        Me.MinimumSize = New System.Drawing.Size(1060, 411)
         Me.Name = "frmProductosS"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Captura (sencilla) de productos"
@@ -1009,4 +1035,6 @@ Partial Class frmProductosS
     Friend WithEvents btn_tienda As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents lblExistencia As Label
+    Friend WithEvents txtExistencia As TextBox
 End Class

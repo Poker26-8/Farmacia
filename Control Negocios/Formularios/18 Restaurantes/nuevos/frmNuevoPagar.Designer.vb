@@ -1117,6 +1117,7 @@ Partial Class frmNuevoPagar
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalir.Location = New System.Drawing.Point(230, 182)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(117, 105)
@@ -1347,6 +1348,7 @@ Partial Class frmNuevoPagar
         Me.btnIntro.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnIntro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIntro.Image = CType(resources.GetObject("btnIntro.Image"), System.Drawing.Image)
+        Me.btnIntro.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnIntro.Location = New System.Drawing.Point(0, 2)
         Me.btnIntro.Name = "btnIntro"
         Me.btnIntro.Size = New System.Drawing.Size(92, 75)
@@ -1362,6 +1364,7 @@ Partial Class frmNuevoPagar
         Me.btnPrecuenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnPrecuenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrecuenta.Image = CType(resources.GetObject("btnPrecuenta.Image"), System.Drawing.Image)
+        Me.btnPrecuenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPrecuenta.Location = New System.Drawing.Point(95, 3)
         Me.btnPrecuenta.Name = "btnPrecuenta"
         Me.btnPrecuenta.Size = New System.Drawing.Size(92, 74)
