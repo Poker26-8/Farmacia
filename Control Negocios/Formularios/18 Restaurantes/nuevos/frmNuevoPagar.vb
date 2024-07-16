@@ -2289,10 +2289,30 @@ Door:
             Dim TOTALCOM As Double = 0
             Dim numdec As String = ""
 
+            Dim Logotipo As Drawing.Image = Nothing
+            Dim nLogo As String = DatosRecarga("LogoG")
+            Dim tLogo As String = DatosRecarga("TipoLogo")
+
             cnn2.Close() : cnn2.Open()
             cnn4.Close() : cnn4.Open()
             cnn3.Close() : cnn3.Open()
             cnn1.Close() : cnn1.Open()
+
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                End If
+                If tLogo = "CUAD" Then
+                    e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                    Y += 130
+                End If
+                If tLogo = "RECT" Then
+                    e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                    Y += 120
+                End If
+            Else
+                Y = 0
+            End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "select * from Ticket"
@@ -2397,7 +2417,7 @@ Door:
 
                         e.Graphics.DrawString(cantidad, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                        Dim caracteresPorLinea As Integer = 40
+                        Dim caracteresPorLinea As Integer = 27
                         Dim texto As String = descri
                         Dim inicio As Integer = 0
                         Dim longitudTexto As Integer = texto.Length
@@ -2405,7 +2425,7 @@ Door:
                         While inicio < longitudTexto
                             Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                             Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 35, Y)
+                            e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 30, Y)
                             Y += 17
                             inicio += caracteresPorLinea
                         End While
@@ -2480,7 +2500,7 @@ Door:
 
                             e.Graphics.DrawString(cantidad, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                            Dim caracteresPorLinea As Integer = 40
+                            Dim caracteresPorLinea As Integer = 27
                             Dim texto As String = descri
                             Dim inicio As Integer = 0
                             Dim longitudTexto As Integer = texto.Length
@@ -2488,7 +2508,7 @@ Door:
                             While inicio < longitudTexto
                                 Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
                                 Dim bloque As String = texto.Substring(inicio, longitudBloque)
-                                e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 35, Y)
+                                e.Graphics.DrawString(bloque, New Font("Arial", 10, FontStyle.Regular), Brushes.Black, 30, Y)
                                 Y += 15
                                 inicio += caracteresPorLinea
                             End While
@@ -2512,7 +2532,7 @@ Door:
                                     TOTALCOM = FormatNumber(TOTALCOM, 2)
                                 End If
                                 'TOTALCOM = FormatNumber(TOTALCOM, 2)
-                                Y += 20
+                                Y += 15
 
                                 e.Graphics.DrawString("TOTAL: ", fuente_b, Brushes.Black, 1, Y)
                                 e.Graphics.DrawString(FormatNumber(TOTALCOM, 2), fuente_b, Brushes.Black, 270, Y, derecha)
@@ -2594,16 +2614,18 @@ Door:
                 Y += 20
             End If
 
-            If Mid(pie1, 1, 36) <> "" Then
-                e.Graphics.DrawString(Mid(pie1, 1, 36), fuente_r, Brushes.Black, 1, Y)
-                Y += 12
-            End If
+            Dim caracteresPorLinea1 As Integer = 36
+            Dim texto1 As String = pie1
+            Dim inicio1 As Integer = 0
+            Dim longitudTexto1 As Integer = texto1.Length
 
-            If Mid(pie1, 37, 72) <> "" Then
-                e.Graphics.DrawString(Mid(pie1, 36, 72), fuente_r, Brushes.Black, 1, Y)
-                Y += 12
-            End If
-            Y += 3
+            While inicio1 < longitudTexto1
+                Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                Dim bloque1 As String = texto1.Substring(inicio1, longitudBloque1)
+                e.Graphics.DrawString(bloque1, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+                inicio1 += caracteresPorLinea1
+            End While
 
             e.Graphics.DrawString("Le atiende: " & lblusuario2.Text, fuente_r, Brushes.Black, 1, Y)
 
@@ -3712,7 +3734,7 @@ Door:
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie1 = rd2("Pie3").ToString
+                    Pie1 = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -4102,16 +4124,18 @@ Door:
                 Y += 15
             End If
 
-            If Mid(Pie1, 1, 38) <> "" Then
-                e.Graphics.DrawString(Mid(Pie1, 1, 38), fuente_r, Brushes.Black, 1, Y)
-                Y += 14
-            End If
+            Dim caracteresPorLinea1 As Integer = 36
+            Dim texto1 As String = Pie1
+            Dim inicio1 As Integer = 0
+            Dim longitudTexto1 As Integer = texto1.Length
 
-            If Mid(Pie1, 39, 78) <> "" Then
-                e.Graphics.DrawString(Mid(Pie1, 39, 78), fuente_r, Brushes.Black, 1, Y)
-                Y += 14
-            End If
-            Y += 2
+            While inicio1 < longitudTexto1
+                Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                Dim bloque1 As String = texto1.Substring(inicio1, longitudBloque1)
+                e.Graphics.DrawString(bloque1, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+                inicio1 += caracteresPorLinea1
+            End While
 
             e.Graphics.DrawString("Mesero: " & lblMesero.Text, fuente_r, Brushes.Black, 5, Y)
             e.Graphics.DrawString("Cajero: " & lblusuario2.Text, fuente_r, Brushes.Black, 270, Y, derecha)

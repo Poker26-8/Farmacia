@@ -165,7 +165,8 @@ Public Class frmProductosDR
                     If modo_almacen = 1 Then
                         rboDescIngredientes.Checked = True
                     Else
-                        rboDescProductos.Checked = False
+                        rboDescProductos.Checked = True
+
                     End If
 
                     txtmilitros.Text = rd1("Mililitros").ToString
@@ -1182,7 +1183,8 @@ Public Class frmProductosDR
                     If modo_almacen = 1 Then
                         rboDescIngredientes.Checked = True
                     Else
-                        rboDescProductos.Checked = False
+                        rboDescProductos.Checked = True
+
                     End If
 
                     txtmilitros.Text = rd3("Mililitros").ToString

@@ -1349,7 +1349,9 @@ Public Class frmProducirQ
     Private Sub dtpFechaRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpFechaRecepcion.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
 
-            Dim fecha As String = Format(dtpFechaRecepcion.Value, "dd-MM-yyyy")
+            Dim fecha As String = Format(dtpFechaRecepcion.Value, "dd-MM-yy")
+
+            MsgBox(fecha)
             Dim nuvf As String = ""
 
             nuvf = fecha.Replace("-", "")

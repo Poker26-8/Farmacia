@@ -3371,4 +3371,8 @@ Public Class frmCorte2
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
     End Sub
+
+    Private Sub tCorte_Tick(sender As Object, e As EventArgs) Handles tCorte.Tick
+
+    End Sub
 End Class

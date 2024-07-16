@@ -229,7 +229,8 @@ Public Class frmAgregarProducto
                     btnDepto.Text = departamento
                     btnDepto.Name = "btnDepto(" & deptos & ")"
                     btnDepto.Left = 0
-                    btnDepto.Height = 40
+                    btnDepto.Height = 70
+                    btnDepto.Width = 130
 
                     If TotDeptos <= 10 Then
                         btnDepto.Width = pDepartamento.Width
@@ -295,11 +296,11 @@ Public Class frmAgregarProducto
             Loop
             rd2.Close()
 
-            'If TotGrupo <= 10 Then
-            '    pgrupo.AutoScroll = False
-            'Else
-            '    pgrupo.AutoScroll = True
-            'End If
+            If TotGrupo <= 10 Then
+                pgrupo.AutoScroll = False
+            Else
+                pgrupo.AutoScroll = True
+            End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Departamento<>'INGREDIENTES' AND Departamento<>'SERVICIOS' AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' order by Grupo asc"
@@ -312,7 +313,9 @@ Public Class frmAgregarProducto
                     btnGrupo.Tag = depto
                     btnGrupo.Name = "btnGrupo(" & grupos & ")"
                     btnGrupo.Left = 0
-                    btnGrupo.Height = 40
+
+                    btnGrupo.Height = 70
+                    btnGrupo.Width = 130
 
                     If TotGrupo <= 10 Then
                         btnGrupo.Width = pgrupo.Width
@@ -992,16 +995,21 @@ Public Class frmAgregarProducto
         End If
 
         If celda.ColumnIndex = 4 Then
-            pteclado.Show()
-            gteclas.Enabled = True
-            txtRespuesta.Focus.Equals(True)
-            txtRespuesta.Text = grdCaptura.Rows(index).Cells(8).Value
-            gdato.Text = "Comentario"
-            CodigoProducto = grdCaptura.CurrentRow.Cells(0).Value.ToString
-            banderacomentario = 1
+            If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+                grdCaptura.Rows(index).Cells(9).Value = 1
+                pteclado.Show()
+                gteclas.Enabled = True
+                txtRespuesta.Focus.Equals(True)
+                txtRespuesta.Text = grdCaptura.Rows(index).Cells(8).Value
+                gdato.Text = "Comentario"
+                CodigoProducto = grdCaptura.CurrentRow.Cells(0).Value.ToString
+                banderacomentario = grdCaptura.Rows(index).Cells(9).Value
+
+            End If
+
         End If
 
-        cnn1.Close()
+            cnn1.Close()
     End Sub
 
     Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
@@ -1028,6 +1036,7 @@ Public Class frmAgregarProducto
     End Sub
 
     Private Sub txtRespuesta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRespuesta.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
 
             respuesta = txtRespuesta.Text
@@ -1137,7 +1146,11 @@ Public Class frmAgregarProducto
                         For q As Integer = 0 To grdCaptura.Rows.Count - 1
 
                             If grdCaptura.Rows(q).Cells(0).Value = CodigoProducto Then
-                                grdCaptura.Rows(q).Cells(8).Value = respuesta
+                                If grdCaptura.Rows(q).Cells(9).Value = 1 Then
+                                    grdCaptura.Rows(q).Cells(8).Value = respuesta
+                                    grdCaptura.Rows(q).Cells(9).Value = 0
+                                End If
+
                             End If
 
                         Next
@@ -2224,6 +2237,8 @@ Public Class frmAgregarProducto
                 Dim banderaentraa As Integer = 0
                 banderaentraa = 0
 
+
+
                 If acumula = 1 Then
                     For dx As Integer = 0 To grdCaptura.Rows.Count - 1
                         If CodigoProducto = grdCaptura.Rows(dx).Cells(0).Value.ToString Then
@@ -2237,15 +2252,18 @@ Public Class frmAgregarProducto
                         End If
                     Next
 
-                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "", 0)
 
                     lblTotalVenta.Text = lblTotalVenta.Text + Importe
                     lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
                 Else
-                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "")
+                    .Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(PU, 2), FormatNumber(Importe, 2), 1, IIf(nompreferencia = "", "", nompreferencia), lblpromo.Text, "", 0)
 
                     lblTotalVenta.Text = lblTotalVenta.Text + Importe
                     lblTotalVenta.Text = FormatNumber(lblTotalVenta.Text, 2)
+
+
                 End If
 
 deku:
@@ -2813,54 +2831,6 @@ SAFO:
             End If
             rd2.Close()
 
-            'cmd2 = cnn2.CreateCommand
-            'cmd2.CommandText = "select * from Ticket"
-            'rd2 = cmd2.ExecuteReader
-            'If rd2.HasRows Then
-            '    If rd2.Read Then
-            '        Pie1 = rd2("Pie1")
-            '        pie2 = rd2("Pie2")
-            '        pie3 = rd2("Pie3")
-
-            '        If rd2("Cab0").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            '            Y += 12.5
-            '        End If
-
-            '        If rd2("Cab1").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab1").ToString, New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            '            Y += 12.5
-            '        End If
-
-            '        If rd2("Cab2").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-            '            Y += 12
-            '        End If
-
-            '        If rd2("Cab3").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-            '            Y += 12
-            '        End If
-
-            '        If rd2("Cab4").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-            '            Y += 12
-            '        End If
-
-            '        If rd2("Cab5").ToString() <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-            '            Y += 12
-            '        End If
-
-            '        If rd2("Cab6").ToString <> "" Then
-            '            e.Graphics.DrawString(rd2("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
-            '            Y += 12
-            '        End If
-            '        Y += 4
-            '    End If
-            'Else
-            'End If
-            'rd2.Close()
 
             e.Graphics.DrawString("-------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
@@ -2924,9 +2894,9 @@ SAFO:
                         idc = rd1("IDC").ToString
 
 
-                        e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(cantidad, New Font("Arial", 13, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                        Dim caracteresPorLinea As Integer = 30
+                        Dim caracteresPorLinea As Integer = 20
                         Dim texto As String = nombre
                         Dim inicio As Integer = 0
                         Dim longitudTexto As Integer = texto.Length
@@ -2938,10 +2908,21 @@ SAFO:
                             Y += 16
                             inicio += caracteresPorLinea
                         End While
-
+                        Y += 3
                         If comentario <> "" Then
-                            e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
-                            Y += 15
+
+                            Dim caracteresPorLinea1 As Integer = 27
+                            Dim texto1 As String = comentario
+                            Dim inicio1 As Integer = 0
+                            Dim longitudTexto1 As Integer = texto1.Length
+
+                            While inicio1 < longitudTexto1
+                                Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                                Dim bloque1 As String = texto1.Substring(inicio, longitudBloque1)
+                                e.Graphics.DrawString(bloque1, fuente_datos, Brushes.Black, 1, Y)
+                                Y += 16
+                                inicio1 += caracteresPorLinea1
+                            End While
                         End If
 
 
@@ -2980,9 +2961,9 @@ SAFO:
 
 
 
-                                e.Graphics.DrawString(cantidad, fuente_datos, Brushes.Black, 1, Y)
+                                e.Graphics.DrawString(cantidad, New Font("Arial", 13, FontStyle.Regular), Brushes.Black, 1, Y)
 
-                                Dim caracteresPorLinea As Integer = 30
+                                Dim caracteresPorLinea As Integer = 20
                                 Dim texto As String = nombre
                                 Dim inicio As Integer = 0
                                 Dim longitudTexto As Integer = texto.Length
@@ -2997,8 +2978,20 @@ SAFO:
 
 
                                 If comentario <> "" Then
-                                    e.Graphics.DrawString("NOTA: " & comentario, fuente_datos, Brushes.Black, 1, Y)
-                                    Y += 15
+
+                                    Dim caracteresPorLinea2 As Integer = 32
+                                    Dim texto2 As String = comentario
+                                    Dim inicio2 As Integer = 0
+                                    Dim longitudTexto2 As Integer = texto2.Length
+                                    ' e.Graphics.DrawString("NOTA:", fuente_datos, Brushes.Black, 1, Y)
+                                    While inicio2 < longitudTexto2
+                                        Dim longitudBloque2 As Integer = Math.Min(caracteresPorLinea2, longitudTexto2 - inicio2)
+                                        Dim bloque2 As String = texto2.Substring(inicio2, longitudBloque2)
+
+                                        e.Graphics.DrawString(bloque2, fuente_datos, Brushes.Black, 1, Y)
+                                        Y += 16
+                                        inicio2 += caracteresPorLinea2
+                                    End While
                                 End If
 
                             End If

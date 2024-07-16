@@ -1816,11 +1816,14 @@ Public Class Login
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 If rd1(0).ToString = TextBox1.Text Then
-                    MsgBox("Tu contraseña es: " & rd1(1).ToString, vbOKOnly + vbOKOnly, "Delsscom Control Negocios PRO")
-                    ComboBox1.Text = ""
-                    ComboBox2.Text = ""
-                    TextBox1.Text = ""
-                    GroupBox2.Visible = False
+                    If TextBox1.Text <> "" Then
+                        MsgBox("Tu contraseña es: " & rd1(1).ToString, vbOKOnly + vbOKOnly, "Delsscom Control Negocios PRO")
+                        ComboBox1.Text = ""
+                        ComboBox2.Text = ""
+                        TextBox1.Text = ""
+                        GroupBox2.Visible = False
+                    End If
+
                 Else
                     MsgBox("Respuesta Incorrecta", vbCritical + vbOKOnly, "Delsscom Control Negocios PRO")
                     TextBox1.Focus.Equals(True)

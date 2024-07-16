@@ -1,5 +1,9 @@
 ﻿Imports System.IO
 Public Class frmcortemesero
+
+    Dim Folio1 As String = ""
+    Dim Folio2 As String = ""
+
     Private Sub frmcortemesero_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rbturno.Checked = True
         dtpht.Text = "00:00:00"
@@ -2481,6 +2485,93 @@ Public Class frmcortemesero
             cnn1.Close()
             cnn2.Close()
             cnn3.Close()
+        End Try
+    End Sub
+
+    Private Sub btnCierre_Click(sender As Object, e As EventArgs) Handles btnCierre.Click
+
+        If cbomesero.Text = "" Then
+            If MsgBox("¿Desea realizar un corte de caja", vbInformation + vbOKCancel, "Delsscom Control Negocios 2022") = vbCancel Then
+                Exit Sub
+            End If
+        Else
+            If MsgBox("¿Desea realizar un corte de caja para el mesero: " & cbomesero.Text & "?", vbInformation + vbOKCancel, "Delsscom Control Negocios 2022") = vbCancel Then
+                Exit Sub
+            End If
+        End If
+
+
+        Try
+
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+
+            If cbomesero.Text = "" Then
+
+                If rbturno.Checked Then
+                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' where CorteU=0"
+                End If
+
+                If rbperiodo.Checked Then
+                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' where CorteU=0"
+                End If
+                cmd1.ExecuteNonQuery()
+            Else
+
+                If rbturno.Checked Then
+                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 and Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "'"
+                End If
+
+                If rbperiodo.Checked Then
+                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 and Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "'"
+                End If
+                cmd1.ExecuteNonQuery()
+            End If
+
+
+            cnn1.Close()
+
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub cbomesero_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbomesero.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select NumCorte from CorteUsuario where Id=(select MAX(Id) from CorteUsuario where (Saldo_Ini<>0) and Usuario='" & cbomesero.Text & "' and Saldo_Fin=0)"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.HasRows Then
+                    txtNumCorte.Text = rd1(0).ToString
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText =
+                    "select MAX(NumCorte) from CorteUsuario where Usuario='" & cbomesero.Text & "' and Saldo_Fin<>0"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        txtNumCorte.Text = IIf(rd2(0).ToString = "", 0, rd2(0).ToString) + 1
+                    End If
+                Else
+                    txtNumCorte.Text = "1"
+                End If
+                rd2.Close() : cnn2.Close()
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+            cnn2.Close()
         End Try
     End Sub
 End Class

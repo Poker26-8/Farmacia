@@ -255,6 +255,7 @@ Partial Class frmVentas1
         Me.PPedido80 = New System.Drawing.Printing.PrintDocument()
         Me.PPedido58 = New System.Drawing.Printing.PrintDocument()
         Me.pVentaMediaCarta = New System.Drawing.Printing.PrintDocument()
+        Me.pVentaMatriz80 = New System.Drawing.Printing.PrintDocument()
         CType(Me.grdcaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -2820,6 +2821,9 @@ Partial Class frmVentas1
         'pVentaMediaCarta
         '
         '
+        'pVentaMatriz80
+        '
+        '
         'frmVentas1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -3088,4 +3092,5 @@ Partial Class frmVentas1
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
+    Friend WithEvents pVentaMatriz80 As Printing.PrintDocument
 End Class

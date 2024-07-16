@@ -3158,7 +3158,7 @@ Partial Class frmConfigs
         'cboventas
         '
         Me.cboventas.FormattingEnabled = True
-        Me.cboventas.Items.AddRange(New Object() {"TICKET", "PDF - CARTA 1", "PDF - CARTA 2"})
+        Me.cboventas.Items.AddRange(New Object() {"TICKET", "TICKET MATRIZ DE PUNTO", "PDF - CARTA 1", "PDF - CARTA 2"})
         Me.cboventas.Location = New System.Drawing.Point(6, 19)
         Me.cboventas.Name = "cboventas"
         Me.cboventas.Size = New System.Drawing.Size(215, 23)
@@ -3676,7 +3676,7 @@ Partial Class frmConfigs
         Me.Label76.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label76.Location = New System.Drawing.Point(92, 83)
         Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(311, 32)
+        Me.Label76.Size = New System.Drawing.Size(310, 32)
         Me.Label76.TabIndex = 27
         Me.Label76.Text = "Configuración de Accesos"
         '

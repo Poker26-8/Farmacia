@@ -1225,6 +1225,11 @@ Public Class frmConfigs
                         cmd2.CommandText =
                       "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                         cmd2.ExecuteNonQuery()
+
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText =
+                      "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET MATRIZ DE PUNTO'"
+                        cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
                 Else
@@ -1232,6 +1237,10 @@ Public Class frmConfigs
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
                   "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
+                    cmd2.ExecuteNonQuery()
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET MATRIZ DE PUNTO','','" & cboImpTickets.Text & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If

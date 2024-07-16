@@ -71,6 +71,7 @@ Public Class frmVentas2
     Private currentRecord As Long
     Private lastRecord As Long
     Public franquicia As Integer = 0
+    Public cadenafact As String = ""
 
     Private Sub frmVentas2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.KeyPreview = True
@@ -7632,6 +7633,7 @@ kakaxd:
         Next
         lic = Strings.Left(lic, Len(lic) - 1)
         CodCadena = lic
+        cadenafact = Trim(CodCadena)
 
         Dim observaciones As String = ""
         observaciones = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
