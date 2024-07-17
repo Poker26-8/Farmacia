@@ -37,6 +37,7 @@ Partial Class frmcortemesero
         Me.dtpfechaal = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtNumCorte = New System.Windows.Forms.TextBox()
         Me.dtpht = New System.Windows.Forms.DateTimePicker()
         Me.PCorte80 = New System.Drawing.Printing.PrintDocument()
         Me.PCorteU80 = New System.Drawing.Printing.PrintDocument()
@@ -46,8 +47,6 @@ Partial Class frmcortemesero
         Me.PCorteU58 = New System.Drawing.Printing.PrintDocument()
         Me.pCortePe58 = New System.Drawing.Printing.PrintDocument()
         Me.PCortePU58 = New System.Drawing.Printing.PrintDocument()
-        Me.btnCierre = New System.Windows.Forms.Button()
-        Me.txtNumCorte = New System.Windows.Forms.TextBox()
         Me.pperiodo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -78,7 +77,7 @@ Partial Class frmcortemesero
         Me.cbomesero.FormattingEnabled = True
         Me.cbomesero.Location = New System.Drawing.Point(98, 9)
         Me.cbomesero.Name = "cbomesero"
-        Me.cbomesero.Size = New System.Drawing.Size(478, 26)
+        Me.cbomesero.Size = New System.Drawing.Size(397, 26)
         Me.cbomesero.TabIndex = 2
         '
         'Button1
@@ -88,7 +87,7 @@ Partial Class frmcortemesero
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(501, 41)
+        Me.Button1.Location = New System.Drawing.Point(420, 41)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 69)
         Me.Button1.TabIndex = 3
@@ -103,7 +102,7 @@ Partial Class frmcortemesero
         Me.btnImprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImprimir.Image = CType(resources.GetObject("btnImprimir.Image"), System.Drawing.Image)
         Me.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimir.Location = New System.Drawing.Point(420, 41)
+        Me.btnImprimir.Location = New System.Drawing.Point(339, 41)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(75, 69)
         Me.btnImprimir.TabIndex = 4
@@ -209,6 +208,16 @@ Partial Class frmcortemesero
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         '
+        'txtNumCorte
+        '
+        Me.txtNumCorte.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtNumCorte.Location = New System.Drawing.Point(272, 13)
+        Me.txtNumCorte.Name = "txtNumCorte"
+        Me.txtNumCorte.ReadOnly = True
+        Me.txtNumCorte.Size = New System.Drawing.Size(27, 20)
+        Me.txtNumCorte.TabIndex = 197
+        Me.txtNumCorte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'dtpht
         '
         Me.dtpht.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -244,38 +253,12 @@ Partial Class frmcortemesero
         'PCortePU58
         '
         '
-        'btnCierre
-        '
-        Me.btnCierre.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCierre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCierre.Image = CType(resources.GetObject("btnCierre.Image"), System.Drawing.Image)
-        Me.btnCierre.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCierre.Location = New System.Drawing.Point(339, 41)
-        Me.btnCierre.Name = "btnCierre"
-        Me.btnCierre.Size = New System.Drawing.Size(75, 69)
-        Me.btnCierre.TabIndex = 11
-        Me.btnCierre.Text = "Cierre"
-        Me.btnCierre.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCierre.UseVisualStyleBackColor = False
-        '
-        'txtNumCorte
-        '
-        Me.txtNumCorte.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtNumCorte.Location = New System.Drawing.Point(272, 13)
-        Me.txtNumCorte.Name = "txtNumCorte"
-        Me.txtNumCorte.ReadOnly = True
-        Me.txtNumCorte.Size = New System.Drawing.Size(27, 20)
-        Me.txtNumCorte.TabIndex = 197
-        Me.txtNumCorte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'frmcortemesero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(187, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(582, 186)
-        Me.Controls.Add(Me.btnCierre)
+        Me.ClientSize = New System.Drawing.Size(497, 186)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.Button1)
@@ -318,6 +301,5 @@ Partial Class frmcortemesero
     Friend WithEvents PCorteU58 As Printing.PrintDocument
     Friend WithEvents pCortePe58 As Printing.PrintDocument
     Friend WithEvents PCortePU58 As Printing.PrintDocument
-    Friend WithEvents btnCierre As Button
     Friend WithEvents txtNumCorte As TextBox
 End Class

@@ -207,13 +207,13 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Ventas where Status='RESTA' and Consignar=1"
+                cmd1.CommandText = "Select Folio,Cliente from Ventas where Status='RESTA' and Consignar=1"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "Select * from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
+                    cmd2.CommandText = "Select Cantidad,CantidadC,Codigo,Nombre,Unidad,Precio from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         Dim resta As Double = 0
@@ -252,13 +252,13 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Ventas where Cliente='" & ComboBox1.Text & "' and Status='RESTA' and Consignar=1"
+                cmd1.CommandText = "Select Folio from Ventas where Cliente='" & ComboBox1.Text & "' and Status='RESTA' and Consignar=1"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     cnn2.Close()
                     cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "Select * from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
+                    cmd2.CommandText = "Select Cantidad,CantidadC,Codigo,Nombre,Unidad,Precio,Total from VentasDetalle where Folio=" & rd1("Folio").ToString & ""
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         Dim resta As Double = 0
@@ -356,5 +356,9 @@
         txtpagados.Text = "0.00"
         DataGridView1.Rows.Clear()
         Button3.Focus.Equals(True)
+    End Sub
+
+    Private Sub frmRepConsignacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

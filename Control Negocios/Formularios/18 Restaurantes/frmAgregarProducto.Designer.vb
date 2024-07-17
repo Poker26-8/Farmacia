@@ -24,8 +24,8 @@ Partial Class frmAgregarProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarProducto))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblpromo = New System.Windows.Forms.Label()
@@ -43,6 +43,16 @@ Partial Class frmAgregarProducto
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.pPreferencias = New System.Windows.Forms.TabPage()
@@ -115,16 +125,6 @@ Partial Class frmAgregarProducto
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.PComanda58 = New System.Drawing.Printing.PrintDocument()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -355,22 +355,22 @@ Partial Class frmAgregarProducto
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.grdCaptura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.grdCaptura.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle4
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.GridColor = System.Drawing.Color.White
         Me.grdCaptura.Location = New System.Drawing.Point(0, 73)
@@ -381,6 +381,95 @@ Partial Class frmAgregarProducto
         Me.grdCaptura.RowTemplate.Height = 40
         Me.grdCaptura.Size = New System.Drawing.Size(329, 346)
         Me.grdCaptura.TabIndex = 2
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Cod"
+        Me.Column1.MinimumWidth = 8
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        Me.Column1.Width = 32
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Desc."
+        Me.Column2.MinimumWidth = 8
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 60
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Cant."
+        Me.Column3.MinimumWidth = 8
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 57
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column4.HeaderText = "P.U."
+        Me.Column4.MinimumWidth = 8
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 53
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Importe"
+        Me.Column5.MinimumWidth = 8
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 67
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Com"
+        Me.Column6.MinimumWidth = 8
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 53
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column7.HeaderText = "PEP"
+        Me.Column7.MinimumWidth = 8
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column8.HeaderText = "Tiempos"
+        Me.Column8.MinimumWidth = 8
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.MinimumWidth = 8
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 85
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Id"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Visible = False
+        Me.Column10.Width = 41
         '
         'Panel8
         '
@@ -510,12 +599,12 @@ Partial Class frmAgregarProducto
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
-        Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnSalir.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(793, 0)
+        Me.btnSalir.Location = New System.Drawing.Point(560, 0)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(93, 49)
+        Me.btnSalir.Size = New System.Drawing.Size(56, 49)
         Me.btnSalir.TabIndex = 28
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False
@@ -526,9 +615,9 @@ Partial Class frmAgregarProducto
         Me.btnnuevo.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(596, 0)
+        Me.btnnuevo.Location = New System.Drawing.Point(492, 0)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(81, 49)
+        Me.btnnuevo.Size = New System.Drawing.Size(68, 49)
         Me.btnnuevo.TabIndex = 25
         Me.btnnuevo.Text = "Limpiar"
         Me.btnnuevo.UseVisualStyleBackColor = False
@@ -538,11 +627,11 @@ Partial Class frmAgregarProducto
         Me.btnOcasional.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btnOcasional.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnOcasional.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOcasional.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOcasional.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnOcasional.Location = New System.Drawing.Point(502, 0)
+        Me.btnOcasional.Location = New System.Drawing.Point(405, 0)
         Me.btnOcasional.Name = "btnOcasional"
-        Me.btnOcasional.Size = New System.Drawing.Size(94, 49)
+        Me.btnOcasional.Size = New System.Drawing.Size(87, 49)
         Me.btnOcasional.TabIndex = 27
         Me.btnOcasional.Text = "Producto ocasional"
         Me.btnOcasional.UseVisualStyleBackColor = False
@@ -552,9 +641,9 @@ Partial Class frmAgregarProducto
         Me.btntiempo3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo3.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo3.Location = New System.Drawing.Point(429, 0)
+        Me.btntiempo3.Location = New System.Drawing.Point(357, 0)
         Me.btntiempo3.Name = "btntiempo3"
-        Me.btntiempo3.Size = New System.Drawing.Size(73, 49)
+        Me.btntiempo3.Size = New System.Drawing.Size(48, 49)
         Me.btntiempo3.TabIndex = 24
         Me.btntiempo3.Text = "Tercer tiempo"
         Me.btntiempo3.UseVisualStyleBackColor = False
@@ -564,9 +653,9 @@ Partial Class frmAgregarProducto
         Me.btntiempo2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo2.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo2.Location = New System.Drawing.Point(356, 0)
+        Me.btntiempo2.Location = New System.Drawing.Point(300, 0)
         Me.btntiempo2.Name = "btntiempo2"
-        Me.btntiempo2.Size = New System.Drawing.Size(73, 49)
+        Me.btntiempo2.Size = New System.Drawing.Size(57, 49)
         Me.btntiempo2.TabIndex = 23
         Me.btntiempo2.Text = "Segundo tiempo"
         Me.btntiempo2.UseVisualStyleBackColor = False
@@ -576,9 +665,9 @@ Partial Class frmAgregarProducto
         Me.btntiempo1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(89, Byte), Integer))
         Me.btntiempo1.Dock = System.Windows.Forms.DockStyle.Left
         Me.btntiempo1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btntiempo1.Location = New System.Drawing.Point(267, 0)
+        Me.btntiempo1.Location = New System.Drawing.Point(237, 0)
         Me.btntiempo1.Name = "btntiempo1"
-        Me.btntiempo1.Size = New System.Drawing.Size(89, 49)
+        Me.btntiempo1.Size = New System.Drawing.Size(63, 49)
         Me.btntiempo1.TabIndex = 22
         Me.btntiempo1.Text = "Primer tiempo"
         Me.btntiempo1.UseVisualStyleBackColor = False
@@ -591,7 +680,7 @@ Partial Class frmAgregarProducto
         Me.btnRepertir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRepertir.Location = New System.Drawing.Point(156, 0)
         Me.btnRepertir.Name = "btnRepertir"
-        Me.btnRepertir.Size = New System.Drawing.Size(111, 49)
+        Me.btnRepertir.Size = New System.Drawing.Size(81, 49)
         Me.btnRepertir.TabIndex = 26
         Me.btnRepertir.Text = "Repetir producto"
         Me.btnRepertir.UseVisualStyleBackColor = False
@@ -626,16 +715,16 @@ Partial Class frmAgregarProducto
         Me.pgrupo.Dock = System.Windows.Forms.DockStyle.Left
         Me.pgrupo.Location = New System.Drawing.Point(112, 61)
         Me.pgrupo.Name = "pgrupo"
-        Me.pgrupo.Size = New System.Drawing.Size(125, 572)
+        Me.pgrupo.Size = New System.Drawing.Size(144, 572)
         Me.pgrupo.TabIndex = 5
         '
         'pProductos
         '
         Me.pProductos.BackColor = System.Drawing.Color.White
         Me.pProductos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pProductos.Location = New System.Drawing.Point(237, 61)
+        Me.pProductos.Location = New System.Drawing.Point(256, 61)
         Me.pProductos.Name = "pProductos"
-        Me.pProductos.Size = New System.Drawing.Size(649, 572)
+        Me.pProductos.Size = New System.Drawing.Size(630, 572)
         Me.pProductos.TabIndex = 6
         '
         'pteclado
@@ -1245,97 +1334,6 @@ Partial Class frmAgregarProducto
         '
         'PComanda58
         '
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Cod"
-        Me.Column1.MinimumWidth = 8
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 32
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column2.HeaderText = "Desc."
-        Me.Column2.MinimumWidth = 8
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 60
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Cant."
-        Me.Column3.MinimumWidth = 8
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 57
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column4.HeaderText = "P.U."
-        Me.Column4.MinimumWidth = 8
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 53
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Importe"
-        Me.Column5.MinimumWidth = 8
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 67
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "Com"
-        Me.Column6.MinimumWidth = 8
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 53
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column7.HeaderText = "PEP"
-        Me.Column7.MinimumWidth = 8
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Visible = False
-        Me.Column7.Width = 53
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column8.HeaderText = "Tiempos"
-        Me.Column8.MinimumWidth = 8
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
-        Me.Column8.Width = 72
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.MinimumWidth = 8
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 85
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Id"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Visible = False
-        Me.Column10.Width = 41
         '
         'frmAgregarProducto
         '

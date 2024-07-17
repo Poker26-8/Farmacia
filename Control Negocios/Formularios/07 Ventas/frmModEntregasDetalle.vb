@@ -29,7 +29,7 @@ Public Class frmModEntregasDetalle
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from Clientes where Nombre='" & lblcliente.Text & "'"
+                        "select Telefono from Clientes where Nombre='" & lblcliente.Text & "'"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -492,7 +492,7 @@ Public Class frmModEntregasDetalle
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from VentasDetalle where Folio=" & folio
+                "select Cantidad,CantidadE,Precio,Codigo,Nombre from VentasDetalle where Folio=" & folio
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cantidad = rd1("Cantidad").ToString
@@ -527,7 +527,7 @@ Public Class frmModEntregasDetalle
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ModEntregasDet where FolioVenta=" & foli & ""
+                "select FolioEntrega,Codigo,Producto,Cantidad from ModEntregasDet where FolioVenta=" & foli & ""
             rd1 = cmd1.ExecuteReader
 
             cnn2.Close() : cnn2.Open()
@@ -556,7 +556,7 @@ Public Class frmModEntregasDetalle
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from ModEntregas where Id=" & F_Entrega
+                    "select Valor,Fecha,Chofer from ModEntregas where Id=" & F_Entrega
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -634,7 +634,7 @@ Public Class frmModEntregasDetalle
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from VentasDetalle where Folio=" & folio
+                "select Cantidad,CantidadE,Precio,Codigo,Nombre from VentasDetalle where Folio=" & folio
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cantidad = rd1("Cantidad").ToString
@@ -666,7 +666,7 @@ Public Class frmModEntregasDetalle
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ModEntregasDet where FolioVenta=" & foli & ""
+                "select FolioEntrega,Codigo,Producto,Cantidad from ModEntregasDet where FolioVenta=" & foli & ""
             rd1 = cmd1.ExecuteReader
 
             cnn2.Close() : cnn2.Open()
@@ -693,7 +693,7 @@ Public Class frmModEntregasDetalle
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from ModEntregas where Id=" & F_Entrega
+                    "select Valor,Fecha,Chofer from ModEntregas where Id=" & F_Entrega
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1083,7 +1083,7 @@ Public Class frmModEntregasDetalle
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from Clientes where Nombre='" & lblcliente.Text & "'"
+                        "select Telefono from Clientes where Nombre='" & lblcliente.Text & "'"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -1107,7 +1107,7 @@ Public Class frmModEntregasDetalle
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ModEntregasDet where FolioEntrega=" & folio
+                    "select Codigo,Producto,Cantidad from ModEntregasDet where FolioEntrega=" & folio
                 rd1 = cmd1.ExecuteReader
                 cnn2.Close() : cnn2.Open()
 
@@ -1365,7 +1365,7 @@ Public Class frmModEntregasDetalle
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1692,7 +1692,7 @@ Public Class frmModEntregasDetalle
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1969,7 +1969,7 @@ Public Class frmModEntregasDetalle
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -2018,7 +2018,7 @@ Public Class frmModEntregasDetalle
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ventas where Folio=" & Trim(Replace(lblfolio.Text, "FOLIO: ", ""))
+            "select idCliente,Cliente,Direccion,Comentario from Ventas where Folio=" & Trim(Replace(lblfolio.Text, "FOLIO: ", ""))
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then

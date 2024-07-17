@@ -393,6 +393,7 @@
         Try
 
             Dim Turno As Integer = 0
+            Dim PRECIO As Double = txtPrecio.Text
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
@@ -422,7 +423,7 @@
                 cnn2.Close()
                 cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "Update OrdenTrabajo set Nombre='" & cbonombre.Text & "',UCompra='" & txtuni.Text & "',UVenta='" & txtuni.Text & "',UMinima='" & txtuni.Text & "',Existencia=" & txtexistencia.Text & ",PrecioVentaIVA=" & txtPrecio.Text & " where Codigo='" & lblCodigo.Text & "'"
+                cmd2.CommandText = "Update OrdenTrabajo set Nombre='" & cbonombre.Text & "',UCompra='" & txtuni.Text & "',UVenta='" & txtuni.Text & "',UMinima='" & txtuni.Text & "',Existencia=" & txtexistencia.Text & ",PrecioVentaIVA=" & PRECIO & " where Codigo='" & lblCodigo.Text & "'"
                 If cmd2.ExecuteNonQuery Then
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "Delete from MiProd where Codigo='" & lblCodigo.Text & "'"
@@ -434,12 +435,16 @@
             Else
                 rd1.Close()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Insert into OrdenTrabajo(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,PrecioVentaIVA,IVA,Existencia,NombreLargo,Consecutivo,PrecioUnitario) values('" & lblCodigo.Text & "','" & cbonombre.Text & "','NA',0,'" & txtuni.Text & "','" & txtuni.Text & "','" & txtuni.Text & "',1,1,'ORDEN TRABAJO','ORDEN TRABAJO'," & txtPrecio.Text & ",0.16," & txtexistencia.Text & ",'" & cbonombre.Text & "'," & Turno & ",'" & txttotal.Text & "')"
+                cmd1.CommandText = "Insert into OrdenTrabajo(Codigo,Nombre,ProvPri,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,PrecioVentaIVA,IVA,Existencia,NombreLargo,Consecutivo,PrecioUnitario) values('" & lblCodigo.Text & "','" & cbonombre.Text & "','NA',0,'" & txtuni.Text & "','" & txtuni.Text & "','" & txtuni.Text & "',1,1,'ORDEN TRABAJO','ORDEN TRABAJO'," & PRECIO & ",0.16," & txtexistencia.Text & ",'" & cbonombre.Text & "'," & Turno & ",'" & txttotal.Text & "')"
                 If cmd1.ExecuteNonQuery Then
 
                     For chajaro As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                        Dim PREGRID As Double = grdcaptura.Rows(chajaro).Cells(4).Value.ToString
+                        Dim TOTOGRID As Double = grdcaptura.Rows(chajaro).Cells(5).Value.ToString
+
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "Insert into MiProd(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo,Precio,PrecioIVA) values('" & lblCodigo.Text & "','" & cbonombre.Text & "','" & txtuni.Text & "'," & txtexistencia.Text & ",'" & grdcaptura.Rows(chajaro).Cells(0).Value & "','" & grdcaptura.Rows(chajaro).Cells(1).Value & "','" & grdcaptura.Rows(chajaro).Cells(2).Value & "'," & grdcaptura.Rows(chajaro).Cells(3).Value & ",'ORDEN TRABAJO'," & grdcaptura.Rows(chajaro).Cells(4).Value & "," & grdcaptura.Rows(chajaro).Cells(5).Value & ")"
+                        cmd1.CommandText = "Insert into MiProd(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo,Precio,PrecioIVA) values('" & lblCodigo.Text & "','" & cbonombre.Text & "','" & txtuni.Text & "'," & txtexistencia.Text & ",'" & grdcaptura.Rows(chajaro).Cells(0).Value & "','" & grdcaptura.Rows(chajaro).Cells(1).Value & "','" & grdcaptura.Rows(chajaro).Cells(2).Value & "'," & grdcaptura.Rows(chajaro).Cells(3).Value & ",'ORDEN TRABAJO'," & PREGRID & "," & TOTOGRID & ")"
                         If cmd1.ExecuteNonQuery Then
                         Else
                         End If
@@ -472,9 +477,9 @@
 
     Public Sub enviaDescripcion()
         If cbocod.Text = "" Then
-            frmVentas1.grdcaptura.Rows.Add(lblCodigo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", "", "", "", "", "")
+            frmVentas1.grdcaptura.Rows.Add(lblCodigo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, 0, "", "")
         Else
-            frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", "", "", "", "", "")
+            frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, "", "", "")
         End If
 
 

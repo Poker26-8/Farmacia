@@ -2488,56 +2488,7 @@ Public Class frmcortemesero
         End Try
     End Sub
 
-    Private Sub btnCierre_Click(sender As Object, e As EventArgs) Handles btnCierre.Click
 
-        If cbomesero.Text = "" Then
-            If MsgBox("¿Desea realizar un corte de caja", vbInformation + vbOKCancel, "Delsscom Control Negocios 2022") = vbCancel Then
-                Exit Sub
-            End If
-        Else
-            If MsgBox("¿Desea realizar un corte de caja para el mesero: " & cbomesero.Text & "?", vbInformation + vbOKCancel, "Delsscom Control Negocios 2022") = vbCancel Then
-                Exit Sub
-            End If
-        End If
-
-
-        Try
-
-
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-
-            If cbomesero.Text = "" Then
-
-                If rbturno.Checked Then
-                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' where CorteU=0"
-                End If
-
-                If rbperiodo.Checked Then
-                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' where CorteU=0"
-                End If
-                cmd1.ExecuteNonQuery()
-            Else
-
-                If rbturno.Checked Then
-                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 and Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "'"
-                End If
-
-                If rbperiodo.Checked Then
-                    cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 and Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "'"
-                End If
-                cmd1.ExecuteNonQuery()
-            End If
-
-
-            cnn1.Close()
-
-
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Private Sub cbomesero_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbomesero.SelectedValueChanged
         Try

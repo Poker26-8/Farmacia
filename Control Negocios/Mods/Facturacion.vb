@@ -2006,11 +2006,11 @@ Module Facturacion
 
             If frmfacturacion.CheckBox2.Checked = True Then
                 .WriteStartAttribute("xsi:schemaLocation")
-                .WriteValue("http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/cartaporte30 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte30.xsd")
+                .WriteValue("http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/cartaporte31 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte31.xsd")
                 .WriteEndAttribute()
 
-                .WriteStartAttribute("xmlns:cartaporte30")
-                .WriteValue("http://www.sat.gob.mx/cartaporte30")
+                .WriteStartAttribute("xmlns:cartaporte31")
+                .WriteValue("http://www.sat.gob.mx/cartaporte31")
                 .WriteEndAttribute()
 
             Else
@@ -4270,8 +4270,8 @@ puertaXD1:
                 .WriteStartElement("cfdi:Complemento")
                 '=========================== COMIENZA carta
 
-                .WriteStartElement("cartaporte30:CartaPorte")
-                .WriteAttributeString("Version", "3.0")
+                .WriteStartElement("cartaporte31:CartaPorte")
+                .WriteAttributeString("Version", "3.1")
 
                 If frmfacturacion.chkInter.Checked = True Then
                     .WriteAttributeString("ViaEntradaSalida", "01")
@@ -4303,9 +4303,9 @@ puertaXD1:
                 '=========================== COMIENZA ubicaciones
                 'esta parte hay que hacerla con un ciclo porque se pueden poner varias
 
-                .WriteStartElement("cartaporte30:Ubicaciones")
+                .WriteStartElement("cartaporte31:Ubicaciones")
 
-                .WriteStartElement("cartaporte30:Ubicacion")
+                .WriteStartElement("cartaporte31:Ubicacion")
                 '.WriteAttributeString("DistanciaRecorrida", "1")
                 '.WriteAttributeString("TipoEstacion", "01")
 
@@ -4325,7 +4325,7 @@ puertaXD1:
                 '    .WriteAttributeString("IDOrigen", Trim(varIdOrigen))
                 'End If
 
-                .WriteStartElement("cartaporte30:Domicilio")
+                .WriteStartElement("cartaporte31:Domicilio")
                 If Trim(frmfacturacion.txtOrigNumExt.Text) <> "" Then
                     .WriteAttributeString("NumeroExterior", Trim(frmfacturacion.txtOrigNumExt.Text))
                 End If
@@ -4349,7 +4349,7 @@ puertaXD1:
 
                 .WriteEndElement() ' fin UBICACION 1
 
-                .WriteStartElement("cartaporte30:Ubicacion")
+                .WriteStartElement("cartaporte31:Ubicacion")
                 .WriteAttributeString("DistanciaRecorrida", frmfacturacion.txtDestinioDist.Text)
                 'Si el campo TranspInternac contiene el valor “No” y si existe la sección
                 'TransporteFerroviario, TransporteMaritimo o TransporteAereo de la
@@ -4384,7 +4384,7 @@ puertaXD1:
                 '    .WriteAttributeString("IDDestino", dgdist.Rows(i).Cells(1).Value.ToString)
                 'End If
 
-                .WriteStartElement("cartaporte30:Domicilio")
+                .WriteStartElement("cartaporte31:Domicilio")
                 If Trim(frmfacturacion.txtDestinoNumE.Text) <> "" Then
                     .WriteAttributeString("NumeroExterior", Trim(frmfacturacion.txtDestinoNumE.Text))
                 End If
@@ -4411,7 +4411,7 @@ puertaXD1:
                 .WriteEndElement() ' fin UBICACIONES
 
                 '=========================== COMIENZA Mercancias
-                .WriteStartElement("cartaporte30:Mercancias")
+                .WriteStartElement("cartaporte31:Mercancias")
                 Dim pesobruto As Double = 0
                 For i = 0 To frmfacturacion.dgProductos.RowCount - 1
                     pesobruto = pesobruto + CDec(frmfacturacion.dgProductos.Rows(i).Cells(5).Value.ToString)
@@ -4429,7 +4429,7 @@ puertaXD1:
 
                 For i = 0 To frmfacturacion.dgProductos.RowCount - 1
 
-                    .WriteStartElement("cartaporte30:Mercancia")
+                    .WriteStartElement("cartaporte31:Mercancia")
                     .WriteAttributeString("ValorMercancia", frmfacturacion.dgProductos.Rows(i).Cells(4).Value.ToString)
 
                     If frmfacturacion.chkInter.Checked = True Then
@@ -4446,7 +4446,7 @@ puertaXD1:
 
                     'If dgdist.RowCount > 1 Then
                     '    For i = 0 To dgdist.RowCount - 1
-                    '        .WriteStartElement("cartaporte30:CantidadTransporta")
+                    '        .WriteStartElement("cartaporte31:CantidadTransporta")
                     '        .WriteAttributeString("Cantidad", dgdist.Rows(i).Cells(2).Value.ToString)
                     '        .WriteAttributeString("IDOrigen", varIdOrigen)
                     '        .WriteAttributeString("IDDestino", dgdist.Rows(i).Cells(1).Value.ToString)
@@ -4456,11 +4456,11 @@ puertaXD1:
                     .WriteEndElement() ' fin Mercancia
                 Next
 
-                .WriteStartElement("cartaporte30:Autotransporte")
+                .WriteStartElement("cartaporte31:Autotransporte")
                 .WriteAttributeString("PermSCT", dameclavePermisoSCT)
                 .WriteAttributeString("NumPermisoSCT", frmfacturacion.txtNumPermisoSCT.Text)
 
-                .WriteStartElement("cartaporte30:IdentificacionVehicular")
+                .WriteStartElement("cartaporte31:IdentificacionVehicular")
                 .WriteAttributeString("PlacaVM", frmfacturacion.txtPlaca.Text)
                 .WriteAttributeString("ConfigVehicular", dameclaveConfigV)
                 .WriteAttributeString("AnioModeloVM", frmfacturacion.txtModeloAño.Text)
@@ -4468,15 +4468,15 @@ puertaXD1:
 
                 .WriteEndElement() ' fin identificacion vehicular
 
-                .WriteStartElement("cartaporte30:Seguros")
+                .WriteStartElement("cartaporte31:Seguros")
                 .WriteAttributeString("AseguraRespCivil", frmfacturacion.txtAseguradora.Text)
                 .WriteAttributeString("PolizaRespCivil", frmfacturacion.txtNumPoliza.Text)
                 .WriteEndElement() ' fin identificacion vehicular
 
                 If frmfacturacion.DataGridView1.RowCount > 0 Then
-                    .WriteStartElement("cartaporte30:Remolques")
+                    .WriteStartElement("cartaporte31:Remolques")
                     For i = 0 To frmfacturacion.DataGridView1.RowCount - 1
-                        .WriteStartElement("cartaporte30:Remolque")
+                        .WriteStartElement("cartaporte31:Remolque")
                         .WriteAttributeString("SubTipoRem", frmfacturacion.DataGridView1.Rows(i).Cells(2).Value.ToString)
                         .WriteAttributeString("Placa", frmfacturacion.DataGridView1.Rows(i).Cells(0).Value.ToString)
                         .WriteEndElement() ' fin identificacion Remolque
@@ -4488,10 +4488,10 @@ puertaXD1:
                 .WriteEndElement() ' fin Mercancias
 
                 '=========================== COMIENZA Figura Transporte
-                .WriteStartElement("cartaporte30:FiguraTransporte")
+                .WriteStartElement("cartaporte31:FiguraTransporte")
                 '.WriteAttributeString("CveTransporte", "01")
 
-                .WriteStartElement("cartaporte30:TiposFigura")
+                .WriteStartElement("cartaporte31:TiposFigura")
                 '.WriteAttributeString("TipoFigura", "01")
                 If frmfacturacion.cboTipoFigura.Text = "Operador" Then
                     .WriteAttributeString("TipoFigura", "01")
@@ -4709,11 +4709,11 @@ puertaXD1:
 
             If frmfacturacion.CheckBox2.Checked = True Then
                 .WriteStartAttribute("xsi:schemaLocation")
-                .WriteValue("http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/cartaporte30 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte30.xsd")
+                .WriteValue("http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/cartaporte31 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte31.xsd")
                 .WriteEndAttribute()
 
-                .WriteStartAttribute("xmlns:cartaporte30")
-                .WriteValue("http://www.sat.gob.mx/cartaporte30")
+                .WriteStartAttribute("xmlns:cartaporte31")
+                .WriteValue("http://www.sat.gob.mx/cartaporte31")
                 .WriteEndAttribute()
 
             Else
@@ -7813,8 +7813,8 @@ puertaXD1:
 
                 '=========================== COMIENZA carta
 
-                .WriteStartElement("cartaporte30:CartaPorte")
-                .WriteAttributeString("Version", "3.0")
+                .WriteStartElement("cartaporte31:CartaPorte")
+                .WriteAttributeString("Version", "3.1")
 
                 If frmfacturacion.chkInter.Checked = True Then
                     .WriteAttributeString("ViaEntradaSalida", "01")
@@ -7847,9 +7847,9 @@ puertaXD1:
                 '=========================== COMIENZA ubicaciones
                 'esta parte hay que hacerla con un ciclo porque se pueden poner varias
 
-                .WriteStartElement("cartaporte30:Ubicaciones")
+                .WriteStartElement("cartaporte31:Ubicaciones")
 
-                .WriteStartElement("cartaporte30:Ubicacion")
+                .WriteStartElement("cartaporte31:Ubicacion")
                 '.WriteAttributeString("DistanciaRecorrida", "1")
                 '.WriteAttributeString("TipoEstacion", "01")
 
@@ -7869,7 +7869,7 @@ puertaXD1:
                 '    .WriteAttributeString("IDOrigen", Trim(varIdOrigen))
                 'End If
 
-                .WriteStartElement("cartaporte30:Domicilio")
+                .WriteStartElement("cartaporte31:Domicilio")
                 If Trim(frmfacturacion.txtOrigNumExt.Text) <> "" Then
                     .WriteAttributeString("NumeroExterior", Trim(frmfacturacion.txtOrigNumExt.Text))
                 End If
@@ -7893,7 +7893,7 @@ puertaXD1:
 
                 .WriteEndElement() ' fin UBICACION 1
 
-                .WriteStartElement("cartaporte30:Ubicacion")
+                .WriteStartElement("cartaporte31:Ubicacion")
                 .WriteAttributeString("DistanciaRecorrida", frmfacturacion.txtDestinioDist.Text)
                 'Si el campo TranspInternac contiene el valor “No” y si existe la sección
                 'TransporteFerroviario, TransporteMaritimo o TransporteAereo de la
@@ -7928,7 +7928,7 @@ puertaXD1:
                 '    .WriteAttributeString("IDDestino", dgdist.Rows(i).Cells(1).Value.ToString)
                 'End If
 
-                .WriteStartElement("cartaporte30:Domicilio")
+                .WriteStartElement("cartaporte31:Domicilio")
                 If Trim(frmfacturacion.txtDestinoNumE.Text) <> "" Then
                     .WriteAttributeString("NumeroExterior", Trim(frmfacturacion.txtDestinoNumE.Text))
                 End If
@@ -7956,7 +7956,7 @@ puertaXD1:
                 .WriteEndElement() ' fin UBICACIONES
 
                 '=========================== COMIENZA Mercancias
-                .WriteStartElement("cartaporte30:Mercancias")
+                .WriteStartElement("cartaporte31:Mercancias")
                 Dim pesobruto As Double = 0
                 For i = 0 To frmfacturacion.dgProductos.RowCount - 1
                     pesobruto = pesobruto + CDec(frmfacturacion.dgProductos.Rows(i).Cells(5).Value.ToString)
@@ -7976,7 +7976,7 @@ puertaXD1:
 
                 For i = 0 To frmfacturacion.dgProductos.RowCount - 1
 
-                    .WriteStartElement("cartaporte30:Mercancia")
+                    .WriteStartElement("cartaporte31:Mercancia")
                     .WriteAttributeString("ValorMercancia", frmfacturacion.dgProductos.Rows(i).Cells(4).Value.ToString)
 
                     If frmfacturacion.chkInter.Checked = True Then
@@ -8003,7 +8003,7 @@ puertaXD1:
 
                     'If dgdist.RowCount > 1 Then
                     '    For i = 0 To dgdist.RowCount - 1
-                    '        .WriteStartElement("cartaporte30:CantidadTransporta")
+                    '        .WriteStartElement("cartaporte31:CantidadTransporta")
                     '        .WriteAttributeString("Cantidad", dgdist.Rows(i).Cells(2).Value.ToString)
                     '        .WriteAttributeString("IDOrigen", varIdOrigen)
                     '        .WriteAttributeString("IDDestino", dgdist.Rows(i).Cells(1).Value.ToString)
@@ -8015,11 +8015,11 @@ puertaXD1:
 
                 Next
 
-                .WriteStartElement("cartaporte30:Autotransporte")
+                .WriteStartElement("cartaporte31:Autotransporte")
                 .WriteAttributeString("PermSCT", dameclavePermisoSCT)
                 .WriteAttributeString("NumPermisoSCT", frmfacturacion.txtNumPermisoSCT.Text)
 
-                .WriteStartElement("cartaporte30:IdentificacionVehicular")
+                .WriteStartElement("cartaporte31:IdentificacionVehicular")
                 .WriteAttributeString("PlacaVM", frmfacturacion.txtPlaca.Text)
                 .WriteAttributeString("ConfigVehicular", dameclaveConfigV)
                 .WriteAttributeString("AnioModeloVM", frmfacturacion.txtModeloAño.Text)
@@ -8027,7 +8027,7 @@ puertaXD1:
 
                 .WriteEndElement() ' fin identificacion vehicular
 
-                .WriteStartElement("cartaporte30:Seguros")
+                .WriteStartElement("cartaporte31:Seguros")
                 .WriteAttributeString("AseguraRespCivil", frmfacturacion.txtAseguradora.Text)
                 .WriteAttributeString("PolizaRespCivil", frmfacturacion.txtNumPoliza.Text)
                 If BanderaMetPel = "Sí" Then
@@ -8037,9 +8037,9 @@ puertaXD1:
                 .WriteEndElement() ' fin identificacion vehicular
 
                 If frmfacturacion.DataGridView1.RowCount > 0 Then
-                    .WriteStartElement("cartaporte30:Remolques")
+                    .WriteStartElement("cartaporte31:Remolques")
                     For i = 0 To frmfacturacion.DataGridView1.RowCount - 1
-                        .WriteStartElement("cartaporte30:Remolque")
+                        .WriteStartElement("cartaporte31:Remolque")
                         .WriteAttributeString("SubTipoRem", frmfacturacion.DataGridView1.Rows(i).Cells(2).Value.ToString)
                         .WriteAttributeString("Placa", frmfacturacion.DataGridView1.Rows(i).Cells(0).Value.ToString)
                         .WriteEndElement() ' fin identificacion Remolque
@@ -8052,10 +8052,10 @@ puertaXD1:
                 .WriteEndElement() ' fin Mercancias
 
                 '=========================== COMIENZA Figura Transporte
-                .WriteStartElement("cartaporte30:FiguraTransporte")
+                .WriteStartElement("cartaporte31:FiguraTransporte")
                 '.WriteAttributeString("CveTransporte", "01")
 
-                .WriteStartElement("cartaporte30:TiposFigura")
+                .WriteStartElement("cartaporte31:TiposFigura")
                 '.WriteAttributeString("TipoFigura", "01")
                 If frmfacturacion.cboTipoFigura.Text = "Operador" Then
                     .WriteAttributeString("TipoFigura", "01")
@@ -8837,8 +8837,8 @@ puertaXD1:
             '======================================COMIENZA COMPROVANTE
             .WriteStartElement("cfdi:Comprobante")
             'aqui empece
-            .WriteStartAttribute("xmlns:cartaporte30")
-            .WriteValue("http://www.sat.gob.mx/cartaporte30")
+            .WriteStartAttribute("xmlns:cartaporte31")
+            .WriteValue("http://www.sat.gob.mx/cartaporte31")
             .WriteEndAttribute()
 
             .WriteStartAttribute("xmlns:cfdi")
@@ -8850,7 +8850,7 @@ puertaXD1:
             .WriteEndAttribute()
 
             .WriteStartAttribute("xsi:schemaLocation")
-            .WriteValue("http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/cartaporte30 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte30.xsd")
+            .WriteValue("http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/cartaporte31 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/cartaporte31.xsd")
             .WriteEndAttribute()
 
             .WriteStartAttribute("LugarExpedicion")
@@ -8944,8 +8944,8 @@ puertaXD1:
 
             '=========================== COMIENZA carta
 
-            .WriteStartElement("cartaporte30:CartaPorte")
-            .WriteAttributeString("Version", "3.0")
+            .WriteStartElement("cartaporte31:CartaPorte")
+            .WriteAttributeString("Version", "3.1")
 
             If valInter = "Sí" Then
                 .WriteAttributeString("ViaEntradaSalida", "01")
@@ -8973,9 +8973,9 @@ puertaXD1:
             '=========================== COMIENZA ubicaciones
             'esta parte hay que hacerla con un ciclo porque se pueden poner varias
 
-            .WriteStartElement("cartaporte30:Ubicaciones")
+            .WriteStartElement("cartaporte31:Ubicaciones")
 
-            .WriteStartElement("cartaporte30:Ubicacion")
+            .WriteStartElement("cartaporte31:Ubicacion")
             '.WriteAttributeString("DistanciaRecorrida", "1")
             '.WriteAttributeString("TipoEstacion", "01")
 
@@ -8993,7 +8993,7 @@ puertaXD1:
             '    .WriteAttributeString("IDOrigen", Trim(varIdOrigen))
             'End If
 
-            .WriteStartElement("cartaporte30:Domicilio")
+            .WriteStartElement("cartaporte31:Domicilio")
             If Trim(varOrigNumExt) <> "" Then
                 .WriteAttributeString("NumeroExterior", Trim(varOrigNumExt))
             End If
@@ -9020,7 +9020,7 @@ puertaXD1:
 
             .WriteEndElement() ' fin UBICACION 1
 
-            .WriteStartElement("cartaporte30:Ubicacion")
+            .WriteStartElement("cartaporte31:Ubicacion")
             .WriteAttributeString("DistanciaRecorrida", vartotaldistancia)
             'Si el campo TranspInternac contiene el valor “No” y si existe la sección
             'TransporteFerroviario, TransporteMaritimo o TransporteAereo de la
@@ -9050,7 +9050,7 @@ puertaXD1:
 
             .WriteAttributeString("FechaHoraSalidaLlegada", varDesfechahora)
 
-            .WriteStartElement("cartaporte30:Domicilio")
+            .WriteStartElement("cartaporte31:Domicilio")
             If Trim(varDesnume) <> "" Then
                 .WriteAttributeString("NumeroExterior", Trim(varDesnume))
             End If
@@ -9086,7 +9086,7 @@ puertaXD1:
             .WriteEndElement() ' fin UBICACIONES
 
             '=========================== COMIENZA Mercancias
-            .WriteStartElement("cartaporte30:Mercancias")
+            .WriteStartElement("cartaporte31:Mercancias")
 
             Dim pesobruto As Double = 0
             For i = 0 To dgprod.RowCount - 1
@@ -9107,7 +9107,7 @@ puertaXD1:
 
             For i = 0 To dgprod.RowCount - 1
 
-                .WriteStartElement("cartaporte30:Mercancia")
+                .WriteStartElement("cartaporte31:Mercancia")
 
                 If IsNumeric(dgprod.Rows(i).Cells(4).Value.ToString) Then
 
@@ -9139,7 +9139,7 @@ puertaXD1:
 
                 'If dgdist.RowCount > 1 Then
                 '    For i = 0 To dgdist.RowCount - 1
-                '        .WriteStartElement("cartaporte30:CantidadTransporta")
+                '        .WriteStartElement("cartaporte31:CantidadTransporta")
                 '        .WriteAttributeString("Cantidad", dgdist.Rows(i).Cells(2).Value.ToString)
                 '        .WriteAttributeString("IDOrigen", varIdOrigen)
                 '        .WriteAttributeString("IDDestino", dgdist.Rows(i).Cells(1).Value.ToString)
@@ -9151,18 +9151,18 @@ puertaXD1:
 
             Next
 
-            .WriteStartElement("cartaporte30:Autotransporte")
+            .WriteStartElement("cartaporte31:Autotransporte")
             .WriteAttributeString("PermSCT", varPermisoSCT)
             .WriteAttributeString("NumPermisoSCT", varNumPermisoSCT)
 
-            .WriteStartElement("cartaporte30:IdentificacionVehicular")
+            .WriteStartElement("cartaporte31:IdentificacionVehicular")
             .WriteAttributeString("PlacaVM", varPlaca)
             .WriteAttributeString("ConfigVehicular", varConfig)
             .WriteAttributeString("AnioModeloVM", varAño)
             .WriteAttributeString("PesoBrutoVehicular", frmCartaPorte.txtPesoBrutoV.Text)
             .WriteEndElement() ' fin identificacion vehicular
 
-            .WriteStartElement("cartaporte30:Seguros")
+            .WriteStartElement("cartaporte31:Seguros")
             .WriteAttributeString("AseguraRespCivil", varAseguradora)
             .WriteAttributeString("PolizaRespCivil", varNumPoliza)
             If BanderaMetPel = "Sí" Then
@@ -9172,9 +9172,9 @@ puertaXD1:
             .WriteEndElement() ' fin identificacion vehicular
 
             If frmCartaPorte.DataGridView1.RowCount > 0 Then
-                .WriteStartElement("cartaporte30:Remolques")
+                .WriteStartElement("cartaporte31:Remolques")
                 For i = 0 To frmCartaPorte.DataGridView1.RowCount - 1
-                    .WriteStartElement("cartaporte30:Remolque")
+                    .WriteStartElement("cartaporte31:Remolque")
                     .WriteAttributeString("SubTipoRem", frmCartaPorte.DataGridView1.Rows(i).Cells(2).Value.ToString)
                     .WriteAttributeString("Placa", frmCartaPorte.DataGridView1.Rows(i).Cells(0).Value.ToString)
                     .WriteEndElement() ' fin identificacion Remolque
@@ -9187,10 +9187,10 @@ puertaXD1:
             .WriteEndElement() ' fin Mercancias
 
             '=========================== COMIENZA Figura Transporte
-            .WriteStartElement("cartaporte30:FiguraTransporte")
+            .WriteStartElement("cartaporte31:FiguraTransporte")
             '.WriteAttributeString("CveTransporte", "01")
 
-            .WriteStartElement("cartaporte30:TiposFigura")
+            .WriteStartElement("cartaporte31:TiposFigura")
             If varTipofigura = "Operador" Then
                 .WriteAttributeString("TipoFigura", "01")
             ElseIf varTipofigura = "Propietario" Then

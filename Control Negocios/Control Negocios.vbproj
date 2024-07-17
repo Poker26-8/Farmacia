@@ -155,12 +155,6 @@
     <Reference Include="QRCoder">
       <HintPath>..\..\..\DLL\QRCoder.dll</HintPath>
     </Reference>
-    <Reference Include="Servisim.WS.Conector">
-      <HintPath>..\..\..\DLL\Conector\Servisim.WS.Conector.dll</HintPath>
-    </Reference>
-    <Reference Include="Servisim.WS.Conector.Impl">
-      <HintPath>..\..\..\DLL\Conector\Servisim.WS.Conector.Impl.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -2277,6 +2271,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Autoservicio\frmAutoservicio.resx">
       <DependentUpon>frmAutoservicio.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\Eliminar_Abonos\frmEliminarAbono.resx">
       <DependentUpon>frmEliminarAbono.vb</DependentUpon>
@@ -2537,6 +2532,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmAbonoCompras.resx">
       <DependentUpon>frmAbonoCompras.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\06 Compras\frmBuscaCompras.resx">
       <DependentUpon>frmBuscaCompras.vb</DependentUpon>
@@ -2549,6 +2545,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmAbonoNotas.resx">
       <DependentUpon>frmAbonoNotas.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\07 Ventas\frmBuscaVentas.resx">
       <DependentUpon>frmBuscaVentas.vb</DependentUpon>

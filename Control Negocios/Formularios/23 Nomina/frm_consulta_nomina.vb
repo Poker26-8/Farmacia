@@ -2,8 +2,6 @@
 Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.IO
-Imports Servisim.WS.Conector
-Imports Servisim.WS.Conector.Impl
 Imports System.Text
 Imports ToolKitSQL
 Imports MySql.Data.MySqlClient
@@ -235,48 +233,7 @@ malo:
     End Sub
 
     Private Sub cancela()
-        If grid_nominas.Rows.Count > 0 Then
-            Try
-                Dim uuid_nom As String = grid_nominas.CurrentRow.Cells(8).Value.ToString
-                Dim rfc_nom As String = grid_nominas.CurrentRow.Cells(9).Value.ToString
-                '  3. Cancelación de CFDi previamente timbrado.
 
-                Dim conector As IConectorServisim = New ConectorServisimImpl()
-                '//1. Establecer EndPoint de Servisim (Sin ?wsdl al final)
-                'conector.establecerEndPoint("http://201.150.97.20:8080/ServisimTest/TimbradoCFDi")
-                'conector.establecerSoapAction("http://controller.timbrado.ws.servisim.com/", "cancelarCFDi")
-                'conector.establecerAcceso("1", "atenea1307")
-
-
-                conector.establecerEndPoint("http://200.53.180.7/ServisimService/TimbradoCFDi")
-                conector.establecerSoapAction("http://controller.timbrado.ws.servisim.com/", "cancelarCFDi")
-                conector.establecerAcceso("173", "v4Lr0MD3ls591")
-
-
-                '//2. Crear petición
-                conector.crearPeticion()
-                '//3. Asignar en petición
-                '//3.1 Identificador del Emisor (RFC DE EMISOR)
-                conector.asignarEnPeticion("Id", rfc_nom)
-                '//3.2 Identificador del CFDi (UUID)
-                conector.asignarEnPeticion("Xml", uuid_nom)
-                '//4. consumir servicio
-                conector.consumirServicio()
-                '//5. Obtener datos de la respuesta
-                Dim idError As Integer = conector.obtenerDeRespuesta("IdError")
-                Dim error1 As String = conector.obtenerDeRespuesta("Error")
-                Dim uuid As String = conector.obtenerDeRespuesta("UUID")
-                Dim fechaTimbre As String = conector.obtenerDeRespuesta("FechaTimbre")
-                Dim xmlTimbrado As String = conector.obtenerDeRespuesta("Xml")
-                archivo_cancelado(xmlTimbrado)
-                cancela_nomina()
-
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
-        Else
-            MsgBox("No Hay Nomina Seleccionada", MsgBoxStyle.Information, "Delsscom")
-        End If
     End Sub
 
     Private Sub buscalogo()

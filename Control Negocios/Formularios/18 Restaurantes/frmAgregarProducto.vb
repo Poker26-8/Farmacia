@@ -296,11 +296,11 @@ Public Class frmAgregarProducto
             Loop
             rd2.Close()
 
-            If TotGrupo <= 10 Then
-                pgrupo.AutoScroll = False
-            Else
-                pgrupo.AutoScroll = True
-            End If
+            'If TotGrupo <= 10 Then
+            '    pgrupo.AutoScroll = False
+            'Else
+            '    pgrupo.AutoScroll = True
+            'End If
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT distinct Grupo FROM Productos WHERE Departamento='" & depto & "' AND Departamento<>'INGREDIENTES' AND Departamento<>'SERVICIOS' AND Grupo<>'EXTRAS' AND Grupo<>'PROMOCIONES' order by Grupo asc"
@@ -315,7 +315,7 @@ Public Class frmAgregarProducto
                     btnGrupo.Left = 0
 
                     btnGrupo.Height = 70
-                    btnGrupo.Width = 130
+                    btnGrupo.Width = 110
 
                     If TotGrupo <= 10 Then
                         btnGrupo.Width = pgrupo.Width

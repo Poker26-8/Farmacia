@@ -67,7 +67,7 @@
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select PreEsp,Multiplo from Productos where Codigo='" & codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -79,7 +79,7 @@
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                        "select Grupo,Nombre,Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -104,7 +104,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                "select PrecioVentaIVA from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -145,7 +145,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                    "select PrecioVentaIVA from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -182,7 +182,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from Productos where Codigo='" & codigo & "'"
+                            "select PreEsp,Multiplo from Productos where Codigo='" & codigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -194,7 +194,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                            "select Grupo,Nombre,Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -252,7 +252,7 @@
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                    "select Codigo,Nombre,UVenta,Existencia from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -286,7 +286,7 @@
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                    "select Codigo,Nombre,UVenta,Existencia from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -320,7 +320,7 @@
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
+                    "select Codigo,Nombre,UVenta,Existencia from Productos where Nombre='" & cboNombre.Text & "' and ProvRes=1 and Departamento<>'SERVICIOS'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -383,7 +383,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
+                        "select Nombre,UVenta,Existencia from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -425,7 +425,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
+                        "select Nombre,UVenta,Existencia from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -467,7 +467,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
+                        "select Nombre,UVenta,Existencia from Productos where Codigo='" & cod_prod & "' and ProvRes=0 and Departamento<>'SERVICIOS'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

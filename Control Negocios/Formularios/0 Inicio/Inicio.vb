@@ -3242,8 +3242,8 @@ Public Class Inicio
                 frmVentas1.Show()
                 frmVentas1.BringToFront()
 
-                frmVentaSencilla.Show()
-                frmVentaSencilla.BringToFront()
+                'frmVentaSencilla.Show()
+                'frmVentaSencilla.BringToFront()
             End If
 
         Catch ex As Exception
@@ -4246,6 +4246,9 @@ Public Class Inicio
     Private Sub CorteDeCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CorteDeCajaToolStripMenuItem.Click
         frmCorte2.Show()
         frmCorte2.BringToFront()
+
+        frmCorteCaja.ShowDialog()
+        frmCorteCaja.BringToFront()
     End Sub
 
 

@@ -19,10 +19,10 @@
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
                     cmd1.CommandText =
-                    "select * from Ventas where Entrega=1 order by Folio"
+                    "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 order by Folio"
                 Else
                     cmd1.CommandText =
-                    "select * from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' order by Folio"
+                    "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' order by Folio"
                 End If
                 rd1 = cmd1.ExecuteReader
                 cnn2.Close() : cnn2.Open()
@@ -83,10 +83,10 @@
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
                     cmd1.CommandText =
-                    "select * from Ventas where Entrega=1 order by Folio"
+                    "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 order by Folio"
                 Else
                     cmd1.CommandText =
-                    "select * from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' order by Folio"
+                    "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' order by Folio"
                 End If
                 rd1 = cmd1.ExecuteReader
 
@@ -590,10 +590,10 @@
                     cmd1 = cnn1.CreateCommand
                     If ComboBox1.Text = "" Then
                         cmd1.CommandText =
-                        "select * from Ventas where Entrega=1 and Folio=" & cboFolio.Text
+                        "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Folio=" & cboFolio.Text
                     Else
                         cmd1.CommandText =
-                        "select * from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' and Folio=" & cboFolio.Text & ""
+                        "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' and Folio=" & cboFolio.Text & ""
                     End If
                     rd1 = cmd1.ExecuteReader
                     cnn2.Close() : cnn2.Open()
@@ -654,10 +654,10 @@
                     cmd1 = cnn1.CreateCommand
                     If ComboBox1.Text = "" Then
                         cmd1.CommandText =
-                        "select * from Ventas where Entrega=1 and Folio=" & cboFolio.Text
+                        "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Folio=" & cboFolio.Text
                     Else
                         cmd1.CommandText =
-                        "select * from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' and Folio=" & cboFolio.Text
+                        "select Folio,Cliente,Direccion,Subtotal,IVA,Totales,CantidadE,Comentario,FEntrega from Ventas where Entrega=1 and Cliente='" & ComboBox1.Text & "' and Folio=" & cboFolio.Text
                     End If
                     rd1 = cmd1.ExecuteReader
 
@@ -761,7 +761,7 @@
 
                         cmd4 = cnn4.CreateCommand
                         cmd4.CommandText =
-                            "select * from VentasDetalle where Folio=" & cboFolio.Text
+                            "select Codigo,Cantidad from VentasDetalle where Folio=" & cboFolio.Text
                         rd4 = cmd4.ExecuteReader
 
                         cnn1.Close() : cnn1.Open()
