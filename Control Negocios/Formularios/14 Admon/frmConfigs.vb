@@ -1214,6 +1214,10 @@ Public Class frmConfigs
             cnn1.Close() : cnn1.Open()
 
             If cboImpTickets.Text <> "" Then
+
+                Dim cadena As String = cboImpTickets.Text
+                Dim nuevaimpre As String = cadena.Replace("\", "\\")
+
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
               "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
@@ -1223,12 +1227,12 @@ Public Class frmConfigs
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                      "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
+                      "update RutasImpresion set Impresora='" & nuevaimpre & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                         cmd2.ExecuteNonQuery()
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                      "update RutasImpresion set Impresora='" & cboImpTickets.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET MATRIZ DE PUNTO'"
+                      "update RutasImpresion set Impresora='" & nuevaimpre & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET MATRIZ DE PUNTO'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
@@ -1236,11 +1240,11 @@ Public Class frmConfigs
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & cboImpTickets.Text & "')"
+                  "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET','','" & nuevaimpre & "')"
                     cmd2.ExecuteNonQuery()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET MATRIZ DE PUNTO','','" & cboImpTickets.Text & "')"
+                    cmd2.CommandText = "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET MATRIZ DE PUNTO','','" & nuevaimpre & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 End If
@@ -2767,6 +2771,9 @@ Public Class frmConfigs
 
         If cboImpre_Comanda.Text = "" Then MsgBox("Selecciona la impresora del grupo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cboImpre_Comanda.Focus().Equals(True) : Exit Sub
 
+        Dim cadena As String = cboImpre_Comanda.Text
+        Dim nuevaimpre As String = cadena.Replace("\", "\\")
+
         If MsgBox("¿Deseas actualizar la ruta de impresión?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
             Try
                 cnn1.Close() : cnn1.Open()
@@ -2780,7 +2787,7 @@ Public Class frmConfigs
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "update RutasImpresion set Impresora='" & cboImpre_Comanda.Text & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
+                            "update RutasImpresion set Impresora='" & nuevaimpre & "' where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & cboGPrint.Text & "'"
                         If cmd2.ExecuteNonQuery Then
                             MsgBox("Ruta de impresión actualizada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                             cboGPrint.Text = ""
@@ -2791,10 +2798,9 @@ Public Class frmConfigs
                     End If
                 Else
                     cnn2.Close() : cnn2.Open()
-
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "insert into RutasImpresion(Equipo,Tipo,Formato,Impresora) values('" & ObtenerNombreEquipo() & "','" & cboGPrint.Text & "','','" & cboImpre_Comanda.Text & "')"
+                        "insert into RutasImpresion(Equipo,Tipo,Formato,Impresora) values('" & ObtenerNombreEquipo() & "','" & cboGPrint.Text & "','','" & nuevaimpre & "')"
                     If cmd2.ExecuteNonQuery Then
                         MsgBox("Ruta de impresión registrada correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                         cboGPrint.Text = ""

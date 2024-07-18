@@ -4247,7 +4247,7 @@ Public Class Inicio
         frmCorte2.Show()
         frmCorte2.BringToFront()
 
-        frmCorteCaja.ShowDialog()
+        frmCorteCaja.Show()
         frmCorteCaja.BringToFront()
     End Sub
 

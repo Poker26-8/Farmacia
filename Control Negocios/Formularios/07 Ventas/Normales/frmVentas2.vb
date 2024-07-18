@@ -6542,7 +6542,7 @@ Door:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-            "select * from Ticket"
+            "select NoPrint,Copias from Ticket"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -11675,7 +11675,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -11933,7 +11933,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -12251,7 +12251,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -12444,7 +12444,7 @@ ecomoda:
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select Calle,NInterior,NExterior,Colonia,Delegacion,Entidad,Pais,CP from Clientes where Nombre='" & cboNombre.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -12550,7 +12550,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from CtMedicos where Cedula='" & cbocedula.Text & "'"
+                "select Id,Nombre,Domicilio from CtMedicos where Cedula='" & cbocedula.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -12642,7 +12642,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from CtMedicos where Cedula='" & cbocedula.Text & "'"
+                "select Id from CtMedicos where Cedula='" & cbocedula.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -12686,7 +12686,7 @@ ecomoda:
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Monedero where Barras='" & txttel.Text & "'"
+                    "select Saldo from Monedero where Barras='" & txttel.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -12762,7 +12762,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Pagare,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -13174,7 +13174,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -13491,7 +13491,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -14239,7 +14239,7 @@ ecomoda:
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                "select Alias,IdEmpleado from Usuarios where Clave='" & txtcontraseña.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -14257,7 +14257,7 @@ ecomoda:
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                "select * from Permisos where IdEmpleado= " & VarIdUsuario
+                "select Vent_Coti from Permisos where IdEmpleado= " & VarIdUsuario
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -14278,7 +14278,7 @@ ecomoda:
                 Else
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                    "select Id from Clientes where Nombre='" & cboNombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -14503,7 +14503,7 @@ ecomoda:
                     Dim TotalSinIVA As Double = 0
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & MyCodigo & "'"
+                    cmd1.CommandText = "SELECT IVA,Departamento,Grupo,MCD,Departamento FROM productos WHERE Codigo='" & MyCodigo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -14523,7 +14523,7 @@ ecomoda:
                     TotalSinIVA = FormatNumber(MyTotal / (1 + MyIVA), 2)
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(MyCodigo, 6) & "'"
+                    cmd1.CommandText = "SELECT Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(MyCodigo, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -14730,7 +14730,7 @@ rayos:
                 If cboNombre.Text <> "" Then
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "SELECT * FROM Clientes WHERE Nombre='" & cboNombre.Text & "'"
+                    cmd3.CommandText = "SELECT Telefono FROM Clientes WHERE Nombre='" & cboNombre.Text & "'"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then

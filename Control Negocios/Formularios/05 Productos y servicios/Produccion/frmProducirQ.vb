@@ -521,9 +521,9 @@ Public Class frmProducirQ
                 rd1.Close()
 
                 'actualiza la existencia y el precio de compra del producto final
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "UPDATE productos SET Cargado=0,CargadoInv=0,Existencia=" & nueva_existencia & ",PrecioCompra=" & precio & " WHERE Codigo='" & cbocodigo.Text & "'"
-                cmd1.ExecuteNonQuery()
+                'cmd1 = cnn1.CreateCommand
+                'cmd1.CommandText = "UPDATE productos SET Cargado=0,CargadoInv=0,Existencia=" & nueva_existencia & ",PrecioCompra=" & precio & " WHERE Codigo='" & cbocodigo.Text & "'"
+                'cmd1.ExecuteNonQuery()
 
                 'inserta el registro de cardex de la nueva existencia del producto final
                 cmd1 = cnn1.CreateCommand

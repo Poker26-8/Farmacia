@@ -729,11 +729,23 @@ Public Class frmConsultaNotas
             If VieneDe_Folios = "frmVentas1" Then
                 With frmVentas1
                     .Show()
-
                     .btnnuevo.PerformClick()
+
+
+
+
                     cnn1.Close() : cnn1.Open()
                     For ctm As Integer = 0 To grdcaptura.Rows.Count - 1
-                        VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value.ToString()
+
+                        If grdcaptura.Rows(ctm).Cells(0).Value.ToString = "" And grdcaptura.Rows(ctm).Cells(1).Value.ToString <> "" Then
+                            VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value
+                        Else
+                            VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value.ToString()
+                        End If
+
+
+
+                        ' VarCodigo = grdcaptura.Rows(ctm).Cells(0).Value.ToString()
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
                              "select * from Productos where Codigo='" & grdcaptura.Rows(ctm).Cells(0).Value.ToString() & "'"
@@ -742,9 +754,9 @@ Public Class frmConsultaNotas
                             MsgBox("Hay productos que ya fueron dados de baja.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
                             Exit Sub
                         End If
-                        If Not rd1.HasRows And grdcaptura.Rows.Count > 1 Then
-                            grdcaptura.Rows.Remove(grdcaptura.Rows(ctm))
-                        End If
+                        'If Not rd1.HasRows And grdcaptura.Rows.Count > 1 Then
+                        '    grdcaptura.Rows.Remove(grdcaptura.Rows(ctm))
+                        'End If
                         rd1.Close()
                     Next
                     cnn1.Close()
@@ -763,76 +775,107 @@ Public Class frmConsultaNotas
 
                     cnn1.Close() : cnn1.Open()
                     For degm As Integer = 0 To grdcaptura.Rows.Count - 1
-                        .grdcaptura.Rows.Add()
-                        'Codigo
-                        .grdcaptura(0, degm).Value = grdcaptura(0, degm).Value.ToString()
-                        VarCode = grdcaptura(0, degm).Value.ToString()
-                        'Nombre
-                        .grdcaptura(1, degm).Value = grdcaptura(1, degm).Value.ToString()
-                        'Unidad
-                        .grdcaptura(2, degm).Value = grdcaptura(2, degm).Value.ToString()
-                        'Cantidad
-                        .grdcaptura(3, degm).Value = grdcaptura(3, degm).Value.ToString()
-                        VarConeto = VarConeto + CDbl(grdcaptura(3, degm).Value.ToString())
-                        'Precio
-                        .grdcaptura(4, degm).Value = FormatNumber(grdcaptura(4, degm).Value.ToString(), 4)
-                        'Total
-                        .grdcaptura(5, degm).Value = FormatNumber(grdcaptura(5, degm).Value.ToString(), 4)
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                             "select * from Productos where Codigo='" & VarCode & "'"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.HasRows Then
-                            If rd1.Read Then
-                                VarMul = rd1("Multiplo").ToString()
-                            End If
-                        End If
-                        rd1.Close()
 
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                             "select * from Productos where Codigo='" & Strings.Left(VarCode, 6) & "'"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.HasRows Then
-                            If rd1.Read Then
-                                If rd1("Existencia").ToString() = 0 Then
-                                    .grdcaptura(6, degm).Value = 0
-                                Else
-                                    .grdcaptura(6, degm).Value = CDbl(rd1("Existencia").ToString()) / VarMul
-                                End If
-                            End If
-                        End If
-                        rd1.Close()
-                        'Lote
-                        '.grdcaptura(7, degm).Value = 0
-                        .grdcaptura(7, degm).Value = 0
-                        .grdcaptura(8, degm).Value = ""
-                        .grdcaptura(9, degm).Value = ""
-                        'IVAS
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                             "select IVA from Productos where Codigo='" & VarCode & "'"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.HasRows Then
-                            If rd1.Read Then
-                                If rd1(0).ToString() = 0 Then
-                                    descuentoiva = grdcaptura(5, degm).Value.ToString()
-                                    total1 = 0
-                                Else
-                                    descuentoiva = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
-                                    total1 = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
-                                End If
-                            End If
+                        If grdcaptura.Rows(degm).Cells(0).Value.ToString = "" And grdcaptura.Rows(degm).Cells(1).Value.ToString <> "" Then
+
+                            .grdcaptura.Rows.Add()
+                            'Codigo
+                            .grdcaptura(0, degm).Value = grdcaptura(0, degm).Value.ToString()
+                            VarCode = grdcaptura(0, degm).Value.ToString()
+                            'Nombre
+                            .grdcaptura(1, degm).Value = grdcaptura(1, degm).Value.ToString()
+                            'Unidad
+                            .grdcaptura(2, degm).Value = grdcaptura(2, degm).Value.ToString()
+                            'Cantidad
+                            .grdcaptura(3, degm).Value = grdcaptura(3, degm).Value.ToString()
+
+                            'Precio
+                            .grdcaptura(4, degm).Value = ""
+                            'Total
+                            .grdcaptura(5, degm).Value = ""
+                            .grdcaptura(7, degm).Value = 0
+                            .grdcaptura(8, degm).Value = ""
+                            .grdcaptura(9, degm).Value = ""
+                            .grdcaptura(10, degm).Value = 0
+                            .grdcaptura(11, degm).Value = 0
+                            .grdcaptura(12, degm).Value = 0
+                            .grdcaptura(13, degm).Value = 0
+                            .grdcaptura(14, degm).Value = 0
                         Else
-                            descuentoiva = grdcaptura(5, degm).Value.ToString()
-                            total1 = 0
+                            .grdcaptura.Rows.Add()
+                            'Codigo
+                            .grdcaptura(0, degm).Value = grdcaptura(0, degm).Value.ToString()
+                            VarCode = grdcaptura(0, degm).Value.ToString()
+                            'Nombre
+                            .grdcaptura(1, degm).Value = grdcaptura(1, degm).Value.ToString()
+                            'Unidad
+                            .grdcaptura(2, degm).Value = grdcaptura(2, degm).Value.ToString()
+                            'Cantidad
+                            .grdcaptura(3, degm).Value = grdcaptura(3, degm).Value.ToString()
+                            VarConeto = VarConeto + CDbl(grdcaptura(3, degm).Value.ToString())
+                            'Precio
+                            .grdcaptura(4, degm).Value = FormatNumber(grdcaptura(4, degm).Value.ToString(), 4)
+                            'Total
+                            .grdcaptura(5, degm).Value = FormatNumber(grdcaptura(5, degm).Value.ToString(), 4)
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                 "select * from Productos where Codigo='" & VarCode & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    VarMul = rd1("Multiplo").ToString()
+                                End If
+                            End If
+                            rd1.Close()
+
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                 "select * from Productos where Codigo='" & Strings.Left(VarCode, 6) & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    If rd1("Existencia").ToString() = 0 Then
+                                        .grdcaptura(6, degm).Value = 0
+                                    Else
+                                        .grdcaptura(6, degm).Value = CDbl(rd1("Existencia").ToString()) / VarMul
+                                    End If
+                                End If
+                            End If
+                            rd1.Close()
+                            'Lote
+                            '.grdcaptura(7, degm).Value = 0
+                            .grdcaptura(7, degm).Value = 0
+                            .grdcaptura(8, degm).Value = ""
+                            .grdcaptura(9, degm).Value = ""
+                            'IVAS
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                                 "select IVA from Productos where Codigo='" & VarCode & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+                                    If rd1(0).ToString() = 0 Then
+                                        descuentoiva = grdcaptura(5, degm).Value.ToString()
+                                        total1 = 0
+                                    Else
+                                        descuentoiva = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
+                                        total1 = FormatNumber((CDbl(grdcaptura(5, degm).Value.ToString()) / 1.16), 2)
+                                    End If
+                                End If
+                            Else
+                                descuentoiva = grdcaptura(5, degm).Value.ToString()
+                                total1 = 0
+                            End If
+                            rd1.Close()
+                            .grdcaptura(10, degm).Value = 0
+                            .grdcaptura(11, degm).Value = 0
+                            .grdcaptura(12, degm).Value = descuentoiva
+                            .grdcaptura(13, degm).Value = total1
+                            .grdcaptura(14, degm).Value = 0
+
+
+
                         End If
-                        rd1.Close()
-                        .grdcaptura(10, degm).Value = 0
-                        .grdcaptura(11, degm).Value = 0
-                        .grdcaptura(12, degm).Value = descuentoiva
-                        .grdcaptura(13, degm).Value = total1
-                        .grdcaptura(14, degm).Value = 0
                     Next
                     cnn1.Close()
 

@@ -1394,6 +1394,8 @@ Public Class frmPagarH
         If (pasa_print) Then
             Dim papel As String = ""
             Dim impresoraventa As String = ""
+            Dim copias As Double = TraerNumCopias()
+
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Formato FROM RutasImpresion WHERE Tipo='Venta'"
             rd1 = cmd1.ExecuteReader
@@ -1415,13 +1417,20 @@ Public Class frmPagarH
             rd1.Close()
 
             If tamimpre = "80" Then
-                PVenta80.DefaultPageSettings.PrinterSettings.PrinterName = impresoraventa
-                PVenta80.Print()
+
+                For sasuke = 1 To copias
+                    PVenta80.DefaultPageSettings.PrinterSettings.PrinterName = impresoraventa
+                    PVenta80.Print()
+                Next
+
             End If
 
             If tamimpre = "58" Then
-                PVenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresoraventa
-                PVenta58.Print()
+                For madara = 1 To copias
+                    PVenta58.DefaultPageSettings.PrinterSettings.PrinterName = impresoraventa
+                    PVenta58.Print()
+                Next
+
             End If
 
         End If
@@ -1568,7 +1577,7 @@ Public Class frmPagarH
 
             e.Graphics.DrawString("Folio: " & folioventa, fuente_r, Brushes.Black, 270, Y, derecha)
             Y += 23
-            e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/dd"), fuente_r, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Fecha: " & Format(Date.Now, "dd/MM/yyyy"), fuente_r, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & Format(Date.Now, "HH:mm"), fuente_r, Brushes.Black, 270, Y, derecha)
             Y += 11
             e.Graphics.DrawString("Fecha Entrada: ", fuente_r, Brushes.Black, 1, Y)

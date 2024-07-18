@@ -5828,11 +5828,14 @@ doorcita:
                 Total_Ve = txtPagar.Text
                 MYFOLIO = 0
 
+                Dim comentariogen As String = ""
+                comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
                 cnn1.Close() : cnn1.Open()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "',''," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & cboimpresion.Text & "','" & dameIP2() & "')"
+                    "insert into CotPed(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,IP) values(" & IdCliente & ",'" & cboNombre.Text & "',''," & SubTotal & "," & IVA_Vent & "," & Total_Ve & ",0,0,'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','COTIZACION','" & comentariogen & "','" & dameIP2() & "')"
                 cmd1.ExecuteNonQuery()
 
                 Do Until MYFOLIO <> 0
@@ -5935,9 +5938,16 @@ Door:
                     If grdcaptura.Rows(T).Cells(0).Value.ToString = "" And grdcaptura.Rows(T).Cells(1).Value.ToString <> "" Then
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                        "update CotPedDet set CostVR='" & grdcaptura.Rows(T).Cells(1).Value.ToString & "' where CostVR='' and Tipo='COTIZACION' and Codigo='" & mycode & "' and Folio=" & MYFOLIO
+                        "update CotPedDet set Comentario='" & grdcaptura.Rows(T).Cells(1).Value.ToString & "' where Tipo='COTIZACION' and Codigo='" & mycode & "' and Folio=" & MYFOLIO
                         cmd1.ExecuteNonQuery()
                     End If
+
+                    'If grdcaptura.Rows(R).Cells(0).Value.ToString = "" And grdcaptura.Rows(R).Cells(1).Value.ToString <> "" Then
+                    '    cmd1 = cnn1.CreateCommand
+                    '    cmd1.CommandText =
+                    '        "update VentasDetalle set Comentario='" & grdcaptura.Rows(R).Cells(1).Value.ToString & "' where Codigo='" & mycode & "' and Folio=" & MYFOLIO
+                    '    cmd1.ExecuteNonQuery()
+                    'End If
                 Next
                 cnn1.Close()
 
@@ -15931,27 +15941,27 @@ doorcita:
                     End If
                     'Calle  N°.
                     If rd1("Cab2").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
                         Y += 12
                     End If
                     'Colonia
                     If rd1("Cab3").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
                         Y += 12
                     End If
                     'Delegación / Municipio - Entidad
                     If rd1("Cab4").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
                         Y += 12
                     End If
                     'Teléfono
                     If rd1("Cab5").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
                         Y += 12
                     End If
                     'Correo
                     If rd1("Cab6").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
                         Y += 12
                     End If
                     Y += 3
@@ -16015,7 +16025,7 @@ doorcita:
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
             Y += 13
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
-            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y)
+            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 100, Y)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 200, Y)
             Y += 6
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
