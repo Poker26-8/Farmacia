@@ -2541,7 +2541,7 @@ Public Class frmConsultaNotas
             If (optPedidos.Checked) Then TipoVenta = 6
 
 
-            If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Then
+            If (optnotas.Checked) Or (optcobrar.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcotiz.Checked) Or (optPedidos.Checked) Then
 
                 If formato = "TICKET" Then
                     If tamticket = "80" Then
@@ -5245,7 +5245,7 @@ doorcita:
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 11
+            Y += 15
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 184, Y, sf)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)

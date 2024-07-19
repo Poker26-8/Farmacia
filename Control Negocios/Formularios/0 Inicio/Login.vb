@@ -163,7 +163,7 @@ Public Class Login
             '"Data source=" & MyIP & ";Integrated Security=False; initial catalog=CN1; user id=Delsscom; password=jipl22"
             comando = conexion.CreateCommand
             comando.CommandText =
-                "select * from Server"
+                "select Servidor,base from Server"
             lector = comando.ExecuteReader
             If lector.HasRows Then
                 Do While lector.Read
@@ -182,7 +182,7 @@ Public Class Login
 
             comando = conexion.CreateCommand
             comando.CommandText =
-                "select * from Empresas where Id=" & base
+                "select Empresa from Empresas where Id=" & base
             lector = comando.ExecuteReader
             If lector.HasRows Then
                 If lector.Read Then
@@ -371,7 +371,7 @@ Public Class Login
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtContrasena.Text & "'"
+                    "select Status,Alias,IdEmpleado,Clave from Usuarios where Clave='" & txtContrasena.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -858,7 +858,7 @@ Public Class Login
                             'tipoincapacidadsat
                             .runSp(cnnprueba, vartablatipoincapacidadsat, sinfo)
                             Dim dtprueba11 As New DataTable
-                            If .getDt(cnnprueba, dtprueba11, "SELECT * from tipoincapacidadsat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba11, "SELECT Id from tipoincapacidadsat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatipoincapacidadsat, sinfo)
                             End If
@@ -868,7 +868,7 @@ Public Class Login
                             'tiponomina
                             .runSp(cnnprueba, vartablatiponomina, sinfo)
                             Dim dtprueba10 As New DataTable
-                            If .getDt(cnnprueba, dtprueba10, "SELECT * from tiponomina", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba10, "SELECT Id from tiponomina", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatiponomina, sinfo)
                             End If
@@ -879,7 +879,7 @@ Public Class Login
                             'otrospagos
                             .runSp(cnnprueba, vartablaotrospagos, sinfo)
                             Dim dtprueba9 As New DataTable
-                            If .getDt(cnnprueba, dtprueba9, "SELECT * from otrospagos", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba9, "SELECT Id from otrospagos", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaotrospagos, sinfo)
                             End If
@@ -889,7 +889,7 @@ Public Class Login
                             'tipopercepcioncontable
                             .runSp(cnnprueba, vartablatipopercepcioncontable, sinfo)
                             Dim dtprueba8 As New DataTable
-                            If .getDt(cnnprueba, dtprueba8, "SELECT * from tipo_percepcion_contable", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba8, "SELECT Id from tipo_percepcion_contable", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatipopercepcioncontable, sinfo)
                             End If
@@ -899,7 +899,7 @@ Public Class Login
                             'tipodeduccioncontable
                             .runSp(cnnprueba, vartablatipodeduccioncontable, sinfo)
                             Dim dtprueba7 As New DataTable
-                            If .getDt(cnnprueba, dtprueba7, "SELECT * from tipo_deduccion_contable", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba7, "SELECT Id from tipo_deduccion_contable", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatipodeduccioncontable, sinfo)
                             End If
@@ -909,7 +909,7 @@ Public Class Login
                             'riesgopuesto
                             .runSp(cnnprueba, vartablariesgopuesto, sinfo)
                             Dim dtprueba6 As New DataTable
-                            If .getDt(cnnprueba, dtprueba6, "SELECT * from riesgo_puesto", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba6, "SELECT Id from riesgo_puesto", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertariesgopuesto, sinfo)
                             End If
@@ -919,7 +919,7 @@ Public Class Login
                             'tipocontrato
                             .runSp(cnnprueba, vartablatipocontrato, sinfo)
                             Dim dtprueba5 As New DataTable
-                            If .getDt(cnnprueba, dtprueba5, "SELECT * from tipo_contrato", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba5, "SELECT Id from tipo_contrato", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatipocontrato, sinfo)
                             End If
@@ -929,7 +929,7 @@ Public Class Login
                             'tipojornada
                             .runSp(cnnprueba, vartablatipojornada, sinfo)
                             Dim dtprueba4 As New DataTable
-                            If .getDt(cnnprueba, dtprueba4, "SELECT * from tipo_jornada", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba4, "SELECT Id from tipo_jornada", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatipojornada, sinfo)
                             End If
@@ -939,7 +939,7 @@ Public Class Login
                             'periodicidad_pago
                             .runSp(cnnprueba, vartablaperiodicidadpago, sinfo)
                             Dim dtprueba3 As New DataTable
-                            If .getDt(cnnprueba, dtprueba3, "SELECT * from periodicidad_pago", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba3, "SELECT Id from periodicidad_pago", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaperiodicidadpago, sinfo)
                             End If
@@ -949,7 +949,7 @@ Public Class Login
                             'regimencontrataciontrabajador
                             .runSp(cnnprueba, vartablaregimencontrataciontrabajador, sinfo)
                             Dim dtprueba2 As New DataTable
-                            If .getDt(cnnprueba, dtprueba2, "SELECT * from regimen_contratacion_trabajador", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba2, "SELECT Id from regimen_contratacion_trabajador", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaregimencontrataciontrabajador, sinfo)
                             End If
@@ -1013,7 +1013,7 @@ Public Class Login
 
                             'permisosm
                             .runSp(cnnprueba, vartablapermisosm, sinfo)
-                            If .getDt(cnnprueba, dtprueba9, "SELECT * from permisosm", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba9, "SELECT id from permisosm", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertapermisosm, sinfo)
                             End If
@@ -1087,7 +1087,7 @@ Public Class Login
                             'Bancos
                             .runSp(cnnprueba, vartablabancos, sinfo)
                             Dim dtprueba As New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from bancos", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Banco from bancos", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertabancos, sinfo)
                             End If
@@ -1217,7 +1217,7 @@ Public Class Login
                             'FormaPagoSat
                             .runSp(cnnprueba, vartablaformapagosat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from formapagosat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from formapagosat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaformapagosat, sinfo)
                             End If
@@ -1232,7 +1232,7 @@ Public Class Login
                             'Formatos
                             .runSp(cnnprueba, vartablaformatos, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from formatos", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from formatos", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaformatos, sinfo)
                             End If
@@ -1258,7 +1258,7 @@ Public Class Login
                             'ImpuestoSat
                             .runSp(cnnprueba, vartablaimpuestosat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from impuestosat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from impuestosat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaimpuestosat, sinfo)
                             End If
@@ -1268,7 +1268,7 @@ Public Class Login
                             'IVA
                             .runSp(cnnprueba, vartablaiva, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from iva", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from iva", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaiva, sinfo)
                             End If
@@ -1316,7 +1316,7 @@ Public Class Login
                             'MesesSat
                             .runSp(cnnprueba, vartablamesessat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from mesessat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select ID from mesessat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertamesessat, sinfo)
                             End If
@@ -1326,7 +1326,7 @@ Public Class Login
                             'MetodoPagoSat
                             .runSp(cnnprueba, vartablametodopagosat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from metodopagosat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from metodopagosat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertametodopagosat, sinfo)
                             End If
@@ -1414,7 +1414,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaperiodicidadsat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from periodicidadsat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from periodicidadsat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaperiodicidadsat, sinfo)
                             End If
@@ -1423,7 +1423,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablapermisos, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from permisos", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from permisos", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertapermisos, sinfo)
                             End If
@@ -1432,7 +1432,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaporteclavestcc, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from porteclavestcc", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from porteclavestcc", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaporteclavestcc, sinfo)
                             End If
@@ -1445,7 +1445,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaporteconfigautotrans, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from porteconfigautotrans", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from porteconfigautotrans", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaporteconfigautotrans, sinfo)
                             End If
@@ -1458,7 +1458,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaporteestados, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from porteestados", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from porteestados", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaporteestados, sinfo)
                             End If
@@ -1467,7 +1467,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaportefigura, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from portefigura", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from portefigura", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaportefigura, sinfo)
                             End If
@@ -1480,7 +1480,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaportematpeligrosos, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from portematpeligrosos", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from portematpeligrosos", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaportematpeligrosos, sinfo)
                             End If
@@ -1524,7 +1524,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaportetipocarga, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from portetipocarga", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from portetipocarga", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaportetipocarga, sinfo)
                             End If
@@ -1533,7 +1533,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaportetipocarro, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from portetipocarro", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from portetipocarro", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaportetipocarro, sinfo)
                             End If
@@ -1558,7 +1558,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablaportetransporte, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from portetransporte", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from portetransporte", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaportetransporte, sinfo)
                             End If
@@ -1594,7 +1594,7 @@ Public Class Login
                             'RegFis
                             .runSp(cnnprueba, vartablaregimenfiscalsat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from regimenfiscalsat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select ClaveRegFis from regimenfiscalsat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaregimenfiscalsat, sinfo)
                             End If
@@ -1633,7 +1633,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablatb_moneda, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from tb_moneda", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from tb_moneda", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatb_moneda, sinfo)
                             End If
@@ -1644,7 +1644,7 @@ Public Class Login
                             .runSp(cnnprueba, varKeyticket, sinfo)
                             .runSp(cnnprueba, varAutoticket, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from ticket", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from ticket", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertaticket, sinfo)
                             End If
@@ -1655,7 +1655,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablatiposcomprobantesat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from tiposcomprobantesat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from tiposcomprobantesat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatiposcomprobantesat, sinfo)
                             End If
@@ -1664,7 +1664,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablatiprelacioncfdisat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from tiprelacioncfdisat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from tiprelacioncfdisat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertatiprelacioncfdisat, sinfo)
                             End If
@@ -1689,14 +1689,14 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablausocfdisat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from usocfdisat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select ClaveUsoCFDI from usocfdisat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertausocfdisat, sinfo)
                             End If
 
                             .runSp(cnnprueba, vartablausocomprocfdisat, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from usocomprocfdisat", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select Id from usocomprocfdisat", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertausocomprocfdisat, sinfo)
                             End If
@@ -1705,7 +1705,7 @@ Public Class Login
 
                             .runSp(cnnprueba, vartablausuarios, sinfo)
                             dtprueba = New DataTable
-                            If .getDt(cnnprueba, dtprueba, "select * from usuarios", sinfo) Then
+                            If .getDt(cnnprueba, dtprueba, "select IdEmpleado from usuarios", sinfo) Then
                             Else
                                 .runSp(cnnprueba, varinsertausuarios, sinfo)
                             End If

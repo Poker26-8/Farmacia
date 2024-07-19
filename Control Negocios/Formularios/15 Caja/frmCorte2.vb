@@ -1633,9 +1633,6 @@ Public Class frmCorte2
                 e.Graphics.DrawString(" ING. " & formapagarglobal & "", New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 1, Y)
                 e.Graphics.DrawString(FormatNumber(montopagarglobal, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 15
-
-
-
             Next
             Y += 20
 

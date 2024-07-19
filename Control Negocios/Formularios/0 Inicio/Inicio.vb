@@ -80,25 +80,25 @@ Public Class Inicio
     Private Sub PreciosToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pPrecios.Click
 
 
-        Dim res As Integer = 0
+        Dim res As String = DatosRecarga2("Restaurante")
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Restaurante'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    res = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
+        'Try
+        '    cnn1.Close() : cnn1.Open()
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Restaurante'"
+        '    rd1 = cmd1.ExecuteReader
+        '    If rd1.HasRows Then
+        '        If rd1.Read Then
+        '            res = rd1(0).ToString
+        '        End If
+        '    End If
+        '    rd1.Close()
+        '    cnn1.Close()
 
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
 
         If res = 1 Then
             frmPreciosRest.Show()
@@ -227,12 +227,33 @@ Public Class Inicio
         SFormatos("Cuartos", "")
         SFormatos("CobroExacto", "")
 
+
+        SFormatos("Gimnasio", "")
+        SFormatos("Consignacion", "")
+        SFormatos("Nomina", "")
+        SFormatos("Mod_Asis", "")
+        SFormatos("Control_Servicios", "")
+        SFormatos("Series", "")
+        SFormatos("TiendaLinea", "")
+        SFormatos("Produccion", "")
+        SFormatos("Partes", "")
+        SFormatos("Escuelas", "")
+        SFormatos("Costeo", "")
+        SFormatos("Restaurante", "")
+        SFormatos("Refaccionaria", "")
+        SFormatos("Pollos", "")
+        SFormatos("Telefonia", "")
+        SFormatos("Hoteles", "")
+        SFormatos("Migracion", "")
+        SFormatos("Optica", "")
+        SFormatos("Mov_Cuenta", "")
+
         'Licencia()
         Try
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
+            cmd1.CommandText = "Select numero,usuario,password from loginrecargas"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 varnumero = rd1("numero").ToString
@@ -250,30 +271,28 @@ Public Class Inicio
             Nuevos_Pedidos()
         End If
 
-        'ActualizaCampos()
-        'Validaciones del módulo de trasporte
+        Dim tiendalinea As Integer = DatosRecarga2("TiendaLinea")
+        Dim gimnasios As Integer = DatosRecarga2("Gimnasio")
+        Dim consignacion As Integer = DatosRecarga2("Consignacion")
+        Dim nomina As Integer = DatosRecarga2("Nomina")
+        Dim Mod_Asis As Integer = DatosRecarga2("Mod_Asis")
+        Dim Control_Servicios As Integer = DatosRecarga2("Control_Servicios")
+        Dim series As Integer = DatosRecarga2("Series")
+        Dim produccion As Integer = DatosRecarga2("Produccion")
+        Dim partes As Integer = DatosRecarga2("Partes")
+        Dim escuelas As Integer = DatosRecarga2("Escuelas")
+        Dim costeo As Integer = DatosRecarga2("Costeo")
+        Dim restaurante As Integer = DatosRecarga2("Restaurante")
+        Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
+        Dim pollos As Integer = DatosRecarga2("pollos")
+        Dim telefonia As Integer = DatosRecarga2("Telefonia")
+        Dim Hoteles As Integer = DatosRecarga2("Hoteles")
+        Dim Migracion As Integer = DatosRecarga2("Migracion")
+        Dim Optica As Integer = DatosRecarga2("Optica")
+        Dim Mov_Cuenta As Integer = DatosRecarga2("Mov_Cuenta")
 
-        'Validaciones del módulo de asistencia
 
-        cnn1.Close() : cnn1.Open()
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='TiendaLinea'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                If rd1(0).ToString = 1 Then
-                    tienda_enlinea = 1
-                Else
-                    tienda_enlinea = 0
-                End If
-            End If
-        Else
-            tienda_enlinea = 0
-        End If
-        rd1.Close()
-        cnn1.Close()
-
-        If tienda_enlinea = 1 Then
+        If tiendalinea = 1 Then
             PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
             pedidos_tienda.Visible = True
         Else
@@ -281,161 +300,168 @@ Public Class Inicio
             pedidos_tienda.Visible = False
         End If
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Gimnasio'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NotasCred").ToString() = 1 Then
-                        GimnasiosToolStripMenuItem.Visible = True
-                    Else
-                        GimnasiosToolStripMenuItem.Visible = False
-                    End If
-                End If
-            Else
-                GimnasiosToolStripMenuItem.Visible = False
-            End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        If gimnasios = 1 Then
+            GimnasiosToolStripMenuItem.Visible = True
+        Else
+            GimnasiosToolStripMenuItem.Visible = False
+        End If
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Consignacion'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NotasCred").ToString() = 1 Then
-                        menuconsignaciones.Visible = True
-                    Else
-                        menuconsignaciones.Visible = False
-                    End If
-                End If
-            Else
-                menuconsignaciones.Visible = False
-            End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        If consignacion = 1 Then
+            menuconsignaciones.Visible = True
+        Else
+            menuconsignaciones.Visible = False
+        End If
 
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Nomina'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        NominaToolStripMenuItem.Visible = True
-                    Else
-                        NominaToolStripMenuItem.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        If nomina = 1 Then
+            NominaToolStripMenuItem.Visible = True
+        Else
+            NominaToolStripMenuItem.Visible = False
+        End If
 
+        If Mod_Asis = 1 Then
+            pAsistencia.Visible = True
+        Else
+            pAsistencia.Visible = False
+        End If
 
-        Try
-            cnn1.Close() : cnn1.Open()
+        If Control_Servicios = 1 Then
+            ControlDeServiciosToolStripMenuItem.Visible = True
+        Else
+            ControlDeServiciosToolStripMenuItem.Visible = False
+        End If
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Mod_Asis'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        pAsistencia.Visible = True
-                    End If
-                End If
-            End If
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
-
-
-        Try
-            cnn1.Close() : cnn1.Open()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select * from Formatos where Facturas='Control_Servicios'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1("NumPart").ToString() = 1 Then
-                        ControlDeServiciosToolStripMenuItem.Visible = True
-
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT Rep_Servicios FROM permisos WHERE IdEmpleado=" & id_usu_log
-                        rd2 = cmd2.ExecuteReader
-                        If rd2.HasRows Then
-                            If rd2.Read Then
-
-                                If rd2(0).ToString = 1 Then
-                                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
-                                Else
-                                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
-                                End If
-
-                            End If
-                        Else
-                            ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
-                        End If
-                        rd2.Close()
+        cnn2.Close() : cnn2.Open()
+        cmd2 = cnn2.CreateCommand
+        cmd2.CommandText = "SELECT Rep_Servicios FROM permisos WHERE IdEmpleado=" & id_usu_log
+        rd2 = cmd2.ExecuteReader
+        If rd2.HasRows Then
+            If rd2.Read Then
+                If rd2(0).ToString = 1 Then
+                    If Control_Servicios = 1 Then
+                        ReporteDeControlDeServiciosToolStripMenuItem.Visible = True
                     Else
                         ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                     End If
+                Else
+                    ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
                 End If
             End If
-            rd1.Close() : cnn1.Close()
-            cnn2.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        Else
+            ReporteDeControlDeServiciosToolStripMenuItem.Visible = False
+        End If
+        rd2.Close()
+        cnn2.Close()
 
-        'series
-        Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select NotasCred from Formatos where Facturas='Series'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = 1 Then
-                        ReporteDeSeries.Visible = True
-                    Else
-                        ReporteDeSeries.Visible = False
-                    End If
+        If series = 1 Then
+            ReporteDeSeries.Visible = True
+        Else
+            ReporteDeSeries.Visible = False
+        End If
 
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
+        If produccion = 1 Then
+            pMod_Produccion.Enabled = True
+            pMod_Produccion.Visible = True
+            '  pControl_Procesos.Visible = False
+        Else
+            pMod_Produccion.Enabled = False
+            pMod_Produccion.Visible = False
+            'pControl_Procesos.Visible = False
+        End If
 
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            cnn1.Close()
-        End Try
+        If partes = 1 Then
+            pVentasT.Visible = False
+            ZapateríaToolStripMenuItem.Visible = False
+            pMod_Precios.Visible = False
+            pMod_Produccion.Visible = False
+            Button5.Visible = False
+        End If
 
+        If escuelas = 1 Then
+            pClientes.Visible = False
+            pMonederos.Visible = False
+            GruposToolStripMenuItem.Visible = True
+            AlumnosToolStripMenuItem.Visible = True
+            InscripciónToolStripMenuItem.Visible = True
+            ZapateríaToolStripMenuItem.Visible = False
+            ProductosToolStripMenuItem.Visible = True
+            ComprasTouchToolStripMenuItem.Visible = False
+            AlumnosToolStripMenuItem1.Visible = True
+            pVentasT.Visible = False
+            pAbonosV.Visible = False
+            Button5.Visible = False
+        End If
+
+        If costeo = 1 Then
+        Else
+            MsgBox("Por favor configura el método de costeo de tu inventario antes de comenzar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            PrimeraConfig = "1"
+            frmConfigs.Show()
+            frmConfigs.tabFuncionalidades1.Focus().Equals(True)
+            frmConfigs.tabFuncionalidades1.Select()
+            frmConfigs.TopMost = True
+        End If
+
+        If restaurante = 1 Then
+            Button12.Visible = True
+            btnPagarComandas.Visible = True
+            btnvtatouch.Visible = True
+            CORTEMESERO.Visible = True
+            pMod_Produccion.Visible = True
+            pMod_Produccion.Enabled = True
+            frmPermisos.btnPermisosRestaurante.Visible = True
+        Else
+            Button12.Visible = False
+            btnPagarComandas.Visible = False
+            btnvtatouch.Visible = False
+            CORTEMESERO.Visible = False
+            frmPermisos.btnPermisosRestaurante.Visible = False
+        End If
+
+        If refaccionaria = 1 Then
+            btnRefaccionaria.Visible = True
+        Else
+            btnRefaccionaria.Visible = False
+        End If
+
+        If pollos = 1 Then
+            btnpollo.Visible = True
+        Else
+            btnpollo.Visible = False
+        End If
+
+        If telefonia = 1 Then
+            btnTelefonia.Visible = True
+        Else
+            btnTelefonia.Visible = False
+        End If
+
+        If Hoteles = 1 Then
+            btnHoteleria.Visible = True
+            ReporteDeHotelToolStripMenuItem.Visible = True
+        Else
+            btnHoteleria.Visible = False
+            ReporteDeHotelToolStripMenuItem.Visible = False
+        End If
+
+        If Migracion = 1 Then
+            pMigracion.Visible = True
+        Else
+            pMigracion.Visible = False
+        End If
+
+        If Optica = 1 Then
+            btnOptica.Visible = True
+        Else
+            btnOptica.Visible = False
+        End If
+
+        If Mov_Cuenta = 1 Then
+            ReporteMovCuentasToolStripMenuItem.Visible = True
+            MovCuentasToolStripMenuItem.Visible = True
+        Else
+            ReporteMovCuentasToolStripMenuItem.Visible = False
+            MovCuentasToolStripMenuItem.Visible = False
+        End If
 
         'Validación de la aditoria
 
@@ -451,243 +477,8 @@ Public Class Inicio
                 End If
             End If
             rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Produccion'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = "1" Then
-                        pMod_Produccion.Enabled = True
-                        pMod_Produccion.Visible = True
-                        pControl_Procesos.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='Partes'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = "1" Then
-                        pVentasT.Visible = False
-                        ZapateríaToolStripMenuItem.Visible = False
-                        pMod_Precios.Visible = False
-                        pMod_Produccion.Visible = False
-                        Button5.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Escuelas'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        pClientes.Visible = False
-                        pMonederos.Visible = False
-                        GruposToolStripMenuItem.Visible = True
-                        AlumnosToolStripMenuItem.Visible = True
-                        InscripciónToolStripMenuItem.Visible = True
-                        ZapateríaToolStripMenuItem.Visible = False
-                        ProductosToolStripMenuItem.Visible = True
-                        ComprasTouchToolStripMenuItem.Visible = False
-                        AlumnosToolStripMenuItem1.Visible = True
-                        pVentasT.Visible = False
-                        pAbonosV.Visible = False
-                        Button5.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                 "select NumPart from Formatos where Facturas='Costeo'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 0 Then
-                        MsgBox("Por favor configura el método de costeo de tu inventario antes de comenzar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                        PrimeraConfig = "1"
-                        frmConfigs.Show()
-                        frmConfigs.tabFuncionalidades1.Focus().Equals(True)
-                        frmConfigs.tabFuncionalidades1.Select()
-                        frmConfigs.TopMost = True
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            Dim refa As Integer = 0
-            Dim restaurante As Integer = 0
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Restaurante'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    restaurante = rd1(0).ToString
-                    If restaurante = 1 Then
-                        Button12.Visible = True
-                        ' Button13.Visible = True
-                        btnPagarComandas.Visible = True
-                        btnvtatouch.Visible = True
-                        CORTEMESERO.Visible = True
-                        pMod_Produccion.Visible = True
-                        pMod_Produccion.Enabled = True
-                        frmPermisos.btnPermisosRestaurante.Visible = True
-                    Else
-                        Button12.Visible = False
-                        ' Button13.Visible = False
-                        btnPagarComandas.Visible = False
-                        btnvtatouch.Visible = False
-                        CORTEMESERO.Visible = False
-                        frmPermisos.btnPermisosRestaurante.Visible = False
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Pollos'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    restaurante = rd1(0).ToString
-                    If restaurante = 1 Then
-                        btnpollo.Visible = True
-                    Else
-                        btnpollo.Visible = False
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Refaccionaria'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    refa = rd1(0).ToString
-                    If refa = 1 Then
-                        btnRefaccionaria.Visible = True
-                    Else
-
-                        btnRefaccionaria.Visible = False
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-
-            Dim telefonia As Integer = 0
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Telefonia'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    telefonia = rd1(0).ToString
-                    If telefonia = 1 Then
-                        btnTelefonia.Visible = True
-                    Else
-
-                        btnTelefonia.Visible = False
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-
-            Dim hoteles As Integer = 0
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Hoteles'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    hoteles = rd1(0).ToString
-                    If hoteles = 1 Then
-                        btnHoteleria.Visible = True
-                        ReporteDeHotelToolStripMenuItem.Visible = True
-                    Else
-                        btnHoteleria.Visible = False
-                        ReporteDeHotelToolStripMenuItem.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            Dim migracion As Boolean = False
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NotasCred from Formatos where Facturas='Migracion'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = "" Then
-                        migracion = True
-                    Else
-                        migracion = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Optica'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        btnOptica.Visible = True
-                    Else
-                        btnOptica.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE  Facturas='Mov_Cuenta'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = 1 Then
-                        ReporteMovCuentasToolStripMenuItem.Visible = True
-                        MovCuentasToolStripMenuItem.Visible = True
-                    Else
-                        ReporteMovCuentasToolStripMenuItem.Visible = False
-                        MovCuentasToolStripMenuItem.Visible = False
-                    End If
-
-                End If
-            Else
-                ReporteMovCuentasToolStripMenuItem.Visible = False
-                MovCuentasToolStripMenuItem.Visible = False
-            End If
-            rd1.Close()
-
             cnn1.Close()
 
-            If (migracion) Then
-                pMigracion.Visible = True
-            Else
-                pMigracion.Visible = False
-            End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -3266,7 +3057,7 @@ Public Class Inicio
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select * from Permisos where IdEmpleado=" & id_usuario
+                "select Cat_Emp,Cat_Cli,cat_Formas,cat_Bancos,cat_Cuentas,Cat_Prov,Cat_Mone,Asis_Hora,Asis_Hue,Asis_Asis,Asis_Rep,Prod_Prod,Prod_Serv,Prod_Pre,Prod_Prom,Prod_Kits,Comp_Ped,Comp_CPed,Comp_Com,Comp_CCom,Comp_NCred,Comp_CtPag,Comp_Abon,Comp_Anti,Vent_Most,Vent_Touch,Vent_NVen,Vent_Coti,Vent_Pedi,Vent_Devo,Vent_CFol,Vent_Abo,Vent_Canc,Vent_EPrec,Ing_CEmp,Egr_PEmp,Egr_Nom,Egr_Tran,Egr_Otro,Rep_Vent,Rep_VentG,Rep_Comp,Rep_CCob,Rep_CPag,Rep_Ent,Rep_Sal,Rep_Aju,Rep_Inv,Rep_CamPrecio,Rep_EstResultado,Rep_Auditoria,List_Pre,List_Pro,List_Fal,Fact_Fact,Fact_Rep,Ad_Perm,Ad_Conf,Ad_Util,Ad_Cort,EliAbono from Permisos where IdEmpleado=" & id_usuario
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then
@@ -3291,24 +3082,28 @@ Public Class Inicio
                         P.C_Clientes = False
                         Cat += 1
                     End If
+
                     If rd5("cat_Formas").ToString = True Then
                         FormasDePagoToolStripMenuItem.Enabled = True
                     Else
                         FormasDePagoToolStripMenuItem.Enabled = False
                         Cat += 1
                     End If
+
                     If rd5("cat_Bancos").ToString = True Then
                         pBancos.Enabled = True
                     Else
                         pBancos.Enabled = False
                         Cat += 1
                     End If
+
                     If rd5("cat_Cuentas").ToString = True Then
                         CuentasBancariasToolStripMenuItem.Enabled = True
                     Else
                         CuentasBancariasToolStripMenuItem.Enabled = False
                         Cat += 1
                     End If
+
                     REM Proveedores
                     If rd5("Cat_Prov").ToString = True Then
                         pProveedores.Enabled = True
@@ -3318,6 +3113,7 @@ Public Class Inicio
                         P.C_Proveedores = False
                         Cat += 1
                     End If
+
                     REM Monederos
                     If rd5("Cat_Mone").ToString = True Then
                         pMonederos.Enabled = True
@@ -3345,6 +3141,7 @@ Public Class Inicio
                         P.A_Horarios = False
                         Asis += 1
                     End If
+
                     If rd5("Asis_Hue").ToString = True Then
                         pRegistroHuella.Enabled = True
                         P.A_Huella = True
@@ -3353,6 +3150,7 @@ Public Class Inicio
                         P.A_Huella = False
                         Asis += 1
                     End If
+
                     If rd5("Asis_Asis").ToString = True Then
                         pRegistroAsis.Enabled = True
                         P.A_Asistencia = True
@@ -3362,6 +3160,7 @@ Public Class Inicio
                         Button2.Enabled = False
                         Asis += 1
                     End If
+
                     If rd5("Asis_Rep").ToString = True Then
                         pReporteAsis.Enabled = True
                         P.A_Reporte = True
@@ -3370,6 +3169,7 @@ Public Class Inicio
                         P.A_Reporte = False
                         Asis += 1
                     End If
+
                     If Asis = 4 Then
                         pAsistencia.Enabled = False
                     Else
@@ -3389,6 +3189,7 @@ Public Class Inicio
                         frmCompras.btnprod.Enabled = False
                         Prods += 1
                     End If
+
                     If rd5("Prod_Serv").ToString = True Then
                         pServicios.Enabled = True
                         P.P_Servicios = True
@@ -3397,6 +3198,7 @@ Public Class Inicio
                         P.P_Servicios = False
                         Prods += 1
                     End If
+
                     If rd5("Prod_Pre").ToString = True Then
                         pPrecios.Enabled = True
                         P.P_Precios = True
@@ -3405,11 +3207,13 @@ Public Class Inicio
                         P.P_Precios = False
                         Prods += 1
                     End If
+
                     If rd5("Prod_Prom").ToString = True Then
                         P.P_Productos = True
                     Else
                         P.P_Promociones = False
                     End If
+
                     If rd5("Prod_Kits").ToString = True Then
                         pKits.Enabled = True
                         P.P_Kits = True
@@ -3418,6 +3222,7 @@ Public Class Inicio
                         P.P_Kits = False
                         Prods += 1
                     End If
+
                     If Prods = 4 Then
                         pProductos_Serv.Enabled = False
                     Else
@@ -3434,11 +3239,13 @@ Public Class Inicio
                         P.C_Pedidos = False
                         Comp += 1
                     End If
+
                     If rd5("Comp_CPed").ToString() = True Then
                         P.C_CPedidos = True
                     Else
                         P.C_CPedidos = False
                     End If
+
                     If rd5("Comp_Com").ToString = True Then
                         pCaptura.Enabled = True
                         P.C_Compras = True
@@ -3448,11 +3255,13 @@ Public Class Inicio
                         P.C_Compras = False
                         Comp += 1
                     End If
+
                     If rd5("Comp_CCom").ToString = True Then
                         P.C_CCompras = True
                     Else
                         P.C_CCompras = False
                     End If
+
                     If rd5("Comp_NCred").ToString = True Then
                         pNotasC.Enabled = True
                         P.C_NotasCred = True
@@ -3461,6 +3270,7 @@ Public Class Inicio
                         P.C_NotasCred = False
                         Comp += 1
                     End If
+
                     If rd5("Comp_CtPag").ToString = True Then
                         pCuentasPag.Enabled = True
                         P.C_CPagar = True
@@ -3469,11 +3279,13 @@ Public Class Inicio
                         P.C_CPagar = False
                         Comp += 1
                     End If
+
                     If rd5("Comp_Abon").ToString = True Then
                         P.C_Abonos = True
                     Else
                         P.C_Abonos = False
                     End If
+
                     If rd5("Comp_Anti").ToString = True Then
                         pAnticipoP.Enabled = True
                         P.C_Anticipos = True
@@ -3482,6 +3294,7 @@ Public Class Inicio
                         P.C_Anticipos = False
                         Comp += 1
                     End If
+
                     If Comp = 5 Then
                         pCompras.Enabled = False
                     Else
@@ -3499,6 +3312,7 @@ Public Class Inicio
                         P.V_Mostrador = False
                         Vent += 1
                     End If
+
                     If rd5("Vent_Touch").ToString = True Then
                         pVentasT.Enabled = True
                         P.V_Touch = True
@@ -3508,26 +3322,31 @@ Public Class Inicio
                         P.V_Touch = False
                         Vent += 1
                     End If
+
                     If rd5("Vent_NVen").ToString = True Then
                         P.V_Ventas = True
                     Else
                         P.V_Ventas = False
                     End If
+
                     If rd5("Vent_Coti").ToString = True Then
                         P.V_Cotizaciones = True
                     Else
                         P.V_Cotizaciones = False
                     End If
+
                     If rd5("Vent_Pedi").ToString = True Then
                         P.V_Pedidos = True
                     Else
                         P.V_Pedidos = False
                     End If
+
                     If rd5("Vent_Devo").ToString = True Then
                         P.V_Devoluciones = True
                     Else
                         P.V_Devoluciones = False
                     End If
+
                     If rd5("Vent_CFol").ToString = True Then
                         pcFolios.Enabled = True
                         P.V_Folios = True
@@ -3537,6 +3356,7 @@ Public Class Inicio
                         P.V_Folios = False
                         Vent += 1
                     End If
+
                     If rd5("Vent_Abo").ToString = True Then
                         pAbonosV.Enabled = True
                         P.V_Abonos = True
@@ -3545,16 +3365,19 @@ Public Class Inicio
                         P.V_Abonos = False
                         Vent += 1
                     End If
+
                     If rd5("Vent_Canc").ToString = True Then
                         P.V_Cancelaciones = True
                     Else
                         P.V_Cancelaciones = False
                     End If
+
                     If rd5("Vent_EPrec").ToString = True Then
                         P.V_Precios = True
                     Else
                         P.V_Precios = False
                     End If
+
                     If Vent = 4 Then
                         pVentas.Enabled = False
                     Else
@@ -3571,6 +3394,7 @@ Public Class Inicio
                         P.I_CobroE = False
                         Inge += 1
                     End If
+
                     If Inge = 1 Then
                         pIngresos.Enabled = False
                     Else
@@ -3588,6 +3412,7 @@ Public Class Inicio
                         P.E_PrestamoE = False
                         Egre += 1
                     End If
+
                     If rd5("Egr_Nom").ToString = True Then
                         pNomina.Enabled = True
                         P.E_Nomina = True
@@ -3596,6 +3421,7 @@ Public Class Inicio
                         P.E_Nomina = False
                         Egre += 1
                     End If
+
                     If rd5("Egr_Tran").ToString = True Then
                         pTransporte.Enabled = True
                         P.E_Transporte = True
@@ -3604,6 +3430,7 @@ Public Class Inicio
                         P.E_Transporte = False
                         Egre += 1
                     End If
+
                     If rd5("Egr_Otro").ToString = True Then
                         pOtros.Enabled = True
                         P.E_Otro = True
@@ -3612,6 +3439,7 @@ Public Class Inicio
                         P.E_Otro = False
                         Egre += 1
                     End If
+
                     If Egre = 4 Then
                         pEgresos.Enabled = False
                     Else
@@ -3632,6 +3460,7 @@ Public Class Inicio
                         P.R_Ventas = False
                         Repo += 1
                     End If
+
                     If rd5("Rep_VentG").ToString = True Then
                         pRepVentasG.Enabled = True
                         P.R_VentasG = True
@@ -3640,6 +3469,7 @@ Public Class Inicio
                         P.R_VentasG = False
                         Repo += 1
                     End If
+
                     If rd5("Rep_Comp").ToString = True Then
                         pRepCompras.Enabled = True
                         P.R_Compras = True
@@ -3648,6 +3478,7 @@ Public Class Inicio
                         P.R_Compras = False
                         Repo += 1
                     End If
+
                     If rd5("Rep_CCob").ToString = True Then
                         pCobrar.Enabled = True
                         P.R_CuentasC = True
@@ -3656,6 +3487,7 @@ Public Class Inicio
                         P.R_CuentasC = False
                         CUent += 1
                     End If
+
                     If rd5("Rep_CPag").ToString = True Then
                         pPagar.Enabled = True
                         P.R_CuentasP = True
@@ -3664,6 +3496,7 @@ Public Class Inicio
                         P.R_CuentasP = False
                         CUent += 1
                     End If
+
                     If CUent = 2 Then
                         Repo += 1
                         pRepCuentas.Enabled = False
@@ -3671,6 +3504,7 @@ Public Class Inicio
                         Repo += 0
                         pRepCuentas.Enabled = True
                     End If
+
                     If rd5("Rep_Ent").ToString = True Then
                         pRepIngEgr.Enabled = True
                         P.R_Entradas = True
@@ -3679,6 +3513,7 @@ Public Class Inicio
                         P.R_Entradas = False
                         Repo += 1
                     End If
+
                     If rd5("Rep_Sal").ToString = True Then
                         pRepEgr.Enabled = True
                         ReporteDeEgresosToolStripMenuItem.Enabled = True
@@ -3689,11 +3524,13 @@ Public Class Inicio
                         P.R_Salidas = False
                         Repo += 1
                     End If
+
                     If rd5("Rep_Aju").ToString = True Then
                         pAjuste.Enabled = True
                     Else
                         pAjuste.Enabled = False
                     End If
+
                     If rd5("Rep_Inv").ToString = True Then
                         pInventario.Enabled = True
                         P.R_Inventario = True
@@ -3702,6 +3539,7 @@ Public Class Inicio
                         P.R_Inventario = False
                         Inv += 1
                     End If
+
                     If Inv = 2 Then
                         pRepInventario.Enabled = False
                         Repo += 1
@@ -3745,6 +3583,7 @@ Public Class Inicio
                         P.L_Precios = False
                         List += 1
                     End If
+
                     If rd5("List_Pro").ToString = True Then
                         pLisProductos.Enabled = True
                         P.L_Productos = True
@@ -3753,6 +3592,7 @@ Public Class Inicio
                         P.L_Productos = False
                         List += 1
                     End If
+
                     If rd5("List_Fal").ToString = True Then
                         pFaltantes.Enabled = True
                         P.L_Faltantes = True
@@ -3761,6 +3601,7 @@ Public Class Inicio
                         P.L_Faltantes = False
                         List += 1
                     End If
+
                     If List = 3 Then
                         pListados.Enabled = False
                     Else
@@ -3778,6 +3619,7 @@ Public Class Inicio
                         P.F_Facturas = False
                         Fact += 1
                     End If
+
                     If rd5("Fact_Rep").ToString = True Then
                         pRepFact.Enabled = True
                         P.F_Reporte = True
@@ -3786,6 +3628,7 @@ Public Class Inicio
                         P.F_Reporte = False
                         Fact += 1
                     End If
+
                     If Fact = 2 Then
                         pFacturacion.Enabled = False
                     Else
@@ -3802,6 +3645,7 @@ Public Class Inicio
                         P.Ad_Permisos = False
                         Admi += 1
                     End If
+
                     If rd5("Ad_Conf").ToString = True Then
                         pConfigs.Enabled = True
                         P.Ad_Configs = True
@@ -3810,6 +3654,7 @@ Public Class Inicio
                         P.Ad_Configs = False
                         Admi += 1
                     End If
+
                     If rd5("Ad_Util").ToString = True Then
                         pUtilerias.Enabled = True
                         P.Ad_Utilidades = True
@@ -3818,6 +3663,7 @@ Public Class Inicio
                         P.Ad_Utilidades = False
                         Admi += 1
                     End If
+
                     If Admi = 3 Then
                         pAdmin.Enabled = False
                         Button11.Enabled = False
@@ -4088,7 +3934,7 @@ Public Class Inicio
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & ClaveUsuario & "'"
+                        cmd2.CommandText = "SELECT Alias,Clave FROM Usuarios WHERE Clave='" & ClaveUsuario & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -4244,11 +4090,19 @@ Public Class Inicio
     End Sub
 
     Private Sub CorteDeCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CorteDeCajaToolStripMenuItem.Click
-        frmCorte2.Show()
-        frmCorte2.BringToFront()
 
-        frmCorteCaja.Show()
-        frmCorteCaja.BringToFront()
+        Dim datos = DatosRecarga2("Restaurante")
+
+        If datos = 1 Then
+            frmCorteCaja.Show()
+            frmCorteCaja.BringToFront()
+        Else
+            frmCorte2.Show()
+            frmCorte2.BringToFront()
+        End If
+
+
+
     End Sub
 
 

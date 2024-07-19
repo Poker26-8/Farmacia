@@ -41,7 +41,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "update Formatos set NotasCred='1', NumPart=1 where Facturas='Consignacion'"
+                        "update Formatos set NotasCred='" & FormatDateTime(Date.Now, DateFormat.ShortDate) & "', NumPart=1 where Facturas='Consignacion'"
                     If cmd1.ExecuteNonQuery Then
                         MsgBox("El sistema de consignaciones ha sido activado de manera correcta." & vbNewLine & "El sistema se cerrará para completar el proceso.", vbInformation + vbOKOnly, titulomensajes)
                         End
@@ -68,7 +68,7 @@
                     cnn1.Close() : cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "UPDATE Formatos SET NotasCred='0',NumPart=0 WHERE Facturas='Consignacion'"
+                    cmd1.CommandText = "UPDATE Formatos SET NotasCred='',NumPart=0 WHERE Facturas='Consignacion'"
                     If cmd1.ExecuteNonQuery Then
                         MsgBox("El sistema de gimnasios ha sido desactivado de manera correcta." & vbNewLine & "El sistema se cerrará para completar el proceso.", vbInformation + vbOKOnly, titulomensajes)
                         End

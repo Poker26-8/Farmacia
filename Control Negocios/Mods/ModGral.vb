@@ -71,7 +71,7 @@ Module ModGral
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select Facturas, NotasCred, NumPart from Formatos where NumPart='" & valor & "'"
+                "select Facturas, NotasCred, NumPart from Formatos where Facturas='" & valor & "'"
             rd5 = cmd5.ExecuteReader
             If rd5.HasRows Then
                 If rd5.Read Then

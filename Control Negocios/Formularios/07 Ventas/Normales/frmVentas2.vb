@@ -3566,7 +3566,7 @@ kaka:
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "select * from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Cantidad>0"
+                                "select Codigo,Cantidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Cantidad>0"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -3814,7 +3814,7 @@ kaka:
                                     cnn3.Close() : cnn3.Open()
                                     cmd3 = cnn3.CreateCommand
                                     cmd3.CommandText =
-                                "select * from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Cantidad>0"
+                                "select Codigo,Cantidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Cantidad>0"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -4560,7 +4560,7 @@ kaka:
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "select *  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 cboLote.Focus().Equals(True)
@@ -4590,7 +4590,7 @@ kaka:
                                         cnn2.Close() : cnn2.Open()
                                         cmd2 = cnn2.CreateCommand
                                         cmd2.CommandText =
-                                "select *  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                         rd2 = cmd2.ExecuteReader
                                         If rd2.HasRows Then
                                             cboLote.Focus().Equals(True)
@@ -4608,7 +4608,7 @@ kaka:
                                     cnn2.Close() : cnn2.Open()
                                     cmd2 = cnn2.CreateCommand
                                     cmd2.CommandText =
-                                "select *  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                "select Codigo  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                     rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
                                         cboLote.Focus().Equals(True)
@@ -4626,7 +4626,7 @@ kaka:
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
                                 cmd2.CommandText =
-                                "select *  from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
+                                "select Codigo from LoteCaducidad where Codigo='" & cbocodigo.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.HasRows Then
                                     cboLote.Focus().Equals(True)
@@ -5629,7 +5629,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MovCuenta where Tipo='TARJETA' and Referencia='" & txtnumref.Text & "'"
+                        "select Tipo,Referencia from MovCuenta where Tipo='TARJETA' and Referencia='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -5653,7 +5653,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MovCuenta where Tipo='TRANSFERENCIA' and Referencia='" & txtnumref.Text & "'"
+                        "select Tipo,Referencia from MovCuenta where Tipo='TRANSFERENCIA' and Referencia='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -5677,7 +5677,7 @@ kaka:
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MovCuenta where Tipo='OTRO' and Referencia='" & txtnumref.Text & "'"
+                        "select Tipo,Referencia from MovCuenta where Tipo='OTRO' and Referencia='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -6491,7 +6491,7 @@ Door:
                             If cboNombre.Text <> "" Then
 
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                                cmd2.CommandText = "Select Nombre from Clientes where Nombre='" & cboNombre.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.Read Then
                                     rd2.Close()
@@ -8445,7 +8445,7 @@ Door:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                "Select Nombre from Clientes where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
 
@@ -8473,7 +8473,7 @@ Door:
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & MYFOLIO
+        cmd3.CommandText = "SELECT NumFolio FROM abonoi WHERE NumFolio=" & MYFOLIO
         rd3 = cmd3.ExecuteReader
         If rd3.HasRows Then
             If rd3.HasRows Then
@@ -8740,7 +8740,7 @@ Door:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select NoPrint,Copias from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -9243,7 +9243,7 @@ Door:
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
+                        cmd1.CommandText = "select Folio,Codigo from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "'"
                         '"select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
@@ -9261,7 +9261,7 @@ Door:
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "select * from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
+                                "select Folio,Codigo,Total from VentasDetalle where Folio=" & cbonota.Text & " and Codigo='" & CODx & "' and Total=" & Totalx & ""
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -9406,7 +9406,7 @@ ecomoda:
                 If MyDepto <> "SERVICIOS" Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Kits where Nombre='" & MyDesc & "'"
+                        "select Nombre from Kits where Nombre='" & MyDesc & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         cnn2.Close() : cnn2.Open()
@@ -12627,7 +12627,7 @@ ecomoda:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from CtMedicos where Cedula='" & cbocedula.Text & "'"
+                "select Cedula from CtMedicos where Cedula='" & cbocedula.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
             Else
@@ -12751,7 +12751,7 @@ ecomoda:
             '[°]. Datos del negocio
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM monedero WHERE Barras='" & txttel.Text & "'"
+            cmd1.CommandText = "SELECT Saldo FROM monedero WHERE Barras='" & txttel.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -13881,7 +13881,7 @@ ecomoda:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
+            cmd1.CommandText = "Select Id from loginrecargas"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 frmRecargas.Show()
@@ -14023,7 +14023,7 @@ ecomoda:
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
+            cmd1.CommandText = "Select Id from loginrecargas"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 frmPagoServicios.Show()
@@ -14563,7 +14563,7 @@ rayos:
                             If cboNombre.Text <> "" Then
 
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "Select * from Clientes where Nombre='" & cboNombre.Text & "'"
+                                cmd2.CommandText = "Select Nombre from Clientes where Nombre='" & cboNombre.Text & "'"
                                 rd2 = cmd2.ExecuteReader
                                 If rd2.Read Then
                                     rd2.Close()

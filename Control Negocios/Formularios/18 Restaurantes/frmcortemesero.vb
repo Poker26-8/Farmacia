@@ -315,6 +315,7 @@ Public Class frmcortemesero
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND Mesero='" & meseros & "' order by formapago"
+
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         If rd2.HasRows Then
@@ -1181,7 +1182,7 @@ Public Class frmcortemesero
             Dim totalsuma As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' order by mesero"
+            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' order by mesero"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

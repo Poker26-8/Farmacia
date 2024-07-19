@@ -57,7 +57,8 @@
                                                                       `Comisionista` varchar(100) DEFAULT '',
                                                                       `Descuento` float DEFAULT '0',
                                                                       `Descto` float DEFAULT '0',
-                                                                      `Porc_Descuento` float DEFAULT '0'
+                                                                      `Porc_Descuento` float DEFAULT '0',
+                                                                      `Comentario` varchar(255) DEFAULT ''
                                                                     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
                                                                     "
 
@@ -630,7 +631,8 @@
                                           `Desplazamiento` varchar(50) DEFAULT '',
                                           `Version` varchar(50) DEFAULT '',
                                           `StatusT` int(11) DEFAULT '0',
-                                          `Cliente` varchar(255) DEFAULT ''
+                                          `Cliente` varchar(255) DEFAULT '',
+                                          `NEconomico` varchar(100) DEFAULT ''
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     Public vartablavehiculo2 As String = "CREATE TABLE `vehiculo2` (
@@ -1126,7 +1128,7 @@
 
 
     'Clientes
-    Public vartablaclientes As String = "CREATE TABLE IF NOT EXISTS `clientes` (
+    Public vartablaclientes As String = "CREATE TABLE  `clientes` (
                                       `Id` int(11) NOT NULL,
                                       `Nombre` varchar(255) NOT NULL DEFAULT '',
                                       `RazonSocial` varchar(255) NOT NULL DEFAULT '',
