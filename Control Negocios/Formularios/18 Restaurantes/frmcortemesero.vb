@@ -878,7 +878,7 @@ Public Class frmcortemesero
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Mesero FROM abonoi WHERE Fecha between '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora between '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "'"
+            cmd1.CommandText = "SELECT DISTINCT Mesero FROM abonoi WHERE FechaCompleta between '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -899,7 +899,7 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM abonoi WHERE Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND Mesero='" & mesero & "' order by formapago"
+                    cmd2.CommandText = "SELECT * FROM abonoi WHERE FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND Mesero='" & mesero & "' order by formapago"
                     rd2 = cmd2.ExecuteReader
                     Do While rd2.Read
                         If rd2.HasRows Then
@@ -959,14 +959,14 @@ Public Class frmcortemesero
                     Y += 25
 
                     cmd9 = cnn9.CreateCommand
-                    cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' group by formapago order by formapago"
+                    cmd9.CommandText = "SELECT * FROM abonoi WHERE Concepto='ABONO' AND FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' group by formapago order by formapago"
                     rd9 = cmd9.ExecuteReader
                     Do While rd9.Read
                         If rd9.HasRows Then
 
                             formapagos = rd9("FormaPago").ToString
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
+                            cmd3.CommandText = "SELECT sum(Monto) FROM abonoi WHERE FechaCompleta BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO' AND FormaPago='" & formapagos & "' group by formapago order by formapago"
                             rd3 = cmd3.ExecuteReader
                             If rd3.HasRows Then
                                 If rd3.Read Then
@@ -1008,7 +1008,7 @@ Public Class frmcortemesero
                     Dim dx As String = ""
 
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE Fecha BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO'"
+                    cmd4.CommandText = "SELECT * FROM Abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpfecha.Value, "yyyy-MM-dd") & " " & Format(dtpht.Value, "HH:mm:ss") & "' AND '" & Format(dtpfechaal.Value, "yyyy-MM-dd") & " " & Format(dtpfhal.Value, "HH:mm:ss") & "' AND Mesero='" & mesero & "' AND Concepto='ABONO'"
                     rd4 = cmd4.ExecuteReader
                     Do While rd4.Read
                         If rd4.HasRows Then

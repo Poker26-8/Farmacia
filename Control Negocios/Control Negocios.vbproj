@@ -2001,6 +2001,12 @@
     <Compile Include="Formularios\28 Pedidos\frmVehP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\28 Pedidos\SID\frmEntregaPedidos.Designer.vb">
+      <DependentUpon>frmEntregaPedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\28 Pedidos\SID\frmEntregaPedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\29 Condominios\frmMadrid.Designer.vb">
       <DependentUpon>frmMadrid.vb</DependentUpon>
     </Compile>
@@ -3026,6 +3032,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\28 Pedidos\frmVehP.resx">
       <DependentUpon>frmVehP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\28 Pedidos\SID\frmEntregaPedidos.resx">
+      <DependentUpon>frmEntregaPedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\29 Condominios\frmMadrid.resx">
       <DependentUpon>frmMadrid.vb</DependentUpon>

@@ -2618,7 +2618,7 @@ Partial Class frmVentas1
         Me.Panel2.Controls.Add(Me.txtNombreClave)
         Me.Panel2.Location = New System.Drawing.Point(96, 37)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(468, 69)
+        Me.Panel2.Size = New System.Drawing.Size(466, 69)
         Me.Panel2.TabIndex = 212
         Me.Panel2.Visible = False
         '
@@ -2641,7 +2641,7 @@ Partial Class frmVentas1
         Me.txtNombreClave.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreClave.Location = New System.Drawing.Point(14, 26)
         Me.txtNombreClave.Name = "txtNombreClave"
-        Me.txtNombreClave.Size = New System.Drawing.Size(440, 29)
+        Me.txtNombreClave.Size = New System.Drawing.Size(438, 29)
         Me.txtNombreClave.TabIndex = 0
         '
         'txttel

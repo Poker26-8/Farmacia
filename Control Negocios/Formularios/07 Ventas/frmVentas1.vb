@@ -5600,7 +5600,9 @@ kaka:
     End Sub
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         'frmPasa_Corte.Show()
-        frmPedidosCli.Show()
+        'frmPedidosCli.Show()
+        frmEntregaPedidos.Show()
+        frmEntregaPedidos.BringToFront()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas2.Show()
@@ -7101,6 +7103,7 @@ doorcita:
         End If
 
         If grdcaptura.Rows.Count < 1 Then txtdescuento1.Focus().Equals(True) : cnn1.Close() : Exit Sub
+
         If CDbl(IIf(txtResta.Text = "", "0", txtResta.Text)) <> 0 Then
             If modo_caja = "CAJA" Then
                 If (cboNombre.Text = "" Or cboNombre.Text = "PUBLICO EN GENERAL") Then

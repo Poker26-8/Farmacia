@@ -1988,7 +1988,7 @@ kakaxd:
                     If CDbl(monto) > 0 Then
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "INSERT INTO abonoi      (NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargado,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevomontof & "," & SLD & ",'" & formapago & "'," & nuevomontof & ",'" & banco & "','" & referencia & "','" & lblUsuario.Text & "','" & coment & "'," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                        cmd1.CommandText = "INSERT INTO abonoi      (NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargado,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & nuevomontof & "," & SLD & ",'" & formapago & "'," & nuevomontof & ",'" & banco & "','" & referencia & "','" & lblUsuario.Text & "','" & coment & "'," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     End If
@@ -2083,7 +2083,7 @@ kakaxd:
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "',0," & nuevoabono & "," & SLD & ",'EFECTIVO'," & nuevoefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
+                cmd3.CommandText = "INSERT INTO Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Comentario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcliente & ",'" & nombre & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & nuevoabono & "," & SLD & ",'EFECTIVO'," & nuevoefectivo & ",'','','" & lblUsuario.Text & "',''," & propinaventa & "," & totalcomisiones & ",'" & lblMesero.Text & "'," & descuentoventa & ")"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
             End If
@@ -3370,7 +3370,7 @@ Door:
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcli & ",'" & cli & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0,0,0,'CORTESIA',0,'','','" & lblUsuario.Text & "',0,0,'" & lblMesero.Text & "'," & precioeliminar & ")"
+            cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario,Propina,Comisiones,Mesero,Descuento) VALUES(" & folioventa & "," & idcli & ",'" & cli & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0,0,0,'CORTESIA',0,'','','" & lblUsuario.Text & "',0,0,'" & lblMesero.Text & "'," & precioeliminar & ")"
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand

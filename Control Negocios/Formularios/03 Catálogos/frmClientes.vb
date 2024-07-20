@@ -47,7 +47,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
+                        "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -91,7 +91,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select *  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
+                 "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -160,7 +160,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select *  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
+                        "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -204,7 +204,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select * from Clientes where RazonSocial='" &
+                 "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia from Clientes where RazonSocial='" &
                  Trim(Replace(cboRazon.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -257,7 +257,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Clientes where RFC='" & cboRFC.Text & "'"
+                        "select Id,Nombre,RazonSocial,Tipo,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia from Clientes where RFC='" & cboRFC.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -358,7 +358,7 @@ Public Class frmClientes
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Id=" & txtId.Text & ""
+                    "select Id from Clientes where Id=" & txtId.Text & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -381,7 +381,7 @@ Public Class frmClientes
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
+                    "select Nombre from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     MsgBox("Al parecer ya hay un cliente registrado bajo ese nombre.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -748,7 +748,7 @@ Public Class frmClientes
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Clientes ORDER BY Id"
+            cmd1.CommandText = "SELECT Nombre,RazonSocial,Tipo,RFC,Telefono1,Email,Credito,DiasCredito,Comisionista,SuspVent,Calle,Colonia,CP,Delegacion,Entidad,CPais,Regfis,CNumberInt,CNumberExt FROM Clientes ORDER BY Id"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Do While rd1.Read
@@ -918,7 +918,7 @@ Public Class frmClientes
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM clientes WHERE Nombre='" & nombre & "'"
+            cmd2.CommandText = "SELECT Nombre FROM clientes WHERE Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

@@ -210,7 +210,8 @@ Public Class frmCorteCaja
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoI where Concepto='ABONO' AND FormaPago<>'SALDO A FAVOR' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status=0"
+            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoI where Concepto='ABONO' AND FormaPago<>'SALDO A FAVOR' AND Status=0 AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            'cmd1.CommandText = "SELECT sum(Abono) FROM AbonoI where Concepto='ABONO' AND FormaPago<>'SALDO A FAVOR' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -225,7 +226,7 @@ Public Class frmCorteCaja
 
             'compras canceladas
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='CANCELACION' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoe WHERE Concepto='CANCELACION' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -251,7 +252,7 @@ Public Class frmCorteCaja
             'Efectivo
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select sum(Monto) from AbonoI where Concepto='ABONO' and Fecha BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago='EFECTIVO' AND Status=0"
+                "select sum(Monto) from AbonoI where Concepto='ABONO' and FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status=0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -266,7 +267,7 @@ Public Class frmCorteCaja
             Dim totalglobal As Double = 0
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' and FormaPago<>'SALDO A FAVOR' and Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status='0'"
+            cmd1.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' and FormaPago<>'SALDO A FAVOR' AND Status='0' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' "
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -275,7 +276,7 @@ Public Class frmCorteCaja
 
                     If formapagoglobal <> "" Then
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "select sum(Monto) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago='" & formapagoglobal & "'"
+                        cmd2.CommandText = "select sum(Monto) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago='" & formapagoglobal & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -297,7 +298,7 @@ Public Class frmCorteCaja
 
             Dim ingresospropinas As Double = 0
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Propina) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            cmd1.CommandText = "SELECT sum(Propina) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' and FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -323,7 +324,7 @@ Public Class frmCorteCaja
             'Compras
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select sum(Abono) from AbonoE where Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Abono<>0 AND Concepto='ABONO'"
+            cmd2.CommandText = "select sum(Abono) from AbonoE where FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Abono<>0 AND Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -376,7 +377,7 @@ Public Class frmCorteCaja
             Dim egrEfectivodevo As Double = 0
             'Efectivo
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='DEVOLUCION' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='DEVOLUCION' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -386,7 +387,7 @@ Public Class frmCorteCaja
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM Abonoi WHERE Concepto='NOTA CANCELADA' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -408,7 +409,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Monto) from AbonoE where Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago='EFECTIVO'"
+                "select sum(Monto) from AbonoE where FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -439,7 +440,7 @@ Public Class frmCorteCaja
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+            cmd2.CommandText = "SELECT sum(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -461,7 +462,7 @@ Public Class frmCorteCaja
             cnn3.Close() : cnn3.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'DEVOLUCION'and Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago<>'EFECTIVO'"
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'DEVOLUCION'and FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND FormaPago<>'EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -470,7 +471,7 @@ Public Class frmCorteCaja
 
                     If formaglobalforma <> "" Then
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "select sum(Monto) from AbonoI where Concepto<>'ABONO' and Concepto<>'CARGO' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "HH:mm:ss") & "' AND FormaPago='" & formaglobalforma & "'"
+                        cmd3.CommandText = "select sum(Monto) from AbonoI where Concepto<>'ABONO' and Concepto<>'CARGO' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpFechaFinal.Value, "HH:mm:ss") & "' AND FormaPago='" & formaglobalforma & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -493,7 +494,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Tarjeta) from AbonoE where Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+                "select sum(Tarjeta) from AbonoE where FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -505,7 +506,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Transfe) from AbonoE where Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+                "select sum(Transfe) from AbonoE where FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' "
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -517,7 +518,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select sum(Otro) from AbonoE where Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
+                "select sum(Otro) from AbonoE where FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1021,7 +1022,7 @@ Public Class frmCorteCaja
             'Ventas
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select SUM(Abono) from AbonoI where Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' AND Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0"
+                "select SUM(Abono) from AbonoI where Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' AND Usuario='" & Usu & "'  AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1048,7 +1049,7 @@ Public Class frmCorteCaja
             Dim EfectivoU As String = "0"
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select SUM(Monto) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA'AND FormaPago='EFECTIVO' and Usuario='" & Usu & "'AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
+                "select SUM(Monto) from AbonoI where Concepto<>'DEVOLUCION' and Concepto<>'NOTA CANCELADA' AND FormaPago='EFECTIVO' and Usuario='" & Usu & "' AND CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1076,7 +1077,7 @@ Public Class frmCorteCaja
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Monto<>0 and Concepto<>'NOTA CANCELADA' AND FormaPago<>'EFECTIVO' and Concepto<>'DEVOLUCION' and Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
+            cmd3.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Monto<>0 and Concepto<>'NOTA CANCELADA' AND FormaPago<>'EFECTIVO' and Concepto<>'DEVOLUCION' and Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -1084,7 +1085,7 @@ Public Class frmCorteCaja
 
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "select SUM(Monto) from AbonoI where Monto<>0 and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' and Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='" & formapagousuario & "'"
+                    cmd1.CommandText = "select SUM(Monto) from AbonoI where Monto<>0 and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' and Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='" & formapagousuario & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1113,7 +1114,7 @@ Public Class frmCorteCaja
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Abono) FROM AbonoE WHERE Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND Abono<>0 AND CorteU=0 AND Concepto='ABONO'"
+            cmd2.CommandText = "SELECT SUM(Abono) FROM AbonoE WHERE Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND Abono<>0 AND CorteU=0 AND Concepto='ABONO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1168,7 +1169,7 @@ Public Class frmCorteCaja
             'Devoluciones
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "SELECT SUM(Monto) FROM Abonoi WHERE Concepto<>'ABONO' AND Concepto<>'NOTA VENTA' AND Concepto<>'NOTA CANCELADA' AND Concepto<>'CARGO' AND Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='EFECTIVO'"
+                    "SELECT SUM(Monto) FROM Abonoi WHERE Concepto<>'ABONO' AND Concepto<>'NOTA VENTA' AND Concepto<>'NOTA CANCELADA' AND Concepto<>'CARGO' AND Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1181,7 +1182,7 @@ Public Class frmCorteCaja
             'Cancelaciones
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "SELECT SUM(Monto) FROM AbonoI WHERE Concepto<>'ABONO' AND Concepto<>'NOTA VENTA' AND Concepto<>'DEVOLUCION' AND Concepto<>'CARGO' AND Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='EFECTIVO'"
+                    "SELECT SUM(Monto) FROM AbonoI WHERE Concepto<>'ABONO' AND Concepto<>'NOTA VENTA' AND Concepto<>'DEVOLUCION' AND Concepto<>'CARGO' AND Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0 AND FormaPago='EFECTIVO'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1192,7 +1193,7 @@ Public Class frmCorteCaja
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Efectivo) FROM AbonoE WHERE Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "yyyy-MM-dd") & "' and CorteU=0"
+            cmd2.CommandText = "SELECT SUM(Efectivo) FROM AbonoE WHERE Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1234,7 +1235,7 @@ Public Class frmCorteCaja
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'CARGO' and Concepto<>'NOTA VENTA' and Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0 AND FormaPago<>'EFECTIVO'"
+            cmd3.CommandText = "SELECT DISTINCT FormaPago FROM AbonoI WHERE Concepto<>'ABONO' and Concepto<>'CARGO' and Concepto<>'NOTA VENTA' and Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0 AND FormaPago<>'EFECTIVO'"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -1245,7 +1246,7 @@ Public Class frmCorteCaja
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                                    "select SUM(FormaMonto) from AbonoI where FormaMonto<>0 AND FormaPago<>'EFECTIVO' AND Concepto<>'ABONO' and Concepto<>'CARGO' and Concepto<>'NOTA VENTA' and Usuario='" & Usu & "' AND Fecha bETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0 AND FormaPago='" & formapagousuariocargonotaventa & "'"
+                                    "select SUM(FormaMonto) from AbonoI where FormaMonto<>0 AND FormaPago<>'EFECTIVO' AND Concepto<>'ABONO' and Concepto<>'CARGO' and Concepto<>'NOTA VENTA' and Usuario='" & Usu & "' AND FechaCompleta bETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0 AND FormaPago='" & formapagousuariocargonotaventa & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1269,7 +1270,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "select SUM(Tarjeta) from AbonoE where Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0"
+                    "select SUM(Tarjeta) from AbonoE where Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND CorteU=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1291,7 +1292,7 @@ Public Class frmCorteCaja
             txtEgrTarjetaU.Text = FormatNumber(Tarjeta, 2)
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select SUM(Transfe) from AbonoE where Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
+            cmd2.CommandText = "select SUM(Transfe) from AbonoE where Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1314,7 +1315,7 @@ Public Class frmCorteCaja
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                    "select SUM(Otro) from AbonoE where Usuario='" & Usu & "' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora='" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
+                    "select SUM(Otro) from AbonoE where Usuario='" & Usu & "' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and CorteU=0"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2169,7 +2170,7 @@ Public Class frmCorteCaja
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select NumFolio from abonoi where Id=(select MIN(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION') AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "'"
+                "select NumFolio from abonoi where Id=(select MIN(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' AND Concepto<>'DEVOLUCION' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "')"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2180,7 +2181,7 @@ Public Class frmCorteCaja
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select NumFolio from abonoi where Id=(select MAX(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "') "
+                "select NumFolio from abonoi where Id=(select MAX(Id) from abonoi where CorteU=0 and Usuario='" & cboUsuario.Text & "' and Concepto<>'NOTA CANCELADA' and Concepto<>'DEVOLUCION' AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "') "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2190,7 +2191,7 @@ Public Class frmCorteCaja
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND Usuario='" & cboUsuario.Text & "'"
+            cmd1.CommandText = "update Abonoi set CorteU=" & txtNumCorte.Text & " where CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' AND Usuario='" & cboUsuario.Text & "'"
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
@@ -2202,7 +2203,7 @@ Public Class frmCorteCaja
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "update AbonoE set CorteU=" & txtNumCorte.Text & " where CorteU=0 AND Fecha BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & "' AND Hora BETWEEN '" & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and Usuario='" & cboUsuario.Text & "'"
+            cmd1.CommandText = "update AbonoE set CorteU=" & txtNumCorte.Text & " where CorteU=0 AND FechaCompleta BETWEEN '" & Format(dtpFechaIU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIU.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFU.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFU.Value, "HH:mm:ss") & "' and Usuario='" & cboUsuario.Text & "'"
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand

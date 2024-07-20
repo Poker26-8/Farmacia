@@ -71,7 +71,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Bancos where Banco='" & cbonombre.Text & "'"
+                    "select Banco from Bancos where Banco='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     existe = True
@@ -109,5 +109,9 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmCatBancos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

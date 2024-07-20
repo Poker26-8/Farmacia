@@ -3129,12 +3129,12 @@ kakaxd:
                 If Resta > 0 And AFavor_Cliente > 0 And CDbl(lblTotalPagar.Text) = Resta Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Banco,Referencia,Usuario,MontoSF) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'" & lblPropina.Text & "','','','','" & lblAtendio.Text & "'," & Resta & ")"
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Banco,Referencia,Usuario,MontoSF) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & ",'" & lblPropina.Text & "','','','','" & lblAtendio.Text & "'," & Resta & ")"
                     cmd1.ExecuteNonQuery()
                 Else
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Banco,Referencia,Usuario) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & "," & lblPropina.Text & ",'','','','" & lblAtendio.Text & "')"
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Banco,Referencia,Usuario) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & Total_Ve & ",0," & MySaldo & "," & lblPropina.Text & ",'','','','" & lblAtendio.Text & "')"
                     cmd1.ExecuteNonQuery()
                 End If
             End If
@@ -3192,7 +3192,7 @@ kakaxd:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TARJETA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TARJETA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                             cmd1.ExecuteNonQuery()
 
                         Case Is <> "MOSTRADOR"
@@ -3212,12 +3212,12 @@ kakaxd:
                             If Resta > 0 And AFavor_Cliente > 0 Then
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             Else
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TARJETA'," & frmNuevoPagarTouchS.txtTarjeta.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             End If
                     End Select
@@ -3272,7 +3272,7 @@ kakaxd:
 
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TRANSFERENCIA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                        "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'TRANSFERENCIA'," & nuevopago & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                             cmd1.ExecuteNonQuery()
 
                         Case Is <> "MOSTRADOR"
@@ -3292,12 +3292,12 @@ kakaxd:
                             If Resta > 0 And AFavor_Cliente > 0 Then
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             Else
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'TRANSFERENCIA'," & frmNuevoPagarTouchS.txtTransferencia.Text & ",'" & frmNuevoPagarTouchS.lblTarjeta.Text & "','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             End If
                     End Select
@@ -3398,7 +3398,7 @@ kakaxd:
 
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'" & formapago & "'," & nuevopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                            "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & nuevopago & ",0," & propina & ",'" & formapago & "'," & nuevopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             Case Is <> "MOSTRADOR"
                                 cmd1 = cnn1.CreateCommand
@@ -3417,12 +3417,12 @@ kakaxd:
                                 If Resta > 0 And AFavor_Cliente > 0 Then
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & cuentarefe & "'," & bancorefe & "','" & comentariopago & "','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & cuentarefe & "'," & bancorefe & "','" & comentariopago & "','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
                                     cmd1.ExecuteNonQuery()
                                 Else
                                     cmd1 = cnn1.CreateCommand
                                     cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'" & formapago & "'," & montopago & ",'" & bancopago & "','" & referenciapago & "','" & comentariopago & "','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                     cmd1.ExecuteNonQuery()
                                 End If
                         End Select
@@ -3456,7 +3456,7 @@ kakaxd:
                         Case Is = "MOSTRADOR"
                             cmd1 = cnn1.CreateCommand
                             cmd1.CommandText =
-                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & ACuenta & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & ",0,'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & ",0," & propina & ",'EFECTIVO'," & ACuenta & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                             cmd1.ExecuteNonQuery()
 
                         Case Is <> "MOSTRADOR"
@@ -3476,13 +3476,13 @@ kakaxd:
                             If Resta > 0 And AFavor_Cliente > 0 Then
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                                    "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'EFECTIVO'," & EfectivoX & ",0,'','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
+                                    "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,MontoSF,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'EFECTIVO'," & EfectivoX & ",0,'','','','" & lblAtendio.Text & "'," & Resta & ",'" & lblAtendio.Text & "'," & Descuento & ")"
 
                                 cmd1.ExecuteNonQuery()
                             Else
                                 cmd1 = cnn1.CreateCommand
                                 cmd1.CommandText =
-                                    "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'EFECTIVO'," & EfectivoX & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
+                                    "insert into Abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Propina,FormaPago,Monto,Banco,Referencia,Comentario,Usuario,Mesero,Descuento) values(" & MYFOLIO & "," & lblTipoVenta.Text & ",'" & lblCliente.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0," & ACuenta & "," & MySaldo & "," & propina & ",'EFECTIVO'," & EfectivoX & ",'','','','" & lblAtendio.Text & "','" & lblAtendio.Text & "'," & Descuento & ")"
                                 cmd1.ExecuteNonQuery()
                             End If
                     End Select
