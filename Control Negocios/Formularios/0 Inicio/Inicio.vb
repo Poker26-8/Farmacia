@@ -202,7 +202,7 @@ Public Class Inicio
         End Try
     End Sub
 
-    Private Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         PrimeraConfig = ""
         Login.Hide()
         'Timer1.Start()
@@ -271,25 +271,29 @@ Public Class Inicio
             Nuevos_Pedidos()
         End If
 
-        Dim tiendalinea As Integer = DatosRecarga2("TiendaLinea")
-        Dim gimnasios As Integer = DatosRecarga2("Gimnasio")
-        Dim consignacion As Integer = DatosRecarga2("Consignacion")
-        Dim nomina As Integer = DatosRecarga2("Nomina")
-        Dim Mod_Asis As Integer = DatosRecarga2("Mod_Asis")
-        Dim Control_Servicios As Integer = DatosRecarga2("Control_Servicios")
-        Dim series As Integer = DatosRecarga2("Series")
-        Dim produccion As Integer = DatosRecarga2("Produccion")
-        Dim partes As Integer = DatosRecarga2("Partes")
-        Dim escuelas As Integer = DatosRecarga2("Escuelas")
-        Dim costeo As Integer = DatosRecarga2("Costeo")
-        Dim restaurante As Integer = DatosRecarga2("Restaurante")
-        Dim refaccionaria As Integer = DatosRecarga2("Refaccionaria")
-        Dim pollos As Integer = DatosRecarga2("pollos")
-        Dim telefonia As Integer = DatosRecarga2("Telefonia")
-        Dim Hoteles As Integer = DatosRecarga2("Hoteles")
-        Dim Migracion As Integer = DatosRecarga2("Migracion")
-        Dim Optica As Integer = DatosRecarga2("Optica")
-        Dim Mov_Cuenta As Integer = DatosRecarga2("Mov_Cuenta")
+        'Await RunAsyncFunctions()
+
+
+
+        Dim tiendalinea As Integer = Await ValidarAsync("TiendaLinea")
+        Dim gimnasios As Integer = Await ValidarAsync("Gimnasio")
+        Dim consignacion As Integer = Await ValidarAsync("Consignacion")
+        Dim nomina As Integer = Await ValidarAsync("Nomina")
+        Dim Mod_Asis As Integer = Await ValidarAsync("Mod_Asis")
+        Dim Control_Servicios As Integer = Await ValidarAsync("Control_Servicios")
+        Dim series As Integer = Await ValidarAsync("Series")
+        Dim produccion As Integer = Await ValidarAsync("Produccion")
+        Dim partes As Integer = Await ValidarAsync("Partes")
+        Dim escuelas As Integer = Await ValidarAsync("Escuelas")
+        Dim costeo As Integer = Await ValidarAsync("Costeo")
+        Dim restaurante As Integer = Await ValidarAsync("Restaurante")
+        Dim refaccionaria As Integer = Await ValidarAsync("Refaccionaria")
+        Dim pollos As Integer = Await ValidarAsync("pollos")
+        Dim telefonia As Integer = Await ValidarAsync("Telefonia")
+        Dim Hoteles As Integer = Await ValidarAsync("Hoteles")
+        Dim Migracion As Integer = Await ValidarAsync("Migracion")
+        Dim Optica As Integer = Await ValidarAsync("Optica")
+        Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
 
 
         If tiendalinea = 1 Then
@@ -463,7 +467,7 @@ Public Class Inicio
             MovCuentasToolStripMenuItem.Visible = False
         End If
 
-        'Validación de la aditoria
+        ''Validación de la aditoria
 
         Try
             cnn1.Close() : cnn1.Open()
@@ -488,10 +492,10 @@ Public Class Inicio
         Dim coma As OleDbCommand = New OleDbCommand
         Dim lect As OleDbDataReader = Nothing
 
-        VieneDe_Compras = ""
-        VieneDe_Folios = ""
+        'VieneDe_Compras = ""
+        'VieneDe_Folios = ""
 
-        Actualiza_Promos()
+        '   Actualiza_Promos()
     End Sub
 
     Public Sub verif()

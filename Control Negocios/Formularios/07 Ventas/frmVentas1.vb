@@ -15935,37 +15935,37 @@ doorcita:
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12.5
+                        Y += 13
                     End If
                     'RFC
                     If rd1("Cab1").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12.5
+                        Y += 13
                     End If
                     'Calle  N°.
                     If rd1("Cab2").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12
+                        Y += 13
                     End If
                     'Colonia
                     If rd1("Cab3").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12
+                        Y += 13
                     End If
                     'Delegación / Municipio - Entidad
                     If rd1("Cab4").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12
+                        Y += 13
                     End If
                     'Teléfono
                     If rd1("Cab5").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12
+                        Y += 13
                     End If
                     'Correo
                     If rd1("Cab6").ToString() <> "" Then
                         e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 12
+                        Y += 13
                     End If
                     Y += 3
                 End If
