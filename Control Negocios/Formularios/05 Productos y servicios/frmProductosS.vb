@@ -241,24 +241,24 @@ Public Class frmProductosS
     End Sub
 
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
-        cboNombre.Items.Clear()
-        Try
-            cnn1.Close() : cnn1.Open()
+        'cboNombre.Items.Clear()
+        'Try
+        '    cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Nombre from Productos order by Nombre"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cboNombre.Items.Add(
-                    rd1(0).ToString()
-                    )
-            Loop
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText =
+        '        "select distinct Nombre from Productos order by Nombre"
+        '    rd1 = cmd1.ExecuteReader
+        '    Do While rd1.Read
+        '        If rd1.HasRows Then cboNombre.Items.Add(
+        '            rd1(0).ToString()
+        '            )
+        '    Loop
+        '    rd1.Close() : cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
     End Sub
 
     Private Sub cboNombre_GotFocus(sender As Object, e As System.EventArgs) Handles cboNombre.GotFocus
@@ -749,33 +749,23 @@ Public Class frmProductosS
     End Sub
 
     Private Async Sub frmProductosS_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        txtbarras.Focus().Equals(True)
 
-
-        Await RunAsyncFunctions()
         Try
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='TiendaLinea'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = 1 Then
-                        tienda_enlinea = 1
-                    Else
-                        tienda_enlinea = 0
-                    End If
 
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
+            Dim tiendalinea As Integer = DatosRecarga2("TiendaLinea")
 
-            If tienda_enlinea = 1 Then
+            If tiendalinea = 1 Then
                 btn_tienda.Visible = True
             Else
                 btn_tienda.Visible = False
             End If
+            Me.Show()
+            txtbarras.Focus().Equals(True)
+            My.Application.DoEvents()
+
+
+
+            RunAsyncFunctions()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -1800,4 +1790,6 @@ Public Class frmProductosS
             cboProvP.Focus().Equals(True)
         End If
     End Sub
+
+
 End Class

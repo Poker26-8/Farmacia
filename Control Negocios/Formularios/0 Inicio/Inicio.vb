@@ -271,10 +271,6 @@ Public Class Inicio
             Nuevos_Pedidos()
         End If
 
-        Await RunAsyncFunctions()
-
-
-
         Dim tiendalinea As Integer = Await ValidarAsync("TiendaLinea")
         Dim gimnasios As Integer = Await ValidarAsync("Gimnasio")
         Dim consignacion As Integer = Await ValidarAsync("Consignacion")

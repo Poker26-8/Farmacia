@@ -68,17 +68,17 @@ Module ModGral
         Await Task.WhenAll(task1)
 
         'Después de que todas las tareas han terminado, aquí puedes realizar cualquier operación adicional
-        MsgBox("Todas las funciones asíncronas han completado su ejecución.")
+        '  MsgBox("Todas las funciones asíncronas han completado su ejecución.")
 
         '    ' Ejemplo: Mostrar un mensaje indicando que todas las funciones han completado
         '    MsgBox("Todas las funciones asíncronas han completado su ejecución.")
     End Function
 
     '' Función 1 asíncrona de ejemplo
-    Private Async Function Function1Async() As Task
+    Private Async Function Function1Async() As Task(Of String)
 
         frmProductosS.cboNombre.Items.Clear()
-
+        '   frmProductos.cboNombre.Items.Clear()
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
         cmd5.CommandText = "SELECT DISTINCT Nombre from Productos WHERE Nombre<>'' ORDER BY Nombre"
@@ -86,12 +86,13 @@ Module ModGral
         Do While rd5.Read
             If rd5.HasRows Then
                 frmProductosS.cboNombre.Items.Add(rd5(0).ToString)
+
+                '  frmProductos.cboNombre.Items.Add(rd5(0).ToString)
+
             End If
         Loop
         rd5.Close()
         cnn5.Close()
-        ' Await Task.Delay(1000) ' Espera de 1 segundo
-        MsgBox("Función 1 completada.")
     End Function
 
     '' Función 2 asíncrona de ejemplo
