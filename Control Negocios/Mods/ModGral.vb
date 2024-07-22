@@ -58,28 +58,41 @@ Module ModGral
         Return siono
     End Function
 
-    'Public Async Function RunAsyncFunctions() As Task
-    '    ' Definir las tareas que queremos ejecutar simultáneamente
-    '    Dim task1 = Function1Async()
-    '    Dim task2 = Function2Async()
-    '    Dim task3 = Function3Async()
+    Public Async Function RunAsyncFunctions() As Task
+        '    ' Definir las tareas que queremos ejecutar simultáneamente
+        Dim task1 = Function1Async()
+        '    Dim task2 = Function2Async()
+        '    Dim task3 = Function3Async()
 
-    '    ' Esperar a que todas las tareas terminen
-    '    Await Task.WhenAll(task1, task2, task3)
+        '    ' Esperar a que todas las tareas terminen
+        Await Task.WhenAll(task1)
 
-    '    ' Después de que todas las tareas han terminado, aquí puedes realizar cualquier operación adicional
-    '    MsgBox("Todas las funciones asíncronas han completado su ejecución.")
+        'Después de que todas las tareas han terminado, aquí puedes realizar cualquier operación adicional
+        MsgBox("Todas las funciones asíncronas han completado su ejecución.")
 
-    '    ' Ejemplo: Mostrar un mensaje indicando que todas las funciones han completado
-    '    MsgBox("Todas las funciones asíncronas han completado su ejecución.")
-    'End Function
+        '    ' Ejemplo: Mostrar un mensaje indicando que todas las funciones han completado
+        '    MsgBox("Todas las funciones asíncronas han completado su ejecución.")
+    End Function
 
     '' Función 1 asíncrona de ejemplo
-    'Private Async Function Function1Async() As Task
-    '    ' Simular una operación asíncrona que tarda un tiempo
-    '    Await Task.Delay(1000) ' Espera de 1 segundo
-    '    MsgBox("Función 1 completada.")
-    'End Function
+    Private Async Function Function1Async() As Task
+
+        frmProductosS.cboNombre.Items.Clear()
+
+        cnn5.Close() : cnn5.Open()
+        cmd5 = cnn5.CreateCommand
+        cmd5.CommandText = "SELECT DISTINCT Nombre from Productos WHERE Nombre<>'' ORDER BY Nombre"
+        rd5 = cmd5.ExecuteReader
+        Do While rd5.Read
+            If rd5.HasRows Then
+                frmProductosS.cboNombre.Items.Add(rd5(0).ToString)
+            End If
+        Loop
+        rd5.Close()
+        cnn5.Close()
+        ' Await Task.Delay(1000) ' Espera de 1 segundo
+        MsgBox("Función 1 completada.")
+    End Function
 
     '' Función 2 asíncrona de ejemplo
     'Private Async Function Function2Async() As Task

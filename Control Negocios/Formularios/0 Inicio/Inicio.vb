@@ -271,7 +271,7 @@ Public Class Inicio
             Nuevos_Pedidos()
         End If
 
-        'Await RunAsyncFunctions()
+        Await RunAsyncFunctions()
 
 
 
