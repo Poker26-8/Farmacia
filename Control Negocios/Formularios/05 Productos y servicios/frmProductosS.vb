@@ -473,7 +473,7 @@ Public Class frmProductosS
         txtBarras2.Text = ""
         cboCodigo.Items.Clear()
         cboCodigo.Text = ""
-        cboNombre.Items.Clear()
+        'cboNombre.Items.Clear()
         cboNombre.Text = ""
         cboIVA.Items.Clear()
         cboIVA.Text = ""
@@ -748,10 +748,11 @@ Public Class frmProductosS
         End Try
     End Sub
 
-    Private Sub frmProductosS_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Sub frmProductosS_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         txtbarras.Focus().Equals(True)
 
 
+        Await RunAsyncFunctions()
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
