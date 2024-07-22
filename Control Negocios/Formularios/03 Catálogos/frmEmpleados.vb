@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Threading.Tasks
 
 Public Class frmEmpleados
 
@@ -18,10 +19,10 @@ Public Class frmEmpleados
         cboNombre.Focus.Equals(True)
     End Sub
 
-    Private Sub frmEmpleados_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Function frmEmpleados_LoadAsync(sender As System.Object, e As System.EventArgs) As Task Handles MyBase.Load
         txtId.Text = ""
         cboNombre.Focus.Equals(True)
-    End Sub
+    End Function
 
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
         cboNombre.Items.Clear()
@@ -53,7 +54,7 @@ Public Class frmEmpleados
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                    "select IdEmpleado,Ingreso,Area,Puesto,Alias,Sueldov,Horas,NSS,Comisionista,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Correo,Facebook from Usuarios where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -91,7 +92,7 @@ Public Class frmEmpleados
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                "select IdEmpleado,Ingreso,Area,Puesto,Alias,Sueldo,Horas,NSS,Comisionista,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Correo,Facebook from Usuarios where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -161,7 +162,7 @@ Public Class frmEmpleados
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                    "select * from  Usuarios where Alias='" & txtAlias.Text & "'"
+                    "select Nombre,Ingreso,Area,Sueldo,Horas,Puesto,NSS,Comisionista,IdEmpleado,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Facebook,Correo from  Usuarios where Alias='" & txtAlias.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -298,7 +299,7 @@ Public Class frmEmpleados
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where IdEmpleado=" & txtId.Text
+                    "select IdEmpleado from Usuarios where IdEmpleado=" & txtId.Text
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -319,7 +320,7 @@ Public Class frmEmpleados
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Nombre='" & cboNombre.Text & "'"
+                    "select IdEmpleado from Usuarios where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     MsgBox("Parece que ya hay un usuario registrado bajo ese nombre.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -587,7 +588,7 @@ Public Class frmEmpleados
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM usuarios WHERE Nombre='" & nombre & "'"
+            cmd2.CommandText = "SELECT IdEmpleado FROM usuarios WHERE Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

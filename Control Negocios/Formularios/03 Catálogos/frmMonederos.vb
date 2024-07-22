@@ -72,7 +72,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select * from Clientes where Nombre='" & cboCliente.Text & "'"
+                     "select Id,Telefono from Clientes where Nombre='" & cboCliente.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -95,7 +95,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select * from monedero where Cliente='" & cboCliente.Text & "'"
+                 "select Id,Barras from monedero where Cliente='" & cboCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -123,7 +123,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                         "select * from Monedero where Barras='" & txtTelefono.Text & "'"
+                         "select Folio,Id,Cliente,IdCliente,Saldo from Monedero where Barras='" & txtTelefono.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -224,7 +224,7 @@
             'rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Monedero where Barras='" & txtTelefono.Text & "'"
+            cmd1.CommandText = "select Id from Monedero where Barras='" & txtTelefono.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -265,7 +265,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                         "select * from Monedero where Folio='" & txtFolio.Text & "'"
+                         "select Id,Cliente,IdCliente,Barras,Saldo from Monedero where Folio='" & txtFolio.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

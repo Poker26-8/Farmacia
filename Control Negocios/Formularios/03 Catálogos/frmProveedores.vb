@@ -52,7 +52,7 @@ Public Class frmProveedores
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                     "select * from Proveedores where NComercial='" &
+                     "select Id,Compania,RFC,CURP,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Facebook,Correo from Proveedores where NComercial='" &
                      cboNombre.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
@@ -88,7 +88,7 @@ Public Class frmProveedores
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                 "select * from Proveedores where NComercial='" &
+                 "select Id,Compania,RFC,CURP,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Facebook,Correo from Proveedores where NComercial='" &
                  cboNombre.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
@@ -145,7 +145,7 @@ Public Class frmProveedores
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Proveedores where Compania='" & cboRazon.Text & "'"
+                    "select Id,NComercial,RFC,CURP,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Facebook,Correo from Proveedores where Compania='" & cboRazon.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -180,7 +180,7 @@ Public Class frmProveedores
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cboRazon.Text & "'"
+                "select Id,NComercial,RFC,CURP,Credito,DiasCred,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Facebook,Correo from Proveedores where Compania='" & cboRazon.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -324,7 +324,7 @@ Public Class frmProveedores
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select * from Proveedores where Id=" &
+                     "select Id from Proveedores where Id=" &
                      txtId.Text
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
@@ -347,7 +347,7 @@ Public Class frmProveedores
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                     "select * from Proveedores where NComercial='" & cboNombre.Text & "'"
+                     "select Id from Proveedores where NComercial='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     MsgBox("Ya hay un proveedor registrado bajo ese nombre.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -523,7 +523,7 @@ Public Class frmProveedores
             Dim valida As Boolean = True
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM proveedores WHERE NComercial='" & nombre & "'"
+            cmd2.CommandText = "SELECT Id FROM proveedores WHERE NComercial='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -586,7 +586,7 @@ Public Class frmProveedores
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM proveedores WHERE NComercial ORDER By NComercial"
+            cmd1.CommandText = "SELECT NComercial,Compañia,RFC,CURP,Calle,Colonia,CP,Delegacion,EntFed,Tel1,PagWeb,Email,Saldo,Credito,DiasCredito FROM proveedores WHERE NComercial ORDER By NComercial"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Do While rd1.Read
