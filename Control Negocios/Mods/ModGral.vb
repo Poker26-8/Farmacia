@@ -107,13 +107,6 @@ Module ModGral
     '    MsgBox("Función 3 completada.")
     'End Function
 
-
-
-
-
-
-
-
     'DatosRecarga
     Public Function DatosRecarga(ByVal valor As String) As String
         Dim respuesta As String = ""
