@@ -136,9 +136,6 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="tip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="btnImportar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAD8AAAAjCAYAAAAjS9I/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -157,6 +154,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="tip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="btnGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -222,9 +222,6 @@ CONTROLADO dependiendo el caso.
 En el caso de ocuparse para producción
 el campo 'Grupo' tendrá que ser INSUMO.</value>
   </data>
-  <metadata name="tip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACYAAAApCAYAAABZa1t7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -276,7 +273,7 @@ el campo 'Grupo' tendrá que ser INSUMO.</value>
   <data name="btnSalir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAnCAYAAACFSPFPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAepJREFUWEft171LAmEcwHH/BP+DhMaGlEAKhBzyLRIsqIggbJFe6M1Cg4YEqZYG
+        DwAACw8BkvkDpQAAAepJREFUWEft171LAmEcwHH/BP+DhMaGlEAKhBzyLRIsqIggbJFe6M1Cg4YEqZYG
         oQZHg4YaKkkC8wWOhiahIGhycHMpFIMagn79nvDkSZ+H887zcLjhA95z8Py+8JxwZ3jb6zcVQkMXqaC9
         dLg6UwgEAoJKksgIAIZ2kZgIAlFxdwAy2zaIrU0CbtapBGsoT0tMs4edYYiveyG8vMAaJkVgDeWRjKG9
         hAfhbMMD+ytzrMEs3YuhkeO8DdqljlObGBo5RkYIoX3M5dYYK4TQY1ghhB7DCiH0GFYI0bsxx4+jJhRB
