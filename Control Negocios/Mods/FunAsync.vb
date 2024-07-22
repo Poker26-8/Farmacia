@@ -40,22 +40,22 @@ Module FunAsync
     Public Async Function FunctionVentasAsync() As Task(Of String)
 
         frmVentas1.cbodesc.Items.Clear()
+        frmVentas2.cbodesc.Items.Clear()
 
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
 
         If frmVentas1.cbonota.Text = "" Then
-            cmd5.CommandText =
-                        "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+            cmd5.CommandText = "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
         Else
-            cmd5.CommandText =
-                        "select distinct Nombre from VentasDetalle where Folio=" & frmVentas1.cbonota.Text & " order by Nombre"
+            cmd5.CommandText = "select distinct Nombre from VentasDetalle where Folio=" & frmVentas1.cbonota.Text & " order by Nombre"
         End If
 
         rd5 = cmd5.ExecuteReader
         Do While rd5.Read
             If rd5.HasRows Then
                 frmVentas1.cbodesc.Items.Add(rd5(0).ToString)
+                frmVentas2.cbodesc.Items.Add(rd5(0).ToString)
             End If
         Loop
         rd5.Close()
@@ -67,6 +67,7 @@ Module FunAsync
     Public Async Function FunctionClinetesAsync() As Task(Of String)
 
         frmVentas1.cboNombre.Items.Clear()
+        frmVentas2.cboNombre.Items.Clear()
 
         cnn5.Close() : cnn5.Open()
         cmd5 = cnn5.CreateCommand
@@ -75,6 +76,7 @@ Module FunAsync
         Do While rd5.Read
             If rd5.HasRows Then
                 frmVentas1.cboNombre.Items.Add(rd5(0).ToString)
+                frmVentas2.cboNombre.Items.Add(rd5(0).ToString)
             End If
         Loop
         rd5.Close()

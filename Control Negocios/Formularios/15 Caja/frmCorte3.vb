@@ -8,9 +8,15 @@
 
     Private Sub frmCorte3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            dtpFecha.Value = Date.Now
+            dtpFechaFin.Value = Date.Now
+
+            dtpHoraIni.Text = "00:00:00"
+            dtpHoraFin.Text = "23:59:59"
+
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM cortecaja WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT Saldo_Ini FROM cortecaja WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -47,7 +53,7 @@
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -57,7 +63,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(propina) FROM abonoi WHERE Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
+            cmd1.CommandText = "SELECT SUM(propina) FROM abonoi WHERE FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Concepto='ABONO' AND FormaPago='EFECTIVO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -131,7 +137,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -231,7 +237,7 @@
             cnn4.Close() : cnn4.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -245,7 +251,7 @@
                     Y += 20
 
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY FormaPago"
+                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY FormaPago"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -256,7 +262,7 @@
                     rd3.Close()
 
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT SUM(Propina) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY FormaPago"
+                    cmd4.CommandText = "SELECT SUM(Propina) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY FormaPago"
                     rd4 = cmd4.ExecuteReader
                     If rd4.HasRows Then
                         If rd4.Read Then
@@ -330,7 +336,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT(Grupo) FROM ventasdetalle WHERE Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT DISTINCT(Grupo) FROM ventasdetalle WHERE FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -339,7 +345,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -349,7 +355,7 @@
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -410,7 +416,7 @@
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND FVenta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -418,7 +424,7 @@
 
                         sumasiniva = 0
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM ventasdetalle WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Folio=" & folio & ""
+                        cmd2.CommandText = "SELECT * FROM ventasdetalle WHERE FechaCompleta='" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "yyyy-MM-dd") & "' AND Folio=" & folio & ""
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -474,7 +480,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
+            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' and Abono<>0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -516,7 +522,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -526,7 +532,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -552,7 +558,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -583,7 +589,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -696,7 +702,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -798,7 +804,7 @@
             cnn4.Close() : cnn4.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT DISTINCT FormaPago FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -812,7 +818,7 @@
                     Y += 20
 
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY FormaPago"
+                    cmd3.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY FormaPago"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -823,7 +829,7 @@
                     rd3.Close()
 
                     cmd4 = cnn4.CreateCommand
-                    cmd4.CommandText = "SELECT SUM(Propina) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY FormaPago"
+                    cmd4.CommandText = "SELECT SUM(Propina) FROM abonoi WHERE FormaPago='" & FORMAPAGO & "' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY FormaPago"
                     rd4 = cmd4.ExecuteReader
                     If rd4.HasRows Then
                         If rd4.Read Then
@@ -875,7 +881,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and Abono<>0"
+            cmd1.CommandText = "SELECT sum(Abono) FROM AbonoE WHERE FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' and Abono<>0"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -885,7 +891,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
+            cmd1.CommandText = "SELECT sum(Total) FROM otrosgastos WHERE Fecha BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpHoraFin.Value, "yyyy-MM-dd") & "' AND Concepto='NOMINA'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -917,7 +923,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT COUNT(Id) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -927,7 +933,7 @@
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='NOTA CANCELADA' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -953,7 +959,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Monto) FROM abonoi WHERE Concepto='DEVOLUCION' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -984,7 +990,7 @@
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND Fecha between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' and '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd2.CommandText = "SELECT SUM(Descuento) FROM abonoi WHERE Concepto='ABONO' AND FechaCompleta between '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' and '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1017,7 +1023,7 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT(Grupo) FROM ventasdetalle WHERE Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT DISTINCT(Grupo) FROM ventasdetalle WHERE FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1026,7 +1032,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(Total) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -1036,7 +1042,7 @@
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' GROUP BY Grupo"
+                    cmd2.CommandText = "SELECT sum(TotalSinIVA) FROM ventasdetalle WHERE Grupo='" & grupo & "' AND FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' GROUP BY Grupo"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -1097,7 +1103,7 @@
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND FVenta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+                cmd1.CommandText = "SELECT Folio FROM ventas WHERE Usuario='" & cboCajero.Text & "' AND Fecha BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -1105,7 +1111,7 @@
 
                         sumasiniva = 0
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM ventasdetalle WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND '" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Folio=" & folio & ""
+                        cmd2.CommandText = "SELECT Grupo,TotalSinIVA,Total FROM ventasdetalle WHERE FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Folio=" & folio & ""
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

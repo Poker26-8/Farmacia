@@ -2740,6 +2740,7 @@ Partial Class frmVentas2
         '
         'Timer1
         '
+        Me.Timer1.Interval = 3000
         '
         'pVenta80
         '

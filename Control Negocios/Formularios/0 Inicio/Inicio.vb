@@ -248,6 +248,9 @@ Public Class Inicio
         SFormatos("Optica", "")
         SFormatos("Mov_Cuenta", "")
         SFormatos("Ordenes", "")
+        SFormatos("VerExistencias", "")
+        SFormatos("LinkAuto", "")
+        SFormatos("Whatsapp", "")
         'Licencia()
         Try
             cnn1.Close()
@@ -495,6 +498,25 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+
+        'ventasdetalla
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT FechaCompleta FROM ventasdetalle"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE ventasdetalle add column FechaCompleta datetime"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
 
         'abonoe
         Try

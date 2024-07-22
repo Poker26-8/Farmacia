@@ -1125,7 +1125,7 @@ deku:
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO VentasDetalle(Codigo,Folio,Nombre,Unidad,Cantidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Depto,Grupo,TotalIEPS,TasaIEPS) VALUES('" & CODIG & "'," & Foliore & ",'" & DESC1 & "','" & UDV & "'," & cant & "," & PUVCIVA & "," & CostVUE1 & "," & PUVCIVA & "," & TOTAL1 & "," & PrecioSinIVA1 & "," & TOTALSIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "',0,'" & DEPA & "','" & GRUPO1 & "',0,0)"
+                cmd1.CommandText = "INSERT INTO VentasDetalle(Codigo,Folio,Nombre,Unidad,Cantidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Depto,Grupo,TotalIEPS,TasaIEPS) VALUES('" & CODIG & "'," & Foliore & ",'" & DESC1 & "','" & UDV & "'," & cant & "," & PUVCIVA & "," & CostVUE1 & "," & PUVCIVA & "," & TOTAL1 & "," & PrecioSinIVA1 & "," & TOTALSIVA & ",'" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm.ss") & "',0,'" & DEPA & "','" & GRUPO1 & "',0,0)"
                 cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
@@ -3755,7 +3755,7 @@ Door:
 
                 cnn4.Close() : cnn4.Open()
                 cmd4 = cnn4.CreateCommand
-                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,Depto,Grupo,GPrint,Comentario,TasaIeps,TotalIEPS,Comensal,Facturado) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "'," & vartasa & "," & vartotal & ",'" & comensal & "','0')"
+                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,FechaCompleta,Depto,Grupo,GPrint,Comentario,TasaIeps,TotalIEPS,Comensal,Facturado) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "'," & vartasa & "," & vartotal & ",'" & comensal & "','0')"
                 cmd4.ExecuteNonQuery()
                 cnn4.Close()
 

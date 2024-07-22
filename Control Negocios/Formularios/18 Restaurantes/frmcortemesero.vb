@@ -294,7 +294,7 @@ Public Class frmcortemesero
             cnn9.Close() : cnn9.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Mesero FROM abonoi WHERE Fecha'" & Format(dtpfecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT DISTINCT Mesero FROM abonoi WHERE Fecha ='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

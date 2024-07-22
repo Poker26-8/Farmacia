@@ -616,7 +616,7 @@ Public Class frmConfigs
 
             cmd4 = cnn4.CreateCommand
             cmd4.CommandText =
-                "select NotasCred from Formatos where Facturas='VerExistencias'"
+                "select NumPart from Formatos where Facturas='VerExistencias'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then

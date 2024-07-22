@@ -762,7 +762,7 @@ Public Class frmPagarH
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+            cmd2.CommandText = "SELECT Comision,IVA FROM Productos WHERE Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -826,7 +826,7 @@ Public Class frmPagarH
             adeuda_cliente = 0
         Else
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Clientes WHERE Nombre='" & lblCliente.Text & "'"
+            cmd1.CommandText = "SELECT Id,Credito FROM Clientes WHERE Nombre='" & lblCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1396,6 +1396,7 @@ Public Class frmPagarH
             Dim impresoraventa As String = ""
             Dim copias As Double = TraerNumCopias()
 
+            cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT Formato FROM RutasImpresion WHERE Tipo='Venta'"
             rd1 = cmd1.ExecuteReader

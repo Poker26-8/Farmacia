@@ -44,7 +44,7 @@
 
             cnn4.Close() : cnn4.Open()
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT Tipo,Precio,Caracteristicas FROM habitacion WHERE N_Habitacion='" & cbohabitacion.Text & "'"
+            cmd4.CommandText = "SELECT Tipo,PrecioH,Caracteristicas FROM habitacion WHERE N_Habitacion='" & cbohabitacion.Text & "'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -92,6 +92,7 @@
 
             Me.Close()
             frmManejo.pHab.Controls.Clear()
+            frmManejo.TRAERUBICACION()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()

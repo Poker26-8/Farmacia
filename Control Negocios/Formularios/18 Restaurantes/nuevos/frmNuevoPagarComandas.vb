@@ -2158,7 +2158,7 @@ kakaxd:
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,CostVR,TotalIEPS,TasaIEPS,GPrint,Comensal,Comentario,Usuario) VALUES(" & folioventa & ",'" & codigog & "','" & descripciong & "','" & unidadg & "'," & cantidadg & "," & PrecioCompra & "," & preciog & "," & preciog & "," & totalg & "," & PrecioSinIVA1 & "," & TotalSinIVA1 & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','','0','" & departamento & "','" & grupo & "',0," & vartotal & "," & varieps & ",'" & gprint & "','" & comensalg & "','','" & lblUsuario.Text & "')"
+                cmd3.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,TotalIEPS,TasaIEPS,GPrint,Comensal,Comentario,Usuario) VALUES(" & folioventa & ",'" & codigog & "','" & descripciong & "','" & unidadg & "'," & cantidadg & "," & PrecioCompra & "," & preciog & "," & preciog & "," & totalg & "," & PrecioSinIVA1 & "," & TotalSinIVA1 & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','0','" & departamento & "','" & grupo & "',0," & vartotal & "," & varieps & ",'" & gprint & "','" & comensalg & "','','" & lblUsuario.Text & "')"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
 
@@ -3374,7 +3374,7 @@ Door:
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,Comisionista,Facturado,Depto,Grupo,CostVR,GPrint,Comensal,Comentario,Usuario) VALUES(" & folioventa & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & unidadeliminar & "'," & cantidadeliminar & "," & preciocompra & "," & precioeliminar & "," & precioeliminar & ",0,0,0,'" & Format(Date.Now, "yyyy-MM-dd") & "','','0','" & departamento & "','" & grupo & "','0','" & gprint & "','" & comensaleliminar & "','CORTESIA','" & lblUsuario.Text & "')"
+            cmd1.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,GPrint,Comensal,Comentario,Usuario) VALUES(" & folioventa & ",'" & codigoeliminar & "','" & descripcioneliminar & "','" & unidadeliminar & "'," & cantidadeliminar & "," & preciocompra & "," & precioeliminar & "," & precioeliminar & ",0,0,0,'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','0','" & departamento & "','" & grupo & "','0','" & gprint & "','" & comensaleliminar & "','CORTESIA','" & lblUsuario.Text & "')"
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
