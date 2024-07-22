@@ -36,77 +36,9 @@ Module ModGral
     Dim puerto As String = ""
     Dim seguridad As Boolean = False
 
-    Dim respuesta As String = ""
-    Dim siono As Integer = 0
 
-    Public Async Function ValidarAsync(valor As String) As Task(Of Integer)
 
-        cnn5.Close() : cnn5.Open()
-        cmd5 = cnn5.CreateCommand
-        cmd5.CommandText = "select Facturas, NotasCred, NumPart from Formatos where Facturas='" & valor & "'"
-        rd5 = cmd5.ExecuteReader
-        If rd5.HasRows Then
-            If rd5.Read Then
-                respuesta = rd5("NotasCred").ToString
-                siono = rd5("NumPart").ToString
-            End If
-        Else
-            siono = ""
-        End If
-        rd5.Close() : cnn5.Close()
 
-        Return siono
-    End Function
-
-    Public Async Function RunAsyncFunctions() As Task
-        '    ' Definir las tareas que queremos ejecutar simultáneamente
-        Dim task1 = Function1Async()
-        '    Dim task2 = Function2Async()
-        '    Dim task3 = Function3Async()
-
-        '    ' Esperar a que todas las tareas terminen
-        Await Task.WhenAll(task1)
-
-        'Después de que todas las tareas han terminado, aquí puedes realizar cualquier operación adicional
-        '  MsgBox("Todas las funciones asíncronas han completado su ejecución.")
-
-        '    ' Ejemplo: Mostrar un mensaje indicando que todas las funciones han completado
-        '    MsgBox("Todas las funciones asíncronas han completado su ejecución.")
-    End Function
-
-    '' Función 1 asíncrona de ejemplo
-    Private Async Function Function1Async() As Task(Of String)
-
-        frmProductosS.cboNombre.Items.Clear()
-        '   frmProductos.cboNombre.Items.Clear()
-        cnn5.Close() : cnn5.Open()
-        cmd5 = cnn5.CreateCommand
-        cmd5.CommandText = "SELECT DISTINCT Nombre from Productos WHERE Nombre<>'' ORDER BY Nombre"
-        rd5 = cmd5.ExecuteReader
-        Do While rd5.Read
-            If rd5.HasRows Then
-                frmProductosS.cboNombre.Items.Add(rd5(0).ToString)
-
-                '  frmProductos.cboNombre.Items.Add(rd5(0).ToString)
-
-            End If
-        Loop
-        rd5.Close()
-        cnn5.Close()
-    End Function
-
-    '' Función 2 asíncrona de ejemplo
-    'Private Async Function Function2Async() As Task
-    '    ' Simular una operación asíncrona que tarda un tiempo
-    '    Await Task.Delay(1500) ' Espera de 1.5 segundos
-    '    MsgBox("Función 2 completada.")
-    'End Function
-
-    '' Función 3 asíncrona de ejemplo
-    'Private Async Function Function3Async() As Task
-    '    ' Simular una operación asíncrona que tarda un tiempo
-    '    MsgBox("Función 3 completada.")
-    'End Function
 
     'DatosRecarga
     Public Function DatosRecarga(ByVal valor As String) As String

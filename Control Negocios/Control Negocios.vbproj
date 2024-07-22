@@ -2082,6 +2082,7 @@
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
+    <Compile Include="Mods\FunAsync.vb" />
     <Compile Include="Mods\ModGral.vb" />
     <Compile Include="Mods\Module1.vb" />
     <Compile Include="Mods\Mod_Conexion.vb" />

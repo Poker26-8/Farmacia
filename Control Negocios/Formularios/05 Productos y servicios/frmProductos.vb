@@ -109,14 +109,14 @@ Public Class frmProductos
         End Try
     End Sub
 
-    Private Sub frmProductos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Sub frmProductos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         cboNombre.Focus().Equals(True)
         'crea_ruta(My.Application.Info.DirectoryPath & "\ProductosImg\")
         cnn1.Close() : cnn1.Open()
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
+            "select id,nombre_moneda,nombre_moneda from tb_moneda where nombre_moneda='PESO' or nombre_moneda='PESOS'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -127,7 +127,13 @@ Public Class frmProductos
         Else
             cboMoneda.Tag = ""
         End If
-        rd1.Close() : cnn1.Close()
+        rd1.Close()
+        cnn1.Close()
+
+        Me.Show()
+        My.Application.DoEvents()
+
+        RunAsyncFunctions()
     End Sub
 
     Private Sub cboCodigo_DropDown(sender As System.Object, e As System.EventArgs) Handles cboCodigo.DropDown
@@ -321,24 +327,24 @@ Public Class frmProductos
     End Sub
 
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
-        cboNombre.Items.Clear()
-        Try
-            cnn1.Close() : cnn1.Open()
+        'cboNombre.Items.Clear()
+        'Try
+        '    cnn1.Close() : cnn1.Open()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select distinct Nombre from Productos order by Nombre"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                If rd1.HasRows Then cboNombre.Items.Add(
-                    rd1(0).ToString
-                    )
-            Loop
-            rd1.Close() : cnn1.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            cnn1.Close()
-        End Try
+        '    cmd1 = cnn1.CreateCommand
+        '    cmd1.CommandText =
+        '        "select distinct Nombre from Productos order by Nombre"
+        '    rd1 = cmd1.ExecuteReader
+        '    Do While rd1.Read
+        '        If rd1.HasRows Then cboNombre.Items.Add(
+        '            rd1(0).ToString
+        '            )
+        '    Loop
+        '    rd1.Close() : cnn1.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.ToString)
+        '    cnn1.Close()
+        'End Try
     End Sub
 
     Private Sub cboNombre_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cboNombre.KeyPress

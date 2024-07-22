@@ -209,7 +209,8 @@ Public Class frmVentas1
 
 
     End Sub
-    Private Sub frmVentas1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Sub frmVentas1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
         Me.KeyPreview = True
         txtResta.ReadOnly = True
         Try
@@ -235,43 +236,48 @@ Public Class frmVentas1
         End Try
 
         Try
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select NumPart from Formatos where Facturas='Ordenes'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.Read Then
-                If rd1(0).ToString = 0 Then
-                    btnOrdenes.Visible = False
-                Else
-                    btnOrdenes.Visible = True
-                End If
+
+            Dim orden As Integer = Await ValidarAsync("Ordenes")
+            Dim verexistencia As Integer = Await ValidarAsync("VerExistencias")
+            Dim tomarcontra As Integer = Await ValidarAsync("TomaContra")
+            franquicia = Await ValidarAsync("Franquicia")
+
+            If orden = 1 Then
+                btnOrdenes.Visible = True
             Else
                 btnOrdenes.Visible = False
             End If
-            rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='VerExistencias'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString = 1 Then
-                        lblExistencia.Visible = False
-                        txtexistencia.Visible = False
-                        lblTotal.Size = New Size(188, 20)
-                        txttotal.Size = New Size(188, 20)
-                    Else
-                        lblExistencia.Visible = True
-                        txtexistencia.Visible = True
-                    End If
-                End If
+            If verexistencia = 1 Then
+                lblExistencia.Visible = False
+                txtexistencia.Visible = False
+                lblTotal.Size = New Size(188, 20)
+                txttotal.Size = New Size(188, 20)
             Else
                 lblExistencia.Visible = True
                 txtexistencia.Visible = True
             End If
-            rd1.Close()
-            cnn1.Close()
+
+            If tomarcontra = 1 Then
+
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
+                        txtcontraseña.Text = rd2(0).ToString
+                        lblusuario.Text = rd2(1).ToString
+                        txtcontraseña.PasswordChar = "*"
+                        txtcontraseña.ForeColor = Color.Black
+                    End If
+                End If
+                rd2.Close()
+
+            End If
+            cnn2.Close()
+
+
         Catch ex As Exception
 
         End Try
@@ -326,35 +332,6 @@ Public Class frmVentas1
 
         Dim log As String = ""
 
-        cnn1.Close() : cnn1.Open()
-        cnn2.Close() : cnn2.Open()
-
-        cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TomaContra'"
-        rd1 = cmd1.ExecuteReader
-        If rd1.HasRows Then
-            If rd1.Read Then
-                tomacontralog = rd1(0).ToString
-
-                If tomacontralog = "1" Then
-                    cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
-                    rd2 = cmd2.ExecuteReader
-                    If rd2.HasRows Then
-                        If rd2.Read Then
-                            txtcontraseña.Text = rd2(0).ToString
-                            lblusuario.Text = rd2(1).ToString
-                            txtcontraseña.PasswordChar = "*"
-                            txtcontraseña.ForeColor = Color.Black
-                        End If
-                    End If
-                    rd2.Close()
-                End If
-            End If
-        End If
-        rd1.Close()
-        cnn1.Close()
-        cnn2.Close()
 
         cnn4.Close() : cnn4.Open()
         cmd4 = cnn4.CreateCommand
@@ -367,15 +344,6 @@ Public Class frmVentas1
         End If
         rd4.Close()
 
-        cmd4 = cnn4.CreateCommand
-        cmd4.CommandText = "Select NotasCred from Formatos where Facturas='Franquicia'"
-        rd4 = cmd4.ExecuteReader
-        If rd4.HasRows Then
-            If rd4.Read Then
-                franquicia = rd4(0).ToString
-            End If
-        End If
-        rd4.Close()
 
         If log <> "" Then
             If File.Exists(My.Application.Info.DirectoryPath & "\" & log) Then
@@ -385,16 +353,6 @@ Public Class frmVentas1
                 'Panel8.Controls.Add(PictureBox2)
             End If
         End If
-
-        'Try
-        '    Dim fondoxd As Image = Image.FromFile("C:\ControlNegociosPro\LogoN.jpg")
-        '    Me.DataGridView1.DefaultCellStyle.BackColor = Color.Transparent
-        '    Me.DataGridView1.BackgroundImage = fondoxd
-        '    Me.DataGridView1.BackgroundImageLayout = ImageLayout.Stretch
-        '    Me.DataGridView1.DefaultCellStyle.BackColor = Color.Transparent
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.ToString)
-        'End Try
 
         Try
             cnn1.Close() : cnn1.Open()
@@ -443,6 +401,12 @@ Public Class frmVentas1
         txtdia.Text = Weekday(Date.Now)
         Timer1.Start()
         cbodesc.Focus().Equals(True)
+
+        Me.Show()
+        My.Application.DoEvents()
+
+        RunAsyncFunctions()
+
     End Sub
     Private Sub frmVentas1_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         cbodesc.Focus().Equals(True)
@@ -2231,9 +2195,12 @@ kak:
             Exit Sub
         End If
     End Sub
-    Private Sub cbonota_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbonota.SelectedValueChanged
+    Private Async Sub cbonota_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbonota.SelectedValueChanged
+
         cbodesc.Focus().Equals(True)
         Call cbonota_LostFocus(cbonota, New EventArgs())
+        FunctionVentasAsync()
+
     End Sub
 
     Private Sub cboimpresion_DropDown(sender As Object, e As EventArgs) Handles cboimpresion.DropDown
@@ -2285,33 +2252,33 @@ kak:
 
     'Productos
     Private Sub cbodesc_DropDown(sender As System.Object, e As System.EventArgs) Handles cbodesc.DropDown
-        If Serchi = True Then
-            Serchi = False
-        Else
-            cbodesc.Items.Clear()
-            Try
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                If cbonota.Text = "" Then
-                    cmd1.CommandText =
-                        "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
-                Else
-                    cmd1.CommandText =
-                        "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
-                End If
-                rd1 = cmd1.ExecuteReader
-                Do While rd1.Read
-                    If rd1.HasRows Then cbodesc.Items.Add(
-                        rd1(0).ToString
-                        )
-                Loop
-                rd1.Close()
-                cnn1.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString)
-                cnn1.Close()
-            End Try
-        End If
+        'If Serchi = True Then
+        '    Serchi = False
+        'Else
+        '    cbodesc.Items.Clear()
+        '    Try
+        '        cnn1.Close() : cnn1.Open()
+        '        cmd1 = cnn1.CreateCommand
+        '        If cbonota.Text = "" Then
+        '            cmd1.CommandText =
+        '                "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+        '        Else
+        '            cmd1.CommandText =
+        '                "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
+        '        End If
+        '        rd1 = cmd1.ExecuteReader
+        '        Do While rd1.Read
+        '            If rd1.HasRows Then cbodesc.Items.Add(
+        '                rd1(0).ToString
+        '                )
+        '        Loop
+        '        rd1.Close()
+        '        cnn1.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.ToString)
+        '        cnn1.Close()
+        '    End Try
+        'End If
     End Sub
     Private Sub cbodesc_GotFocus(sender As Object, e As System.EventArgs) Handles cbodesc.GotFocus
         T_Precio = DatosRecarga("TipoPrecio")

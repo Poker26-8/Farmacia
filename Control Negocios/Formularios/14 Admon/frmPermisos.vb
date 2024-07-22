@@ -897,7 +897,7 @@
                 If rd1.Read Then
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE Formatos SET NotasCred=" & selecicon & " WHERE Facturas='TomaContra'"
+                    cmd2.CommandText = "UPDATE Formatos SET NotasCred=" & selecicon & ",NumPart=" & selecicon & " WHERE Facturas='TomaContra'"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 
