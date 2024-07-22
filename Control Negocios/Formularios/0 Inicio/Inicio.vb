@@ -247,7 +247,7 @@ Public Class Inicio
         SFormatos("Migracion", "")
         SFormatos("Optica", "")
         SFormatos("Mov_Cuenta", "")
-
+        SFormatos("Ordenes", "")
         'Licencia()
         Try
             cnn1.Close()

@@ -5,6 +5,8 @@ Module FunAsync
     Dim respuesta As String = ""
     Dim siono As Integer = 0
 
+
+
     Public Async Function ValidarAsync(valor As String) As Task(Of Integer)
 
         cnn5.Close() : cnn5.Open()
@@ -28,8 +30,9 @@ Module FunAsync
 
         Dim task1 = Function1Async()
         Dim task2 = FunctionVentasAsync()
+        Dim task3 = FunctionClinetesAsync()
 
-        Await Task.WhenAll(task1, task2)
+        Await Task.WhenAll(task1, task2, task3)
 
     End Function
 
@@ -59,6 +62,23 @@ Module FunAsync
         cnn5.Close()
 
 
+    End Function
+
+    Public Async Function FunctionClinetesAsync() As Task(Of String)
+
+        frmVentas1.cboNombre.Items.Clear()
+
+        cnn5.Close() : cnn5.Open()
+        cmd5 = cnn5.CreateCommand
+        cmd5.CommandText = "SELECT distinct Nombre FROM Clientes WHERE Nombre<>'' order by Nombre asc"
+        rd5 = cmd5.ExecuteReader
+        Do While rd5.Read
+            If rd5.HasRows Then
+                frmVentas1.cboNombre.Items.Add(rd5(0).ToString)
+            End If
+        Loop
+        rd5.Close()
+        cnn5.Close()
     End Function
     Private Async Function Function1Async() As Task(Of String)
 

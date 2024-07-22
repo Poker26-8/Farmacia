@@ -3422,7 +3422,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Formatos set NotasCred='1' where Facturas='VerExistencias'"
+                    "update Formatos set NotasCred='1',NumPart='1' where Facturas='VerExistencias'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception
@@ -3434,7 +3434,7 @@ Public Class frmConfigs
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "update Formatos set NotasCred='0' where Facturas='VerExistencias'"
+                    "update Formatos set NotasCred='0',NumPart='0' where Facturas='VerExistencias'"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
             Catch ex As Exception

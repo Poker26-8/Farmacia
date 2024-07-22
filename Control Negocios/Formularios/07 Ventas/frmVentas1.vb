@@ -235,12 +235,12 @@ Public Class frmVentas1
             cnn1.Close()
         End Try
 
-        Try
 
-            Dim orden As Integer = Await ValidarAsync("Ordenes")
-            Dim verexistencia As Integer = Await ValidarAsync("VerExistencias")
-            Dim tomarcontra As Integer = Await ValidarAsync("TomaContra")
-            franquicia = Await ValidarAsync("Franquicia")
+
+        Dim orden As Integer = Await ValidarAsync("Ordenes")
+        Dim verexistencia As Integer = Await ValidarAsync("VerExistencias")
+        Dim tomarcontra As Integer = Await ValidarAsync("TomaContra")
+        franquicia = Await ValidarAsync("Franquicia")
 
             If orden = 1 Then
                 btnOrdenes.Visible = True
@@ -251,8 +251,8 @@ Public Class frmVentas1
             If verexistencia = 1 Then
                 lblExistencia.Visible = False
                 txtexistencia.Visible = False
-                lblTotal.Size = New Size(188, 20)
-                txttotal.Size = New Size(188, 20)
+            lblTotal.Size = New Size(188, 20)
+            txttotal.Size = New Size(188, 20)
             Else
                 lblExistencia.Visible = True
                 txtexistencia.Visible = True
@@ -278,9 +278,7 @@ Public Class frmVentas1
             cnn2.Close()
 
 
-        Catch ex As Exception
 
-        End Try
 
         If IO.File.Exists(ARCHIVO_DE_CONFIGURACION) Then
 
@@ -1585,27 +1583,27 @@ kak:
 
     'Pantalla
     Private Sub cboNombre_DropDown(sender As System.Object, e As System.EventArgs) Handles cboNombre.DropDown
-        cboNombre.Items.Clear()
+
         If franquicia = 0 Then
             If Busqueda = True Then
                 Busqueda = False
             Else
-                cboNombre.Items.Clear()
-                Try
-                    cnn1.Close() : cnn1.Open()
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                            "select distinct Nombre from Clientes where Nombre<>'' order by Nombre asc"
-                    rd1 = cmd1.ExecuteReader
-                    Do While rd1.Read
-                        If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
-                    Loop
-                    rd1.Close()
-                    cnn1.Close()
-                Catch ex As Exception
-                    MessageBox.Show(ex.ToString)
-                    cnn1.Close()
-                End Try
+                'cboNombre.Items.Clear()
+                'Try
+                '    cnn1.Close() : cnn1.Open()
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText =
+                '            "select distinct Nombre from Clientes where Nombre<>'' order by Nombre asc"
+                '    rd1 = cmd1.ExecuteReader
+                '    Do While rd1.Read
+                '        If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
+                '    Loop
+                '    rd1.Close()
+                '    cnn1.Close()
+                'Catch ex As Exception
+                '    MessageBox.Show(ex.ToString)
+                '    cnn1.Close()
+                'End Try
             End If
         Else
             Try
@@ -5363,7 +5361,6 @@ kaka:
         txtequivale.Text = "0.00"
         txttel.Text = ""
         cboNombre.Text = ""
-        cboNombre.Items.Clear()
         cbonombretag = ""
         txtdireccion.Text = ""
         txtcant_productos.Text = "0"
@@ -5430,9 +5427,8 @@ kaka:
         lblfolio.Text = ""
         lblNumCliente.Text = "MOSTRADOR"
 
-        cbocodigo.Items.Clear()
+
         cbocodigo.Text = ""
-        cbodesc.Items.Clear()
         cbodesc.Text = ""
         txtunidad.Text = ""
         txtcantidad.Text = "1"
@@ -15820,9 +15816,7 @@ doorcita:
         frmOrdenTrabajo.BringToFront()
     End Sub
 
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
 
-    End Sub
 
     Private Sub pDevo58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevo58.PrintPage
 
