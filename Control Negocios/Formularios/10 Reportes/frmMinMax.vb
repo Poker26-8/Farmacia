@@ -120,7 +120,7 @@
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & Codigo & "'"
+                        "select Nombre,UVenta,Existencia,T_Entrega from Productos where Codigo='" & Codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

@@ -817,7 +817,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Status<>'CANCELADA' order by Id"
+                "select Id,NumRemision,Proveedor,Sub2,IVA,Total,FechaC,Status from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Status<>'CANCELADA' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -861,7 +861,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Proveedor='" & ComboBox1.Text & "' and Status<>'CANCELADA' order by Id"
+                "select NumFactura,NumRemision,Proveedor,Sub2,IVA,Total,FechaC,Status from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Proveedor='" & ComboBox1.Text & "' and Status<>'CANCELADA' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -904,7 +904,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0"
+                "select NumFactura,NumRemision,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1012,7 +1012,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and Depto='" & ComboBox1.Text & "'"
+                "select Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and Depto='" & ComboBox1.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1058,7 +1058,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and Grupo='" & ComboBox1.Text & "'"
+                "select Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and Grupo='" & ComboBox1.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1105,7 +1105,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from AbonoE where Proveedor='" & ComboBox1.Text & "' and Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
+                "select NumFactura,NumRemision,Proveedor,Fecha,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia from AbonoE where Proveedor='" & ComboBox1.Text & "' and Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1152,7 +1152,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from AbonoE where Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
+                "select NumFactura,NumRemision,Proveedor,Fecha,Abono,Efectivo,Tarjeta,Transfe,Otro,Banco,Referencia from AbonoE where Fecha between '" & Format(Month1, "yyyy-MM-dd") & "' and '" & Format(Month2, "yyyy-MM-dd") & "' and Concepto='ABONO'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1199,7 +1199,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and NotaCred<>'' order by Id"
+                "select NumRemision,NumFactura,NotaCred,Proveedor,Sub2,IVA,Total,FechaC from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and NotaCred<>'' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1243,7 +1243,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Proveedor='" & ComboBox1.Text & "' and NotaCred<>'' order by Id"
+                "select NumRemision,NumFactura,NotaCred,Sub2,IVA,Total,FechaC from Compras where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Proveedor='" & ComboBox1.Text & "' and NotaCred<>'' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1285,7 +1285,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and NotaCred<>''"
+                "select NumFactura,NumRemision,NotaCred,Proveedor,Codigo,Nombre,UCompra,Cantidad,Precio,FechaC from ComprasDet where FechaC between '" & Format(Month1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(Month2, "yyyy-MM-dd 23:59:59") & "' and Id_Compra<>0 and NotaCred<>''"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1627,7 +1627,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Compras where NumRemision='" & remision & "'"
+                    "select Id from Compras where NumRemision='" & remision & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

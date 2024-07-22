@@ -3,7 +3,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Clientes WHERE Nombre<>'' ORDER BY Nombre"
+            cmd1.CommandText = "SELECT Nombre,RazonSocial,Tipo,Telefono FROM Clientes WHERE Nombre<>'' ORDER BY Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

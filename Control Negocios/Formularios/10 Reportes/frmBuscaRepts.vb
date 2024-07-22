@@ -95,15 +95,15 @@
             Dim cuantas As Integer = 0
 
             If (optproveedor.Checked) Then
-                querry1 = "select * from Productos where ProvPri='" & ComboBox1.Text & "' order by Nombre"
+                querry1 = "select Codigo,Nombre,UVenta from Productos where ProvPri='" & ComboBox1.Text & "' order by Nombre"
                 querry2 = "select count(Codigo) from Productos where ProvPri='" & ComboBox1.Text & "'"
             End If
             If (optdepto.Checked) Then
-                querry1 = "select * from Productos where Departamento='" & ComboBox1.Text & "' order by Nombre"
+                querry1 = "select Codigo,Nombre,UVenta from Productos where Departamento='" & ComboBox1.Text & "' order by Nombre"
                 querry2 = "select count(Codigo) from Productos where Departamento='" & ComboBox1.Text & "'"
             End If
             If (optgrupo.Checked) Then
-                querry1 = "select * from Productos where Grupo='" & ComboBox1.Text & "' order by Nombre"
+                querry1 = "select Codigo,Nombre,UVenta from Productos where Grupo='" & ComboBox1.Text & "' order by Nombre"
                 querry2 = "select count(Codigo) from Productos where Grupo='" & ComboBox1.Text & "'"
             End If
             cnn1.Close() : cnn1.Open()
@@ -137,7 +137,7 @@
                     Dim existencia As Double = 0, multiplo As Double = rd1("Multiplo").ToString
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select PreMin,PrecioVentaIVA from Productos where Codigo='" & codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -181,7 +181,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre LIKE '%" & TextBox1.Text & "%'"
+                "select Codigo,Nombre,UVenta from Productos where Nombre LIKE '%" & TextBox1.Text & "%'"
             rd1 = cmd1.ExecuteReader
             cnn2.Close() : cnn2.Open()
             Do While rd1.Read
@@ -193,7 +193,7 @@
                     Dim existencia As Double = 0, multiplo As Double = rd1("Multiplo").ToString
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select PreMin,PrecioVentaIVA from Productos where Codigo='" & codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

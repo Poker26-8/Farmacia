@@ -980,7 +980,7 @@ Public Class frmRepInventario
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Length(Codigo)>=1 and Length(Codigo)<=6 and Departamento<>'SERVICIOS' order by Nombre"
+                    "select Codigo,CodBarra,Nombre,UVenta,Existencia,Multiplo,PrecioCompra,PrecioVentaIVA,N_Serie,Copas from Productos where Length(Codigo)>=1 and Length(Codigo)<=6 and Departamento<>'SERVICIOS' order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     Dim codigo As String = IIf(rd1("Codigo").ToString = "", "-", rd1("Codigo").ToString)
@@ -1121,15 +1121,15 @@ Public Class frmRepInventario
             Try
                 If (optProveedor.Checked) Then
                     sql1 = "select count(Codigo) from Productos where ProvPri='" & cbofiltro.Text & "' and Length(Codigo)<=6"
-                    sql2 = "select * from Productos where ProvPri='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
+                    sql2 = "select Codigo,CodBarra,Nombre,UVenta,Existencia,Multiplo,PrecioCompra,PrecioVentaIVA,Copas,N_Serie from Productos where ProvPri='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
                 End If
                 If (optDepartamento.Checked) Then
                     sql1 = "select count(Codigo) from Productos where Departamento='" & cbofiltro.Text & "' and Length(Codigo)<=6"
-                    sql2 = "select * from Productos where Departamento='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
+                    sql2 = "select Codigo,CodBarra,Nombre,UVenta,Existencia,Multiplo,PrecioCompra,PrecioVentaIVA,Copas,N_Serie from Productos where Departamento='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
                 End If
                 If (optGrupo.Checked) Then
                     sql1 = "select count(Codigo) from Productos where Grupo='" & cbofiltro.Text & "' and Length(Codigo)<=6"
-                    sql2 = "select * from Productos where Grupo='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
+                    sql2 = "select Codigo,CodBarra,Nombre,UVenta,Existencia,Multiplo,PrecioCompra,PrecioVentaIVA,Copas,N_Serie from Productos where Grupo='" & cbofiltro.Text & "' and Length(Codigo)<=6 order by Nombre"
                 End If
                 If (optCaducidades.Checked) Then
                     btnCaduc.Focus().Equals(True)
@@ -1463,7 +1463,7 @@ Public Class frmRepInventario
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos order by Nombre"
+                    "select Codigo,Nombre,CodBarra,NombreLargo,ProvPri,UVenta,Departamento,Grupo,PrecioCompra,PrecioVenta,PrecioVentaIVA,PreMin,IVA,Existencia from Productos order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     Dim codigo As String = rd1("Codigo").ToString
@@ -1652,7 +1652,7 @@ Public Class frmRepInventario
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Merma where Fecha between '" & Format(dtpIni.Value, "yyyy-MM-dd 00:00:00") & "' and '" & Format(dtpFin.Value, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                "select Codigo,Nombre,Cantidad,Unidad,Fecha from Merma where Fecha between '" & Format(dtpIni.Value, "yyyy-MM-dd 00:00:00") & "' and '" & Format(dtpFin.Value, "yyyy-MM-dd 23:59:59") & "' order by Id"
             rd1 = cmd1.ExecuteReader
             cnn2.Close() : cnn2.Open()
             Do While rd1.Read
@@ -1667,7 +1667,7 @@ Public Class frmRepInventario
                     Dim v_venta As Double = 0
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Productos where Codigo='" & codigo & "'"
+                        "select PrecioCompra,PrecioVentaIVA from Productos where Codigo='" & codigo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -2693,7 +2693,7 @@ quepaso_wey:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & codigo & "'"
+            cmd2.CommandText = "SELECT Id FROM productos WHERE Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
