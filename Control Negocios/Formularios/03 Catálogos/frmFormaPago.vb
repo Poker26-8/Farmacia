@@ -7,7 +7,7 @@
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -44,7 +44,7 @@
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM formaspago WHERE FormaPago='" & cboFormaPago.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM formaspago WHERE FormaPago='" & cboFormaPago.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -139,7 +139,7 @@
             cnn3.Close() : cnn3.Open()
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Formaspago WHERE FormaPago='" & cboFormaPago.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM Formaspago WHERE FormaPago='" & cboFormaPago.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -156,7 +156,7 @@
                 cnn3.Close() : cnn3.Open()
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM Formaspago WHERE FormaPago='" & cboMoneda.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -200,7 +200,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from FormasPago where FormaPago='" & cboMoneda.Text & "'"
+            cmd1.CommandText = "Select Valor,Id from FormasPago where FormaPago='" & cboMoneda.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 txtValor.Text = rd1("Valor").ToString
@@ -213,5 +213,9 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmFormaPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

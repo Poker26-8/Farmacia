@@ -20,7 +20,7 @@
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM bancos WHERE bANCO='" & cbobanco.Text & "'"
+                cmd1.CommandText = "SELECT Banco FROM bancos WHERE bANCO='" & cbobanco.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -38,7 +38,7 @@
                 cnn2.Close() : cnn2.Open()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM cuentasbancarias WHERE CuentaBan='" & cbocuenta.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM cuentasbancarias WHERE CuentaBan='" & cbocuenta.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -198,7 +198,7 @@
             cnn3.Close() : cnn3.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM cuentasbancarias WHERE CuentaBan='" & cbocuenta.Text & "'"
+            cmd2.CommandText = "SELECT Id FROM cuentasbancarias WHERE CuentaBan='" & cbocuenta.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -265,5 +265,9 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmCuentabANCARIA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

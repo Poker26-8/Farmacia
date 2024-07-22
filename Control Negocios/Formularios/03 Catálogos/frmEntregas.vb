@@ -107,7 +107,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Entregas where IdCliente=" & txtId.Text & " and Contador=" & cboConsulta.Text
+                "select Domicilio from Entregas where IdCliente=" & txtId.Text & " and Contador=" & cboConsulta.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
