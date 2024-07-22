@@ -2438,7 +2438,7 @@ doorcita:
 
                         txtdireccion.Text = ""
                         txtdireccion.Text = direccion
-                        txtdireccion.Focus().Equals(True)
+                        ' txtdireccion.Focus().Equals(True)
 
                         txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
 
