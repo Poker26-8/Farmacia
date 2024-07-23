@@ -478,6 +478,8 @@ Public Class frmcortemesero
 
     Private Sub PCorteU80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PCorteU80.PrintPage
 
+
+        'es corte por usuario y por turno
         Try
 
 
@@ -599,7 +601,7 @@ Public Class frmcortemesero
             cnn4.Close() : cnn4.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha='" & Format(dtpfecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO' order by mesero"
+            cmd1.CommandText = "SELECT * FROM abonoi WHERE Mesero='" & cbomesero.Text & "' AND Fecha BETWEEN'" & Format(dtpfecha.Value, "yyyy-MM-dd") & " ' AND Concepto='ABONO' order by mesero"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

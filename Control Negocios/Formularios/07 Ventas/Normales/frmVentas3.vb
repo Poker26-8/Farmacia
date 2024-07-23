@@ -250,7 +250,8 @@ Public Class frmVentas3
 
         Me.Show()
 
-        RunAsyncFunctions()
+        RunAsyncFunctionsV2()
+
     End Sub
 
     Private Sub frmVentas3_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -1571,28 +1572,28 @@ kak:
 
     'Pantalla
     Private Sub cboNombre_DropDown(sender As Object, e As EventArgs) Handles cboNombre.DropDown
-        'cboNombre.Items.Clear()
+        cboNombre.Items.Clear()
         If franquicia = 0 Then
-            'If Busqueda = True Then
-            '    Busqueda = False
-            'Else
-            '    cboNombre.Items.Clear()
-            '    Try
-            '        cnn1.Close() : cnn1.Open()
-            '        cmd1 = cnn1.CreateCommand
-            '        cmd1.CommandText =
-            '                "select distinct Nombre from Clientes where Nombre<>'' order by Nombre asc"
-            '        rd1 = cmd1.ExecuteReader
-            '        Do While rd1.Read
-            '            If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
-            '        Loop
-            '        rd1.Close()
-            '        cnn1.Close()
-            '    Catch ex As Exception
-            '        MessageBox.Show(ex.ToString)
-            '        cnn1.Close()
-            '    End Try
-            'End If
+            If Busqueda = True Then
+                Busqueda = False
+            Else
+                cboNombre.Items.Clear()
+                Try
+                    cnn1.Close() : cnn1.Open()
+                    cmd1 = cnn1.CreateCommand
+                    cmd1.CommandText =
+                            "select distinct Nombre from Clientes where Nombre<>'' order by Nombre asc"
+                    rd1 = cmd1.ExecuteReader
+                    Do While rd1.Read
+                        If rd1.HasRows Then cboNombre.Items.Add(rd1(0).ToString)
+                    Loop
+                    rd1.Close()
+                    cnn1.Close()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                    cnn1.Close()
+                End Try
+            End If
         Else
             Try
                 Dim cnn As MySqlConnection = New MySqlConnection
@@ -2779,33 +2780,33 @@ doorcita:
 
     'Productos
     Private Sub cbodesc_DropDown(sender As Object, e As EventArgs) Handles cbodesc.DropDown
-        'If Serchi = True Then
-        '    Serchi = False
-        'Else
-        '    cbodesc.Items.Clear()
-        '    Try
-        '        cnn1.Close() : cnn1.Open()
-        '        cmd1 = cnn1.CreateCommand
-        '        If cbonota.Text = "" Then
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
-        '        Else
-        '            cmd1.CommandText =
-        '                "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
-        '        End If
-        '        rd1 = cmd1.ExecuteReader
-        '        Do While rd1.Read
-        '            If rd1.HasRows Then cbodesc.Items.Add(
-        '                rd1(0).ToString
-        '                )
-        '        Loop
-        '        rd1.Close()
-        '        cnn1.Close()
-        '    Catch ex As Exception
-        '        MessageBox.Show(ex.ToString)
-        '        cnn1.Close()
-        '    End Try
-        'End If
+        If Serchi = True Then
+            Serchi = False
+        Else
+            cbodesc.Items.Clear()
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                If cbonota.Text = "" Then
+                    cmd1.CommandText =
+                        "select distinct Nombre from Productos where Grupo<>'INSUMO' and ProvRes<>1 order by Nombre"
+                Else
+                    cmd1.CommandText =
+                        "select distinct Nombre from VentasDetalle where Folio=" & cbonota.Text & " order by Nombre"
+                End If
+                rd1 = cmd1.ExecuteReader
+                Do While rd1.Read
+                    If rd1.HasRows Then cbodesc.Items.Add(
+                        rd1(0).ToString
+                        )
+                Loop
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
     End Sub
 
     Private Sub cbodesc_GotFocus(sender As Object, e As EventArgs) Handles cbodesc.GotFocus

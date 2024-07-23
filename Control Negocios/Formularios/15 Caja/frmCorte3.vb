@@ -1349,10 +1349,13 @@
             Y += 11
 
             e.Graphics.DrawString("Folio:" & folio, fuente_b, Brushes.Black, 1, Y)
-            e.Graphics.DrawString("Fecha:" & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 15
-            e.Graphics.DrawString("Hora:" & Format(Date.Now, "HH:mm:ss"), fuente_b, Brushes.Black, 1, Y)
-            Y += 11
+            e.Graphics.DrawString("Fecha:" & Format(dtpFecha.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora:" & Format(Date.Now, "HH:mm:ss"), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
+            e.Graphics.DrawString("Fecha:" & Format(dtpFechaFin.Value, "yyyy-MM-dd"), fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora:" & Format(dtpHoraFin.Value, "HH:mm:ss"), fuente_b, Brushes.Black, 270, Y, derecha)
+            Y += 15
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
 
@@ -1365,8 +1368,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumFolio,Cliente,Abono FROM abonoi WHERE Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "' AND Concepto='ABONO'"
-            'cmd1.CommandText = "SELECT Folio,Cliente,Totales FROM ventas WHERE FVenta='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT NumFolio,Cliente,Abono FROM abonoi WHERE FechaCompleta BETWEEN '" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Concepto='ABONO'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -1381,7 +1383,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago='EFECTIVO' AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago='EFECTIVO' AND FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1391,7 +1393,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO'  AND Fecha='" & Format(dtpFecha.Value, "yyyy-MM-dd") & "'"
+            cmd1.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE Concepto='ABONO' AND FormaPago<>'EFECTIVO'  AND FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFin.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

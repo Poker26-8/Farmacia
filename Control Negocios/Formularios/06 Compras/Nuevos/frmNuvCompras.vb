@@ -1201,7 +1201,7 @@ Public Class frmNuvCompras
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from MiProd where CodigoP='" & txtcodigo.Text & "'"
+                "select CodigoP from MiProd where CodigoP='" & txtcodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

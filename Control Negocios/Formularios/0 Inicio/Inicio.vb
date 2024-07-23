@@ -203,54 +203,20 @@ Public Class Inicio
     End Sub
 
     Private Async Sub Inicio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
         PrimeraConfig = ""
         Login.Hide()
-        'Timer1.Start()
+
+        Me.Show()
+
+        Await SformatosInicio()
+
         verif()
         Permisos(id_usu_log)
         If varrutabase = "" Then
             ActualizaCampos()
         End If
-        SFormatos("Pollos", "")
-        SFormatos("Pto-Bascula", "")
-        SFormatos("TBascula", "")
-        SFormatos("Bascula", "")
-        SFormatos("Prefijo", "")
-        SFormatos("Codigo", "")
-        SFormatos("Peso", "")
-        SFormatos("Taller", "")
-        SFormatos("MesasPropias", "")
-        SFormatos("Copa", "")
-        SFormatos("ToleHabi", "")
-        SFormatos("SalidaHab", "")
-        SFormatos("PrecioDia", "")
-        SFormatos("Cuartos", "")
-        SFormatos("CobroExacto", "")
 
-
-        SFormatos("Gimnasio", "")
-        SFormatos("Consignacion", "")
-        SFormatos("Nomina", "")
-        SFormatos("Mod_Asis", "")
-        SFormatos("Control_Servicios", "")
-        SFormatos("Series", "")
-        SFormatos("TiendaLinea", "")
-        SFormatos("Produccion", "")
-        SFormatos("Partes", "")
-        SFormatos("Escuelas", "")
-        SFormatos("Costeo", "")
-        SFormatos("Restaurante", "")
-        SFormatos("Refaccionaria", "")
-        SFormatos("Pollos", "")
-        SFormatos("Telefonia", "")
-        SFormatos("Hoteles", "")
-        SFormatos("Migracion", "")
-        SFormatos("Optica", "")
-        SFormatos("Mov_Cuenta", "")
-        SFormatos("Ordenes", "")
-        SFormatos("VerExistencias", "")
-        SFormatos("LinkAuto", "")
-        SFormatos("Whatsapp", "")
         'Licencia()
         Try
             cnn1.Close()
@@ -293,7 +259,7 @@ Public Class Inicio
         Dim Migracion As Integer = Await ValidarAsync("Migracion")
         Dim Optica As Integer = Await ValidarAsync("Optica")
         Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
-
+        Dim transportistas As Integer = Await ValidarAsync("Transportistas")
 
         If tiendalinea = 1 Then
             PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
@@ -466,6 +432,12 @@ Public Class Inicio
             MovCuentasToolStripMenuItem.Visible = False
         End If
 
+        If transportistas = 1 Then
+            TransportistasToolStripMenuItem.Visible = True
+        Else
+            TransportistasToolStripMenuItem.Visible = False
+        End If
+
         ''Validación de la aditoria
 
         Try
@@ -487,9 +459,9 @@ Public Class Inicio
             cnn1.Close()
         End Try
 
-        Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
-        Dim coma As OleDbCommand = New OleDbCommand
-        Dim lect As OleDbDataReader = Nothing
+        'Dim cias As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\CIAS.mdb;")
+        'Dim coma As OleDbCommand = New OleDbCommand
+        'Dim lect As OleDbDataReader = Nothing
 
         'VieneDe_Compras = ""
         'VieneDe_Folios = ""
@@ -498,6 +470,44 @@ Public Class Inicio
     End Sub
 
     Public Sub verif()
+
+        'pedidosvendet
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comentario FROM pedidosvendet"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE pedidosvendet add column Comentario varchar(255)"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
+        'CotPedDet
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Comentario FROM CotPedDet"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE CotPedDet add column Comentario varchar(255)"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
 
         'ventasdetalla
         Try
@@ -2629,8 +2639,8 @@ Public Class Inicio
             frmComprasS.Show()
             frmComprasS.BringToFront()
         Else
-            ' frmCompras.Show()
-            ' frmCompras.BringToFront()
+            frmCompras.Show()
+            frmCompras.BringToFront()
 
             frmNuvCompras.Show()
             frmNuvCompras.BringToFront()
@@ -3937,9 +3947,6 @@ Public Class Inicio
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         frmMesas.Show()
         frmMesas.BringToFront()
-
-        'frmMesero.Show()
-        ' frmMesero.Show()
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs)
@@ -4172,11 +4179,6 @@ Public Class Inicio
     End Sub
 
     Private Sub btnPagarComandas_Click(sender As Object, e As EventArgs) Handles btnPagarComandas.Click
-        'frmPagarComanda.Show()
-        'frmPagarComanda.BringToFront()
-        'frmPagarT.Show()
-
-
         frmNuevoPagarComandas.Show()
         frmNuevoPagarComandas.BringToFront()
     End Sub
@@ -4262,5 +4264,10 @@ Public Class Inicio
     Private Sub pedidos_tienda_Click(sender As Object, e As EventArgs) Handles pedidos_tienda.Click
         'FrmDentistas.Show()
         'FrmDentistas.BringToFront()
+    End Sub
+
+    Private Sub VehículosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles VehículosToolStripMenuItem.Click
+        frmVehiculos.Show()
+        frmVehiculos.BringToFront()
     End Sub
 End Class

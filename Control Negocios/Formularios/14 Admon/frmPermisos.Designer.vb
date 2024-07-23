@@ -53,6 +53,7 @@ Partial Class frmPermisos
         Me.asis_Emp = New System.Windows.Forms.CheckBox()
         Me.lblasistencia = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.EliAbonos = New System.Windows.Forms.CheckBox()
         Me.ven_Edi = New System.Windows.Forms.CheckBox()
         Me.ven_Can = New System.Windows.Forms.CheckBox()
         Me.ven_Dev = New System.Windows.Forms.CheckBox()
@@ -145,7 +146,6 @@ Partial Class frmPermisos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnPermisosRestaurante = New System.Windows.Forms.Button()
-        Me.EliAbonos = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -496,6 +496,16 @@ Partial Class frmPermisos
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(152, 237)
         Me.Panel4.TabIndex = 52
+        '
+        'EliAbonos
+        '
+        Me.EliAbonos.AutoSize = True
+        Me.EliAbonos.Location = New System.Drawing.Point(2, 206)
+        Me.EliAbonos.Name = "EliAbonos"
+        Me.EliAbonos.Size = New System.Drawing.Size(109, 17)
+        Me.EliAbonos.TabIndex = 10
+        Me.EliAbonos.Text = "Eliminar abonos"
+        Me.EliAbonos.UseVisualStyleBackColor = True
         '
         'ven_Edi
         '
@@ -1388,7 +1398,7 @@ Partial Class frmPermisos
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Location = New System.Drawing.Point(137, 200)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(372, 220)
+        Me.GroupBox3.Size = New System.Drawing.Size(371, 225)
         Me.GroupBox3.TabIndex = 231
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Recuperacion de contraseñas"
@@ -1511,16 +1521,6 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante.Text = "Restaurantes y Billares"
         Me.btnPermisosRestaurante.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPermisosRestaurante.UseVisualStyleBackColor = True
-        '
-        'EliAbonos
-        '
-        Me.EliAbonos.AutoSize = True
-        Me.EliAbonos.Location = New System.Drawing.Point(2, 206)
-        Me.EliAbonos.Name = "EliAbonos"
-        Me.EliAbonos.Size = New System.Drawing.Size(109, 17)
-        Me.EliAbonos.TabIndex = 10
-        Me.EliAbonos.Text = "Eliminar abonos"
-        Me.EliAbonos.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '

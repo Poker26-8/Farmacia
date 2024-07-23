@@ -764,7 +764,7 @@ Partial Class frmProductosS
         Me.box_tienda.Controls.Add(Me.txt_resumen)
         Me.box_tienda.Location = New System.Drawing.Point(96, 140)
         Me.box_tienda.Name = "box_tienda"
-        Me.box_tienda.Size = New System.Drawing.Size(633, 124)
+        Me.box_tienda.Size = New System.Drawing.Size(633, 120)
         Me.box_tienda.TabIndex = 253
         Me.box_tienda.TabStop = False
         Me.box_tienda.Text = "Datos tienda en linea"
@@ -778,7 +778,7 @@ Partial Class frmProductosS
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_guardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_guardar.Location = New System.Drawing.Point(9, 88)
+        Me.btn_guardar.Location = New System.Drawing.Point(9, 84)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(114, 26)
         Me.btn_guardar.TabIndex = 253
@@ -789,7 +789,7 @@ Partial Class frmProductosS
         '
         Me.Label28.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 47)
+        Me.Label28.Location = New System.Drawing.Point(6, 43)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(124, 15)
         Me.Label28.TabIndex = 251
@@ -799,7 +799,7 @@ Partial Class frmProductosS
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 22)
+        Me.Label20.Location = New System.Drawing.Point(6, 18)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(111, 15)
         Me.Label20.TabIndex = 250

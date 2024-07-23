@@ -74,6 +74,8 @@ Public Class frmVentas2
     Public cadenafact As String = ""
 
     Private Async Sub frmVentas2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         Me.KeyPreview = True
         txtResta.ReadOnly = True
 
@@ -110,6 +112,7 @@ Public Class frmVentas2
             Dim verexistencia As Integer = Await ValidarAsync("VerExistencias")
             Dim tomarcontra As Integer = Await ValidarAsync("TomaContra")
             franquicia = Await ValidarAsync("Franquicia")
+
             If verexistencia = 1 Then
                 lblExistencia.Visible = False
                 txtexistencia.Visible = False
@@ -121,6 +124,7 @@ Public Class frmVentas2
             End If
 
             If tomacontralog = 1 Then
+
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText = "SELECT Clave,Alias FROM Usuarios WHERE IdEmpleado=" & id_usu_log
@@ -243,8 +247,8 @@ Public Class frmVentas2
 
         Me.Show()
 
+        RunAsyncFunctionsV2()
 
-        RunAsyncFunctions()
     End Sub
 
     Public Sub leePeso()

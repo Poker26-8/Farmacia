@@ -1197,19 +1197,19 @@ Partial Class Inicio
         'CorteDeCajaToolStripMenuItem
         '
         Me.CorteDeCajaToolStripMenuItem.Name = "CorteDeCajaToolStripMenuItem"
-        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CorteDeCajaToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CorteDeCajaToolStripMenuItem.Text = "Corte de caja"
         '
         'CORTEMESERO
         '
         Me.CORTEMESERO.Name = "CORTEMESERO"
-        Me.CORTEMESERO.Size = New System.Drawing.Size(180, 22)
+        Me.CORTEMESERO.Size = New System.Drawing.Size(166, 22)
         Me.CORTEMESERO.Text = "Corte por mesero"
         '
         'CorteDeCajaNToolStripMenuItem
         '
         Me.CorteDeCajaNToolStripMenuItem.Name = "CorteDeCajaNToolStripMenuItem"
-        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CorteDeCajaNToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CorteDeCajaNToolStripMenuItem.Text = "Corte de Caja N"
         '
         'GimnasiosToolStripMenuItem

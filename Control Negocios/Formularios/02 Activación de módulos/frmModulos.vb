@@ -66,7 +66,9 @@
     End Sub
 
     Private Sub btnTransportistas_Click(sender As Object, e As EventArgs) Handles btnTransportistas.Click
-
+        frmAct_Transportistas.Show()
+        frmAct_Transportistas.BringToFront()
+        Me.Close()
     End Sub
 
     Private Sub btnEscolar_Click(sender As Object, e As EventArgs) Handles btnEscolar.Click

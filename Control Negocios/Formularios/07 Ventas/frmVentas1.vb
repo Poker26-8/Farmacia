@@ -5570,7 +5570,7 @@ kaka:
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas2.BringToFront()
         frmVentas2.Show()
-
+    
 
     End Sub
 
