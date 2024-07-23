@@ -280,7 +280,7 @@ Partial Class frmEmpleados
         '
         Me.Info.AutoSize = True
         Me.Info.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Info.Location = New System.Drawing.Point(11, 254)
+        Me.Info.Location = New System.Drawing.Point(2, 254)
         Me.Info.Name = "Info"
         Me.Info.Size = New System.Drawing.Size(104, 13)
         Me.Info.TabIndex = 27
@@ -317,7 +317,7 @@ Partial Class frmEmpleados
         Me.GroupBox1.Controls.Add(Me.txtColonia)
         Me.GroupBox1.Controls.Add(Me.txtCalle)
         Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 288)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 282)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(415, 128)
         Me.GroupBox1.TabIndex = 30
@@ -406,7 +406,7 @@ Partial Class frmEmpleados
         Me.GroupBox2.Controls.Add(Me.txtFace)
         Me.GroupBox2.Controls.Add(Me.txtWhats)
         Me.GroupBox2.Controls.Add(Me.Label21)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 418)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 412)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(325, 103)
         Me.GroupBox2.TabIndex = 39
@@ -472,7 +472,7 @@ Partial Class frmEmpleados
         'picFotica
         '
         Me.picFotica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picFotica.Location = New System.Drawing.Point(345, 421)
+        Me.picFotica.Location = New System.Drawing.Point(345, 415)
         Me.picFotica.Name = "picFotica"
         Me.picFotica.Size = New System.Drawing.Size(84, 99)
         Me.picFotica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -582,7 +582,6 @@ Partial Class frmEmpleados
         '
         'barsube
         '
-        Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.barsube.Location = New System.Drawing.Point(129, 184)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(62, 14)
@@ -592,7 +591,7 @@ Partial Class frmEmpleados
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(465, 280)
+        Me.ClientSize = New System.Drawing.Size(465, 277)
         Me.Controls.Add(Me.barsube)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)

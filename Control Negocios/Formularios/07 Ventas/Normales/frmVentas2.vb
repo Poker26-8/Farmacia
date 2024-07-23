@@ -75,7 +75,6 @@ Public Class frmVentas2
 
     Private Async Sub frmVentas2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
         Me.KeyPreview = True
         txtResta.ReadOnly = True
 
@@ -94,20 +93,16 @@ Public Class frmVentas2
                 hayTerminal = 0
             End If
             rd1.Close()
+            cnn1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select Formato from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    cboimpresion.Text = rd1(0).ToString()
-                End If
+
+            Dim impresion As String = TraerFormatoImpresion()
+
+            If impresion <> "" Then
+                cboimpresion.Text = impresion
             Else
                 cboimpresion.Text = "TICKET"
             End If
-            rd1.Close()
-            cnn1.Close()
 
             Dim verexistencia As Integer = Await ValidarAsync("VerExistencias")
             Dim tomarcontra As Integer = Await ValidarAsync("TomaContra")
@@ -195,18 +190,7 @@ Public Class frmVentas2
         grdcaptura.DefaultCellStyle.SelectionBackColor = Color.WhiteSmoke
         grdcaptura.DefaultCellStyle.SelectionForeColor = Color.Blue
 
-        Dim log As String = ""
-        cnn4.Close() : cnn4.Open()
-        cmd4 = cnn4.CreateCommand
-        cmd4.CommandText = "select NotasCred from Formatos where Facturas='LogoG'"
-        rd4 = cmd4.ExecuteReader
-        If rd4.HasRows Then
-            If rd4.Read Then
-                log = rd4(0).ToString
-            End If
-        End If
-        rd4.Close()
-        cnn4.Close()
+        Dim log As String = DatosRecarga("LogoG")
 
         If log <> "" Then
             If File.Exists(My.Application.Info.DirectoryPath & "\" & log) Then
@@ -244,8 +228,6 @@ Public Class frmVentas2
         txtdia.Text = Weekday(Date.Now)
         Timer1.Start()
         cbodesc.Focus().Equals(True)
-
-        Me.Show()
 
         RunAsyncFunctionsV2()
 
@@ -1469,6 +1451,7 @@ kak:
                     If rd5.Read Then
                         cboLote.Tag = rd5("Id").ToString
                         txtfechacad.Text = rd5("Caducidad").ToString
+                        txtexistencia.Text = rd5("Cantidad").ToString
                         ReviewLote = True
                     End If
                 Else

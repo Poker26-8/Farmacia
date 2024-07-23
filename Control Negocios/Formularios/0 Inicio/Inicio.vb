@@ -4267,7 +4267,12 @@ Public Class Inicio
     End Sub
 
     Private Sub VehículosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles VehículosToolStripMenuItem.Click
-        frmVehiculos.Show()
-        frmVehiculos.BringToFront()
+        frmVehiculos2.Show()
+        frmVehiculos2.BringToFront()
+    End Sub
+
+    Private Sub OperadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OperadoresToolStripMenuItem.Click
+        frmOperadores.Show()
+        frmOperadores.BringToFront()
     End Sub
 End Class

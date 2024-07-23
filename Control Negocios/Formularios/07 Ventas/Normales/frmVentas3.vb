@@ -1549,6 +1549,7 @@ kak:
                     If rd5.Read Then
                         cboLote.Tag = rd5("Id").ToString
                         txtfechacad.Text = rd5("Caducidad").ToString
+                        txtexistencia.Text = rd5("Cantidad").ToString
                         ReviewLote = True
                     End If
                 Else

@@ -37,7 +37,28 @@ Module ModGral
     Dim seguridad As Boolean = False
 
 
+    Public Function TraerFormatoImpresion() As String
 
+        Dim respuesta As String = ""
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "select Formato from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    respuesta = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+
+        Return respuesta
+    End Function
 
 
     'DatosRecarga

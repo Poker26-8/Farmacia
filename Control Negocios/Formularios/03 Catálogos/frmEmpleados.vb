@@ -7,11 +7,11 @@ Public Class frmEmpleados
     Private Sub Info_Click(sender As System.Object, e As System.EventArgs) Handles Info.Click
         If Info.Text = "> Más información" Then
             Info.Text = "v Menos información"
-            Me.Size = New Size(456, 570)
+            Me.Size = New Size(481, 560)
             Me.StartPosition = FormStartPosition.CenterScreen
         Else
             Info.Text = "> Más información"
-            Me.Size = New Size(456, 319)
+            Me.Size = New Size(481, 316)
         End If
     End Sub
 

@@ -176,14 +176,12 @@ Partial Class Inicio
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pedidos_tienda = New System.Windows.Forms.Label()
         Me.POpciones = New System.Windows.Forms.Panel()
-        Me.Button17 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.POpciones.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -1449,26 +1447,12 @@ Partial Class Inicio
         'POpciones
         '
         Me.POpciones.BackColor = System.Drawing.Color.Moccasin
-        Me.POpciones.Controls.Add(Me.Button17)
         Me.POpciones.Dock = System.Windows.Forms.DockStyle.Left
         Me.POpciones.Location = New System.Drawing.Point(90, 114)
         Me.POpciones.Name = "POpciones"
         Me.POpciones.Size = New System.Drawing.Size(90, 706)
         Me.POpciones.TabIndex = 13
         Me.POpciones.Visible = False
-        '
-        'Button17
-        '
-        Me.Button17.BackColor = System.Drawing.Color.PapayaWhip
-        Me.Button17.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Button17.FlatAppearance.BorderSize = 0
-        Me.Button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button17.Location = New System.Drawing.Point(0, 696)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(90, 10)
-        Me.Button17.TabIndex = 9
-        Me.Button17.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -1532,7 +1516,6 @@ Partial Class Inicio
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.POpciones.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1695,5 +1678,4 @@ Partial Class Inicio
     Friend WithEvents btnOptica As Button
     Friend WithEvents btnAuto As Button
     Friend WithEvents POpciones As Panel
-    Friend WithEvents Button17 As Button
 End Class
