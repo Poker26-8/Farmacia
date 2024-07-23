@@ -252,7 +252,7 @@ Public Class frmCorteCaja
             'Efectivo
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select sum(Monto) from AbonoI where Concepto='ABONO' and FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status=0"
+                "select sum(Monto) from AbonoI where Concepto='ABONO' and FechaCompleta BETWEEN'" & Format(dtpFecha.Value, "yyyy-MM-dd") & " " & Format(dtpHoraIni.Value, "HH:mm:ss") & "' AND '" & Format(dtpFechaFinal.Value, "yyyy-MM-dd") & " " & Format(dtpHoraFin.Value, "HH:mm:ss") & "' AND Status=0 AND FormaPago='EFECTIVO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

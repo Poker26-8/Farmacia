@@ -74,6 +74,7 @@ Module FunAsync
                            SFormatos("LinkAuto", "")
                            SFormatos("Whatsapp", "")
                            SFormatos("Transportistas", "")
+                           SFormatos("Propina", "0")
                        End Sub)
 
     End Function
