@@ -12,7 +12,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cbo.Text & "'"
+                "select DiasCred from Proveedores where Compania='" & cbo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -27,7 +27,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from AbonoE where Proveedor='" & cbo.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Id"
+                "select NumRemision,NumFactura,Proveedor,Concepto,Fecha,Cargo,Abono,Saldo,Efectivo,Tarjeta,Transfe,Otro from AbonoE where Proveedor='" & cbo.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -62,7 +62,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Proveedores where Compania='" & cbo.Text & "'"
+                "select DiasCred from Proveedores where Compania='" & cbo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -77,7 +77,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Compras where Proveedor='" & cbo.Text & "' and FechaC between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='RESTA' order by Id"
+                "select NumRemision,NumFactura,Proveedor,Total,ACuenta,Resta,FechaC,FechaP from Compras where Proveedor='" & cbo.Text & "' and FechaC between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Status='RESTA' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -414,7 +414,7 @@
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Compras where Status='RESTA' order by Id"
+            "select NumRemision,NumFactura,Proveedor,Total,ACuenta,Resta,FechaC,FechaP from Compras where Status='RESTA' order by Id"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             If rd1.HasRows Then

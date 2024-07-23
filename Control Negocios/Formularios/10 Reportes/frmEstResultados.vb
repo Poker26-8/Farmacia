@@ -66,7 +66,7 @@ Public Class frmEstResultados
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "Select * from otrosgastos where Tipo='ADMINISTRACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
+        cmd1.CommandText = "Select Total from otrosgastos where Tipo='ADMINISTRACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             ' gastosadministrativoas = gastosadministrativoas + CDec(rd1("Efectivo").ToString) + CDec(rd1("Transfe").ToString)
@@ -76,7 +76,7 @@ Public Class frmEstResultados
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "Select * from otrosgastos where Tipo='OPERACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
+        cmd1.CommandText = "Select Total from otrosgastos where Tipo='OPERACION' and Fecha between '" & Format(dtpinicio.Value, "yyyy-MM-dd") & "' and '" & Format(dtpfinal.Value, "yyyy-MM-dd") & "'"
         rd1 = cmd1.ExecuteReader
         Do While rd1.Read
             ' gastosoperacion = gastosoperacion + CDec(rd1("Efectivo").ToString) + CDec(rd1("Transfe").ToString)

@@ -450,7 +450,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Clientes where Nombre='" & cbo.Text & "'"
+                "select DiasCred from Clientes where Nombre='" & cbo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -465,7 +465,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from AbonoI where Cliente='" & cbo.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Id"
+                "select NumFolio,Cliente,Concepto,Fecha,Cargo,Abono,Saldo,FormaPago,Monto,Banco,Referencia,Usuario from AbonoI where Cliente='" & cbo.Text & "' and Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -517,7 +517,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Clientes where Nombre='" & cbo.Text & "'"
+                "select DiasCred from Clientes where Nombre='" & cbo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -534,7 +534,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from AbonoI where Cliente='" & cbo.Text & "' and Cargo<>0 order by Id"
+                "select NumFolio,Cliente,Concepto,Cargo from AbonoI where Cliente='" & cbo.Text & "' and Cargo<>0 order by Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -562,7 +562,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Clientes where Nombre='" & cbo.Text & "'"
+                "select DiasCred from Clientes where Nombre='" & cbo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -575,7 +575,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where Cliente='" & cbo.Text & "' and Status='RESTA' order by Folio"
+                "select Folio,CLiente,Totales,ACuenta,Resta,FVenta from Ventas where Cliente='" & cbo.Text & "' and Status='RESTA' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -600,7 +600,7 @@
             Dim debe As Double = 0
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where Status='RESTA' order by Folio"
+                "select Folio,Cliente,Totales,ACuenta,Resta,FVenta from Ventas where Status='RESTA' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -645,7 +645,7 @@
             cnn2.Close() : cnn2.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ventas where Status='RESTA' order by Folio"
+                "select Cliente,FVenta,FPago,Folio,Totales,ACuenta,Resta from Ventas where Status='RESTA' order by Folio"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -653,7 +653,7 @@
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Clientes where Nombre='" & cliente & "'"
+                        "select DiasCred from Clientes where Nombre='" & cliente & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

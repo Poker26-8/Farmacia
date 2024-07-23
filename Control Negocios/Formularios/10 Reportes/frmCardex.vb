@@ -39,7 +39,7 @@ Public Class frmCardex
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre='" & cbonombre.Text & "'"
+                "select Codigo from Productos where Nombre='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -69,10 +69,10 @@ Public Class frmCardex
 
             If cbonombre.Text = "" Then
                 cmd1.CommandText =
-                    "select * from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                    "select Codigo,Nombre,Folio,Movimiento,Precio,Inicial,Cantidad,Final,Usuario,Fecha from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' order by Id"
             Else
                 cmd1.CommandText =
-                    "select * from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Nombre='" & cbonombre.Text & "' order by Id"
+                    "select Codigo,Nombre,Folio,Movimiento,Precio,Inicial,Cantidad,Final,Usuario,Fecha from Cardex where Fecha between '" & Format(M1, "yyyy-MM-dd 00:00:00") & "' and '" & Format(M2, "yyyy-MM-dd 23:59:59") & "' and Nombre='" & cbonombre.Text & "' order by Id"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -280,7 +280,7 @@ Public Class frmCardex
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo,Nombre from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

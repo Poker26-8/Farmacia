@@ -240,7 +240,7 @@ Public Class frmRepEntradas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto<>'NOTA VENTA' order by Id"
+                cmd1.CommandText = "Select Monto,NumFolio,Cliente,Concepto,Fecha,FormaPago,Comentario,Usuario from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto<>'NOTA VENTA' order by Id"
                 rd1 = cmd1.ExecuteReader
 
                 Do While rd1.Read
@@ -932,9 +932,9 @@ Public Class frmRepEntradas
 
             cmd1 = cnn1.CreateCommand
             If ComboBox1.Text = "" Then
-                cmd1.CommandText = "Select * from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto<>'NOTA VENTA' order by Id"
+                cmd1.CommandText = "Select Monto,NumFolio,Cliente,Concepto,Fecha,FormaPago,Comentario,Usuario from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto<>'NOTA VENTA' order by Id"
             Else
-                cmd1.CommandText = "Select * from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto<>'NOTA VENTA' order by Id"
+                cmd1.CommandText = "Select Monto,NumFolio,Cliente,Concepto,Fecha,FormaPago,Comentario,Usuario from Abonoi  where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto<>'NOTA VENTA' order by Id"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -1112,9 +1112,9 @@ Public Class frmRepEntradas
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from Abonoi where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='ABONO' and Efectivo<>'0' order by Id"
+                    cmd1.CommandText = "Select Efectivo,NumFolio,Cliente,Concepto,Fecha,Usuario from Abonoi where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='ABONO' and Efectivo<>'0' order by Id"
                 Else
-                    cmd1.CommandText = "Select * from Abonoi where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO' and Efectivo<>'0' order by Id"
+                    cmd1.CommandText = "Select Efectivo,NumFolio,Cliente,Concepto,Fecha,Usuario from Abonoi where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO' and Efectivo<>'0' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -1151,9 +1151,9 @@ Public Class frmRepEntradas
 
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto <>'ABONO' and Concepto<>'NOTA VENTA' order by Id"
+                    cmd1.CommandText = "Select Efectivo,NumFolio,Cliente,Concepto,Fecha,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto <>'ABONO' and Concepto<>'NOTA VENTA' order by Id"
                 Else
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and usuario='" & ComboBox1.Text & "' and Concepto<>'ABONO' and Concepto<>'NOTA VENTA' order by Id"
+                    cmd1.CommandText = "Select Efectivo,NumFolio,Cliente,Concepto,Fecha,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and usuario='" & ComboBox1.Text & "' and Concepto<>'ABONO' and Concepto<>'NOTA VENTA' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -1189,9 +1189,9 @@ Public Class frmRepEntradas
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='ABONO' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select FormaMonto,NumFolio,Cliente,Concepto,Fecha,Comentario,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='ABONO' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 Else
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select FormaMonto,NumFolio,Cliente,Concepto,Fecha,Comentario,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='ABONO' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -1227,9 +1227,9 @@ Public Class frmRepEntradas
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='NOTA CANCELADA' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select FormaMonto,NumFolio,Cliente,Concepto,Fecha,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Concepto='NOTA CANCELADA' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 Else
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='NOTA CANCELADA' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select FormaMonto,NumFolio,Cliente,Concepto,Fecha,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Concepto='NOTA CANCELADA' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -1258,9 +1258,9 @@ Public Class frmRepEntradas
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select Transfe,NumFolio,Cliente,Concepto,Fecha,Comentario,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 Else
-                    cmd1.CommandText = "Select * from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and FormaPago='" & cboFormaPago.Text & "' order by Id"
+                    cmd1.CommandText = "Select Transfe,NumFolio,Cliente,Concepto,Fecha,Comentario,Usuario from Abono where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and FormaPago='" & cboFormaPago.Text & "' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -1285,9 +1285,9 @@ Public Class frmRepEntradas
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If ComboBox1.Text = "" Then
-                    cmd1.CommandText = "Select * from AbonoI where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Transfe<>'0' order By Id"
+                    cmd1.CommandText = "Select Transfe,NumFolio,Cliente,Concepto,Fecha,Usuario from AbonoI where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario<>'' and Transfe<>'0' order By Id"
                 Else
-                    cmd1.CommandText = "Select * from AbonoI where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Transfe<>'0' order by Id"
+                    cmd1.CommandText = "Select Transfe,NumFolio,Cliente,Concepto,Fecha,Usuario from AbonoI where Fecha between '" & Format(M1, "yyyy-MM-dd") & "' and '" & Format(M2, "yyyy-MM-dd") & "' and Usuario='" & ComboBox1.Text & "' and Transfe<>'0' order by Id"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read

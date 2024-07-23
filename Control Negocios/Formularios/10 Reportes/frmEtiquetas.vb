@@ -82,7 +82,7 @@ Public Class frmEtiquetas
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Nombre='" & cbonombre.Text & "'"
+                    "select Codigo,CodBarra,Grupo,PrecioVentaIVA from Productos where Nombre='" & cbonombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -108,7 +108,7 @@ Public Class frmEtiquetas
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Nombre='" & cbonombre.Text & "'"
+                "select Codigo,CodBarra,Grupo,PrecioVentaIVA from Productos where Nombre='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -141,7 +141,7 @@ Public Class frmEtiquetas
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where CodBarra='" & txtbarras.Text & "'"
+                    "select Nombre,Codigo,Grupo,PrecioVentaIVA from Productos where CodBarra='" & txtbarras.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

@@ -101,4 +101,8 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
         End Try
     End Sub
+
+    Private Sub frmcofepris_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
