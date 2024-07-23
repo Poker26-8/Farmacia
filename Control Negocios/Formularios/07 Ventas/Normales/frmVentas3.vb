@@ -3156,9 +3156,9 @@ doorcita:
                                 End If
                                 txtcoment.Text = ""
                                 cbocodigo.Text = ""
-                                cbocodigo.Items.Clear()
+                                'cbocodigo.Items.Clear()
                                 cbodesc.Text = ""
-                                cbodesc.Items.Clear()
+                                'cbodesc.Items.Clear()
                                 txtunidad.Text = ""
                                 txtcantidad.Text = "1"
                                 txtprecio.Text = "0.00"
@@ -3577,9 +3577,9 @@ kaka:
                             End If
                             txtcoment.Text = ""
                             cbocodigo.Text = ""
-                            cbocodigo.Items.Clear()
+                            ' cbocodigo.Items.Clear()
                             cbodesc.Text = ""
-                            cbodesc.Items.Clear()
+                            'cbodesc.Items.Clear()
                             txtunidad.Text = ""
                             txtcantidad.Text = "1"
                             txtprecio.Text = "0.00"
@@ -3826,9 +3826,9 @@ kaka:
                                     End If
                                     txtcoment.Text = ""
                                     cbocodigo.Text = ""
-                                    cbocodigo.Items.Clear()
+                                    'cbocodigo.Items.Clear()
                                     cbodesc.Text = ""
-                                    cbodesc.Items.Clear()
+                                    'cbodesc.Items.Clear()
                                     txtunidad.Text = ""
                                     txtcantidad.Text = "1"
                                     txtprecio.Text = "0.00"
@@ -4951,9 +4951,9 @@ kaka:
             End If
             txtcoment.Text = ""
             cbocodigo.Text = ""
-            cbocodigo.Items.Clear()
+            ' cbocodigo.Items.Clear()
             cbodesc.Text = ""
-            cbodesc.Items.Clear()
+            'cbodesc.Items.Clear()
             txtunidad.Text = ""
             txtcantidad.Text = "1"
             txtprecio.Text = "0.00"
@@ -5985,9 +5985,9 @@ kaka:
         lblfolio.Text = ""
         lblNumCliente.Text = "MOSTRADOR"
 
-        cbocodigo.Items.Clear()
+        'cbocodigo.Items.Clear()
         cbocodigo.Text = ""
-        cbodesc.Items.Clear()
+        'cbodesc.Items.Clear()
         cbodesc.Text = ""
         txtunidad.Text = ""
         txtcantidad.Text = "1"
