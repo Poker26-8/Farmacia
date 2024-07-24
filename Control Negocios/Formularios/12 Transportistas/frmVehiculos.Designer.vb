@@ -67,6 +67,7 @@ Partial Class frmVehiculos
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -144,7 +145,7 @@ Partial Class frmVehiculos
         Me.txtplacas.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtplacas.Location = New System.Drawing.Point(72, 73)
         Me.txtplacas.Name = "txtplacas"
-        Me.txtplacas.Size = New System.Drawing.Size(124, 23)
+        Me.txtplacas.Size = New System.Drawing.Size(166, 23)
         Me.txtplacas.TabIndex = 4
         '
         'cbomarca
@@ -219,9 +220,9 @@ Partial Class frmVehiculos
         'txtcontacto
         '
         Me.txtcontacto.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontacto.Location = New System.Drawing.Point(77, 151)
+        Me.txtcontacto.Location = New System.Drawing.Point(71, 151)
         Me.txtcontacto.Name = "txtcontacto"
-        Me.txtcontacto.Size = New System.Drawing.Size(145, 23)
+        Me.txtcontacto.Size = New System.Drawing.Size(151, 23)
         Me.txtcontacto.TabIndex = 18
         '
         'Label15
@@ -255,18 +256,18 @@ Partial Class frmVehiculos
         'txttelefono
         '
         Me.txttelefono.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttelefono.Location = New System.Drawing.Point(77, 99)
+        Me.txttelefono.Location = New System.Drawing.Point(71, 99)
         Me.txttelefono.Name = "txttelefono"
-        Me.txttelefono.Size = New System.Drawing.Size(145, 23)
+        Me.txttelefono.Size = New System.Drawing.Size(151, 23)
         Me.txttelefono.TabIndex = 16
         '
         'dtpvencimiento
         '
         Me.dtpvencimiento.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpvencimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpvencimiento.Location = New System.Drawing.Point(139, 73)
+        Me.dtpvencimiento.Location = New System.Drawing.Point(90, 73)
         Me.dtpvencimiento.Name = "dtpvencimiento"
-        Me.dtpvencimiento.Size = New System.Drawing.Size(83, 23)
+        Me.dtpvencimiento.Size = New System.Drawing.Size(132, 23)
         Me.dtpvencimiento.TabIndex = 15
         '
         'Label13
@@ -427,9 +428,9 @@ Partial Class frmVehiculos
         '
         Me.cbovencimiento2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbovencimiento2.FormattingEnabled = True
-        Me.cbovencimiento2.Location = New System.Drawing.Point(106, 18)
+        Me.cbovencimiento2.Location = New System.Drawing.Point(99, 18)
         Me.cbovencimiento2.Name = "cbovencimiento2"
-        Me.cbovencimiento2.Size = New System.Drawing.Size(116, 23)
+        Me.cbovencimiento2.Size = New System.Drawing.Size(123, 23)
         Me.cbovencimiento2.TabIndex = 15
         '
         'Label19
@@ -446,9 +447,9 @@ Partial Class frmVehiculos
         '
         Me.cbovencimiento1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbovencimiento1.FormattingEnabled = True
-        Me.cbovencimiento1.Location = New System.Drawing.Point(106, 44)
+        Me.cbovencimiento1.Location = New System.Drawing.Point(99, 44)
         Me.cbovencimiento1.Name = "cbovencimiento1"
-        Me.cbovencimiento1.Size = New System.Drawing.Size(116, 23)
+        Me.cbovencimiento1.Size = New System.Drawing.Size(123, 23)
         Me.cbovencimiento1.TabIndex = 13
         '
         'Label18
@@ -465,9 +466,9 @@ Partial Class frmVehiculos
         '
         Me.cbonocircula.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonocircula.FormattingEnabled = True
-        Me.cbonocircula.Location = New System.Drawing.Point(84, 70)
+        Me.cbonocircula.Location = New System.Drawing.Point(99, 70)
         Me.cbonocircula.Name = "cbonocircula"
-        Me.cbonocircula.Size = New System.Drawing.Size(138, 23)
+        Me.cbonocircula.Size = New System.Drawing.Size(123, 23)
         Me.cbonocircula.TabIndex = 11
         '
         'Label17
@@ -500,7 +501,7 @@ Partial Class frmVehiculos
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(369, 325)
+        Me.btnGuardar.Location = New System.Drawing.Point(303, 329)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 139
@@ -516,7 +517,7 @@ Partial Class frmVehiculos
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(303, 325)
+        Me.btnEliminar.Location = New System.Drawing.Point(237, 329)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 140
@@ -531,7 +532,7 @@ Partial Class frmVehiculos
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(435, 325)
+        Me.btnNuevo.Location = New System.Drawing.Point(369, 329)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 141
@@ -539,11 +540,28 @@ Partial Class frmVehiculos
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(435, 329)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 63)
+        Me.Button1.TabIndex = 142
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmVehiculos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(504, 390)
+        Me.ClientSize = New System.Drawing.Size(504, 398)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnGuardar)
@@ -615,4 +633,5 @@ Partial Class frmVehiculos
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnNuevo As Button
+    Friend WithEvents Button1 As Button
 End Class
