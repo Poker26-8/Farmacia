@@ -1,6 +1,11 @@
 ﻿Public Class frmVehiculos2
     Private Sub frmVehiculos2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        grdCaptura.Rows.Clear()
+        dtpVencimiento.Value = Date.Now
+        dtpFechaServicio.Value = Date.Now
+
+        cargar()
     End Sub
 
     Private Sub cboMarca_DropDown(sender As Object, e As EventArgs) Handles cboMarca.DropDown
@@ -27,9 +32,10 @@
     Private Sub cboSubmarca_DropDown(sender As Object, e As EventArgs) Handles cboSubmarca.DropDown
         Try
             cboSubmarca.Items.Clear()
+
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Submarca FROM transporte WHERE Submarca <>'' ORDER Submarca"
+            cmd5.CommandText = "SELECT DISTINCT Submarca FROM transporte WHERE Submarca <>'' ORDER by Submarca"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -49,7 +55,7 @@
             cboPlacas.Items.Clear()
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Placas FROM transporte WHERE Placas<> ORDER BY placas"
+            cmd5.CommandText = "SELECT DISTINCT Placas FROM transporte WHERE Placas<>'' ORDER BY placas"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -174,13 +180,13 @@
 
     Private Sub dtpVencimiento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpVencimiento.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtTelEmergencia.Focus.Equals(True)
+            txtTelAseguradora.Focus.Equals(True)
         End If
     End Sub
 
     Private Sub txtTelEmergencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelEmergencia.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtTelAseguradora.Focus.Equals(True)
+            txtAgente.Focus.Equals(True)
         End If
         If Char.IsControl(e.KeyChar) Then
             e.Handled = False
@@ -193,7 +199,7 @@
 
     Private Sub txtTelAseguradora_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelAseguradora.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            txtAgente.Focus.Equals(True)
+            txtTelEmergencia.Focus.Equals(True)
         End If
         If Char.IsControl(e.KeyChar) Then
             e.Handled = False
@@ -313,6 +319,44 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
+        If MsgBox("¿Desea Guardar los datos del vehículo?", vbInformation + vbOKCancel, titulocentral) = vbCancel Then
+            Exit Sub
+        End If
+
+        If txtModelo.Text = "" Then MsgBox("Ingrese la Submarca del Vehículo!!!", vbInformation + vbOKOnly, titulocentral) : txtModelo.Focus() : Exit Sub
+        If cboMarca.Text = "" Then MsgBox("Ingrese la marca del Vehículo!!!", vbInformation + vbOKOnly, titulocentral) : cboMarca.Focus() : Exit Sub
+        If cboPlacas.Text = "" Then MsgBox("Ingrese las placas del Vehículo!!!", vbInformation + vbOKOnly, titulocentral) : cboPlacas.Focus() : Exit Sub
+        If cboSubmarca.Text = "" Then MsgBox("Ingrese el modelo del vehículo!!!", vbInformation + vbOKOnly, titulocentral) : cboSubmarca.Focus() : Exit Sub
+        If cboArea.Text = "" Then MsgBox("Seleccione el área!!!", vbInformation + vbOKOnly, titulocentral) : cboArea.Focus() : Exit Sub
+        If cboChofer.Text = "" Then MsgBox("Seleccione un chofer!!!", vbInformation + vbOKOnly, titulocentral) : cboChofer.Focus() : Exit Sub
+
+
+        Try
+
+            cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO transporte(Modelo,Marca,Submarca,Placas,Area,Poliza,Seguro,Vence_Seguro,Contacto_Seguro,Tel_Emergencia,Agente,Contacto_Agente,Verifica1,Verifica2,NoCircula,Chofer) VALUES('" & txtModelo.Text & "','" & cboMarca.Text & "','" & cboSubmarca.Text & "','" & cboPlacas.Text & "','" & cboArea.Text & "','" & txtPoliza.Text & "','" & cboSeguro.Text & "','" & Format(dtpVencimiento.Value, "yyyy-MM-dd") & "','" & txtTelAseguradora.Text & "','" & txtTelEmergencia.Text & "','" & txtAgente.Text & "','" & txtTelAgente.Text & "','" & cboMes1.Text & "','" & cboMes2.Text & "','" & cboCircula.Text & "','" & cboChofer.Text & "')"
+                If cmd2.ExecuteNonQuery() Then
+                MsgBox("Vehículo Agregado Correctamente.", vbInformation + vbOKOnly, titulocentral)
+            End If
+
+
+            For LUFFY As Integer = 0 To grdServicio.Rows.Count - 1
+                Dim s As String = grdServicio.Rows(LUFFY).Cells(0).Value.ToString
+                Dim f As Date = grdServicio.Rows(LUFFY).Cells(1).Value
+
+                cmd2.CommandText = "insert into Servicios(Servicio,Placa,Fecha) values('" & s & "','" & cboPlacas.Text & "','" & f & "')"
+                cmd2.ExecuteNonQuery()
+            Next
+            cnn2.Close()
+
+            btnNuevo.PerformClick()
+            cargar()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 
     Private Sub grdServicio_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdServicio.CellDoubleClick
@@ -330,6 +374,49 @@
     End Sub
 
     Public Sub cargar()
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT COUNT(Id) FROM transporte"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtTotal.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Marca,Submarca,Modelo,Placas,Area,Seguro,Poliza,Vence_Seguro,Contacto_Seguro,Agente,Contacto_Agente,NoCircula,Afina_Ant FROM transporte"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+
+                    grdCaptura.Rows.Add(rd1(0).ToString,
+                                        rd1(1).ToString,
+                                        rd1(2).ToString,
+                                        rd1(3).ToString,
+                                        rd1(4).ToString,
+                                        rd1(5).ToString,
+                                        rd1(6).ToString,
+                                        rd1(7).ToString,
+                                        rd1(8).ToString,
+                                        rd1(9).ToString,
+                                        rd1(10).ToString,
+                                        rd1(11).ToString,
+                                        IIf(rd1(12).ToString = "", Date.Now, rd1(112).ToString)
+)
+                End If
+            Loop
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
 
     End Sub
 End Class

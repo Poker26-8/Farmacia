@@ -160,6 +160,7 @@ Partial Class frmVehiculos2
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(121, 20)
         Me.txtTotal.TabIndex = 24
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label19
         '
@@ -415,14 +416,14 @@ Partial Class frmVehiculos2
         '
         'txtTelAseguradora
         '
-        Me.txtTelAseguradora.Location = New System.Drawing.Point(151, 139)
+        Me.txtTelAseguradora.Location = New System.Drawing.Point(151, 108)
         Me.txtTelAseguradora.Name = "txtTelAseguradora"
         Me.txtTelAseguradora.Size = New System.Drawing.Size(114, 22)
         Me.txtTelAseguradora.TabIndex = 20
         '
         'txtTelEmergencia
         '
-        Me.txtTelEmergencia.Location = New System.Drawing.Point(151, 111)
+        Me.txtTelEmergencia.Location = New System.Drawing.Point(151, 136)
         Me.txtTelEmergencia.Name = "txtTelEmergencia"
         Me.txtTelEmergencia.Size = New System.Drawing.Size(114, 22)
         Me.txtTelEmergencia.TabIndex = 19
@@ -446,7 +447,7 @@ Partial Class frmVehiculos2
         '
         'Label13
         '
-        Me.Label13.Location = New System.Drawing.Point(6, 139)
+        Me.Label13.Location = New System.Drawing.Point(6, 108)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(151, 22)
         Me.Label13.TabIndex = 16
@@ -455,7 +456,7 @@ Partial Class frmVehiculos2
         '
         'Label12
         '
-        Me.Label12.Location = New System.Drawing.Point(6, 111)
+        Me.Label12.Location = New System.Drawing.Point(6, 136)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(151, 22)
         Me.Label12.TabIndex = 15
