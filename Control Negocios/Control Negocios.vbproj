@@ -645,6 +645,12 @@
     <Compile Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\12 Transportistas\frmEstadoResultados.Designer.vb">
+      <DependentUpon>frmEstadoResultados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\12 Transportistas\frmEstadoResultados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\12 Transportistas\frmGastos.Designer.vb">
       <DependentUpon>frmGastos.vb</DependentUpon>
     </Compile>
@@ -655,6 +661,12 @@
       <DependentUpon>frmOperadores.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\12 Transportistas\frmOperadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\12 Transportistas\frmRepGastos.Designer.vb">
+      <DependentUpon>frmRepGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\12 Transportistas\frmRepGastos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\12 Transportistas\frmVehiculos2.Designer.vb">
@@ -2361,11 +2373,17 @@
     <EmbeddedResource Include="Formularios\10 Reportes\Nuevo\frmNuvRepVentas.resx">
       <DependentUpon>frmNuvRepVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\12 Transportistas\frmEstadoResultados.resx">
+      <DependentUpon>frmEstadoResultados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\12 Transportistas\frmGastos.resx">
       <DependentUpon>frmGastos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\12 Transportistas\frmOperadores.resx">
       <DependentUpon>frmOperadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\12 Transportistas\frmRepGastos.resx">
+      <DependentUpon>frmRepGastos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\12 Transportistas\frmVehiculos2.resx">
       <DependentUpon>frmVehiculos2.vb</DependentUpon>

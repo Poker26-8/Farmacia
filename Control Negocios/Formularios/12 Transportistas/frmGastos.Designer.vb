@@ -50,12 +50,19 @@ Partial Class frmGastos
         Me.cboConcepto = New System.Windows.Forms.ComboBox()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtRemision = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.txtFactura = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.grdpago = New System.Windows.Forms.DataGridView()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -76,15 +83,10 @@ Partial Class frmGastos
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cbobanco = New System.Windows.Forms.ComboBox()
         Me.cbotpago = New System.Windows.Forms.ComboBox()
-        Me.grdpago = New System.Windows.Forms.DataGridView()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtSubtotal = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtIva = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -230,6 +232,10 @@ Partial Class frmGastos
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.txtIva)
+        Me.GroupBox2.Controls.Add(Me.Label12)
+        Me.GroupBox2.Controls.Add(Me.txtSubtotal)
+        Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.txtEfectivo)
         Me.GroupBox2.Controls.Add(Me.Label18)
         Me.GroupBox2.Controls.Add(Me.Label8)
@@ -242,8 +248,6 @@ Partial Class frmGastos
         Me.GroupBox2.Controls.Add(Me.cboConcepto)
         Me.GroupBox2.Controls.Add(Me.dtpFecha)
         Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.txtRemision)
-        Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.txtFactura)
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -257,7 +261,7 @@ Partial Class frmGastos
         'txtEfectivo
         '
         Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEfectivo.Location = New System.Drawing.Point(462, 132)
+        Me.txtEfectivo.Location = New System.Drawing.Point(462, 130)
         Me.txtEfectivo.Name = "txtEfectivo"
         Me.txtEfectivo.Size = New System.Drawing.Size(102, 22)
         Me.txtEfectivo.TabIndex = 156
@@ -267,9 +271,9 @@ Partial Class frmGastos
         'Label18
         '
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(378, 76)
+        Me.Label18.Location = New System.Drawing.Point(383, 102)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(77, 22)
+        Me.Label18.Size = New System.Drawing.Size(71, 22)
         Me.Label18.TabIndex = 168
         Me.Label18.Text = "Total:"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -277,9 +281,9 @@ Partial Class frmGastos
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(380, 132)
+        Me.Label8.Location = New System.Drawing.Point(383, 130)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(75, 22)
+        Me.Label8.Size = New System.Drawing.Size(72, 22)
         Me.Label8.TabIndex = 155
         Me.Label8.Text = "Efectivo:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -287,7 +291,7 @@ Partial Class frmGastos
         'txtTotal
         '
         Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(462, 76)
+        Me.txtTotal.Location = New System.Drawing.Point(462, 102)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(102, 22)
         Me.txtTotal.TabIndex = 167
@@ -298,7 +302,7 @@ Partial Class frmGastos
         '
         Me.txtPagos.Enabled = False
         Me.txtPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPagos.Location = New System.Drawing.Point(462, 104)
+        Me.txtPagos.Location = New System.Drawing.Point(462, 158)
         Me.txtPagos.Name = "txtPagos"
         Me.txtPagos.Size = New System.Drawing.Size(102, 22)
         Me.txtPagos.TabIndex = 154
@@ -308,18 +312,18 @@ Partial Class frmGastos
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(380, 104)
+        Me.Label7.Location = New System.Drawing.Point(385, 158)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(70, 22)
+        Me.Label7.Size = New System.Drawing.Size(65, 22)
         Me.Label7.TabIndex = 150
         Me.Label7.Text = "Pagos:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'rtbObservaciones
         '
-        Me.rtbObservaciones.Location = New System.Drawing.Point(10, 100)
+        Me.rtbObservaciones.Location = New System.Drawing.Point(10, 101)
         Me.rtbObservaciones.Name = "rtbObservaciones"
-        Me.rtbObservaciones.Size = New System.Drawing.Size(361, 108)
+        Me.rtbObservaciones.Size = New System.Drawing.Size(361, 107)
         Me.rtbObservaciones.TabIndex = 162
         Me.rtbObservaciones.Text = ""
         '
@@ -363,29 +367,12 @@ Partial Class frmGastos
         'Label13
         '
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(379, 18)
+        Me.Label13.Location = New System.Drawing.Point(383, 18)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(81, 22)
+        Me.Label13.Size = New System.Drawing.Size(77, 22)
         Me.Label13.TabIndex = 158
         Me.Label13.Text = "Fecha:"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtRemision
-        '
-        Me.txtRemision.Location = New System.Drawing.Point(462, 47)
-        Me.txtRemision.Name = "txtRemision"
-        Me.txtRemision.Size = New System.Drawing.Size(102, 22)
-        Me.txtRemision.TabIndex = 157
-        '
-        'Label12
-        '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(377, 46)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(80, 25)
-        Me.Label12.TabIndex = 156
-        Me.Label12.Text = "Remisión:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtFactura
         '
@@ -444,6 +431,76 @@ Partial Class frmGastos
         Me.GroupBox3.TabIndex = 157
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Formas de pago"
+        '
+        'grdpago
+        '
+        Me.grdpago.AllowUserToAddRows = False
+        Me.grdpago.AllowUserToDeleteRows = False
+        Me.grdpago.BackgroundColor = System.Drawing.Color.White
+        Me.grdpago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdpago.ColumnHeadersVisible = False
+        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27})
+        Me.grdpago.Location = New System.Drawing.Point(11, 159)
+        Me.grdpago.Name = "grdpago"
+        Me.grdpago.ReadOnly = True
+        Me.grdpago.RowHeadersVisible = False
+        Me.grdpago.Size = New System.Drawing.Size(474, 95)
+        Me.grdpago.TabIndex = 287
+        '
+        'Column15
+        '
+        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column15.HeaderText = "Tipo"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column16.HeaderText = "Banco"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column17.HeaderText = "Número"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
+        'Column18
+        '
+        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column18.HeaderText = "Monto"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        '
+        'Column19
+        '
+        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column19.HeaderText = "Fecha"
+        Me.Column19.Name = "Column19"
+        Me.Column19.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column28
+        '
+        Me.Column28.HeaderText = "CuentaRe"
+        Me.Column28.Name = "Column28"
+        Me.Column28.ReadOnly = True
+        Me.Column28.Visible = False
+        '
+        'Column27
+        '
+        Me.Column27.HeaderText = "BancoRe"
+        Me.Column27.Name = "Column27"
+        Me.Column27.ReadOnly = True
+        Me.Column27.Visible = False
         '
         'btnGuardar
         '
@@ -645,75 +702,46 @@ Partial Class frmGastos
         Me.cbotpago.Size = New System.Drawing.Size(166, 21)
         Me.cbotpago.TabIndex = 260
         '
-        'grdpago
+        'txtSubtotal
         '
-        Me.grdpago.AllowUserToAddRows = False
-        Me.grdpago.AllowUserToDeleteRows = False
-        Me.grdpago.BackgroundColor = System.Drawing.Color.White
-        Me.grdpago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdpago.ColumnHeadersVisible = False
-        Me.grdpago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19, Me.Column9, Me.Column28, Me.Column27})
-        Me.grdpago.Location = New System.Drawing.Point(11, 159)
-        Me.grdpago.Name = "grdpago"
-        Me.grdpago.ReadOnly = True
-        Me.grdpago.RowHeadersVisible = False
-        Me.grdpago.Size = New System.Drawing.Size(474, 95)
-        Me.grdpago.TabIndex = 287
+        Me.txtSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubtotal.Location = New System.Drawing.Point(462, 49)
+        Me.txtSubtotal.Name = "txtSubtotal"
+        Me.txtSubtotal.Size = New System.Drawing.Size(102, 22)
+        Me.txtSubtotal.TabIndex = 170
+        Me.txtSubtotal.Text = "0.00"
+        Me.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Column15
+        'Label10
         '
-        Me.Column15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column15.HeaderText = "Tipo"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(382, 49)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 22)
+        Me.Label10.TabIndex = 169
+        Me.Label10.Text = "Subtotal:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Column16
+        'txtIva
         '
-        Me.Column16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column16.HeaderText = "Banco"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
+        Me.txtIva.Enabled = False
+        Me.txtIva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIva.Location = New System.Drawing.Point(462, 74)
+        Me.txtIva.Name = "txtIva"
+        Me.txtIva.Size = New System.Drawing.Size(102, 22)
+        Me.txtIva.TabIndex = 172
+        Me.txtIva.Text = "0.00"
+        Me.txtIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Column17
+        'Label12
         '
-        Me.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column17.HeaderText = "Número"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        '
-        'Column18
-        '
-        Me.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column18.HeaderText = "Monto"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        '
-        'Column19
-        '
-        Me.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column19.HeaderText = "Fecha"
-        Me.Column19.Name = "Column19"
-        Me.Column19.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column28
-        '
-        Me.Column28.HeaderText = "CuentaRe"
-        Me.Column28.Name = "Column28"
-        Me.Column28.ReadOnly = True
-        Me.Column28.Visible = False
-        '
-        'Column27
-        '
-        Me.Column27.HeaderText = "BancoRe"
-        Me.Column27.Name = "Column27"
-        Me.Column27.ReadOnly = True
-        Me.Column27.Visible = False
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(386, 74)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(64, 22)
+        Me.Label12.TabIndex = 171
+        Me.Label12.Text = "Iva:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmGastos
         '
@@ -770,8 +798,6 @@ Partial Class frmGastos
     Friend WithEvents Label8 As Label
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents Label13 As Label
-    Friend WithEvents txtRemision As TextBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents txtFactura As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label14 As Label
@@ -809,4 +835,8 @@ Partial Class frmGastos
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column28 As DataGridViewTextBoxColumn
     Friend WithEvents Column27 As DataGridViewTextBoxColumn
+    Friend WithEvents txtIva As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtSubtotal As TextBox
+    Friend WithEvents Label10 As Label
 End Class

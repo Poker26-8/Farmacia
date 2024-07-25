@@ -435,4 +435,8 @@
         debe = cargo_f
         TextBox1.Text = FormatNumber(debe, 2)
     End Sub
+
+    Private Sub btnexportar_Click(sender As Object, e As EventArgs) Handles btnexportar.Click
+
+    End Sub
 End Class

@@ -486,7 +486,7 @@ Public Class Inicio
         Catch ex As Exception
             rd1.Close()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "ALTER TABLE permisos add column ReimprimirTicket int(1)"
+            cmd1.CommandText = "ALTER TABLE permisos add column ReimprimirTicket int(1) NOT NULL DEFAULT '0'"
             cmd1.ExecuteNonQuery()
             cnn1.Close()
         End Try
@@ -4299,5 +4299,15 @@ Public Class Inicio
     Private Sub GastosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GastosToolStripMenuItem1.Click
         frmGastos.Show()
         frmGastos.BringToFront()
+    End Sub
+
+    Private Sub ReporteDeGastosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeGastosToolStripMenuItem.Click
+        frmRepGastos.Show()
+        frmRepGastos.BringToFront()
+    End Sub
+
+    Private Sub EstadoDeResultadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeResultadosToolStripMenuItem.Click
+        frmEstadoResultados.Show()
+        frmEstadoResultados.BringToFront()
     End Sub
 End Class

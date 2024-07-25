@@ -176,10 +176,6 @@
                     End If
                     rd2.Close()
                     cnn2.Close()
-
-
-
-
                 Next
 
                 If txtefectivo.Text > 0 Then

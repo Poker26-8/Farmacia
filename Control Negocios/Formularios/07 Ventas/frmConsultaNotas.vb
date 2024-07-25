@@ -3302,7 +3302,7 @@ doorcita:
         rd1.Close()
 
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT * FROM Permisos WHERE IdEmpleado=" & id_usuario
+        cmd1.CommandText = "SELECT ReimprimirTicket FROM Permisos WHERE IdEmpleado=" & id_usuario
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then

@@ -2215,6 +2215,8 @@
                                               `Efectivo` float NOT NULL DEFAULT '0',
                                               `Tarjeta` float NOT NULL DEFAULT '0',
                                               `Transfe` float NOT NULL DEFAULT '0',
+                                              `Subtotal` double NOT NULL DEFAULT '0',
+                                              `IVA` double NOT NULL DEFAULT '0',
                                               `Total` float NOT NULL DEFAULT '0',
                                               `Nota` text NOT NULL,
                                               `Banco` varchar(50) DEFAULT '',
@@ -2224,7 +2226,9 @@
                                               `BancoC` varchar(50) DEFAULT '',
                                               `Usuario` varchar(50) NOT NULL DEFAULT '',
                                               `CorteU` int(2) NOT NULL DEFAULT '0',
-                                              `Corte` int(2) NOT NULL DEFAULT '0'
+                                              `Corte` int(2) NOT NULL DEFAULT '0',
+                                              `Modelo` varchar(100) NOT NULL DEFAULT '',
+                                              `Placas` varchar(100) NOT NULL DEFAULT ''
                                             ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     Public vartablaordentrabajo As String = "CREATE TABLE `ordentrabajo` (

@@ -924,19 +924,24 @@ Public Class frmProducirQ
             Y += 11
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
+
+            Dim observaciones As String = ""
+            observaciones = rtObservaciones.Text.TrimEnd(vbCrLf.ToCharArray)
+
             Dim caracteresPorLinea1 As Integer = 45
-            Dim texto1 As String = rtObservaciones.Text
+            Dim texto1 As String = observaciones
             Dim inicio1 As Integer = 0
             Dim longitudTexto1 As Integer = texto1.Length
 
             While inicio1 < longitudTexto1
                 Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
-                Dim bloque1 As String = texto.Substring(inicio1, longitudBloque1)
+                Dim bloque1 As String = texto1.Substring(inicio1, longitudBloque1)
                 e.Graphics.DrawString(bloque1, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 13
                 inicio1 += caracteresPorLinea1
             End While
             Y += 3
+
             e.Graphics.DrawString("----------------------------------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
             e.Graphics.DrawString("PROPIEDADES FISICAS Y QUIMICAS", fuente_b, Brushes.Black, 135, Y, sc)
@@ -1300,22 +1305,26 @@ Public Class frmProducirQ
                 Inserta_miprod()
                 PDF_MIPROD()
             End If
+            If cboImprimir.Text = "TICKET" Then
 
-            Dim tamticket As Integer = 0
-            Dim impresoratickett As String = ""
+                Dim tamticket As Integer = 0
+                Dim impresoratickett As String = ""
 
-            tamticket = TamImpre()
-            impresoratickett = ImpresoraImprimir()
+                tamticket = TamImpre()
+                impresoratickett = ImpresoraImprimir()
 
-            If tamticket = "80" Then
-                pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
-                pDocumento80.Print()
+                If tamticket = "80" Then
+                    pDocumento80.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                    pDocumento80.Print()
+                End If
+
+                If tamticket = "58" Then
+                    pDocumento58.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
+                    pDocumento58.Print()
+                End If
             End If
 
-            If tamticket = "58" Then
-                pDocumento58.DefaultPageSettings.PrinterSettings.PrinterName = impresoratickett
-                pDocumento58.Print()
-            End If
+
 
             rtComentario.Text = ""
             grdcaptura.Rows.Clear()
@@ -1351,7 +1360,7 @@ Public Class frmProducirQ
 
             Dim fecha As String = Format(dtpFechaRecepcion.Value, "dd-MM-yy")
 
-            MsgBox(fecha)
+
             Dim nuvf As String = ""
 
             nuvf = fecha.Replace("-", "")
@@ -1427,10 +1436,10 @@ Public Class frmProducirQ
             FileNta.DataDefinition.FormulaFields("revision").Text = "'" & txtRevision.Text & "'"
             FileNta.DataDefinition.FormulaFields("aprobacion").Text = "'" & Format(dtpAprobación.Value, "dd/MM/yyyy") & "'"
             FileNta.DataDefinition.FormulaFields("recepcion").Text = "'" & Format(dtpFechaRecepcion.Value, "dd/MM/yyyy") & "'"
-            FileNta.DataDefinition.FormulaFields("ph").Text = "'" & txtPh.Text & "'"
-            FileNta.DataDefinition.FormulaFields("olor").Text = "'" & txtOlor.Text & "'"
-            FileNta.DataDefinition.FormulaFields("color").Text = "'" & txtColor.Text & "'"
-            FileNta.DataDefinition.FormulaFields("aspecto").Text = "'" & txtAspecto.Text & "'"
+            'FileNta.DataDefinition.FormulaFields("ph").Text = "'" & txtPh.Text & "'"
+            'FileNta.DataDefinition.FormulaFields("olor").Text = "'" & txtOlor.Text & "'"
+            'FileNta.DataDefinition.FormulaFields("color").Text = "'" & txtColor.Text & "'"
+            'FileNta.DataDefinition.FormulaFields("aspecto").Text = "'" & txtAspecto.Text & "'"
             FileNta.DataDefinition.FormulaFields("procedimiento").Text = "'" & procedimiento & "'"
             FileNta.DataDefinition.FormulaFields("observacion").Text = "'" & observaciones & "'"
 
