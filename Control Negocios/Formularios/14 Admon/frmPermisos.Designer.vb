@@ -53,6 +53,7 @@ Partial Class frmPermisos
         Me.asis_Emp = New System.Windows.Forms.CheckBox()
         Me.lblasistencia = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.cbReimprimir = New System.Windows.Forms.CheckBox()
         Me.EliAbonos = New System.Windows.Forms.CheckBox()
         Me.ven_Edi = New System.Windows.Forms.CheckBox()
         Me.ven_Can = New System.Windows.Forms.CheckBox()
@@ -146,6 +147,8 @@ Partial Class frmPermisos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnPermisosRestaurante = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.cbLimpiarV = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -160,6 +163,7 @@ Partial Class frmPermisos
         Me.Panel15.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -480,6 +484,7 @@ Partial Class frmPermisos
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.cbReimprimir)
         Me.Panel4.Controls.Add(Me.EliAbonos)
         Me.Panel4.Controls.Add(Me.ven_Edi)
         Me.Panel4.Controls.Add(Me.ven_Can)
@@ -494,13 +499,23 @@ Partial Class frmPermisos
         Me.Panel4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel4.Location = New System.Drawing.Point(162, 339)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(152, 237)
+        Me.Panel4.Size = New System.Drawing.Size(152, 256)
         Me.Panel4.TabIndex = 52
+        '
+        'cbReimprimir
+        '
+        Me.cbReimprimir.AutoSize = True
+        Me.cbReimprimir.Location = New System.Drawing.Point(3, 229)
+        Me.cbReimprimir.Name = "cbReimprimir"
+        Me.cbReimprimir.Size = New System.Drawing.Size(119, 17)
+        Me.cbReimprimir.TabIndex = 11
+        Me.cbReimprimir.Text = "Reimprimir Tickets"
+        Me.cbReimprimir.UseVisualStyleBackColor = True
         '
         'EliAbonos
         '
         Me.EliAbonos.AutoSize = True
-        Me.EliAbonos.Location = New System.Drawing.Point(2, 206)
+        Me.EliAbonos.Location = New System.Drawing.Point(3, 206)
         Me.EliAbonos.Name = "EliAbonos"
         Me.EliAbonos.Size = New System.Drawing.Size(109, 17)
         Me.EliAbonos.TabIndex = 10
@@ -1315,9 +1330,9 @@ Partial Class frmPermisos
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.optmostr_caja)
         Me.GroupBox2.Controls.Add(Me.optmostrador)
-        Me.GroupBox2.Location = New System.Drawing.Point(483, 557)
+        Me.GroupBox2.Location = New System.Drawing.Point(515, 557)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(152, 69)
+        Me.GroupBox2.Size = New System.Drawing.Size(132, 69)
         Me.GroupBox2.TabIndex = 87
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Modo de operación"
@@ -1514,19 +1529,38 @@ Partial Class frmPermisos
         Me.btnPermisosRestaurante.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPermisosRestaurante.Image = CType(resources.GetObject("btnPermisosRestaurante.Image"), System.Drawing.Image)
         Me.btnPermisosRestaurante.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPermisosRestaurante.Location = New System.Drawing.Point(387, 559)
+        Me.btnPermisosRestaurante.Location = New System.Drawing.Point(317, 554)
         Me.btnPermisosRestaurante.Name = "btnPermisosRestaurante"
-        Me.btnPermisosRestaurante.Size = New System.Drawing.Size(90, 67)
+        Me.btnPermisosRestaurante.Size = New System.Drawing.Size(77, 67)
         Me.btnPermisosRestaurante.TabIndex = 232
         Me.btnPermisosRestaurante.Text = "Restaurantes y Billares"
         Me.btnPermisosRestaurante.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPermisosRestaurante.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.cbLimpiarV)
+        Me.GroupBox4.Location = New System.Drawing.Point(400, 557)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(108, 69)
+        Me.GroupBox4.TabIndex = 233
+        Me.GroupBox4.TabStop = False
+        '
+        'cbLimpiarV
+        '
+        Me.cbLimpiarV.Location = New System.Drawing.Point(6, 12)
+        Me.cbLimpiarV.Name = "cbLimpiarV"
+        Me.cbLimpiarV.Size = New System.Drawing.Size(94, 57)
+        Me.cbLimpiarV.TabIndex = 12
+        Me.cbLimpiarV.Text = "Limpiar pantalla de ventas"
+        Me.cbLimpiarV.UseVisualStyleBackColor = True
         '
         'frmPermisos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(654, 630)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.btnPermisosRestaurante)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.cbContraInicio)
@@ -1595,6 +1629,7 @@ Partial Class frmPermisos
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1722,4 +1757,7 @@ Partial Class frmPermisos
     Friend WithEvents cat_cuentas As CheckBox
     Friend WithEvents btnPermisosRestaurante As Button
     Friend WithEvents EliAbonos As CheckBox
+    Friend WithEvents cbReimprimir As CheckBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents cbLimpiarV As CheckBox
 End Class

@@ -24,8 +24,8 @@ Partial Class frmVehiculos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehiculos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtChofer = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtchofer = New System.Windows.Forms.TextBox()
         Me.cboarea = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -67,17 +67,27 @@ Partial Class frmVehiculos
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.btnServicio = New System.Windows.Forms.Button()
+        Me.dtpFechaServicio = New System.Windows.Forms.DateTimePicker()
+        Me.cboServicios = New System.Windows.Forms.ComboBox()
+        Me.grdServicio = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.grdServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtChofer)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.txtchofer)
         Me.GroupBox1.Controls.Add(Me.cboarea)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -86,12 +96,22 @@ Partial Class frmVehiculos
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.cbomodelo)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 33)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 48)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(247, 159)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Vehículo"
+        '
+        'txtChofer
+        '
+        Me.txtChofer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtChofer.FormattingEnabled = True
+        Me.txtChofer.Items.AddRange(New Object() {"VENTA", "ADMINISTRACIÓN", "OPERACIÓN"})
+        Me.txtChofer.Location = New System.Drawing.Point(72, 125)
+        Me.txtChofer.Name = "txtChofer"
+        Me.txtChofer.Size = New System.Drawing.Size(166, 23)
+        Me.txtChofer.TabIndex = 10
         '
         'Label6
         '
@@ -103,18 +123,11 @@ Partial Class frmVehiculos
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "Chofer:"
         '
-        'txtchofer
-        '
-        Me.txtchofer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtchofer.Location = New System.Drawing.Point(72, 125)
-        Me.txtchofer.Name = "txtchofer"
-        Me.txtchofer.Size = New System.Drawing.Size(166, 23)
-        Me.txtchofer.TabIndex = 8
-        '
         'cboarea
         '
         Me.cboarea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboarea.FormattingEnabled = True
+        Me.cboarea.Items.AddRange(New Object() {"VENTA", "ADMINISTRACIÓN", "OPERACIÓN"})
         Me.cboarea.Location = New System.Drawing.Point(72, 99)
         Me.cboarea.Name = "cboarea"
         Me.cboarea.Size = New System.Drawing.Size(166, 23)
@@ -200,7 +213,7 @@ Partial Class frmVehiculos
         Me.GroupBox2.Controls.Add(Me.txtpoliza)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtseguros)
-        Me.GroupBox2.Location = New System.Drawing.Point(264, 33)
+        Me.GroupBox2.Location = New System.Drawing.Point(264, 48)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(231, 185)
         Me.GroupBox2.TabIndex = 8
@@ -326,7 +339,7 @@ Partial Class frmVehiculos
         Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label10)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Location = New System.Drawing.Point(9, 192)
+        Me.GroupBox3.Location = New System.Drawing.Point(9, 209)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(247, 131)
         Me.GroupBox3.TabIndex = 10
@@ -417,7 +430,7 @@ Partial Class frmVehiculos
         Me.GroupBox4.Controls.Add(Me.Label18)
         Me.GroupBox4.Controls.Add(Me.cbonocircula)
         Me.GroupBox4.Controls.Add(Me.Label17)
-        Me.GroupBox4.Location = New System.Drawing.Point(264, 220)
+        Me.GroupBox4.Location = New System.Drawing.Point(264, 237)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(231, 103)
         Me.GroupBox4.TabIndex = 9
@@ -428,7 +441,8 @@ Partial Class frmVehiculos
         '
         Me.cbovencimiento2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbovencimiento2.FormattingEnabled = True
-        Me.cbovencimiento2.Location = New System.Drawing.Point(99, 18)
+        Me.cbovencimiento2.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
+        Me.cbovencimiento2.Location = New System.Drawing.Point(99, 40)
         Me.cbovencimiento2.Name = "cbovencimiento2"
         Me.cbovencimiento2.Size = New System.Drawing.Size(123, 23)
         Me.cbovencimiento2.TabIndex = 15
@@ -437,7 +451,7 @@ Partial Class frmVehiculos
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(8, 22)
+        Me.Label19.Location = New System.Drawing.Point(8, 47)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(85, 15)
         Me.Label19.TabIndex = 14
@@ -447,7 +461,8 @@ Partial Class frmVehiculos
         '
         Me.cbovencimiento1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbovencimiento1.FormattingEnabled = True
-        Me.cbovencimiento1.Location = New System.Drawing.Point(99, 44)
+        Me.cbovencimiento1.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
+        Me.cbovencimiento1.Location = New System.Drawing.Point(99, 13)
         Me.cbovencimiento1.Name = "cbovencimiento1"
         Me.cbovencimiento1.Size = New System.Drawing.Size(123, 23)
         Me.cbovencimiento1.TabIndex = 13
@@ -456,7 +471,7 @@ Partial Class frmVehiculos
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(8, 48)
+        Me.Label18.Location = New System.Drawing.Point(8, 21)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(85, 15)
         Me.Label18.TabIndex = 12
@@ -466,6 +481,7 @@ Partial Class frmVehiculos
         '
         Me.cbonocircula.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbonocircula.FormattingEnabled = True
+        Me.cbonocircula.Items.AddRange(New Object() {"LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO"})
         Me.cbonocircula.Location = New System.Drawing.Point(99, 70)
         Me.cbonocircula.Name = "cbonocircula"
         Me.cbonocircula.Size = New System.Drawing.Size(123, 23)
@@ -484,12 +500,13 @@ Partial Class frmVehiculos
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(-25, 0)
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(555, 31)
+        Me.Label1.Size = New System.Drawing.Size(785, 41)
         Me.Label1.TabIndex = 42
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -501,7 +518,7 @@ Partial Class frmVehiculos
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(303, 329)
+        Me.btnGuardar.Location = New System.Drawing.Point(586, 277)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 139
@@ -517,7 +534,7 @@ Partial Class frmVehiculos
         Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Location = New System.Drawing.Point(237, 329)
+        Me.btnEliminar.Location = New System.Drawing.Point(520, 277)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
         Me.btnEliminar.TabIndex = 140
@@ -532,7 +549,7 @@ Partial Class frmVehiculos
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(369, 329)
+        Me.btnNuevo.Location = New System.Drawing.Point(652, 277)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 141
@@ -540,28 +557,114 @@ Partial Class frmVehiculos
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnSalir
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(435, 329)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(60, 63)
-        Me.Button1.TabIndex = 142
-        Me.Button1.Text = "Salir"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(718, 277)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(60, 63)
+        Me.btnSalir.TabIndex = 142
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(4, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(781, 41)
+        Me.Label20.TabIndex = 143
+        Me.Label20.Text = "Registro de Vehiculos"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.btnServicio)
+        Me.GroupBox5.Controls.Add(Me.dtpFechaServicio)
+        Me.GroupBox5.Controls.Add(Me.cboServicios)
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.Location = New System.Drawing.Point(501, 48)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(277, 83)
+        Me.GroupBox5.TabIndex = 144
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Servicios"
+        '
+        'btnServicio
+        '
+        Me.btnServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnServicio.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnServicio.Location = New System.Drawing.Point(114, 52)
+        Me.btnServicio.Name = "btnServicio"
+        Me.btnServicio.Size = New System.Drawing.Size(157, 24)
+        Me.btnServicio.TabIndex = 30
+        Me.btnServicio.Text = "Agregar Servicio"
+        Me.btnServicio.UseVisualStyleBackColor = False
+        '
+        'dtpFechaServicio
+        '
+        Me.dtpFechaServicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaServicio.Location = New System.Drawing.Point(6, 52)
+        Me.dtpFechaServicio.Name = "dtpFechaServicio"
+        Me.dtpFechaServicio.Size = New System.Drawing.Size(102, 22)
+        Me.dtpFechaServicio.TabIndex = 24
+        '
+        'cboServicios
+        '
+        Me.cboServicios.FormattingEnabled = True
+        Me.cboServicios.Items.AddRange(New Object() {"AFINACIÓN", "CAMBIO DE ACEITE", "REVISIÓN DE FRENOS"})
+        Me.cboServicios.Location = New System.Drawing.Point(6, 22)
+        Me.cboServicios.Name = "cboServicios"
+        Me.cboServicios.Size = New System.Drawing.Size(265, 24)
+        Me.cboServicios.TabIndex = 29
+        '
+        'grdServicio
+        '
+        Me.grdServicio.AllowUserToAddRows = False
+        Me.grdServicio.AllowUserToDeleteRows = False
+        Me.grdServicio.BackgroundColor = System.Drawing.Color.White
+        Me.grdServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdServicio.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.grdServicio.Location = New System.Drawing.Point(501, 137)
+        Me.grdServicio.Name = "grdServicio"
+        Me.grdServicio.ReadOnly = True
+        Me.grdServicio.RowHeadersVisible = False
+        Me.grdServicio.Size = New System.Drawing.Size(277, 107)
+        Me.grdServicio.TabIndex = 145
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column1.HeaderText = "Servicio"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Fecha"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 66
         '
         'frmVehiculos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(504, 398)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(785, 347)
+        Me.Controls.Add(Me.grdServicio)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnGuardar)
@@ -586,6 +689,8 @@ Partial Class frmVehiculos
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        CType(Me.grdServicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -600,38 +705,46 @@ Partial Class frmVehiculos
      Friend WithEvents cbomarca As System.Windows.Forms.ComboBox
      Friend WithEvents Label3 As System.Windows.Forms.Label
      Friend WithEvents Label6 As System.Windows.Forms.Label
-     Friend WithEvents txtchofer As System.Windows.Forms.TextBox
-     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-     Friend WithEvents dtpaceite_prox As System.Windows.Forms.DateTimePicker
-     Friend WithEvents dtpafinacion_prox As System.Windows.Forms.DateTimePicker
-     Friend WithEvents dtpaceite_ant As System.Windows.Forms.DateTimePicker
-     Friend WithEvents dtpafinacion_ant As System.Windows.Forms.DateTimePicker
-     Friend WithEvents Label8 As System.Windows.Forms.Label
-     Friend WithEvents Label9 As System.Windows.Forms.Label
-     Friend WithEvents Label10 As System.Windows.Forms.Label
-     Friend WithEvents Label11 As System.Windows.Forms.Label
-     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-     Friend WithEvents Label16 As System.Windows.Forms.Label
-     Friend WithEvents txtcontacto As System.Windows.Forms.TextBox
-     Friend WithEvents Label15 As System.Windows.Forms.Label
-     Friend WithEvents Label14 As System.Windows.Forms.Label
-     Friend WithEvents txtagente As System.Windows.Forms.TextBox
-     Friend WithEvents txttelefono As System.Windows.Forms.TextBox
-     Friend WithEvents dtpvencimiento As System.Windows.Forms.DateTimePicker
-     Friend WithEvents Label13 As System.Windows.Forms.Label
-     Friend WithEvents Label12 As System.Windows.Forms.Label
-     Friend WithEvents txtpoliza As System.Windows.Forms.TextBox
-     Friend WithEvents Label7 As System.Windows.Forms.Label
-     Friend WithEvents txtseguros As System.Windows.Forms.TextBox
-     Friend WithEvents cbovencimiento2 As System.Windows.Forms.ComboBox
-     Friend WithEvents Label19 As System.Windows.Forms.Label
-     Friend WithEvents cbovencimiento1 As System.Windows.Forms.ComboBox
-     Friend WithEvents Label18 As System.Windows.Forms.Label
-     Friend WithEvents cbonocircula As System.Windows.Forms.ComboBox
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents dtpaceite_prox As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpafinacion_prox As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpaceite_ant As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpafinacion_ant As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents txtcontacto As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents txtagente As System.Windows.Forms.TextBox
+    Friend WithEvents txttelefono As System.Windows.Forms.TextBox
+    Friend WithEvents dtpvencimiento As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtpoliza As System.Windows.Forms.TextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents txtseguros As System.Windows.Forms.TextBox
+    Friend WithEvents cbovencimiento2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents cbovencimiento1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents cbonocircula As System.Windows.Forms.ComboBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnGuardar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnNuevo As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents Label20 As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents btnServicio As Button
+    Friend WithEvents dtpFechaServicio As DateTimePicker
+    Friend WithEvents cboServicios As ComboBox
+    Friend WithEvents grdServicio As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents txtChofer As ComboBox
 End Class

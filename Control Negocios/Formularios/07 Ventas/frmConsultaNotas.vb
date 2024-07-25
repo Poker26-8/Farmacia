@@ -3280,7 +3280,45 @@ doorcita:
     Private Sub btnCopia_Click(sender As System.Object, e As System.EventArgs) Handles btnCopia.Click
         If cbofolio.Text = "" Then MsgBox("Selecciona un folio para poder imprimir una copia.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbofolio.Focus().Equals(True) : Exit Sub
 
+
+        Dim id_usuario As Integer = 0
+
+        cnn1.Close() : cnn1.Open()
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtusuario.Text & "'"
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                id_usuario = rd1("IdEmpleado").ToString()
+            End If
+        Else
+            MsgBox("Contraseña incorrecta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            VaDe = "CANCELA"
+            txtusuario.SelectionStart = 0
+            txtusuario.SelectionLength = Len(txtusuario.Text)
+            rd1.Close() : cnn1.Close()
+            Exit Sub
+        End If
+        rd1.Close()
+
+        cmd1 = cnn1.CreateCommand
+        cmd1.CommandText = "SELECT * FROM Permisos WHERE IdEmpleado=" & id_usuario
+        rd1 = cmd1.ExecuteReader
+        If rd1.HasRows Then
+            If rd1.Read Then
+                If rd1("ReimprimirTicket").ToString() = False Then
+                    MsgBox("No cuentas con permiso para realizar cancelaciones.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    txtusuario.SelectAll()
+                    Exit Sub
+                End If
+            End If
+        End If
+        rd1.Close()
+        cnn1.Close()
+
         Panel6.Visible = True
+
+
 
         'Dim formato As String = ""
         'Dim imp_ticket As String = ""

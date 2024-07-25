@@ -75,6 +75,7 @@ Module FunAsync
                            SFormatos("Whatsapp", "")
                            SFormatos("Transportistas", "")
                            SFormatos("Propina", "0")
+                           SFormatos("LimpiarV", "0")
                        End Sub)
 
     End Function

@@ -1219,6 +1219,26 @@ Public Class frmConfigs
                 Dim nuevaimpre As String = cadena.Replace("\", "\\")
 
                 cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='ImpreT'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE formatos SET NotasCred='" & nuevaimpre & "',NumPart='0' WHERE Facturas='ImpreT'"
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+                    End If
+                Else
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO formatos(Facturas,NotasCred,NumPart) VALUES('ImpreT','" & nuevaimpre & "','0')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+                End If
+                rd1.Close()
+
+                cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
               "select * from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='TICKET'"
                 rd1 = cmd1.ExecuteReader
@@ -1246,7 +1266,8 @@ Public Class frmConfigs
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText = "insert into RutasImpresion(Equipo, Tipo, Formato, Impresora) values('" & ObtenerNombreEquipo() & "','TICKET MATRIZ DE PUNTO','','" & nuevaimpre & "')"
                     cmd2.ExecuteNonQuery()
-                    cnn2.Close()
+
+
                 End If
                 rd1.Close()
             End If

@@ -471,6 +471,26 @@ Public Class Inicio
 
     Public Sub verif()
 
+
+        'PERMISOS
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT ReimprimirTicket FROM permisos"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+            End If
+            rd1.Close()
+            cnn1.Close()
+        Catch ex As Exception
+            rd1.Close()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "ALTER TABLE permisos add column ReimprimirTicket int(1)"
+            cmd1.ExecuteNonQuery()
+            cnn1.Close()
+        End Try
+
         'pedidosvendet
         Try
             cnn1.Close()
@@ -4267,12 +4287,17 @@ Public Class Inicio
     End Sub
 
     Private Sub VehículosToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles VehículosToolStripMenuItem.Click
-        frmVehiculos2.Show()
-        frmVehiculos2.BringToFront()
+        frmVehiculos.Show()
+        frmVehiculos.BringToFront()
     End Sub
 
     Private Sub OperadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OperadoresToolStripMenuItem.Click
         frmOperadores.Show()
         frmOperadores.BringToFront()
+    End Sub
+
+    Private Sub GastosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GastosToolStripMenuItem1.Click
+        frmGastos.Show()
+        frmGastos.BringToFront()
     End Sub
 End Class

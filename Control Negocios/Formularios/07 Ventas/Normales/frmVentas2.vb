@@ -6180,8 +6180,12 @@ kaka:
                     Continue For
 doorcita:
                     If grdcaptura.Rows(pipo).Cells(1).Value.ToString() <> "" Then
-                        'Es comentario
-                        .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Codigo='" & cod_temp & "' and Folio=" & my_folio, sInfo)
+                        Dim id_a As Integer = 0
+                        If .getDr(a_cnn, dr, "select MAX(Id) from CotPedDetalle", sInfo) Then
+                            id_a = dr(0).ToString()
+                        End If
+                        'Es comentario 
+                        .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Id=" & id_a, sInfo)
                         sInfo = ""
                     End If
                 Next

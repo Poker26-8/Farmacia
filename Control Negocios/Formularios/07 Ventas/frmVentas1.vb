@@ -5663,10 +5663,13 @@ doorcita:
                         If .getDr(a_cnn, dr, "select MAX(Id) from CotPedDetalle", sInfo) Then
                             id_a = dr(0).ToString()
                         End If
-                        'Es comentario
+                        'Es comentario 
                         .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Id=" & id_a, sInfo)
                         sInfo = ""
                     End If
+
+
+
                 Next
                 a_cnn.Close()
             End If
@@ -6032,6 +6035,9 @@ Door:
                         My.Application.DoEvents()
                         Insert_Cotizacion()
                         PDF_Cotizacion()
+
+
+
                         Panel6.Visible = False
                         My.Application.DoEvents()
 
@@ -13108,7 +13114,7 @@ ecomoda:
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
-                    Pie = rd1("Pie3").ToString
+                    Pie = rd1("Pie1").ToString
                     pagare = rd1("Pagare").ToString
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
@@ -13442,17 +13448,61 @@ ecomoda:
             End If
             Y += 1
 
-            e.Graphics.DrawString(Mid(Pie, 1, 35), fuente_prods, Brushes.Black, 90, Y, sc)
-            Y += 12
-            If Mid(Pie, 36, 70) <> "" Then
-                e.Graphics.DrawString(Mid(Pie, 36, 70), fuente_prods, Brushes.Black, 90, Y, sc)
-                Y += 12
+            'Imprime pie de página
+            Dim cadena_pie As String = Pie
+
+            e.Graphics.DrawString(Mid(Pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 13.5
+
+            cadena_pie = Mid(Pie, 36, 500)
+
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
             End If
-            If Mid(Pie, 71, 105) <> "" Then
-                e.Graphics.DrawString(Mid(Pie, 71, 105), fuente_prods, Brushes.Black, 90, Y, sc)
-                Y += 12
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
             End If
-            Y += 3
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 36), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+            If cadena_pie <> "" Then
+                e.Graphics.DrawString(Mid(cadena_pie, 1, 35), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                cadena_pie = Mid(cadena_pie, 36, 500)
+                Y += 13.5
+            End If
+
+
 
             If txtcomentario.Text <> "" Then
                 Dim caracteresPorLinea As Integer = 29
