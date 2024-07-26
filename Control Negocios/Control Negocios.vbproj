@@ -867,10 +867,22 @@
     <Compile Include="Formularios\20 Refaccionaria\frmProRefaccionaria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.Designer.vb">
+      <DependentUpon>frmAsignacionRef.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.Designer.vb">
       <DependentUpon>frmAsignarRefa.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.Designer.vb">
+      <DependentUpon>frmVehiculoTa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmCalcularNuvHab.Designer.vb">
@@ -2497,8 +2509,14 @@
     <EmbeddedResource Include="Formularios\20 Refaccionaria\frmProRefaccionaria.resx">
       <DependentUpon>frmProRefaccionaria.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmAsignacionRef.resx">
+      <DependentUpon>frmAsignacionRef.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmAsignarRefa.resx">
       <DependentUpon>frmAsignarRefa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\20 Refaccionaria\Nuevos\frmVehiculoTa.resx">
+      <DependentUpon>frmVehiculoTa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCalcularNuvHab.resx">
       <DependentUpon>frmCalcularNuvHab.vb</DependentUpon>

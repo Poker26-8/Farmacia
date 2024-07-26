@@ -1671,6 +1671,9 @@ Public Class frmNuevoPagarComandas
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
 
         tim.Stop()
+
+        If grdCaptura.Rows.Count < 1 Then cboMesa.Focus().Equals(True) : cnn1.Close() : Exit Sub
+
         My.Application.DoEvents()
 
         Try
@@ -1761,6 +1764,8 @@ kakaxd:
                 mypago = lbltotalventa.Text
                 txtResta.Text = 0
             End If
+
+            btnCerrar.Enabled = True
 
 #Region "CODIGO AUTOFACTURAR"
             Dim CodCadena As String = ""
@@ -2535,7 +2540,7 @@ Door:
                 End If
             End If
 
-
+            btnCerrar.Enabled = False
             btnLimpiar.PerformClick()
 
         Catch ex As Exception

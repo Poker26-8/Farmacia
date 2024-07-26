@@ -37,6 +37,7 @@
                                           rd1("Nombre").ToString,
                                           rd1("NumParte").ToString,
                                           rd1("Marca").ToString,
+                                          rd1("Modelo").ToString,
                                           rd1("Medida").ToString,
                                           rd1("Observaciones").ToString,
                                           FormatNumber(preciopro, 2)
@@ -62,7 +63,7 @@
         Dim DESCRIPCION As String = grdRefaccion.Rows(index).Cells(1).Value.ToString
         Dim parte As String = grdRefaccion.Rows(index).Cells(2).Value.ToString
         Dim marca As String = grdRefaccion.Rows(index).Cells(3).Value.ToString
-        Dim PREECIO As Double = grdRefaccion.Rows(index).Cells(6).Value.ToString
+        Dim PREECIO As Double = grdRefaccion.Rows(index).Cells(7).Value.ToString
 
         grdAsignar.Rows.Add(codigo,
                                          DESCRIPCION,

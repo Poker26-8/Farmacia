@@ -1,8 +1,8 @@
 ﻿Public Class frmMenuPrincipal
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmVehiculoR.Show()
-        ' frmModelos.Show()
-        ' frmModelos.BringToFront()
+        'frmVehiculoR.Show()
+        frmVehiculoTa.Show()
+        frmVehiculoTa.BringToFront()
         Me.Close()
     End Sub
 

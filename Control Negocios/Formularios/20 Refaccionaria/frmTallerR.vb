@@ -113,6 +113,9 @@ Public Class frmTallerR
             rd2.Close()
             cnn2.Close()
 
+            frmAsignacionRef.txtveh.text = descripcion
+            frmAsignacionRef.Show()
+
             frmAsignaRefaccion.cbovehiculo.Text = descripcion
             frmAsignaRefaccion.marcaveh = marca
             frmAsignaRefaccion.idvehiculo = id
