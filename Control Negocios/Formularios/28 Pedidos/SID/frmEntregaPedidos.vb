@@ -282,8 +282,8 @@
             If lblUsuario.Text = "" Then MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcontraseña.Focus.Equals(True) : Exit Sub
             If cboCliente.Text = "" Then
                 MsgBox("Selecciona un cliente para poder continuar con el proceso", vbExclamation + vbOKOnly, "Delsscom Control Negocios Pro")
-                cboCliente.Focus.Equals(True)
                 Exit Sub
+                cboCliente.Focus.Equals(True)
             End If
             If MsgBox("Se guardara la información, favor de revisar", vbInformation + vbYesNo, "Delsscom Control Negocios Pro") = vbYes Then
 
@@ -534,5 +534,9 @@
         End If
         Me.Enabled = False
         My.Application.DoEvents()
+    End Sub
+
+    Private Sub grdCaptura_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellEndEdit
+
     End Sub
 End Class
