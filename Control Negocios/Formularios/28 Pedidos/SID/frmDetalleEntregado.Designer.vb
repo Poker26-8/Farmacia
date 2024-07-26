@@ -28,14 +28,6 @@ Partial Class frmDetalleEntregado
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleEntregado))
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblFolio = New System.Windows.Forms.Label()
-        Me.lblProveedor = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,6 +38,11 @@ Partial Class frmDetalleEntregado
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblFolio = New System.Windows.Forms.Label()
+        Me.lblProveedor = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,9 +53,17 @@ Partial Class frmDetalleEntregado
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.boxcantidad = New System.Windows.Forms.GroupBox()
+        Me.txtnombre = New System.Windows.Forms.TextBox()
+        Me.txtcodigo = New System.Windows.Forms.TextBox()
+        Me.txtcantidad = New System.Windows.Forms.TextBox()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.boxcantidad.SuspendLayout()
         Me.SuspendLayout()
         '
         'grdCaptura
@@ -77,97 +82,6 @@ Partial Class frmDetalleEntregado
         Me.grdCaptura.Size = New System.Drawing.Size(984, 204)
         Me.grdCaptura.TabIndex = 1
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(3, 40)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 20)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Num. Pedido:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 20)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Proveedor:"
-        '
-        'lblFolio
-        '
-        Me.lblFolio.AutoSize = True
-        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFolio.ForeColor = System.Drawing.Color.Black
-        Me.lblFolio.Location = New System.Drawing.Point(125, 40)
-        Me.lblFolio.Name = "lblFolio"
-        Me.lblFolio.Size = New System.Drawing.Size(53, 20)
-        Me.lblFolio.TabIndex = 9
-        Me.lblFolio.Text = "Folio:"
-        '
-        'lblProveedor
-        '
-        Me.lblProveedor.AutoSize = True
-        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProveedor.Location = New System.Drawing.Point(125, 9)
-        Me.lblProveedor.Name = "lblProveedor"
-        Me.lblProveedor.Size = New System.Drawing.Size(95, 20)
-        Me.lblProveedor.TabIndex = 8
-        Me.lblProveedor.Text = "Proveedor:"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column11, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column10, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Column13})
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 383)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(985, 215)
-        Me.DataGridView1.TabIndex = 10
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 360)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(257, 20)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "PRODUCTOS SIN ENTREGAR"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 106)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(247, 20)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "PRODUCTOS ENTREGADOS"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.lblProveedor)
-        Me.Panel1.Controls.Add(Me.lblFolio)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(985, 73)
-        Me.Panel1.TabIndex = 13
-        '
         'Column4
         '
         Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -176,7 +90,7 @@ Partial Class frmDetalleEntregado
         Me.Column4.HeaderText = "Folio Cliente"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        Me.Column4.Width = 89
+        Me.Column4.Width = 82
         '
         'Column1
         '
@@ -243,6 +157,63 @@ Partial Class frmDetalleEntregado
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
         Me.Column6.Width = 88
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(3, 40)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(115, 20)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Num. Pedido:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(95, 20)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Proveedor:"
+        '
+        'lblFolio
+        '
+        Me.lblFolio.AutoSize = True
+        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFolio.ForeColor = System.Drawing.Color.Black
+        Me.lblFolio.Location = New System.Drawing.Point(125, 40)
+        Me.lblFolio.Name = "lblFolio"
+        Me.lblFolio.Size = New System.Drawing.Size(53, 20)
+        Me.lblFolio.TabIndex = 9
+        Me.lblFolio.Text = "Folio:"
+        '
+        'lblProveedor
+        '
+        Me.lblProveedor.AutoSize = True
+        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProveedor.Location = New System.Drawing.Point(125, 9)
+        Me.lblProveedor.Name = "lblProveedor"
+        Me.lblProveedor.Size = New System.Drawing.Size(95, 20)
+        Me.lblProveedor.TabIndex = 8
+        Me.lblProveedor.Text = "Proveedor:"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column11, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column10, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.Column13})
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 383)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.Size = New System.Drawing.Size(985, 215)
+        Me.DataGridView1.TabIndex = 10
         '
         'Column11
         '
@@ -320,12 +291,86 @@ Partial Class frmDetalleEntregado
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 360)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(257, 20)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "PRODUCTOS SIN ENTREGAR"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(12, 106)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(247, 20)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "PRODUCTOS ENTREGADOS"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblProveedor)
+        Me.Panel1.Controls.Add(Me.lblFolio)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(985, 73)
+        Me.Panel1.TabIndex = 13
+        '
+        'boxcantidad
+        '
+        Me.boxcantidad.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.boxcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.boxcantidad.Controls.Add(Me.txtnombre)
+        Me.boxcantidad.Controls.Add(Me.txtcodigo)
+        Me.boxcantidad.Controls.Add(Me.txtcantidad)
+        Me.boxcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.boxcantidad.Location = New System.Drawing.Point(410, 221)
+        Me.boxcantidad.Name = "boxcantidad"
+        Me.boxcantidad.Size = New System.Drawing.Size(116, 57)
+        Me.boxcantidad.TabIndex = 36
+        Me.boxcantidad.TabStop = False
+        Me.boxcantidad.Text = "CANTIDAD"
+        Me.boxcantidad.Visible = False
+        '
+        'txtnombre
+        '
+        Me.txtnombre.Location = New System.Drawing.Point(8, 83)
+        Me.txtnombre.Name = "txtnombre"
+        Me.txtnombre.Size = New System.Drawing.Size(100, 23)
+        Me.txtnombre.TabIndex = 2
+        '
+        'txtcodigo
+        '
+        Me.txtcodigo.Location = New System.Drawing.Point(8, 57)
+        Me.txtcodigo.Name = "txtcodigo"
+        Me.txtcodigo.Size = New System.Drawing.Size(100, 23)
+        Me.txtcodigo.TabIndex = 1
+        '
+        'txtcantidad
+        '
+        Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcantidad.Location = New System.Drawing.Point(8, 20)
+        Me.txtcantidad.Name = "txtcantidad"
+        Me.txtcantidad.Size = New System.Drawing.Size(100, 29)
+        Me.txtcantidad.TabIndex = 0
+        Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'frmDetalleEntregado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(985, 598)
+        Me.Controls.Add(Me.boxcantidad)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
@@ -339,6 +384,8 @@ Partial Class frmDetalleEntregado
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.boxcantidad.ResumeLayout(False)
+        Me.boxcantidad.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -373,4 +420,8 @@ Partial Class frmDetalleEntregado
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents boxcantidad As GroupBox
+    Friend WithEvents txtnombre As TextBox
+    Friend WithEvents txtcodigo As TextBox
+    Friend WithEvents txtcantidad As TextBox
 End Class
