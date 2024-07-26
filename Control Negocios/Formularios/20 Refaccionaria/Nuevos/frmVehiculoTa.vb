@@ -142,7 +142,7 @@
             dire(0) = cbomarca.Text       'Calle
             dire(1) = cbomodelo.Text  'Numero Int
             dire(2) = cboA.Text  'Numero Ext
-            'CP
+            dire(3) = txtPlacas.Text
 
             'Calle
             If Trim(dire(0)) <> "" Then
@@ -155,6 +155,9 @@
             'Numero Ext
             If Trim(dire(2)) <> "" Then
                 direccion = direccion & dire(2) & " "
+            End If
+            If Trim(dire(3)) <> "" Then
+                direccion = direccion & dire(3) & " "
             End If
 
 
@@ -171,7 +174,7 @@
             Else
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO vehiculo(Placa,Descripcion,Marca,Submarca,Modelo,Ano,Cliente,StatusT,Observaciones) VALUES('" & txtPlacas.Text & "','" & txtPlacas.Text & "','" & cbomarca.Text & "','" & txtSubmarca.Text & "','" & cbomodelo.Text & "'," & cboA.Text & ",'" & cboCliente.Text & "',1,'" & observaciones & "')"
+                cmd2.CommandText = "INSERT INTO vehiculo(Placa,Descripcion,Marca,Submarca,Modelo,Ano,Cliente,StatusT,Observaciones) VALUES('" & txtPlacas.Text & "','" & direccion & "','" & cbomarca.Text & "','" & txtSubmarca.Text & "','" & cbomodelo.Text & "'," & cboA.Text & ",'" & cboCliente.Text & "',1,'" & observaciones & "')"
                 If cmd2.ExecuteNonQuery() Then
                     MsgBox("Vehiculo agregado correctamente", vbInformation + vbOKOnly, titulocentral)
                 End If
