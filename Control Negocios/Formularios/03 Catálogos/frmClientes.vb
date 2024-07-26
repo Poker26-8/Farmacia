@@ -47,7 +47,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
+                        "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia,NumCliente  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -72,6 +72,7 @@ Public Class frmClientes
                             txtPais.Text = rd1("Pais").ToString
                             txtClaveRegFis.Text = rd1("RegFis").ToString
                             txtreferencia.Text = rd1("Referencia").ToString
+                            txtNumCliente.Text = rd1("NumCliente").ToString
                         End If
                     End If
                     rd1.Close() : cnn1.Close()
@@ -91,7 +92,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
+                 "select Id,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia,NumCliente  from Clientes where Nombre='" & Trim(Replace(cboNombre.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -116,6 +117,7 @@ Public Class frmClientes
                     txtPais.Text = rd1("Pais").ToString
                     txtClaveRegFis.Text = rd1("RegFis").ToString
                     txtreferencia.Text = rd1("Referencia").ToString
+                    txtNumCliente.Text = rd1("NumCliente").ToString
                 End If
             End If
             rd1.Close() : cnn1.Close()
@@ -160,7 +162,7 @@ Public Class frmClientes
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
+                        "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia,NumCliente  from Clientes where RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -185,6 +187,7 @@ Public Class frmClientes
                             txtPais.Text = rd1("Pais").ToString
                             txtClaveRegFis.Text = rd1("RegFis").ToString
                             txtreferencia.Text = rd1("Referencia").ToString
+                            txtNumCliente.Text = rd1("NumCliente").ToString
                         End If
                     End If
                     rd1.Close() : cnn1.Close()
@@ -204,7 +207,7 @@ Public Class frmClientes
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                 "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia from Clientes where RazonSocial='" &
+                 "select Id,Nombre,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,NInterior,NExterior,Colonia,CP,Delegacion,Entidad,Pais,RegFis,Referencia,NumCliente from Clientes where RazonSocial='" &
                  Trim(Replace(cboRazon.Text, "'", "''")) & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -230,6 +233,7 @@ Public Class frmClientes
                     txtPais.Text = rd1("Pais").ToString
                     txtClaveRegFis.Text = rd1("RegFis").ToString
                     txtreferencia.Text = rd1("Referencia").ToString
+                    txtNumCliente.Text = rd1("NumCliente").ToString
                 End If
             End If
             rd1.Close() : cnn1.Close()
@@ -363,7 +367,7 @@ Public Class frmClientes
                 If rd1.HasRows Then
                     If rd1.Read Then
                         'Actualiza
-                        sql = "update Clientes set Tipo='" & cboTipo.Text & "', RFC='" & cboRFC.Text & "', Telefono='" & txtTelefono.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & CDbl(txtCredito.Text) & ", DiasCred=" & txtDias.Text & ", Comisionista='" & cboVendedor.Text & "', Suspender=" & IIf(chkSusp.Checked, 1, 0) & ", Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Pais='" & txtPais.Text & "', RegFis='" & txtClaveRegFis.Text & "', NInterior='" & txtninterior.Text & "', NExterior='" & txtnexterior.Text & "',RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "',Referencia='" & txtreferencia.Text & "' where Id=" & txtId.Text
+                        sql = "update Clientes set Tipo='" & cboTipo.Text & "', RFC='" & cboRFC.Text & "', Telefono='" & txtTelefono.Text & "', Correo='" & txtCorreo.Text & "', Credito=" & CDbl(txtCredito.Text) & ", DiasCred=" & txtDias.Text & ", Comisionista='" & cboVendedor.Text & "', Suspender=" & IIf(chkSusp.Checked, 1, 0) & ", Calle='" & txtCalle.Text & "', Colonia='" & txtColonia.Text & "', CP='" & txtCP.Text & "', Delegacion='" & txtDelegacion.Text & "', Entidad='" & txtEntidad.Text & "', Pais='" & txtPais.Text & "', RegFis='" & txtClaveRegFis.Text & "', NInterior='" & txtninterior.Text & "', NExterior='" & txtnexterior.Text & "',RazonSocial='" & Trim(Replace(cboRazon.Text, "'", "''")) & "',Referencia='" & txtreferencia.Text & "',NumCliente='" & txtNumCliente.Text & "' where Id=" & txtId.Text
                     End If
                 End If
                 rd1.Close()
@@ -390,7 +394,7 @@ Public Class frmClientes
                     cboNombre.Focus.Equals(True)
                     Exit Sub
                 Else
-                    sql = "insert into Clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,Referencia) values('" & Trim(Replace(cboNombre.Text, "'", "''")) & "','" & Trim(Replace(cboRazon.Text, "'", "''")) & "','" & cboTipo.Text & "','" & cboRFC.Text & "','" & txtTelefono.Text & "','" & txtCorreo.Text & "'," & CDbl(txtCredito.Text) & "," & txtDias.Text & ",'" & cboVendedor.Text & "'," & IIf(chkSusp.Checked, 1, 0) & ",'" & txtCalle.Text & "','" & txtColonia.Text & "','" & txtCP.Text & "','" & txtDelegacion.Text & "','" & txtEntidad.Text & "','" & txtPais.Text & "','" & txtClaveRegFis.Text & "','" & txtninterior.Text & "','" & txtnexterior.Text & "','" & txtreferencia.Text & "')"
+                    sql = "insert into Clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,Referencia,NumCliente) values('" & Trim(Replace(cboNombre.Text, "'", "''")) & "','" & Trim(Replace(cboRazon.Text, "'", "''")) & "','" & cboTipo.Text & "','" & cboRFC.Text & "','" & txtTelefono.Text & "','" & txtCorreo.Text & "'," & CDbl(txtCredito.Text) & "," & txtDias.Text & ",'" & cboVendedor.Text & "'," & IIf(chkSusp.Checked, 1, 0) & ",'" & txtCalle.Text & "','" & txtColonia.Text & "','" & txtCP.Text & "','" & txtDelegacion.Text & "','" & txtEntidad.Text & "','" & txtPais.Text & "','" & txtClaveRegFis.Text & "','" & txtninterior.Text & "','" & txtnexterior.Text & "','" & txtreferencia.Text & "','" & txtNumCliente.Text & "')"
                 End If
                 rd1.Close()
 
@@ -436,6 +440,7 @@ Public Class frmClientes
         cboregimen.Items.Clear()
         txtClaveRegFis.Text = ""
         txtreferencia.Text = ""
+        txtNumCliente.Text = ""
         Info.Text = "> Más información"
         Me.Size = New Size(894, 299)
     End Sub

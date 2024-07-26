@@ -80,6 +80,8 @@ Partial Class frmClientes
         Me.btnMsj = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.txtreferencia = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtNumCliente = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -216,7 +218,7 @@ Partial Class frmClientes
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(8, 96)
+        Me.Label7.Location = New System.Drawing.Point(223, 97)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(58, 15)
         Me.Label7.TabIndex = 27
@@ -227,7 +229,7 @@ Partial Class frmClientes
         Me.txtDias.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDias.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDias.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDias.Location = New System.Drawing.Point(76, 92)
+        Me.txtDias.Location = New System.Drawing.Point(291, 93)
         Me.txtDias.Name = "txtDias"
         Me.txtDias.Size = New System.Drawing.Size(91, 23)
         Me.txtDias.TabIndex = 26
@@ -367,7 +369,6 @@ Partial Class frmClientes
         '
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.txtnexterior)
-        Me.GroupBox1.Controls.Add(Me.barsube)
         Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.txtninterior)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -409,7 +410,7 @@ Partial Class frmClientes
         '
         'barsube
         '
-        Me.barsube.Location = New System.Drawing.Point(306, -6)
+        Me.barsube.Location = New System.Drawing.Point(247, 224)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(66, 14)
         Me.barsube.TabIndex = 221
@@ -560,11 +561,12 @@ Partial Class frmClientes
         'Label17
         '
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(8, 148)
+        Me.Label17.Location = New System.Drawing.Point(8, 144)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(89, 19)
+        Me.Label17.Size = New System.Drawing.Size(89, 23)
         Me.Label17.TabIndex = 42
         Me.Label17.Text = "Regimen Fiscal:"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cboregimen
         '
@@ -682,16 +684,39 @@ Partial Class frmClientes
         Me.txtreferencia.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtreferencia.Location = New System.Drawing.Point(606, 118)
         Me.txtreferencia.Name = "txtreferencia"
-        Me.txtreferencia.Size = New System.Drawing.Size(267, 23)
+        Me.txtreferencia.Size = New System.Drawing.Size(265, 23)
         Me.txtreferencia.TabIndex = 224
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(1, 96)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(77, 15)
+        Me.Label22.TabIndex = 226
+        Me.Label22.Text = "Num Cliente:"
+        '
+        'txtNumCliente
+        '
+        Me.txtNumCliente.BackColor = System.Drawing.Color.White
+        Me.txtNumCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtNumCliente.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNumCliente.Location = New System.Drawing.Point(76, 93)
+        Me.txtNumCliente.Name = "txtNumCliente"
+        Me.txtNumCliente.Size = New System.Drawing.Size(141, 23)
+        Me.txtNumCliente.TabIndex = 227
         '
         'frmClientes
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(878, 260)
+        Me.ClientSize = New System.Drawing.Size(878, 251)
+        Me.Controls.Add(Me.txtNumCliente)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.txtreferencia)
+        Me.Controls.Add(Me.barsube)
         Me.Controls.Add(Me.btnMsj)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridView1)
@@ -798,4 +823,6 @@ Partial Class frmClientes
     Friend WithEvents btnMsj As Button
     Friend WithEvents Label21 As Label
     Friend WithEvents txtreferencia As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtNumCliente As TextBox
 End Class
