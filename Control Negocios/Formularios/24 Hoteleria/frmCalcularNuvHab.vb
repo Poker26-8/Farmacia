@@ -104,7 +104,7 @@
 
                             If fechEntrada > fechSalida Then
                                 MsgBox("se acabo el tiempó")
-                                lblPagar.Text = CDbl(precioaumento) - CDbl(lblAnticipo.Text)
+                                lblPagar.Text = CDbl(precioaumento * vardias) - CDbl(lblAnticipo.Text)
                             Else
                                 lblPagar.Text = CDbl(lblPrecio.Text) - CDbl(lblAnticipo.Text)
                             End If

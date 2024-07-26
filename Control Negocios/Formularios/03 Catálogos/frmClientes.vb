@@ -839,7 +839,7 @@ Public Class frmClientes
                 con.Close()
             End If
 
-            Dim nombre, razonsocial, tipo, rfc, telefono, correo, comisionista, calle, colonia, cp, delegacion, entidad, pais, regfis, ninterior, nexterior As String
+            Dim nombre, razonsocial, tipo, rfc, telefono, correo, comisionista, calle, colonia, cp, delegacion, entidad, pais, regfis, ninterior, nexterior, numcliente As String
             Dim credito, diascred As Double
             Dim suspender As Integer = 0
             Dim conteo As Integer = 0
@@ -873,6 +873,7 @@ Public Class frmClientes
                 regfis = NulCad(DataGridView1.Rows(dx).Cells(16).Value.ToString())
                 ninterior = NulCad(DataGridView1.Rows(dx).Cells(17).Value.ToString())
                 nexterior = NulCad(DataGridView1.Rows(dx).Cells(18).Value.ToString())
+                numcliente = NulCad(DataGridView1.Rows(dx).Cells(19).Value.ToString())
 
                 If nombre = "" Then
                     nombre = razonsocial
@@ -888,7 +889,7 @@ Public Class frmClientes
                     If cnn1.State = 0 Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor,RegFis) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "', " & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & ninterior & "','" & nexterior & "',0,0,0,'" & regfis & "')"
+                    cmd1.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor,RegFis,NumCliente) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "', " & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & ninterior & "','" & nexterior & "',0,0,0,'" & regfis & "','" & numcliente & "')"
                     cmd1.ExecuteNonQuery()
                 Else
                     conteo += 1

@@ -1539,4 +1539,24 @@ doorcita:
     Private Sub frmProducirQ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboImprimir.Text = "PDF"
     End Sub
+
+    Private Sub cboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NumCliente FROM clientes WHERE Nombre='" & cboCliente.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtnumcliente.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class
