@@ -338,7 +338,7 @@
 
                                 cmd2 = cnn2.CreateCommand
                                 cmd2.CommandText =
-                                    "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & soymax & "," & id_cliente & ",'" & IIf(cboCliente.Text = "", "PUBLICO EN GENERAL", cboCliente.Text) & "','PEDIDO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & totaliva & ",0," & MySaldo & ",'','PEDIDO-" & cboFolio.Text & "','" & lblUsuario.Text & "',0,'')"
+                                    "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & soymax & "," & id_cliente & ",'" & IIf(cboCliente.Text = "", "PUBLICO EN GENERAL", cboCliente.Text) & "','PEDIDO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "'," & total & ",0," & MySaldo & ",'','PEDIDO-" & cboFolio.Text & "','" & lblUsuario.Text & "',0,'')"
                                 If cmd2.ExecuteNonQuery() Then
                                 Else
                                 End If

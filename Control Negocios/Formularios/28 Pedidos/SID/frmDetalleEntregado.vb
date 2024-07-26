@@ -5,10 +5,16 @@
     Public folio As Integer = 0
     Private Sub frmDetalleEntregado_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmEntregaPedidos.Enabled = True
+        frmEntregaPedidos.recargaDatos()
     End Sub
 
     Private Sub frmDetalleEntregado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargaDatos()
+    End Sub
+    Public Sub cargaDatos()
         Try
+            grdCaptura.Rows.Clear()
+            DataGridView1.Rows.Clear()
             lblFolio.Text = frmEntregaPedidos.cboFolio.Text
             If lblFolio.Text = "" Then
                 cnn1.Close()
@@ -76,6 +82,10 @@
 
 
         If celda.ColumnIndex = 5 Then
+            If grdCaptura.CurrentRow.Cells(5).Value.ToString = "0" Or grdCaptura.CurrentRow.Cells(5).Value.ToString = "0.00" Then
+                MsgBox("Ya se entrego completamente el producto seleccionado", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                Exit Sub
+            End If
 
             boxcantidad.Visible = True
             txtcantidad.Focus().Equals(True)
@@ -93,21 +103,34 @@
 
     Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
+            If MsgBox("¿Deseas actualizar la cantidad de productos en el pedido seleccionado?", vbQuestion + vbOKCancel) = vbCancel Then
+                cargaDatos()
+                txtcodigo.Text = ""
+                txtcodigo.Tag = ""
+                txtnombre.Text = ""
+                txtnombre.Tag = ""
+                txtcantidad.Text = ""
+                txtcantidad.Tag = ""
+                boxcantidad.Visible = False
+                Exit Sub
+            End If
             Try
                 If txtcantidad.Text = "" Or txtcantidad.Text = "0" Then
                     Exit Sub
                 End If
                 Mytotal = txtcantidad.Text * MyPrecio
                 Dim MySaldo As Double = 0
+                Dim ultimoid As Integer = 0
                 cnn2.Close()
                 cnn2.Open()
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                                    "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cliente & "')"
+                                    "select Saldo,Id from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & cliente & "')"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
                         MySaldo = CDbl(IIf(rd2(0).ToString = "", 0, rd2(0).ToString))
+                        ultimoid = rd2(1).ToString
                     End If
                 Else
                     MySaldo = Mytotal
@@ -117,28 +140,56 @@
 
                 Dim newcantidad As Double = txtcantidad.Text
                 Dim oldcantidad As Double = txtcantidad.Tag
-
+                Dim deferenciaxd As Double = CDec(newcantidad - oldcantidad)
+                If deferenciaxd < 0 Then
+                    deferenciaxd = Math.Abs(deferenciaxd)
+                End If
+                Dim totaldiferencia As Double = CDec(deferenciaxd * MyPrecio)
 
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If newcantidad > oldcantidad Then
-                    cmd1.CommandText = "Update Pedidosven set Subtotal=Subotal+" & Mytotal & ", Totales=Totales+" & Mytotal & ", Resta=Resta+" & Mytotal & " where Folio=" & folio & ""
+                    cmd1.CommandText = "Update Pedidosven set Subtotal=" & Mytotal & ", Totales=" & Mytotal & ", Resta=" & Mytotal & " where Folio=" & folio & ""
                 ElseIf newcantidad < oldcantidad Then
-                    cmd1.CommandText = "Update Pedidosven set Subtotal=Subotal-" & Mytotal & ", Totales=Totales-" & Mytotal & ", Resta=Resta-" & Mytotal & " where Folio=" & folio & ""
+                    cmd1.CommandText = "Update Pedidosven set Subtotal=" & Mytotal & ", Totales=" & Mytotal & ", Resta=" & Mytotal & " where Folio=" & folio & ""
                 End If
                 If cmd1.ExecuteNonQuery Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText = "Update Pedidosvendet set Cantidad=" & newcantidad & ", Precio=" & MyPrecio & ", Total=" & Mytotal & ", PrecioSIVA=" & MyPrecio & ", TotalSIVA=" & Mytotal & " where Folio=" & folio & ""
                     If cmd1.ExecuteNonQuery Then
-
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "Update Abonoi set Cargo=" & Mytotal & ",Saldo=" & Mytotal & " where NumFolio=" & folio & ""
+                        If cmd1.ExecuteNonQuery Then
+                            cmd1 = cnn1.CreateCommand
+                            If newcantidad > oldcantidad Then
+                                cmd1.CommandText = "Update Abonoi set Saldo=Saldo+" & totaldiferencia & " where Id=" & ultimoid & ""
+                            ElseIf newcantidad < oldcantidad Then
+                                cmd1.CommandText = "Update Abonoi set Saldo=Saldo-" & totaldiferencia & " where Id=" & ultimoid & ""
+                            End If
+                            If cmd1.ExecuteNonQuery Then
+                                cmd1 = cnn1.CreateCommand
+                                cmd1.CommandText = "Update pedidosdet set CantidadE=" & newcantidad & " where NumPed='" & lblFolio.Text & "' and Nombre='" & txtnombre.Text & "' and Codigo='" & txtcodigo.Text & "'"
+                                If cmd1.ExecuteNonQuery Then
+                                    MsgBox("Entretga Actualizada Correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                                    cargaDatos()
+                                    txtcodigo.Text = ""
+                                    txtcodigo.Tag = ""
+                                    txtnombre.Text = ""
+                                    txtnombre.Tag = ""
+                                    txtcantidad.Text = ""
+                                    txtcantidad.Tag = ""
+                                    boxcantidad.Visible = False
+                                Else
+                                End If
+                            Else
+                            End If
+                        Else
+                        End If
                     Else
-
                     End If
                 Else
-                    s
                 End If
-
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
             End Try
