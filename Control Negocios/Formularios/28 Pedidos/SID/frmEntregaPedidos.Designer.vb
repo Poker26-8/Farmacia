@@ -22,22 +22,20 @@ Partial Class frmEntregaPedidos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEntregaPedidos))
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.boxcantidad = New System.Windows.Forms.GroupBox()
+        Me.txtnombre = New System.Windows.Forms.TextBox()
+        Me.txtcodigo = New System.Windows.Forms.TextBox()
+        Me.txtcantidad = New System.Windows.Forms.TextBox()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btnPedido = New System.Windows.Forms.Button()
+        Me.grdPedido = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboProveedor = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -47,6 +45,8 @@ Partial Class frmEntregaPedidos
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dtpAsignacion = New System.Windows.Forms.DateTimePicker()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lblFol = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtdireccion = New System.Windows.Forms.RichTextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
@@ -54,28 +54,34 @@ Partial Class frmEntregaPedidos
         Me.dtpinicio = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.grdPedido = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.txtSubtotal = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnPedido = New System.Windows.Forms.Button()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.boxcantidad = New System.Windows.Forms.GroupBox()
-        Me.txtnombre = New System.Windows.Forms.TextBox()
-        Me.txtcodigo = New System.Windows.Forms.TextBox()
-        Me.txtcantidad = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtSubtotal = New System.Windows.Forms.TextBox()
-        Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.Panel3.SuspendLayout()
+        Me.boxcantidad.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
+        CType(Me.grdPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        CType(Me.grdPedido, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.boxcantidad.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -97,13 +103,52 @@ Partial Class frmEntregaPedidos
         Me.Panel3.Size = New System.Drawing.Size(794, 191)
         Me.Panel3.TabIndex = 3
         '
+        'boxcantidad
+        '
+        Me.boxcantidad.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.boxcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.boxcantidad.Controls.Add(Me.txtnombre)
+        Me.boxcantidad.Controls.Add(Me.txtcodigo)
+        Me.boxcantidad.Controls.Add(Me.txtcantidad)
+        Me.boxcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.boxcantidad.Location = New System.Drawing.Point(382, 69)
+        Me.boxcantidad.Name = "boxcantidad"
+        Me.boxcantidad.Size = New System.Drawing.Size(116, 57)
+        Me.boxcantidad.TabIndex = 35
+        Me.boxcantidad.TabStop = False
+        Me.boxcantidad.Text = "CANTIDAD"
+        Me.boxcantidad.Visible = False
+        '
+        'txtnombre
+        '
+        Me.txtnombre.Location = New System.Drawing.Point(8, 83)
+        Me.txtnombre.Name = "txtnombre"
+        Me.txtnombre.Size = New System.Drawing.Size(100, 23)
+        Me.txtnombre.TabIndex = 2
+        '
+        'txtcodigo
+        '
+        Me.txtcodigo.Location = New System.Drawing.Point(8, 57)
+        Me.txtcodigo.Name = "txtcodigo"
+        Me.txtcodigo.Size = New System.Drawing.Size(100, 23)
+        Me.txtcodigo.TabIndex = 1
+        '
+        'txtcantidad
+        '
+        Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcantidad.Location = New System.Drawing.Point(8, 20)
+        Me.txtcantidad.Name = "txtcantidad"
+        Me.txtcantidad.Size = New System.Drawing.Size(100, 29)
+        Me.txtcantidad.TabIndex = 0
+        Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'grdCaptura
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column5, Me.Column4, Me.Column6})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column8, Me.Column5, Me.Column7, Me.Column4, Me.Column6})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -111,57 +156,6 @@ Partial Class frmEntregaPedidos
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(794, 191)
         Me.grdCaptura.TabIndex = 0
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 65
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Nombre"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Unidad"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 66
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Cantidad"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 74
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle9
-        Me.Column4.HeaderText = "Precio"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 62
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle10
-        Me.Column6.HeaderText = "Importe"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 67
         '
         'Panel4
         '
@@ -172,19 +166,20 @@ Partial Class frmEntregaPedidos
         Me.Panel4.Size = New System.Drawing.Size(794, 165)
         Me.Panel4.TabIndex = 4
         '
-        'btnPedido
+        'grdPedido
         '
-        Me.btnPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPedido.Image = CType(resources.GetObject("btnPedido.Image"), System.Drawing.Image)
-        Me.btnPedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPedido.Location = New System.Drawing.Point(6, 6)
-        Me.btnPedido.Name = "btnPedido"
-        Me.btnPedido.Size = New System.Drawing.Size(75, 83)
-        Me.btnPedido.TabIndex = 7
-        Me.btnPedido.Text = "Realizar Pedido"
-        Me.btnPedido.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPedido.UseVisualStyleBackColor = True
+        Me.grdPedido.AllowUserToAddRows = False
+        Me.grdPedido.AllowUserToDeleteRows = False
+        Me.grdPedido.BackgroundColor = System.Drawing.Color.White
+        Me.grdPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdPedido.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.grdPedido.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdPedido.Location = New System.Drawing.Point(0, 0)
+        Me.grdPedido.Name = "grdPedido"
+        Me.grdPedido.ReadOnly = True
+        Me.grdPedido.RowHeadersVisible = False
+        Me.grdPedido.Size = New System.Drawing.Size(794, 165)
+        Me.grdPedido.TabIndex = 1
         '
         'Label1
         '
@@ -264,6 +259,8 @@ Partial Class frmEntregaPedidos
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.lblFol)
+        Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.txtdireccion)
         Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(Me.lblUsuario)
@@ -284,11 +281,30 @@ Partial Class frmEntregaPedidos
         Me.Panel2.Size = New System.Drawing.Size(902, 130)
         Me.Panel2.TabIndex = 2
         '
+        'lblFol
+        '
+        Me.lblFol.AutoSize = True
+        Me.lblFol.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFol.Location = New System.Drawing.Point(842, 28)
+        Me.lblFol.Name = "lblFol"
+        Me.lblFol.Size = New System.Drawing.Size(0, 20)
+        Me.lblFol.TabIndex = 216
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(749, 8)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(153, 20)
+        Me.Label8.TabIndex = 215
+        Me.Label8.Text = "Folio Pedido Cliente:"
+        '
         'txtdireccion
         '
         Me.txtdireccion.Location = New System.Drawing.Point(382, 34)
         Me.txtdireccion.Name = "txtdireccion"
-        Me.txtdireccion.Size = New System.Drawing.Size(352, 58)
+        Me.txtdireccion.Size = New System.Drawing.Size(352, 77)
         Me.txtdireccion.TabIndex = 214
         Me.txtdireccion.Text = ""
         '
@@ -308,7 +324,7 @@ Partial Class frmEntregaPedidos
         Me.lblUsuario.BackColor = System.Drawing.Color.Navy
         Me.lblUsuario.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.ForeColor = System.Drawing.Color.White
-        Me.lblUsuario.Location = New System.Drawing.Point(790, 5)
+        Me.lblUsuario.Location = New System.Drawing.Point(790, 58)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(104, 25)
         Me.lblUsuario.TabIndex = 212
@@ -320,7 +336,7 @@ Partial Class frmEntregaPedidos
         Me.txtcontraseña.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtcontraseña.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcontraseña.ForeColor = System.Drawing.Color.Gray
-        Me.txtcontraseña.Location = New System.Drawing.Point(790, 33)
+        Me.txtcontraseña.Location = New System.Drawing.Point(790, 86)
         Me.txtcontraseña.Name = "txtcontraseña"
         Me.txtcontraseña.Size = New System.Drawing.Size(104, 25)
         Me.txtcontraseña.TabIndex = 211
@@ -349,6 +365,8 @@ Partial Class frmEntregaPedidos
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.Button2)
+        Me.Panel5.Controls.Add(Me.Button1)
         Me.Panel5.Controls.Add(Me.txtTotal)
         Me.Panel5.Controls.Add(Me.txtSubtotal)
         Me.Panel5.Controls.Add(Me.Label7)
@@ -360,19 +378,150 @@ Partial Class frmEntregaPedidos
         Me.Panel5.Size = New System.Drawing.Size(108, 356)
         Me.Panel5.TabIndex = 5
         '
-        'grdPedido
+        'Button2
         '
-        Me.grdPedido.AllowUserToAddRows = False
-        Me.grdPedido.AllowUserToDeleteRows = False
-        Me.grdPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdPedido.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
-        Me.grdPedido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdPedido.Location = New System.Drawing.Point(0, 0)
-        Me.grdPedido.Name = "grdPedido"
-        Me.grdPedido.ReadOnly = True
-        Me.grdPedido.RowHeadersVisible = False
-        Me.grdPedido.Size = New System.Drawing.Size(794, 165)
-        Me.grdPedido.TabIndex = 1
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(20, 167)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(76, 89)
+        Me.Button2.TabIndex = 224
+        Me.Button2.Text = "Mostrar Detalle"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(20, 95)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(76, 66)
+        Me.Button1.TabIndex = 223
+        Me.Button1.Text = "Limpiar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtTotal
+        '
+        Me.txtTotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.Location = New System.Drawing.Point(5, 329)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(100, 23)
+        Me.txtTotal.TabIndex = 222
+        Me.txtTotal.Text = "0.00"
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtSubtotal
+        '
+        Me.txtSubtotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubtotal.Location = New System.Drawing.Point(5, 281)
+        Me.txtSubtotal.Name = "txtSubtotal"
+        Me.txtSubtotal.Size = New System.Drawing.Size(100, 23)
+        Me.txtSubtotal.TabIndex = 221
+        Me.txtSubtotal.Text = "0.00"
+        Me.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label7.Location = New System.Drawing.Point(6, 307)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(42, 19)
+        Me.Label7.TabIndex = 215
+        Me.Label7.Text = "Total"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Location = New System.Drawing.Point(6, 259)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(65, 19)
+        Me.Label4.TabIndex = 214
+        Me.Label4.Text = "Subtotal"
+        '
+        'btnPedido
+        '
+        Me.btnPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPedido.Image = CType(resources.GetObject("btnPedido.Image"), System.Drawing.Image)
+        Me.btnPedido.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPedido.Location = New System.Drawing.Point(20, 6)
+        Me.btnPedido.Name = "btnPedido"
+        Me.btnPedido.Size = New System.Drawing.Size(76, 83)
+        Me.btnPedido.TabIndex = 7
+        Me.btnPedido.Text = "Realizar Pedido"
+        Me.btnPedido.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPedido.UseVisualStyleBackColor = True
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 65
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column2.HeaderText = "Nombre"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Unidad"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 66
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Cantidad Comprada"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Falta X Entregar"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 99
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Cantidad Entregada"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Column4.HeaderText = "Precio Compra"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 93
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Column6.HeaderText = "Total Compra"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 88
         '
         'DataGridViewTextBoxColumn1
         '
@@ -408,101 +557,22 @@ Partial Class frmEntregaPedidos
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Precio Venta"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 62
+        Me.DataGridViewTextBoxColumn5.Width = 93
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Importe"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Total Venta"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 67
-        '
-        'boxcantidad
-        '
-        Me.boxcantidad.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.boxcantidad.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.boxcantidad.Controls.Add(Me.txtnombre)
-        Me.boxcantidad.Controls.Add(Me.txtcodigo)
-        Me.boxcantidad.Controls.Add(Me.txtcantidad)
-        Me.boxcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.boxcantidad.Location = New System.Drawing.Point(326, 70)
-        Me.boxcantidad.Name = "boxcantidad"
-        Me.boxcantidad.Size = New System.Drawing.Size(116, 57)
-        Me.boxcantidad.TabIndex = 35
-        Me.boxcantidad.TabStop = False
-        Me.boxcantidad.Text = "CANTIDAD"
-        Me.boxcantidad.Visible = False
-        '
-        'txtnombre
-        '
-        Me.txtnombre.Location = New System.Drawing.Point(8, 83)
-        Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(100, 23)
-        Me.txtnombre.TabIndex = 2
-        '
-        'txtcodigo
-        '
-        Me.txtcodigo.Location = New System.Drawing.Point(8, 57)
-        Me.txtcodigo.Name = "txtcodigo"
-        Me.txtcodigo.Size = New System.Drawing.Size(100, 23)
-        Me.txtcodigo.TabIndex = 1
-        '
-        'txtcantidad
-        '
-        Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(8, 20)
-        Me.txtcantidad.Name = "txtcantidad"
-        Me.txtcantidad.Size = New System.Drawing.Size(100, 29)
-        Me.txtcantidad.TabIndex = 0
-        Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.Location = New System.Drawing.Point(6, 157)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 19)
-        Me.Label4.TabIndex = 214
-        Me.Label4.Text = "Subtotal"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.Location = New System.Drawing.Point(6, 205)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 19)
-        Me.Label7.TabIndex = 215
-        Me.Label7.Text = "Total"
-        '
-        'txtSubtotal
-        '
-        Me.txtSubtotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubtotal.Location = New System.Drawing.Point(5, 179)
-        Me.txtSubtotal.Name = "txtSubtotal"
-        Me.txtSubtotal.Size = New System.Drawing.Size(100, 23)
-        Me.txtSubtotal.TabIndex = 221
-        Me.txtSubtotal.Text = "0.00"
-        Me.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtTotal
-        '
-        Me.txtTotal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(5, 227)
-        Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(100, 23)
-        Me.txtTotal.TabIndex = 222
-        Me.txtTotal.Text = "0.00"
-        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.DataGridViewTextBoxColumn6.Width = 87
         '
         'frmEntregaPedidos
         '
@@ -520,15 +590,15 @@ Partial Class frmEntregaPedidos
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Entregar Pedidos"
         Me.Panel3.ResumeLayout(False)
+        Me.boxcantidad.ResumeLayout(False)
+        Me.boxcantidad.PerformLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
+        CType(Me.grdPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.grdPedido, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.boxcantidad.ResumeLayout(False)
-        Me.boxcantidad.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -549,24 +619,12 @@ Partial Class frmEntregaPedidos
     Friend WithEvents Panel2 As Panel
     Friend WithEvents dtpinicio As DateTimePicker
     Friend WithEvents Label6 As Label
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents txtcontraseña As TextBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents lblUsuario As Label
     Friend WithEvents txtdireccion As RichTextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents grdPedido As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents boxcantidad As GroupBox
     Friend WithEvents txtnombre As TextBox
     Friend WithEvents txtcodigo As TextBox
@@ -575,4 +633,22 @@ Partial Class frmEntregaPedidos
     Friend WithEvents Label7 As Label
     Friend WithEvents txtTotal As TextBox
     Friend WithEvents txtSubtotal As TextBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents lblFol As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
 End Class

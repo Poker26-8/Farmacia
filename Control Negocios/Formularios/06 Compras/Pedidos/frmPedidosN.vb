@@ -167,10 +167,11 @@ Public Class frmPedidosN
             Dim unidad As String = ""
             Dim precio As Double = 0
             Dim importe As Double = 0
+            Dim iva As Double = 0
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,UCompra,PrecioCompra FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
+            cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,UCompra,PrecioCompra,IVA FROM productos WHERE Codigo='" & txtcodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -178,6 +179,7 @@ Public Class frmPedidosN
                     barras = rd1("CodBarra").ToString
                     descripcion = rd1("Nombre").ToString
                     unidad = rd1("UCompra").ToString
+                    iva = rd1("IVA").ToString
 
                     If (chk_mPrecio.Checked) Then
 
@@ -196,11 +198,17 @@ Public Class frmPedidosN
                         precio = rd1("PrecioCompra").ToString
                     End If
 
-                    importe = CDec(txtcantidad.Text) * CDec(precio)
+
                 End If
             End If
             rd1.Close()
             cnn1.Close()
+            If iva = 0 Then
+                precio = precio
+            Else
+                precio = precio * CDec(1.16)
+            End If
+            importe = CDec(txtcantidad.Text) * CDec(precio)
 
             grdCaptura.Rows.Add(cod,
                                 barras,
