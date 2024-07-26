@@ -25,6 +25,13 @@ Partial Class frmDetalleH
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleH))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cboPrecio = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtHoras = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.cboTipo = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblHoras = New System.Windows.Forms.Label()
         Me.lblPrecio = New System.Windows.Forms.Label()
@@ -64,6 +71,7 @@ Partial Class frmDetalleH
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pdesocupar.SuspendLayout()
@@ -77,11 +85,12 @@ Partial Class frmDetalleH
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 137)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(850, 242)
+        Me.Panel4.Size = New System.Drawing.Size(850, 147)
         Me.Panel4.TabIndex = 7
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.GroupBox2)
         Me.Panel5.Controls.Add(Me.GroupBox1)
         Me.Panel5.Controls.Add(Me.txttelefono)
         Me.Panel5.Controls.Add(Me.Label10)
@@ -96,8 +105,76 @@ Partial Class frmDetalleH
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(850, 242)
+        Me.Panel5.Size = New System.Drawing.Size(850, 147)
         Me.Panel5.TabIndex = 10
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cboPrecio)
+        Me.GroupBox2.Controls.Add(Me.Label13)
+        Me.GroupBox2.Controls.Add(Me.txtHoras)
+        Me.GroupBox2.Controls.Add(Me.Label12)
+        Me.GroupBox2.Controls.Add(Me.cboTipo)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 55)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(404, 88)
+        Me.GroupBox2.TabIndex = 12
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Precios"
+        '
+        'cboPrecio
+        '
+        Me.cboPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboPrecio.FormattingEnabled = True
+        Me.cboPrecio.Location = New System.Drawing.Point(255, 47)
+        Me.cboPrecio.Name = "cboPrecio"
+        Me.cboPrecio.Size = New System.Drawing.Size(141, 24)
+        Me.cboPrecio.TabIndex = 5
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(252, 26)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(51, 18)
+        Me.Label13.TabIndex = 4
+        Me.Label13.Text = "Precio"
+        '
+        'txtHoras
+        '
+        Me.txtHoras.Location = New System.Drawing.Point(156, 47)
+        Me.txtHoras.Name = "txtHoras"
+        Me.txtHoras.Size = New System.Drawing.Size(92, 24)
+        Me.txtHoras.TabIndex = 3
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(153, 26)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(49, 18)
+        Me.Label12.TabIndex = 2
+        Me.Label12.Text = "Horas"
+        '
+        'cboTipo
+        '
+        Me.cboTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTipo.FormattingEnabled = True
+        Me.cboTipo.Location = New System.Drawing.Point(9, 47)
+        Me.cboTipo.Name = "cboTipo"
+        Me.cboTipo.Size = New System.Drawing.Size(141, 24)
+        Me.cboTipo.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 26)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 18)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Tipo"
         '
         'GroupBox1
         '
@@ -105,19 +182,20 @@ Partial Class frmDetalleH
         Me.GroupBox1.Controls.Add(Me.lblPrecio)
         Me.GroupBox1.Controls.Add(Me.grdPrecios)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 64)
+        Me.GroupBox1.Location = New System.Drawing.Point(678, 66)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(470, 170)
+        Me.GroupBox1.Size = New System.Drawing.Size(160, 44)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Precios de la habitación"
+        Me.GroupBox1.Visible = False
         '
         'lblHoras
         '
         Me.lblHoras.BackColor = System.Drawing.Color.PaleTurquoise
         Me.lblHoras.Location = New System.Drawing.Point(313, 55)
         Me.lblHoras.Name = "lblHoras"
-        Me.lblHoras.Size = New System.Drawing.Size(147, 23)
+        Me.lblHoras.Size = New System.Drawing.Size(93, 23)
         Me.lblHoras.TabIndex = 95
         '
         'lblPrecio
@@ -125,7 +203,7 @@ Partial Class frmDetalleH
         Me.lblPrecio.BackColor = System.Drawing.Color.PaleTurquoise
         Me.lblPrecio.Location = New System.Drawing.Point(313, 19)
         Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(147, 23)
+        Me.lblPrecio.Size = New System.Drawing.Size(93, 23)
         Me.lblPrecio.TabIndex = 94
         '
         'grdPrecios
@@ -472,7 +550,7 @@ Partial Class frmDetalleH
         Me.Panel3.Controls.Add(Me.btnGuardar)
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 379)
+        Me.Panel3.Location = New System.Drawing.Point(0, 284)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(850, 82)
         Me.Panel3.TabIndex = 94
@@ -482,7 +560,7 @@ Partial Class frmDetalleH
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(850, 461)
+        Me.ClientSize = New System.Drawing.Size(850, 366)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -494,6 +572,8 @@ Partial Class frmDetalleH
         Me.Panel4.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.grdPrecios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pdesocupar.ResumeLayout(False)
@@ -543,4 +623,11 @@ Partial Class frmDetalleH
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtHoras As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents cboTipo As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cboPrecio As ComboBox
 End Class

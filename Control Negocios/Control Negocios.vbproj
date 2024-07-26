@@ -885,6 +885,12 @@
     <Compile Include="Formularios\24 Hoteleria\frmCancelarHab.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCatPrecios.Designer.vb">
+      <DependentUpon>frmCatPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\24 Hoteleria\frmCatPrecios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmPrecioH.Designer.vb">
       <DependentUpon>frmPrecioH.vb</DependentUpon>
     </Compile>
@@ -2500,6 +2506,9 @@
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCancelarHab.resx">
       <DependentUpon>frmCancelarHab.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\24 Hoteleria\frmCatPrecios.resx">
+      <DependentUpon>frmCatPrecios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmPrecioH.resx">
       <DependentUpon>frmPrecioH.vb</DependentUpon>
     </EmbeddedResource>
@@ -3264,6 +3273,7 @@
     <None Include="Resources\confirmar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Formularios\20 Refaccionaria\OrdenServicio\" />
     <Folder Include="Resorces\" />
   </ItemGroup>
   <ItemGroup>

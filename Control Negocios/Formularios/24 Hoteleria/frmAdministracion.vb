@@ -257,4 +257,9 @@
         End Try
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmCatPrecios.BringToFront()
+        frmCatPrecios.Show()
+    End Sub
 End Class

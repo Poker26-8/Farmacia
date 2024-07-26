@@ -114,6 +114,7 @@ Public Class frmTallerR
             cnn2.Close()
 
             frmAsignaRefaccion.cbovehiculo.Text = descripcion
+            frmAsignaRefaccion.marcaveh = marca
             frmAsignaRefaccion.idvehiculo = id
             frmAsignaRefaccion.txtCliente.Text = cliente
             frmAsignaRefaccion.placa = var_placa

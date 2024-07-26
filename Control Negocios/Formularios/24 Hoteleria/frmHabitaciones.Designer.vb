@@ -70,15 +70,15 @@ Partial Class frmHabitaciones
         Me.Panel3.Controls.Add(Me.btnGuardar)
         Me.Panel3.Controls.Add(Me.btnSalir)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 153)
+        Me.Panel3.Location = New System.Drawing.Point(0, 124)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(597, 97)
+        Me.Panel3.Size = New System.Drawing.Size(597, 90)
         Me.Panel3.TabIndex = 5
         '
         'barsube
         '
         Me.barsube.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.barsube.Location = New System.Drawing.Point(180, 71)
+        Me.barsube.Location = New System.Drawing.Point(180, 40)
         Me.barsube.Name = "barsube"
         Me.barsube.Size = New System.Drawing.Size(84, 14)
         Me.barsube.TabIndex = 221
@@ -170,7 +170,7 @@ Partial Class frmHabitaciones
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(597, 250)
+        Me.Panel4.Size = New System.Drawing.Size(597, 214)
         Me.Panel4.TabIndex = 4
         '
         'txtHoras
@@ -181,6 +181,7 @@ Partial Class frmHabitaciones
         Me.txtHoras.Size = New System.Drawing.Size(103, 22)
         Me.txtHoras.TabIndex = 233
         Me.txtHoras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtHoras.Visible = False
         '
         'Label8
         '
@@ -191,6 +192,7 @@ Partial Class frmHabitaciones
         Me.Label8.Size = New System.Drawing.Size(59, 18)
         Me.Label8.TabIndex = 232
         Me.Label8.Text = "Horas:"
+        Me.Label8.Visible = False
         '
         'txtPreDia
         '
@@ -201,6 +203,7 @@ Partial Class frmHabitaciones
         Me.txtPreDia.TabIndex = 231
         Me.txtPreDia.Text = "0.00"
         Me.txtPreDia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtPreDia.Visible = False
         '
         'Label7
         '
@@ -211,6 +214,7 @@ Partial Class frmHabitaciones
         Me.Label7.Size = New System.Drawing.Size(116, 18)
         Me.Label7.TabIndex = 230
         Me.Label7.Text = "Precio Noche:"
+        Me.Label7.Visible = False
         '
         'txtPrecioH
         '
@@ -221,6 +225,7 @@ Partial Class frmHabitaciones
         Me.txtPrecioH.TabIndex = 229
         Me.txtPrecioH.Text = "0.00"
         Me.txtPrecioH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtPrecioH.Visible = False
         '
         'Label4
         '
@@ -231,6 +236,7 @@ Partial Class frmHabitaciones
         Me.Label4.Size = New System.Drawing.Size(62, 18)
         Me.Label4.TabIndex = 228
         Me.Label4.Text = "Precio:"
+        Me.Label4.Visible = False
         '
         'DataGridView1
         '
@@ -325,7 +331,7 @@ Partial Class frmHabitaciones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(597, 250)
+        Me.ClientSize = New System.Drawing.Size(597, 214)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel4)

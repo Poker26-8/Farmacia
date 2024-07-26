@@ -116,7 +116,7 @@
                             MsgBox("El tiempo de renta de la habitación termino.", vbInformation + vbOKOnly, titulohotelriaa)
                             lblPagar.Text = CDbl(lblPrecio.Text)
                             ' lblPagar.Text = lblPagar.Text + CDbl(precioaumento)
-                            lblPagar.Text = CDbl(precioaumento) - CDbl(lblAnticipo.Text)
+                            lblPagar.Text = CDbl(precioaumento * vardias) - CDbl(lblAnticipo.Text)
                         Else
                             lblPagar.Text = CDbl(lblPrecio.Text) - CDbl(lblAnticipo.Text)
                         End If

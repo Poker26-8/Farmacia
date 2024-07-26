@@ -508,8 +508,12 @@
     Public vartabladetallehotelprecios As String = "CREATE TABLE `detallehotelprecios` (
                                                   `Id` int(11) NOT NULL,
                                                   `Nombre` varchar(100) DEFAULT '',
-                                                  `Horas` float NOT NULL DEFAULT '0',
-                                                  `Precio` float NOT NULL DEFAULT '0'
+                                                  `Horas` double NOT NULL DEFAULT '0',
+                                                  `PrecioA` double NOT NULL DEFAULT '0',
+                                                  `PrecioB` double NOT NULL DEFAULT '0',
+                                                  `PrecioC` double NOT NULL DEFAULT '0',
+                                                  `PrecioD` double NOT NULL DEFAULT '0',
+                                                  `PrecioE` double NOT NULL DEFAULT '0'
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'detallehotel

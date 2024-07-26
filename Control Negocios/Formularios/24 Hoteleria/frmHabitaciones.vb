@@ -62,7 +62,8 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "',Horas=" & txtHoras.Text & ",PrecioH=" & txtPrecioH.Text & ",PreDia=" & txtPreDia.Text & " WHERE N_Habitacion='" & cbonumero.Text & "'"
+                    '  cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "',Horas=" & txtHoras.Text & ",PrecioH=" & txtPrecioH.Text & ",PreDia=" & txtPreDia.Text & " WHERE N_Habitacion='" & cbonumero.Text & "'"
+                    cmd2.CommandText = "UPDATE habitacion SET Ubicacion='" & cboUbicacion.Text & "',Tipo='" & cboTipo.Text & "',Caracteristicas='" & rtbCaracteristicas.Text & "' WHERE N_Habitacion='" & cbonumero.Text & "'"
                     If cmd2.ExecuteNonQuery() Then
                         MsgBox("Habitación " & cbonumero.Text & " actualizada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                     End If
@@ -73,7 +74,8 @@
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo,Horas,PrecioH,PreDia) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1," & txtHoras.Text & "," & txtPrecioH.Text & "," & txtPreDia.Text & ")"
+                '  cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo,Horas,PrecioH,PreDia) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1," & txtHoras.Text & "," & txtPrecioH.Text & "," & txtPreDia.Text & ")"
+                cmd2.CommandText = "INSERT INTO habitacion(N_Habitacion,Ubicacion,Tipo,Estado,Caracteristicas,Tiempo) VALUES('" & cbonumero.Text & "','" & cboUbicacion.Text & "','" & cboTipo.Text & "','Desocupada','" & rtbCaracteristicas.Text & "',1)"
                 If cmd2.ExecuteNonQuery() Then
                     MsgBox("Habitacion " & cbonumero.Text & " agregada correctamente", vbInformation + vbOKOnly, titulohotelriaa)
                 End If

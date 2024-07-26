@@ -2,6 +2,8 @@
 
     Public idvehiculo As Integer = 0
     Public placa As String = ""
+    Public marcaveh As String = ""
+
     Private Sub frmAsignaRefaccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
@@ -13,7 +15,8 @@
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM refaccionaria WHERE IdVehiculo=" & idvehiculo & ""
+            'cmd1.CommandText = "SELECT * FROM refaccionaria WHERE IdVehiculo=" & idvehiculo & ""
+            cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & marcaveh & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
