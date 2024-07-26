@@ -273,7 +273,7 @@ Public Class frmConsultaNotas
                 cnn1.Close()
                 cnn2.Close()
 
-                If (optnotas.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcobrar.Checked) Then
+                If (optnotas.Checked) Or (optpagadas.Checked) Or (optanceladas.Checked) Or (optcobrar.Checked) Or (optPedidos.Checked) Then
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
@@ -2448,7 +2448,7 @@ Public Class frmConsultaNotas
             End If
             If CDbl(txtresta.Text) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtrestaabono.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(CDec(txtresta.Text) - txtefectivo.Text, 2), fuente_prods, Brushes.Black, 285, Y, sf)
                 Y += 13.5
             End If
 
