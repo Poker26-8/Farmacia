@@ -163,42 +163,42 @@ Partial Class frmDetalleEntregado
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(356, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 20)
+        Me.Label3.Size = New System.Drawing.Size(126, 24)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Num. Pedido:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 20)
+        Me.Label1.Size = New System.Drawing.Size(103, 24)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Proveedor:"
         '
         'lblFolio
         '
         Me.lblFolio.AutoSize = True
-        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFolio.ForeColor = System.Drawing.Color.Black
         Me.lblFolio.Location = New System.Drawing.Point(356, 38)
         Me.lblFolio.Name = "lblFolio"
-        Me.lblFolio.Size = New System.Drawing.Size(53, 20)
+        Me.lblFolio.Size = New System.Drawing.Size(57, 24)
         Me.lblFolio.TabIndex = 9
         Me.lblFolio.Text = "Folio:"
         '
         'lblProveedor
         '
         Me.lblProveedor.AutoSize = True
-        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProveedor.Location = New System.Drawing.Point(3, 38)
         Me.lblProveedor.Name = "lblProveedor"
-        Me.lblProveedor.Size = New System.Drawing.Size(95, 20)
+        Me.lblProveedor.Size = New System.Drawing.Size(103, 24)
         Me.lblProveedor.TabIndex = 8
         Me.lblProveedor.Text = "Proveedor:"
         '
@@ -332,21 +332,21 @@ Partial Class frmDetalleEntregado
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.ForeColor = System.Drawing.Color.Black
         Me.lblFecha.Location = New System.Drawing.Point(631, 38)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 20)
+        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
         Me.lblFecha.TabIndex = 11
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(631, 9)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(231, 20)
+        Me.Label6.Size = New System.Drawing.Size(245, 24)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Fecha Pedidos Entregados:"
         '
