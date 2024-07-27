@@ -110,6 +110,9 @@
 
     Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
+            If txtcantidad.Text = "" Then
+                Exit Sub
+            End If
             Dim newcantidad As Double = txtcantidad.Text
             Dim oldcantidad As Double = txtcantidad.Tag
             If newcantidad > canttotal Then

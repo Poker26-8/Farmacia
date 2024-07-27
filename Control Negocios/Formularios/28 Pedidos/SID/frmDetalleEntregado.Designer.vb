@@ -56,12 +56,12 @@ Partial Class frmDetalleEntregado
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.boxcantidad = New System.Windows.Forms.GroupBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.TextBox()
-        Me.lblFecha = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -165,7 +165,7 @@ Partial Class frmDetalleEntregado
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(187, 9)
+        Me.Label3.Location = New System.Drawing.Point(356, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(115, 20)
         Me.Label3.TabIndex = 7
@@ -186,7 +186,7 @@ Partial Class frmDetalleEntregado
         Me.lblFolio.AutoSize = True
         Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFolio.ForeColor = System.Drawing.Color.Black
-        Me.lblFolio.Location = New System.Drawing.Point(187, 38)
+        Me.lblFolio.Location = New System.Drawing.Point(356, 38)
         Me.lblFolio.Name = "lblFolio"
         Me.lblFolio.Size = New System.Drawing.Size(53, 20)
         Me.lblFolio.TabIndex = 9
@@ -329,6 +329,27 @@ Partial Class frmDetalleEntregado
         Me.Panel1.Size = New System.Drawing.Size(985, 73)
         Me.Panel1.TabIndex = 13
         '
+        'lblFecha
+        '
+        Me.lblFecha.AutoSize = True
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.ForeColor = System.Drawing.Color.Black
+        Me.lblFecha.Location = New System.Drawing.Point(631, 38)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(0, 20)
+        Me.lblFecha.TabIndex = 11
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(631, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(231, 20)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Fecha Pedidos Entregados:"
+        '
         'boxcantidad
         '
         Me.boxcantidad.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -367,27 +388,6 @@ Partial Class frmDetalleEntregado
         Me.txtcantidad.Size = New System.Drawing.Size(100, 29)
         Me.txtcantidad.TabIndex = 0
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'lblFecha
-        '
-        Me.lblFecha.AutoSize = True
-        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.ForeColor = System.Drawing.Color.Black
-        Me.lblFecha.Location = New System.Drawing.Point(375, 38)
-        Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 20)
-        Me.lblFecha.TabIndex = 11
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(375, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(231, 20)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Fecha Pedidos Entregados:"
         '
         'frmDetalleEntregado
         '
