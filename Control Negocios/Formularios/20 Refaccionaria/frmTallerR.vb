@@ -95,11 +95,11 @@ Public Class frmTallerR
             Dim marca As String = ""
             Dim modelo As String = ""
             Dim cliente As String = ""
-
+            Dim observaciones As String = ""
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT Descripcion,Marca,Modelo,IdVehiculo,Cliente FROM Vehiculo WHERE Descripcion='" & var_vehiculo & "' and StatusT=1"
+            cmd2.CommandText = "SELECT Descripcion,Marca,Modelo,IdVehiculo,Cliente,Observaciones FROM Vehiculo WHERE Descripcion='" & var_vehiculo & "' and StatusT=1"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -108,12 +108,15 @@ Public Class frmTallerR
                     modelo = rd2(2).ToString
                     id = rd2(3).ToString
                     cliente = rd2(4).ToString
+                    observaciones = rd2(5).ToString
                 End If
             End If
             rd2.Close()
             cnn2.Close()
 
-            frmAsignacionRef.txtveh.text = descripcion
+            frmAsignacionRef.txtVeh.Text = descripcion
+            frmAsignacionRef.txtCliente.Text = cliente
+            frmAsignacionRef.lblObservaciones.Text = observaciones
             frmAsignacionRef.Show()
 
             frmAsignaRefaccion.cbovehiculo.Text = descripcion
