@@ -3,6 +3,7 @@
     Dim Mytotal As Double = 0
     Dim MyPrecio As Double = 0
     Public folio As Integer = 0
+    Public canttotal As Double = 0
     Private Sub frmDetalleEntregado_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         frmEntregaPedidos.Enabled = True
         frmEntregaPedidos.recargaDatos()
@@ -12,11 +13,17 @@
         cargaDatos()
     End Sub
     Public Sub cargaDatos()
+        Dim fech As Date = frmEntregaPedidos.dtpAsignacion.Value
+        fech = FormatDateTime(fech, DateFormat.ShortDate)
+        fech = Format(fech, "yyyy-MM-dd")
+
         Try
             grdCaptura.Rows.Clear()
             DataGridView1.Rows.Clear()
             lblFolio.Text = frmEntregaPedidos.cboFolio.Text
             If lblFolio.Text = "" Then
+
+
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
@@ -31,7 +38,7 @@
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from pedidosven where NumPedido='" & lblFolio.Text & "'"
+                cmd1.CommandText = "Select * from pedidosven where NumPedido='" & lblFolio.Text & "' and Fecha='" & Format(fech, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
 
@@ -91,8 +98,8 @@
             txtcantidad.Focus().Equals(True)
             folio = grdCaptura.CurrentRow.Cells(0).Value.ToString
             cliente = grdCaptura.CurrentRow.Cells(6).Value.ToString
+            canttotal = grdCaptura.CurrentRow.Cells(4).Value.ToString
             txtcantidad.Tag = grdCaptura.CurrentRow.Cells(5).Value.ToString
-            MsgBox(txtcantidad.Tag)
             txtcodigo.Text = grdCaptura.CurrentRow.Cells(1).Value.ToString
             txtcodigo.Tag = fila
             txtnombre.Text = grdCaptura.CurrentRow.Cells(2).Value.ToString
@@ -103,6 +110,21 @@
 
     Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
+            Dim newcantidad As Double = txtcantidad.Text
+            Dim oldcantidad As Double = txtcantidad.Tag
+            If newcantidad > canttotal Then
+                MsgBox("No puedes entregar una cantidad mayor a la comprada", vbExclamation + vbOKOnly, "Delsscom Control Negocios Pro")
+                cargaDatos()
+                txtcodigo.Text = ""
+                txtcodigo.Tag = ""
+                txtnombre.Text = ""
+                txtnombre.Tag = ""
+                txtcantidad.Text = ""
+                txtcantidad.Tag = ""
+                boxcantidad.Visible = False
+                Exit Sub
+            End If
+
             If MsgBox("¿Deseas actualizar la cantidad de productos en el pedido seleccionado?", vbQuestion + vbOKCancel) = vbCancel Then
                 cargaDatos()
                 txtcodigo.Text = ""
@@ -138,8 +160,7 @@
                 rd2.Close()
                 cnn2.Close()
 
-                Dim newcantidad As Double = txtcantidad.Text
-                Dim oldcantidad As Double = txtcantidad.Tag
+
                 Dim deferenciaxd As Double = CDec(newcantidad - oldcantidad)
                 If deferenciaxd < 0 Then
                     deferenciaxd = Math.Abs(deferenciaxd)

@@ -75,6 +75,7 @@ Partial Class frmEntregaPedidos
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnPedido = New System.Windows.Forms.Button()
+        Me.pPedidos80 = New System.Drawing.Printing.PrintDocument()
         Me.Panel3.SuspendLayout()
         Me.boxcantidad.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -574,6 +575,9 @@ Partial Class frmEntregaPedidos
         Me.btnPedido.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnPedido.UseVisualStyleBackColor = True
         '
+        'pPedidos80
+        '
+        '
         'frmEntregaPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -651,4 +655,5 @@ Partial Class frmEntregaPedidos
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents pPedidos80 As Printing.PrintDocument
 End Class

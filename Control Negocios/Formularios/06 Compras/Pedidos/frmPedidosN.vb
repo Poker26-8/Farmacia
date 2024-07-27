@@ -449,6 +449,10 @@ Public Class frmPedidosN
     End Sub
 
     Private Sub txtNumPed_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNumPed.KeyPress
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            ' Si no es un número o una tecla de control (como Backspace), cancela el evento
+            e.Handled = True
+        End If
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cbonombre.Focus.Equals(True)
