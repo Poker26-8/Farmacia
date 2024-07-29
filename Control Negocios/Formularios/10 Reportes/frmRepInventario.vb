@@ -6,9 +6,9 @@ Public Class frmRepInventario
     Dim Libreria As Boolean = False
     Dim Partes As Boolean = False
 
-    Dim restaurante As Integer = 0
-    Dim copeo As Integer = 0
 
+    Dim copeo As Integer = 0
+    Dim restaurante As Integer = 0
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btncardex.Click
         frmCardex.Show()
     End Sub
@@ -230,7 +230,7 @@ Public Class frmRepInventario
         End If
     End Sub
 
-    Private Sub frmRepInventario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Async Sub frmRepInventario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Dim fecha As String = DatosRecarga("FechaCosteo")
         cbofiltro.Items.Clear()
         cbofiltro.Text = ""
@@ -258,6 +258,35 @@ Public Class frmRepInventario
         FinaCosteo.Value = Now
 
         Try
+            restaurante = Await ValidarAsync("Restaurante")
+            Dim copas As Integer = Await ValidarAsync("Copa")
+            Dim part As Integer = Await ValidarAsync("Partes")
+            Dim refaccion As Integer = Await ValidarAsync("Refaccionaria")
+
+            If restaurante = 1 Then
+                Button1.Visible = True
+            Else
+                Button1.Visible = False
+            End If
+
+            If copas = 1 Then
+                copeo = 1
+            Else
+                copeo = 0
+            End If
+
+            If part = 1 Then
+                Partes = True
+            Else
+                Partes = False
+            End If
+
+            If refaccion = 1 Then
+                Partes = True
+            Else
+                Partes = False
+            End If
+
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
@@ -270,67 +299,6 @@ Public Class frmRepInventario
                 End If
             Else
                 Libreria = False
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Restaurante'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    restaurante = rd1(0).ToString
-
-                    If restaurante = 1 Then
-                        Button1.Visible = True
-                    Else
-                        Button1.Visible = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Copa'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-
-                    If rd1(0).ToString = "1" Then
-                        copeo = 1
-                    Else
-                        copeo = 0
-                    End If
-
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText =
-                "select NumPart from Formatos where Facturas='Partes'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        Partes = True
-                    Else
-                        Partes = False
-                    End If
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select NumPart from Formatos where Facturas='Refaccionaria'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    If rd1(0).ToString() = 1 Then
-                        Partes = True
-                    Else
-                        Partes = False
-                    End If
-                End If
             End If
             rd1.Close()
             cnn1.Close()

@@ -73,6 +73,9 @@ Partial Class Inicio
         Me.pRegistro_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.pReporte_Precios = New System.Windows.Forms.ToolStripMenuItem()
         Me.ControlDeServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TproduccionCos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.pAsistencia = New System.Windows.Forms.ToolStripMenuItem()
         Me.pHorariosEmp = New System.Windows.Forms.ToolStripMenuItem()
         Me.pRegistroHuella = New System.Windows.Forms.ToolStripMenuItem()
@@ -160,6 +163,15 @@ Partial Class Inicio
         Me.RegistroDeMembresiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NominaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuNominaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PersonalizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContenidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÍndiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AcercadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.tFoto = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -203,7 +215,7 @@ Partial Class Inicio
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1196, 90)
+        Me.Panel1.Size = New System.Drawing.Size(1230, 90)
         Me.Panel1.TabIndex = 0
         '
         'Button1
@@ -387,10 +399,10 @@ Partial Class Inicio
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.White
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pCatalogos, Me.pProductos_Serv, Me.TproduccionCos, Me.pAsistencia, Me.pCompras, Me.pVentas, Me.pReportes, Me.pIngresos, Me.pEgresos, Me.pListados, Me.pFacturacion, Me.pAdmin, Me.TransportistasToolStripMenuItem, Me.ToolStripMenuItem1, Me.pCaja, Me.GimnasiosToolStripMenuItem, Me.NominaToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.AyudaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1196, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1230, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -648,6 +660,26 @@ Partial Class Inicio
         Me.ControlDeServiciosToolStripMenuItem.Name = "ControlDeServiciosToolStripMenuItem"
         Me.ControlDeServiciosToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ControlDeServiciosToolStripMenuItem.Text = "Control de servicios"
+        '
+        'TproduccionCos
+        '
+        Me.TproduccionCos.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.TproduccionCos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.TproduccionCos.Name = "TproduccionCos"
+        Me.TproduccionCos.Size = New System.Drawing.Size(145, 20)
+        Me.TproduccionCos.Text = "Produccion Cosmeticos"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem3.Text = "Producción"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Text = "Reporte"
         '
         'pAsistencia
         '
@@ -1254,6 +1286,61 @@ Partial Class Inicio
         Me.MenuNominaToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.MenuNominaToolStripMenuItem.Text = "Menu Nomina"
         '
+        'HerramientasToolStripMenuItem
+        '
+        Me.HerramientasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PersonalizarToolStripMenuItem, Me.OpcionesToolStripMenuItem})
+        Me.HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem"
+        Me.HerramientasToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
+        Me.HerramientasToolStripMenuItem.Text = "&Herramientas"
+        '
+        'PersonalizarToolStripMenuItem
+        '
+        Me.PersonalizarToolStripMenuItem.Name = "PersonalizarToolStripMenuItem"
+        Me.PersonalizarToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.PersonalizarToolStripMenuItem.Text = "&Personalizar"
+        '
+        'OpcionesToolStripMenuItem
+        '
+        Me.OpcionesToolStripMenuItem.Name = "OpcionesToolStripMenuItem"
+        Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.OpcionesToolStripMenuItem.Text = "&Opciones"
+        '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContenidoToolStripMenuItem, Me.ÍndiceToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.toolStripSeparator6, Me.AcercadeToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.AyudaToolStripMenuItem.Text = "Ay&uda"
+        '
+        'ContenidoToolStripMenuItem
+        '
+        Me.ContenidoToolStripMenuItem.Name = "ContenidoToolStripMenuItem"
+        Me.ContenidoToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ContenidoToolStripMenuItem.Text = "&Contenido"
+        '
+        'ÍndiceToolStripMenuItem
+        '
+        Me.ÍndiceToolStripMenuItem.Name = "ÍndiceToolStripMenuItem"
+        Me.ÍndiceToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.ÍndiceToolStripMenuItem.Text = "Índic&e"
+        '
+        'BuscarToolStripMenuItem
+        '
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.BuscarToolStripMenuItem.Text = "&Buscar"
+        '
+        'toolStripSeparator6
+        '
+        Me.toolStripSeparator6.Name = "toolStripSeparator6"
+        Me.toolStripSeparator6.Size = New System.Drawing.Size(132, 6)
+        '
+        'AcercadeToolStripMenuItem
+        '
+        Me.AcercadeToolStripMenuItem.Name = "AcercadeToolStripMenuItem"
+        Me.AcercadeToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AcercadeToolStripMenuItem.Text = "&Acerca de..."
+        '
         'tFoto
         '
         Me.tFoto.Interval = 10000
@@ -1425,7 +1512,7 @@ Partial Class Inicio
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1035, 768)
+        Me.Label1.Location = New System.Drawing.Point(1069, 768)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 38)
         Me.Label1.TabIndex = 10
@@ -1436,7 +1523,7 @@ Partial Class Inicio
         'pedidos_tienda
         '
         Me.pedidos_tienda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pedidos_tienda.Location = New System.Drawing.Point(1022, 125)
+        Me.pedidos_tienda.Location = New System.Drawing.Point(1056, 125)
         Me.pedidos_tienda.Name = "pedidos_tienda"
         Me.pedidos_tienda.Size = New System.Drawing.Size(163, 25)
         Me.pedidos_tienda.TabIndex = 12
@@ -1460,7 +1547,7 @@ Partial Class Inicio
         Me.Button3.BackColor = System.Drawing.Color.White
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(1141, 766)
+        Me.Button3.Location = New System.Drawing.Point(1175, 766)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(43, 42)
         Me.Button3.TabIndex = 9
@@ -1471,7 +1558,7 @@ Partial Class Inicio
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(418, 339)
+        Me.PictureBox1.Location = New System.Drawing.Point(435, 339)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
         Me.PictureBox1.Size = New System.Drawing.Size(403, 142)
@@ -1496,7 +1583,7 @@ Partial Class Inicio
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1196, 820)
+        Me.ClientSize = New System.Drawing.Size(1230, 820)
         Me.Controls.Add(Me.POpciones)
         Me.Controls.Add(Me.pedidos_tienda)
         Me.Controls.Add(Me.Label1)
@@ -1678,4 +1765,16 @@ Partial Class Inicio
     Friend WithEvents btnOptica As Button
     Friend WithEvents btnAuto As Button
     Friend WithEvents POpciones As Panel
+    Friend WithEvents HerramientasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PersonalizarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpcionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContenidoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ÍndiceToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents AcercadeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TproduccionCos As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
 End Class

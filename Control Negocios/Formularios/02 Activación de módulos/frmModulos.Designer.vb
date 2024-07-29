@@ -628,7 +628,7 @@ Partial Class frmModulos
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(93, 37)
         Me.Label26.TabIndex = 49
-        Me.Label26.Text = "Producción"
+        Me.Label26.Text = "Producción Cosmeticos"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button2

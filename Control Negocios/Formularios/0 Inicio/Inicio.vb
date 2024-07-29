@@ -260,6 +260,13 @@ Public Class Inicio
         Dim Optica As Integer = Await ValidarAsync("Optica")
         Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
         Dim transportistas As Integer = Await ValidarAsync("Transportistas")
+        Dim produccionpro As Integer = Await ValidarAsync("ProduccionPro")
+
+        If produccionpro = 1 Then
+            TproduccionCos.Visible = True
+        Else
+            TproduccionCos.Visible = False
+        End If
 
         If tiendalinea = 1 Then
             PedidosTiendaEnLíneaToolStripMenuItem.Visible = True
@@ -2473,40 +2480,16 @@ Public Class Inicio
         frmVentasTouch.BringToFront()
     End Sub
 
-    Private Sub ProducirToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pProducir.Click
+    Private Async Sub ProducirToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pProducir.Click
 
         Try
-            Dim produccion As Integer = 0
-            Dim produccionpro As Integer = 0
+            Dim produccion As Integer = Await ValidarAsync("Produccion")
 
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='Produccion'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    produccion = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NumPart FROM formatos WHERE Facturas='ProduccionPro'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
-                    produccionpro = rd1(0).ToString
-                End If
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-            If produccionpro = 1 Then
-                frmProducirQ.Show()
-                frmProducirQ.BringToFront()
-            Else
+            If produccion = 1 Then
                 frmProduccion.Show()
                 frmProduccion.BringToFront()
+            Else
+
             End If
 
         Catch ex As Exception
@@ -4327,5 +4310,15 @@ Public Class Inicio
     Private Sub EstadoDeResultadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeResultadosToolStripMenuItem.Click
         frmEstadoResultados.Show()
         frmEstadoResultados.BringToFront()
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        frmProducirQ.Show()
+        frmProducirQ.BringToFront()
+    End Sub
+
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        frmLotesyCad.BringToFront()
+        frmLotesyCad.Show()
     End Sub
 End Class
