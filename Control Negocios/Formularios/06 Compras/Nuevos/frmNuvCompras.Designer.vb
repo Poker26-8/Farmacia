@@ -60,6 +60,8 @@ Partial Class frmNuvCompras
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.txtCambio = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.dtpfpago = New System.Windows.Forms.DateTimePicker()
         Me.Label37 = New System.Windows.Forms.Label()
@@ -171,8 +173,6 @@ Partial Class frmNuvCompras
         Me.UnicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCancela80 = New System.Drawing.Printing.PrintDocument()
         Me.pCancela58 = New System.Drawing.Printing.PrintDocument()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.txtCambio = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -581,6 +581,31 @@ Partial Class frmNuvCompras
         Me.Panel5.Size = New System.Drawing.Size(452, 227)
         Me.Panel5.TabIndex = 257
         '
+        'Label39
+        '
+        Me.Label39.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label39.AutoSize = True
+        Me.Label39.BackColor = System.Drawing.Color.White
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(278, 169)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(64, 16)
+        Me.Label39.TabIndex = 185
+        Me.Label39.Text = "Cambio:"
+        '
+        'txtCambio
+        '
+        Me.txtCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCambio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCambio.ForeColor = System.Drawing.Color.Red
+        Me.txtCambio.Location = New System.Drawing.Point(351, 165)
+        Me.txtCambio.Name = "txtCambio"
+        Me.txtCambio.Size = New System.Drawing.Size(95, 22)
+        Me.txtCambio.TabIndex = 184
+        Me.txtCambio.Text = "0.00"
+        Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
@@ -638,7 +663,7 @@ Partial Class frmNuvCompras
         Me.txtanticipo.Location = New System.Drawing.Point(351, 58)
         Me.txtanticipo.Name = "txtanticipo"
         Me.txtanticipo.ReadOnly = True
-        Me.txtanticipo.Size = New System.Drawing.Size(101, 22)
+        Me.txtanticipo.Size = New System.Drawing.Size(95, 22)
         Me.txtanticipo.TabIndex = 100
         Me.txtanticipo.Text = "0.00"
         Me.txtanticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -665,7 +690,7 @@ Partial Class frmNuvCompras
         Me.txtpagos.Location = New System.Drawing.Point(351, 111)
         Me.txtpagos.Name = "txtpagos"
         Me.txtpagos.ReadOnly = True
-        Me.txtpagos.Size = New System.Drawing.Size(101, 22)
+        Me.txtpagos.Size = New System.Drawing.Size(95, 22)
         Me.txtpagos.TabIndex = 98
         Me.txtpagos.Text = "0.00"
         Me.txtpagos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -713,7 +738,7 @@ Partial Class frmNuvCompras
         Me.txtresta.ForeColor = System.Drawing.Color.Red
         Me.txtresta.Location = New System.Drawing.Point(351, 137)
         Me.txtresta.Name = "txtresta"
-        Me.txtresta.Size = New System.Drawing.Size(101, 22)
+        Me.txtresta.Size = New System.Drawing.Size(95, 22)
         Me.txtresta.TabIndex = 92
         Me.txtresta.Text = "0.00"
         Me.txtresta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -739,7 +764,7 @@ Partial Class frmNuvCompras
         Me.txtefectivo.ForeColor = System.Drawing.Color.Navy
         Me.txtefectivo.Location = New System.Drawing.Point(351, 85)
         Me.txtefectivo.Name = "txtefectivo"
-        Me.txtefectivo.Size = New System.Drawing.Size(101, 22)
+        Me.txtefectivo.Size = New System.Drawing.Size(95, 22)
         Me.txtefectivo.TabIndex = 90
         Me.txtefectivo.Text = "0.00"
         Me.txtefectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -763,7 +788,7 @@ Partial Class frmNuvCompras
         Me.txtieps.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtieps.Location = New System.Drawing.Point(351, 6)
         Me.txtieps.Name = "txtieps"
-        Me.txtieps.Size = New System.Drawing.Size(101, 22)
+        Me.txtieps.Size = New System.Drawing.Size(95, 22)
         Me.txtieps.TabIndex = 94
         Me.txtieps.Text = "0.00"
         Me.txtieps.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -788,7 +813,7 @@ Partial Class frmNuvCompras
         Me.txtapagar.ForeColor = System.Drawing.Color.ForestGreen
         Me.txtapagar.Location = New System.Drawing.Point(351, 32)
         Me.txtapagar.Name = "txtapagar"
-        Me.txtapagar.Size = New System.Drawing.Size(101, 22)
+        Me.txtapagar.Size = New System.Drawing.Size(95, 22)
         Me.txtapagar.TabIndex = 88
         Me.txtapagar.Text = "0.00"
         Me.txtapagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1799,31 +1824,6 @@ Partial Class frmNuvCompras
         '
         'pCancela58
         '
-        '
-        'Label39
-        '
-        Me.Label39.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label39.AutoSize = True
-        Me.Label39.BackColor = System.Drawing.Color.White
-        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(278, 169)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(64, 16)
-        Me.Label39.TabIndex = 185
-        Me.Label39.Text = "Cambio:"
-        '
-        'txtCambio
-        '
-        Me.txtCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCambio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCambio.ForeColor = System.Drawing.Color.Red
-        Me.txtCambio.Location = New System.Drawing.Point(351, 165)
-        Me.txtCambio.Name = "txtCambio"
-        Me.txtCambio.Size = New System.Drawing.Size(101, 22)
-        Me.txtCambio.TabIndex = 184
-        Me.txtCambio.Text = "0.00"
-        Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmNuvCompras
         '

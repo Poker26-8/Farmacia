@@ -1027,7 +1027,7 @@ Public Class frmNuvCompras
             End If
         End If
         If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text <> "" Then txtcantidad.Focus().Equals(True)
-        If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text = "" Then btnguardar.Focus.Equals(True)
+        If AscW(e.KeyChar) = Keys.Enter And txtcodigo.Text = "" Then txtefectivo.Focus.Equals(True)
     End Sub
 
     Private Sub txtcantidad_Click(sender As Object, e As EventArgs) Handles txtcantidad.Click

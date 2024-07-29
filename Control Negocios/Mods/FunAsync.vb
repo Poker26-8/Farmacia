@@ -76,7 +76,7 @@ Module FunAsync
                            SFormatos("Transportistas", "")
                            SFormatos("Propina", "0")
                            SFormatos("LimpiarV", "0")
-
+                           SFormatos("ProduccionPro", "0")
                        End Sub)
 
     End Function
