@@ -32,6 +32,8 @@ Partial Class frmTallerR
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.txtplaca = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.txtvehiculo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtclave = New System.Windows.Forms.TextBox()
@@ -56,14 +58,12 @@ Partial Class frmTallerR
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblcliente = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnRefaccion = New System.Windows.Forms.Button()
         Me.lblidvehiculo = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtadeuda = New System.Windows.Forms.TextBox()
         Me.txtFavor = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnpagar = New System.Windows.Forms.Button()
         Me.btnlimpiar = New System.Windows.Forms.Button()
@@ -75,8 +75,6 @@ Partial Class frmTallerR
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
         Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtplaca = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.grdProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -93,9 +91,9 @@ Partial Class frmTallerR
         Me.Panel1.Controls.Add(Me.Panel7)
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(902, 0)
+        Me.Panel1.Location = New System.Drawing.Point(877, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(348, 790)
+        Me.Panel1.Size = New System.Drawing.Size(373, 790)
         Me.Panel1.TabIndex = 0
         '
         'grdProductos
@@ -110,42 +108,48 @@ Partial Class frmTallerR
         Me.grdProductos.Name = "grdProductos"
         Me.grdProductos.ReadOnly = True
         Me.grdProductos.RowHeadersVisible = False
-        Me.grdProductos.Size = New System.Drawing.Size(348, 566)
+        Me.grdProductos.Size = New System.Drawing.Size(373, 566)
         Me.grdProductos.TabIndex = 4
         '
         'Column1
         '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column1.HeaderText = "Codigo"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 60
+        Me.Column1.Width = 65
         '
         'Column2
         '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column2.HeaderText = "Desc"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
+        Me.Column2.Width = 57
         '
         'Column3
         '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column3.HeaderText = "Cantidad"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 70
+        Me.Column3.Width = 74
         '
         'Column4
         '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column4.HeaderText = "Precio"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
-        Me.Column4.Width = 65
+        Me.Column4.Width = 62
         '
         'Column5
         '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.Column5.HeaderText = "Total"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
-        Me.Column5.Width = 65
+        Me.Column5.Width = 56
         '
         'Panel7
         '
@@ -159,8 +163,31 @@ Partial Class frmTallerR
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel7.Location = New System.Drawing.Point(0, 108)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(348, 116)
+        Me.Panel7.Size = New System.Drawing.Size(373, 116)
         Me.Panel7.TabIndex = 3
+        '
+        'txtplaca
+        '
+        Me.txtplaca.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtplaca.Location = New System.Drawing.Point(215, 86)
+        Me.txtplaca.Name = "txtplaca"
+        Me.txtplaca.Size = New System.Drawing.Size(155, 20)
+        Me.txtplaca.TabIndex = 87
+        Me.txtplaca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label11
+        '
+        Me.Label11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(215, 55)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(155, 28)
+        Me.Label11.TabIndex = 86
+        Me.Label11.Text = "Placa"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'txtvehiculo
         '
@@ -168,7 +195,7 @@ Partial Class frmTallerR
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtvehiculo.Location = New System.Drawing.Point(6, 86)
         Me.txtvehiculo.Name = "txtvehiculo"
-        Me.txtvehiculo.Size = New System.Drawing.Size(203, 20)
+        Me.txtvehiculo.Size = New System.Drawing.Size(170, 20)
         Me.txtvehiculo.TabIndex = 85
         Me.txtvehiculo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -180,7 +207,7 @@ Partial Class frmTallerR
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 55)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(203, 28)
+        Me.Label3.Size = New System.Drawing.Size(170, 28)
         Me.Label3.TabIndex = 84
         Me.Label3.Text = "Vehiculo"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -191,7 +218,7 @@ Partial Class frmTallerR
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtclave.Location = New System.Drawing.Point(6, 32)
         Me.txtclave.Name = "txtclave"
-        Me.txtclave.Size = New System.Drawing.Size(339, 20)
+        Me.txtclave.Size = New System.Drawing.Size(364, 20)
         Me.txtclave.TabIndex = 81
         Me.txtclave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtclave.UseSystemPasswordChar = True
@@ -204,7 +231,7 @@ Partial Class frmTallerR
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(28, 3)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(300, 28)
+        Me.Label2.Size = New System.Drawing.Size(325, 28)
         Me.Label2.TabIndex = 80
         Me.Label2.Text = "Clave de Usuario"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -217,7 +244,7 @@ Partial Class frmTallerR
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(348, 108)
+        Me.Panel4.Size = New System.Drawing.Size(373, 108)
         Me.Panel4.TabIndex = 0
         '
         'lblCantidadLetra
@@ -226,10 +253,10 @@ Partial Class frmTallerR
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblCantidadLetra.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.lblCantidadLetra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCantidadLetra.ForeColor = System.Drawing.Color.DarkOrange
+        Me.lblCantidadLetra.ForeColor = System.Drawing.Color.Black
         Me.lblCantidadLetra.Location = New System.Drawing.Point(0, 65)
         Me.lblCantidadLetra.Name = "lblCantidadLetra"
-        Me.lblCantidadLetra.Size = New System.Drawing.Size(394, 42)
+        Me.lblCantidadLetra.Size = New System.Drawing.Size(419, 42)
         Me.lblCantidadLetra.TabIndex = 82
         Me.lblCantidadLetra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -239,10 +266,10 @@ Partial Class frmTallerR
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTotalPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.lblTotalPagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalPagar.ForeColor = System.Drawing.Color.DarkOrange
+        Me.lblTotalPagar.ForeColor = System.Drawing.Color.Black
         Me.lblTotalPagar.Location = New System.Drawing.Point(0, 36)
         Me.lblTotalPagar.Name = "lblTotalPagar"
-        Me.lblTotalPagar.Size = New System.Drawing.Size(348, 33)
+        Me.lblTotalPagar.Size = New System.Drawing.Size(373, 33)
         Me.lblTotalPagar.TabIndex = 81
         Me.lblTotalPagar.Text = "0.00"
         Me.lblTotalPagar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -252,10 +279,11 @@ Partial Class frmTallerR
         Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Orange
         Me.Label1.Location = New System.Drawing.Point(0, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(348, 34)
+        Me.Label1.Size = New System.Drawing.Size(373, 34)
         Me.Label1.TabIndex = 80
         Me.Label1.Text = "TOTAL A PAGAR"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -266,7 +294,7 @@ Partial Class frmTallerR
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 666)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(902, 124)
+        Me.Panel2.Size = New System.Drawing.Size(877, 124)
         Me.Panel2.TabIndex = 1
         '
         'TableLayoutPanel1
@@ -301,7 +329,7 @@ Partial Class frmTallerR
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.28101!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(902, 124)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(877, 124)
         Me.TableLayoutPanel1.TabIndex = 5
         '
         'cboimpresion
@@ -458,14 +486,12 @@ Partial Class frmTallerR
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
-        Me.Panel3.Controls.Add(Me.btnRefaccion)
         Me.Panel3.Controls.Add(Me.lblidvehiculo)
         Me.Panel3.Controls.Add(Me.Label10)
         Me.Panel3.Controls.Add(Me.Label9)
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(Me.txtadeuda)
         Me.Panel3.Controls.Add(Me.txtFavor)
-        Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.btnpagar)
         Me.Panel3.Controls.Add(Me.btnlimpiar)
@@ -474,26 +500,8 @@ Partial Class frmTallerR
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(902, 108)
+        Me.Panel3.Size = New System.Drawing.Size(877, 108)
         Me.Panel3.TabIndex = 4
-        '
-        'btnRefaccion
-        '
-        Me.btnRefaccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRefaccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnRefaccion.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.btnRefaccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefaccion.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRefaccion.Image = CType(resources.GetObject("btnRefaccion.Image"), System.Drawing.Image)
-        Me.btnRefaccion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnRefaccion.Location = New System.Drawing.Point(568, 9)
-        Me.btnRefaccion.Name = "btnRefaccion"
-        Me.btnRefaccion.Size = New System.Drawing.Size(85, 79)
-        Me.btnRefaccion.TabIndex = 207
-        Me.btnRefaccion.Text = "Refaccion"
-        Me.btnRefaccion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnRefaccion.UseVisualStyleBackColor = True
-        Me.btnRefaccion.Visible = False
         '
         'lblidvehiculo
         '
@@ -542,21 +550,6 @@ Partial Class frmTallerR
         Me.txtFavor.TabIndex = 200
         Me.txtFavor.Text = "0.00"
         '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(474, 9)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(88, 79)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "VEHICULO"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = False
-        Me.Button2.Visible = False
-        '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -565,7 +558,7 @@ Partial Class frmTallerR
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(821, 9)
+        Me.Button1.Location = New System.Drawing.Point(796, 9)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 79)
         Me.Button1.TabIndex = 10
@@ -582,7 +575,7 @@ Partial Class frmTallerR
         Me.btnpagar.Enabled = False
         Me.btnpagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpagar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpagar.Location = New System.Drawing.Point(659, 9)
+        Me.btnpagar.Location = New System.Drawing.Point(634, 9)
         Me.btnpagar.Name = "btnpagar"
         Me.btnpagar.Size = New System.Drawing.Size(75, 79)
         Me.btnpagar.TabIndex = 9
@@ -598,7 +591,7 @@ Partial Class frmTallerR
         Me.btnlimpiar.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlimpiar.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlimpiar.Location = New System.Drawing.Point(740, 9)
+        Me.btnlimpiar.Location = New System.Drawing.Point(715, 9)
         Me.btnlimpiar.Name = "btnlimpiar"
         Me.btnlimpiar.Size = New System.Drawing.Size(75, 79)
         Me.btnlimpiar.TabIndex = 8
@@ -630,7 +623,7 @@ Partial Class frmTallerR
         Me.pVehiculos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pVehiculos.Location = New System.Drawing.Point(0, 108)
         Me.pVehiculos.Name = "pVehiculos"
-        Me.pVehiculos.Size = New System.Drawing.Size(902, 558)
+        Me.pVehiculos.Size = New System.Drawing.Size(877, 558)
         Me.pVehiculos.TabIndex = 6
         '
         'TVehiculo
@@ -648,29 +641,6 @@ Partial Class frmTallerR
         '
         'PVenta58
         '
-        '
-        'Label11
-        '
-        Me.Label11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(215, 55)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(130, 28)
-        Me.Label11.TabIndex = 86
-        Me.Label11.Text = "Placa"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'txtplaca
-        '
-        Me.txtplaca.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtplaca.Location = New System.Drawing.Point(215, 86)
-        Me.txtplaca.Name = "txtplaca"
-        Me.txtplaca.Size = New System.Drawing.Size(130, 20)
-        Me.txtplaca.TabIndex = 87
-        Me.txtplaca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'frmTallerR
         '
@@ -724,7 +694,6 @@ Partial Class frmTallerR
     Friend WithEvents Label7 As Label
     Friend WithEvents txtadeuda As TextBox
     Friend WithEvents txtFavor As TextBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents btnpagar As Button
     Friend WithEvents btnlimpiar As Button
@@ -741,17 +710,16 @@ Partial Class frmTallerR
     Friend WithEvents PVenta80 As Printing.PrintDocument
     Friend WithEvents PVenta58 As Printing.PrintDocument
     Friend WithEvents grdProductos As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Panel7 As Panel
     Friend WithEvents txtvehiculo As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtclave As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnRefaccion As Button
     Friend WithEvents txtplaca As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
 End Class

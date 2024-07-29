@@ -117,14 +117,17 @@ Public Class frmTallerR
             frmAsignacionRef.txtVeh.Text = descripcion
             frmAsignacionRef.txtCliente.Text = cliente
             frmAsignacionRef.lblObservaciones.Text = observaciones
+            frmAsignacionRef.marcaveh = marca
+            frmAsignacionRef.placa = var_placa
+            frmAsignacionRef.idvehiculo = id
             frmAsignacionRef.Show()
 
-            frmAsignaRefaccion.cbovehiculo.Text = descripcion
-            frmAsignaRefaccion.marcaveh = marca
-            frmAsignaRefaccion.idvehiculo = id
-            frmAsignaRefaccion.txtCliente.Text = cliente
-            frmAsignaRefaccion.placa = var_placa
-            frmAsignaRefaccion.Show()
+            'frmAsignaRefaccion.cbovehiculo.Text = descripcion
+            'frmAsignaRefaccion.marcaveh = marca
+            'frmAsignaRefaccion.idvehiculo = id
+            'frmAsignaRefaccion.txtCliente.Text = cliente
+            'frmAsignaRefaccion.placa = var_placa
+            'frmAsignaRefaccion.Show()
 
         End If
 
@@ -148,7 +151,7 @@ Public Class frmTallerR
 
                     grdProductos.Rows.Add(rd2("Codigo").ToString,
                                           rd2("Nombre").ToString,
-                                          1,
+                                          rd2("Cantidad").ToString,
                                           rd2("Precio").ToString,
                                           total
 )
@@ -225,7 +228,7 @@ Public Class frmTallerR
             If rd1.HasRows Then
                 If rd1.Read Then
                     lblatiende.Text = rd1(0).ToString
-                    btnRefaccion.Visible = True
+
                 End If
             Else
                 MsgBox("El usuario no esta registrado, contacte a su administrador", vbInformation + vbOKOnly, titulorefaccionaria)
@@ -1503,11 +1506,9 @@ Door:
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        frmVehiculoR.Show()
-    End Sub
 
-    Private Sub btnRefaccion_Click(sender As Object, e As EventArgs) Handles btnRefaccion.Click
+
+    Private Sub btnRefaccion_Click(sender As Object, e As EventArgs)
 
         If txtclave.Text = "" Then MsgBox("Debe ingresar la contraseña por favor", vbInformation + vbOKOnly, titulorefaccionaria) : txtclave.Focus.Equals(True) : Exit Sub
 

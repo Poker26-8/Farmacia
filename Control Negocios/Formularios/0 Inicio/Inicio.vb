@@ -385,12 +385,14 @@ Public Class Inicio
             pMod_Produccion.Visible = True
             pMod_Produccion.Enabled = True
             frmPermisos.btnPermisosRestaurante.Visible = True
+            repHistorialMesas.Visible = True
         Else
             Button12.Visible = False
             btnPagarComandas.Visible = False
             btnvtatouch.Visible = False
             CORTEMESERO.Visible = False
             frmPermisos.btnPermisosRestaurante.Visible = False
+            repHistorialMesas.Visible = False
         End If
 
         If refaccionaria = 1 Then
@@ -4320,5 +4322,10 @@ Public Class Inicio
     Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
         frmLotesyCad.BringToFront()
         frmLotesyCad.Show()
+    End Sub
+
+    Private Sub ReporteHistorialDeMesasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles repHistorialMesas.Click
+        frmHisMesas.BringToFront()
+        frmHisMesas.Show()
     End Sub
 End Class

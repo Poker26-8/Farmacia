@@ -121,6 +121,7 @@ Partial Class Inicio
         Me.ReporteDeAuditoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteMovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeHotelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.repHistorialMesas = New System.Windows.Forms.ToolStripMenuItem()
         Me.pIngresos = New System.Windows.Forms.ToolStripMenuItem()
         Me.pCEmpleado = New System.Windows.Forms.ToolStripMenuItem()
         Me.MovCuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -672,13 +673,13 @@ Partial Class Inicio
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(135, 22)
         Me.ToolStripMenuItem3.Text = "Producción"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 22)
         Me.ToolStripMenuItem4.Text = "Reporte"
         '
         'pAsistencia
@@ -847,7 +848,7 @@ Partial Class Inicio
         '
         'pReportes
         '
-        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteMovCuentasToolStripMenuItem, Me.ReporteDeHotelToolStripMenuItem})
+        Me.pReportes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.pRepVentas, Me.pRepVentasG, Me.pRepCompras, Me.pRepCuentas, Me.pRepIngEgr, Me.ReporteDeEgresosToolStripMenuItem, Me.pRepEgr, Me.pRepPrecios, Me.pRepInventario, Me.pEstResultados, Me.ReporteDeControlDeServiciosToolStripMenuItem, Me.ReporteDeSeries, Me.ReporteDeAuditoriaToolStripMenuItem, Me.ReporteMovCuentasToolStripMenuItem, Me.ReporteDeHotelToolStripMenuItem, Me.repHistorialMesas})
         Me.pReportes.Name = "pReportes"
         Me.pReportes.Size = New System.Drawing.Size(65, 20)
         Me.pReportes.Text = "Reportes"
@@ -1001,6 +1002,12 @@ Partial Class Inicio
         Me.ReporteDeHotelToolStripMenuItem.Name = "ReporteDeHotelToolStripMenuItem"
         Me.ReporteDeHotelToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.ReporteDeHotelToolStripMenuItem.Text = "Reporte de Hotel"
+        '
+        'repHistorialMesas
+        '
+        Me.repHistorialMesas.Name = "repHistorialMesas"
+        Me.repHistorialMesas.Size = New System.Drawing.Size(236, 22)
+        Me.repHistorialMesas.Text = "Reporte Historial de Mesas"
         '
         'pIngresos
         '
@@ -1777,4 +1784,5 @@ Partial Class Inicio
     Friend WithEvents TproduccionCos As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents repHistorialMesas As ToolStripMenuItem
 End Class

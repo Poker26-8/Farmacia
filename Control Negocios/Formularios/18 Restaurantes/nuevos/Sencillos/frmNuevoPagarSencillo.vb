@@ -997,6 +997,10 @@ kakaxd:
 
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
+        cmd3.CommandText = cmd3.CommandText = "UPDATE hismesa SET Cerro='" & lblusuario2.Text & "', FCerrado='" & Format(Date.Now, "yyyy-MM-dd") & "',HCerrado='" & Format(Date.Now, "HH:mm:ss") & "',Status=1 WHERE Status=0 AND Mesa='" & lblmesa.Text & "'"
+        cmd3.ExecuteNonQuery()
+
+        cmd3 = cnn3.CreateCommand
         cmd3.CommandText = "INSERT INTO Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Propina,Usuario,FVenta,HVenta,FPago,Status,Descuento,Comisionista,TComensales,Corte,CorteU,CodFactura,Formato,IP,Fecha) VALUES('','" & lblmesa.Text & "',''," & SubtotalVenta & "," & Tiva & "," & totalventa22 & "," & Cuenta & "," & restaventa22 & "," & propinaventa22 & ",'" & lblusuario2.Text & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy/MM/dd") & "','PAGADO'," & descuentoventa22 & ",'" & totcomi & "','" & COMENSALES & "','1','0','" & cadenafact & "','TICKET','" & dameIP2() & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
         cmd3.ExecuteNonQuery()
         cnn3.Close()

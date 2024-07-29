@@ -1406,7 +1406,7 @@
             e.Graphics.DrawString("-----------------------------------------------------", fuente_b, Brushes.Black, 1, Y)
             Y += 11
 
-            e.Graphics.DrawString("TOTAL COBRADO POR VENTAS:", fuente_b, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("TOTAL COBRADO VENTAS:", fuente_b, Brushes.Black, 1, Y)
             e.Graphics.DrawString(FormatNumber(suma, 2), fuente_b, Brushes.Black, 270, Y, derecha)
             Y += 20
 

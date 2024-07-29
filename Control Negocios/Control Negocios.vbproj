@@ -753,6 +753,12 @@
     <Compile Include="Formularios\18 Restaurantes\frmPasa_Mesa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmHisMesas.Designer.vb">
+      <DependentUpon>frmHisMesas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\18 Restaurantes\nuevos\frmHisMesas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\18 Restaurantes\nuevos\frmNuevoAgregarProductos.Designer.vb">
       <DependentUpon>frmNuevoAgregarProductos.vb</DependentUpon>
     </Compile>
@@ -901,12 +907,6 @@
       <DependentUpon>frmCatPrecios.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\24 Hoteleria\frmCatPrecios.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\24 Hoteleria\frmPrecioH.Designer.vb">
-      <DependentUpon>frmPrecioH.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\24 Hoteleria\frmPrecioH.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\26 Escuelas\frmAlumnos.designer.vb">
@@ -2451,6 +2451,9 @@
     <EmbeddedResource Include="Formularios\18 Restaurantes\frmPasa_Mesa.resx">
       <DependentUpon>frmPasa_Mesa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmHisMesas.resx">
+      <DependentUpon>frmHisMesas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\18 Restaurantes\nuevos\frmNuevoAgregarProductos.resx">
       <DependentUpon>frmNuevoAgregarProductos.vb</DependentUpon>
     </EmbeddedResource>
@@ -2526,9 +2529,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\24 Hoteleria\frmCatPrecios.resx">
       <DependentUpon>frmCatPrecios.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\24 Hoteleria\frmPrecioH.resx">
-      <DependentUpon>frmPrecioH.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\26 Escuelas\frmAlumnos.resx">
       <DependentUpon>frmAlumnos.vb</DependentUpon>

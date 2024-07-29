@@ -1,5 +1,18 @@
 ﻿Module CrearBD
 
+    'hismesass
+    Public vartablahismesas As String = "CREATE TABLE `hismesa` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Mesa` varchar(100) DEFAULT '',
+                                                  `Mesero` varchar(100) DEFAULT '',
+                                                  `Cerro` varchar(100) DEFAULT '',
+                                                  `FAbierto` varchar(50) DEFAULT '',
+                                                  `HAbierto` time DEFAULT NULL,
+                                                  `FCerrado` varchar(50) DEFAULT '',
+                                                  `HCerrado` time DEFAULT NULL,
+                                                  `Status` int(11) DEFAULT '0'
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'precios
     Public vartablaprecios As String = "CREATE TABLE IF NOT EXISTS `precios` (
                                   `Id` int(11) NOT NULL,
@@ -6775,6 +6788,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeyhismesas As String = "ALTER TABLE `hismesa` ADD PRIMARY KEY (`Id`);"
     Public VarKeyprecios As String = "ALTER TABLE `precios` ADD PRIMARY KEY (`Id`);"
     Public VarKeymarcas As String = "ALTER TABLE `marcas` ADD PRIMARY KEY (`Id`);"
     Public VarKeyvehiculo2 As String = "ALTER TABLE `vehiculo2` ADD PRIMARY KEY (`Id`);"
@@ -6935,6 +6949,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutohismesas As String = "ALTER TABLE `hismesa` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoprecios As String = "ALTER TABLE `precios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomarcas As String = "ALTER TABLE `marcas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutovehiuclo2 As String = "ALTER TABLE `vehiculo2` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
