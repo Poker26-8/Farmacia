@@ -191,7 +191,7 @@ Public Class frmTraspSalida
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
+                    "select Codigo from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -213,7 +213,7 @@ Public Class frmTraspSalida
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
+                "select Codigo from Productos where (Nombre='" & cbodesc.Text & "' or CodBarra='" & cbodesc.Text & "')"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -246,7 +246,7 @@ Public Class frmTraspSalida
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
+                        "select Codigo,UVenta,Nombre,PrecioCompra from Productos where Codigo='" & Strings.Left(cbocodigo.Text, 6) & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -382,7 +382,7 @@ Public Class frmTraspSalida
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                    "select Alias from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -535,7 +535,7 @@ Public Class frmTraspSalida
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                "select Alias from Usuarios where Clave='" & txtusuario.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -618,7 +618,7 @@ Public Class frmTraspSalida
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
+                    "select Existencia from Productos where Codigo='" & Strings.Left(codigo, 6) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -685,7 +685,7 @@ Nota:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select NoPrint,Copias from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -952,7 +952,7 @@ milky:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Traslados where Folio=" & cbodocumento.Text & " and Concepto='SALIDA'"
+                "select Folio,Nombre,FVenta,Usuario from Traslados where Folio=" & cbodocumento.Text & " and Concepto='SALIDA'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -968,7 +968,7 @@ milky:
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from TrasladosDet where Folio=" & id & " and Concepto='SALIDA'"
+                "select Codigo,Nombre,Unidad,Cantidad,Precio,Total,Existe,CostVR from TrasladosDet where Folio=" & id & " and Concepto='SALIDA'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

@@ -68,7 +68,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from ModPrecios where Fecha between '" & Format(fechainicio, "yyyy-MM-dd 00:00:00") & "' and '" & Format(fechafin, "yyyy-MM-dd 23:59:59") & "' order by Id"
+                    "select Codigo,Nombre,Tipo,Anterior,Nuevo,Fecha,Usuario from ModPrecios where Fecha between '" & Format(fechainicio, "yyyy-MM-dd 00:00:00") & "' and '" & Format(fechafin, "yyyy-MM-dd 23:59:59") & "' order by Id"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -117,5 +117,9 @@
             End Try
 
         End If
+    End Sub
+
+    Private Sub frmRepPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

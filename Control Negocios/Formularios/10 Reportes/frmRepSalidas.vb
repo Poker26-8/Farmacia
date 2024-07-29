@@ -255,9 +255,9 @@ Public Class frmRepSalidas
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM Saldosempleados WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                    cmd1.CommandText = "SELECT Folio,Nombre,Fecha,Monto,Cargo,Nota FROM Saldosempleados WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                 Else
-                    cmd1.CommandText = "SELECT * FROM Saldosempleados WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Nombre='" & cboDatos.Text & "'"
+                    cmd1.CommandText = "SELECT Folio,Nombre,Fecha,Monto,Cargo,Nota FROM Saldosempleados WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Nombre='" & cboDatos.Text & "'"
                 End If
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
@@ -297,9 +297,9 @@ Public Class frmRepSalidas
                 cmd1 = cnn1.CreateCommand
 
                 If cboDatos.Text = "" Then
-                    cmd1.CommandText = "SELECT * FROM AbonoE WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                    cmd1.CommandText = "SELECT Proveedor,Fecha,Efectivo,Banco,Referencia,Tarjeta,Transfe,Otro,Concepto FROM AbonoE WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                 Else
-                    cmd1.CommandText = "SELECT * FROM AbonoE WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Proveedor='" & cboDatos.Text & "'"
+                    cmd1.CommandText = "SELECT Proveedor,Fecha,Efectivo,Banco,Referencia,Tarjeta,Transfe,Otro,Concepto FROM AbonoE WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Proveedor='" & cboDatos.Text & "'"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -345,7 +345,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM Nomina where Area='VENTAS' AND  Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Nombre,Area,Fecha,Horas,OtrosP,Descuento,SueldoNeto,OtrosD,SueldoNeto FROM Nomina where Area='VENTAS' AND  Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -381,7 +381,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Tipo='VENTAS' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario FROM OtrosGastos WHERE Tipo='VENTAS' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -427,7 +427,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM Nomina WHERE Area='ADMINISTRACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Nombre,Area,Fecha,Horas,OtrosP,Descuento,SueldoNeto,OtrosD,SueldoNeto FROM Nomina WHERE Area='ADMINISTRACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -464,7 +464,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Tipo='ADMINISTRACION' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario FROM OtrosGastos WHERE Tipo='ADMINISTRACION' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -506,7 +506,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM Nominas WHERE Area='OPERACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Nombre,Area,Fecha,Horas,OtrosP,Descuento,SueldoNeto,OtrosD,SueldoNeto FROM Nominas WHERE Area='OPERACIÓN' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -542,7 +542,7 @@ Public Class frmRepSalidas
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Tipo='OPERACION' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                        cmd1.CommandText = "SELECT Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario FROM OtrosGastos WHERE Tipo='OPERACION' AND Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             If rd1.HasRows Then
@@ -583,7 +583,7 @@ Public Class frmRepSalidas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
+                cmd1.CommandText = "SELECT Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario FROM OtrosGastos WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -623,7 +623,7 @@ Public Class frmRepSalidas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM OtrosGastos WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Concepto='NOMINA'"
+                cmd1.CommandText = "SELECT Tipo,Concepto,Folio,Fecha,Efectivo,Tarjeta,Transfe,Total,Nota,Usuario FROM OtrosGastos WHERE Fecha between '" & Format(desde, "yyyy/MM/dd") & "' AND '" & Format(hasta, "yyyy/MM/dd") & "' AND Concepto='NOMINA'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -1158,5 +1158,9 @@ Public Class frmRepSalidas
 
             End With
         End If
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
     End Sub
 End Class
