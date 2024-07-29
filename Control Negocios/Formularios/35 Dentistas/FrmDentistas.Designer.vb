@@ -25,6 +25,7 @@ Partial Class FrmDentistas
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDentistas))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCliente = New System.Windows.Forms.TextBox()
@@ -53,7 +54,7 @@ Partial Class FrmDentistas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 48)
+        Me.Label2.Location = New System.Drawing.Point(7, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(173, 25)
         Me.Label2.TabIndex = 59
@@ -62,9 +63,9 @@ Partial Class FrmDentistas
         'txtCliente
         '
         Me.txtCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCliente.Location = New System.Drawing.Point(208, 45)
+        Me.txtCliente.Location = New System.Drawing.Point(191, 45)
         Me.txtCliente.Name = "txtCliente"
-        Me.txtCliente.Size = New System.Drawing.Size(560, 31)
+        Me.txtCliente.Size = New System.Drawing.Size(597, 31)
         Me.txtCliente.TabIndex = 60
         '
         'grdCaptura
@@ -93,11 +94,11 @@ Partial Class FrmDentistas
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.grdCaptura.DefaultCellStyle = DataGridViewCellStyle3
-        Me.grdCaptura.Location = New System.Drawing.Point(17, 109)
+        Me.grdCaptura.Location = New System.Drawing.Point(4, 82)
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(751, 273)
+        Me.grdCaptura.Size = New System.Drawing.Size(784, 356)
         Me.grdCaptura.TabIndex = 61
         '
         'Column2
@@ -137,6 +138,7 @@ Partial Class FrmDentistas
         Me.Controls.Add(Me.txtCliente)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmDentistas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consultorio Dental"

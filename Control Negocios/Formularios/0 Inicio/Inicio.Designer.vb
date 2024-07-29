@@ -669,17 +669,18 @@ Partial Class Inicio
         Me.TproduccionCos.Name = "TproduccionCos"
         Me.TproduccionCos.Size = New System.Drawing.Size(145, 20)
         Me.TproduccionCos.Text = "Produccion Cosmeticos"
+        Me.TproduccionCos.Visible = False
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(135, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem3.Text = "Producción"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
         Me.ToolStripMenuItem4.Text = "Reporte"
         '
         'pAsistencia
@@ -1381,9 +1382,9 @@ Partial Class Inicio
         Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 625)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 608)
         Me.btnOptica.Name = "btnOptica"
-        Me.btnOptica.Size = New System.Drawing.Size(90, 90)
+        Me.btnOptica.Size = New System.Drawing.Size(90, 84)
         Me.btnOptica.TabIndex = 186
         Me.btnOptica.UseVisualStyleBackColor = True
         Me.btnOptica.Visible = False
@@ -1395,7 +1396,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 535)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 518)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1409,7 +1410,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 445)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 428)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1425,7 +1426,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
         Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 355)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
-        Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 90)
+        Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 73)
         Me.btnRefaccionaria.TabIndex = 182
         Me.btnRefaccionaria.UseVisualStyleBackColor = True
         Me.btnRefaccionaria.Visible = False
