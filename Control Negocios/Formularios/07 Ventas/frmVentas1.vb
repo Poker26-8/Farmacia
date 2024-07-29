@@ -8741,7 +8741,7 @@ Door:
             ElseIf TPrint = "TICKET MATRIZ DE PUNTO" Then
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='" & TPrint & "'"
+                    "select Impresora from RutasImpresion where Equipo='" & ObtenerNombreEquipo() & "' and Tipo='Venta' and Formato='" & TPrint & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

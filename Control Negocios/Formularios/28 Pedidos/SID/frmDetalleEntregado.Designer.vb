@@ -56,6 +56,8 @@ Partial Class frmDetalleEntregado
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.boxcantidad = New System.Windows.Forms.GroupBox()
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.txtcodigo = New System.Windows.Forms.TextBox()
@@ -161,42 +163,42 @@ Partial Class frmDetalleEntregado
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(3, 40)
+        Me.Label3.Location = New System.Drawing.Point(356, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 20)
+        Me.Label3.Size = New System.Drawing.Size(126, 24)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Num. Pedido:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 20)
+        Me.Label1.Size = New System.Drawing.Size(103, 24)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Proveedor:"
         '
         'lblFolio
         '
         Me.lblFolio.AutoSize = True
-        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFolio.ForeColor = System.Drawing.Color.Black
-        Me.lblFolio.Location = New System.Drawing.Point(125, 40)
+        Me.lblFolio.Location = New System.Drawing.Point(356, 38)
         Me.lblFolio.Name = "lblFolio"
-        Me.lblFolio.Size = New System.Drawing.Size(53, 20)
+        Me.lblFolio.Size = New System.Drawing.Size(57, 24)
         Me.lblFolio.TabIndex = 9
         Me.lblFolio.Text = "Folio:"
         '
         'lblProveedor
         '
         Me.lblProveedor.AutoSize = True
-        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProveedor.Location = New System.Drawing.Point(125, 9)
+        Me.lblProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProveedor.Location = New System.Drawing.Point(3, 38)
         Me.lblProveedor.Name = "lblProveedor"
-        Me.lblProveedor.Size = New System.Drawing.Size(95, 20)
+        Me.lblProveedor.Size = New System.Drawing.Size(103, 24)
         Me.lblProveedor.TabIndex = 8
         Me.lblProveedor.Text = "Proveedor:"
         '
@@ -315,6 +317,8 @@ Partial Class frmDetalleEntregado
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblFecha)
+        Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.lblProveedor)
         Me.Panel1.Controls.Add(Me.lblFolio)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -324,6 +328,27 @@ Partial Class frmDetalleEntregado
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(985, 73)
         Me.Panel1.TabIndex = 13
+        '
+        'lblFecha
+        '
+        Me.lblFecha.AutoSize = True
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.ForeColor = System.Drawing.Color.Black
+        Me.lblFecha.Location = New System.Drawing.Point(631, 38)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
+        Me.lblFecha.TabIndex = 11
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(631, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(245, 24)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Fecha Pedidos Entregados:"
         '
         'boxcantidad
         '
@@ -424,4 +449,6 @@ Partial Class frmDetalleEntregado
     Friend WithEvents txtnombre As TextBox
     Friend WithEvents txtcodigo As TextBox
     Friend WithEvents txtcantidad As TextBox
+    Friend WithEvents lblFecha As Label
+    Friend WithEvents Label6 As Label
 End Class

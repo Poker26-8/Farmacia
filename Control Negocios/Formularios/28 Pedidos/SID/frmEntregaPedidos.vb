@@ -1,7 +1,10 @@
-﻿Public Class frmEntregaPedidos
+﻿Imports System.IO
+Public Class frmEntregaPedidos
 
     Dim id_cliente As Integer = 0
     Dim unidadsel As String = ""
+
+    Dim totalxd As Double = 0
     Private Sub frmEntregaPedidos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         buscaFolio()
     End Sub
@@ -267,6 +270,7 @@
 
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         Try
+            totalxd = txtTotal.Text
             Dim subtotal As Double = 0
             Dim iva As Double = 0
             Dim preciosiniva As Double = 0
@@ -350,9 +354,6 @@
                     Next
                     cnn1.Close()
                     MsgBox("Pedido realizado correctamente", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
-                    limpiaXD()
-                    recargaDatos()
-                    My.Application.DoEvents()
                 Else
                     cnn2.Close()
                     MsgBox("Error al guardar el pedido", vbCritical + vbOKOnly, "Delsscom Control Negocios Pro")
@@ -362,6 +363,47 @@
                 rd1.Close()
                 cnn1.Close()
             End If
+
+            Dim tamticket As Integer = 0
+            Dim impresora As String = ""
+            Dim preguntarimprimir As Integer = 0
+            Dim formato As String = ""
+
+            tamticket = TamImpre()
+            impresora = ImpresoraImprimir()
+            preguntarimprimir = PreguntaImprime()
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Formato FROM rutasimpresion WHERE Equipo='" & ObtenerNombreEquipo() & "' AND Tipo='Venta'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    formato = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If preguntarimprimir = 1 Then
+                If MsgBox("¿Desea imprimir el ticket?", vbInformation + vbYesNo) = vbYes Then
+
+                End If
+            Else
+                If formato = "TICKET" Then
+                    If tamticket = 80 Then
+                        pPedidos80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                        pPedidos80.Print()
+                    End If
+
+                    'If tamticket = 58 Then
+                    '    pPedidos58.DefaultPageSettings.PrinterSettings.PrinterName = impresora
+                    '    pPedidos58.Print()
+                    'End If
+                End If
+            End If
+            My.Application.DoEvents()
+
             limpiaXD()
             recargaDatos()
             My.Application.DoEvents()
@@ -422,7 +464,7 @@
             If rd1.Read Then
                 precio = rd1(0).ToString
             End If
-            rd1.Close
+            rd1.Close()
             cnn1.Close()
 
 
@@ -531,6 +573,7 @@
         Else
             frmDetalleEntregado.lblProveedor.Text = cboProveedor.Text
             frmDetalleEntregado.lblFolio.Text = cboFolio.Text
+            frmDetalleEntregado.lblFecha.Text = FormatDateTime(dtpAsignacion.Value, DateFormat.ShortDate)
         End If
         Me.Enabled = False
         My.Application.DoEvents()
@@ -538,5 +581,178 @@
 
     Private Sub grdCaptura_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellEndEdit
 
+    End Sub
+
+    Private Sub pPedidos80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pPedidos80.PrintPage
+
+        'Fuentes prederminadas
+        Dim tipografia As String = "Lucida Sans Typewriter"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 8, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+
+        Try
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 153
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 250, 150)
+                        Y += 153
+                    End If
+                End If
+            Else
+                Y = 0
+            End If
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select * from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                    'Razón social
+                    If rd1("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'RFC
+                    If rd1("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                        Y += 12.5
+                    End If
+                    'Calle  N°.
+                    If rd1("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Colonia
+                    If rd1("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd1("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Teléfono
+                    If rd1("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    'Correo
+                    If rd1("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Gray, 140, Y, sc)
+                        Y += 12
+                    End If
+                    Y += 3
+                End If
+            Else
+                Y += 0
+            End If
+            rd1.Close()
+
+            '[1]. Datos de la venta
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("P E D I D O", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 17
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            e.Graphics.DrawString("Folio: " & lblFol.Text, fuente_datos, Brushes.Black, 270, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 270, Y, sf)
+            Y += 17
+
+            If cboCliente.Text <> "" Then
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+                e.Graphics.DrawString("C L I E N T E", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+
+                e.Graphics.DrawString("Nombre: " & Mid(cboCliente.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
+                Y += 15
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            Else
+                Y += 4
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            End If
+
+            e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 15
+            e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 195, Y, sf)
+            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
+            Y += 6
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            Dim total_prods As Double = 0
+
+            For luffy As Integer = 0 To grdPedido.Rows.Count - 1
+                Dim codigo As String = grdPedido.Rows(luffy).Cells(0).Value.ToString
+                Dim descr As String = grdPedido.Rows(luffy).Cells(1).Value.ToString
+                Dim unidad As String = grdPedido.Rows(luffy).Cells(2).Value.ToString
+                Dim cant As Double = grdPedido.Rows(luffy).Cells(3).Value.ToString
+                Dim precio As Double = grdPedido.Rows(luffy).Cells(4).Value.ToString
+                Dim total As Double = grdPedido.Rows(luffy).Cells(5).Value.ToString
+
+                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(Mid(descr, 1, 48), fuente_prods, Brushes.Black, 52, Y)
+                Y += 12.5
+                e.Graphics.DrawString(cant, fuente_prods, Brushes.Black, 50, Y, sf)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+                Y += 15
+
+                total_prods = total_prods + cant
+            Next
+
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 7
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(totalxd, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+            Y += 18
+            e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(totalxd, 2), fuente_prods, Brushes.Black, 280, Y, sf)
+            Y += 18
+            e.Graphics.DrawString("Lo atiende " & lblUsuario.Text, fuente_prods, Brushes.Black, 137, Y, sc)
+            Y += 20
+
+            cnn1.Close()
+            e.HasMorePages = False
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
     End Sub
 End Class
