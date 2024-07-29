@@ -471,12 +471,6 @@
     <Compile Include="Formularios\05 Productos y servicios\Produccion\frmLotesyCad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.Designer.vb">
-      <DependentUpon>frmProducirF.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\05 Productos y servicios\Produccion\frmProducirQ.Designer.vb">
       <DependentUpon>frmProducirQ.vb</DependentUpon>
     </Compile>
@@ -2323,9 +2317,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmLotesyCad.resx">
       <DependentUpon>frmLotesyCad.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmProducirF.resx">
-      <DependentUpon>frmProducirF.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\05 Productos y servicios\Produccion\frmProducirQ.resx">
       <DependentUpon>frmProducirQ.vb</DependentUpon>
