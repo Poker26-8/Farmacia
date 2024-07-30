@@ -73,14 +73,6 @@ Partial Class frmVTouchR
         Me.PGrupo = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.pPreferencia = New System.Windows.Forms.TabPage()
         Me.pExtras = New System.Windows.Forms.TabPage()
@@ -145,6 +137,16 @@ Partial Class frmVTouchR
         Me.PVentaTouch58 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia58 = New System.Drawing.Printing.PrintDocument()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -769,7 +771,7 @@ Partial Class frmVTouchR
         Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column9})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column9, Me.Column8, Me.Column10})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -787,71 +789,6 @@ Partial Class frmVTouchR
         Me.grdCaptura.RowTemplate.Height = 40
         Me.grdCaptura.Size = New System.Drawing.Size(341, 377)
         Me.grdCaptura.TabIndex = 87
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Cod"
-        Me.Column1.MinimumWidth = 8
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 150
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Desc."
-        Me.Column2.MinimumWidth = 8
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 150
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Cant."
-        Me.Column3.MinimumWidth = 8
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 60
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "P.U."
-        Me.Column4.MinimumWidth = 8
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 70
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Importe"
-        Me.Column5.MinimumWidth = 8
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 65
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Com"
-        Me.Column6.MinimumWidth = 8
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 150
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "PEP"
-        Me.Column7.MinimumWidth = 8
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 150
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.MinimumWidth = 8
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 150
         '
         'TabControl1
         '
@@ -1576,6 +1513,83 @@ Partial Class frmVTouchR
         'Cortesia58
         '
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Cod"
+        Me.Column1.MinimumWidth = 8
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        Me.Column1.Width = 150
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Desc."
+        Me.Column2.MinimumWidth = 8
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 150
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Cant."
+        Me.Column3.MinimumWidth = 8
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 60
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "P.U."
+        Me.Column4.MinimumWidth = 8
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 70
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Importe"
+        Me.Column5.MinimumWidth = 8
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 65
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Com"
+        Me.Column6.MinimumWidth = 8
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 150
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "PEP"
+        Me.Column7.MinimumWidth = 8
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 150
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.MinimumWidth = 8
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 150
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "IvaIeps"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "IEPS"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
         'frmVTouchR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1666,14 +1680,6 @@ Partial Class frmVTouchR
     Friend WithEvents btnCortesia As Button
     Friend WithEvents txtUsuario As TextBox
     Friend WithEvents grdCaptura As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents PTeclado As Panel
     Friend WithEvents Button17 As Button
     Friend WithEvents Button16 As Button
@@ -1732,4 +1738,14 @@ Partial Class frmVTouchR
     Friend WithEvents Cortesia58 As Printing.PrintDocument
     Friend WithEvents btnEliminar As Button
     Friend WithEvents picQR As PictureBox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
 End Class

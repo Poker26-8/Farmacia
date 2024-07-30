@@ -504,7 +504,7 @@ Public Class frmNuevoPagarComandas
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
+            cmd2.CommandText = "SELECT Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,Id FROM comandas WHERE Nmesa='" & cboMesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -518,7 +518,12 @@ Public Class frmNuevoPagarComandas
                     Dim comensal As String = rd2("Comensal").ToString
                     Dim comanda As Integer = rd2("Id").ToString
 
-                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda)
+                    Dim PU As Double = CDbl(total) / (1 + IvaDSC(codigo))
+
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(codigo)))
+                    Dim ieps As Double = ProdsIEPS(codigo)
+
+                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
                     totalventa = totalventa + CDbl(total)
 
@@ -553,6 +558,29 @@ Public Class frmNuevoPagarComandas
             cnn2.Close()
         End Try
     End Sub
+
+    Public Function IvaDSC(ByVal cod As String) As Double
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText = "select IVA from Productos where Codigo='" & cod & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    IvaDSC = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString))
+                End If
+            Else
+                IvaDSC = 0
+            End If
+            rd3.Close()
+            cnn3.Close()
+            Return IvaDSC
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+    End Function
 
     Private Sub txtPorcentaje_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPorcentaje.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -645,16 +673,16 @@ Public Class frmNuevoPagarComandas
             If tipo = "Comanda" Then
 
                 If cboMesa.Text = "" Then
-                    cmd3.CommandText = "SELECT * FROM comandas WHERE Id=" & cboComanda.Text & " ORDER BY Nombre"
+                    cmd3.CommandText = "SELECT CUsuario,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,Id FROM comandas WHERE Id=" & cboComanda.Text & " ORDER BY Nombre"
                 Else
-                    cmd3.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Id=" & cboComanda.Text & " ORDER BY Nombre"
+                    cmd3.CommandText = "SELECT CUsuario,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,Id FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Id=" & cboComanda.Text & " ORDER BY Nombre"
                 End If
 
             End If
 
             If tipo = "Comensal" Then
                 If cboMesa.Text <> "" Then
-                    cmd3.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Comensal='" & cboComensal.Text & "' ORDER BY Nombre"
+                    cmd3.CommandText = "SELECT CUsuario,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,Id FROM comandas WHERE Nmesa='" & cboMesa.Text & "' AND Comensal='" & cboComensal.Text & "' ORDER BY Nombre"
                 End If
             End If
 
@@ -674,7 +702,12 @@ Public Class frmNuevoPagarComandas
                     Dim comensal As String = rd3("Comensal").ToString
                     Dim comanda As Integer = rd3("Id").ToString
 
-                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda)
+                    Dim PU As Double = CDbl(total) / (1 + IvaDSC(codigo))
+
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(codigo)))
+                    Dim ieps As Double = ProdsIEPS(codigo)
+
+                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
                     totalventa = totalventa + CDbl(total)
 
@@ -2116,7 +2149,8 @@ kakaxd:
             Dim TotalSinIVA1 As Double = 0
             Dim gprint As String = ""
 
-            Dim varieps As String = ""
+            Dim IVAIEPS As Double = 0
+            Dim IEPS As Double = 0
             Dim vartotal As String = ""
 
             'insertar a ventasdetalle
@@ -2131,9 +2165,12 @@ kakaxd:
                 comensalg = grdCaptura.Rows(loba).Cells(6).Value.ToString
                 comandag = grdCaptura.Rows(loba).Cells(7).Value.ToString
 
+                IVAIEPS = grdCaptura.Rows(loba).Cells(8).Value.ToString
+                IEPS = grdCaptura.Rows(loba).Cells(9).Value.ToString
+
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigog & "'"
+                cmd2.CommandText = "SELECT PrecioCompra,PrecioVentaIVA,IVA,Departamento,Grupo,Multiplo,GPrint FROM Productos WHERE Codigo='" & codigog & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -2162,12 +2199,12 @@ kakaxd:
                 rd2.Close()
                 cnn2.Close()
 
-                varieps = 0
+
                 vartotal = 0
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,TotalIEPS,TasaIEPS,GPrint,Comensal,Comentario,Usuario) VALUES(" & folioventa & ",'" & codigog & "','" & descripciong & "','" & unidadg & "'," & cantidadg & "," & PrecioCompra & "," & preciog & "," & preciog & "," & totalg & "," & PrecioSinIVA1 & "," & TotalSinIVA1 & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','0','" & departamento & "','" & grupo & "',0," & vartotal & "," & varieps & ",'" & gprint & "','" & comensalg & "','','" & lblUsuario.Text & "')"
+                cmd3.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,GPrint,Comensal,Comentario,Usuario,TotalIEPS,TasaIEPS) VALUES(" & folioventa & ",'" & codigog & "','" & descripciong & "','" & unidadg & "'," & cantidadg & "," & PrecioCompra & "," & preciog & "," & preciog & "," & totalg & "," & PrecioSinIVA1 & "," & TotalSinIVA1 & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','0','" & departamento & "','" & grupo & "',0,'" & gprint & "','" & comensalg & "','','" & lblUsuario.Text & "'," & IVAIEPS & "," & IEPS & ")"
                 cmd3.ExecuteNonQuery()
                 cnn3.Close()
 

@@ -331,7 +331,7 @@ nopaso:
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Codigo & "'"
+            cmd1.CommandText = "SELECT Departamento,Nombre,UVenta,Min,Multiplo,E1,E2,Grupo FROM Productos WHERE Codigo='" & Codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -671,10 +671,15 @@ nopaso:
         rd1.Close()
         cnn1.Close()
 
+        Dim PU As Double = CDbl(importe) / (1 + IvaDSC(CodigoProducto))
+
+        Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(CodigoProducto)))
+        Dim ieps As Double = ProdsIEPS(CodigoProducto)
+
         If dosxuno = 1 Then
 
             With grdCaptura.Rows
-                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
+                .Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "", IvaIeps, ieps)
 
                 lblTotalPagar.Text = lblTotalPagar.Text + importe
                 lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -685,7 +690,7 @@ nopaso:
 
             With Me.grdCaptura
                 For ii As Integer = 0 To grdCaptura.Rows.Count - 1
-                    grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "")
+                    grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "", IvaIeps, ieps)
                 Next
             End With
             Exit Sub
@@ -693,11 +698,11 @@ nopaso:
 
         If tresxdos = 1 Then
 
-            With grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
+            With grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "", IvaIeps, ieps)
 
             End With
 
-            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "")
+            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(precio, 2), FormatNumber(importe, 2), "", "", IvaIeps, ieps)
 
             End With
             For q As Integer = 0 To grdCaptura.Rows.Count - 1
@@ -707,7 +712,7 @@ nopaso:
                 lblRestaPagar.Text = FormatNumber(TotalVenta, 2)
             Next
 
-            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "")
+            With Me.grdCaptura.Rows.Add(CodigoProducto, CodigoProducto & vbNewLine & descripcion, FormatNumber(cantidad, 2), FormatNumber(0, 2), FormatNumber(0, 2), "", "", IvaIeps, ieps)
 
             End With
             Exit Sub
@@ -739,7 +744,7 @@ nopaso:
                                         cantidad,
                                         FormatNumber(precio, 2),
                                         FormatNumber(importe, 2),
-    respuesta, "")
+    respuesta, "", "", IvaIeps, ieps)
 
                 lblTotalPagar.Text = lblTotalPagar.Text + importe
                 lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -755,7 +760,7 @@ nopaso:
                                         cantidad,
                                         FormatNumber(precio, 2),
                                         FormatNumber(importe, 2),
-    respuesta, "")
+    respuesta, "", "", FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
                     lblTotalPagar.Text = lblTotalPagar.Text + importe
                     lblTotalPagar.Text = FormatNumber(lblTotalPagar.Text, 2)
@@ -3519,9 +3524,12 @@ kakaxd:
                 Dim pep = IIf(grdCaptura.Rows(pain).Cells(6).Value.ToString = "", "", grdCaptura.Rows(pain).Cells(6).Value.ToString)
                 Dim Comentario As String = grdCaptura.Rows(pain).Cells(7).Value
 
+                Dim IVAIEPS As Double = grdCaptura.Rows(pain).Cells(8).Value.ToString
+                Dim IEPS As Double = grdCaptura.Rows(pain).Cells(9).Value.ToString
+
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM Productos where Codigo='" & MYCODE & "'"
+                cmd2.CommandText = "SELECT UVenta,IVA,Departamento,PrecioCompra,Grupo,MCD,Multiplo,GPrint FROM Productos where Codigo='" & MYCODE & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -3571,7 +3579,7 @@ kakaxd:
 
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "SELECT * FROM Productos  WHERE Codigo='" & MYCODE & "'"
+                cmd3.CommandText = "SELECT Modo_Almacen,Nombre,Codigo FROM Productos  WHERE Codigo='" & MYCODE & "'"
                 rd3 = cmd3.ExecuteReader
                 MyCostVUE = 0
                 If rd3.HasRows Then
@@ -3602,7 +3610,7 @@ kakaxd:
 
                                     cnn2.Close() : cnn2.Open()
                                     cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
+                                    cmd2.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & VarCodigo & "'"
                                     rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
                                         If rd2.Read Then
@@ -3628,7 +3636,7 @@ kakaxd:
                                     Dim existe As Double = 0
 
                                     cmd2 = cnn2.CreateCommand
-                                    cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                    cmd2.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
                                     rd2 = cmd2.ExecuteReader
                                     If rd2.HasRows Then
                                         If rd2.Read Then
@@ -3680,7 +3688,7 @@ kakaxd:
 
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "select * from Productos where Codigo='" & MYCODE & "'"
+                            cmd2.CommandText = "select PrecioCompra,Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint from Productos where Codigo='" & MYCODE & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -3704,7 +3712,7 @@ kakaxd:
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(MYCODE, 6) & "'"
+                    "select Existencia,MCD,Departamento,PrecioCompra from Productos where Codigo='" & Strings.Left(MYCODE, 6) & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -3750,12 +3758,12 @@ Door:
                 Dim vartasa As String = ""
                 Dim vartotal As String = ""
 
-                vartasa = 0
+
                 vartotal = 0
 
                 cnn4.Close() : cnn4.Open()
                 cmd4 = cnn4.CreateCommand
-                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,FechaCompleta,Depto,Grupo,GPrint,Comentario,TasaIeps,TotalIEPS,Comensal,Facturado) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "'," & vartasa & "," & vartotal & ",'" & comensal & "','0')"
+                cmd4.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,FechaCompleta,Depto,Grupo,GPrint,Comentario,Comensal,Facturado,TotalIEPS,TasaIEPS) VALUES(" & MYFOLIO & ",'" & MYCODE & "','" & MyDes & "'," & MYCANT & ",'" & unidadv & "'," & MyCostVUE & "," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & MyPrecioSin & "," & MyTotalSin & ",'0','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & MyDepto & "','" & MyGrupo & "','" & GImpre & "','" & Comentario & "','" & comensal & "','0'," & IVAIEPS & "," & IEPS & ")"
                 cmd4.ExecuteNonQuery()
                 cnn4.Close()
 

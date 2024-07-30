@@ -24,9 +24,9 @@ Partial Class frmHClinica
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHClinica))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -82,13 +82,13 @@ Partial Class frmHClinica
         Me.txtdiente = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cbMalos = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.cbPlaca = New System.Windows.Forms.CheckBox()
+        Me.cbRevision = New System.Windows.Forms.CheckBox()
+        Me.cbDeteccion = New System.Windows.Forms.CheckBox()
+        Me.cbEncias = New System.Windows.Forms.CheckBox()
+        Me.cbAccidente = New System.Windows.Forms.CheckBox()
+        Me.cbDesarrollo = New System.Windows.Forms.CheckBox()
+        Me.cbEstetica = New System.Windows.Forms.CheckBox()
         Me.cbHigiene = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -117,8 +117,8 @@ Partial Class frmHClinica
         Me.Button34 = New System.Windows.Forms.Button()
         Me.Button35 = New System.Windows.Forms.Button()
         Me.Button36 = New System.Windows.Forms.Button()
-        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.cbProxima = New System.Windows.Forms.CheckBox()
+        Me.dtpFechaProxima = New System.Windows.Forms.DateTimePicker()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -679,13 +679,13 @@ Partial Class frmHClinica
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.cbMalos)
-        Me.GroupBox1.Controls.Add(Me.CheckBox8)
-        Me.GroupBox1.Controls.Add(Me.CheckBox7)
-        Me.GroupBox1.Controls.Add(Me.CheckBox6)
-        Me.GroupBox1.Controls.Add(Me.CheckBox5)
-        Me.GroupBox1.Controls.Add(Me.CheckBox4)
-        Me.GroupBox1.Controls.Add(Me.CheckBox3)
-        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.cbPlaca)
+        Me.GroupBox1.Controls.Add(Me.cbRevision)
+        Me.GroupBox1.Controls.Add(Me.cbDeteccion)
+        Me.GroupBox1.Controls.Add(Me.cbEncias)
+        Me.GroupBox1.Controls.Add(Me.cbAccidente)
+        Me.GroupBox1.Controls.Add(Me.cbDesarrollo)
+        Me.GroupBox1.Controls.Add(Me.cbEstetica)
         Me.GroupBox1.Controls.Add(Me.cbHigiene)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 392)
@@ -705,82 +705,82 @@ Partial Class frmHClinica
         Me.cbMalos.Text = "Malos Habitos"
         Me.cbMalos.UseVisualStyleBackColor = True
         '
-        'CheckBox8
+        'cbPlaca
         '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox8.Location = New System.Drawing.Point(490, 122)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(152, 20)
-        Me.CheckBox8.TabIndex = 8
-        Me.CheckBox8.Text = "Placa, Sarro y Caries"
-        Me.CheckBox8.UseVisualStyleBackColor = True
+        Me.cbPlaca.AutoSize = True
+        Me.cbPlaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPlaca.Location = New System.Drawing.Point(490, 122)
+        Me.cbPlaca.Name = "cbPlaca"
+        Me.cbPlaca.Size = New System.Drawing.Size(152, 20)
+        Me.cbPlaca.TabIndex = 8
+        Me.cbPlaca.Text = "Placa, Sarro y Caries"
+        Me.cbPlaca.UseVisualStyleBackColor = True
         '
-        'CheckBox7
+        'cbRevision
         '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox7.Location = New System.Drawing.Point(490, 170)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(139, 20)
-        Me.CheckBox7.TabIndex = 7
-        Me.CheckBox7.Text = "Revision de Rutina"
-        Me.CheckBox7.UseVisualStyleBackColor = True
+        Me.cbRevision.AutoSize = True
+        Me.cbRevision.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbRevision.Location = New System.Drawing.Point(490, 170)
+        Me.cbRevision.Name = "cbRevision"
+        Me.cbRevision.Size = New System.Drawing.Size(139, 20)
+        Me.cbRevision.TabIndex = 7
+        Me.cbRevision.Text = "Revision de Rutina"
+        Me.cbRevision.UseVisualStyleBackColor = True
         '
-        'CheckBox6
+        'cbDeteccion
         '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox6.Location = New System.Drawing.Point(490, 210)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(180, 20)
-        Me.CheckBox6.TabIndex = 6
-        Me.CheckBox6.Text = "Deteccion de Cancer Oral"
-        Me.CheckBox6.UseVisualStyleBackColor = True
+        Me.cbDeteccion.AutoSize = True
+        Me.cbDeteccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDeteccion.Location = New System.Drawing.Point(490, 210)
+        Me.cbDeteccion.Name = "cbDeteccion"
+        Me.cbDeteccion.Size = New System.Drawing.Size(180, 20)
+        Me.cbDeteccion.TabIndex = 6
+        Me.cbDeteccion.Text = "Deteccion de Cancer Oral"
+        Me.cbDeteccion.UseVisualStyleBackColor = True
         '
-        'CheckBox5
+        'cbEncias
         '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox5.Location = New System.Drawing.Point(646, 39)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(67, 20)
-        Me.CheckBox5.TabIndex = 5
-        Me.CheckBox5.Text = "Encias"
-        Me.CheckBox5.UseVisualStyleBackColor = True
+        Me.cbEncias.AutoSize = True
+        Me.cbEncias.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbEncias.Location = New System.Drawing.Point(646, 39)
+        Me.cbEncias.Name = "cbEncias"
+        Me.cbEncias.Size = New System.Drawing.Size(67, 20)
+        Me.cbEncias.TabIndex = 5
+        Me.cbEncias.Text = "Encias"
+        Me.cbEncias.UseVisualStyleBackColor = True
         '
-        'CheckBox4
+        'cbAccidente
         '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox4.Location = New System.Drawing.Point(646, 81)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(86, 20)
-        Me.CheckBox4.TabIndex = 4
-        Me.CheckBox4.Text = "Accidente"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.cbAccidente.AutoSize = True
+        Me.cbAccidente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAccidente.Location = New System.Drawing.Point(646, 81)
+        Me.cbAccidente.Name = "cbAccidente"
+        Me.cbAccidente.Size = New System.Drawing.Size(86, 20)
+        Me.cbAccidente.TabIndex = 4
+        Me.cbAccidente.Text = "Accidente"
+        Me.cbAccidente.UseVisualStyleBackColor = True
         '
-        'CheckBox3
+        'cbDesarrollo
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.Location = New System.Drawing.Point(646, 122)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(89, 20)
-        Me.CheckBox3.TabIndex = 3
-        Me.CheckBox3.Text = "Desarrollo"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.cbDesarrollo.AutoSize = True
+        Me.cbDesarrollo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDesarrollo.Location = New System.Drawing.Point(646, 122)
+        Me.cbDesarrollo.Name = "cbDesarrollo"
+        Me.cbDesarrollo.Size = New System.Drawing.Size(89, 20)
+        Me.cbDesarrollo.TabIndex = 3
+        Me.cbDesarrollo.Text = "Desarrollo"
+        Me.cbDesarrollo.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'cbEstetica
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(646, 170)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(161, 20)
-        Me.CheckBox2.TabIndex = 2
-        Me.CheckBox2.Text = "Estetica en Ortodoncia"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.cbEstetica.AutoSize = True
+        Me.cbEstetica.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbEstetica.Location = New System.Drawing.Point(646, 170)
+        Me.cbEstetica.Name = "cbEstetica"
+        Me.cbEstetica.Size = New System.Drawing.Size(161, 20)
+        Me.cbEstetica.TabIndex = 2
+        Me.cbEstetica.Text = "Estetica en Ortodoncia"
+        Me.cbEstetica.UseVisualStyleBackColor = True
         '
         'cbHigiene
         '
@@ -889,9 +889,9 @@ Partial Class frmHClinica
         '
         Me.grd.AllowUserToAddRows = False
         Me.grd.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grd.BackgroundColor = System.Drawing.Color.White
         Me.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd.ColumnHeadersVisible = False
@@ -925,9 +925,9 @@ Partial Class frmHClinica
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.ColumnHeadersVisible = False
@@ -978,9 +978,9 @@ Partial Class frmHClinica
         '
         Me.grdDiagnostico.AllowUserToAddRows = False
         Me.grdDiagnostico.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdDiagnostico.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdDiagnostico.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.grdDiagnostico.BackgroundColor = System.Drawing.Color.White
         Me.grdDiagnostico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdDiagnostico.ColumnHeadersVisible = False
@@ -1092,26 +1092,26 @@ Partial Class frmHClinica
         Me.Button36.Text = "PAGAR"
         Me.Button36.UseVisualStyleBackColor = False
         '
-        'CheckBox10
+        'cbProxima
         '
-        Me.CheckBox10.AutoSize = True
-        Me.CheckBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox10.Location = New System.Drawing.Point(951, 592)
-        Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(116, 24)
-        Me.CheckBox10.TabIndex = 121
-        Me.CheckBox10.Text = "Proxima Cita"
-        Me.CheckBox10.UseVisualStyleBackColor = True
+        Me.cbProxima.AutoSize = True
+        Me.cbProxima.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProxima.Location = New System.Drawing.Point(951, 592)
+        Me.cbProxima.Name = "cbProxima"
+        Me.cbProxima.Size = New System.Drawing.Size(116, 24)
+        Me.cbProxima.TabIndex = 121
+        Me.cbProxima.Text = "Proxima Cita"
+        Me.cbProxima.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'dtpFechaProxima
         '
-        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(951, 622)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(132, 29)
-        Me.DateTimePicker1.TabIndex = 122
+        Me.dtpFechaProxima.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaProxima.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaProxima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaProxima.Location = New System.Drawing.Point(951, 622)
+        Me.dtpFechaProxima.Name = "dtpFechaProxima"
+        Me.dtpFechaProxima.Size = New System.Drawing.Size(132, 29)
+        Me.dtpFechaProxima.TabIndex = 122
         '
         'btnLimpiar
         '
@@ -1135,8 +1135,8 @@ Partial Class frmHClinica
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1091, 702)
         Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.CheckBox10)
+        Me.Controls.Add(Me.dtpFechaProxima)
+        Me.Controls.Add(Me.cbProxima)
         Me.Controls.Add(Me.Button36)
         Me.Controls.Add(Me.Button35)
         Me.Controls.Add(Me.Button34)
@@ -1270,13 +1270,13 @@ Partial Class frmHClinica
     Friend WithEvents txtdiente As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cbMalos As CheckBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents CheckBox7 As CheckBox
-    Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents cbPlaca As CheckBox
+    Friend WithEvents cbRevision As CheckBox
+    Friend WithEvents cbDeteccion As CheckBox
+    Friend WithEvents cbEncias As CheckBox
+    Friend WithEvents cbAccidente As CheckBox
+    Friend WithEvents cbDesarrollo As CheckBox
+    Friend WithEvents cbEstetica As CheckBox
     Friend WithEvents cbHigiene As CheckBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
@@ -1301,8 +1301,8 @@ Partial Class frmHClinica
     Friend WithEvents Button34 As Button
     Friend WithEvents Button35 As Button
     Friend WithEvents Button36 As Button
-    Friend WithEvents CheckBox10 As CheckBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents cbProxima As CheckBox
+    Friend WithEvents dtpFechaProxima As DateTimePicker
     Friend WithEvents Button37 As Button
     Friend WithEvents grd As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn

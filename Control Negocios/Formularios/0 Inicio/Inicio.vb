@@ -4337,7 +4337,9 @@ Public Class Inicio
     End Sub
 
     Private Sub btnDentista_Click(sender As Object, e As EventArgs) Handles btnDentista.Click
-        frmHClinica.BringToFront()
-        frmHClinica.Show()
+        FrmDentistas.BringToFront()
+        FrmDentistas.Show()
+
+        FRMPRUEBAS2.Show()
     End Sub
 End Class

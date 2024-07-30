@@ -10,7 +10,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Clientes Order by Nombre"
+            cmd1.CommandText = "select Nombre from Clientes Order by Nombre"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 grdCaptura.Rows.Add(rd1("Nombre").ToString)
@@ -145,7 +145,7 @@
 
     Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
         txtNotacion.Text = "42"
-        txtdiente.Text = "incisivo Lateral"
+        txtdiente.Text = "Incisivo Lateral"
     End Sub
 
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
@@ -224,5 +224,14 @@
         grdDiagnostico.Rows.Clear()
         cbHigiene.Checked = False
         cbMalos.Checked = False
+        cbPlaca.Checked = False
+        cbRevision.Checked = False
+        cbDeteccion.Checked = False
+        cbEncias.Checked = False
+        cbAccidente.Checked = False
+        cbDesarrollo.Checked = False
+        cbEstetica.Checked = False
+        cbProxima.Checked = False
+        dtpFechaProxima.Value = Date.Now
     End Sub
 End Class

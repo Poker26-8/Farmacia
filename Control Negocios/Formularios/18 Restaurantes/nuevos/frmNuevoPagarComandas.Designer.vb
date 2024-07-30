@@ -154,14 +154,6 @@ Partial Class frmNuevoPagarComandas
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TFolio = New System.Windows.Forms.Timer(Me.components)
         Me.TFecha = New System.Windows.Forms.Timer(Me.components)
         Me.PDevolucion80 = New System.Drawing.Printing.PrintDocument()
@@ -172,6 +164,16 @@ Partial Class frmNuevoPagarComandas
         Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -1672,7 +1674,7 @@ Partial Class frmNuevoPagarComandas
         Me.grdCaptura.AllowUserToDeleteRows = False
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
         Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdCaptura.Location = New System.Drawing.Point(0, 0)
         Me.grdCaptura.Name = "grdCaptura"
@@ -1680,6 +1682,36 @@ Partial Class frmNuevoPagarComandas
         Me.grdCaptura.RowHeadersVisible = False
         Me.grdCaptura.Size = New System.Drawing.Size(763, 211)
         Me.grdCaptura.TabIndex = 0
+        '
+        'TFolio
+        '
+        '
+        'TFecha
+        '
+        '
+        'PDevolucion80
+        '
+        '
+        'PDevolucion58
+        '
+        '
+        'PPrecuenta80
+        '
+        '
+        'PPrecuenta58
+        '
+        '
+        'PPVenta80
+        '
+        '
+        'PPVenta58
+        '
+        '
+        'PCortesia80
+        '
+        '
+        'PCortesia58
+        '
         '
         'Column1
         '
@@ -1748,35 +1780,21 @@ Partial Class frmNuevoPagarComandas
         Me.Column8.ReadOnly = True
         Me.Column8.Width = 77
         '
-        'TFolio
+        'Column9
         '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column9.HeaderText = "IvaIeps"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 67
         '
-        'TFecha
+        'Column10
         '
-        '
-        'PDevolucion80
-        '
-        '
-        'PDevolucion58
-        '
-        '
-        'PPrecuenta80
-        '
-        '
-        'PPrecuenta58
-        '
-        '
-        'PPVenta80
-        '
-        '
-        'PPVenta58
-        '
-        '
-        'PCortesia80
-        '
-        '
-        'PCortesia58
-        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column10.HeaderText = "IEPS"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 56
         '
         'frmNuevoPagarComandas
         '
@@ -1943,14 +1961,6 @@ Partial Class frmNuevoPagarComandas
     Friend WithEvents Label31 As Label
     Friend WithEvents Panel15 As Panel
     Friend WithEvents grdCaptura As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents TFolio As Timer
     Friend WithEvents TFecha As Timer
     Friend WithEvents PDevolucion80 As Printing.PrintDocument
@@ -1971,4 +1981,14 @@ Partial Class frmNuevoPagarComandas
     Friend WithEvents txtbancocuenta As TextBox
     Friend WithEvents cboCuneta As ComboBox
     Friend WithEvents Label34 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
 End Class

@@ -1709,9 +1709,44 @@ Public Class frmConfigs
             ofdLogo.Filter = "Archivos CER|*.cer"
 
             If ofdLogo.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
                 txtcertificado.Text = ruta_local & Path.GetFileName(ofdLogo.FileName)
 
                 FileIO.FileSystem.CopyFile(ofdLogo.FileName, ruta_local & Path.GetFileName(ofdLogo.FileName), True)
+
+
+                ' Ruta del archivo
+                Dim rutaArchivo As String = ofdLogo.FileName
+
+                ' Crear un objeto FileInfo
+                Dim archivoInfo As New FileInfo(rutaArchivo)
+
+                ' Obtener el nombre del archivo
+                Dim nombreArchivo As String = archivoInfo.Name
+
+                '
+                Dim idemisor As Integer = 0
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Emisor_id FROM datosnegocio WHERE Em_RazonSocial='" & cborazon_social.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        idemisor = rd1(0).ToString
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE datosnegocio SET Emi_cer='" & nombreArchivo & "' WHERE Emisor_id=" & idemisor
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+
+
 
                 SFormatos2("FILE_CERT", ofdLogo.SafeFileName)
             End If
@@ -1745,6 +1780,27 @@ Public Class frmConfigs
         If MsgBox("¿Es correcta la información que estás a punto de guardar?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then Exit Sub
 
         Try
+            Dim idemisor As Integer = 0
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Emisor_id FROM datosnegocio WHERE Em_RazonSocial='" & cborazon_social.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    idemisor = rd1(0).ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE datosnegocio SET Emi_psw='" & txtContra1.Text & "',emi_folio_inicial='" & txtFolioI_Fact.Text & "' WHERE Emisor_id=" & idemisor
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
             SFormatos2("SHIBBOLETH", txtContra1.Text)
             SFormatos2("SERIE_FACT_EL", txtSerie_Fac.Text)
             SFormatos2("SERIE_NC_EL", txtSerie_Not.Text)
@@ -1771,6 +1827,37 @@ Public Class frmConfigs
                 txtllave.Text = ruta_local & Path.GetFileName(ofdLogo.FileName)
 
                 FileIO.FileSystem.CopyFile(ofdLogo.FileName, ruta_local & Path.GetFileName(ofdLogo.FileName), True)
+
+                ' Ruta del archivo
+                Dim rutaArchivo As String = ofdLogo.FileName
+
+                ' Crear un objeto FileInfo
+                Dim archivoInfo As New FileInfo(rutaArchivo)
+
+                ' Obtener el nombre del archivo
+                Dim nombreArchivo As String = archivoInfo.Name
+
+                '
+                Dim idemisor As Integer = 0
+
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "SELECT Emisor_id FROM datosnegocio WHERE Em_RazonSocial='" & cborazon_social.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        idemisor = rd1(0).ToString
+
+                        cnn2.Close() : cnn2.Open()
+                        cmd2 = cnn2.CreateCommand
+                        cmd2.CommandText = "UPDATE datosnegocio SET Emi_key='" & nombreArchivo & "' WHERE Emisor_id=" & idemisor
+                        cmd2.ExecuteNonQuery()
+                        cnn2.Close()
+
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
 
                 SFormatos2("FILE_KEY", ofdLogo.SafeFileName)
             End If

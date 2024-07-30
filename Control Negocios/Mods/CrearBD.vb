@@ -7024,7 +7024,7 @@
     Public varAutocotped As String = "ALTER TABLE `cotped` MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutocotpeddet As String = "ALTER TABLE `cotpeddet` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoctmedicos As String = "ALTER TABLE `ctmedicos` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
-    Public varAutodatosnegocio As String = "ALTER TABLE `datosnegocio` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutodatosnegocio As String = "ALTER TABLE `datosnegocio` MODIFY `Emisor_id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodatosprosepago As String = "ALTER TABLE `datosprosepago` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodeudores As String = "ALTER TABLE `deudores` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutodevoluciones As String = "ALTER TABLE `devoluciones` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

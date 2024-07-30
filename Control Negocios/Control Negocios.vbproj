@@ -2145,6 +2145,12 @@
     <Compile Include="Formularios\35 Dentistas\frmHClinica.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.Designer.vb">
+      <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mods\Almacen.vb" />
     <Compile Include="Mods\CrearBD.vb" />
     <Compile Include="Mods\Facturacion.vb" />
@@ -3171,6 +3177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\frmHClinica.resx">
       <DependentUpon>frmHClinica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\FRMPRUEBAS2.resx">
+      <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

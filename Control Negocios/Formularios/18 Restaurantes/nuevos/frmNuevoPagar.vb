@@ -125,7 +125,7 @@ Public Class frmNuevoPagar
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Terminal,Clave,Solicitud,Resultado from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 hayTerminal = 1
@@ -153,7 +153,8 @@ Public Class frmNuevoPagar
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id,CUsuario FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id,CUsuario FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -169,7 +170,11 @@ Public Class frmNuevoPagar
                     verid = rd2("Id").ToString
                     lblMesero.Text = rd2("CUsuario").ToString
 
-                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
+                    Dim PU As Double = CDbl(vertotal) / (1 + IvaDSC(vercodigo))
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(vercodigo)))
+                    Dim ieps As Double = ProdsIEPS(vercodigo)
+
+                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, FormatNumber(IvaIeps, 2), ieps)
 
                     Montocobromapeo = Montocobromapeo
                 End If
@@ -183,6 +188,30 @@ Public Class frmNuevoPagar
             cnn2.Close()
         End Try
     End Sub
+
+    Public Function IvaDSC(ByVal cod As String) As Double
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select IVA from Productos where Codigo='" & cod & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    IvaDSC = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString))
+                End If
+            Else
+                IvaDSC = 0
+            End If
+            rd3.Close()
+            cnn3.Close()
+            Return IvaDSC
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+    End Function
 
     Private Sub TFolio_Tick(sender As Object, e As EventArgs) Handles TFolio.Tick
         TFolio.Stop()
@@ -1377,6 +1406,9 @@ kakaxd:
 
         Dim kreaper As Integer = 0
 
+        Dim IEPS As Double = 0
+        Dim TASIEPS As Double = 0
+
         Do While kreaper <> grdComanda.Rows.Count
 
             idc = grdComanda.Rows(kreaper).Cells(0).Value.ToString
@@ -1388,12 +1420,13 @@ kakaxd:
             mytotal = grdComanda.Rows(kreaper).Cells(6).Value.ToString
             mycomensal = grdComanda.Rows(kreaper).Cells(7).Value.ToString
             mymesero = grdComanda.Rows(kreaper).Cells(8).Value.ToString
-
+            IEPS = grdComanda.Rows(kreaper).Cells(10).Value.ToString
+            TASIEPS = grdComanda.Rows(kreaper).Cells(11).Value.ToString
 
             mycantidad = FormatNumber(mycantidad, 2)
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+            cmd2.CommandText = "SELECT PrecioCompra,IVA,Departamento,Grupo,Multiplo FROM Productos WHERE Codigo='" & mycodigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1426,7 +1459,7 @@ kakaxd:
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,FechaCompleta,Depto,Grupo,Comensal,TasaIEPS,TotalIEPS,Descto,Facturado) VALUES('" & folio & "','" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & COSTVUE1 & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-mm-dd HH:mm:ss") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "'," & varieps & "," & vartotal & ",'0','0')"
+            cmd3.CommandText = "INSERT INTO VentasDetalle(Folio,Codigo,Nombre,Cantidad,Unidad,CostoVUE,CostoVP,Precio,Total,PrecioSinIVA,TotalSinIVA,Comisionista,Fecha,FechaCompleta,Depto,Grupo,Comensal,Descto,Facturado,TotalIEPS,TasaIEPS) VALUES('" & folio & "','" & mycodigo & "','" & mydescripcion & "'," & mycantidad & ",'" & myunidad & "'," & COSTVUE1 & "," & COSTVUE1 & "," & myprecio & "," & mytotal & "," & PRECIOSINIVA1 & "," & TOTALSIVA & ",'" & mymesero & "','" & Format(Date.Now, "yyyy/MM/dd") & "','" & Format(Date.Now, "yyyy-mm-dd HH:mm:ss") & "','" & DEPA & "','" & GRUPO & "','" & mycomensal & "','0','0'," & IEPS & "," & TASIEPS & ")"
             cmd3.ExecuteNonQuery()
             cnn3.Close()
 
@@ -1699,7 +1732,7 @@ kakaxd:
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "' "
+            cmd1.CommandText = "SELECT Multiplo,Modo_Almacen FROM Productos WHERE Codigo='" & mycodigo & "' "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1721,7 +1754,7 @@ kakaxd:
 
                                 cnn3.Close() : cnn3.Open()
                                 cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
+                                cmd3.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & VarCodigo & "'"
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -1746,7 +1779,7 @@ kakaxd:
 
 
                                 cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                cmd3.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -1795,7 +1828,7 @@ kakaxd:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+                        cmd2.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & mycodigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1818,7 +1851,7 @@ kakaxd:
 
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        cmd2.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

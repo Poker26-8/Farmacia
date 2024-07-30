@@ -152,6 +152,30 @@ Module ModGral
         End If
     End Function
 
+    Public Function IvaDSC(ByVal cod As String) As Double
+        Try
+            cnn3.Close() : cnn3.Open()
+
+            cmd3 = cnn3.CreateCommand
+            cmd3.CommandText =
+                "select IVA from Productos where Codigo='" & cod & "'"
+            rd3 = cmd3.ExecuteReader
+            If rd3.HasRows Then
+                If rd3.Read Then
+                    IvaDSC = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString))
+                End If
+            Else
+                IvaDSC = 0
+            End If
+            rd3.Close()
+            cnn3.Close()
+            Return IvaDSC
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn3.Close()
+        End Try
+    End Function
+
     'BorraLotes
     Public Sub BorraLotes()
         Try

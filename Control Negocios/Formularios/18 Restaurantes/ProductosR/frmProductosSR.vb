@@ -222,7 +222,7 @@ Public Class frmProductosSR
 
     Private Sub txtExistencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtExistencia.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
-            btnGuardar.Focus.Equals(True)
+            TXTieps.Focus.Equals(True)
         End If
     End Sub
 
@@ -261,7 +261,7 @@ Public Class frmProductosSR
                 If rd1.Read Then
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "UPDATE Productos SET CodBarra='" & txtCodBarras.Text & "',Nombre='" & cboDescripcion.Text & "',IVA=" & cboIva.Text & ",UCompra='" & txtUnidad.Text & "',PrecioCompra=" & p_compra & ",PrecioVenta=" & p_venta & ",PrecioVentaIVA=" & p_venta & ",PrecioDomicilio=" & p_domicilio & ",PrecioDomicilioIVA=" & p_domicilio & ",ProvPri='" & cboProveedores.Text & "',Departamento='" & cboDepartamento.Text & "',Grupo='" & cboGrupo.Text & "',GPrint='" & cboComanda.Text & "',Existencia=" & txtExistencia.Text & ",ProvRes=" & IIf(chkKit.Checked, 1, 0) & ",Modo_Almacen=" & modo_almacen & ",Actu=0,Resumen='" & txt_resumen.Text & "', Descripcion_Tienda='" & txt_descripcion.Text & "' WHERE Codigo='" & cboCodCorto.Text & "'"
+                    cmd2.CommandText = "UPDATE Productos SET CodBarra='" & txtCodBarras.Text & "',Nombre='" & cboDescripcion.Text & "',IVA=" & cboIva.Text & ",UCompra='" & txtUnidad.Text & "',PrecioCompra=" & p_compra & ",PrecioVenta=" & p_venta & ",PrecioVentaIVA=" & p_venta & ",PrecioDomicilio=" & p_domicilio & ",PrecioDomicilioIVA=" & p_domicilio & ",ProvPri='" & cboProveedores.Text & "',Departamento='" & cboDepartamento.Text & "',Grupo='" & cboGrupo.Text & "',GPrint='" & cboComanda.Text & "',Existencia=" & txtExistencia.Text & ",ProvRes=" & IIf(chkKit.Checked, 1, 0) & ",Modo_Almacen=" & modo_almacen & ",Actu=0,Resumen='" & txt_resumen.Text & "', Descripcion_Tienda='" & txt_descripcion.Text & "',IIEPS=" & TXTieps.Text & " WHERE Codigo='" & cboCodCorto.Text & "'"
                     If cmd2.ExecuteNonQuery() Then
                         My.Application.DoEvents()
 
@@ -282,7 +282,7 @@ Public Class frmProductosSR
                 End If
             Else
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,UCompra,UVenta,UMInima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PrecioDomicilio,PrecioDomicilioIVA,IVA,Existencia,id_tbMoneda,Almacen3,GPrint,Fecha,Fecha_Inicial,Fecha_Final,ProvRes,Modo_Almacen,Resumen,Descripcion_Tienda)VALUES('" & cboCodCorto.Text & "','" & txtCodBarras.Text & "','" & cboDescripcion.Text & "','" & cboDescripcion.Text & "','" & cboProveedores.Text & "','" & cboProveedores.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "',1,1,'" & cboDepartamento.Text & "','" & cboGrupo.Text & "','',1,1,0," & p_compra & "," & p_venta & "," & p_venta & "," & p_domicilio & "," & p_domicilio & "," & cboIva.Text & "," & txtExistencia.Text & ",1," & p_venta & ",'" & cboComanda.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & IIf(chkKit.Checked, 1, 0) & "," & modo_almacen & ",'" & txt_resumen.Text & "','" & txt_descripcion.Text & "')"
+                cmd2.CommandText = "INSERT INTO Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,UCompra,UVenta,UMInima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PrecioDomicilio,PrecioDomicilioIVA,IVA,Existencia,id_tbMoneda,Almacen3,GPrint,Fecha,Fecha_Inicial,Fecha_Final,ProvRes,Modo_Almacen,Resumen,Descripcion_Tienda,IIEPS)VALUES('" & cboCodCorto.Text & "','" & txtCodBarras.Text & "','" & cboDescripcion.Text & "','" & cboDescripcion.Text & "','" & cboProveedores.Text & "','" & cboProveedores.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "','" & txtUnidad.Text & "',1,1,'" & cboDepartamento.Text & "','" & cboGrupo.Text & "','',1,1,0," & p_compra & "," & p_venta & "," & p_venta & "," & p_domicilio & "," & p_domicilio & "," & cboIva.Text & "," & txtExistencia.Text & ",1," & p_venta & ",'" & cboComanda.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd") & "'," & IIf(chkKit.Checked, 1, 0) & "," & modo_almacen & ",'" & txt_resumen.Text & "','" & txt_descripcion.Text & "'," & TXTieps.Text & ")"
                 If cmd2.ExecuteNonQuery() Then
 
 
@@ -429,6 +429,7 @@ Public Class frmProductosSR
         txt_resumen.Text = ""
         txt_descripcion.Text = ""
         PictureBox1.Image = Nothing
+        TXTieps.Text = ""
     End Sub
 
     Private Sub cboIva_DropDown(sender As Object, e As EventArgs) Handles cboIva.DropDown
@@ -1089,7 +1090,7 @@ nopasowey:
 
             cnn4.Close() : cnn4.Open()
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd4.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,IIEPS FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
@@ -1106,6 +1107,8 @@ nopasowey:
                     cboGrupo.Text = rd4("Grupo").ToString
                     cboComanda.Text = rd4("GPrint").ToString
                     txtExistencia.Text = rd4("Existencia").ToString
+                    TXTieps.Text = rd4("IIEPS").ToString
+
                 End If
             End If
             rd4.Close()
@@ -1185,15 +1188,15 @@ nopasowey:
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
             If dato = "barra" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
             End If
 
             If dato = "NOMBRE" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
             End If
 
             If dato = "CODIGO" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
             End If
 
             rd3 = cmd3.ExecuteReader
@@ -1215,7 +1218,7 @@ nopasowey:
 
                     txt_resumen.Text = rd3("Resumen").ToString
                     txt_descripcion.Text = rd3("Descripcion_Tienda").ToString
-
+                    TXTieps.Text = rd3("IIEPS").ToString
                 End If
             End If
             rd3.Close()
@@ -1720,6 +1723,12 @@ nopasowey:
         If box_tienda.Visible = False Then
             box_tienda.Visible = True
             txt_resumen.Focus().Equals(True)
+        End If
+    End Sub
+
+    Private Sub TXTieps_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXTieps.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            btnGuardar.Focus.Equals(True)
         End If
     End Sub
 End Class
