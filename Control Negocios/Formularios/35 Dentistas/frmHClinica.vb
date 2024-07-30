@@ -206,4 +206,23 @@
         Dim index As Integer = grd.CurrentRow.Index
         grd.Rows.Remove(grd.Rows(index))
     End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        txtid.Text = ""
+        txtNombre.Text = ""
+        txtEdad.Text = ""
+        txtSexo.Text = ""
+        txtNotacion.Text = ""
+        txtdiente.Text = ""
+        rtSintomas.Text = ""
+        rtHistorial.Text = ""
+        rtHistorialMedico.Text = ""
+        grdCaptura.Rows.Clear()
+        grd.Rows.Clear()
+        txtEnfermedad.Text = ""
+        rtdiagnostico.Text = ""
+        grdDiagnostico.Rows.Clear()
+        cbHigiene.Checked = False
+        cbMalos.Checked = False
+    End Sub
 End Class

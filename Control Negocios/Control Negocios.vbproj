@@ -309,6 +309,12 @@
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Dentista.Designer.vb">
+      <DependentUpon>frmAct_Dentista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\02 Activación de módulos\frmAct_Dentista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\02 Activación de módulos\frmAct_Entregas.Designer.vb">
       <DependentUpon>frmAct_Entregas.vb</DependentUpon>
     </Compile>
@@ -2235,6 +2241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Consignaciones.resx">
       <DependentUpon>frmAct_Consignaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Dentista.resx">
+      <DependentUpon>frmAct_Dentista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\02 Activación de módulos\frmAct_Entregas.resx">
       <DependentUpon>frmAct_Entregas.vb</DependentUpon>

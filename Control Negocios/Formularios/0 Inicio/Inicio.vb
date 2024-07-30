@@ -261,6 +261,13 @@ Public Class Inicio
         Dim Mov_Cuenta As Integer = Await ValidarAsync("Mov_Cuenta")
         Dim transportistas As Integer = Await ValidarAsync("Transportistas")
         Dim produccionpro As Integer = Await ValidarAsync("ProduccionPro")
+        Dim dentista As Integer = Await ValidarAsync("Dentista")
+
+        If dentista = 1 Then
+            btnDentista.Visible = True
+        Else
+            btnDentista.Visible = False
+        End If
 
         If produccionpro = 1 Then
             TproduccionCos.Visible = True
@@ -4329,5 +4336,8 @@ Public Class Inicio
         frmHisMesas.Show()
     End Sub
 
-
+    Private Sub btnDentista_Click(sender As Object, e As EventArgs) Handles btnDentista.Click
+        frmHClinica.BringToFront()
+        frmHClinica.Show()
+    End Sub
 End Class

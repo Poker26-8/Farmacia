@@ -25,57 +25,59 @@ Partial Class frmModulos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmModulos))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnControl = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnPrecios = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnEntregas = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnProduccion = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnRestaurante = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btnHotel = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.btnServicios = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.btnGym = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnZapateria = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.btnSincronizador = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.btnTransportistas = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.btnEscolar = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.btnTelefonia = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.btnNomina = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.btnPollo = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.btnTaller = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.btnMensajeria = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.btnMedicas = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.btnFarmacia = New System.Windows.Forms.Button()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnConsignacion = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.btnCuentas = New System.Windows.Forms.Button()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.frmOpticas = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.btnDentista = New System.Windows.Forms.Button()
         Me.btnTiendaLinea = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.frmOpticas = New System.Windows.Forms.Button()
+        Me.btnCuentas = New System.Windows.Forms.Button()
+        Me.btnConsignacion = New System.Windows.Forms.Button()
+        Me.btnFarmacia = New System.Windows.Forms.Button()
+        Me.btnMedicas = New System.Windows.Forms.Button()
+        Me.btnMensajeria = New System.Windows.Forms.Button()
+        Me.btnTaller = New System.Windows.Forms.Button()
+        Me.btnPollo = New System.Windows.Forms.Button()
+        Me.btnNomina = New System.Windows.Forms.Button()
+        Me.btnTelefonia = New System.Windows.Forms.Button()
+        Me.btnEscolar = New System.Windows.Forms.Button()
+        Me.btnTransportistas = New System.Windows.Forms.Button()
+        Me.btnSincronizador = New System.Windows.Forms.Button()
+        Me.btnZapateria = New System.Windows.Forms.Button()
+        Me.btnGym = New System.Windows.Forms.Button()
+        Me.btnServicios = New System.Windows.Forms.Button()
+        Me.btnHotel = New System.Windows.Forms.Button()
+        Me.btnRefaccionaria = New System.Windows.Forms.Button()
+        Me.btnRestaurante = New System.Windows.Forms.Button()
+        Me.btnProduccion = New System.Windows.Forms.Button()
+        Me.btnEntregas = New System.Windows.Forms.Button()
+        Me.btnPrecios = New System.Windows.Forms.Button()
+        Me.btnControl = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -103,16 +105,6 @@ Partial Class frmModulos
         Me.Label2.Text = "¡Conoce nuestros módulos especializados para cada giro de negocio!"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnControl
-        '
-        Me.btnControl.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnControl.Image = CType(resources.GetObject("btnControl.Image"), System.Drawing.Image)
-        Me.btnControl.Location = New System.Drawing.Point(8, 115)
-        Me.btnControl.Name = "btnControl"
-        Me.btnControl.Size = New System.Drawing.Size(93, 71)
-        Me.btnControl.TabIndex = 2
-        Me.btnControl.UseVisualStyleBackColor = True
-        '
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -124,16 +116,6 @@ Partial Class frmModulos
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Comparador de precios"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnPrecios
-        '
-        Me.btnPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPrecios.Image = CType(resources.GetObject("btnPrecios.Image"), System.Drawing.Image)
-        Me.btnPrecios.Location = New System.Drawing.Point(107, 115)
-        Me.btnPrecios.Name = "btnPrecios"
-        Me.btnPrecios.Size = New System.Drawing.Size(93, 71)
-        Me.btnPrecios.TabIndex = 4
-        Me.btnPrecios.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -147,16 +129,6 @@ Partial Class frmModulos
         Me.Label4.Text = "Entrega en parcialidades"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnEntregas
-        '
-        Me.btnEntregas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnEntregas.Image = CType(resources.GetObject("btnEntregas.Image"), System.Drawing.Image)
-        Me.btnEntregas.Location = New System.Drawing.Point(206, 115)
-        Me.btnEntregas.Name = "btnEntregas"
-        Me.btnEntregas.Size = New System.Drawing.Size(93, 71)
-        Me.btnEntregas.TabIndex = 6
-        Me.btnEntregas.UseVisualStyleBackColor = True
-        '
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -168,16 +140,6 @@ Partial Class frmModulos
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Control de producción"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnProduccion
-        '
-        Me.btnProduccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnProduccion.Image = CType(resources.GetObject("btnProduccion.Image"), System.Drawing.Image)
-        Me.btnProduccion.Location = New System.Drawing.Point(305, 115)
-        Me.btnProduccion.Name = "btnProduccion"
-        Me.btnProduccion.Size = New System.Drawing.Size(93, 71)
-        Me.btnProduccion.TabIndex = 8
-        Me.btnProduccion.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -191,16 +153,6 @@ Partial Class frmModulos
         Me.Label6.Text = "Restaurantes"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnRestaurante
-        '
-        Me.btnRestaurante.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRestaurante.Image = CType(resources.GetObject("btnRestaurante.Image"), System.Drawing.Image)
-        Me.btnRestaurante.Location = New System.Drawing.Point(404, 115)
-        Me.btnRestaurante.Name = "btnRestaurante"
-        Me.btnRestaurante.Size = New System.Drawing.Size(93, 71)
-        Me.btnRestaurante.TabIndex = 10
-        Me.btnRestaurante.UseVisualStyleBackColor = True
-        '
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -212,16 +164,6 @@ Partial Class frmModulos
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "Refaccionaria"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnRefaccionaria
-        '
-        Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(503, 115)
-        Me.btnRefaccionaria.Name = "btnRefaccionaria"
-        Me.btnRefaccionaria.Size = New System.Drawing.Size(93, 71)
-        Me.btnRefaccionaria.TabIndex = 12
-        Me.btnRefaccionaria.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -235,16 +177,6 @@ Partial Class frmModulos
         Me.Label8.Text = "Hoteles"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnHotel
-        '
-        Me.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnHotel.Image = CType(resources.GetObject("btnHotel.Image"), System.Drawing.Image)
-        Me.btnHotel.Location = New System.Drawing.Point(602, 115)
-        Me.btnHotel.Name = "btnHotel"
-        Me.btnHotel.Size = New System.Drawing.Size(93, 71)
-        Me.btnHotel.TabIndex = 14
-        Me.btnHotel.UseVisualStyleBackColor = True
-        '
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -256,16 +188,6 @@ Partial Class frmModulos
         Me.Label9.TabIndex = 15
         Me.Label9.Text = "Control de servicios"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnServicios
-        '
-        Me.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnServicios.Image = CType(resources.GetObject("btnServicios.Image"), System.Drawing.Image)
-        Me.btnServicios.Location = New System.Drawing.Point(701, 115)
-        Me.btnServicios.Name = "btnServicios"
-        Me.btnServicios.Size = New System.Drawing.Size(93, 71)
-        Me.btnServicios.TabIndex = 16
-        Me.btnServicios.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -279,16 +201,6 @@ Partial Class frmModulos
         Me.Label10.Text = "Gimnasios"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnGym
-        '
-        Me.btnGym.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnGym.Image = CType(resources.GetObject("btnGym.Image"), System.Drawing.Image)
-        Me.btnGym.Location = New System.Drawing.Point(800, 115)
-        Me.btnGym.Name = "btnGym"
-        Me.btnGym.Size = New System.Drawing.Size(93, 71)
-        Me.btnGym.TabIndex = 18
-        Me.btnGym.UseVisualStyleBackColor = True
-        '
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -300,16 +212,6 @@ Partial Class frmModulos
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Control de zapaterias"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnZapateria
-        '
-        Me.btnZapateria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnZapateria.Image = CType(resources.GetObject("btnZapateria.Image"), System.Drawing.Image)
-        Me.btnZapateria.Location = New System.Drawing.Point(8, 229)
-        Me.btnZapateria.Name = "btnZapateria"
-        Me.btnZapateria.Size = New System.Drawing.Size(93, 71)
-        Me.btnZapateria.TabIndex = 20
-        Me.btnZapateria.UseVisualStyleBackColor = True
         '
         'Label12
         '
@@ -323,16 +225,6 @@ Partial Class frmModulos
         Me.Label12.Text = "Sincronizador"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnSincronizador
-        '
-        Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
-        Me.btnSincronizador.Location = New System.Drawing.Point(107, 229)
-        Me.btnSincronizador.Name = "btnSincronizador"
-        Me.btnSincronizador.Size = New System.Drawing.Size(93, 71)
-        Me.btnSincronizador.TabIndex = 22
-        Me.btnSincronizador.UseVisualStyleBackColor = True
-        '
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -344,16 +236,6 @@ Partial Class frmModulos
         Me.Label13.TabIndex = 23
         Me.Label13.Text = "Transportistas"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnTransportistas
-        '
-        Me.btnTransportistas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnTransportistas.Image = CType(resources.GetObject("btnTransportistas.Image"), System.Drawing.Image)
-        Me.btnTransportistas.Location = New System.Drawing.Point(206, 229)
-        Me.btnTransportistas.Name = "btnTransportistas"
-        Me.btnTransportistas.Size = New System.Drawing.Size(93, 71)
-        Me.btnTransportistas.TabIndex = 24
-        Me.btnTransportistas.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -367,16 +249,6 @@ Partial Class frmModulos
         Me.Label14.Text = "Control escolar"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnEscolar
-        '
-        Me.btnEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnEscolar.Image = CType(resources.GetObject("btnEscolar.Image"), System.Drawing.Image)
-        Me.btnEscolar.Location = New System.Drawing.Point(305, 229)
-        Me.btnEscolar.Name = "btnEscolar"
-        Me.btnEscolar.Size = New System.Drawing.Size(93, 71)
-        Me.btnEscolar.TabIndex = 26
-        Me.btnEscolar.UseVisualStyleBackColor = True
-        '
         'Label15
         '
         Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -388,16 +260,6 @@ Partial Class frmModulos
         Me.Label15.TabIndex = 27
         Me.Label15.Text = "Telefonia"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnTelefonia
-        '
-        Me.btnTelefonia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
-        Me.btnTelefonia.Location = New System.Drawing.Point(404, 229)
-        Me.btnTelefonia.Name = "btnTelefonia"
-        Me.btnTelefonia.Size = New System.Drawing.Size(93, 71)
-        Me.btnTelefonia.TabIndex = 28
-        Me.btnTelefonia.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -411,16 +273,6 @@ Partial Class frmModulos
         Me.Label16.Text = "Nomina"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnNomina
-        '
-        Me.btnNomina.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnNomina.Image = CType(resources.GetObject("btnNomina.Image"), System.Drawing.Image)
-        Me.btnNomina.Location = New System.Drawing.Point(503, 229)
-        Me.btnNomina.Name = "btnNomina"
-        Me.btnNomina.Size = New System.Drawing.Size(93, 71)
-        Me.btnNomina.TabIndex = 30
-        Me.btnNomina.UseVisualStyleBackColor = True
-        '
         'Label17
         '
         Me.Label17.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -432,16 +284,6 @@ Partial Class frmModulos
         Me.Label17.TabIndex = 31
         Me.Label17.Text = "Pollo mayoreo"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnPollo
-        '
-        Me.btnPollo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPollo.Image = CType(resources.GetObject("btnPollo.Image"), System.Drawing.Image)
-        Me.btnPollo.Location = New System.Drawing.Point(602, 229)
-        Me.btnPollo.Name = "btnPollo"
-        Me.btnPollo.Size = New System.Drawing.Size(93, 71)
-        Me.btnPollo.TabIndex = 32
-        Me.btnPollo.UseVisualStyleBackColor = True
         '
         'Label18
         '
@@ -455,16 +297,6 @@ Partial Class frmModulos
         Me.Label18.Text = "Taller"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnTaller
-        '
-        Me.btnTaller.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnTaller.Image = CType(resources.GetObject("btnTaller.Image"), System.Drawing.Image)
-        Me.btnTaller.Location = New System.Drawing.Point(701, 229)
-        Me.btnTaller.Name = "btnTaller"
-        Me.btnTaller.Size = New System.Drawing.Size(93, 71)
-        Me.btnTaller.TabIndex = 34
-        Me.btnTaller.UseVisualStyleBackColor = True
-        '
         'Label19
         '
         Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -476,16 +308,6 @@ Partial Class frmModulos
         Me.Label19.TabIndex = 35
         Me.Label19.Text = "Mensajeria masiva"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnMensajeria
-        '
-        Me.btnMensajeria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnMensajeria.Image = CType(resources.GetObject("btnMensajeria.Image"), System.Drawing.Image)
-        Me.btnMensajeria.Location = New System.Drawing.Point(800, 229)
-        Me.btnMensajeria.Name = "btnMensajeria"
-        Me.btnMensajeria.Size = New System.Drawing.Size(93, 71)
-        Me.btnMensajeria.TabIndex = 36
-        Me.btnMensajeria.UseVisualStyleBackColor = True
         '
         'Label20
         '
@@ -499,16 +321,6 @@ Partial Class frmModulos
         Me.Label20.Text = "Citas medicas"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnMedicas
-        '
-        Me.btnMedicas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnMedicas.Image = CType(resources.GetObject("btnMedicas.Image"), System.Drawing.Image)
-        Me.btnMedicas.Location = New System.Drawing.Point(8, 343)
-        Me.btnMedicas.Name = "btnMedicas"
-        Me.btnMedicas.Size = New System.Drawing.Size(93, 71)
-        Me.btnMedicas.TabIndex = 38
-        Me.btnMedicas.UseVisualStyleBackColor = True
-        '
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -520,16 +332,6 @@ Partial Class frmModulos
         Me.Label21.TabIndex = 39
         Me.Label21.Text = "Farmacia"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnFarmacia
-        '
-        Me.btnFarmacia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnFarmacia.Image = CType(resources.GetObject("btnFarmacia.Image"), System.Drawing.Image)
-        Me.btnFarmacia.Location = New System.Drawing.Point(107, 343)
-        Me.btnFarmacia.Name = "btnFarmacia"
-        Me.btnFarmacia.Size = New System.Drawing.Size(93, 71)
-        Me.btnFarmacia.TabIndex = 40
-        Me.btnFarmacia.UseVisualStyleBackColor = True
         '
         'Label22
         '
@@ -543,16 +345,6 @@ Partial Class frmModulos
         Me.Label22.Text = "Consignacion"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnConsignacion
-        '
-        Me.btnConsignacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnConsignacion.Image = CType(resources.GetObject("btnConsignacion.Image"), System.Drawing.Image)
-        Me.btnConsignacion.Location = New System.Drawing.Point(206, 343)
-        Me.btnConsignacion.Name = "btnConsignacion"
-        Me.btnConsignacion.Size = New System.Drawing.Size(93, 71)
-        Me.btnConsignacion.TabIndex = 42
-        Me.btnConsignacion.UseVisualStyleBackColor = True
-        '
         'Label23
         '
         Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -564,16 +356,6 @@ Partial Class frmModulos
         Me.Label23.TabIndex = 43
         Me.Label23.Text = "Mov cuentas"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnCuentas
-        '
-        Me.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCuentas.Image = CType(resources.GetObject("btnCuentas.Image"), System.Drawing.Image)
-        Me.btnCuentas.Location = New System.Drawing.Point(305, 343)
-        Me.btnCuentas.Name = "btnCuentas"
-        Me.btnCuentas.Size = New System.Drawing.Size(93, 71)
-        Me.btnCuentas.TabIndex = 44
-        Me.btnCuentas.UseVisualStyleBackColor = True
         '
         'Label24
         '
@@ -587,16 +369,6 @@ Partial Class frmModulos
         Me.Label24.Text = "Opticas"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'frmOpticas
-        '
-        Me.frmOpticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.frmOpticas.Image = CType(resources.GetObject("frmOpticas.Image"), System.Drawing.Image)
-        Me.frmOpticas.Location = New System.Drawing.Point(404, 343)
-        Me.frmOpticas.Name = "frmOpticas"
-        Me.frmOpticas.Size = New System.Drawing.Size(93, 71)
-        Me.frmOpticas.TabIndex = 46
-        Me.frmOpticas.UseVisualStyleBackColor = True
-        '
         'Label25
         '
         Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -608,16 +380,6 @@ Partial Class frmModulos
         Me.Label25.TabIndex = 47
         Me.Label25.Text = "Orden trabajo"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button1
-        '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(503, 343)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(93, 71)
-        Me.Button1.TabIndex = 48
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label26
         '
@@ -631,16 +393,6 @@ Partial Class frmModulos
         Me.Label26.Text = "Producción Cosmeticos"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button2
-        '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(602, 343)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(93, 71)
-        Me.Button2.TabIndex = 50
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -653,6 +405,28 @@ Partial Class frmModulos
         Me.Label27.Text = "Tienda en Linea"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.Black
+        Me.Label28.Location = New System.Drawing.Point(800, 303)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(93, 37)
+        Me.Label28.TabIndex = 53
+        Me.Label28.Text = "Dentista"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnDentista
+        '
+        Me.btnDentista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDentista.Location = New System.Drawing.Point(800, 343)
+        Me.btnDentista.Name = "btnDentista"
+        Me.btnDentista.Size = New System.Drawing.Size(93, 71)
+        Me.btnDentista.TabIndex = 54
+        Me.btnDentista.UseVisualStyleBackColor = True
+        '
         'btnTiendaLinea
         '
         Me.btnTiendaLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
@@ -664,12 +438,264 @@ Partial Class frmModulos
         Me.btnTiendaLinea.TabIndex = 52
         Me.btnTiendaLinea.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.Location = New System.Drawing.Point(602, 343)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(93, 71)
+        Me.Button2.TabIndex = 50
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.Location = New System.Drawing.Point(503, 343)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(93, 71)
+        Me.Button1.TabIndex = 48
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'frmOpticas
+        '
+        Me.frmOpticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.frmOpticas.Image = CType(resources.GetObject("frmOpticas.Image"), System.Drawing.Image)
+        Me.frmOpticas.Location = New System.Drawing.Point(404, 343)
+        Me.frmOpticas.Name = "frmOpticas"
+        Me.frmOpticas.Size = New System.Drawing.Size(93, 71)
+        Me.frmOpticas.TabIndex = 46
+        Me.frmOpticas.UseVisualStyleBackColor = True
+        '
+        'btnCuentas
+        '
+        Me.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCuentas.Image = CType(resources.GetObject("btnCuentas.Image"), System.Drawing.Image)
+        Me.btnCuentas.Location = New System.Drawing.Point(305, 343)
+        Me.btnCuentas.Name = "btnCuentas"
+        Me.btnCuentas.Size = New System.Drawing.Size(93, 71)
+        Me.btnCuentas.TabIndex = 44
+        Me.btnCuentas.UseVisualStyleBackColor = True
+        '
+        'btnConsignacion
+        '
+        Me.btnConsignacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnConsignacion.Image = CType(resources.GetObject("btnConsignacion.Image"), System.Drawing.Image)
+        Me.btnConsignacion.Location = New System.Drawing.Point(206, 343)
+        Me.btnConsignacion.Name = "btnConsignacion"
+        Me.btnConsignacion.Size = New System.Drawing.Size(93, 71)
+        Me.btnConsignacion.TabIndex = 42
+        Me.btnConsignacion.UseVisualStyleBackColor = True
+        '
+        'btnFarmacia
+        '
+        Me.btnFarmacia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnFarmacia.Image = CType(resources.GetObject("btnFarmacia.Image"), System.Drawing.Image)
+        Me.btnFarmacia.Location = New System.Drawing.Point(107, 343)
+        Me.btnFarmacia.Name = "btnFarmacia"
+        Me.btnFarmacia.Size = New System.Drawing.Size(93, 71)
+        Me.btnFarmacia.TabIndex = 40
+        Me.btnFarmacia.UseVisualStyleBackColor = True
+        '
+        'btnMedicas
+        '
+        Me.btnMedicas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMedicas.Image = CType(resources.GetObject("btnMedicas.Image"), System.Drawing.Image)
+        Me.btnMedicas.Location = New System.Drawing.Point(8, 343)
+        Me.btnMedicas.Name = "btnMedicas"
+        Me.btnMedicas.Size = New System.Drawing.Size(93, 71)
+        Me.btnMedicas.TabIndex = 38
+        Me.btnMedicas.UseVisualStyleBackColor = True
+        '
+        'btnMensajeria
+        '
+        Me.btnMensajeria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMensajeria.Image = CType(resources.GetObject("btnMensajeria.Image"), System.Drawing.Image)
+        Me.btnMensajeria.Location = New System.Drawing.Point(800, 229)
+        Me.btnMensajeria.Name = "btnMensajeria"
+        Me.btnMensajeria.Size = New System.Drawing.Size(93, 71)
+        Me.btnMensajeria.TabIndex = 36
+        Me.btnMensajeria.UseVisualStyleBackColor = True
+        '
+        'btnTaller
+        '
+        Me.btnTaller.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTaller.Image = CType(resources.GetObject("btnTaller.Image"), System.Drawing.Image)
+        Me.btnTaller.Location = New System.Drawing.Point(701, 229)
+        Me.btnTaller.Name = "btnTaller"
+        Me.btnTaller.Size = New System.Drawing.Size(93, 71)
+        Me.btnTaller.TabIndex = 34
+        Me.btnTaller.UseVisualStyleBackColor = True
+        '
+        'btnPollo
+        '
+        Me.btnPollo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPollo.Image = CType(resources.GetObject("btnPollo.Image"), System.Drawing.Image)
+        Me.btnPollo.Location = New System.Drawing.Point(602, 229)
+        Me.btnPollo.Name = "btnPollo"
+        Me.btnPollo.Size = New System.Drawing.Size(93, 71)
+        Me.btnPollo.TabIndex = 32
+        Me.btnPollo.UseVisualStyleBackColor = True
+        '
+        'btnNomina
+        '
+        Me.btnNomina.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnNomina.Image = CType(resources.GetObject("btnNomina.Image"), System.Drawing.Image)
+        Me.btnNomina.Location = New System.Drawing.Point(503, 229)
+        Me.btnNomina.Name = "btnNomina"
+        Me.btnNomina.Size = New System.Drawing.Size(93, 71)
+        Me.btnNomina.TabIndex = 30
+        Me.btnNomina.UseVisualStyleBackColor = True
+        '
+        'btnTelefonia
+        '
+        Me.btnTelefonia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
+        Me.btnTelefonia.Location = New System.Drawing.Point(404, 229)
+        Me.btnTelefonia.Name = "btnTelefonia"
+        Me.btnTelefonia.Size = New System.Drawing.Size(93, 71)
+        Me.btnTelefonia.TabIndex = 28
+        Me.btnTelefonia.UseVisualStyleBackColor = True
+        '
+        'btnEscolar
+        '
+        Me.btnEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEscolar.Image = CType(resources.GetObject("btnEscolar.Image"), System.Drawing.Image)
+        Me.btnEscolar.Location = New System.Drawing.Point(305, 229)
+        Me.btnEscolar.Name = "btnEscolar"
+        Me.btnEscolar.Size = New System.Drawing.Size(93, 71)
+        Me.btnEscolar.TabIndex = 26
+        Me.btnEscolar.UseVisualStyleBackColor = True
+        '
+        'btnTransportistas
+        '
+        Me.btnTransportistas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnTransportistas.Image = CType(resources.GetObject("btnTransportistas.Image"), System.Drawing.Image)
+        Me.btnTransportistas.Location = New System.Drawing.Point(206, 229)
+        Me.btnTransportistas.Name = "btnTransportistas"
+        Me.btnTransportistas.Size = New System.Drawing.Size(93, 71)
+        Me.btnTransportistas.TabIndex = 24
+        Me.btnTransportistas.UseVisualStyleBackColor = True
+        '
+        'btnSincronizador
+        '
+        Me.btnSincronizador.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSincronizador.Image = CType(resources.GetObject("btnSincronizador.Image"), System.Drawing.Image)
+        Me.btnSincronizador.Location = New System.Drawing.Point(107, 229)
+        Me.btnSincronizador.Name = "btnSincronizador"
+        Me.btnSincronizador.Size = New System.Drawing.Size(93, 71)
+        Me.btnSincronizador.TabIndex = 22
+        Me.btnSincronizador.UseVisualStyleBackColor = True
+        '
+        'btnZapateria
+        '
+        Me.btnZapateria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnZapateria.Image = CType(resources.GetObject("btnZapateria.Image"), System.Drawing.Image)
+        Me.btnZapateria.Location = New System.Drawing.Point(8, 229)
+        Me.btnZapateria.Name = "btnZapateria"
+        Me.btnZapateria.Size = New System.Drawing.Size(93, 71)
+        Me.btnZapateria.TabIndex = 20
+        Me.btnZapateria.UseVisualStyleBackColor = True
+        '
+        'btnGym
+        '
+        Me.btnGym.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGym.Image = CType(resources.GetObject("btnGym.Image"), System.Drawing.Image)
+        Me.btnGym.Location = New System.Drawing.Point(800, 115)
+        Me.btnGym.Name = "btnGym"
+        Me.btnGym.Size = New System.Drawing.Size(93, 71)
+        Me.btnGym.TabIndex = 18
+        Me.btnGym.UseVisualStyleBackColor = True
+        '
+        'btnServicios
+        '
+        Me.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnServicios.Image = CType(resources.GetObject("btnServicios.Image"), System.Drawing.Image)
+        Me.btnServicios.Location = New System.Drawing.Point(701, 115)
+        Me.btnServicios.Name = "btnServicios"
+        Me.btnServicios.Size = New System.Drawing.Size(93, 71)
+        Me.btnServicios.TabIndex = 16
+        Me.btnServicios.UseVisualStyleBackColor = True
+        '
+        'btnHotel
+        '
+        Me.btnHotel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnHotel.Image = CType(resources.GetObject("btnHotel.Image"), System.Drawing.Image)
+        Me.btnHotel.Location = New System.Drawing.Point(602, 115)
+        Me.btnHotel.Name = "btnHotel"
+        Me.btnHotel.Size = New System.Drawing.Size(93, 71)
+        Me.btnHotel.TabIndex = 14
+        Me.btnHotel.UseVisualStyleBackColor = True
+        '
+        'btnRefaccionaria
+        '
+        Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(503, 115)
+        Me.btnRefaccionaria.Name = "btnRefaccionaria"
+        Me.btnRefaccionaria.Size = New System.Drawing.Size(93, 71)
+        Me.btnRefaccionaria.TabIndex = 12
+        Me.btnRefaccionaria.UseVisualStyleBackColor = True
+        '
+        'btnRestaurante
+        '
+        Me.btnRestaurante.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRestaurante.Image = CType(resources.GetObject("btnRestaurante.Image"), System.Drawing.Image)
+        Me.btnRestaurante.Location = New System.Drawing.Point(404, 115)
+        Me.btnRestaurante.Name = "btnRestaurante"
+        Me.btnRestaurante.Size = New System.Drawing.Size(93, 71)
+        Me.btnRestaurante.TabIndex = 10
+        Me.btnRestaurante.UseVisualStyleBackColor = True
+        '
+        'btnProduccion
+        '
+        Me.btnProduccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProduccion.Image = CType(resources.GetObject("btnProduccion.Image"), System.Drawing.Image)
+        Me.btnProduccion.Location = New System.Drawing.Point(305, 115)
+        Me.btnProduccion.Name = "btnProduccion"
+        Me.btnProduccion.Size = New System.Drawing.Size(93, 71)
+        Me.btnProduccion.TabIndex = 8
+        Me.btnProduccion.UseVisualStyleBackColor = True
+        '
+        'btnEntregas
+        '
+        Me.btnEntregas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnEntregas.Image = CType(resources.GetObject("btnEntregas.Image"), System.Drawing.Image)
+        Me.btnEntregas.Location = New System.Drawing.Point(206, 115)
+        Me.btnEntregas.Name = "btnEntregas"
+        Me.btnEntregas.Size = New System.Drawing.Size(93, 71)
+        Me.btnEntregas.TabIndex = 6
+        Me.btnEntregas.UseVisualStyleBackColor = True
+        '
+        'btnPrecios
+        '
+        Me.btnPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPrecios.Image = CType(resources.GetObject("btnPrecios.Image"), System.Drawing.Image)
+        Me.btnPrecios.Location = New System.Drawing.Point(107, 115)
+        Me.btnPrecios.Name = "btnPrecios"
+        Me.btnPrecios.Size = New System.Drawing.Size(93, 71)
+        Me.btnPrecios.TabIndex = 4
+        Me.btnPrecios.UseVisualStyleBackColor = True
+        '
+        'btnControl
+        '
+        Me.btnControl.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnControl.Image = CType(resources.GetObject("btnControl.Image"), System.Drawing.Image)
+        Me.btnControl.Location = New System.Drawing.Point(8, 115)
+        Me.btnControl.Name = "btnControl"
+        Me.btnControl.Size = New System.Drawing.Size(93, 71)
+        Me.btnControl.TabIndex = 2
+        Me.btnControl.UseVisualStyleBackColor = True
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(900, 424)
+        Me.Controls.Add(Me.btnDentista)
+        Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.btnTiendaLinea)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Button2)
@@ -784,4 +810,6 @@ Partial Class frmModulos
     Friend WithEvents Button2 As Button
     Friend WithEvents Label27 As Label
     Friend WithEvents btnTiendaLinea As Button
+    Friend WithEvents Label28 As Label
+    Friend WithEvents btnDentista As Button
 End Class

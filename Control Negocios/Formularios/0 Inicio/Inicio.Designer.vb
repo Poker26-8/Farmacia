@@ -192,6 +192,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
+        Me.btnDentista = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1365,6 +1366,7 @@ Partial Class Inicio
         Me.Panel2.Controls.Add(Me.btnHoteleria)
         Me.Panel2.Controls.Add(Me.btnRefaccionaria)
         Me.Panel2.Controls.Add(Me.btnTelefonia)
+        Me.Panel2.Controls.Add(Me.btnDentista)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.btnPagarComandas)
         Me.Panel2.Controls.Add(Me.btnvtatouch)
@@ -1382,7 +1384,7 @@ Partial Class Inicio
         Me.btnOptica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnOptica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOptica.Image = CType(resources.GetObject("btnOptica.Image"), System.Drawing.Image)
-        Me.btnOptica.Location = New System.Drawing.Point(0, 608)
+        Me.btnOptica.Location = New System.Drawing.Point(0, 692)
         Me.btnOptica.Name = "btnOptica"
         Me.btnOptica.Size = New System.Drawing.Size(90, 84)
         Me.btnOptica.TabIndex = 186
@@ -1396,7 +1398,7 @@ Partial Class Inicio
         Me.btnpollo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnpollo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnpollo.Image = CType(resources.GetObject("btnpollo.Image"), System.Drawing.Image)
-        Me.btnpollo.Location = New System.Drawing.Point(0, 518)
+        Me.btnpollo.Location = New System.Drawing.Point(0, 602)
         Me.btnpollo.Name = "btnpollo"
         Me.btnpollo.Size = New System.Drawing.Size(90, 90)
         Me.btnpollo.TabIndex = 184
@@ -1410,7 +1412,7 @@ Partial Class Inicio
         Me.btnHoteleria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnHoteleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoteleria.Image = Global.Control_Negocios.My.Resources.Resources.hotelRecurso_1
-        Me.btnHoteleria.Location = New System.Drawing.Point(0, 428)
+        Me.btnHoteleria.Location = New System.Drawing.Point(0, 512)
         Me.btnHoteleria.Name = "btnHoteleria"
         Me.btnHoteleria.Size = New System.Drawing.Size(90, 90)
         Me.btnHoteleria.TabIndex = 183
@@ -1424,7 +1426,7 @@ Partial Class Inicio
         Me.btnRefaccionaria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
         Me.btnRefaccionaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRefaccionaria.Image = CType(resources.GetObject("btnRefaccionaria.Image"), System.Drawing.Image)
-        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 355)
+        Me.btnRefaccionaria.Location = New System.Drawing.Point(0, 439)
         Me.btnRefaccionaria.Name = "btnRefaccionaria"
         Me.btnRefaccionaria.Size = New System.Drawing.Size(90, 73)
         Me.btnRefaccionaria.TabIndex = 182
@@ -1440,7 +1442,7 @@ Partial Class Inicio
         Me.btnTelefonia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTelefonia.Image = CType(resources.GetObject("btnTelefonia.Image"), System.Drawing.Image)
         Me.btnTelefonia.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnTelefonia.Location = New System.Drawing.Point(0, 283)
+        Me.btnTelefonia.Location = New System.Drawing.Point(0, 367)
         Me.btnTelefonia.Name = "btnTelefonia"
         Me.btnTelefonia.Size = New System.Drawing.Size(90, 72)
         Me.btnTelefonia.TabIndex = 181
@@ -1586,6 +1588,20 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
+        '
+        'btnDentista
+        '
+        Me.btnDentista.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnDentista.FlatAppearance.BorderSize = 0
+        Me.btnDentista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDentista.Image = CType(resources.GetObject("btnDentista.Image"), System.Drawing.Image)
+        Me.btnDentista.Location = New System.Drawing.Point(0, 283)
+        Me.btnDentista.Name = "btnDentista"
+        Me.btnDentista.Size = New System.Drawing.Size(90, 84)
+        Me.btnDentista.TabIndex = 187
+        Me.btnDentista.UseVisualStyleBackColor = True
+        Me.btnDentista.Visible = False
         '
         'Inicio
         '
@@ -1786,4 +1802,5 @@ Partial Class Inicio
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents repHistorialMesas As ToolStripMenuItem
+    Friend WithEvents btnDentista As Button
 End Class

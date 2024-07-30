@@ -24,9 +24,9 @@ Partial Class frmHClinica
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHClinica))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -81,7 +81,7 @@ Partial Class frmHClinica
         Me.txtNotacion = New System.Windows.Forms.TextBox()
         Me.txtdiente = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
+        Me.cbMalos = New System.Windows.Forms.CheckBox()
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
         Me.CheckBox7 = New System.Windows.Forms.CheckBox()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
@@ -89,15 +89,15 @@ Partial Class frmHClinica
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.cbHigiene = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.rtHistorialMedico = New System.Windows.Forms.RichTextBox()
+        Me.rtHistorial = New System.Windows.Forms.RichTextBox()
+        Me.rtSintomas = New System.Windows.Forms.RichTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.grd = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -106,11 +106,11 @@ Partial Class frmHClinica
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Button37 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.grdDiagnostico = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.txtEnfermedad = New System.Windows.Forms.TextBox()
+        Me.rtdiagnostico = New System.Windows.Forms.RichTextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Button33 = New System.Windows.Forms.Button()
@@ -119,6 +119,7 @@ Partial Class frmHClinica
         Me.Button36 = New System.Windows.Forms.Button()
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -128,7 +129,7 @@ Partial Class frmHClinica
         CType(Me.grd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdDiagnostico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -229,7 +230,7 @@ Partial Class frmHClinica
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(17, 101)
+        Me.Label5.Location = New System.Drawing.Point(13, 91)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(93, 20)
         Me.Label5.TabIndex = 68
@@ -239,7 +240,7 @@ Partial Class frmHClinica
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(452, 101)
+        Me.Label6.Location = New System.Drawing.Point(448, 91)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(51, 20)
         Me.Label6.TabIndex = 67
@@ -249,7 +250,7 @@ Partial Class frmHClinica
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(107, 101)
+        Me.Label7.Location = New System.Drawing.Point(103, 91)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 20)
         Me.Label7.TabIndex = 66
@@ -259,7 +260,7 @@ Partial Class frmHClinica
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(528, 101)
+        Me.Label8.Location = New System.Drawing.Point(524, 91)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(49, 20)
         Me.Label8.TabIndex = 69
@@ -268,7 +269,7 @@ Partial Class frmHClinica
         'txtid
         '
         Me.txtid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(17, 132)
+        Me.txtid.Location = New System.Drawing.Point(13, 122)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(84, 26)
         Me.txtid.TabIndex = 70
@@ -276,7 +277,7 @@ Partial Class frmHClinica
         'txtSexo
         '
         Me.txtSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSexo.Location = New System.Drawing.Point(523, 132)
+        Me.txtSexo.Location = New System.Drawing.Point(519, 122)
         Me.txtSexo.Name = "txtSexo"
         Me.txtSexo.Size = New System.Drawing.Size(175, 26)
         Me.txtSexo.TabIndex = 71
@@ -284,7 +285,7 @@ Partial Class frmHClinica
         'txtEdad
         '
         Me.txtEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEdad.Location = New System.Drawing.Point(450, 132)
+        Me.txtEdad.Location = New System.Drawing.Point(446, 122)
         Me.txtEdad.Name = "txtEdad"
         Me.txtEdad.Size = New System.Drawing.Size(67, 26)
         Me.txtEdad.TabIndex = 72
@@ -292,7 +293,7 @@ Partial Class frmHClinica
         'txtNombre
         '
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(107, 132)
+        Me.txtNombre.Location = New System.Drawing.Point(103, 122)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(337, 26)
         Me.txtNombre.TabIndex = 73
@@ -677,7 +678,7 @@ Partial Class frmHClinica
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.CheckBox9)
+        Me.GroupBox1.Controls.Add(Me.cbMalos)
         Me.GroupBox1.Controls.Add(Me.CheckBox8)
         Me.GroupBox1.Controls.Add(Me.CheckBox7)
         Me.GroupBox1.Controls.Add(Me.CheckBox6)
@@ -685,24 +686,24 @@ Partial Class frmHClinica
         Me.GroupBox1.Controls.Add(Me.CheckBox4)
         Me.GroupBox1.Controls.Add(Me.CheckBox3)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
-        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.cbHigiene)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 418)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 392)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(813, 264)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         '
-        'CheckBox9
+        'cbMalos
         '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox9.Location = New System.Drawing.Point(490, 81)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(113, 20)
-        Me.CheckBox9.TabIndex = 9
-        Me.CheckBox9.Text = "Malos Habitos"
-        Me.CheckBox9.UseVisualStyleBackColor = True
+        Me.cbMalos.AutoSize = True
+        Me.cbMalos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMalos.Location = New System.Drawing.Point(490, 81)
+        Me.cbMalos.Name = "cbMalos"
+        Me.cbMalos.Size = New System.Drawing.Size(113, 20)
+        Me.cbMalos.TabIndex = 9
+        Me.cbMalos.Text = "Malos Habitos"
+        Me.cbMalos.UseVisualStyleBackColor = True
         '
         'CheckBox8
         '
@@ -781,16 +782,16 @@ Partial Class frmHClinica
         Me.CheckBox2.Text = "Estetica en Ortodoncia"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'cbHigiene
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(490, 39)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(115, 20)
-        Me.CheckBox1.TabIndex = 1
-        Me.CheckBox1.Text = "Higiene Dental"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.cbHigiene.AutoSize = True
+        Me.cbHigiene.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbHigiene.Location = New System.Drawing.Point(490, 39)
+        Me.cbHigiene.Name = "cbHigiene"
+        Me.cbHigiene.Size = New System.Drawing.Size(115, 20)
+        Me.cbHigiene.TabIndex = 1
+        Me.cbHigiene.Text = "Higiene Dental"
+        Me.cbHigiene.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -809,9 +810,9 @@ Partial Class frmHClinica
         Me.TabPage1.Controls.Add(Me.Label11)
         Me.TabPage1.Controls.Add(Me.Label10)
         Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Controls.Add(Me.RichTextBox3)
-        Me.TabPage1.Controls.Add(Me.RichTextBox2)
-        Me.TabPage1.Controls.Add(Me.RichTextBox1)
+        Me.TabPage1.Controls.Add(Me.rtHistorialMedico)
+        Me.TabPage1.Controls.Add(Me.rtHistorial)
+        Me.TabPage1.Controls.Add(Me.rtSintomas)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -847,29 +848,29 @@ Partial Class frmHClinica
         Me.Label9.TabIndex = 114
         Me.Label9.Text = "Historial Dental"
         '
-        'RichTextBox3
+        'rtHistorialMedico
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(141, 131)
-        Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.Size = New System.Drawing.Size(267, 57)
-        Me.RichTextBox3.TabIndex = 2
-        Me.RichTextBox3.Text = ""
+        Me.rtHistorialMedico.Location = New System.Drawing.Point(118, 131)
+        Me.rtHistorialMedico.Name = "rtHistorialMedico"
+        Me.rtHistorialMedico.Size = New System.Drawing.Size(332, 57)
+        Me.rtHistorialMedico.TabIndex = 2
+        Me.rtHistorialMedico.Text = ""
         '
-        'RichTextBox2
+        'rtHistorial
         '
-        Me.RichTextBox2.Location = New System.Drawing.Point(141, 69)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(267, 57)
-        Me.RichTextBox2.TabIndex = 1
-        Me.RichTextBox2.Text = ""
+        Me.rtHistorial.Location = New System.Drawing.Point(118, 69)
+        Me.rtHistorial.Name = "rtHistorial"
+        Me.rtHistorial.Size = New System.Drawing.Size(332, 57)
+        Me.rtHistorial.TabIndex = 1
+        Me.rtHistorial.Text = ""
         '
-        'RichTextBox1
+        'rtSintomas
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(141, 6)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(267, 57)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
+        Me.rtSintomas.Location = New System.Drawing.Point(118, 6)
+        Me.rtSintomas.Name = "rtSintomas"
+        Me.rtSintomas.Size = New System.Drawing.Size(332, 57)
+        Me.rtSintomas.TabIndex = 0
+        Me.rtSintomas.Text = ""
         '
         'TabPage2
         '
@@ -888,9 +889,9 @@ Partial Class frmHClinica
         '
         Me.grd.AllowUserToAddRows = False
         Me.grd.AllowUserToDeleteRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.grd.BackgroundColor = System.Drawing.Color.White
         Me.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd.ColumnHeadersVisible = False
@@ -924,9 +925,9 @@ Partial Class frmHClinica
         '
         Me.grdCaptura.AllowUserToAddRows = False
         Me.grdCaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdCaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdCaptura.ColumnHeadersVisible = False
@@ -948,9 +949,9 @@ Partial Class frmHClinica
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.Button37)
-        Me.TabPage3.Controls.Add(Me.DataGridView1)
-        Me.TabPage3.Controls.Add(Me.TextBox1)
-        Me.TabPage3.Controls.Add(Me.RichTextBox4)
+        Me.TabPage3.Controls.Add(Me.grdDiagnostico)
+        Me.TabPage3.Controls.Add(Me.txtEnfermedad)
+        Me.TabPage3.Controls.Add(Me.rtdiagnostico)
         Me.TabPage3.Controls.Add(Me.Label14)
         Me.TabPage3.Controls.Add(Me.Label13)
         Me.TabPage3.Location = New System.Drawing.Point(4, 25)
@@ -966,30 +967,30 @@ Partial Class frmHClinica
         Me.Button37.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Button37.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button37.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button37.Location = New System.Drawing.Point(348, 29)
+        Me.Button37.Location = New System.Drawing.Point(368, 31)
         Me.Button37.Name = "Button37"
         Me.Button37.Size = New System.Drawing.Size(77, 43)
         Me.Button37.TabIndex = 123
         Me.Button37.Text = "AGREGAR"
         Me.Button37.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'grdDiagnostico
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.ColumnHeadersVisible = False
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column2})
-        Me.DataGridView1.Location = New System.Drawing.Point(18, 91)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(390, 97)
-        Me.DataGridView1.TabIndex = 118
+        Me.grdDiagnostico.AllowUserToAddRows = False
+        Me.grdDiagnostico.AllowUserToDeleteRows = False
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdDiagnostico.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.grdDiagnostico.BackgroundColor = System.Drawing.Color.White
+        Me.grdDiagnostico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdDiagnostico.ColumnHeadersVisible = False
+        Me.grdDiagnostico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column2})
+        Me.grdDiagnostico.Location = New System.Drawing.Point(18, 91)
+        Me.grdDiagnostico.Name = "grdDiagnostico"
+        Me.grdDiagnostico.ReadOnly = True
+        Me.grdDiagnostico.RowHeadersVisible = False
+        Me.grdDiagnostico.Size = New System.Drawing.Size(427, 97)
+        Me.grdDiagnostico.TabIndex = 118
         '
         'DataGridViewTextBoxColumn1
         '
@@ -1005,21 +1006,21 @@ Partial Class frmHClinica
         Me.Column2.ReadOnly = True
         Me.Column2.Width = 185
         '
-        'TextBox1
+        'txtEnfermedad
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(118, 10)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(224, 26)
-        Me.TextBox1.TabIndex = 117
+        Me.txtEnfermedad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEnfermedad.Location = New System.Drawing.Point(118, 10)
+        Me.txtEnfermedad.Name = "txtEnfermedad"
+        Me.txtEnfermedad.Size = New System.Drawing.Size(244, 26)
+        Me.txtEnfermedad.TabIndex = 117
         '
-        'RichTextBox4
+        'rtdiagnostico
         '
-        Me.RichTextBox4.Location = New System.Drawing.Point(117, 42)
-        Me.RichTextBox4.Name = "RichTextBox4"
-        Me.RichTextBox4.Size = New System.Drawing.Size(225, 43)
-        Me.RichTextBox4.TabIndex = 116
-        Me.RichTextBox4.Text = ""
+        Me.rtdiagnostico.Location = New System.Drawing.Point(117, 42)
+        Me.rtdiagnostico.Name = "rtdiagnostico"
+        Me.rtdiagnostico.Size = New System.Drawing.Size(245, 43)
+        Me.rtdiagnostico.TabIndex = 116
+        Me.rtdiagnostico.Text = ""
         '
         'Label14
         '
@@ -1095,7 +1096,7 @@ Partial Class frmHClinica
         '
         Me.CheckBox10.AutoSize = True
         Me.CheckBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox10.Location = New System.Drawing.Point(845, 600)
+        Me.CheckBox10.Location = New System.Drawing.Point(951, 592)
         Me.CheckBox10.Name = "CheckBox10"
         Me.CheckBox10.Size = New System.Drawing.Size(116, 24)
         Me.CheckBox10.TabIndex = 121
@@ -1105,12 +1106,27 @@ Partial Class frmHClinica
         'DateTimePicker1
         '
         Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(845, 630)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(951, 622)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(162, 35)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(132, 29)
         Me.DateTimePicker1.TabIndex = 122
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.BackColor = System.Drawing.Color.White
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(845, 589)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(67, 67)
+        Me.btnLimpiar.TabIndex = 123
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'frmHClinica
         '
@@ -1118,6 +1134,7 @@ Partial Class frmHClinica
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1091, 702)
+        Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.CheckBox10)
         Me.Controls.Add(Me.Button36)
@@ -1192,7 +1209,7 @@ Partial Class frmHClinica
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdDiagnostico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1252,7 +1269,7 @@ Partial Class frmHClinica
     Friend WithEvents txtNotacion As TextBox
     Friend WithEvents txtdiente As TextBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents CheckBox9 As CheckBox
+    Friend WithEvents cbMalos As CheckBox
     Friend WithEvents CheckBox8 As CheckBox
     Friend WithEvents CheckBox7 As CheckBox
     Friend WithEvents CheckBox6 As CheckBox
@@ -1260,24 +1277,24 @@ Partial Class frmHClinica
     Friend WithEvents CheckBox4 As CheckBox
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents cbHigiene As CheckBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents RichTextBox3 As RichTextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents rtHistorialMedico As RichTextBox
+    Friend WithEvents rtHistorial As RichTextBox
+    Friend WithEvents rtSintomas As RichTextBox
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents grdDiagnostico As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents RichTextBox4 As RichTextBox
+    Friend WithEvents txtEnfermedad As TextBox
+    Friend WithEvents rtdiagnostico As RichTextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Button33 As Button
@@ -1290,4 +1307,5 @@ Partial Class frmHClinica
     Friend WithEvents grd As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents btnLimpiar As Button
 End Class

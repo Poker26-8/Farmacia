@@ -142,14 +142,19 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        frmAct_produccionPro.ShowDialog()
+        frmAct_produccionPro.Show()
         frmAct_produccionPro.BringToFront()
         Me.Close()
     End Sub
 
     Private Sub btnTiendaLinea_Click(sender As Object, e As EventArgs) Handles btnTiendaLinea.Click
-        frmAct_TiendaLinea.ShowDialog()
+        frmAct_TiendaLinea.Show()
         frmAct_TiendaLinea.BringToFront()
         Me.Close()
+    End Sub
+
+    Private Sub btnDentista_Click(sender As Object, e As EventArgs) Handles btnDentista.Click
+        frmAct_Dentista.BringToFront()
+        frmAct_Dentista.Show()
     End Sub
 End Class
