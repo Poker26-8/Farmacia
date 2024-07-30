@@ -62,9 +62,9 @@ Public Class frmFaltantes
 
     Private Sub cbofiltro_SelectedValueChanged(sender As Object, e As System.EventArgs) Handles cbofiltro.SelectedValueChanged
         Dim consulta As String = ""
-        If (optproveedor.Checked) Then consulta = "select * from Productos where ProvPri='" & cbofiltro.Text & "' order by Nombre"
-        If (optdepto.Checked) Then consulta = "select * from Productos where Departamento='" & cbofiltro.Text & "' order by Nombre"
-        If (optgrupo.Checked) Then consulta = "select * from Productos where Grupo='" & cbofiltro.Text & "' order by Nombre"
+        If (optproveedor.Checked) Then consulta = "select Codigo,CodBarra,Nombre,UCompra,Existencia,ProvPri,PrecioCompra,Min,Max from Productos where ProvPri='" & cbofiltro.Text & "' order by Nombre"
+        If (optdepto.Checked) Then consulta = "select Codigo,CodBarra,Nombre,UCompra,Existencia,ProvPri,PrecioCompra,Min,Max from Productos where Departamento='" & cbofiltro.Text & "' order by Nombre"
+        If (optgrupo.Checked) Then consulta = "select Codigo,CodBarra,Nombre,UCompra,Existencia,ProvPri,PrecioCompra,Min,Max from Productos where Grupo='" & cbofiltro.Text & "' order by Nombre"
 
         Try
             cnn1.Close() : cnn1.Open()
@@ -104,7 +104,7 @@ Public Class frmFaltantes
                 cnn1.Close()
                 cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "Select * from Productos"
+                cmd1.CommandText = "Select Codigo,CodBarra,Nombre,UCompra,Existencia,ProvPri,PrecioCompra,Min,Max from Productos"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     Dim codigo As String = rd1("Codigo").ToString()
