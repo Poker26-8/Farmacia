@@ -2145,6 +2145,12 @@
     <Compile Include="Formularios\35 Dentistas\frmHClinica.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmProcedimientos.Designer.vb">
+      <DependentUpon>frmProcedimientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmProcedimientos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.Designer.vb">
       <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
     </Compile>
@@ -3177,6 +3183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\frmHClinica.resx">
       <DependentUpon>frmHClinica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmProcedimientos.resx">
+      <DependentUpon>frmProcedimientos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\FRMPRUEBAS2.resx">
       <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>

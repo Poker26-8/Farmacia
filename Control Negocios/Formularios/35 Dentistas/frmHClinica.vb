@@ -6,16 +6,7 @@
     End Sub
     Public Sub MostrarTodo()
         Try
-            grdCaptura.Rows.Clear()
-            cnn1.Close()
-            cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select Nombre from Clientes Order by Nombre"
-            rd1 = cmd1.ExecuteReader
-            Do While rd1.Read
-                grdCaptura.Rows.Add(rd1("Nombre").ToString)
-            Loop
-            rd1.Close()
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
         Finally
@@ -109,8 +100,8 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        frmVentas1.Show()
-        frmVentas1.BringToFront()
+        frmProcedimientos.Show()
+        frmProcedimientos.BringToFront()
     End Sub
 
     Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
@@ -193,14 +184,6 @@
         txtdiente.Text = "Tercer Molar"
     End Sub
 
-    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
-        Dim index As Integer = grdCaptura.CurrentRow.Index
-        If txtNotacion.Text = "" And txtdiente.Text = "" Then
-            MsgBox("Selecciona un dienete para continuar con el procedimiento", vbOKOnly + vbCritical, "Delsscom Consultorio DEntal")
-        Else
-            grd.Rows.Add(txtNotacion.Text & " - " & txtdiente.Text & " - " & grdCaptura.Rows(index).Cells(0).Value.ToString)
-        End If
-    End Sub
 
     Private Sub grd_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd.CellDoubleClick
         Dim index As Integer = grd.CurrentRow.Index
@@ -217,7 +200,6 @@
         rtSintomas.Text = ""
         rtHistorial.Text = ""
         rtHistorialMedico.Text = ""
-        grdCaptura.Rows.Clear()
         grd.Rows.Clear()
         txtEnfermedad.Text = ""
         rtdiagnostico.Text = ""
