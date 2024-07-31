@@ -122,7 +122,15 @@ Public Class frmNuevoPagarComandas
                     Dim comensal As String = rd2("Comensal").ToString
                     Dim comanda As Integer = rd2("Id").ToString
 
-                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda)
+                    Dim PU As Double = CDbl(total) / (1 + IvaDSC(codigo))
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(codigo)))
+                    Dim ieps As Double = ProdsIEPS(codigo)
+
+                    IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
+                    ieps = IIf(ieps = 0, 0, ieps)
+
+
+                    grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda, IvaIeps, ieps)
 
                     totalventa = totalventa + CDbl(total)
 
@@ -519,9 +527,11 @@ Public Class frmNuevoPagarComandas
                     Dim comanda As Integer = rd2("Id").ToString
 
                     Dim PU As Double = CDbl(total) / (1 + IvaDSC(codigo))
-
                     Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(codigo)))
                     Dim ieps As Double = ProdsIEPS(codigo)
+
+                    IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
+                    ieps = IIf(ieps = 0, 0, ieps)
 
                     grdCaptura.Rows.Add(codigo, nombre, unidad, cantidad, precio, total, comensal, comanda, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
@@ -2165,7 +2175,7 @@ kakaxd:
                 comensalg = grdCaptura.Rows(loba).Cells(6).Value.ToString
                 comandag = grdCaptura.Rows(loba).Cells(7).Value.ToString
 
-                IVAIEPS = grdCaptura.Rows(loba).Cells(8).Value.ToString
+                IVAIEPS = IIf(grdCaptura.Rows(loba).Cells(8).Value.ToString = 0, 0, grdCaptura.Rows(loba).Cells(8).Value.ToString)
                 IEPS = grdCaptura.Rows(loba).Cells(9).Value.ToString
 
                 cnn2.Close() : cnn2.Open()
@@ -2318,7 +2328,6 @@ kakaxd:
                     If rd2.Read Then
                         modo_almacen = rd2("Modo_Almacen").ToString
 
-
                         If modo_almacen = 1 Then
 
                             cmd3 = cnn3.CreateCommand
@@ -2326,9 +2335,9 @@ kakaxd:
                             rd3 = cmd3.ExecuteReader
                             Do While rd3.Read
                                 If rd3.HasRows Then
-                                    nuevocodigo = rd2("Codigo").ToString
-                                    nuevadescripcion = rd2("Descrip").ToString
-                                    nuevacantidad = rd2("Cantidad").ToString * grdCaptura.Rows(kreaper).Cells(3).Value.ToString
+                                    nuevocodigo = rd3("Codigo").ToString
+                                    nuevadescripcion = rd3("Descrip").ToString
+                                    nuevacantidad = rd3("Cantidad").ToString * grdCaptura.Rows(kreaper).Cells(3).Value.ToString
 
                                     cnn4.Close() : cnn4.Open()
                                     cmd4 = cnn4.CreateCommand
@@ -2444,7 +2453,7 @@ Door:
 
                             cnn4.Close() : cnn4.Open()
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & codigog & "','" & descripciong & "','Venta-Ingrediente'," & opeCantReal & "," & PrecioCompra & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblUsuario.Text & "'," & existencia & "," & existenciaactu & "," & folioventa & ")"
+                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & codigog & "','" & descripciong & "','Venta'," & opeCantReal & "," & PrecioCompra & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblUsuario.Text & "'," & existencia & "," & existenciaactu & "," & folioventa & ")"
                             cmd4.ExecuteNonQuery()
 
                             cmd4 = cnn4.CreateCommand

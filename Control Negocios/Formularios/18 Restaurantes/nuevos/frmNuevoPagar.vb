@@ -105,7 +105,14 @@ Public Class frmNuevoPagar
                     verid = rd2("Id").ToString
                     lblMesero.Text = rd2("CUsuario").ToString
 
-                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid)
+                    Dim PU As Double = CDbl(vertotal) / (1 + IvaDSC(vercodigo))
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(vercodigo)))
+                    Dim ieps As Double = ProdsIEPS(vercodigo)
+
+                    IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
+                    ieps = IIf(ieps = 0, 0, ieps)
+
+                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, IvaIeps, ieps)
 
                     sumacomandas = sumacomandas + vertotal
                 End If
@@ -173,6 +180,9 @@ Public Class frmNuevoPagar
                     Dim PU As Double = CDbl(vertotal) / (1 + IvaDSC(vercodigo))
                     Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(vercodigo)))
                     Dim ieps As Double = ProdsIEPS(vercodigo)
+
+                    IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
+                    ieps = IIf(ieps = 0, 0, ieps)
 
                     grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, FormatNumber(IvaIeps, 2), ieps)
 
@@ -1712,6 +1722,7 @@ kakaxd:
             opediferencia = 0
 
             Dim MYCODIGOP As String = grdComanda.Rows(koni).Cells(1).Value.ToString
+            Dim mydesc2 As String = grdComanda.Rows(koni).Cells(2).Value.ToString
             Dim MYCANT = grdComanda.Rows(koni).Cells(4).Value.ToString
 
             Dim MyCostVUE As Double = 0
@@ -1878,7 +1889,7 @@ Door:
 
                         cnn4.Close() : cnn4.Open()
                         cmd4 = cnn4.CreateCommand
-                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & VarCodigo & "','" & VarDesc & "','Venta-Ingrediente'," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & Existencia & "," & nueva_existe & "," & folio & ")"
+                        cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Cantidad,Precio,Fecha,Usuario,Inicial,Final,Folio) VALUES('" & mycodigod & "','" & mydesc2 & "','Venta'," & opeCantReal & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblusuario2.Text & "'," & Existencia & "," & nueva_existe & "," & folio & ")"
                         cmd4.ExecuteNonQuery()
 
                         cmd4 = cnn4.CreateCommand

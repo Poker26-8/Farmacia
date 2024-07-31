@@ -375,7 +375,7 @@ Public Class frmfacturacion
         Dim sSQL As String = ""
         Select Case Cmb_TipoFact.Text
             Case "FACTURA"
-                sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_FACTURA & " order by nom_folio"
+                sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_FACTURA & " and id_emisor=" & cbo_emisor.SelectedValue & " order by nom_folio"
             Case "PREFACTURA"
                 sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_PREFACTURA & " and id_emisor=" & cbo_emisor.SelectedValue & " order by nom_folio"
             Case "RECIBO DE ARRENDAMIENTO"
@@ -383,7 +383,7 @@ Public Class frmfacturacion
             Case "RECIBO DE HONORARIOS"
                 sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_HONORARIOS & "  and id_emisor=" & cbo_emisor.SelectedValue & " order by nom_folio"
             Case "NOTA DE CREDITO"
-                sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_NOTASCREDITO & " order by nom_folio"
+                sSQL = "Select * from Facturas where estatus_fac=" & ESTATUS_NOTASCREDITO & " and id_emisor=" & cbo_emisor.SelectedValue & " order by nom_folio"
         End Select
 
         Dim ds As New DataSet
@@ -504,7 +504,7 @@ MALO:
             Case "FACTURA"
                 txtNotaVenta.Visible = True
                 Label35.Visible = True
-                sSQL = "select max(nom_folio) from Facturas where estatus_fac = 1"
+                sSQL = "select max(nom_folio) from Facturas where estatus_fac = 1 and nom_rfc_empresa = '" & cbo_rfc_emisor.Text & "'"
                 With oData
                     If .dbOpen(cnn, sTarget, sinfo) Then
                         If .getDr(cnn, dr, sSQL, sinfo) Then
@@ -522,7 +522,7 @@ MALO:
                 txtNotaVenta.Visible = True
                 Label35.Visible = True
             Case "NOTA DE CREDITO"
-                sSQL = "select max(nom_folio) as cont from Facturas where estatus_fac = 6"
+                sSQL = "select max(nom_folio) as cont from Facturas where estatus_fac = 6 and nom_rfc_empresa = '" & cbo_rfc_emisor.Text & "'"
                 With oData
                     If .dbOpen(cnn, sTarget, sinfo) Then
                         If .getDr(cnn, dr, sSQL, sinfo) Then
@@ -538,6 +538,7 @@ MALO:
             Case Else
                 'MsgBox("Debe Seleccionar un Tipo de Documento")
         End Select
+
         cnn.Close()
     End Sub
 
@@ -1596,7 +1597,7 @@ MALO:
 
         Select Case Cmb_TipoFact.Text
             Case "FACTURA"
-                sSQL = "select nom_folio from Facturas where estatus_fac = 1 and nom_folio = " & Cmb_Nfactura.Text & ""
+                sSQL = "select nom_folio from Facturas where estatus_fac = 1 and nom_folio = " & Cmb_Nfactura.Text & " AND nom_rfc_empresa = '" & cbo_rfc_emisor.Text & "'"
                 With oData
                     If .dbOpen(cnn, sTarget, sinfo) Then
                         If .getDr(cnn, dr, sSQL, sinfo) Then
@@ -1621,7 +1622,7 @@ MALO:
 
             Case "NOTA DE CREDITO"
 
-                sSQL = "select nom_folio from Facturas where estatus_fac = 6 and nom_folio = " & Cmb_Nfactura.Text & ""
+                sSQL = "select nom_folio from Facturas where estatus_fac = 6 and nom_folio = " & Cmb_Nfactura.Text & " AND nom_rfc_empresa = '" & cbo_rfc_emisor.Text & "'"
                 With oData
                     If .dbOpen(cnn, sTarget, sinfo) Then
                         If .getDr(cnn, dr, sSQL, sinfo) Then
@@ -2448,7 +2449,7 @@ MALO:
             odata = New ToolKitSQL.myssql
             With odata
                 If .dbOpen(cnn, sTarget, sinfo) Then
-                    If .getDr(cnn, dr, "select nom_id,nom_fecha_factura,nom_fecha_folio_sat,nom_no_csd_sat,nom_no_csd_emp,estatus_fac,nom_folio_sat_uuid,UsoCFDI,nom_tipo_pago,nom_cpago,nom_numcuenta,nom_leyenda,nom_sello_emisor,nom_sello_sat,nom_cadena_original,nom_metodo_pago,nom_comercial_cli from Facturas where nom_folio = " & Cmb_Nfactura.Text & " and estatus_fac = " & IIf(Cmb_TipoFact.Text = "FACTURA", ESTATUS_FACTURA, IIf(Cmb_TipoFact.Text = "NOTA DE CREDITO", ESTATUS_NOTASCREDITO, ESTATUS_PREFACTURA)), sinfo) Then
+                    If .getDr(cnn, dr, "select nom_id,nom_fecha_factura,nom_fecha_folio_sat,nom_no_csd_sat,nom_no_csd_emp,estatus_fac,nom_folio_sat_uuid,UsoCFDI,nom_tipo_pago,nom_cpago,nom_numcuenta,nom_leyenda,nom_sello_emisor,nom_sello_sat,nom_cadena_original,nom_metodo_pago,nom_comercial_cli from Facturas where nom_rfc_empresa = '" & cbo_rfc_emisor.Text & "' and nom_folio = " & Cmb_Nfactura.Text & " and estatus_fac = " & IIf(Cmb_TipoFact.Text = "FACTURA", ESTATUS_FACTURA, IIf(Cmb_TipoFact.Text = "NOTA DE CREDITO", ESTATUS_NOTASCREDITO, ESTATUS_PREFACTURA)), sinfo) Then
                         varnomid = dr("nom_id").ToString()
                         varfolio = Cmb_Nfactura.Text
                         varfechaemision = dr("nom_fecha_factura").ToString()

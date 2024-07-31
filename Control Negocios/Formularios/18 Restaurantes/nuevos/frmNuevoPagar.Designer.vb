@@ -1505,7 +1505,6 @@ Partial Class frmNuevoPagar
         Me.Column13.HeaderText = "IvaIeps"
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
-        Me.Column13.Visible = False
         Me.Column13.Width = 67
         '
         'Column14
@@ -1514,7 +1513,6 @@ Partial Class frmNuevoPagar
         Me.Column14.HeaderText = "IEPS"
         Me.Column14.Name = "Column14"
         Me.Column14.ReadOnly = True
-        Me.Column14.Visible = False
         Me.Column14.Width = 56
         '
         'frmNuevoPagar

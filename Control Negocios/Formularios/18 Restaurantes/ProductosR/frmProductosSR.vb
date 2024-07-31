@@ -1184,19 +1184,19 @@ nopasowey:
             grdpromociones.Rows.Clear()
             txtcantidadpromo.Text = "0"
 
-
+            Dim modo_almacen As Integer = 0
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
             If dato = "barra" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS,Modo_Almacen FROM Productos WHERE CodBarra='" & txtCodBarras.Text & "'"
             End If
 
             If dato = "NOMBRE" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS,Modo_Almacen FROM Productos WHERE Nombre='" & cboDescripcion.Text & "'"
             End If
 
             If dato = "CODIGO" Then
-                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+                cmd3.CommandText = "SELECT Codigo,Nombre,IVA,UCompra,PrecioCompra,precioVentaIVA,PrecioDomicilioIVA,ProvPri,Departamento,Grupo,GPrint,Existencia,Resumen,Descripcion_Tienda,IIEPS,Modo_Almacen FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
             End If
 
             rd3 = cmd3.ExecuteReader
@@ -1219,6 +1219,15 @@ nopasowey:
                     txt_resumen.Text = rd3("Resumen").ToString
                     txt_descripcion.Text = rd3("Descripcion_Tienda").ToString
                     TXTieps.Text = rd3("IIEPS").ToString
+                    modo_almacen = rd3("Modo_Almacen").ToString
+
+                    If modo_almacen = 1 Then
+                        rboDescIngredientes.Checked = True
+                    End If
+
+                    If modo_almacen = 0 Then
+                        rboDescProductos.Checked = True
+                    End If
                 End If
             End If
             rd3.Close()

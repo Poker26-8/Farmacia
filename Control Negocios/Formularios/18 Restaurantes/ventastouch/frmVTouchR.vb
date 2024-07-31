@@ -3740,7 +3740,7 @@ Door:
 
                             cnn4.Close() : cnn4.Open()
                             cmd4 = cnn4.CreateCommand
-                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & rd3("Codigo").ToString & "','" & rd3("Nombre").ToString & "','Venta'," & existencia & "," & MYCANT & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & nueva_existe & ",' ')"
+                            cmd4.CommandText = "INSERT INTO Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Precio,Fecha,Usuario,Final,Folio) VALUES('" & rd3("Codigo").ToString & "','" & rd3("Nombre").ToString & "','Venta'," & existencia & "," & MYCANT & "," & Pre_Comp & ",'" & Format(Date.Now, "yyyy/MM/dd HH:mm:ss") & "','" & lblAtendio.Text & "'," & nueva_existe & ",'" & MYFOLIO & "')"
                             cmd4.ExecuteNonQuery()
 
                             cmd4 = cnn4.CreateCommand

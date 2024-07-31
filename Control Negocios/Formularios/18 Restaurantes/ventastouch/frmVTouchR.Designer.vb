@@ -73,6 +73,16 @@ Partial Class frmVTouchR
         Me.PGrupo = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.pPreferencia = New System.Windows.Forms.TabPage()
         Me.pExtras = New System.Windows.Forms.TabPage()
@@ -137,16 +147,6 @@ Partial Class frmVTouchR
         Me.PVentaTouch58 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia80 = New System.Drawing.Printing.PrintDocument()
         Me.Cortesia58 = New System.Drawing.Printing.PrintDocument()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -789,6 +789,83 @@ Partial Class frmVTouchR
         Me.grdCaptura.RowTemplate.Height = 40
         Me.grdCaptura.Size = New System.Drawing.Size(341, 377)
         Me.grdCaptura.TabIndex = 87
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Cod"
+        Me.Column1.MinimumWidth = 8
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        Me.Column1.Width = 150
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Desc."
+        Me.Column2.MinimumWidth = 8
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 150
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Cant."
+        Me.Column3.MinimumWidth = 8
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 60
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "P.U."
+        Me.Column4.MinimumWidth = 8
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 70
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Importe"
+        Me.Column5.MinimumWidth = 8
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 65
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Com"
+        Me.Column6.MinimumWidth = 8
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 150
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "PEP"
+        Me.Column7.MinimumWidth = 8
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 150
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Comentario"
+        Me.Column9.MinimumWidth = 8
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 150
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "IvaIeps"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "IEPS"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
         '
         'TabControl1
         '
@@ -1512,83 +1589,6 @@ Partial Class frmVTouchR
         '
         'Cortesia58
         '
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Cod"
-        Me.Column1.MinimumWidth = 8
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 150
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Desc."
-        Me.Column2.MinimumWidth = 8
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 150
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Cant."
-        Me.Column3.MinimumWidth = 8
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 60
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "P.U."
-        Me.Column4.MinimumWidth = 8
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 70
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Importe"
-        Me.Column5.MinimumWidth = 8
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 65
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Com"
-        Me.Column6.MinimumWidth = 8
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 150
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "PEP"
-        Me.Column7.MinimumWidth = 8
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 150
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Comentario"
-        Me.Column9.MinimumWidth = 8
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Width = 150
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "IvaIeps"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "IEPS"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
         '
         'frmVTouchR
         '
