@@ -299,6 +299,7 @@ Public Class frmProducirQ
     Private Sub txtPrecioI_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecioI.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
+            txtTotalI.Text = FormatNumber(CDec(txtcantidad.Text) * CDec(txtPrecioI.Text), 2)
             txtTotalI.Focus.Equals(True)
         End If
     End Sub
@@ -1278,19 +1279,17 @@ Public Class frmProducirQ
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
-
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                                cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidad & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
-
 
                             End If
                         Else
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidad & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
+                            cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
                         End If
@@ -1332,6 +1331,25 @@ Public Class frmProducirQ
 
             End If
             rd1.Close()
+
+            cnn2.Close() : cnn2.Open()
+            cmd2 = cnn2.CreateCommand
+            cmd2.CommandText = "SELECT Lote FROM lotecaducidad WHERE Lote='" & cboLote.Text & "'"
+            rd2 = cmd2.ExecuteReader
+            If rd2.HasRows Then
+                If rd2.Read Then
+
+                End If
+            Else
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & cbocodigo.Text & "','" & cboLote.Text & "','" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "'," & txtcantidad.Text & ")"
+                cmd1.ExecuteNonQuery()
+
+            End If
+            rd2.Close()
+            cnn2.Close()
+            cnn1.Close()
+
 
 
             'cmd1 = cnn1.CreateCommand
@@ -1392,10 +1410,7 @@ Public Class frmProducirQ
             'End If
             'rd1.Close()
 
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & cbocodigo.Text & "','" & cboLote.Text & "','" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "'," & txtcantidad.Text & ")"
-            cmd1.ExecuteNonQuery()
-            cnn1.Close()
+
 
 
             If cboImprimir.Text = "PDF" Then
@@ -1446,6 +1461,7 @@ Public Class frmProducirQ
             txtOlor.Text = ""
             txtColor.Text = ""
             txtAspecto.Text = ""
+            cboLoteB.Text = ""
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -1760,6 +1776,28 @@ doorcita:
             cnn1.Close()
             cnn2.Close()
             cnn3.Close()
+        End Try
+    End Sub
+
+    Private Sub cboDescripcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboDescripcion.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Codigo,UVenta,PrecioCompra FROM productos WHERE Nombre='" & cboDescripcion.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    cboCodigoI.Text = rd1("Codigo").ToString
+                    txtUnidadI.Text = rd1("UVenta")
+                    txtPrecioI.Text = rd1("PrecioCompra").ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
         End Try
     End Sub
 End Class
