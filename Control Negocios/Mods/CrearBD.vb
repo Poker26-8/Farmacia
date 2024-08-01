@@ -1,5 +1,43 @@
 ﻿Module CrearBD
 
+    'produccionc
+    Public vartablaproduccionc As String = "CREATE TABLE `produccionc` (
+                                                  `Id` int(11) NOT NULL,
+                                                  `Lote` varchar(50) DEFAULT '',
+                                                  `NCliente` varchar(50) NOT NULL DEFAULT '',
+                                                  `Cliente` varchar(255) NOT NULL DEFAULT '',
+                                                  `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                                  `CodigoP` varchar(50) NOT NULL DEFAULT '',
+                                                  `Descripcion` varchar(50) NOT NULL DEFAULT '',
+                                                  `UVenta` varchar(50) NOT NULL DEFAULT '',
+                                                  `Cantidad` double NOT NULL DEFAULT '0',
+                                                  `Precio` double NOT NULL DEFAULT '0',
+                                                  `Flote` date NOT NULL,
+                                                  `Sku` varchar(50) NOT NULL DEFAULT '',
+                                                  `Revision` varchar(50) NOT NULL DEFAULT '',
+                                                  `Aplicacion` date NOT NULL,
+                                                  `Recepcion` date NOT NULL,
+                                                  `Procedimiento` text NOT NULL,
+                                                  `Observaciones` text NOT NULL
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'produccioncdetalle
+    Public vartablaproduccioncdetalle As String = "CREATE TABLE `produccioncdetalle` (
+                                                      `Id` int(11) NOT NULL,
+                                                      `Folio` varchar(50) DEFAULT '',
+                                                      `Codigo` varchar(50) DEFAULT '',
+                                                      `Descripcion` varchar(255) DEFAULT '',
+                                                      `UVenta` varchar(40) DEFAULT '',
+                                                      `Cantidad` double DEFAULT '0',
+                                                      `LoteP` varchar(50) DEFAULT '',
+                                                      `FloteP` date DEFAULT NULL,
+                                                      `Precio` double DEFAULT '0',
+                                                      `Fase` varchar(70) DEFAULT '',
+                                                      `Teorico` varchar(70) DEFAULT '',
+                                                      `RealT` varchar(70) DEFAULT '',
+                                                      `Comentario` text
+                                                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'movingre
     Public vartablamovingre As String = "CREATE TABLE `mov_ingre` (
                                           `Id` int(11) NOT NULL,
@@ -6796,6 +6834,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeyproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` ADD PRIMARY KEY (`Id`);"
+    Public VarKeyproduccionc As String = "ALTER TABLE `produccionc` ADD PRIMARY KEY (`Id`);"
     Public VarKeymovingre As String = "ALTER TABLE `mov_ingre` ADD PRIMARY KEY (`Id`);"
     Public VarKeyhismesas As String = "ALTER TABLE `hismesa` ADD PRIMARY KEY (`Id`);"
     Public VarKeyprecios As String = "ALTER TABLE `precios` ADD PRIMARY KEY (`Id`);"
@@ -6958,6 +6998,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutoproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoproduccionc As String = "ALTER TABLE `produccionc` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomovingre As String = "ALTER TABLE `mov_ingre` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutohismesas As String = "ALTER TABLE `hismesa` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoprecios As String = "ALTER TABLE `precios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
