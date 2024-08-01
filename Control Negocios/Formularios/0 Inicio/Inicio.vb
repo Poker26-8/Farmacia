@@ -2817,7 +2817,7 @@ Public Class Inicio
 
     Private Sub ReporteDeVentasToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles pRepVentas.Click
         'frmRepVentas.Show()
-        ' frmRepVentas.BringToFront()
+        'frmRepVentas.BringToFront()
 
         frmNuvRepVentas.Show()
         frmNuvRepVentas.BringToFront()

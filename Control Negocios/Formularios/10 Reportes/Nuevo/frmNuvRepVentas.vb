@@ -2763,7 +2763,7 @@ Public Class frmNuvRepVentas
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
+                cmd1.CommandText = "SELECT Folio,Cliente FROM Ventas WHERE Fecha BETWEEN '" & Format(m1, "yyyy-MM-dd") & " " & Format(dtpinicio.Value, "HH:mm:ss") & "' AND '" & Format(m2, "yyyy-MM-dd") & " " & Format(dtpFin.Value, "HH:mm:ss") & "' AND Status<>'CANCELADA' ORDER BY Folio"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -2813,8 +2813,9 @@ Public Class frmNuvRepVentas
                                 End If
 
 
-                                nuevototal = T_Total - CDbl(T_Descuento)
-                                nuevosubtotal = T_Subtotal - CDbl(T_Descuento) + CDbl(T_Propina)
+                                nuevototal = T_Total
+                                '  nuevosubtotal = T_Subtotal - CDbl(T_Descuento) + CDbl(T_Propina)
+                                nuevosubtotal = T_Subtotal + CDbl(T_Propina)
                                 T_Costo = T_Costo + costo
                             End If
                         Loop

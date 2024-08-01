@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Web.Services
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 
@@ -490,6 +491,7 @@ Public Class frmProducirQ
         txtRevision.Text = ""
 
         grdcaptura.Rows.Clear()
+        cboLoteB.Text = ""
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
@@ -507,7 +509,7 @@ Public Class frmProducirQ
             If MsgBox("¿Deseas generar la producción de este producto?", vbInformation + vbOKCancel, titulocentral) = vbOK Then
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
+                cmd1.CommandText = "SELECT Existencia,Multiplo FROM productos WHERE Codigo='" & cbocodigo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -532,7 +534,7 @@ Public Class frmProducirQ
 
                 'va actaulizar el lote del producto final
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM lotecaducidad WHERE Codigo='" & cbocodigo.Text & "' AND Lote='" & cboLote.Text & "'"
+                cmd1.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Codigo='" & cbocodigo.Text & "' AND Lote='" & cboLote.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -580,7 +582,7 @@ Public Class frmProducirQ
 
                     'se busca el detalle de la produccion y se actualizara la existencia si fue modificada a la original
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM miprod WHERE Codigo='" & codinsumo & "'"
+                    cmd2.CommandText = "SELECT Id FROM produccioncdetalle WHERE Codigo='" & codinsumo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -588,9 +590,10 @@ Public Class frmProducirQ
                             'se actualiza la existencia del insumo si fue modificado
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "UPDATE miprod SET Cantidad=" & cantidadinsumo & ",Lote='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
+                            cmd3.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidadinsumo & ",LoteP='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
                             cmd3.ExecuteNonQuery()
                             cnn3.Close()
+
                         End If
                     End If
                     rd2.Close()
@@ -599,7 +602,7 @@ Public Class frmProducirQ
                     Dim nuevacoantidadlotes As Double = 0
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM lotecaducidad WHERE Codigo='" & codinsumo & "' AND Lote='" & loteinsumo & "'"
+                    cmd2.CommandText = "SELECT Cantidad FROM lotecaducidad WHERE Codigo='" & codinsumo & "' AND Lote='" & loteinsumo & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -636,7 +639,7 @@ Public Class frmProducirQ
                     Dim multi As Double = 0
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & codinsumo & "'"
+                    cmd1.CommandText = "SELECT Existencia,Multiplo FROM productos WHERE Codigo='" & codinsumo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -662,21 +665,21 @@ Public Class frmProducirQ
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "'"
+                ' cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "'"
+                cmd1.CommandText = "SELECT * FROM produccioncdetalle WHERE Folio='" & cboLote.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE miprod SET Comentario='" & rtComentario.Text & "' WHERE CodigoP='" & cbocodigo.Text & "'"
+                        ' cmd2.CommandText = "UPDATE miprod SET Comentario='" & rtComentario.Text & "' WHERE CodigoP='" & cbocodigo.Text & "'"
+                        cmd2.CommandText = "UPDATE produccioncdetalle SET Comentario='" & rtComentario.Text & "' WHERE Folio='" & cboLote.Text & "'"
                         cmd2.ExecuteNonQuery()
                         cnn2.Close()
                     End If
                 End If
                 rd1.Close()
                 cnn1.Close()
-
-
 
                 Dim tamticket As Integer = 0
                 Dim impresoratickett As String = ""
@@ -700,8 +703,6 @@ Public Class frmProducirQ
                         pDocumento58.Print()
                     End If
                 End If
-
-
 
                 rtComentario.Text = ""
                 rtComentario.Visible = False
@@ -727,6 +728,7 @@ Public Class frmProducirQ
                 txtOlor.Text = ""
                 txtColor.Text = ""
                 txtAspecto.Text = ""
+                cboLoteB.Text = ""
             End If
 
 
@@ -1241,36 +1243,19 @@ Public Class frmProducirQ
     Private Sub btnRegistro_Click(sender As Object, e As EventArgs) Handles btnRegistro.Click
         Try
             cnn1.Close() : cnn1.Open()
+
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * produccionc WHERE Lote='" & cboLote.Text & "'"
+            cmd1.CommandText = "SELECT * FROM produccionc WHERE Lote='" & cboLote.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
 
-                End If
-            Else
-                cnn2.Close() : cnn2.Open()
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO produccionc (Lote,NCliente,Cliente,Codigo,Sku,Revision,Aplicacion,Recepcion) VALUES('" & cboLote.Text & "','" & txtnumcliente.Text & "','" & cboCliente.Text & "','" & txtCodigo.Text & "','" & txtSKU.Text & "','" & txtRevision.Text & "','" & Format(dtpAprobación, "yyyy-MM-dd") & "','" & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd") & "')"
-                cmd2.ExecuteNonQuery()
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "UPDATE produccionc SET Cantidad=" & txtcantidad.Text & ",Precio=" & txtcostod.Text & ",Procedimiento='" & rtComentario.Text & "',Observaciones='" & rtObservaciones.Text & "'  WHERE Lote='" & cboLote.Text & "'"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
 
-                For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
-
-                Next
-
-                cnn2.Close()
-
-
-
-            End If
-            rd1.Close()
-            cnn1.Close()
-
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "'"
-            rd1 = cmd1.ExecuteReader
-            If rd1.HasRows Then
-                If rd1.Read Then
 
                     For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
 
@@ -1284,20 +1269,45 @@ Public Class frmProducirQ
                         Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
                         Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
                         Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
-                        Dim fechalote As String = ""
+                        Dim fechalote As String = grdcaptura.Rows(luffy).Cells(10).Value.ToString
                         Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
 
+                        cnn3.Close() : cnn3.Open()
+                        cmd3 = cnn3.CreateCommand
+                        cmd3.CommandText = "SELECT Id FROM produccioncdetalle WHERE Codigo='" & codigo & "'"
+                        rd3 = cmd3.ExecuteReader
+                        If rd3.HasRows Then
+                            If rd3.Read Then
+
+                                cnn2.Close() : cnn2.Open()
+                                cmd2 = cnn2.CreateCommand
+                                cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                                cmd2.ExecuteNonQuery()
+                                cnn2.Close()
 
 
-                        cnn2.Close() : cnn2.Open()
-                        cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "UPDATE miprod SET UVentaP='" & txtunidad.Text & "',CantidadP=" & txtcantidad.Text & ",UVenta='" & unidad & "',Cantidad=" & cantidad & ",Lote='" & lote & "',Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "' AND Codigo='" & codigo & "' AND Descrip='" & descripcion & "'"
-                        cmd2.ExecuteNonQuery()
-                        cnn2.Close()
+                            End If
+                        Else
+                            cnn2.Close() : cnn2.Open()
+                            cmd2 = cnn2.CreateCommand
+                            cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidad & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
+                            cmd2.ExecuteNonQuery()
+                            cnn2.Close()
+                        End If
+                        rd3.Close()
+                        cnn3.Close()
+
+
                     Next
 
                 End If
             Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO produccionc (Lote,NCliente,Cliente,Codigo,CodigoP,Descripcion,UVenta,Cantidad,Precio,Flote,Sku,Revision,Aplicacion,Recepcion,Procedimiento,Observaciones) VALUES('" & cboLote.Text & "','" & txtnumcliente.Text & "','" & cboCliente.Text & "','" & txtCodigo.Text & "','" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & "," & txtcostod.Text & ",'" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "','" & txtSKU.Text & "','" & txtRevision.Text & "','" & Format(dtpAprobación.Value, "yyyy-MM-dd") & "','" & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd") & "','" & rtComentario.Text & "','" & rtObservaciones.Text & "')"
+                cmd2.ExecuteNonQuery()
+                cnn2.Close()
+
                 For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
 
                     Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
@@ -1310,19 +1320,77 @@ Public Class frmProducirQ
                     Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
                     Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
                     Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
-                    Dim fechalote As String = ""
+                    Dim fechalote As String = grdcaptura.Rows(luffy).Cells(10).Value.ToString
                     Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
-
-
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo,Lote,Precio,PrecioIVA,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'','" & lote & "'," & precio & ",0,'" & fase & "'," & teorico & ",'" & real & "')"
+                    cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 Next
+
             End If
             rd1.Close()
+
+
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "'"
+            'rd1 = cmd1.ExecuteReader
+            'If rd1.HasRows Then
+            '    If rd1.Read Then
+
+            '        For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+            '            Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+            '            Dim descripcion As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+            '            Dim unidad As String = grdcaptura.Rows(luffy).Cells(2).Value.ToString
+            '            Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+            '            Dim precio As Double = grdcaptura.Rows(luffy).Cells(4).Value.ToString
+            '            Dim total As Double = grdcaptura.Rows(luffy).Cells(5).Value.ToString
+            '            Dim EXISTENCIA As Double = 0
+            '            Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+            '            Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
+            '            Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+            '            Dim fechalote As String = ""
+            '            Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+
+
+
+            '            cnn2.Close() : cnn2.Open()
+            '            cmd2 = cnn2.CreateCommand
+            '            cmd2.CommandText = "UPDATE miprod SET UVentaP='" & txtunidad.Text & "',CantidadP=" & txtcantidad.Text & ",UVenta='" & unidad & "',Cantidad=" & cantidad & ",Lote='" & lote & "',Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "' AND Codigo='" & codigo & "' AND Descrip='" & descripcion & "'"
+            '            cmd2.ExecuteNonQuery()
+            '            cnn2.Close()
+            '        Next
+
+            '    End If
+            'Else
+            '    For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+            '        Dim codigo As String = grdcaptura.Rows(luffy).Cells(0).Value.ToString
+            '        Dim descripcion As String = grdcaptura.Rows(luffy).Cells(1).Value.ToString
+            '        Dim unidad As String = grdcaptura.Rows(luffy).Cells(2).Value.ToString
+            '        Dim cantidad As Double = grdcaptura.Rows(luffy).Cells(3).Value.ToString
+            '        Dim precio As Double = grdcaptura.Rows(luffy).Cells(4).Value.ToString
+            '        Dim total As Double = grdcaptura.Rows(luffy).Cells(5).Value.ToString
+            '        Dim EXISTENCIA As Double = 0
+            '        Dim teorico As Double = grdcaptura.Rows(luffy).Cells(7).Value.ToString
+            '        Dim real As String = grdcaptura.Rows(luffy).Cells(8).Value
+            '        Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
+            '        Dim fechalote As String = ""
+            '        Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
+
+
+
+            '        cnn2.Close() : cnn2.Open()
+            '        cmd2 = cnn2.CreateCommand
+            '        cmd2.CommandText = "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Grupo,Lote,Precio,PrecioIVA,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'','" & lote & "'," & precio & ",0,'" & fase & "'," & teorico & ",'" & real & "')"
+            '        cmd2.ExecuteNonQuery()
+            '        cnn2.Close()
+            '    Next
+            'End If
+            'rd1.Close()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & cbocodigo.Text & "','" & cboLote.Text & "','" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "'," & txtcantidad.Text & ")"
@@ -1412,15 +1480,15 @@ Public Class frmProducirQ
         Dim CrTable As Table
 
         crea_ruta("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\")
-        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf"
+        root_name_recibo = "C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf"
 
-        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
-            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+        If File.Exists("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf") Then
+            File.Delete("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf")
         End If
 
         If varrutabase <> "" Then
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf")
             End If
         End If
 
@@ -1513,11 +1581,11 @@ Public Class frmProducirQ
 
         If varrutabase <> "" Then
 
-            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf") Then
-                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+            If File.Exists("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf") Then
+                File.Delete("\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf")
             End If
 
-            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & txtCodigo.Text & ".pdf")
+            System.IO.File.Copy("C:\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\PRODUCCION\Produccion_" & cboLote.Text & ".pdf")
         End If
     End Sub
     Private Sub Inserta_miprod()
@@ -1586,6 +1654,112 @@ doorcita:
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub cboLoteB_DropDown(sender As Object, e As EventArgs) Handles cboLoteB.DropDown
+        Try
+            cboLoteB.Items.Clear()
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Lote FROM produccionc WHERE Lote<>'' ORDER BY Lote"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboLoteB.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboLoteB_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboLoteB.SelectedValueChanged
+        Try
+
+            cnn1.Close() : cnn1.Open()
+            cnn2.Close() : cnn2.Open()
+            cnn3.Close() : cnn3.Open()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * FROM produccionc WHERE Lote='" & cboLoteB.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtnumcliente.Text = rd1("NCliente").ToString
+                    cboCliente.Text = rd1("Cliente").ToString
+                    txtCodigo.Text = rd1("Codigo").ToString
+                    txtSKU.Text = rd1("Sku").ToString
+                    txtRevision.Text = rd1("Revision").ToString
+                    dtpAprobación.Value = rd1("Aplicacion").ToString
+                    dtpFechaRecepcion.Value = rd1("Recepcion").ToString
+
+                    cbocodigo.Text = rd1("CodigoP").ToString
+                    cbonombre.Text = rd1("Descripcion").ToString
+                    txtunidad.Text = rd1("UVenta").ToString
+                    txtcantidad.Text = rd1("Cantidad").ToString
+                    txtcostod.Text = rd1("Precio").ToString
+                    cboLote.Text = rd1("Lote").ToString
+                    dtpFechaLote.Value = rd1("FLote").ToString
+                    rtComentario.Text = rd1("Procedimiento").ToString
+                    rtObservaciones.Text = rd1("Observaciones").ToString
+
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "SELECT * FROM produccioncdetalle WHERE Folio='" & cboLoteB.Text & "'"
+                    rd2 = cmd2.ExecuteReader
+                    Do While rd2.Read
+                        If rd2.HasRows Then
+
+                            Dim codigo As String = rd2("Codigo").ToString
+                            Dim existencia As Double = 0
+                            Dim multiplo As Double = 0
+                            Dim fechalote As Date = rd2("FLoteP").ToString
+                            Dim f As String = ""
+                            f = Format(fechalote, "yyyy-MM-dd")
+
+                            cmd3 = cnn3.CreateCommand
+                            cmd3.CommandText = "SELECT Existencia,Multiplo FROM productos WHERE Codigo='" & codigo & "'"
+                            rd3 = cmd3.ExecuteReader
+                            If rd3.HasRows Then
+                                If rd3.Read Then
+                                    existencia = rd3("Existencia").ToString
+                                    multiplo = rd3("Multiplo").ToString
+                                End If
+                            End If
+                            rd3.Close()
+
+                            grdcaptura.Rows.Add(codigo,
+                                                rd2("Descripcion").ToString,
+                                                rd2("UVenta").ToString,
+                                                FormatNumber(rd2("Cantidad").ToString, 2),
+                                                FormatNumber(rd2("Precio").ToString, 2),
+                                                FormatNumber(CDec(rd2("Cantidad").ToString) * CDec(rd2("Precio").ToString), 2),
+                                                FormatNumber(existencia / multiplo, 2),
+                                                FormatNumber(rd2("Teorico").ToString, 2),
+                                                rd2("RealT").ToString,
+                                                rd2("LoteP").ToString,
+                                                f,
+                                                rd2("Fase").ToString
+)
+                        End If
+                    Loop
+                    rd2.Close()
+
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+            cnn2.Close()
+            cnn3.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+            cnn2.Close()
+            cnn3.Close()
         End Try
     End Sub
 End Class

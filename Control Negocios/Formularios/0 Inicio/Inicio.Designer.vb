@@ -182,6 +182,7 @@ Partial Class Inicio
         Me.btnHoteleria = New System.Windows.Forms.Button()
         Me.btnRefaccionaria = New System.Windows.Forms.Button()
         Me.btnTelefonia = New System.Windows.Forms.Button()
+        Me.btnDentista = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.btnPagarComandas = New System.Windows.Forms.Button()
         Me.btnvtatouch = New System.Windows.Forms.Button()
@@ -192,7 +193,6 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPagarComa = New System.Windows.Forms.Button()
-        Me.btnDentista = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -675,13 +675,13 @@ Partial Class Inicio
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(135, 22)
         Me.ToolStripMenuItem3.Text = "Producción"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(180, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(135, 22)
         Me.ToolStripMenuItem4.Text = "Reporte"
         '
         'pAsistencia
@@ -1450,6 +1450,20 @@ Partial Class Inicio
         Me.btnTelefonia.UseVisualStyleBackColor = False
         Me.btnTelefonia.Visible = False
         '
+        'btnDentista
+        '
+        Me.btnDentista.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnDentista.FlatAppearance.BorderSize = 0
+        Me.btnDentista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
+        Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDentista.Image = CType(resources.GetObject("btnDentista.Image"), System.Drawing.Image)
+        Me.btnDentista.Location = New System.Drawing.Point(0, 283)
+        Me.btnDentista.Name = "btnDentista"
+        Me.btnDentista.Size = New System.Drawing.Size(90, 84)
+        Me.btnDentista.TabIndex = 187
+        Me.btnDentista.UseVisualStyleBackColor = True
+        Me.btnDentista.Visible = False
+        '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.PapayaWhip
@@ -1588,20 +1602,6 @@ Partial Class Inicio
         Me.btnPagarComa.Size = New System.Drawing.Size(90, 90)
         Me.btnPagarComa.TabIndex = 185
         Me.btnPagarComa.UseVisualStyleBackColor = True
-        '
-        'btnDentista
-        '
-        Me.btnDentista.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnDentista.FlatAppearance.BorderSize = 0
-        Me.btnDentista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray
-        Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDentista.Image = CType(resources.GetObject("btnDentista.Image"), System.Drawing.Image)
-        Me.btnDentista.Location = New System.Drawing.Point(0, 283)
-        Me.btnDentista.Name = "btnDentista"
-        Me.btnDentista.Size = New System.Drawing.Size(90, 84)
-        Me.btnDentista.TabIndex = 187
-        Me.btnDentista.UseVisualStyleBackColor = True
-        Me.btnDentista.Visible = False
         '
         'Inicio
         '

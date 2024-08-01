@@ -23,9 +23,11 @@ Partial Class frmProducirQ
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProducirQ))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cboLoteB = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.txtContraseña = New System.Windows.Forms.TextBox()
         Me.Label40 = New System.Windows.Forms.Label()
@@ -135,8 +137,6 @@ Partial Class frmProducirQ
         Me.rtComentario = New System.Windows.Forms.RichTextBox()
         Me.pDocumento80 = New System.Drawing.Printing.PrintDocument()
         Me.pDocumento58 = New System.Drawing.Printing.PrintDocument()
-        Me.cboLoteB = New System.Windows.Forms.ComboBox()
-        Me.Label47 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -176,6 +176,16 @@ Partial Class frmProducirQ
         Me.Panel1.Size = New System.Drawing.Size(1211, 67)
         Me.Panel1.TabIndex = 0
         '
+        'cboLoteB
+        '
+        Me.cboLoteB.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboLoteB.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboLoteB.FormattingEnabled = True
+        Me.cboLoteB.Location = New System.Drawing.Point(837, 23)
+        Me.cboLoteB.Name = "cboLoteB"
+        Me.cboLoteB.Size = New System.Drawing.Size(115, 23)
+        Me.cboLoteB.TabIndex = 108
+        '
         'Label39
         '
         Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -185,6 +195,19 @@ Partial Class frmProducirQ
         Me.Label39.TabIndex = 30
         Me.Label39.Text = "Usuario:"
         Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label47
+        '
+        Me.Label47.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label47.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.ForeColor = System.Drawing.Color.White
+        Me.Label47.Location = New System.Drawing.Point(837, 6)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(115, 18)
+        Me.Label47.TabIndex = 107
+        Me.Label47.Text = "Buscar Lote"
+        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblUsuario
         '
@@ -1277,8 +1300,8 @@ Partial Class frmProducirQ
         '
         Me.grdcaptura.AllowUserToAddRows = False
         Me.grdcaptura.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Beige
-        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Beige
+        Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdcaptura.ColumnHeadersVisible = False
@@ -1397,29 +1420,6 @@ Partial Class frmProducirQ
         '
         'pDocumento58
         '
-        '
-        'cboLoteB
-        '
-        Me.cboLoteB.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cboLoteB.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboLoteB.FormattingEnabled = True
-        Me.cboLoteB.Location = New System.Drawing.Point(837, 23)
-        Me.cboLoteB.Name = "cboLoteB"
-        Me.cboLoteB.Size = New System.Drawing.Size(115, 23)
-        Me.cboLoteB.TabIndex = 108
-        '
-        'Label47
-        '
-        Me.Label47.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label47.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.ForeColor = System.Drawing.Color.White
-        Me.Label47.Location = New System.Drawing.Point(837, 6)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(115, 18)
-        Me.Label47.TabIndex = 107
-        Me.Label47.Text = "Buscar Lote"
-        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmProducirQ
         '

@@ -830,7 +830,7 @@ Partial Class frmNuvRepVentas
         Me.boxcantidad.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.boxcantidad.Location = New System.Drawing.Point(418, 102)
         Me.boxcantidad.Name = "boxcantidad"
-        Me.boxcantidad.Size = New System.Drawing.Size(225, 60)
+        Me.boxcantidad.Size = New System.Drawing.Size(225, 56)
         Me.boxcantidad.TabIndex = 236
         Me.boxcantidad.TabStop = False
         Me.boxcantidad.Text = "Ingrese el número de parcialidad"
@@ -856,7 +856,7 @@ Partial Class frmNuvRepVentas
         Me.txtcantidad.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcantidad.Location = New System.Drawing.Point(8, 20)
         Me.txtcantidad.Name = "txtcantidad"
-        Me.txtcantidad.Size = New System.Drawing.Size(205, 29)
+        Me.txtcantidad.Size = New System.Drawing.Size(211, 29)
         Me.txtcantidad.TabIndex = 0
         Me.txtcantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
