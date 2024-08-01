@@ -571,24 +571,24 @@ Public Class frmNuevoPagarComandas
 
     Public Function IvaDSC(ByVal cod As String) As Double
         Try
-            cnn3.Close() : cnn3.Open()
+            cnn5.Close() : cnn5.Open()
 
-            cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "select IVA from Productos where Codigo='" & cod & "'"
-            rd3 = cmd3.ExecuteReader
-            If rd3.HasRows Then
-                If rd3.Read Then
-                    IvaDSC = CDbl(IIf(rd3(0).ToString = "", "0", rd3(0).ToString))
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "select IVA from Productos where Codigo='" & cod & "'"
+            rd5 = cmd5.ExecuteReader
+            If rd5.HasRows Then
+                If rd5.Read Then
+                    IvaDSC = CDbl(IIf(rd5(0).ToString = "", "0", rd5(0).ToString))
                 End If
             Else
                 IvaDSC = 0
             End If
-            rd3.Close()
-            cnn3.Close()
+            rd5.Close()
+            cnn5.Close()
             Return IvaDSC
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-            cnn3.Close()
+            cnn5.Close()
         End Try
     End Function
 
@@ -5164,4 +5164,6 @@ Door:
     Private Sub frmNuevoPagarComandas_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         tim.Stop()
     End Sub
+
+
 End Class

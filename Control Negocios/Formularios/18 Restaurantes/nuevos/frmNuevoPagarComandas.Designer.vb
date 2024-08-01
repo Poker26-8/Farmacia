@@ -154,16 +154,6 @@ Partial Class frmNuevoPagarComandas
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.TFolio = New System.Windows.Forms.Timer(Me.components)
-        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
-        Me.PDevolucion80 = New System.Drawing.Printing.PrintDocument()
-        Me.PDevolucion58 = New System.Drawing.Printing.PrintDocument()
-        Me.PPrecuenta80 = New System.Drawing.Printing.PrintDocument()
-        Me.PPrecuenta58 = New System.Drawing.Printing.PrintDocument()
-        Me.PPVenta80 = New System.Drawing.Printing.PrintDocument()
-        Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
-        Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
-        Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -174,6 +164,16 @@ Partial Class frmNuevoPagarComandas
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TFolio = New System.Windows.Forms.Timer(Me.components)
+        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
+        Me.PDevolucion80 = New System.Drawing.Printing.PrintDocument()
+        Me.PDevolucion58 = New System.Drawing.Printing.PrintDocument()
+        Me.PPrecuenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.PPrecuenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.PPVenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.PPVenta58 = New System.Drawing.Printing.PrintDocument()
+        Me.PCortesia80 = New System.Drawing.Printing.PrintDocument()
+        Me.PCortesia58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -1683,36 +1683,6 @@ Partial Class frmNuevoPagarComandas
         Me.grdCaptura.Size = New System.Drawing.Size(763, 211)
         Me.grdCaptura.TabIndex = 0
         '
-        'TFolio
-        '
-        '
-        'TFecha
-        '
-        '
-        'PDevolucion80
-        '
-        '
-        'PDevolucion58
-        '
-        '
-        'PPrecuenta80
-        '
-        '
-        'PPrecuenta58
-        '
-        '
-        'PPVenta80
-        '
-        '
-        'PPVenta58
-        '
-        '
-        'PCortesia80
-        '
-        '
-        'PCortesia58
-        '
-        '
         'Column1
         '
         Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -1795,6 +1765,36 @@ Partial Class frmNuevoPagarComandas
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         Me.Column10.Width = 56
+        '
+        'TFolio
+        '
+        '
+        'TFecha
+        '
+        '
+        'PDevolucion80
+        '
+        '
+        'PDevolucion58
+        '
+        '
+        'PPrecuenta80
+        '
+        '
+        'PPrecuenta58
+        '
+        '
+        'PPVenta80
+        '
+        '
+        'PPVenta58
+        '
+        '
+        'PCortesia80
+        '
+        '
+        'PCortesia58
+        '
         '
         'frmNuevoPagarComandas
         '

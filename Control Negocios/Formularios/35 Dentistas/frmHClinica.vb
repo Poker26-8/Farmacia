@@ -191,10 +191,10 @@
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        txtid.Text = ""
-        txtNombre.Text = ""
-        txtEdad.Text = ""
-        txtSexo.Text = ""
+        'txtid.Text = ""
+        'txtNombre.Text = ""
+        'txtEdad.Text = ""
+        'txtSexo.Text = ""
         txtNotacion.Text = ""
         txtdiente.Text = ""
         rtSintomas.Text = ""
