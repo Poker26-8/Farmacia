@@ -1,5 +1,21 @@
 ﻿Module CrearBD
 
+    'unidadmedsat
+    Public vartablaunidadmedsat As String = "CREATE TABLE `unidadmedsat` (
+                                              `Id` int(11) NOT NULL,
+                                              `ClaveUnidad` varchar(50) NOT NULL DEFAULT '',
+                                              `NomUnidad` varchar(255) NOT NULL DEFAULT '',
+                                              `Descripcion` varchar(50) NOT NULL DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
+    'productosat
+    Public vartablaproductosat As String = "CREATE TABLE `productosat` (
+                                              `Id` int(11) NOT NULL,
+                                              `ClaveProdSat` varchar(70) DEFAULT '',
+                                              `Descripcion` varchar(255) DEFAULT '',
+                                              `PalabrasSimilares` varchar(255) DEFAULT ''
+                                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     'produccionc
     Public vartablaproduccionc As String = "CREATE TABLE `produccionc` (
                                                   `Id` int(11) NOT NULL,
@@ -6834,6 +6850,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeyunidadmedsat As String = "ALTER TABLE `unidadmedsat` ADD PRIMARY KEY (`Id`);"
+    Public VarKeyproductosat As String = "ALTER TABLE `productosat` ADD PRIMARY KEY (`Id`);"
     Public VarKeyproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` ADD PRIMARY KEY (`Id`);"
     Public VarKeyproduccionc As String = "ALTER TABLE `produccionc` ADD PRIMARY KEY (`Id`);"
     Public VarKeymovingre As String = "ALTER TABLE `mov_ingre` ADD PRIMARY KEY (`Id`);"
@@ -6998,6 +7016,8 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutounidadmedsatt As String = "ALTER TABLE `unidadmedsat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
+    Public varAutoproductosat As String = "ALTER TABLE `productosat` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoproduccioncdetalle As String = "ALTER TABLE `produccioncdetalle` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoproduccionc As String = "ALTER TABLE `produccionc` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomovingre As String = "ALTER TABLE `mov_ingre` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

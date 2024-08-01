@@ -780,6 +780,16 @@ Public Class Login
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
 
+                            'unidadmedsat
+                            .runSp(cnnprueba, vartablaunidadmedsat, sinfo)
+                            .runSp(cnnprueba, VarKeyunidadmedsat, sinfo)
+                            .runSp(cnnprueba, varAutounidadmedsatt, sinfo)
+
+                            'productosat
+                            .runSp(cnnprueba, vartablaproductosat, sinfo)
+                            .runSp(cnnprueba, VarKeyproductosat, sinfo)
+                            .runSp(cnnprueba, varAutoproductosat, sinfo)
+
                             'produccioncdetalle
                             .runSp(cnnprueba, vartablaproduccioncdetalle, sinfo)
                             .runSp(cnnprueba, VarKeyproduccioncdetalle, sinfo)

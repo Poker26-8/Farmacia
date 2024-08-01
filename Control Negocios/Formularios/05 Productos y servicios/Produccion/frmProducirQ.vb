@@ -1243,6 +1243,8 @@ Public Class frmProducirQ
 
     Private Sub btnRegistro_Click(sender As Object, e As EventArgs) Handles btnRegistro.Click
         Try
+            Dim costod As Double = 0
+            costod = txtcostod.Text
             cnn1.Close() : cnn1.Open()
 
             cmd1 = cnn1.CreateCommand
@@ -1301,9 +1303,10 @@ Public Class frmProducirQ
 
                 End If
             Else
+
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "INSERT INTO produccionc (Lote,NCliente,Cliente,Codigo,CodigoP,Descripcion,UVenta,Cantidad,Precio,Flote,Sku,Revision,Aplicacion,Recepcion,Procedimiento,Observaciones) VALUES('" & cboLote.Text & "','" & txtnumcliente.Text & "','" & cboCliente.Text & "','" & txtCodigo.Text & "','" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & "," & txtcostod.Text & ",'" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "','" & txtSKU.Text & "','" & txtRevision.Text & "','" & Format(dtpAprobación.Value, "yyyy-MM-dd") & "','" & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd") & "','" & rtComentario.Text & "','" & rtObservaciones.Text & "')"
+                cmd2.CommandText = "INSERT INTO produccionc (Lote,NCliente,Cliente,Codigo,CodigoP,Descripcion,UVenta,Cantidad,Precio,Flote,Sku,Revision,Aplicacion,Recepcion,Procedimiento,Observaciones) VALUES('" & cboLote.Text & "','" & txtnumcliente.Text & "','" & cboCliente.Text & "','" & txtCodigo.Text & "','" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & "," & costod & ",'" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "','" & txtSKU.Text & "','" & txtRevision.Text & "','" & Format(dtpAprobación.Value, "yyyy-MM-dd") & "','" & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd") & "','" & rtComentario.Text & "','" & rtObservaciones.Text & "')"
                 cmd2.ExecuteNonQuery()
                 cnn2.Close()
 

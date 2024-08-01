@@ -192,4 +192,9 @@ Public Class frmCambiaCodigo
             End If
         End If
     End Sub
+
+    Private Sub btnClaves_Click(sender As Object, e As EventArgs) Handles btnClaves.Click
+        frmClavesSat.BringToFront()
+        frmClavesSat.Show()
+    End Sub
 End Class

@@ -36,6 +36,7 @@ Partial Class frmCambiaUnidad
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.DGVUnidad = New System.Windows.Forms.DataGridView()
+        Me.btnIngresar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DGVEmpresAs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGVUnidad, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,16 +51,16 @@ Partial Class frmCambiaUnidad
         Me.Label101.Location = New System.Drawing.Point(0, 0)
         Me.Label101.Name = "Label101"
         Me.Label101.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Label101.Size = New System.Drawing.Size(822, 31)
+        Me.Label101.Size = New System.Drawing.Size(904, 31)
         Me.Label101.TabIndex = 95
         Me.Label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cboEmpresa
         '
         Me.cboEmpresa.FormattingEnabled = True
-        Me.cboEmpresa.Location = New System.Drawing.Point(607, 58)
+        Me.cboEmpresa.Location = New System.Drawing.Point(648, 58)
         Me.cboEmpresa.Name = "cboEmpresa"
-        Me.cboEmpresa.Size = New System.Drawing.Size(206, 23)
+        Me.cboEmpresa.Size = New System.Drawing.Size(249, 23)
         Me.cboEmpresa.TabIndex = 104
         Me.cboEmpresa.Visible = False
         '
@@ -114,7 +115,7 @@ Partial Class frmCambiaUnidad
         '
         Me.btnActualizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnActualizar.Location = New System.Drawing.Point(735, 84)
+        Me.btnActualizar.Location = New System.Drawing.Point(819, 84)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(78, 45)
         Me.btnActualizar.TabIndex = 102
@@ -135,7 +136,7 @@ Partial Class frmCambiaUnidad
         '
         Me.txtDescEmpresa.Location = New System.Drawing.Point(416, 58)
         Me.txtDescEmpresa.Name = "txtDescEmpresa"
-        Me.txtDescEmpresa.Size = New System.Drawing.Size(185, 23)
+        Me.txtDescEmpresa.Size = New System.Drawing.Size(226, 23)
         Me.txtDescEmpresa.TabIndex = 100
         '
         'DGVEmpresAs
@@ -145,7 +146,7 @@ Partial Class frmCambiaUnidad
         Me.DGVEmpresAs.Location = New System.Drawing.Point(416, 132)
         Me.DGVEmpresAs.Name = "DGVEmpresAs"
         Me.DGVEmpresAs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVEmpresAs.Size = New System.Drawing.Size(397, 462)
+        Me.DGVEmpresAs.Size = New System.Drawing.Size(481, 462)
         Me.DGVEmpresAs.TabIndex = 99
         '
         'Label1
@@ -176,12 +177,24 @@ Partial Class frmCambiaUnidad
         Me.DGVUnidad.Size = New System.Drawing.Size(397, 507)
         Me.DGVUnidad.TabIndex = 97
         '
+        'btnIngresar
+        '
+        Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIngresar.Location = New System.Drawing.Point(735, 84)
+        Me.btnIngresar.Name = "btnIngresar"
+        Me.btnIngresar.Size = New System.Drawing.Size(78, 45)
+        Me.btnIngresar.TabIndex = 105
+        Me.btnIngresar.Text = "Ingresar Claves"
+        Me.btnIngresar.UseVisualStyleBackColor = False
+        '
         'frmCambiaUnidad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(822, 607)
+        Me.ClientSize = New System.Drawing.Size(904, 607)
+        Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.cboEmpresa)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnActualizar)
@@ -219,4 +232,5 @@ Partial Class frmCambiaUnidad
     Friend WithEvents Label1 As Label
     Friend WithEvents txtDesc As TextBox
     Friend WithEvents DGVUnidad As DataGridView
+    Friend WithEvents btnIngresar As Button
 End Class
