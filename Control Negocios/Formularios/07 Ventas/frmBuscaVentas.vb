@@ -247,7 +247,7 @@
                 cnn3.Close() : cnn3.Open()
                 cmd3 = cnn3.CreateCommand
                 cmd3.CommandText =
-                    "select * from Productos where Nombre LIKE '%" & TextBox1.Text & "%'"
+                    "select * from Productos where NombreLargo LIKE '%" & TextBox1.Text & "%'"
                 rd3 = cmd3.ExecuteReader
                 cnn2.Close() : cnn2.Open()
                 Do While rd3.Read
