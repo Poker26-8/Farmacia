@@ -135,6 +135,8 @@ Partial Class frmProducirQ
         Me.rtComentario = New System.Windows.Forms.RichTextBox()
         Me.pDocumento80 = New System.Drawing.Printing.PrintDocument()
         Me.pDocumento58 = New System.Drawing.Printing.PrintDocument()
+        Me.cboLoteB = New System.Windows.Forms.ComboBox()
+        Me.Label47 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -148,7 +150,9 @@ Partial Class frmProducirQ
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.cboLoteB)
         Me.Panel1.Controls.Add(Me.Label39)
+        Me.Panel1.Controls.Add(Me.Label47)
         Me.Panel1.Controls.Add(Me.lblUsuario)
         Me.Panel1.Controls.Add(Me.txtContraseña)
         Me.Panel1.Controls.Add(Me.Label40)
@@ -1394,6 +1398,29 @@ Partial Class frmProducirQ
         'pDocumento58
         '
         '
+        'cboLoteB
+        '
+        Me.cboLoteB.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cboLoteB.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboLoteB.FormattingEnabled = True
+        Me.cboLoteB.Location = New System.Drawing.Point(837, 23)
+        Me.cboLoteB.Name = "cboLoteB"
+        Me.cboLoteB.Size = New System.Drawing.Size(115, 23)
+        Me.cboLoteB.TabIndex = 108
+        '
+        'Label47
+        '
+        Me.Label47.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label47.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.ForeColor = System.Drawing.Color.White
+        Me.Label47.Location = New System.Drawing.Point(837, 6)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(115, 18)
+        Me.Label47.TabIndex = 107
+        Me.Label47.Text = "Buscar Lote"
+        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmProducirQ
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1539,4 +1566,6 @@ Partial Class frmProducirQ
     Friend WithEvents btnRegistro As Button
     Friend WithEvents cboImprimir As ComboBox
     Friend WithEvents Label46 As Label
+    Friend WithEvents cboLoteB As ComboBox
+    Friend WithEvents Label47 As Label
 End Class

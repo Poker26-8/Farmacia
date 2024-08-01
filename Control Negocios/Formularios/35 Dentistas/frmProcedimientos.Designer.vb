@@ -30,14 +30,14 @@ Partial Class frmProcedimientos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.btnAsignar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.grdCaptura = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -113,7 +113,7 @@ Partial Class frmProcedimientos
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.btnLimpiar)
-        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.btnAsignar)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 356)
@@ -121,19 +121,33 @@ Partial Class frmProcedimientos
         Me.Panel2.Size = New System.Drawing.Size(374, 94)
         Me.Panel2.TabIndex = 62
         '
-        'Button2
+        'btnLimpiar
         '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(215, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 82)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Asignar"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(134, 6)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(75, 82)
+        Me.btnLimpiar.TabIndex = 2
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = True
+        '
+        'btnAsignar
+        '
+        Me.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAsignar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAsignar.Image = CType(resources.GetObject("btnAsignar.Image"), System.Drawing.Image)
+        Me.btnAsignar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAsignar.Location = New System.Drawing.Point(215, 6)
+        Me.btnAsignar.Name = "btnAsignar"
+        Me.btnAsignar.Size = New System.Drawing.Size(75, 82)
+        Me.btnAsignar.TabIndex = 1
+        Me.btnAsignar.Text = "Asignar"
+        Me.btnAsignar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAsignar.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -195,20 +209,6 @@ Partial Class frmProcedimientos
         Me.Column3.ReadOnly = True
         Me.Column3.Width = 62
         '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(134, 6)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(75, 82)
-        Me.btnLimpiar.TabIndex = 2
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
         'frmProcedimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,6 +245,6 @@ Partial Class frmProcedimientos
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnAsignar As Button
     Friend WithEvents btnLimpiar As Button
 End Class

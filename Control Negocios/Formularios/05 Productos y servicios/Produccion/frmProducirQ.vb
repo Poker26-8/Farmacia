@@ -1242,6 +1242,31 @@ Public Class frmProducirQ
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT * produccionc WHERE Lote='" & cboLote.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+
+                End If
+            Else
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "INSERT INTO produccionc (Lote,NCliente,Cliente,Codigo,Sku,Revision,Aplicacion,Recepcion) VALUES('" & cboLote.Text & "','" & txtnumcliente.Text & "','" & cboCliente.Text & "','" & txtCodigo.Text & "','" & txtSKU.Text & "','" & txtRevision.Text & "','" & Format(dtpAprobación, "yyyy-MM-dd") & "','" & Format(dtpFechaRecepcion.Value, "yyyy-MM-dd") & "')"
+                cmd2.ExecuteNonQuery()
+
+                For luffy As Integer = 0 To grdcaptura.Rows.Count - 1
+
+                Next
+
+                cnn2.Close()
+
+
+
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cbocodigo.Text & "' AND DescripP='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -1298,6 +1323,10 @@ Public Class frmProducirQ
                 Next
             End If
             rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & cbocodigo.Text & "','" & cboLote.Text & "','" & Format(dtpFechaLote.Value, "yyyy-MM-dd") & "'," & txtcantidad.Text & ")"
+            cmd1.ExecuteNonQuery()
             cnn1.Close()
 
 

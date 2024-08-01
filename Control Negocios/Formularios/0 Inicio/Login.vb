@@ -779,6 +779,10 @@ Public Class Login
                     'Dim sTargetprueba = "Server=localhost;user id = root; password=;"
                     With odata
                         If .dbOpen(cnnprueba, sTargetprueba, sinfo) Then
+                            'movingre
+                            .runSp(cnnprueba, vartablamovingre, sinfo)
+                            .runSp(cnnprueba, VarKeymovingre, sinfo)
+                            .runSp(cnnprueba, varAutomovingre, sinfo)
 
                             'precios
                             .runSp(cnnprueba, vartablaprecios, sinfo)

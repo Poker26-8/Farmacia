@@ -981,7 +981,7 @@ Partial Class frmfacturacion
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(1125, 754)
+        Me.Button5.Location = New System.Drawing.Point(1022, 797)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(30, 23)
         Me.Button5.TabIndex = 84
@@ -1028,14 +1028,13 @@ Partial Class frmfacturacion
         Me.btnActUni.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnActUni.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActUni.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnActUni.Location = New System.Drawing.Point(1174, 621)
+        Me.btnActUni.Location = New System.Drawing.Point(1101, 672)
         Me.btnActUni.Margin = New System.Windows.Forms.Padding(2)
         Me.btnActUni.Name = "btnActUni"
-        Me.btnActUni.Size = New System.Drawing.Size(29, 48)
+        Me.btnActUni.Size = New System.Drawing.Size(102, 48)
         Me.btnActUni.TabIndex = 81
         Me.btnActUni.Text = "Actualiza Clave Unidad"
         Me.btnActUni.UseVisualStyleBackColor = False
-        Me.btnActUni.Visible = False
         '
         'btnActProd
         '
@@ -1043,14 +1042,13 @@ Partial Class frmfacturacion
         Me.btnActProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnActProd.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActProd.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnActProd.Location = New System.Drawing.Point(1141, 620)
+        Me.btnActProd.Location = New System.Drawing.Point(1102, 621)
         Me.btnActProd.Margin = New System.Windows.Forms.Padding(2)
         Me.btnActProd.Name = "btnActProd"
-        Me.btnActProd.Size = New System.Drawing.Size(15, 48)
+        Me.btnActProd.Size = New System.Drawing.Size(101, 48)
         Me.btnActProd.TabIndex = 79
         Me.btnActProd.Text = "Actualiza Clave Producto"
         Me.btnActProd.UseVisualStyleBackColor = False
-        Me.btnActProd.Visible = False
         '
         'btnGlobal
         '
@@ -2569,7 +2567,7 @@ Partial Class frmfacturacion
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(1141, 703)
+        Me.TextBox2.Location = New System.Drawing.Point(925, 789)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(70, 31)
@@ -4104,7 +4102,7 @@ Partial Class frmfacturacion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1216, 729)
+        Me.ClientSize = New System.Drawing.Size(1216, 736)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.lblfolioventa)
         Me.Controls.Add(Me.TextBox2)

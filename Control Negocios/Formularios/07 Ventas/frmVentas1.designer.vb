@@ -584,12 +584,14 @@ Partial Class frmVentas1
         Me.Column10.HeaderText = "IEPS"
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
+        Me.Column10.Visible = False
         '
         'Column11
         '
         Me.Column11.HeaderText = "Porcentaje IEPS"
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
+        Me.Column11.Visible = False
         '
         'Column12
         '

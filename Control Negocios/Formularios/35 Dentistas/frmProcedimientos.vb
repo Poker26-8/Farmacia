@@ -69,4 +69,18 @@
         PRECIO = 0
         grdCaptura.Rows.Clear()
     End Sub
+
+    Private Sub btnAsignar_Click(sender As Object, e As EventArgs) Handles btnAsignar.Click
+
+        For luffy As Integer = 0 To grdCaptura.Rows.Count - 1
+            Dim cod As String = grdCaptura.Rows(luffy).Cells(0).Value.ToString
+            Dim desc As String = grdCaptura.Rows(luffy).Cells(1).Value.ToString
+            Dim pre As Double = grdCaptura.Rows(luffy).Cells(2).Value.ToString
+
+            frmHClinica.grd.Rows.Add(cod, desc, pre)
+        Next
+
+
+
+    End Sub
 End Class

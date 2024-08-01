@@ -1,5 +1,13 @@
 ﻿Module CrearBD
 
+    'movingre
+    Public vartablamovingre As String = "CREATE TABLE `mov_ingre` (
+                                          `Id` int(11) NOT NULL,
+                                          `Codigo` varchar(50) NOT NULL DEFAULT '',
+                                          `Descripcion` varchar(255) NOT NULL DEFAULT '',
+                                          `Cantidad` double NOT NULL DEFAULT '0',
+                                          `Fecha` date NOT NULL
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'hismesass
     Public vartablahismesas As String = "CREATE TABLE `hismesa` (
                                                   `Id` int(11) NOT NULL,
@@ -6788,6 +6796,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'LLAVES PRIMARIAS
     '/////////////////////////////////////////////////////////////////////////
+    Public VarKeymovingre As String = "ALTER TABLE `mov_ingre` ADD PRIMARY KEY (`Id`);"
     Public VarKeyhismesas As String = "ALTER TABLE `hismesa` ADD PRIMARY KEY (`Id`);"
     Public VarKeyprecios As String = "ALTER TABLE `precios` ADD PRIMARY KEY (`Id`);"
     Public VarKeymarcas As String = "ALTER TABLE `marcas` ADD PRIMARY KEY (`Id`);"
@@ -6949,6 +6958,7 @@
     '/////////////////////////////////////////////////////////////////////////
     'AUTOINCREMENTO
     '/////////////////////////////////////////////////////////////////////////
+    Public varAutomovingre As String = "ALTER TABLE `mov_ingre` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutohismesas As String = "ALTER TABLE `hismesa` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutoprecios As String = "ALTER TABLE `precios` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"
     Public varAutomarcas As String = "ALTER TABLE `marcas` MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;"

@@ -7377,50 +7377,62 @@ kakaxd:
                         MyStatus = "RESTA"
                     End If
 
+                    Dim descuentoventa As Double = 0
+                    Dim descuentoventa2 As Double = 0
+                    Dim sumadescuento As Double = 0
+
                     If CDbl(txtdescuento1.Text) > 0 Then
                         Dim Zi As Integer = 0, TotalTemp As Double = 0, SumaTotales As Double = 0, TotalesIVATemp As Double = 0
-                        Dim CodTemp As String = "", CantTemp As Double = 0, PreUni As Double = 0
+                        Dim CodTemp As String = "", CantTemp As Double = 0, PreUni As Double = 0, precioproducto As Double = 0
                         Dim IvaTemp As Double = 0
                         For A As Integer = 0 To grdcaptura.Rows.Count - 1
                             If grdcaptura.Rows(A).Cells(0).Value.ToString <> "" Then
                                 CodTemp = grdcaptura.Rows(A).Cells(0).Value.ToString
                                 CantTemp = grdcaptura.Rows(A).Cells(3).Value.ToString
+                                precioproducto = grdcaptura.Rows(A).Cells(4).Value.ToString
+
                                 PreUni = CDbl(grdcaptura.Rows(A).Cells(4).Value.ToString) - (CDbl(grdcaptura.Rows(A).Cells(4).Value.ToString) * (CDbl(txtdescuento1.Text) / 100))
                                 IvaTemp = IvaDSC(CodTemp)
+
+                                descuentoventa = CDec(precioproducto) / (1 + IvaTemp)
+                                descuentoventa2 = CDec(descuentoventa) * (CDbl(txtdescuento1.Text) / 100)
+                                sumadescuento = sumadescuento + (CDec(descuentoventa2) * CantTemp)
+
                                 TotalTemp = (PreUni * CantTemp) / (1 + IvaTemp)
                                 TotalesIVATemp = (TotalTemp * (1 + IvaTemp)) - TotalTemp
                                 SumaTotales = SumaTotales + TotalesIVATemp
                             End If
                         Next
 
-                        SumaTotales = FormatNumber(SumaTotales, 4)
 
-                        SubTotal = FormatNumber(CDbl(txtPagar.Text) - SumaTotales, 4)
-                        IVA_Vent = FormatNumber(SumaTotales, 4)
-                        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
-                        Descuento = FormatNumber(txtdescuento2.Text, 4)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)
+                        SumaTotales = FormatNumber(SumaTotales, 2)
 
+                        SubTotal = FormatNumber(CDbl(txtPagar.Text) - SumaTotales, 2)
+                        IVA_Vent = FormatNumber(SumaTotales, 2)
+                        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
+                        '  Descuento = FormatNumber(txtdescuento2.Text, 4)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                        sumadescuento = FormatNumber(sumadescuento, 2)
 
 
                         cnn1.Close() : cnn1.Open()
 
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                            "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACuenta & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "', " & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                         cmd1.ExecuteNonQuery()
                         cnn1.Close()
                     Else
                         If TotalIVAPrint = 0 Then
                             IVA_Vent = 0
-                            SubTotal = FormatNumber(txtPagar.Text, 4)
+                            SubTotal = FormatNumber(txtPagar.Text, 2)
                         Else
-                            SubTotal = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 4)
-                            IVA_Vent = FormatNumber(TotalIVAPrint, 4)
+                            SubTotal = FormatNumber(CDbl(txtPagar.Text) - CDbl(TotalIVAPrint), 2)
+                            IVA_Vent = FormatNumber(TotalIVAPrint, 2)
                         End If
-                        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
-                        Descuento = FormatNumber(txtdescuento2.Text, 4)
-                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)
+                        Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
+                        Descuento = FormatNumber(txtdescuento2.Text, 2)
+                        MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
@@ -7459,15 +7471,50 @@ kakaxd:
                         MyStatus = "RESTA"
                     End If
 
+                    Dim Zi As Integer = 0, TotalTemp As Double = 0, SumaTotales As Double = 0, TotalesIVATemp As Double = 0
+                    Dim CodTemp As String = "", CantTemp As Double = 0, PreUni As Double = 0, precioproducto As Double = 0
+                    Dim IvaTemp As Double = 0
 
-                    Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
-                    Descuento = FormatNumber(txtdescuento2.Text, 4)
-                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)
+                    Dim descuentoventa As Double = 0
+                    Dim descuentoventa2 As Double = 0
+                    Dim sumadescuento As Double = 0
+
+                    For A As Integer = 0 To grdcaptura.Rows.Count - 1
+                        If grdcaptura.Rows(A).Cells(0).Value.ToString <> "" Then
+                            CodTemp = grdcaptura.Rows(A).Cells(0).Value.ToString
+                            CantTemp = grdcaptura.Rows(A).Cells(3).Value.ToString
+                            precioproducto = grdcaptura.Rows(A).Cells(4).Value.ToString
+
+                            PreUni = CDbl(grdcaptura.Rows(A).Cells(4).Value.ToString) - (CDbl(grdcaptura.Rows(A).Cells(4).Value.ToString) * (CDbl(txtdescuento1.Text) / 100))
+                            IvaTemp = IvaDSC(CodTemp)
+
+                            descuentoventa = CDec(precioproducto) / (1 + IvaTemp)
+                            descuentoventa2 = CDec(descuentoventa) * (CDbl(txtdescuento1.Text) / 100)
+                            sumadescuento = sumadescuento + (CDec(descuentoventa2) * CantTemp)
+
+                            TotalTemp = (PreUni * CantTemp) / (1 + IvaTemp)
+                            TotalesIVATemp = (TotalTemp * (1 + IvaTemp)) - TotalTemp
+                            SumaTotales = SumaTotales + TotalesIVATemp
+                        End If
+                    Next
+
+                    SumaTotales = FormatNumber(SumaTotales, 4)
+
+                    SubTotal = FormatNumber(CDbl(txtPagar.Text) - SumaTotales, 2)
+                    IVA_Vent = FormatNumber(SumaTotales, 2)
+                    Total_Ve = FormatNumber(CDbl(txtPagar.Text), 2)
+                    '  Descuento = FormatNumber(txtdescuento2.Text, 4)
+                    MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 2)
+                    sumadescuento = FormatNumber(sumadescuento, 2)
+
+                    'Total_Ve = FormatNumber(CDbl(txtPagar.Text), 4)
+                    'Descuento = FormatNumber(txtdescuento2.Text, 2)
+                    'MontoSDesc = FormatNumber(CDbl(txtPagar.Text) + Descuento, 4)
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & Descuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+                        "insert into Ventas(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,Descuento,Devolucion,ACuenta,Resta,Usuario,FVenta,HVenta,FPago,FCancelado,Status,Comisionista,Concepto,MontoSinDesc,FEntrega,Entrega,Comentario,StatusE,FolMonedero,CodFactura,IP,Formato,Franquicia,Pedido,Fecha) values(" & IdCliente & ",'" & IIf(cboNombre.Text = "", "PUBLICO EN GENERAL", cboNombre.Text) & "','" & txtdireccion.Text & "'," & SubTotal & "," & IVA_Vent & "," & Total_Ve & "," & sumadescuento & ",0," & ACUenta2 & "," & Resta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & fecha_pago & "','','" & MyStatus & "','" & cbocomisionista.Text & "',''," & MontoSDesc & ",'" & Format(dtpFecha_E.Value, "dd/MM/yyyy") & "',0,'" & observaciones & "',0,'" & txttel.Text & "','" & cadenafact & "','" & dameIP2() & "','" & cboimpresion.Text & "'," & validafranquicia & "," & IIf(lblpedido.Text = "", 0, lblpedido.Text) & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                     cmd1.ExecuteNonQuery()
                     cnn1.Close()
             End Select
@@ -7819,57 +7866,12 @@ kakaxd:
                 Dim myprecio As Double = grdcaptura.Rows(R).Cells(4).Value.ToString
                 Dim caduca As String = ""
                 Dim lote As String = ""
-                If ordetrabajo = 0 Then
-                    caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
-                    lote = grdcaptura.Rows(R).Cells(8).Value.ToString
-                Else
-                    caduca = ""
-                    lote = ""
-                End If
-
-                Dim mytotal As Double = FormatNumber(mycant * myprecio, 4)
-                Dim ieps As Double = 0
-                Dim tasaieps As Double = 0
-                Dim monedero As Double = 0
-                If ordetrabajo = 0 Then
-                    ieps = IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString)
-                    tasaieps = IIf(grdcaptura.Rows(R).Cells(11).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(11).Value.ToString)
-                    monedero = IIf(grdcaptura.Rows(R).Cells(14).Value.ToString() = "", 0, grdcaptura.Rows(R).Cells(14).Value.ToString())
-                Else
-                    ieps = 0
-                    tasaieps = 0
-                    monedero = 0
-                End If
-
-                Dim Unico As Boolean = False
-
+                Dim descuentotal As Double = 0
                 Dim MyIVA As Double = 0
-
-                Dim MyMCD As Double = 0
-                Dim MyMulti2 As Double = 0
-                Dim MyMultiplo As Double = 0
-                Dim MyDepto As String = ""
-                Dim MyGrupo As String = ""
-                Dim Kit As Boolean = False
-                Dim Existencia As Double = 0
-                Dim Pre_Comp As Double = 0
-
-                Dim MyCostVUE As Double = 0
-                Dim MyProm As Double = 0
-
-                Dim myprecioS As Double = 0
-                Dim mytotalS As Double = 0
 
                 mycode = grdcaptura.Rows(R).Cells(0).Value.ToString
                 mydesc = grdcaptura.Rows(R).Cells(1).Value.ToString
                 myunid = grdcaptura.Rows(R).Cells(2).Value.ToString
-
-                Dim gprint As String = ""
-                If ordetrabajo = 0 Then
-                    TotalIEPSPrint = TotalIEPSPrint + CDbl(IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString))
-                Else
-                    TotalIEPSPrint = TotalIEPSPrint
-                End If
 
                 If ordetrabajo = 0 Then
                     cmd1 = cnn1.CreateCommand
@@ -7895,11 +7897,77 @@ kakaxd:
                     rd1.Close()
                 End If
 
+                If ordetrabajo = 0 Then
+                    caduca = grdcaptura.Rows(R).Cells(9).Value.ToString
+                    lote = grdcaptura.Rows(R).Cells(8).Value.ToString
+                Else
+                    caduca = ""
+                    lote = ""
+                End If
 
-                myprecioS = FormatNumber(myprecio / (1 + MyIVA), 6)
+
+                Dim mytotal As Double = 0
+                Dim preciosiniva As Double = 0
+                Dim preciosindescuento As Double = 0
+                Dim descuentoproducto As Double = 0
+                Dim mypreciodescuento As Double
+
+
+                preciosiniva = myprecio / (1 + MyIVA)
+                preciosindescuento = preciosiniva * (PorcentDscto / 100)
+                descuentoproducto = FormatNumber(preciosindescuento * mycant, 6)
+
+                descuentotal = CDec(DsctoProd) * CDec(mycant)
+                descuentotal = IIf(descuentotal = 0, 0, descuentotal)
+
+
+                mytotal = FormatNumber(mycant * myprecio - descuentotal, 4)
+                mypreciodescuento = FormatNumber(myprecio - DsctoProd, 2)
+
+                Dim ieps As Double = 0
+                Dim tasaieps As Double = 0
+                Dim monedero As Double = 0
+                If ordetrabajo = 0 Then
+                    ieps = IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString)
+                    tasaieps = IIf(grdcaptura.Rows(R).Cells(11).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(11).Value.ToString)
+                    monedero = IIf(grdcaptura.Rows(R).Cells(14).Value.ToString() = "", 0, grdcaptura.Rows(R).Cells(14).Value.ToString())
+                Else
+                    ieps = 0
+                    tasaieps = 0
+                    monedero = 0
+                End If
+
+                Dim Unico As Boolean = False
+                Dim MyMCD As Double = 0
+                Dim MyMulti2 As Double = 0
+                Dim MyMultiplo As Double = 0
+                Dim MyDepto As String = ""
+                Dim MyGrupo As String = ""
+                Dim Kit As Boolean = False
+                Dim Existencia As Double = 0
+                Dim Pre_Comp As Double = 0
+
+                Dim MyCostVUE As Double = 0
+                Dim MyProm As Double = 0
+
+                Dim myprecioS As Double = 0
+                Dim mytotalS As Double = 0
+
+
+
+                Dim gprint As String = ""
+                If ordetrabajo = 0 Then
+                    TotalIEPSPrint = TotalIEPSPrint + CDbl(IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString))
+                Else
+                    TotalIEPSPrint = TotalIEPSPrint
+                End If
+
+
+
+
+                ' myprecioS = FormatNumber(myprecio / (1 + MyIVA) - DsctoProd, 6)
+                myprecioS = FormatNumber(mypreciodescuento / (1 + MyIVA), 6)
                 mytotalS = FormatNumber(mytotal / (1 + MyIVA), 6)
-
-
                 myprecioS = FormatNumber(myprecioS, 6)
                 mytotalS = FormatNumber(mytotalS, 6)
 
@@ -7993,7 +8061,7 @@ Door:
                     If ordetrabajo = 0 Then
                         cmd1 = cnn1.CreateCommand
                         cmd1.CommandText =
-                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & myprecio & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & DsctoProd & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & DsctoProd & ",'" & gprint & "')"
+                        "insert into VentasDetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVP,CostoVUE,Precio,Total,PrecioSinIVA,TotalSinIVA,Fecha,FechaCompleta,Comisionista,Facturado,Depto,Grupo,CostVR,Descto,VDCosteo,TotalIEPS,TasaIEPS,Caducidad,Lote,CantidadE,Promo_Monedero,Unico,Descuento,Gprint) values(" & MYFOLIO & ",'" & mycode & "','" & mydesc & "','" & myunid & "'," & mycant & "," & MyProm & "," & MyCostVUE & "," & mypreciodescuento & "," & mytotal & "," & myprecioS & "," & mytotalS & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cbocomisionista.Text & "','0','" & MyDepto & "','" & MyGrupo & "','0'," & descuentoproducto & ",0," & ieps & "," & tasaieps & ",'" & caduca & "','" & lote & "',0," & monedero & "," & IIf(Unico = False, 0, 1) & "," & descuentoproducto & ",'" & gprint & "')"
                         cmd1.ExecuteNonQuery()
 
                     Else
