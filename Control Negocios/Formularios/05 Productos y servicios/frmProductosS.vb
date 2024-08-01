@@ -823,7 +823,7 @@ Public Class frmProductosS
             Dim conteo As Integer = 0
 
             Dim lote As String = ""
-            Dim caducidad As String = ""
+            Dim caducidad As Date = Date.Now
 
             barsube.Value = 0
             barsube.Maximum = DataGridView1.Rows.Count
@@ -859,6 +859,14 @@ Public Class frmProductosS
                 lote = NulCad(DataGridView1.Rows(zef).Cells(15).Value.ToString())
                 caducidad = NulCad(DataGridView1.Rows(zef).Cells(16).Value.ToString())
 
+                caducidad = Format(caducidad, "yyyy-MM-dd")
+
+                'If lote <> "" Then
+                '    Lote_Caducidad(codigo, existencia, caducidad, lote)
+                '    conteo += 1
+                '    Continue For
+                'End If
+
                 If contadorconexion > 499 Then
                     cnn1.Close() : cnn1.Open()
                     contadorconexion = 1
@@ -882,7 +890,7 @@ Public Class frmProductosS
                         "insert into Productos(Codigo,CodBarra,Nombre,NombreLargo,ProvPri,ProvEme,ProvRes,UCompra,UVenta,UMinima,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,IVA,Existencia,Porcentaje,Fecha,pres_vol,id_tbMoneda,Promocion,Afecta_exis,Almacen3,ClaveSat,UnidadSat,Cargado,CargadoInv,Uso,Color,Genero,Marca,Articulo,Dia,Descu,Fecha_Inicial,Fecha_Final,Promo_Monedero,Unico,IIEPS,N_Serie,GPrint) values('" & codigo & "','" & barras & "','" & nombre & "','" & nombre & "','" & proveedor & "','" & proveedor & "',0,'" & unidad & "','" & unidad & "','" & unidad & "',1,1,'" & depto & "','" & grupo & "','',1,1,0," & compra & "," & venta_siva & "," & venta_civa & "," & iva & "," & existencia & "," & porcentaje & ",'" & fecha & "',0,1,0,0," & compra & ",'" & prod_sat & "','" & unidad_sat & "',0,0,'','','','','',0,'0','" & fecha & "','" & fecha & "',0,0," & ieps & ",'" & numparte & "','')"
                     If cmd1.ExecuteNonQuery Then
                         If lote <> "" Then
-                            Lote_Caducidad(codigo, existencia, fecha, lote)
+                            Lote_Caducidad(codigo, existencia, caducidad, lote)
                         End If
                     Else
                         'MsgBox(codigo, nombre)
@@ -896,7 +904,7 @@ Public Class frmProductosS
                     cmd1.ExecuteNonQuery()
 
                     If lote <> "" Then
-                        Lote_Caducidad(codigo, existencia, fecha, lote)
+                        Lote_Caducidad(codigo, existencia, caducidad, lote)
                     End If
 
                     conteo += 1
@@ -942,8 +950,8 @@ Public Class frmProductosS
                 'Existe
                 If rd2.Read Then
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText =
-                        "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "'"
+                    cmd3.CommandText = "update LoteCaducidad set Cantidad=" & cantidad & " where Codigo='" & codigo & "' and Lote='" & lote & "'"
+
                     cmd3.ExecuteNonQuery()
                 End If
             Else
