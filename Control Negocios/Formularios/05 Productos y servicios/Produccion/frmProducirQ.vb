@@ -1803,4 +1803,22 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
+
+    Private Sub cboLoteS_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboLoteS.SelectedValueChanged
+        Try
+            cnn1.Close()
+            cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "Select Cantidad from lotecaducidad where Codigo='" & cboCodigoI.Text & "' and Lote='" & cboLoteS.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.Read Then
+                txtExistencia.Text = rd1(0).ToString
+            Else
+                txtExistencia.Text = "0"
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
 End Class
