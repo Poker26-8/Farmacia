@@ -82,6 +82,22 @@ Partial Class frmHisClinica
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button21 = New System.Windows.Forms.Button()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button23 = New System.Windows.Forms.Button()
+        Me.Button24 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -92,10 +108,12 @@ Partial Class frmHisClinica
         '
         'Button2
         '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Location = New System.Drawing.Point(7, 165)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(50, 71)
+        Me.Button2.Size = New System.Drawing.Size(44, 70)
         Me.Button2.TabIndex = 82
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -105,7 +123,7 @@ Partial Class frmHisClinica
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1029, 32)
+        Me.Label1.Size = New System.Drawing.Size(1093, 32)
         Me.Label1.TabIndex = 83
         '
         'Panel1
@@ -119,7 +137,7 @@ Partial Class frmHisClinica
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 32)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(741, 40)
+        Me.Panel1.Size = New System.Drawing.Size(805, 40)
         Me.Panel1.TabIndex = 84
         '
         'lblHora
@@ -182,7 +200,7 @@ Partial Class frmHisClinica
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PictureBox1.Location = New System.Drawing.Point(741, 32)
+        Me.PictureBox1.Location = New System.Drawing.Point(805, 32)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(288, 356)
         Me.PictureBox1.TabIndex = 85
@@ -209,7 +227,7 @@ Partial Class frmHisClinica
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 388)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1029, 272)
+        Me.Panel2.Size = New System.Drawing.Size(1093, 272)
         Me.Panel2.TabIndex = 86
         '
         'txtResta
@@ -306,7 +324,7 @@ Partial Class frmHisClinica
         Me.Panel4.Controls.Add(Me.Button3)
         Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(766, 0)
+        Me.Panel4.Location = New System.Drawing.Point(830, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(263, 272)
         Me.Panel4.TabIndex = 23
@@ -538,7 +556,7 @@ Partial Class frmHisClinica
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 72)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(741, 87)
+        Me.Panel3.Size = New System.Drawing.Size(805, 87)
         Me.Panel3.TabIndex = 87
         '
         'cboMedicos
@@ -634,7 +652,7 @@ Partial Class frmHisClinica
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(7, 324)
+        Me.Label11.Location = New System.Drawing.Point(7, 345)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(91, 23)
         Me.Label11.TabIndex = 16
@@ -644,7 +662,7 @@ Partial Class frmHisClinica
         'txtdiente
         '
         Me.txtdiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdiente.Location = New System.Drawing.Point(194, 326)
+        Me.txtdiente.Location = New System.Drawing.Point(194, 347)
         Me.txtdiente.Name = "txtdiente"
         Me.txtdiente.Size = New System.Drawing.Size(400, 21)
         Me.txtdiente.TabIndex = 16
@@ -652,38 +670,234 @@ Partial Class frmHisClinica
         'txtNotacion
         '
         Me.txtNotacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNotacion.Location = New System.Drawing.Point(95, 326)
+        Me.txtNotacion.Location = New System.Drawing.Point(95, 347)
         Me.txtNotacion.Name = "txtNotacion"
         Me.txtNotacion.Size = New System.Drawing.Size(93, 21)
         Me.txtNotacion.TabIndex = 16
         '
         'Button6
         '
+        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button6.Location = New System.Drawing.Point(6, 243)
+        Me.Button6.Location = New System.Drawing.Point(6, 241)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(50, 71)
+        Me.Button6.Size = New System.Drawing.Size(44, 70)
         Me.Button6.TabIndex = 88
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button8
         '
+        Me.Button8.BackgroundImage = CType(resources.GetObject("Button8.BackgroundImage"), System.Drawing.Image)
+        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button8.Location = New System.Drawing.Point(63, 165)
+        Me.Button8.Location = New System.Drawing.Point(57, 165)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(50, 71)
+        Me.Button8.Size = New System.Drawing.Size(44, 70)
         Me.Button8.TabIndex = 89
         Me.Button8.UseVisualStyleBackColor = True
         '
         'Timer1
         '
         '
+        'Button9
+        '
+        Me.Button9.BackgroundImage = CType(resources.GetObject("Button9.BackgroundImage"), System.Drawing.Image)
+        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button9.Location = New System.Drawing.Point(107, 165)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(44, 70)
+        Me.Button9.TabIndex = 90
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.BackgroundImage = CType(resources.GetObject("Button10.BackgroundImage"), System.Drawing.Image)
+        Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button10.Location = New System.Drawing.Point(157, 165)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(44, 70)
+        Me.Button10.TabIndex = 91
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.BackgroundImage = CType(resources.GetObject("Button11.BackgroundImage"), System.Drawing.Image)
+        Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button11.Location = New System.Drawing.Point(208, 165)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(44, 70)
+        Me.Button11.TabIndex = 92
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.BackgroundImage = CType(resources.GetObject("Button12.BackgroundImage"), System.Drawing.Image)
+        Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button12.Location = New System.Drawing.Point(258, 165)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(44, 70)
+        Me.Button12.TabIndex = 93
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
+        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button13.Location = New System.Drawing.Point(308, 165)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(44, 70)
+        Me.Button13.TabIndex = 94
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
+        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button14.Location = New System.Drawing.Point(358, 165)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(44, 70)
+        Me.Button14.TabIndex = 95
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Button15
+        '
+        Me.Button15.BackgroundImage = CType(resources.GetObject("Button15.BackgroundImage"), System.Drawing.Image)
+        Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button15.Location = New System.Drawing.Point(408, 165)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(44, 70)
+        Me.Button15.TabIndex = 96
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Button16
+        '
+        Me.Button16.BackgroundImage = CType(resources.GetObject("Button16.BackgroundImage"), System.Drawing.Image)
+        Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button16.Location = New System.Drawing.Point(458, 165)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(44, 70)
+        Me.Button16.TabIndex = 97
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Button17
+        '
+        Me.Button17.BackgroundImage = CType(resources.GetObject("Button17.BackgroundImage"), System.Drawing.Image)
+        Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button17.Location = New System.Drawing.Point(508, 165)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(44, 70)
+        Me.Button17.TabIndex = 98
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Button18
+        '
+        Me.Button18.BackgroundImage = CType(resources.GetObject("Button18.BackgroundImage"), System.Drawing.Image)
+        Me.Button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button18.Location = New System.Drawing.Point(558, 165)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(44, 70)
+        Me.Button18.TabIndex = 99
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'Button19
+        '
+        Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
+        Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button19.Location = New System.Drawing.Point(608, 165)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(44, 70)
+        Me.Button19.TabIndex = 100
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'Button20
+        '
+        Me.Button20.BackgroundImage = CType(resources.GetObject("Button20.BackgroundImage"), System.Drawing.Image)
+        Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button20.Location = New System.Drawing.Point(657, 165)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(44, 70)
+        Me.Button20.TabIndex = 101
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'Button21
+        '
+        Me.Button21.BackgroundImage = CType(resources.GetObject("Button21.BackgroundImage"), System.Drawing.Image)
+        Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button21.Location = New System.Drawing.Point(707, 165)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(44, 70)
+        Me.Button21.TabIndex = 102
+        Me.Button21.UseVisualStyleBackColor = True
+        '
+        'Button22
+        '
+        Me.Button22.BackgroundImage = CType(resources.GetObject("Button22.BackgroundImage"), System.Drawing.Image)
+        Me.Button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button22.Location = New System.Drawing.Point(757, 165)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(44, 70)
+        Me.Button22.TabIndex = 103
+        Me.Button22.UseVisualStyleBackColor = True
+        '
+        'Button23
+        '
+        Me.Button23.BackgroundImage = CType(resources.GetObject("Button23.BackgroundImage"), System.Drawing.Image)
+        Me.Button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button23.Location = New System.Drawing.Point(57, 241)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(44, 70)
+        Me.Button23.TabIndex = 104
+        Me.Button23.UseVisualStyleBackColor = True
+        '
+        'Button24
+        '
+        Me.Button24.BackgroundImage = CType(resources.GetObject("Button24.BackgroundImage"), System.Drawing.Image)
+        Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button24.Location = New System.Drawing.Point(107, 241)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(44, 70)
+        Me.Button24.TabIndex = 127
+        Me.Button24.UseVisualStyleBackColor = True
+        '
         'frmHisClinica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1029, 660)
+        Me.ClientSize = New System.Drawing.Size(1093, 660)
+        Me.Controls.Add(Me.Button24)
+        Me.Controls.Add(Me.Button23)
+        Me.Controls.Add(Me.Button22)
+        Me.Controls.Add(Me.Button21)
+        Me.Controls.Add(Me.Button20)
+        Me.Controls.Add(Me.Button19)
+        Me.Controls.Add(Me.Button18)
+        Me.Controls.Add(Me.Button17)
+        Me.Controls.Add(Me.Button16)
+        Me.Controls.Add(Me.Button15)
+        Me.Controls.Add(Me.Button14)
+        Me.Controls.Add(Me.Button13)
+        Me.Controls.Add(Me.Button12)
+        Me.Controls.Add(Me.Button11)
+        Me.Controls.Add(Me.Button10)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.txtNotacion)
@@ -770,4 +984,20 @@ Partial Class frmHisClinica
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button10 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button14 As Button
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Button16 As Button
+    Friend WithEvents Button17 As Button
+    Friend WithEvents Button18 As Button
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents Button21 As Button
+    Friend WithEvents Button22 As Button
+    Friend WithEvents Button23 As Button
+    Friend WithEvents Button24 As Button
 End Class
