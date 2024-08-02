@@ -54,7 +54,7 @@ Public Class frmEmpleados
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select IdEmpleado,Ingreso,Area,Puesto,Alias,Sueldov,Horas,NSS,Comisionista,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Correo,Facebook from Usuarios where Nombre='" & cboNombre.Text & "'"
+                    "select IdEmpleado,Ingreso,Area,Puesto,Alias,Sueldo,Horas,NSS,Comisionista,Calle,Colonia,CP,Delegacion,Entidad,Telefono,Correo,Facebook from Usuarios where Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

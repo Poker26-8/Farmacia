@@ -15,6 +15,10 @@
     End Sub
 
     Private Sub frmHClinica_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Enabled = True
+        For Each xxx As Control In Me.Controls
+            xxx.Enabled = True
+        Next
         Timer1.Start()
         MostrarTodo()
     End Sub
@@ -216,4 +220,169 @@
         cbProxima.Checked = False
         dtpFechaProxima.Value = Date.Now
     End Sub
+
+    Private Sub cboMedico_DropDown(sender As Object, e As EventArgs) Handles cboMedico.DropDown
+        Try
+            cboMedico.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Nombre FROM usuarios WHERE Puesto='MEDICO'"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboMedico.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboDescripcion_DropDown(sender As Object, e As EventArgs) Handles cboDescripcion.DropDown
+        Try
+            cboDescripcion.Items.Clear()
+
+            cnn5.Close() : cnn5.Open()
+            cmd5 = cnn5.CreateCommand
+            cmd5.CommandText = "SELECT DISTINCT Nombre FROM productos WHERE Nombre<>'' ORDER BY Nombre"
+            rd5 = cmd5.ExecuteReader
+            Do While rd5.Read
+                If rd5.HasRows Then
+                    cboDescripcion.Items.Add(rd5(0).ToString)
+                End If
+            Loop
+            rd5.Close()
+            cnn5.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn5.Close()
+        End Try
+    End Sub
+
+    Private Sub cboDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboDescripcion.KeyPress
+        e.KeyChar = UCase(e.KeyChar)
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtCodigo.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub cboDescripcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboDescripcion.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Codigo,PrecioVentaIVA from productos WHERE Nombre='" & cboDescripcion.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtCodigo.Text = rd1(0).ToString
+                    txtPrecio.Text = rd1(1).ToString
+                End If
+            End If
+            cnn1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub txtCodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCodigo.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtPrecio.Focus.Equals(True)
+        End If
+    End Sub
+
+    Private Sub txtPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecio.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+
+            Dim cantidad As Double = 1
+            Dim total As Double = 0
+
+            total = CDec(cantidad) * CDec(txtPrecio.Text)
+
+            grdCaptura.Rows.Add(txtNotacion.Text,
+                                    txtdiente.Text,
+                                    txtCodigo.Text,
+                                    cboDescripcion.Text,
+                                    cantidad,
+                                    FormatNumber(txtPrecio.Text, 2),
+                                    FormatNumber(total, 2)
+                                    )
+
+            txtTotalP.Text = txtTotalP.Text + CDec(total)
+            txtTotalP.Text = FormatNumber(txtTotalP.Text, 2)
+
+            txtCodigo.Text = ""
+            cboDescripcion.Text = ""
+            txtPrecio.Text = "0.00"
+
+        End If
+    End Sub
+
+    Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
+        Dim index As Integer = grdCaptura.CurrentRow.Index
+
+        Dim tot As Double = grdCaptura.Rows(index).Cells(6).Value.ToString
+
+        txtTotalP.Text = txtTotalP.Text - CDec(tot)
+
+        grdCaptura.Rows.Remove(grdCaptura.Rows(index))
+    End Sub
+
+    Private Sub txtEfectivo_TextChanged(sender As Object, e As EventArgs) Handles txtEfectivo.TextChanged
+        Dim MyOpe As Double = CDbl(IIf(txtTotalP.Text = "", "0", txtTotalP.Text)) - (CDbl(IIf(txtEfectivo.Text = "", "0", txtEfectivo.Text)))
+        If MyOpe < 0 Then
+            txtCambio.Text = FormatNumber(-MyOpe, 2)
+            txtResta.Text = "0.00"
+        Else
+            txtResta.Text = FormatNumber(MyOpe, 2)
+            txtCambio.Text = "0.00"
+        End If
+        txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+        txtResta.Text = FormatNumber(txtResta.Text, 2)
+    End Sub
+
+    Private Sub txtEfectivo_Click(sender As Object, e As EventArgs) Handles txtEfectivo.Click
+        txtEfectivo.SelectionStart = 0
+        txtEfectivo.SelectionLength = Len(txtEfectivo.Text)
+    End Sub
+
+    Private Sub txtEfectivo_GotFocus(sender As Object, e As EventArgs) Handles txtEfectivo.GotFocus
+        txtEfectivo.SelectionStart = 0
+        txtEfectivo.SelectionLength = Len(txtEfectivo.Text)
+    End Sub
+
+    Private Sub txtEfectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtEfectivo.KeyPress
+        If Not IsNumeric(txtEfectivo.Text) Then txtEfectivo.Text = "" : Exit Sub
+        If txtEfectivo.Text = "" And AscW(e.KeyChar) = 46 Then
+            txtEfectivo.Text = "0.00"
+            txtEfectivo.SelectionStart = 0
+            txtEfectivo.SelectionLength = Len(txtEfectivo.Text)
+            txtEfectivo.Focus().Equals(True)
+        End If
+
+        If AscW(e.KeyChar) = Keys.Enter Then
+            txtEfectivo.Text = FormatNumber(txtEfectivo.Text, 2)
+            Dim MyOpe As Double = CDbl(IIf(txtTotalP.Text = "", "0", txtTotalP.Text)) - (CDbl(IIf(txtEfectivo.Text = "", "0", txtEfectivo.Text)))
+            If MyOpe < 0 Then
+                txtCambio.Text = FormatNumber(-MyOpe, 2)
+                txtResta.Text = "0.00"
+            Else
+                txtResta.Text = FormatNumber(MyOpe, 2)
+                txtCambio.Text = "0.00"
+            End If
+            txtCambio.Text = FormatNumber(txtCambio.Text, 2)
+            txtResta.Text = FormatNumber(txtResta.Text, 2)
+            btnPagar.Focus.Equals(True)
+        End If
+    End Sub
+
+
 End Class

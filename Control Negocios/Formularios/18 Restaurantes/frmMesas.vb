@@ -516,7 +516,7 @@ Public Class frmMesas
     Private Function ObtenerTotalMesas() As Integer
         ' Aquí implementa la lógica para obtener el total de mesas
         Dim totalmesa2 As Double = 0
-
+        Dim esadmin As Integer = 0
         cnn3.Close() : cnn3.Open()
         cmd3 = cnn3.CreateCommand
         cmd3.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
@@ -536,14 +536,16 @@ Public Class frmMesas
 
         If simesaspropianm = 1 Then
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
+            cmd3.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & idempleado & ""
             rd3 = cmd3.ExecuteReader
             If rd3.Read Then
                 If rd3.HasRows Then
-                    If rd3(0).ToString = "ADMINISTRACI´´ON" Or rd3(0).ToString = "CAJERO" Then
+                    If rd3(0).ToString = "ADMINISTRACIÓN" Or rd3(0).ToString = "CAJERO" Then
                         simesaspropusuarionm = 1
+                        esadmin = 1
                     Else
                         simesaspropusuarionm = 0
+                        esadmin = 0
                     End If
                 End If
             End If
@@ -556,9 +558,18 @@ Public Class frmMesas
             Else
 
                 If tomacontralog = 1 Then
+
+
                     cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados INNER JOIN mesa ON Mesasxempleados.IdMesa=mesa.IdMesa WHERE IdEmpleado=" & id_usu_log & " AND mesa.Ubicacion='" & nombreubicacion & "'"
                 Else
-                    cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE Mesasxempleados.IdEmpleado=" & idempleado & " AND mesa.Ubicacion='" & nombreubicacion & "'"
+                    If esadmin = 1 Then
+                        cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE mesa.Ubicacion='" & nombreubicacion & "'"
+                    Else
+                        ' cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE Mesa.IdEmpleado=" & idempleado & " AND mesa.Ubicacion='" & nombreubicacion & "'"
+
+                        cmd3.CommandText = "SELECT count(Mesasxempleados.idmesa) FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & nombreubicacion & "' order by Orden"
+                    End If
+
                 End If
 
 
@@ -584,7 +595,7 @@ Public Class frmMesas
         Dim messa As New List(Of String)()
 
         Dim usua As Integer = 0
-
+        Dim esadminocaj As Integer = 0
         Try
             If idempleado = 0 Then
                 pmesaNM.Controls.Clear()
@@ -616,8 +627,10 @@ Public Class frmMesas
                     If rd2.HasRows Then
                         If rd2(0).ToString = "ADMINISTRACIÓN" Or rd2(0).ToString = "CAJERO" Then
                             simesaspropusuarionm = 1
+                            esadminocaj = 1
                         Else
                             simesaspropusuarionm = 0
+                            esadminocaj = 0
                         End If
                     End If
                 End If
@@ -639,7 +652,14 @@ Public Class frmMesas
                     If tomacontralog = "1" Then
                         cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "'  order by Orden"
                     Else
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+
+                        If esadminocaj = 1 Then
+                            cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                        Else
+                            cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                        End If
+
+
                     End If
 
 

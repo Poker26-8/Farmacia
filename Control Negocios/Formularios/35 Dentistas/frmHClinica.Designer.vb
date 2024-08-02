@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmHClinica
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,14 +20,17 @@ Partial Class frmHClinica
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHClinica))
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -66,6 +69,9 @@ Partial Class frmHClinica
         Me.rtSintomas = New System.Windows.Forms.RichTextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.grd = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Button37 = New System.Windows.Forms.Button()
@@ -76,13 +82,13 @@ Partial Class frmHClinica
         Me.rtdiagnostico = New System.Windows.Forms.RichTextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Button34 = New System.Windows.Forms.Button()
+        Me.btnIncapacidad = New System.Windows.Forms.Button()
         Me.cbProxima = New System.Windows.Forms.CheckBox()
         Me.dtpFechaProxima = New System.Windows.Forms.DateTimePicker()
         Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.Button36 = New System.Windows.Forms.Button()
-        Me.Button35 = New System.Windows.Forms.Button()
-        Me.Button33 = New System.Windows.Forms.Button()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnReceta = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
@@ -115,11 +121,34 @@ Partial Class frmHClinica
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.cboMedico = New System.Windows.Forms.ComboBox()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtResta = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtEfectivo = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtCambio = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtTotalP = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.cboDescripcion = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -127,7 +156,9 @@ Partial Class frmHClinica
         CType(Me.grd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.grdDiagnostico, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -147,16 +178,28 @@ Partial Class frmHClinica
         '
         Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Enabled = False
         Me.Panel1.Location = New System.Drawing.Point(831, 34)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(260, 352)
         Me.Panel1.TabIndex = 59
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(260, 352)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Enabled = False
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(278, 48)
+        Me.Label2.Location = New System.Drawing.Point(278, 34)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 25)
         Me.Label2.TabIndex = 60
@@ -165,8 +208,9 @@ Partial Class frmHClinica
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Enabled = False
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(523, 48)
+        Me.Label3.Location = New System.Drawing.Point(517, 34)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(64, 25)
         Me.Label3.TabIndex = 61
@@ -175,8 +219,9 @@ Partial Class frmHClinica
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Enabled = False
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 48)
+        Me.Label4.Location = New System.Drawing.Point(12, 34)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(89, 25)
         Me.Label4.TabIndex = 62
@@ -185,8 +230,9 @@ Partial Class frmHClinica
         'NCita
         '
         Me.NCita.AutoSize = True
+        Me.NCita.Enabled = False
         Me.NCita.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NCita.Location = New System.Drawing.Point(107, 48)
+        Me.NCita.Location = New System.Drawing.Point(107, 34)
         Me.NCita.Name = "NCita"
         Me.NCita.Size = New System.Drawing.Size(89, 25)
         Me.NCita.TabIndex = 65
@@ -194,18 +240,19 @@ Partial Class frmHClinica
         '
         'lblHora
         '
-        Me.lblHora.AutoSize = True
+        Me.lblHora.Enabled = False
         Me.lblHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHora.Location = New System.Drawing.Point(587, 48)
+        Me.lblHora.Location = New System.Drawing.Point(587, 34)
         Me.lblHora.Name = "lblHora"
-        Me.lblHora.Size = New System.Drawing.Size(0, 25)
+        Me.lblHora.Size = New System.Drawing.Size(161, 25)
         Me.lblHora.TabIndex = 64
         '
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
+        Me.lblFecha.Enabled = False
         Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.Location = New System.Drawing.Point(362, 48)
+        Me.lblFecha.Location = New System.Drawing.Point(362, 34)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(0, 25)
         Me.lblFecha.TabIndex = 63
@@ -216,8 +263,9 @@ Partial Class frmHClinica
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Enabled = False
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(13, 91)
+        Me.Label5.Location = New System.Drawing.Point(5, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(93, 20)
         Me.Label5.TabIndex = 68
@@ -226,8 +274,9 @@ Partial Class frmHClinica
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.Enabled = False
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(448, 91)
+        Me.Label6.Location = New System.Drawing.Point(448, 75)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(51, 20)
         Me.Label6.TabIndex = 67
@@ -236,8 +285,9 @@ Partial Class frmHClinica
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Enabled = False
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(103, 91)
+        Me.Label7.Location = New System.Drawing.Point(103, 75)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 20)
         Me.Label7.TabIndex = 66
@@ -246,8 +296,9 @@ Partial Class frmHClinica
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Enabled = False
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(524, 91)
+        Me.Label8.Location = New System.Drawing.Point(524, 75)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(49, 20)
         Me.Label8.TabIndex = 69
@@ -255,32 +306,36 @@ Partial Class frmHClinica
         '
         'txtid
         '
+        Me.txtid.Enabled = False
         Me.txtid.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(13, 122)
+        Me.txtid.Location = New System.Drawing.Point(4, 106)
         Me.txtid.Name = "txtid"
-        Me.txtid.Size = New System.Drawing.Size(84, 26)
+        Me.txtid.Size = New System.Drawing.Size(93, 26)
         Me.txtid.TabIndex = 70
         '
         'txtSexo
         '
+        Me.txtSexo.Enabled = False
         Me.txtSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSexo.Location = New System.Drawing.Point(519, 122)
+        Me.txtSexo.Location = New System.Drawing.Point(519, 106)
         Me.txtSexo.Name = "txtSexo"
         Me.txtSexo.Size = New System.Drawing.Size(175, 26)
         Me.txtSexo.TabIndex = 71
         '
         'txtEdad
         '
+        Me.txtEdad.Enabled = False
         Me.txtEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEdad.Location = New System.Drawing.Point(446, 122)
+        Me.txtEdad.Location = New System.Drawing.Point(446, 106)
         Me.txtEdad.Name = "txtEdad"
         Me.txtEdad.Size = New System.Drawing.Size(67, 26)
         Me.txtEdad.TabIndex = 72
         '
         'txtNombre
         '
+        Me.txtNombre.Enabled = False
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(103, 122)
+        Me.txtNombre.Location = New System.Drawing.Point(103, 106)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(337, 26)
         Me.txtNombre.TabIndex = 73
@@ -288,8 +343,9 @@ Partial Class frmHClinica
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.Enabled = False
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(8, 361)
+        Me.Label12.Location = New System.Drawing.Point(8, 353)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(72, 20)
         Me.Label12.TabIndex = 113
@@ -297,18 +353,20 @@ Partial Class frmHClinica
         '
         'txtNotacion
         '
+        Me.txtNotacion.Enabled = False
         Me.txtNotacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNotacion.Location = New System.Drawing.Point(86, 357)
+        Me.txtNotacion.Location = New System.Drawing.Point(86, 349)
         Me.txtNotacion.Name = "txtNotacion"
-        Me.txtNotacion.Size = New System.Drawing.Size(67, 26)
+        Me.txtNotacion.Size = New System.Drawing.Size(77, 26)
         Me.txtNotacion.TabIndex = 114
         '
         'txtdiente
         '
+        Me.txtdiente.Enabled = False
         Me.txtdiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdiente.Location = New System.Drawing.Point(161, 358)
+        Me.txtdiente.Location = New System.Drawing.Point(169, 349)
         Me.txtdiente.Name = "txtdiente"
-        Me.txtdiente.Size = New System.Drawing.Size(387, 26)
+        Me.txtdiente.Size = New System.Drawing.Size(479, 26)
         Me.txtdiente.TabIndex = 115
         '
         'GroupBox1
@@ -323,9 +381,10 @@ Partial Class frmHClinica
         Me.GroupBox1.Controls.Add(Me.cbEstetica)
         Me.GroupBox1.Controls.Add(Me.cbHigiene)
         Me.GroupBox1.Controls.Add(Me.TabControl1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 392)
+        Me.GroupBox1.Enabled = False
+        Me.GroupBox1.Location = New System.Drawing.Point(805, 314)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(813, 264)
+        Me.GroupBox1.Size = New System.Drawing.Size(20, 21)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         '
@@ -523,9 +582,9 @@ Partial Class frmHClinica
         '
         Me.grd.AllowUserToAddRows = False
         Me.grd.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grd.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.grd.BackgroundColor = System.Drawing.Color.White
         Me.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.DataGridViewTextBoxColumn2, Me.Column3})
@@ -535,6 +594,29 @@ Partial Class frmHClinica
         Me.grd.RowHeadersVisible = False
         Me.grd.Size = New System.Drawing.Size(444, 149)
         Me.grd.TabIndex = 116
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "Codigo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 76
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Precio"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 71
         '
         'LinkLabel1
         '
@@ -579,9 +661,9 @@ Partial Class frmHClinica
         '
         Me.grdDiagnostico.AllowUserToAddRows = False
         Me.grdDiagnostico.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdDiagnostico.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdDiagnostico.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.grdDiagnostico.BackgroundColor = System.Drawing.Color.White
         Me.grdDiagnostico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdDiagnostico.ColumnHeadersVisible = False
@@ -590,7 +672,7 @@ Partial Class frmHClinica
         Me.grdDiagnostico.Name = "grdDiagnostico"
         Me.grdDiagnostico.ReadOnly = True
         Me.grdDiagnostico.RowHeadersVisible = False
-        Me.grdDiagnostico.Size = New System.Drawing.Size(427, 97)
+        Me.grdDiagnostico.Size = New System.Drawing.Size(244, 97)
         Me.grdDiagnostico.TabIndex = 118
         '
         'DataGridViewTextBoxColumn1
@@ -643,22 +725,24 @@ Partial Class frmHClinica
         Me.Label13.TabIndex = 114
         Me.Label13.Text = "Enfermad:"
         '
-        'Button34
+        'btnIncapacidad
         '
-        Me.Button34.BackColor = System.Drawing.Color.LightGray
-        Me.Button34.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button34.Location = New System.Drawing.Point(845, 542)
-        Me.Button34.Name = "Button34"
-        Me.Button34.Size = New System.Drawing.Size(234, 44)
-        Me.Button34.TabIndex = 118
-        Me.Button34.Text = "INCAPACIDAD MEDICA"
-        Me.Button34.UseVisualStyleBackColor = False
+        Me.btnIncapacidad.BackColor = System.Drawing.Color.LightGray
+        Me.btnIncapacidad.Enabled = False
+        Me.btnIncapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnIncapacidad.Location = New System.Drawing.Point(3, 158)
+        Me.btnIncapacidad.Name = "btnIncapacidad"
+        Me.btnIncapacidad.Size = New System.Drawing.Size(234, 44)
+        Me.btnIncapacidad.TabIndex = 118
+        Me.btnIncapacidad.Text = "INCAPACIDAD MEDICA"
+        Me.btnIncapacidad.UseVisualStyleBackColor = False
         '
         'cbProxima
         '
         Me.cbProxima.AutoSize = True
+        Me.cbProxima.Enabled = False
         Me.cbProxima.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProxima.Location = New System.Drawing.Point(951, 592)
+        Me.cbProxima.Location = New System.Drawing.Point(105, 208)
         Me.cbProxima.Name = "cbProxima"
         Me.cbProxima.Size = New System.Drawing.Size(116, 24)
         Me.cbProxima.TabIndex = 121
@@ -668,9 +752,10 @@ Partial Class frmHClinica
         'dtpFechaProxima
         '
         Me.dtpFechaProxima.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFechaProxima.Enabled = False
         Me.dtpFechaProxima.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFechaProxima.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaProxima.Location = New System.Drawing.Point(951, 622)
+        Me.dtpFechaProxima.Location = New System.Drawing.Point(105, 232)
         Me.dtpFechaProxima.Name = "dtpFechaProxima"
         Me.dtpFechaProxima.Size = New System.Drawing.Size(132, 29)
         Me.dtpFechaProxima.TabIndex = 122
@@ -678,11 +763,12 @@ Partial Class frmHClinica
         'btnLimpiar
         '
         Me.btnLimpiar.BackColor = System.Drawing.Color.White
+        Me.btnLimpiar.Enabled = False
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(845, 589)
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 208)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(67, 67)
         Me.btnLimpiar.TabIndex = 123
@@ -690,49 +776,53 @@ Partial Class frmHClinica
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiar.UseVisualStyleBackColor = False
         '
-        'Button36
+        'btnPagar
         '
-        Me.Button36.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button36.Image = CType(resources.GetObject("Button36.Image"), System.Drawing.Image)
-        Me.Button36.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button36.Location = New System.Drawing.Point(845, 442)
-        Me.Button36.Name = "Button36"
-        Me.Button36.Size = New System.Drawing.Size(234, 44)
-        Me.Button36.TabIndex = 120
-        Me.Button36.Text = "PAGAR"
-        Me.Button36.UseVisualStyleBackColor = False
+        Me.btnPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnPagar.Enabled = False
+        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(3, 58)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(234, 44)
+        Me.btnPagar.TabIndex = 120
+        Me.btnPagar.Text = "PAGAR"
+        Me.btnPagar.UseVisualStyleBackColor = False
         '
-        'Button35
+        'btnReceta
         '
-        Me.Button35.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button35.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button35.Image = CType(resources.GetObject("Button35.Image"), System.Drawing.Image)
-        Me.Button35.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button35.Location = New System.Drawing.Point(845, 492)
-        Me.Button35.Name = "Button35"
-        Me.Button35.Size = New System.Drawing.Size(234, 44)
-        Me.Button35.TabIndex = 119
-        Me.Button35.Text = "RECETA MEDICA"
-        Me.Button35.UseVisualStyleBackColor = False
+        Me.btnReceta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnReceta.Enabled = False
+        Me.btnReceta.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReceta.Image = CType(resources.GetObject("btnReceta.Image"), System.Drawing.Image)
+        Me.btnReceta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReceta.Location = New System.Drawing.Point(3, 108)
+        Me.btnReceta.Name = "btnReceta"
+        Me.btnReceta.Size = New System.Drawing.Size(234, 44)
+        Me.btnReceta.TabIndex = 119
+        Me.btnReceta.Text = "RECETA MEDICA"
+        Me.btnReceta.UseVisualStyleBackColor = False
         '
-        'Button33
+        'btnGuardar
         '
-        Me.Button33.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button33.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button33.Image = CType(resources.GetObject("Button33.Image"), System.Drawing.Image)
-        Me.Button33.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button33.Location = New System.Drawing.Point(845, 392)
-        Me.Button33.Name = "Button33"
-        Me.Button33.Size = New System.Drawing.Size(234, 44)
-        Me.Button33.TabIndex = 117
-        Me.Button33.Text = "GUARDAR"
-        Me.Button33.UseVisualStyleBackColor = False
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGuardar.Location = New System.Drawing.Point(3, 8)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(234, 44)
+        Me.btnGuardar.TabIndex = 117
+        Me.btnGuardar.Text = "GUARDAR"
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'Button2
         '
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button2.Enabled = False
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(54, 265)
         Me.Button2.Name = "Button2"
@@ -744,6 +834,7 @@ Partial Class frmHClinica
         '
         Me.Button18.BackgroundImage = CType(resources.GetObject("Button18.BackgroundImage"), System.Drawing.Image)
         Me.Button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button18.Enabled = False
         Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button18.Location = New System.Drawing.Point(104, 265)
         Me.Button18.Name = "Button18"
@@ -755,6 +846,7 @@ Partial Class frmHClinica
         '
         Me.Button19.BackgroundImage = CType(resources.GetObject("Button19.BackgroundImage"), System.Drawing.Image)
         Me.Button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button19.Enabled = False
         Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button19.Location = New System.Drawing.Point(154, 265)
         Me.Button19.Name = "Button19"
@@ -766,6 +858,7 @@ Partial Class frmHClinica
         '
         Me.Button20.BackgroundImage = CType(resources.GetObject("Button20.BackgroundImage"), System.Drawing.Image)
         Me.Button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button20.Enabled = False
         Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button20.Location = New System.Drawing.Point(204, 265)
         Me.Button20.Name = "Button20"
@@ -777,6 +870,7 @@ Partial Class frmHClinica
         '
         Me.Button21.BackgroundImage = CType(resources.GetObject("Button21.BackgroundImage"), System.Drawing.Image)
         Me.Button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button21.Enabled = False
         Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button21.Location = New System.Drawing.Point(254, 265)
         Me.Button21.Name = "Button21"
@@ -788,6 +882,7 @@ Partial Class frmHClinica
         '
         Me.Button22.BackgroundImage = CType(resources.GetObject("Button22.BackgroundImage"), System.Drawing.Image)
         Me.Button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button22.Enabled = False
         Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button22.Location = New System.Drawing.Point(304, 265)
         Me.Button22.Name = "Button22"
@@ -799,6 +894,7 @@ Partial Class frmHClinica
         '
         Me.Button23.BackgroundImage = CType(resources.GetObject("Button23.BackgroundImage"), System.Drawing.Image)
         Me.Button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button23.Enabled = False
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button23.Location = New System.Drawing.Point(354, 265)
         Me.Button23.Name = "Button23"
@@ -810,6 +906,7 @@ Partial Class frmHClinica
         '
         Me.Button24.BackgroundImage = CType(resources.GetObject("Button24.BackgroundImage"), System.Drawing.Image)
         Me.Button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button24.Enabled = False
         Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button24.Location = New System.Drawing.Point(404, 265)
         Me.Button24.Name = "Button24"
@@ -821,6 +918,7 @@ Partial Class frmHClinica
         '
         Me.Button25.BackgroundImage = CType(resources.GetObject("Button25.BackgroundImage"), System.Drawing.Image)
         Me.Button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button25.Enabled = False
         Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button25.Location = New System.Drawing.Point(454, 265)
         Me.Button25.Name = "Button25"
@@ -832,6 +930,7 @@ Partial Class frmHClinica
         '
         Me.Button26.BackgroundImage = CType(resources.GetObject("Button26.BackgroundImage"), System.Drawing.Image)
         Me.Button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button26.Enabled = False
         Me.Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button26.Location = New System.Drawing.Point(504, 265)
         Me.Button26.Name = "Button26"
@@ -843,6 +942,7 @@ Partial Class frmHClinica
         '
         Me.Button27.BackgroundImage = CType(resources.GetObject("Button27.BackgroundImage"), System.Drawing.Image)
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button27.Enabled = False
         Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button27.Location = New System.Drawing.Point(554, 265)
         Me.Button27.Name = "Button27"
@@ -854,6 +954,7 @@ Partial Class frmHClinica
         '
         Me.Button28.BackgroundImage = CType(resources.GetObject("Button28.BackgroundImage"), System.Drawing.Image)
         Me.Button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button28.Enabled = False
         Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button28.Location = New System.Drawing.Point(604, 265)
         Me.Button28.Name = "Button28"
@@ -865,6 +966,7 @@ Partial Class frmHClinica
         '
         Me.Button29.BackgroundImage = CType(resources.GetObject("Button29.BackgroundImage"), System.Drawing.Image)
         Me.Button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button29.Enabled = False
         Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button29.Location = New System.Drawing.Point(654, 265)
         Me.Button29.Name = "Button29"
@@ -876,6 +978,7 @@ Partial Class frmHClinica
         '
         Me.Button30.BackgroundImage = CType(resources.GetObject("Button30.BackgroundImage"), System.Drawing.Image)
         Me.Button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button30.Enabled = False
         Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button30.Location = New System.Drawing.Point(704, 265)
         Me.Button30.Name = "Button30"
@@ -887,6 +990,7 @@ Partial Class frmHClinica
         '
         Me.Button31.BackgroundImage = CType(resources.GetObject("Button31.BackgroundImage"), System.Drawing.Image)
         Me.Button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button31.Enabled = False
         Me.Button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button31.Location = New System.Drawing.Point(754, 265)
         Me.Button31.Name = "Button31"
@@ -898,6 +1002,7 @@ Partial Class frmHClinica
         '
         Me.Button32.BackgroundImage = CType(resources.GetObject("Button32.BackgroundImage"), System.Drawing.Image)
         Me.Button32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button32.Enabled = False
         Me.Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button32.Location = New System.Drawing.Point(4, 265)
         Me.Button32.Name = "Button32"
@@ -909,6 +1014,7 @@ Partial Class frmHClinica
         '
         Me.Button17.BackgroundImage = CType(resources.GetObject("Button17.BackgroundImage"), System.Drawing.Image)
         Me.Button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button17.Enabled = False
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button17.Location = New System.Drawing.Point(54, 180)
         Me.Button17.Name = "Button17"
@@ -920,6 +1026,7 @@ Partial Class frmHClinica
         '
         Me.Button16.BackgroundImage = CType(resources.GetObject("Button16.BackgroundImage"), System.Drawing.Image)
         Me.Button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button16.Enabled = False
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Location = New System.Drawing.Point(104, 180)
         Me.Button16.Name = "Button16"
@@ -931,6 +1038,7 @@ Partial Class frmHClinica
         '
         Me.Button15.BackgroundImage = CType(resources.GetObject("Button15.BackgroundImage"), System.Drawing.Image)
         Me.Button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button15.Enabled = False
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Location = New System.Drawing.Point(154, 180)
         Me.Button15.Name = "Button15"
@@ -942,6 +1050,7 @@ Partial Class frmHClinica
         '
         Me.Button14.BackgroundImage = CType(resources.GetObject("Button14.BackgroundImage"), System.Drawing.Image)
         Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button14.Enabled = False
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button14.Location = New System.Drawing.Point(204, 180)
         Me.Button14.Name = "Button14"
@@ -953,6 +1062,7 @@ Partial Class frmHClinica
         '
         Me.Button13.BackgroundImage = CType(resources.GetObject("Button13.BackgroundImage"), System.Drawing.Image)
         Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button13.Enabled = False
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Location = New System.Drawing.Point(254, 180)
         Me.Button13.Name = "Button13"
@@ -964,6 +1074,7 @@ Partial Class frmHClinica
         '
         Me.Button12.BackgroundImage = CType(resources.GetObject("Button12.BackgroundImage"), System.Drawing.Image)
         Me.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button12.Enabled = False
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Location = New System.Drawing.Point(304, 180)
         Me.Button12.Name = "Button12"
@@ -975,6 +1086,7 @@ Partial Class frmHClinica
         '
         Me.Button11.BackgroundImage = CType(resources.GetObject("Button11.BackgroundImage"), System.Drawing.Image)
         Me.Button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button11.Enabled = False
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.Location = New System.Drawing.Point(354, 180)
         Me.Button11.Name = "Button11"
@@ -986,6 +1098,7 @@ Partial Class frmHClinica
         '
         Me.Button10.BackgroundImage = CType(resources.GetObject("Button10.BackgroundImage"), System.Drawing.Image)
         Me.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button10.Enabled = False
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Location = New System.Drawing.Point(404, 180)
         Me.Button10.Name = "Button10"
@@ -997,6 +1110,7 @@ Partial Class frmHClinica
         '
         Me.Button9.BackgroundImage = CType(resources.GetObject("Button9.BackgroundImage"), System.Drawing.Image)
         Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button9.Enabled = False
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.Location = New System.Drawing.Point(454, 180)
         Me.Button9.Name = "Button9"
@@ -1008,6 +1122,7 @@ Partial Class frmHClinica
         '
         Me.Button8.BackgroundImage = CType(resources.GetObject("Button8.BackgroundImage"), System.Drawing.Image)
         Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button8.Enabled = False
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Location = New System.Drawing.Point(504, 180)
         Me.Button8.Name = "Button8"
@@ -1019,6 +1134,7 @@ Partial Class frmHClinica
         '
         Me.Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), System.Drawing.Image)
         Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button7.Enabled = False
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Location = New System.Drawing.Point(554, 180)
         Me.Button7.Name = "Button7"
@@ -1030,6 +1146,7 @@ Partial Class frmHClinica
         '
         Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
         Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button6.Enabled = False
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Location = New System.Drawing.Point(604, 180)
         Me.Button6.Name = "Button6"
@@ -1041,6 +1158,7 @@ Partial Class frmHClinica
         '
         Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
         Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button5.Enabled = False
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Location = New System.Drawing.Point(654, 180)
         Me.Button5.Name = "Button5"
@@ -1052,6 +1170,7 @@ Partial Class frmHClinica
         '
         Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.Enabled = False
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Location = New System.Drawing.Point(704, 180)
         Me.Button4.Name = "Button4"
@@ -1063,6 +1182,7 @@ Partial Class frmHClinica
         '
         Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button3.Enabled = False
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Location = New System.Drawing.Point(754, 180)
         Me.Button3.Name = "Button3"
@@ -1072,8 +1192,10 @@ Partial Class frmHClinica
         '
         'Button1
         '
+        Me.Button1.AutoSize = True
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.Enabled = False
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Location = New System.Drawing.Point(4, 180)
         Me.Button1.Name = "Button1"
@@ -1081,53 +1203,307 @@ Partial Class frmHClinica
         Me.Button1.TabIndex = 80
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'Label15
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(260, 352)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.Label15.AutoSize = True
+        Me.Label15.Enabled = False
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(34, 141)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(64, 20)
+        Me.Label15.TabIndex = 124
+        Me.Label15.Text = "Medico:"
         '
-        'Column1
+        'cboMedico
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column1.HeaderText = "Codigo"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 76
+        Me.cboMedico.Enabled = False
+        Me.cboMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMedico.FormattingEnabled = True
+        Me.cboMedico.Location = New System.Drawing.Point(103, 138)
+        Me.cboMedico.Name = "cboMedico"
+        Me.cboMedico.Size = New System.Drawing.Size(410, 28)
+        Me.cboMedico.TabIndex = 125
         '
-        'DataGridViewTextBoxColumn2
+        'grdCaptura
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.grdCaptura.AllowUserToAddRows = False
+        Me.grdCaptura.AllowUserToDeleteRows = False
+        Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
+        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.Column4, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
+        Me.grdCaptura.Enabled = False
+        Me.grdCaptura.Location = New System.Drawing.Point(4, 60)
+        Me.grdCaptura.Name = "grdCaptura"
+        Me.grdCaptura.ReadOnly = True
+        Me.grdCaptura.RowHeadersVisible = False
+        Me.grdCaptura.Size = New System.Drawing.Size(644, 205)
+        Me.grdCaptura.TabIndex = 0
         '
-        'Column3
+        'Column5
         '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Precio"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 71
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "N° Diente"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 78
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column4.HeaderText = "Diente"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 63
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Codigo"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 65
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column7.HeaderText = "Descripción"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column8.HeaderText = "Cantidad"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Width = 74
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column9.DefaultCellStyle = DataGridViewCellStyle7
+        Me.Column9.HeaderText = "Precio"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 62
+        '
+        'Column10
+        '
+        Me.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column10.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Column10.HeaderText = "Total"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 56
+        '
+        'Panel2
+        '
+        Me.Panel2.AllowDrop = True
+        Me.Panel2.Controls.Add(Me.txtResta)
+        Me.Panel2.Controls.Add(Me.Label22)
+        Me.Panel2.Controls.Add(Me.txtEfectivo)
+        Me.Panel2.Controls.Add(Me.Label21)
+        Me.Panel2.Controls.Add(Me.txtCambio)
+        Me.Panel2.Controls.Add(Me.Label20)
+        Me.Panel2.Controls.Add(Me.txtTotalP)
+        Me.Panel2.Controls.Add(Me.Label19)
+        Me.Panel2.Controls.Add(Me.txtPrecio)
+        Me.Panel2.Controls.Add(Me.Label18)
+        Me.Panel2.Controls.Add(Me.cboDescripcion)
+        Me.Panel2.Controls.Add(Me.Label17)
+        Me.Panel2.Controls.Add(Me.txtCodigo)
+        Me.Panel2.Controls.Add(Me.Label16)
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Controls.Add(Me.grdCaptura)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 395)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1091, 286)
+        Me.Panel2.TabIndex = 126
+        '
+        'txtResta
+        '
+        Me.txtResta.Enabled = False
+        Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResta.Location = New System.Drawing.Point(745, 188)
+        Me.txtResta.Name = "txtResta"
+        Me.txtResta.Size = New System.Drawing.Size(96, 22)
+        Me.txtResta.TabIndex = 139
+        Me.txtResta.Text = "0.00"
+        Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label22
+        '
+        Me.Label22.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label22.Enabled = False
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(745, 165)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(96, 20)
+        Me.Label22.TabIndex = 138
+        Me.Label22.Text = "Resta"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtEfectivo
+        '
+        Me.txtEfectivo.Enabled = False
+        Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEfectivo.Location = New System.Drawing.Point(745, 92)
+        Me.txtEfectivo.Name = "txtEfectivo"
+        Me.txtEfectivo.Size = New System.Drawing.Size(96, 22)
+        Me.txtEfectivo.TabIndex = 137
+        Me.txtEfectivo.Text = "0.00"
+        Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label21
+        '
+        Me.Label21.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label21.Enabled = False
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(745, 69)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(96, 20)
+        Me.Label21.TabIndex = 136
+        Me.Label21.Text = "Efectivo"
+        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCambio
+        '
+        Me.txtCambio.Enabled = False
+        Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCambio.Location = New System.Drawing.Point(745, 140)
+        Me.txtCambio.Name = "txtCambio"
+        Me.txtCambio.Size = New System.Drawing.Size(96, 22)
+        Me.txtCambio.TabIndex = 135
+        Me.txtCambio.Text = "0.00"
+        Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label20.Enabled = False
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(745, 117)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(96, 20)
+        Me.Label20.TabIndex = 134
+        Me.Label20.Text = "Cambio"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtTotalP
+        '
+        Me.txtTotalP.Enabled = False
+        Me.txtTotalP.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalP.Location = New System.Drawing.Point(704, 34)
+        Me.txtTotalP.Name = "txtTotalP"
+        Me.txtTotalP.Size = New System.Drawing.Size(137, 29)
+        Me.txtTotalP.TabIndex = 133
+        Me.txtTotalP.Text = "0.00"
+        Me.txtTotalP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label19.Enabled = False
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(704, 11)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(137, 20)
+        Me.Label19.TabIndex = 132
+        Me.Label19.Text = "Total a pagar"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtPrecio
+        '
+        Me.txtPrecio.Enabled = False
+        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecio.Location = New System.Drawing.Point(552, 31)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.Size = New System.Drawing.Size(96, 22)
+        Me.txtPrecio.TabIndex = 131
+        Me.txtPrecio.Text = "0.00"
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label18
+        '
+        Me.Label18.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label18.Enabled = False
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(552, 9)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(96, 20)
+        Me.Label18.TabIndex = 130
+        Me.Label18.Text = "Precio"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'cboDescripcion
+        '
+        Me.cboDescripcion.Enabled = False
+        Me.cboDescripcion.FormattingEnabled = True
+        Me.cboDescripcion.Location = New System.Drawing.Point(92, 31)
+        Me.cboDescripcion.Name = "cboDescripcion"
+        Me.cboDescripcion.Size = New System.Drawing.Size(454, 21)
+        Me.cboDescripcion.TabIndex = 129
+        '
+        'Label17
+        '
+        Me.Label17.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label17.Enabled = False
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(90, 8)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(456, 20)
+        Me.Label17.TabIndex = 128
+        Me.Label17.Text = "Descripción"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Enabled = False
+        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodigo.Location = New System.Drawing.Point(4, 31)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(82, 22)
+        Me.txtCodigo.TabIndex = 127
+        '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label16.Enabled = False
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(4, 8)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(82, 20)
+        Me.Label16.TabIndex = 127
+        Me.Label16.Text = "Codigo"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.btnGuardar)
+        Me.Panel3.Controls.Add(Me.btnReceta)
+        Me.Panel3.Controls.Add(Me.cbProxima)
+        Me.Panel3.Controls.Add(Me.dtpFechaProxima)
+        Me.Panel3.Controls.Add(Me.btnIncapacidad)
+        Me.Panel3.Controls.Add(Me.btnPagar)
+        Me.Panel3.Controls.Add(Me.btnLimpiar)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(847, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(244, 286)
+        Me.Panel3.TabIndex = 124
         '
         'frmHClinica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1091, 702)
-        Me.Controls.Add(Me.btnLimpiar)
-        Me.Controls.Add(Me.dtpFechaProxima)
-        Me.Controls.Add(Me.cbProxima)
-        Me.Controls.Add(Me.Button36)
-        Me.Controls.Add(Me.Button35)
-        Me.Controls.Add(Me.Button34)
-        Me.Controls.Add(Me.Button33)
+        Me.ClientSize = New System.Drawing.Size(1091, 681)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.cboMedico)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtdiente)
         Me.Controls.Add(Me.txtNotacion)
@@ -1185,6 +1561,7 @@ Partial Class frmHClinica
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Historia Clinica"
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -1195,7 +1572,11 @@ Partial Class frmHClinica
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         CType(Me.grdDiagnostico, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1282,10 +1663,10 @@ Partial Class frmHClinica
     Friend WithEvents rtdiagnostico As RichTextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents Button33 As Button
-    Friend WithEvents Button34 As Button
-    Friend WithEvents Button35 As Button
-    Friend WithEvents Button36 As Button
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents btnIncapacidad As Button
+    Friend WithEvents btnReceta As Button
+    Friend WithEvents btnPagar As Button
     Friend WithEvents cbProxima As CheckBox
     Friend WithEvents dtpFechaProxima As DateTimePicker
     Friend WithEvents Button37 As Button
@@ -1294,4 +1675,30 @@ Partial Class frmHClinica
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Label15 As Label
+    Friend WithEvents cboMedico As ComboBox
+    Friend WithEvents grdCaptura As DataGridView
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents cboDescripcion As ComboBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtEfectivo As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtCambio As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txtTotalP As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtResta As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
 End Class

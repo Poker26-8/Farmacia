@@ -4340,6 +4340,5 @@ Public Class Inicio
         FrmDentistas.BringToFront()
         FrmDentistas.Show()
 
-        FRMPRUEBAS2.Show()
     End Sub
 End Class

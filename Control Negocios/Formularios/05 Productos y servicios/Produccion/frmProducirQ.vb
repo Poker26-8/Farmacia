@@ -1439,7 +1439,7 @@ Public Class frmProducirQ
                 End If
             End If
 
-
+            My.Application.DoEvents()
 
             rtComentario.Text = ""
             grdcaptura.Rows.Clear()

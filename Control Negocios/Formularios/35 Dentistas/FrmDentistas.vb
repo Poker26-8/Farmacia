@@ -63,14 +63,25 @@ Public Class FrmDentistas
         Dim index As Integer = grdCaptura.CurrentRow.Index
         frmHClinica.Show()
         frmHClinica.BringToFront()
+
+        frmHisClinica.Show()
+        frmHisClinica.BringToFront()
+
         My.Application.DoEvents()
         frmHClinica.txtid.Text = grdCaptura.Rows(index).Cells(0).Value.ToString
         frmHClinica.txtNombre.Text = grdCaptura.Rows(index).Cells(1).Value.ToString
         frmHClinica.txtEdad.Text = grdCaptura.Rows(index).Cells(2).Value.ToString
         frmHClinica.txtSexo.Text = grdCaptura.Rows(index).Cells(3).Value.ToString
+
+        frmHisClinica.txtId.Text = grdCaptura.Rows(index).Cells(0).Value.ToString
+        frmHisClinica.txtNombre.Text = grdCaptura.Rows(index).Cells(1).Value.ToString
+        frmHisClinica.txtEdad.Text = grdCaptura.Rows(index).Cells(2).Value.ToString
+        frmHisClinica.txtSexo.Text = grdCaptura.Rows(index).Cells(3).Value.ToString
+
         txtCliente.Text = ""
         My.Application.DoEvents()
         frmHClinica.txtdiente.Focus.Equals(True)
+        frmHisClinica.txtdiente.Focus.Equals(True)
         My.Application.DoEvents()
     End Sub
 End Class
