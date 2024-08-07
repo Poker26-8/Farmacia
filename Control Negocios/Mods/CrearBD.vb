@@ -1209,7 +1209,7 @@
 
 
     'Clientes
-    Public vartablaclientes As String = "CREATE TABLE  `clientes` (
+    Public vartablaclientes As String = "CREATE TABLE `clientes` (
                                       `Id` int(11) NOT NULL,
                                       `Nombre` varchar(255) NOT NULL DEFAULT '',
                                       `RazonSocial` varchar(255) NOT NULL DEFAULT '',

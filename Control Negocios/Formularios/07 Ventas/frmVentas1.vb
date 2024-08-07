@@ -5401,7 +5401,7 @@ kaka:
                     End If
                 End If
             Else
-                MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
+                'MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
                 txtcontraseña.Focus.Equals(True)
                 Exit Sub
             End If

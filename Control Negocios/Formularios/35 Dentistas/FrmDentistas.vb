@@ -61,17 +61,17 @@ Public Class FrmDentistas
 
     Private Sub grdCaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdCaptura.CellDoubleClick
         Dim index As Integer = grdCaptura.CurrentRow.Index
-        frmHClinica.Show()
-        frmHClinica.BringToFront()
+        'frmHClinica.Show()
+        'frmHClinica.BringToFront()
 
         frmHisClinica.Show()
         frmHisClinica.BringToFront()
 
         My.Application.DoEvents()
-        frmHClinica.txtid.Text = grdCaptura.Rows(index).Cells(0).Value.ToString
-        frmHClinica.txtNombre.Text = grdCaptura.Rows(index).Cells(1).Value.ToString
-        frmHClinica.txtEdad.Text = grdCaptura.Rows(index).Cells(2).Value.ToString
-        frmHClinica.txtSexo.Text = grdCaptura.Rows(index).Cells(3).Value.ToString
+        'frmHClinica.txtid.Text = grdCaptura.Rows(index).Cells(0).Value.ToString
+        'frmHClinica.txtNombre.Text = grdCaptura.Rows(index).Cells(1).Value.ToString
+        'frmHClinica.txtEdad.Text = grdCaptura.Rows(index).Cells(2).Value.ToString
+        'frmHClinica.txtSexo.Text = grdCaptura.Rows(index).Cells(3).Value.ToString
 
         frmHisClinica.txtId.Text = grdCaptura.Rows(index).Cells(0).Value.ToString
         frmHisClinica.txtNombre.Text = grdCaptura.Rows(index).Cells(1).Value.ToString
@@ -80,7 +80,7 @@ Public Class FrmDentistas
 
         txtCliente.Text = ""
         My.Application.DoEvents()
-        frmHClinica.txtdiente.Focus.Equals(True)
+        '   frmHClinica.txtdiente.Focus.Equals(True)
         frmHisClinica.txtdiente.Focus.Equals(True)
         My.Application.DoEvents()
     End Sub

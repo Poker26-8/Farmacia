@@ -35,18 +35,19 @@ Partial Class frmHisClinica
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtResta = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.txtCambio = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.txtEfectivo = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtTotalP = New System.Windows.Forms.TextBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtResta = New System.Windows.Forms.TextBox()
+        Me.txtTotalP = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtCambio = New System.Windows.Forms.TextBox()
+        Me.txtEfectivo = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnIncapacidad = New System.Windows.Forms.Button()
         Me.btnReceta = New System.Windows.Forms.Button()
         Me.btnPagar = New System.Windows.Forms.Button()
@@ -113,12 +114,15 @@ Partial Class frmHisClinica
         Me.btnd32 = New System.Windows.Forms.Button()
         Me.btnMotivo = New System.Windows.Forms.Button()
         Me.gbxMotivo = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.rbMotivo = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PDentista80 = New System.Drawing.Printing.PrintDocument()
+        Me.pDentista58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -142,7 +146,7 @@ Partial Class frmHisClinica
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1093, 32)
+        Me.Label1.Size = New System.Drawing.Size(1192, 32)
         Me.Label1.TabIndex = 83
         '
         'Panel1
@@ -156,7 +160,7 @@ Partial Class frmHisClinica
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 32)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(805, 40)
+        Me.Panel1.Size = New System.Drawing.Size(904, 40)
         Me.Panel1.TabIndex = 84
         '
         'lblHora
@@ -219,7 +223,7 @@ Partial Class frmHisClinica
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PictureBox1.Location = New System.Drawing.Point(805, 32)
+        Me.PictureBox1.Location = New System.Drawing.Point(904, 32)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(288, 331)
         Me.PictureBox1.TabIndex = 85
@@ -227,14 +231,7 @@ Partial Class frmHisClinica
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.txtResta)
-        Me.Panel2.Controls.Add(Me.Label18)
-        Me.Panel2.Controls.Add(Me.txtCambio)
-        Me.Panel2.Controls.Add(Me.Label17)
-        Me.Panel2.Controls.Add(Me.txtEfectivo)
-        Me.Panel2.Controls.Add(Me.Label16)
-        Me.Panel2.Controls.Add(Me.txtTotalP)
-        Me.Panel2.Controls.Add(Me.Label15)
+        Me.Panel2.Controls.Add(Me.Panel5)
         Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.grdCaptura)
         Me.Panel2.Controls.Add(Me.txtPrecio)
@@ -246,104 +243,120 @@ Partial Class frmHisClinica
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 363)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1093, 272)
+        Me.Panel2.Size = New System.Drawing.Size(1192, 272)
         Me.Panel2.TabIndex = 86
         '
-        'txtResta
+        'Panel5
         '
-        Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtResta.Location = New System.Drawing.Point(720, 204)
-        Me.txtResta.Name = "txtResta"
-        Me.txtResta.Size = New System.Drawing.Size(103, 24)
-        Me.txtResta.TabIndex = 31
-        Me.txtResta.Text = "0.00"
-        Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label18
-        '
-        Me.Label18.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(720, 178)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(103, 23)
-        Me.Label18.TabIndex = 30
-        Me.Label18.Text = "Resta"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtCambio
-        '
-        Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCambio.Location = New System.Drawing.Point(720, 154)
-        Me.txtCambio.Name = "txtCambio"
-        Me.txtCambio.Size = New System.Drawing.Size(103, 24)
-        Me.txtCambio.TabIndex = 29
-        Me.txtCambio.Text = "0.00"
-        Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label17
-        '
-        Me.Label17.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(720, 128)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(103, 23)
-        Me.Label17.TabIndex = 28
-        Me.Label17.Text = "Cambio"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtEfectivo
-        '
-        Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEfectivo.Location = New System.Drawing.Point(720, 104)
-        Me.txtEfectivo.Name = "txtEfectivo"
-        Me.txtEfectivo.Size = New System.Drawing.Size(103, 24)
-        Me.txtEfectivo.TabIndex = 27
-        Me.txtEfectivo.Text = "0.00"
-        Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label16
-        '
-        Me.Label16.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(720, 78)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(103, 23)
-        Me.Label16.TabIndex = 26
-        Me.Label16.Text = "Efectivo"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtTotalP
-        '
-        Me.txtTotalP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalP.Location = New System.Drawing.Point(703, 37)
-        Me.txtTotalP.Name = "txtTotalP"
-        Me.txtTotalP.Size = New System.Drawing.Size(120, 26)
-        Me.txtTotalP.TabIndex = 25
-        Me.txtTotalP.Text = "0.00"
-        Me.txtTotalP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Panel5.Controls.Add(Me.Label15)
+        Me.Panel5.Controls.Add(Me.txtResta)
+        Me.Panel5.Controls.Add(Me.txtTotalP)
+        Me.Panel5.Controls.Add(Me.Label18)
+        Me.Panel5.Controls.Add(Me.Label16)
+        Me.Panel5.Controls.Add(Me.txtCambio)
+        Me.Panel5.Controls.Add(Me.txtEfectivo)
+        Me.Panel5.Controls.Add(Me.Label17)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel5.Location = New System.Drawing.Point(729, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(200, 272)
+        Me.Panel5.TabIndex = 32
         '
         'Label15
         '
         Me.Label15.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(703, 11)
+        Me.Label15.Location = New System.Drawing.Point(76, 9)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(120, 23)
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Total a pagar"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'txtResta
+        '
+        Me.txtResta.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtResta.Location = New System.Drawing.Point(93, 202)
+        Me.txtResta.Name = "txtResta"
+        Me.txtResta.Size = New System.Drawing.Size(103, 24)
+        Me.txtResta.TabIndex = 31
+        Me.txtResta.Text = "0.00"
+        Me.txtResta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtTotalP
+        '
+        Me.txtTotalP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalP.Location = New System.Drawing.Point(76, 35)
+        Me.txtTotalP.Name = "txtTotalP"
+        Me.txtTotalP.Size = New System.Drawing.Size(120, 26)
+        Me.txtTotalP.TabIndex = 25
+        Me.txtTotalP.Text = "0.00"
+        Me.txtTotalP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label18
+        '
+        Me.Label18.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(93, 176)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(103, 23)
+        Me.Label18.TabIndex = 30
+        Me.Label18.Text = "Resta"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(93, 76)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(103, 23)
+        Me.Label16.TabIndex = 26
+        Me.Label16.Text = "Efectivo"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCambio
+        '
+        Me.txtCambio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCambio.Location = New System.Drawing.Point(93, 152)
+        Me.txtCambio.Name = "txtCambio"
+        Me.txtCambio.Size = New System.Drawing.Size(103, 24)
+        Me.txtCambio.TabIndex = 29
+        Me.txtCambio.Text = "0.00"
+        Me.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtEfectivo
+        '
+        Me.txtEfectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEfectivo.Location = New System.Drawing.Point(93, 102)
+        Me.txtEfectivo.Name = "txtEfectivo"
+        Me.txtEfectivo.Size = New System.Drawing.Size(103, 24)
+        Me.txtEfectivo.TabIndex = 27
+        Me.txtEfectivo.Text = "0.00"
+        Me.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label17
+        '
+        Me.Label17.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(93, 126)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(103, 23)
+        Me.Label17.TabIndex = 28
+        Me.Label17.Text = "Cambio"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.DateTimePicker1)
         Me.Panel4.Controls.Add(Me.CheckBox1)
-        Me.Panel4.Controls.Add(Me.Button7)
+        Me.Panel4.Controls.Add(Me.btnLimpiar)
         Me.Panel4.Controls.Add(Me.btnIncapacidad)
         Me.Panel4.Controls.Add(Me.btnReceta)
         Me.Panel4.Controls.Add(Me.btnPagar)
         Me.Panel4.Controls.Add(Me.btnGuardar)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(830, 0)
+        Me.Panel4.Location = New System.Drawing.Point(929, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(263, 272)
         Me.Panel4.TabIndex = 23
@@ -368,19 +381,19 @@ Partial Class frmHisClinica
         Me.CheckBox1.Text = "Proxima cita"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnLimpiar
         '
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button7.Location = New System.Drawing.Point(3, 187)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(71, 77)
-        Me.Button7.TabIndex = 83
-        Me.Button7.Text = "Limpiar"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 187)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(71, 77)
+        Me.btnLimpiar.TabIndex = 83
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnIncapacidad
         '
@@ -429,7 +442,7 @@ Partial Class frmHisClinica
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(257, 40)
         Me.btnGuardar.TabIndex = 0
-        Me.btnGuardar.Text = "GUARDAR"
+        Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'grdCaptura
@@ -575,7 +588,7 @@ Partial Class frmHisClinica
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 72)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(805, 87)
+        Me.Panel3.Size = New System.Drawing.Size(904, 87)
         Me.Panel3.TabIndex = 87
         '
         'cboMedicos
@@ -1067,6 +1080,22 @@ Partial Class frmHisClinica
         Me.gbxMotivo.Text = "Ingrese el motivo de la consulta"
         Me.gbxMotivo.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(451, 296)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(74, 53)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Cancelar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'btnSave
         '
         Me.btnSave.BackColor = System.Drawing.Color.White
@@ -1092,28 +1121,18 @@ Partial Class frmHisClinica
         Me.rbMotivo.TabIndex = 0
         Me.rbMotivo.Text = ""
         '
-        'Button1
+        'PDentista80
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(451, 296)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(74, 53)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Cancelar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'pDentista58
+        '
         '
         'frmHisClinica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1093, 635)
+        Me.ClientSize = New System.Drawing.Size(1192, 635)
         Me.Controls.Add(Me.gbxMotivo)
         Me.Controls.Add(Me.btnMotivo)
         Me.Controls.Add(Me.btnd32)
@@ -1164,6 +1183,8 @@ Partial Class frmHisClinica
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1229,7 +1250,7 @@ Partial Class frmHisClinica
     Friend WithEvents btnd17 As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnLimpiar As Button
     Friend WithEvents btnd2 As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents btnd3 As Button
@@ -1266,4 +1287,7 @@ Partial Class frmHisClinica
     Friend WithEvents btnSave As Button
     Friend WithEvents rbMotivo As RichTextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents PDentista80 As Printing.PrintDocument
+    Friend WithEvents pDentista58 As Printing.PrintDocument
+    Friend WithEvents Panel5 As Panel
 End Class

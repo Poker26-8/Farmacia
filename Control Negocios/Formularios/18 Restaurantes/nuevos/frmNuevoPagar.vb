@@ -112,7 +112,7 @@ Public Class frmNuevoPagar
                     IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
                     ieps = IIf(ieps = 0, 0, ieps)
 
-                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, IvaIeps, ieps)
+                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
                     sumacomandas = sumacomandas + vertotal
                 End If
@@ -184,7 +184,7 @@ Public Class frmNuevoPagar
                     IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
                     ieps = IIf(ieps = 0, 0, ieps)
 
-                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, FormatNumber(IvaIeps, 2), ieps)
+                    grdComanda.Rows.Add(vercomanda, vercodigo, verdescripcion, verunidad, vercantidad, FormatNumber(verprecio, 2), FormatNumber(vertotal, 2), vercomensal, vermesero, verid, FormatNumber(IvaIeps, 2), FormatNumber(ieps, 2))
 
                     Montocobromapeo = Montocobromapeo
                 End If
@@ -806,17 +806,25 @@ Public Class frmNuevoPagar
             Do While rd2.Read
                 If rd2.HasRows Then
 
+                    Dim PU As Double = CDbl(rd2("Total").ToString) / (1 + IvaDSC(rd2("Codigo").ToString))
+                    Dim IvaIeps As Double = PU - (PU / (1 + ProdsIEPS(rd2("Codigo").ToString)))
+                    Dim ieps As Double = ProdsIEPS(rd2("Codigo").ToString)
+
+                    IvaIeps = IIf(IvaIeps = 0, 0, IvaIeps)
+                    ieps = IIf(ieps = 0, 0, ieps)
+
                     grdComanda.Rows.Add(rd2("IDC").ToString,
                                        rd2("Codigo").ToString,
                                        rd2("Nombre").ToString,
                                        rd2("UVenta").ToString,
-                                       rd2("Cantidad").ToString,
-                                       rd2("Precio").ToString,
-                                       rd2("Total").ToString,
+                                       FormatNumber(rd2("Cantidad").ToString, 2),
+                                       FormatNumber(rd2("Precio").ToString, 2),
+                                       FormatNumber(rd2("Total").ToString, 2),
                                        rd2("Comensal").ToString,
                                        rd2("CUsuario").ToString,
-                                       rd2("Id").ToString
-)
+                                       rd2("Id").ToString,
+                                       FormatNumber(IvaIeps, 2),
+                                       FormatNumber(ieps, 2))
 
                     txtSubtotalmapeo.Text = txtSubtotalmapeo.Text + CDec(rd2("Total").ToString)
                 End If
