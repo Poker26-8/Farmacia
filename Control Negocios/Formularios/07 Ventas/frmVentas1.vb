@@ -16080,38 +16080,38 @@ doorcita:
 
                     'Razón social
                     If rd1("Cab0").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab0").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab0").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'RFC
                     If rd1("Cab1").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab1").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab1").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'Calle  N°.
                     If rd1("Cab2").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab2").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab2").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'Colonia
                     If rd1("Cab3").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab3").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab3").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'Delegación / Municipio - Entidad
                     If rd1("Cab4").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab4").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab4").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'Teléfono
                     If rd1("Cab5").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab5").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab5").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     'Correo
                     If rd1("Cab6").ToString() <> "" Then
-                        e.Graphics.DrawString(rd1("Cab6").ToString, New Drawing.Font(tipografia, 9, FontStyle.Regular), Brushes.Black, 140, Y, sc)
-                        Y += 13
+                        e.Graphics.DrawString(rd1("Cab6").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
                     End If
                     Y += 3
                 End If
@@ -16199,7 +16199,7 @@ doorcita:
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 52, Y)
                 Y += 12.5
-                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 15, Y, sf)
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 1, Y)
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 20, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 170, Y, sf)

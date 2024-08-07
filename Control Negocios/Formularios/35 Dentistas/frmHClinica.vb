@@ -384,5 +384,11 @@
         End If
     End Sub
 
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
+    End Sub
+
+    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
+
+    End Sub
 End Class
