@@ -64,7 +64,6 @@ Partial Class frmHisClinica
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cboDescripcion = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.cboMedicos = New System.Windows.Forms.ComboBox()
@@ -119,6 +118,9 @@ Partial Class frmHisClinica
         Me.rbMotivo = New System.Windows.Forms.RichTextBox()
         Me.PDentista80 = New System.Drawing.Printing.PrintDocument()
         Me.pDentista58 = New System.Drawing.Printing.PrintDocument()
+        Me.txtCodigo = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -231,6 +233,9 @@ Partial Class frmHisClinica
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.txtCantidad)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.txtCodigo)
         Me.Panel2.Controls.Add(Me.Panel5)
         Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.grdCaptura)
@@ -238,7 +243,6 @@ Partial Class frmHisClinica
         Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Controls.Add(Me.cboDescripcion)
         Me.Panel2.Controls.Add(Me.Label13)
-        Me.Panel2.Controls.Add(Me.txtCodigo)
         Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 363)
@@ -266,9 +270,9 @@ Partial Class frmHisClinica
         '
         Me.Label15.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(76, 9)
+        Me.Label15.Location = New System.Drawing.Point(75, 9)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(120, 23)
+        Me.Label15.Size = New System.Drawing.Size(121, 23)
         Me.Label15.TabIndex = 24
         Me.Label15.Text = "Total a pagar"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -286,9 +290,9 @@ Partial Class frmHisClinica
         'txtTotalP
         '
         Me.txtTotalP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalP.Location = New System.Drawing.Point(76, 35)
+        Me.txtTotalP.Location = New System.Drawing.Point(75, 35)
         Me.txtTotalP.Name = "txtTotalP"
-        Me.txtTotalP.Size = New System.Drawing.Size(120, 26)
+        Me.txtTotalP.Size = New System.Drawing.Size(121, 26)
         Me.txtTotalP.TabIndex = 25
         Me.txtTotalP.Text = "0.00"
         Me.txtTotalP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -442,7 +446,7 @@ Partial Class frmHisClinica
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(257, 40)
         Me.btnGuardar.TabIndex = 0
-        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'grdCaptura
@@ -456,7 +460,7 @@ Partial Class frmHisClinica
         Me.grdCaptura.Name = "grdCaptura"
         Me.grdCaptura.ReadOnly = True
         Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(633, 195)
+        Me.grdCaptura.Size = New System.Drawing.Size(717, 195)
         Me.grdCaptura.TabIndex = 22
         '
         'Column1
@@ -517,7 +521,7 @@ Partial Class frmHisClinica
         'txtPrecio
         '
         Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecio.Location = New System.Drawing.Point(541, 37)
+        Me.txtPrecio.Location = New System.Drawing.Point(625, 37)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(98, 21)
         Me.txtPrecio.TabIndex = 21
@@ -528,7 +532,7 @@ Partial Class frmHisClinica
         '
         Me.Label14.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(541, 11)
+        Me.Label14.Location = New System.Drawing.Point(625, 11)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(98, 23)
         Me.Label14.TabIndex = 20
@@ -553,14 +557,6 @@ Partial Class frmHisClinica
         Me.Label13.TabIndex = 19
         Me.Label13.Text = "Descripción"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(3, 37)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(95, 21)
-        Me.txtCodigo.TabIndex = 18
         '
         'Label12
         '
@@ -1127,6 +1123,35 @@ Partial Class frmHisClinica
         'pDentista58
         '
         '
+        'txtCodigo
+        '
+        Me.txtCodigo.FormattingEnabled = True
+        Me.txtCodigo.Location = New System.Drawing.Point(3, 37)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(95, 21)
+        Me.txtCodigo.TabIndex = 33
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(541, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(78, 23)
+        Me.Label5.TabIndex = 34
+        Me.Label5.Text = "Cantidad"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCantidad
+        '
+        Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCantidad.Location = New System.Drawing.Point(541, 37)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(78, 21)
+        Me.txtCantidad.TabIndex = 35
+        Me.txtCantidad.Text = "1"
+        Me.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmHisClinica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1220,7 +1245,6 @@ Partial Class frmHisClinica
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents txtdiente As TextBox
-    Friend WithEvents txtCodigo As TextBox
     Friend WithEvents Panel4 As Panel
     Friend WithEvents grdCaptura As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
@@ -1290,4 +1314,7 @@ Partial Class frmHisClinica
     Friend WithEvents PDentista80 As Printing.PrintDocument
     Friend WithEvents pDentista58 As Printing.PrintDocument
     Friend WithEvents Panel5 As Panel
+    Friend WithEvents txtCodigo As ComboBox
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents Label5 As Label
 End Class
