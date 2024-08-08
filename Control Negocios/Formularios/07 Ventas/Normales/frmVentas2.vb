@@ -1445,7 +1445,7 @@ kak:
                 cnn5.Close() : cnn5.Open()
                 cmd5 = cnn5.CreateCommand
                 cmd5.CommandText =
-                    "select Id,Caducidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Lote='" & cboLote.Text & "' and Cantidad>0"
+                    "select Id,Caducidad,Cantidad from LoteCaducidad where Codigo='" & cbocodigo.Text & "' and Lote='" & cboLote.Text & "' and Cantidad>0"
                 rd5 = cmd5.ExecuteReader
                 If rd5.HasRows Then
                     If rd5.Read Then
