@@ -1051,6 +1051,7 @@ Public Class frmHisClinica
 
     Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
 
+        If lblUsuario.Text = "" Then MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral) : txtcontraseña.Focus.Equals(True) : Exit Sub
         If cboMedicos.Text = "" Then MsgBox("Seleccione un medico", vbInformation + vbOKOnly, titulocentral) : Exit Sub
 
         If grdCaptura.Rows.Count < 1 Then MsgBox("Seleccione un producto", vbInformation + vbOKOnly, titulocentral) : Exit Sub

@@ -30,7 +30,7 @@ Public Class frmPagarD
             cmd1.CommandText = "SELECT Saldo FROM AbonoI WHERE Id=(SELECT max(Id) FROM AbonoI WHERE Cliente='" & lblCliente.Text & "')"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
-                If rd1.HasRows Then
+                If rd1.Read Then
                     MYSALDO = CDbl(IIf(rd1(0).ToString = "", "0", rd1(0).ToString))
                     If MYSALDO > 0 Then
                         lblAdeudo.Text = Math.Abs(MYSALDO)

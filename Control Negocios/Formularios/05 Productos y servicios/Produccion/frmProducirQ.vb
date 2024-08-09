@@ -186,9 +186,9 @@ Public Class frmProducirQ
                 Dim precio As Double = grdcaptura.Rows(d).Cells(4).Value.ToString
                 Dim cantidad As Double = grdcaptura.Rows(d).Cells(3).Value.ToString
 
-                grdcaptura.Rows(d).Cells(3).Value = FormatNumber(cantidad * CDec(txtcantidad.Text), 4)
+                ' grdcaptura.Rows(d).Cells(3).Value = FormatNumber(cantidad * CDec(txtcantidad.Text), 4)
                 grdcaptura.Rows(d).Cells(7).Value = FormatNumber(cantidad * CDec(txtcantidad.Text), 4)
-                cantidad = grdcaptura.Rows(d).Cells(3).Value.ToString
+                cantidad = grdcaptura.Rows(d).Cells(7).Value.ToString
 
 
                 total = cantidad * precio
@@ -594,7 +594,7 @@ Public Class frmProducirQ
                             'se actualiza la existencia del insumo si fue modificado
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
-                            cmd3.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidadinsumo & ",LoteP='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
+                            cmd3.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & teorico & ",LoteP='" & loteinsumo & "',Fase='" & fase & "',Comentario='" & comentario & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codinsumo & "'"
                             cmd3.ExecuteNonQuery()
                             cnn3.Close()
 
@@ -613,7 +613,7 @@ Public Class frmProducirQ
 
 
                             cantidadlotes = rd2("Cantidad").ToString
-                            nuevacoantidadlotes = CDec(cantidadlotes) - CDec(cantidadinsumo)
+                            nuevacoantidadlotes = CDec(cantidadlotes) - CDec(teorico)
 
                             cnn3.Close() : cnn3.Open()
                             cmd3 = cnn3.CreateCommand
@@ -625,10 +625,10 @@ Public Class frmProducirQ
                     Else
                         cnn3.Close() : cnn3.Open()
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & codinsumo & "','" & loteinsumo & "','" & fechaloteinsumo & "'," & cantidadinsumo & ")"
+                        cmd3.CommandText = "INSERT INTO lotecaducidad(Codigo,Lote,Caducidad,Cantidad) VALUES('" & codinsumo & "','" & loteinsumo & "','" & fechaloteinsumo & "'," & teorico & ")"
                         cmd3.ExecuteNonQuery()
 
-                        nuevacoantidadlotes = CDec(cantidadinsumo) - cantidadinsumo
+                        nuevacoantidadlotes = CDec(teorico) - teorico
 
                         cmd3 = cnn3.CreateCommand
                         cmd3.CommandText = "UPDATE lotecaducidad SET Cantidad=" & nuevacoantidadlotes & " WHERE Codigo='" & codinsumo & "' AND lote='" & loteinsumo & "'"
@@ -661,7 +661,7 @@ Public Class frmProducirQ
 
                     'inserta el cardex de los insumos
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) VALUES('" & codinsumo & "','" & nombreinsumo & "','Descuento por producción'," & exis & "," & cantidadinsumo & "," & new_exist & "," & precioinsumo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblUsuario.Text & "','','','','','','')"
+                    cmd1.CommandText = "INSERT INTO cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) VALUES('" & codinsumo & "','" & nombreinsumo & "','Descuento por producción'," & exis & "," & teorico & "," & new_exist & "," & precioinsumo & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblUsuario.Text & "','','','','','','')"
                     cmd1.ExecuteNonQuery()
                 Next
                 cnn1.Close()
@@ -1286,7 +1286,7 @@ Public Class frmProducirQ
                             If rd3.Read Then
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidad & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
+                                cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & teorico & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
 
@@ -1294,7 +1294,7 @@ Public Class frmProducirQ
                         Else
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                            cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & teorico & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
                         End If
@@ -1330,7 +1330,7 @@ Public Class frmProducirQ
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                    cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & teorico & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 Next
@@ -1638,12 +1638,10 @@ Public Class frmProducirQ
                     Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
                     Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
 
-                    Dim pp As Double = 0
 
-                    pp = FormatNumber(CDec(cantidad) / 100, 2)
 
                     'Inserta en la tabla de miprod
-                    If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & pp & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
+                    If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)

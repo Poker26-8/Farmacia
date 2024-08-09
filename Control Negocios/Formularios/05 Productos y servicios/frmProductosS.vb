@@ -857,7 +857,7 @@ Public Class frmProductosS
                 numparte = NulCad(DataGridView1.Rows(zef).Cells(14).Value.ToString())
 
                 lote = NulCad(DataGridView1.Rows(zef).Cells(15).Value.ToString())
-                caducidad = NulCad(DataGridView1.Rows(zef).Cells(16).Value.ToString())
+                caducidad = NulCad(IIf(DataGridView1.Rows(zef).Cells(16).Value.ToString() = "", Date.Now, DataGridView1.Rows(zef).Cells(16).Value.ToString()))
 
                 caducidad = Format(caducidad, "yyyy-MM-dd")
 

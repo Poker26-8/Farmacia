@@ -112,10 +112,6 @@ Partial Class frmPagarH
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.grdComanda = New System.Windows.Forms.DataGridView()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
-        Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
-        Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -123,8 +119,13 @@ Partial Class frmPagarH
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TFecha = New System.Windows.Forms.Timer(Me.components)
+        Me.PVenta80 = New System.Drawing.Printing.PrintDocument()
+        Me.PVenta58 = New System.Drawing.Printing.PrintDocument()
         Me.Cancelacion80 = New System.Drawing.Printing.PrintDocument()
         Me.Cancelacion58 = New System.Drawing.Printing.PrintDocument()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -656,6 +657,7 @@ Partial Class frmPagarH
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.btnCancelar)
         Me.Panel3.Controls.Add(Me.txtsaldo_monedero)
         Me.Panel3.Controls.Add(Me.grdpago)
@@ -698,7 +700,7 @@ Partial Class frmPagarH
         '
         'txtsaldo_monedero
         '
-        Me.txtsaldo_monedero.Location = New System.Drawing.Point(752, 137)
+        Me.txtsaldo_monedero.Location = New System.Drawing.Point(878, 94)
         Me.txtsaldo_monedero.Name = "txtsaldo_monedero"
         Me.txtsaldo_monedero.Size = New System.Drawing.Size(100, 20)
         Me.txtsaldo_monedero.TabIndex = 252
@@ -1201,18 +1203,6 @@ Partial Class frmPagarH
         Me.grdComanda.Size = New System.Drawing.Size(734, 319)
         Me.grdComanda.TabIndex = 35
         '
-        'Timer1
-        '
-        '
-        'TFecha
-        '
-        '
-        'PVenta80
-        '
-        '
-        'PVenta58
-        '
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Codigo"
@@ -1262,8 +1252,33 @@ Partial Class frmPagarH
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         '
+        'Timer1
+        '
+        '
+        'TFecha
+        '
+        '
+        'PVenta80
+        '
+        '
+        'PVenta58
+        '
+        '
         'Cancelacion80
         '
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(790, 120)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(185, 44)
+        Me.Button1.TabIndex = 254
+        Me.Button1.Text = "Cancelar comanda"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmPagarH
         '
@@ -1399,4 +1414,5 @@ Partial Class frmPagarH
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Cancelacion80 As Printing.PrintDocument
     Friend WithEvents Cancelacion58 As Printing.PrintDocument
+    Friend WithEvents Button1 As Button
 End Class

@@ -2211,7 +2211,7 @@ Public Class frmPagarH
 
             If CantidadP <> "" Then
                 If cantidadeliminar >= CantidadP Then
-                    If MsgBox("¿Seguro que desea continuar con la cancelacion?", vbInformation + vbOKCancel, "Delsscom® Restaurant") = vbCancel Then
+                    If MsgBox("¿Seguro que desea continuar con la cancelacion?", vbInformation + vbOKCancel, titulohotelriaa) = vbCancel Then
                         Exit Sub
                     End If
                     canc = Val(CantidadP)
@@ -2343,9 +2343,11 @@ Public Class frmPagarH
                 Else
                     MsgBox("No es posible cancelar una cantidad mayor a este producto.", vbInformation + vbOKOnly, titulohotelriaa)
                 End If
+                Me.Close()
+                frmManejo.Show()
             End If
-            Me.Close()
-            frmManejo.Show()
+
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
@@ -2669,4 +2671,5 @@ Public Class frmPagarH
             cnn4.Close()
         End Try
     End Sub
+
 End Class
