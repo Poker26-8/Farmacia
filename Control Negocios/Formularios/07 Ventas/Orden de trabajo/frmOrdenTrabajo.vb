@@ -68,7 +68,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select distinct Codigo from OrdenTrabajo where Existencia=1"
+            cmd1.CommandText = "Select distinct Codigo from OrdenTrabajo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 cboCodigoListo.Items.Add(rd1(0).ToString)
@@ -149,6 +149,8 @@
                 End If
                 rd1.Close()
                 cnn1.Close()
+                txtexistencia.Focus.Equals(True)
+                My.Application.DoEvents()
                 SumaTotal()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString)
@@ -294,6 +296,17 @@
 
         txtPrecio.Text = CDec(txttotal.Text / txtexistencia.Text)
         txtPrecio.Text = FormatNumber(txtPrecio.Text, 2)
+    End Sub
+    Public Sub SumaTotal2()
+        Dim conteo As Double = 0
+        For traka As Integer = 0 To grdcaptura.Rows.Count - 1
+            conteo = conteo + CDec(grdcaptura.Rows(traka).Cells(5).Value)
+        Next
+        txtPrecio.Text = CDec(FormatNumber(conteo, 2))
+        txtPrecio.Text = FormatNumber(txtPrecio.Text, 2)
+
+        txttotal.Text = CDec(txtPrecio.Text * txtexistencia.Text)
+        txttotal.Text = FormatNumber(txttotal.Text, 2)
     End Sub
 
     Private Sub txtPrecioP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrecioP.KeyPress
@@ -477,9 +490,9 @@
 
     Public Sub enviaDescripcion()
         If cbocod.Text = "" Then
-            frmVentas1.grdcaptura.Rows.Add(lblCodigo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, 0, "", "")
+            frmVentas1.grdcaptura.Rows.Add(lblCodigo.Text, cbonombre.Text, txtuni.Text, txtexistencia.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, 0, "", "")
         Else
-            frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtCantidadP.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, "", "", "")
+            frmVentas1.grdcaptura.Rows.Add(cboCodigoListo.Text, cbonombre.Text, txtuni.Text, txtexistencia.Text, txtPrecio.Text, txttotal.Text, txtexistencia.Text, "", "", "", 0, 0, "", "", "")
         End If
 
 
@@ -677,5 +690,15 @@
         My.Application.DoEvents()
         cbocod.Text = ""
         grdcaptura.Rows.Clear()
+    End Sub
+
+    Private Sub txtexistencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtexistencia.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            If txtexistencia.Text = "" Then
+                Exit Sub
+            Else
+                SumaTotal2()
+            End If
+        End If
     End Sub
 End Class

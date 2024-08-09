@@ -8075,7 +8075,7 @@ Door:
                             mycodd = rd2("Codigo").ToString
                             mydesc = rd2("Descrip").ToString
                             myunid = rd2("UVenta").ToString
-                            mycant = rd2("Cantidad").ToString
+                            mycant = mycant * CDec(rd2("Cantidad").ToString)
                             myprecio = rd2("Precio").ToString
                             mytotal = rd2("PrecioIVA").ToString
 
@@ -8102,7 +8102,7 @@ Door:
                                 mytotalS = mytotal / CDec(1.16)
                             End If
 
-
+                            mytotal = mytotal * CDec(mycant)
                             mytotalS = myprecioS * CDec(mycant)
 
                             '--------------------SACAR DESCUENMMTO PO PRODUCTO
@@ -8157,6 +8157,7 @@ Door:
                             Do While rd1.Read
                                 soy = rd1(0).ToString
                                 soyexi = rd1(1).ToString
+                                soyexi = soyexi * CDec(mycant)
                                 cnn2.Close()
                                 cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
