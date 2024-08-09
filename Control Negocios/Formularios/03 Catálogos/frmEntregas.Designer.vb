@@ -35,6 +35,7 @@ Partial Class frmEntregas
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnMigrar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -43,7 +44,7 @@ Partial Class frmEntregas
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Historic", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(-19, 0)
+        Me.Label1.Location = New System.Drawing.Point(19, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.Label1.Size = New System.Drawing.Size(473, 31)
@@ -64,7 +65,7 @@ Partial Class frmEntregas
         Me.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombre.Location = New System.Drawing.Point(71, 41)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(359, 23)
+        Me.txtNombre.Size = New System.Drawing.Size(428, 23)
         Me.txtNombre.TabIndex = 8
         '
         'rtbDomicilio
@@ -75,7 +76,7 @@ Partial Class frmEntregas
         Me.rtbDomicilio.Location = New System.Drawing.Point(71, 70)
         Me.rtbDomicilio.Name = "rtbDomicilio"
         Me.rtbDomicilio.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
-        Me.rtbDomicilio.Size = New System.Drawing.Size(359, 96)
+        Me.rtbDomicilio.Size = New System.Drawing.Size(428, 96)
         Me.rtbDomicilio.TabIndex = 9
         Me.rtbDomicilio.Text = ""
         '
@@ -112,7 +113,7 @@ Partial Class frmEntregas
         Me.btnBorrar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBorrar.Image = CType(resources.GetObject("btnBorrar.Image"), System.Drawing.Image)
         Me.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBorrar.Location = New System.Drawing.Point(172, 171)
+        Me.btnBorrar.Location = New System.Drawing.Point(241, 172)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(60, 63)
         Me.btnBorrar.TabIndex = 144
@@ -127,7 +128,7 @@ Partial Class frmEntregas
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(238, 171)
+        Me.btnGuardar.Location = New System.Drawing.Point(307, 172)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
         Me.btnGuardar.TabIndex = 143
@@ -141,7 +142,7 @@ Partial Class frmEntregas
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(304, 172)
+        Me.btnNuevo.Location = New System.Drawing.Point(373, 173)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
         Me.btnNuevo.TabIndex = 142
@@ -164,7 +165,7 @@ Partial Class frmEntregas
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(370, 172)
+        Me.Button1.Location = New System.Drawing.Point(439, 173)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(60, 63)
         Me.Button1.TabIndex = 146
@@ -172,11 +173,27 @@ Partial Class frmEntregas
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'btnMigrar
+        '
+        Me.btnMigrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnMigrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMigrar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMigrar.Image = CType(resources.GetObject("btnMigrar.Image"), System.Drawing.Image)
+        Me.btnMigrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnMigrar.Location = New System.Drawing.Point(175, 172)
+        Me.btnMigrar.Name = "btnMigrar"
+        Me.btnMigrar.Size = New System.Drawing.Size(60, 63)
+        Me.btnMigrar.TabIndex = 147
+        Me.btnMigrar.Text = "Access"
+        Me.btnMigrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnMigrar.UseVisualStyleBackColor = True
+        '
         'frmEntregas
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(434, 246)
+        Me.ClientSize = New System.Drawing.Size(510, 246)
+        Me.Controls.Add(Me.btnMigrar)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.btnBorrar)
@@ -212,4 +229,5 @@ Partial Class frmEntregas
      Friend WithEvents btnNuevo As System.Windows.Forms.Button
     Friend WithEvents txtId As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnMigrar As Button
 End Class

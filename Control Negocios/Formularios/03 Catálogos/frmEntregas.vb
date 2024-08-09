@@ -1,4 +1,6 @@
-﻿Public Class frmEntregas
+﻿Imports System.Data.OleDb
+
+Public Class frmEntregas
 
     Dim contador As Integer = 0
 
@@ -153,5 +155,52 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnMigrar_Click(sender As Object, e As EventArgs) Handles btnMigrar.Click
+        btnMigrar.Enabled = False
+        My.Application.DoEvents()
+        Dim cnn1 As OleDb.OleDbConnection = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & My.Application.Info.DirectoryPath & "\BaseExportar\DL1.mdb;;Persist Security Info=True;Jet OLEDB:Database Password=jipl22")
+        Dim cmd1 As OleDbCommand = New OleDbCommand
+        Dim rd1 As OleDbDataReader
+
+        Dim idcliente As Integer = 0
+        Dim contador As Integer = 0
+        Dim domicilio As String = ""
+
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT IdCliente,Contador,Dom FROM entregas ORDER BY Id"
+            rd1 = cmd1.ExecuteReader
+            Do While rd1.Read
+                If rd1.HasRows Then
+
+                    idcliente = rd1("IdCliente").ToString
+                    contador = rd1("Contador").ToString
+                    domicilio = rd1("Dom").ToString
+
+                    cnn2.Close() : cnn2.Open()
+                    cmd2 = cnn2.CreateCommand
+                    cmd2.CommandText = "INSERT INTO entregas(IdCliente,Contador,Domicilio) VALUES(" & idcliente & "," & contador & ",'" & domicilio & "')"
+                    cmd2.ExecuteNonQuery()
+                    cnn2.Close()
+
+                End If
+            Loop
+
+
+
+
+            MsgBox("domicilios importados correctamente", vbInformation + vbOKOnly, titulocentral)
+            rd1.Close()
+            cnn1.Close()
+            My.Application.DoEvents()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+        My.Application.DoEvents()
+        btnMigrar.Enabled = True
     End Sub
 End Class

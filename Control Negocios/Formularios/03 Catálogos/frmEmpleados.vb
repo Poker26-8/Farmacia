@@ -130,6 +130,10 @@ Public Class frmEmpleados
 
     Private Sub cboArea_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles cboArea.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
+
+            If cboArea.Text = "MEDICO" Then
+                lkmédico.Visible = True
+            End If
             txtPuesto.Focus().Equals(True)
         End If
     End Sub
@@ -265,6 +269,7 @@ Public Class frmEmpleados
         txtFace.Text = ""
         txtCorreo.Text = ""
         picFotica.Image = Nothing
+        lkmédico.Visible = False
     End Sub
 
     Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
@@ -607,4 +612,16 @@ Public Class frmEmpleados
         Return Nothing
     End Function
 
+    Private Sub lkmédico_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lkmédico.LinkClicked
+
+        frmMedicosD.lblNombre.Text = cboNombre.Text
+        frmMedicosD.BringToFront()
+        frmMedicosD.Show()
+    End Sub
+
+    Private Sub cboArea_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboArea.SelectedValueChanged
+        If cboArea.Text = "MEDICO" Then
+            lkmédico.Visible = True
+        End If
+    End Sub
 End Class

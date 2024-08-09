@@ -516,7 +516,7 @@ Public Class frmClientes
                         cnn2.Close()
 
                     Else
-                        btnmigra.Visible = False
+                        btnmigra.Visible = True
                     End If
                 End If
             End If
@@ -730,6 +730,7 @@ Public Class frmClientes
         Dim cmd1 As OleDbCommand = New OleDbCommand
         Dim rd1 As OleDbDataReader
 
+        Dim idacc As Integer = 0
         Dim nombre As String = ""
         Dim razonsocial As String = ""
         Dim tipo As String = ""
@@ -758,6 +759,7 @@ Public Class frmClientes
             If rd1.HasRows Then
                 Do While rd1.Read
 
+                    ' idacc = rd1("Id").ToString
                     nombre = rd1("Nombre").ToString
                     razonsocial = rd1("RazonSocial").ToString
                     tipo = rd1("Tipo").ToString

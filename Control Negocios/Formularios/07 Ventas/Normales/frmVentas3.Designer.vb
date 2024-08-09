@@ -252,6 +252,7 @@ Partial Class frmVentas3
         Me.pCotizaCarta = New System.Drawing.Printing.PrintDocument()
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pPedidoCarta = New System.Drawing.Printing.PrintDocument()
+        Me.lblautofac = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.pAbajo.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -790,6 +791,7 @@ Partial Class frmVentas3
         '
         'pCentral
         '
+        Me.pCentral.Controls.Add(Me.lblautofac)
         Me.pCentral.Controls.Add(Me.txtfechacad)
         Me.pCentral.Controls.Add(Me.lblpedido)
         Me.pCentral.Controls.Add(Me.btnPedido)
@@ -2545,9 +2547,9 @@ Partial Class frmVentas3
         'lblcorreocli
         '
         Me.lblcorreocli.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblcorreocli.Location = New System.Drawing.Point(645, 79)
+        Me.lblcorreocli.Location = New System.Drawing.Point(779, 79)
         Me.lblcorreocli.Name = "lblcorreocli"
-        Me.lblcorreocli.Size = New System.Drawing.Size(181, 23)
+        Me.lblcorreocli.Size = New System.Drawing.Size(47, 23)
         Me.lblcorreocli.TabIndex = 252
         Me.lblcorreocli.Visible = False
         '
@@ -2770,6 +2772,17 @@ Partial Class frmVentas3
         '
         'pPedidoCarta
         '
+        '
+        'lblautofac
+        '
+        Me.lblautofac.AutoSize = True
+        Me.lblautofac.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.lblautofac.Location = New System.Drawing.Point(584, 84)
+        Me.lblautofac.Name = "lblautofac"
+        Me.lblautofac.Size = New System.Drawing.Size(77, 19)
+        Me.lblautofac.TabIndex = 320
+        Me.lblautofac.Text = "Domicilio:"
+        Me.lblautofac.Visible = False
         '
         'frmVentas3
         '
@@ -3034,4 +3047,5 @@ Partial Class frmVentas3
     Friend WithEvents Column29 As DataGridViewTextBoxColumn
     Friend WithEvents Column30 As DataGridViewTextBoxColumn
     Friend WithEvents Column31 As DataGridViewTextBoxColumn
+    Friend WithEvents lblautofac As Label
 End Class

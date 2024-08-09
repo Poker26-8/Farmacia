@@ -39,9 +39,6 @@ Partial Class frmEmpleados
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtAlias = New System.Windows.Forms.TextBox()
         Me.chkComi = New System.Windows.Forms.CheckBox()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.Info = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtCalle = New System.Windows.Forms.TextBox()
@@ -61,22 +58,26 @@ Partial Class frmEmpleados
         Me.txtFace = New System.Windows.Forms.TextBox()
         Me.txtWhats = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.picFotica = New System.Windows.Forms.PictureBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtId = New System.Windows.Forms.TextBox()
-        Me.btnhuella = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txthoras = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtsueldo_hora = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.barsube = New System.Windows.Forms.ProgressBar()
+        Me.lkmédico = New System.Windows.Forms.LinkLabel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnhuella = New System.Windows.Forms.Button()
+        Me.picFotica = New System.Windows.Forms.PictureBox()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.picFotica, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFotica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboNombre
@@ -134,7 +135,7 @@ Partial Class frmEmpleados
         Me.cboArea.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cboArea.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboArea.FormattingEnabled = True
-        Me.cboArea.Items.AddRange(New Object() {"VENTAS", "ADMINISTRACIÓN", "OPERACIÓN"})
+        Me.cboArea.Items.AddRange(New Object() {"VENTAS", "ADMINISTRACIÓN", "OPERACIÓN", "MEDICO"})
         Me.cboArea.Location = New System.Drawing.Point(296, 98)
         Me.cboArea.Name = "cboArea"
         Me.cboArea.Size = New System.Drawing.Size(159, 23)
@@ -231,50 +232,6 @@ Partial Class frmEmpleados
         Me.chkComi.TabIndex = 22
         Me.chkComi.Text = "Comisionista"
         Me.chkComi.UseVisualStyleBackColor = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackgroundImage = CType(resources.GetObject("btnNuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(395, 204)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
-        Me.btnNuevo.TabIndex = 23
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(329, 204)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
-        Me.btnGuardar.TabIndex = 24
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGuardar.UseVisualStyleBackColor = True
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
-        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEliminar.Location = New System.Drawing.Point(263, 204)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
-        Me.btnEliminar.TabIndex = 25
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'Info
         '
@@ -469,17 +426,6 @@ Partial Class frmEmpleados
         Me.Label21.TabIndex = 29
         Me.Label21.Text = "Whatsapp:"
         '
-        'picFotica
-        '
-        Me.picFotica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picFotica.Location = New System.Drawing.Point(345, 415)
-        Me.picFotica.Name = "picFotica"
-        Me.picFotica.Size = New System.Drawing.Size(84, 99)
-        Me.picFotica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picFotica.TabIndex = 40
-        Me.picFotica.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.picFotica, "Foto del empleado")
-        '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(220, Byte), Integer))
@@ -501,20 +447,6 @@ Partial Class frmEmpleados
         Me.txtId.Size = New System.Drawing.Size(57, 23)
         Me.txtId.TabIndex = 42
         Me.txtId.Visible = False
-        '
-        'btnhuella
-        '
-        Me.btnhuella.BackgroundImage = CType(resources.GetObject("btnhuella.BackgroundImage"), System.Drawing.Image)
-        Me.btnhuella.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnhuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnhuella.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnhuella.Location = New System.Drawing.Point(197, 204)
-        Me.btnhuella.Name = "btnhuella"
-        Me.btnhuella.Size = New System.Drawing.Size(60, 63)
-        Me.btnhuella.TabIndex = 43
-        Me.btnhuella.Text = "Huella"
-        Me.btnhuella.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnhuella.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -558,20 +490,6 @@ Partial Class frmEmpleados
         Me.txtsueldo_hora.Text = "0.00"
         Me.txtsueldo_hora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Button2
-        '
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(121, 204)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(70, 63)
-        Me.Button2.TabIndex = 223
-        Me.Button2.Text = "Importar"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -587,11 +505,106 @@ Partial Class frmEmpleados
         Me.barsube.Size = New System.Drawing.Size(62, 14)
         Me.barsube.TabIndex = 225
         '
+        'lkmédico
+        '
+        Me.lkmédico.AutoSize = True
+        Me.lkmédico.Location = New System.Drawing.Point(300, 179)
+        Me.lkmédico.Name = "lkmédico"
+        Me.lkmédico.Size = New System.Drawing.Size(155, 19)
+        Me.lkmédico.TabIndex = 226
+        Me.lkmédico.TabStop = True
+        Me.lkmédico.Text = "Información de médicos"
+        Me.lkmédico.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(121, 204)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(70, 63)
+        Me.Button2.TabIndex = 223
+        Me.Button2.Text = "Importar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'btnhuella
+        '
+        Me.btnhuella.BackgroundImage = CType(resources.GetObject("btnhuella.BackgroundImage"), System.Drawing.Image)
+        Me.btnhuella.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnhuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnhuella.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnhuella.Location = New System.Drawing.Point(197, 204)
+        Me.btnhuella.Name = "btnhuella"
+        Me.btnhuella.Size = New System.Drawing.Size(60, 63)
+        Me.btnhuella.TabIndex = 43
+        Me.btnhuella.Text = "Huella"
+        Me.btnhuella.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnhuella.UseVisualStyleBackColor = True
+        '
+        'picFotica
+        '
+        Me.picFotica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picFotica.Location = New System.Drawing.Point(345, 415)
+        Me.picFotica.Name = "picFotica"
+        Me.picFotica.Size = New System.Drawing.Size(84, 99)
+        Me.picFotica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFotica.TabIndex = 40
+        Me.picFotica.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.picFotica, "Foto del empleado")
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(263, 204)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(60, 63)
+        Me.btnEliminar.TabIndex = 25
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(329, 204)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(60, 63)
+        Me.btnGuardar.TabIndex = 24
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.BackgroundImage = CType(resources.GetObject("btnNuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Location = New System.Drawing.Point(395, 204)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(60, 63)
+        Me.btnNuevo.TabIndex = 23
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        '
         'frmEmpleados
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(465, 277)
+        Me.ClientSize = New System.Drawing.Size(465, 276)
+        Me.Controls.Add(Me.lkmédico)
         Me.Controls.Add(Me.barsube)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
@@ -634,8 +647,8 @@ Partial Class frmEmpleados
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.picFotica, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFotica, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -689,4 +702,5 @@ Partial Class frmEmpleados
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents barsube As ProgressBar
+    Friend WithEvents lkmédico As LinkLabel
 End Class

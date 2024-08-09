@@ -2712,14 +2712,25 @@ Public Class frmCorte2
                 End If
             End If
             rd2.Close()
+
+            'cmd2 = cnn2.CreateCommand
+            'cmd2.CommandText = "SELECT SUM(Abono) FROM abonoi WHERE FormaPago=''"
+            'rd2 = cmd2.ExecuteReader
+            'If rd2.HasRows Then
+            '    If rd2.Read Then
+
+            '    End If
+            'End If
+            'rd2.Close()
             cnn2.Close()
+            'txtEgrEfectivoG.Text = FormatNumber(2)
 
             txtEgrDepositoG.Text = FormatNumber(EgrOtro, 2)
             txtCanceDevoG.Text = FormatNumber(CDbl(CanceDevo) + CDbl(NotaCance), 2)
 
             Dim Egresos As String = "0"
             ' Egresos = CDec(txtEgrEfectivoG.Text) + CDec(txtegresosforma.Text) + CDec(txtTransporteG.Text) + CDec(txtPrestamoEmpG.Text) + CDec(txtComprasG.Text) + CDec(txtNominaG.Text) + CDec(txtOtrosGastosG.Text)
-            Egresos = CDec(txtComprasG.Text) + +CDec(txtPrestamoEmpG.Text) + CDec(txtNominaG.Text) + CDec(txtTransporteG.Text) + CDec(txtOtrosGastosG.Text) + CDec(txtCanceDevoG.Text)
+            Egresos = CDec(txtComprasG.Text) + CDec(txtPrestamoEmpG.Text) + CDec(txtNominaG.Text) + CDec(txtTransporteG.Text) + CDec(txtOtrosGastosG.Text) + CDec(txtCanceDevoG.Text)
             txtEgresosGlobal.Text = FormatNumber(Egresos, 2)
             My.Application.DoEvents()
 
@@ -2731,7 +2742,7 @@ Public Class frmCorte2
             txtSaldoFinalG.Text = FormatNumber(txtSaldoFinalG.Text, 2)
 
             'Efectivo en caja
-            EfectivoCajaG.Text = (CDec(txtSaldoGlobal.Text) + CDec(txtIngEfectivoG.Text)) - CDec(txtEgrEfectivoG.Text)
+            EfectivoCajaG.Text = (CDec(txtSaldoGlobal.Text) + CDec(txtIngEfectivoG.Text)) - CDec(txtEgresosGlobal.Text)
             EfectivoCajaG.Text = FormatNumber(EfectivoCajaG.Text, 2)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)

@@ -161,7 +161,7 @@ Public Class frmVentas3
                 passbdF = Trim(configF.passr)
                 sTargetdAutoFac = "server=" & ipserverF & ";uid=" & userbdF & ";password=" & passbdF & ";database=" & databaseF & ";persist security info=false;connect timeout=300"
 
-                Label1.Text = "AutoFact base: " & databaseF
+                lblautofac.Text = "AutoFact base: " & databaseF
                 FileClose()
             Else
                 ipserverF = ""

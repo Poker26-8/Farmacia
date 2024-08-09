@@ -103,10 +103,6 @@
         txtdiente.Text = "Tercer Molar"
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        frmProcedimientos.Show()
-        frmProcedimientos.BringToFront()
-    End Sub
 
     Private Sub Button32_Click(sender As Object, e As EventArgs) Handles Button32.Click
         txtNotacion.Text = "48"

@@ -314,7 +314,7 @@ Public Class frmVentas1
                 passbdF = Trim(configF.passr)
                 sTargetdAutoFac = "server=" & ipserverF & ";uid=" & userbdF & ";password=" & passbdF & ";database=" & databaseF & ";persist security info=false;connect timeout=300"
 
-                Label1.Text = "AutoFact base: " & databaseF
+                lblautofac.Text = "AutoFact base: " & databaseF
                 FileClose()
             Else
                 ipserverF = ""
@@ -1659,7 +1659,7 @@ kak:
 
                             txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
 
-                            Label1.Visible = True
+                            Label12121.Visible = True
                             cboDomi.Visible = True
                             Label20.Visible = True
                             txtcredito.Visible = True
@@ -1686,7 +1686,7 @@ kak:
                         txtafavor.Text = "0.00"
                         txtadeuda.Text = "0.00"
                         txtfechacad.Text = ""
-                        Label1.Visible = False
+                        Label12121.Visible = False
                         cboDomi.Visible = False
                         Label20.Visible = False
                         txtcredito.Visible = False
@@ -1755,7 +1755,7 @@ kak:
                                 For Each dr1 In dt1.Rows
                                     MyIdCliente = dr1("id").ToString
                                     lblNumCliente.Text = MyIdCliente
-                                    Label1.Visible = True
+                                    Label12121.Visible = True
                                     cboDomi.Visible = True
                                     Label20.Visible = True
                                     txtcredito.Visible = True
@@ -1878,7 +1878,7 @@ kak:
 
                         txtafavor.Text = FormatNumber(rd1("SaldoFavor").ToString(), 4)
 
-                        Label1.Visible = True
+                        Label12121.Visible = True
                         cboDomi.Visible = True
                         Label20.Visible = True
                         txtcredito.Visible = True
@@ -1952,7 +1952,7 @@ kak:
                             For Each dr1 In dt1.Rows
                                 MyIdCliente = dr1("id").ToString
                                 lblNumCliente.Text = MyIdCliente
-                                Label1.Visible = True
+                                Label12121.Visible = True
                                 cboDomi.Visible = True
                                 Label20.Visible = True
                                 txtcredito.Visible = True
@@ -2013,7 +2013,7 @@ kak:
         '    cbocomisionista.Enabled = True
         'End If
         If cboNombre.Text = "" Then
-            Label1.Visible = False
+            Label12121.Visible = False
             cboDomi.Visible = False
             Label20.Visible = False
             txtcredito.Visible = False
@@ -5401,7 +5401,7 @@ kaka:
                     End If
                 End If
             Else
-                'MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
+                MsgBox("Ingrese la contraseña", vbInformation + vbOKOnly, titulocentral)
                 txtcontraseña.Focus.Equals(True)
                 Exit Sub
             End If
@@ -5425,7 +5425,7 @@ kaka:
         lblmonedero.BackColor = Color.White
         cboDomi.Text = ""
         cboDomi.Visible = False
-        Label1.Visible = False
+        Label12121.Visible = False
         txtadeuda.Text = "0.00"
         txtadeuda.Visible = False
         Label18.Visible = False
@@ -5627,7 +5627,7 @@ kaka:
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas2.BringToFront()
         frmVentas2.Show()
-    
+
 
     End Sub
 
@@ -6736,7 +6736,7 @@ doorcita:
 
                         txtafavor.Text = FormatNumber(rd4("SaldoFavor").ToString(), 4)
 
-                        Label1.Visible = True
+                        Label12121.Visible = True
                         cboDomi.Visible = True
                         Label20.Visible = True
                         txtcredito.Visible = True
@@ -6760,7 +6760,7 @@ doorcita:
                     txtafavor.Text = "0.00"
                     txtadeuda.Text = "0.00"
                     txtfechacad.Text = ""
-                    Label1.Visible = False
+                    Label12121.Visible = False
                     cboDomi.Visible = False
                     Label20.Visible = False
                     txtcredito.Visible = False

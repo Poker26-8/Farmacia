@@ -33,7 +33,7 @@ Public Class frmHisClinica
 
             cnn5.Close() : cnn5.Open()
             cmd5 = cnn5.CreateCommand
-            cmd5.CommandText = "SELECT DISTINCT Nombre FROM usuarios WHERE Nombre<>'' AND Puesto='MEDICO' ORDER BY Nombre"
+            cmd5.CommandText = "SELECT DISTINCT Nombre FROM usuarios WHERE Nombre<>'' AND Area='MEDICO' ORDER BY Nombre"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then
@@ -395,6 +395,7 @@ Public Class frmHisClinica
             Dim myexistencia As Double = 0
             Dim existencia As Double = 0
             Dim existencia2 As Double = 0
+            Dim kit As Integer = 0
 
             Dim MYSALDO As Double = 0
 
@@ -483,7 +484,7 @@ Public Class frmHisClinica
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,FVenta,HVenta,Fpago,Status,FEntrega,CodFactura,IP,Formato,Fecha) VALUES('" & txtId.Text & "','" & txtNombre.Text & "'," & SUBTOTAL & "," & IVATOTAL & "," & total & "," & acuenta & "," & resta & ",'','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & status & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & CodCadena & "','" & dameIP2() & "','TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+            cmd1.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,FVenta,HVenta,Fpago,Status,FEntrega,CodFactura,IP,Formato,Fecha) VALUES('" & txtId.Text & "','" & txtNombre.Text & "'," & SUBTOTAL & "," & IVATOTAL & "," & total & "," & acuenta & "," & resta & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & status & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & CodCadena & "','" & dameIP2() & "','TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
             cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
@@ -533,7 +534,7 @@ Public Class frmHisClinica
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & MyFolio & "," & txtId.Text & ",'" & txtNombre.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & total & ",0," & MYSALDO & ",'','','',0,'')"
+                cmd1.CommandText = "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & MyFolio & "," & txtId.Text & ",'" & txtNombre.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & total & ",0," & MYSALDO & ",'','','" & lblUsuario.Text & "',0,'')"
                 cmd1.ExecuteNonQuery()
 
                 MYSALDO = 0
@@ -551,7 +552,7 @@ Public Class frmHisClinica
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Abono,Saldo,FormaPago,Monto) VALUES(" & lblNumCita.Text & "," & txtId.Text & ",'" & txtNombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & acuenta & "'," & MYSALDO & ",'EFECTIVO'," & acuenta & ")"
+                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Abono,Saldo,FormaPago,Monto,Usuario) VALUES(" & lblNumCita.Text & "," & txtId.Text & ",'" & txtNombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & acuenta & "'," & MYSALDO & ",'EFECTIVO'," & acuenta & ",'" & lblUsuario.Text & "')"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 
@@ -571,7 +572,7 @@ Public Class frmHisClinica
                 Dim totalp As Double = grdCaptura.Rows(luffy).Cells(6).Value.ToString
 
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT UVenta,MCD,PrecioCompra,Departamento,Grupo,IVA,Multiplo,Existencia FROM productos WHERE Codigo='" & codigo & "'"
+                cmd2.CommandText = "SELECT UVenta,MCD,PrecioCompra,Departamento,Grupo,IVA,Multiplo,Existencia,ProvRes FROM productos WHERE Codigo='" & codigo & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -582,10 +583,13 @@ Public Class frmHisClinica
                         grupo = rd2("Grupo").ToString
                         exispro = rd2("Existencia").ToString
                         existencia = exispro / mymultiplo
-
-                        preciocompra = rd2("PrecioCompra").ToString
-                        MYCOSTVUE = preciocompra * (cantidad / mymcd)
                         IVAP = rd2("IVA").ToString
+                        kit = rd2("ProvRes").ToString
+
+                        If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
+                            preciocompra = rd2("PrecioCompra").ToString
+                            MYCOSTVUE = preciocompra * (cantidad / mymcd)
+                        End If
                     End If
                 End If
                 rd2.Close()
@@ -632,14 +636,14 @@ Public Class frmHisClinica
                     myexistencia = FormatNumber(existencia2 / mymultiplo, 2)
 
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
+                    cmd1.CommandText = "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
                     cmd1.ExecuteNonQuery()
                 Else
                     myexistencia = FormatNumber(CDec(existencia - cantidad) / CDec(mymultiplo), 2)
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
+                        "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
                     cmd1.ExecuteNonQuery()
                 End If
 
@@ -789,6 +793,19 @@ Public Class frmHisClinica
             e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
             e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 280, Y, sf)
             Y += 19
+
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("MÉDICO", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 15
+
+            e.Graphics.DrawString("Nombre: " & Mid(cboMedicos.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("Cedula: " & Mid(txtCedula.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
+            Y += 17
+
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
 
             '[2]. Datos del cliente
             If txtNombre.Text <> "" Then
@@ -961,5 +978,67 @@ Public Class frmHisClinica
         If AscW(e.KeyChar) = Keys.Enter Then
             txtPrecio.Focus.Equals(True)
         End If
+    End Sub
+
+    Private Sub cboMedicos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboMedicos.SelectedValueChanged
+        Try
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Cedula FROM usuarios WHERE Nombre='" & cboMedicos.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    txtCedula.Text = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            cnn1.Close()
+        End Try
+    End Sub
+
+    Private Sub txtcontraseña_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcontraseña.KeyPress
+        If AscW(e.KeyChar) = Keys.Enter Then
+            Try
+                cnn1.Close() : cnn1.Open()
+                cmd1 = cnn1.CreateCommand
+                cmd1.CommandText = "select Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                rd1 = cmd1.ExecuteReader
+                If rd1.HasRows Then
+                    If rd1.Read Then
+                        lblUsuario.Text = rd1("Alias").ToString
+                        btnGuardar.Focus().Equals(True)
+                    End If
+                End If
+                rd1.Close()
+                cnn1.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+                cnn1.Close()
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        If cboMedicos.Text <> "" Then
+            frmCitasD.lblMedicoC.Text = cboMedicos.Text
+            frmCitasD.lblClienteC.Text = txtNombre.Text
+
+            frmCitasD.BringToFront()
+            frmCitasD.Show()
+        End If
+
+    End Sub
+
+    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
+        frmPagarD.lblTotalP.Text = txtTotalP.Text
+        frmPagarD.lblCambio.Text = txtTotalP.Text
+        frmPagarD.lblCliente.Text = txtNombre.Text
+        frmPagarD.BringToFront()
+        frmPagarD.Show()
     End Sub
 End Class

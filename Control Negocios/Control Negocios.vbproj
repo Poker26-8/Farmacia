@@ -2145,6 +2145,12 @@
     <Compile Include="Formularios\34 Opticas\frmRegistros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmCitasD.Designer.vb">
+      <DependentUpon>frmCitasD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmCitasD.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\35 Dentistas\FrmDentistas.Designer.vb">
       <DependentUpon>FrmDentistas.vb</DependentUpon>
     </Compile>
@@ -2163,10 +2169,16 @@
     <Compile Include="Formularios\35 Dentistas\frmHisClinica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmProcedimientos.Designer.vb">
-      <DependentUpon>frmProcedimientos.vb</DependentUpon>
+    <Compile Include="Formularios\35 Dentistas\frmMedicosD.Designer.vb">
+      <DependentUpon>frmMedicosD.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\35 Dentistas\frmProcedimientos.vb">
+    <Compile Include="Formularios\35 Dentistas\frmMedicosD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmPagarD.Designer.vb">
+      <DependentUpon>frmPagarD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmPagarD.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.Designer.vb">
@@ -3202,6 +3214,9 @@
     <EmbeddedResource Include="Formularios\34 Opticas\frmRegistros.resx">
       <DependentUpon>frmRegistros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmCitasD.resx">
+      <DependentUpon>frmCitasD.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\FrmDentistas.resx">
       <DependentUpon>FrmDentistas.vb</DependentUpon>
     </EmbeddedResource>
@@ -3211,8 +3226,11 @@
     <EmbeddedResource Include="Formularios\35 Dentistas\frmHisClinica.resx">
       <DependentUpon>frmHisClinica.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\frmProcedimientos.resx">
-      <DependentUpon>frmProcedimientos.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmMedicosD.resx">
+      <DependentUpon>frmMedicosD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmPagarD.resx">
+      <DependentUpon>frmPagarD.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\FRMPRUEBAS2.resx">
       <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
