@@ -899,12 +899,14 @@ Public Class frmProductosS
                 Else
                     MsgBox("El codigo " & codigo & " y nombre" & nombre & " ya existe.", vbInformation + vbOKOnly, titulocentral)
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "UPDATE productos SET Existencia=" & existencia & " WHERE Codigo='" & codigo & "'"
-                    cmd1.ExecuteNonQuery()
-
                     If lote <> "" Then
+
                         Lote_Caducidad(codigo, existencia, caducidad, lote)
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "UPDATE productos SET Existencia = Existencia + " & existencia & " WHERE Codigo='" & codigo & "'"
+                        cmd1.ExecuteNonQuery()
+
                     End If
 
                     conteo += 1
