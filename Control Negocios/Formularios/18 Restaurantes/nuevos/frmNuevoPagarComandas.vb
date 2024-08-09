@@ -1951,7 +1951,7 @@ kakaxd:
 
             cnn3.Close() : cnn3.Open()
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "UPDATE hismesa SET Cerro='" & lblUsuario.Text & "', FCerrado='" & Format(Date.Now, "yyyy-MM-dd") & "',HCerrado='" & Format(Date.Now, "HH:mm:ss") & "',Status=1 WHERE Status=0 AND Mesa='" & cboMesa.Text & "'"
+            cmd3.CommandText = "UPDATE hismesa SET Cerro='" & lblUsuario.Text & "', FCerrado='" & Format(Date.Now, "yyyy-MM-dd") & "',HCerrado='" & Format(Date.Now, "HH:mm:ss") & "',FH='" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',Status=1 WHERE Status=0 AND Mesa='" & cboMesa.Text & "'"
             cmd3.ExecuteNonQuery()
 
             cmd3 = cnn3.CreateCommand

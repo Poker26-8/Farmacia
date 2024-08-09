@@ -2145,6 +2145,12 @@
     <Compile Include="Formularios\34 Opticas\frmRegistros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmCambio.Designer.vb">
+      <DependentUpon>frmCambio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\35 Dentistas\frmCambio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\35 Dentistas\frmCitasD.Designer.vb">
       <DependentUpon>frmCitasD.vb</DependentUpon>
     </Compile>
@@ -2179,12 +2185,6 @@
       <DependentUpon>frmPagarD.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\35 Dentistas\frmPagarD.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.Designer.vb">
-      <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\35 Dentistas\FRMPRUEBAS2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mods\Almacen.vb" />
@@ -3214,6 +3214,9 @@
     <EmbeddedResource Include="Formularios\34 Opticas\frmRegistros.resx">
       <DependentUpon>frmRegistros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\35 Dentistas\frmCambio.resx">
+      <DependentUpon>frmCambio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\frmCitasD.resx">
       <DependentUpon>frmCitasD.vb</DependentUpon>
     </EmbeddedResource>
@@ -3231,9 +3234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\35 Dentistas\frmPagarD.resx">
       <DependentUpon>frmPagarD.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\35 Dentistas\FRMPRUEBAS2.resx">
-      <DependentUpon>FRMPRUEBAS2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

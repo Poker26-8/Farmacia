@@ -2359,7 +2359,7 @@ deku:
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "INSERT INTO hismesa(Mesa,Mesero,Fabierto,HAbierto,FCerrado,HCerrado,Status) VALUES('" & lblmesa.Text & "','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','','',0)"
+        cmd1.CommandText = "INSERT INTO hismesa(Mesa,Mesero,Fabierto,HAbierto,FA,FCerrado,HCerrado,FH,Status) VALUES('" & lblmesa.Text & "','" & lblatiende.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "',0)"
         cmd1.ExecuteNonQuery()
 
         cmd1 = cnn1.CreateCommand

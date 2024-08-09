@@ -94,7 +94,7 @@ Public Class frmProducirQ
                                                     FormatNumber(precio_com, 2),
                                                     FormatNumber(cantidad * precio_com, 2),
                                                     FormatNumber(existencia / multiplo, 2),
-                                                    FormatNumber(TEORICO, 2),  'teorico
+                                                    FormatNumber(cantidad, 2),  'teorico
                                                     REAL, 'real
                                                     lote,
                                                     fcaducidad,
@@ -107,7 +107,7 @@ Public Class frmProducirQ
                                                     unidad,
                                                     FormatNumber(cantidad, 2),
                                                     FormatNumber(precio_com, 2),
-                                                    FormatNumber(TEORICO, 2), "", "",
+                                                    FormatNumber(cantidad, 2), "", "",
                                                     REAL, "", "",'teorico
                                                     lote,
                                                     fcaducidad,
@@ -187,7 +187,10 @@ Public Class frmProducirQ
                 Dim cantidad As Double = grdcaptura.Rows(d).Cells(3).Value.ToString
 
                 grdcaptura.Rows(d).Cells(3).Value = FormatNumber(cantidad * CDec(txtcantidad.Text), 4)
+                grdcaptura.Rows(d).Cells(7).Value = FormatNumber(cantidad * CDec(txtcantidad.Text), 4)
                 cantidad = grdcaptura.Rows(d).Cells(3).Value.ToString
+
+
                 total = cantidad * precio
                 grdcaptura.Rows(d).Cells(5).Value = FormatNumber(total, 2)
                 mytotal += total
@@ -1635,8 +1638,12 @@ Public Class frmProducirQ
                     Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
                     Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
 
+                    Dim pp As Double = 0
+
+                    pp = FormatNumber(CDec(cantidad) / 100, 2)
+
                     'Inserta en la tabla de miprod
-                    If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
+                    If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & pp & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
                         sinfo = ""
                     Else
                         MsgBox(sinfo)

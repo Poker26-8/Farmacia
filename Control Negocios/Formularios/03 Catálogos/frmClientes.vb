@@ -754,12 +754,12 @@ Public Class frmClientes
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT Nombre,RazonSocial,Tipo,RFC,Telefono1,Email,Credito,DiasCredito,Comisionista,SuspVent,Calle,Colonia,CP,Delegacion,Entidad,CPais,Regfis,CNumberInt,CNumberExt FROM Clientes ORDER BY Id"
+            cmd1.CommandText = "SELECT Id,Nombre,RazonSocial,Tipo,RFC,Telefono1,Email,Credito,DiasCredito,Comisionista,SuspVent,Calle,Colonia,CP,Delegacion,Entidad,CPais,Regfis,CNumberInt,CNumberExt FROM Clientes ORDER BY Id"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Do While rd1.Read
 
-                    ' idacc = rd1("Id").ToString
+                    idacc = rd1("Id").ToString
                     nombre = rd1("Nombre").ToString
                     razonsocial = rd1("RazonSocial").ToString
                     tipo = rd1("Tipo").ToString
@@ -792,7 +792,7 @@ Public Class frmClientes
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO clientes(Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor) VALUES('" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "'," & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & regfis & "','" & ninterior & "','" & nexterior & "',0,0,0)"
+                    cmd2.CommandText = "INSERT INTO clientes(Id,Nombre,RazonSocial,Tipo,RFC,Telefono,Correo,Credito,DiasCred,Comisionista,Suspender,Calle,Colonia,CP,Delegacion,Entidad,Pais,RegFis,NInterior,NExterior,CargadoAndroid,Cargado,SaldoFavor) VALUES(" & idacc & ",'" & nombre & "','" & razonsocial & "','" & tipo & "','" & rfc & "','" & telefono & "','" & correo & "'," & credito & "," & diascred & ",'" & comisionista & "'," & suspender & ",'" & calle & "','" & colonia & "','" & cp & "','" & delegacion & "','" & entidad & "','" & pais & "','" & regfis & "','" & ninterior & "','" & nexterior & "',0,0,0)"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
 

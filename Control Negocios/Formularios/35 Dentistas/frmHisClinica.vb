@@ -86,6 +86,7 @@ Public Class frmHisClinica
 
             If cboDescripcion.Text = "" Then Exit Sub
             If txtCodigo.Text = "" Then Exit Sub
+            If txtdiente.Text = "" Then Exit Sub
 
             Dim cantidad As Double = txtCantidad.Text
             Dim total As Double = 0
@@ -105,6 +106,9 @@ Public Class frmHisClinica
             txtCodigo.Text = ""
             cboDescripcion.Text = ""
             txtPrecio.Text = "0.00"
+
+            txtNotacion.Text = ""
+            txtdiente.Text = ""
 
             cboDescripcion.Focus.Equals(True)
         End If
@@ -399,93 +403,93 @@ Public Class frmHisClinica
 
             Dim MYSALDO As Double = 0
 
-            total = txtTotalP.Text
-            cambio = FormatNumber(txtCambio.Text, 2)
-            efectivo = txtEfectivo.Text
-            acuenta = FormatNumber(CDec(efectivo) - CDec(cambio), 2)
-            resta = txtResta.Text
+            'total = txtTotalP.Text
+            'cambio = FormatNumber(txtCambio.Text, 2)
+            'efectivo = txtEfectivo.Text
+            'acuenta = FormatNumber(CDec(efectivo) - CDec(cambio), 2)
+            'resta = txtResta.Text
 
             If MsgBox("¿Deseas guardar los datos de esta venta?", vbInformation + vbOKCancel, titulocentral) = vbCancel Then cnn1.Close() : Exit Sub
 
 
+            'cnn1.Close() : cnn1.Open()
+            'For luffy As Integer = 0 To grdCaptura.Rows.Count - 1
+
+            '    Dim cod As String = grdCaptura.Rows(luffy).Cells(2).Value.ToString
+            '    Dim tot As Double = grdCaptura.Rows(luffy).Cells(6).Value.ToString
+
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText = "SELECT IVA from  productos WHERE Codigo='" & cod & "'"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            If IVA > 0 Then
+            '                totiva = CDec(tot) / (1 + 0.16)
+            '                ivaporpro = CDec(tot) - CDec(totiva)
+            '                IVATOTAL = IVATOTAL + CDec(ivaporpro)
+
+            '            End If
+            '        End If
+            '    End If
+            '    rd1.Close()
+            'Next
+            'cnn1.Close()
+
+            'IVATOTAL = FormatNumber(IVATOTAL, 2)
+            'SUBTOTAL = FormatNumber(CDec(txtTotalP.Text) - CDec(IVATOTAL), 2)
+
+            'ope1 = Math.Cos(CDbl(lblNumCita.Text))
+            'If ope1 > 0 Then
+            '    cadena = Strings.Left(Replace(CStr(ope1), ".", "9"), 10)
+            'Else
+            '    cadena = Strings.Left(Replace(CStr(Math.Abs(ope1)), ".", "8"), 10)
+            'End If
+            'For i = 1 To 10
+            '    Car = Mid(cadena, i, 1)
+            '    Select Case Car
+            '        Case Is = 0
+            '            letters = letters & "Y"
+            '        Case Is = 1
+            '            letters = letters & "Z"
+            '        Case Is = 2
+            '            letters = letters & "W"
+            '        Case Is = 3
+            '            letters = letters & "H"
+            '        Case Is = 4
+            '            letters = letters & "S"
+            '        Case Is = 5
+            '            letters = letters & "B"
+            '        Case Is = 6
+            '            letters = letters & "C"
+            '        Case Is = 7
+            '            letters = letters & "P"
+            '        Case Is = 8
+            '            letters = letters & "Q"
+            '        Case Is = 9
+            '            letters = letters & "A"
+            '        Case Else
+            '            letters = letters & Car
+            '    End Select
+            'Next
+            'For w = 1 To 10 Step 2
+            '    Numeros = Mid(lblNumCita.Text, w, 4)
+            '    Letras = Mid(letters, w, 4)
+            '    lic = lic & Numeros & Letras & "-"
+            'Next
+            'lic = Strings.Left(lic, Len(lic) - 1)
+            'CodCadena = lic
+            'CodCadena = Trim(CodCadena)
+
+            'If txtResta.Text > 0 Then
+            '    status = "RESTA"
+            'Else
+            '    status = "PAGADO"
+            'End If
+
             cnn1.Close() : cnn1.Open()
-            For luffy As Integer = 0 To grdCaptura.Rows.Count - 1
-
-                Dim cod As String = grdCaptura.Rows(luffy).Cells(2).Value.ToString
-                Dim tot As Double = grdCaptura.Rows(luffy).Cells(6).Value.ToString
-
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT IVA from  productos WHERE Codigo='" & cod & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        If IVA > 0 Then
-                            totiva = CDec(tot) / (1 + 0.16)
-                            ivaporpro = CDec(tot) - CDec(totiva)
-                            IVATOTAL = IVATOTAL + CDec(ivaporpro)
-
-                        End If
-                    End If
-                End If
-                rd1.Close()
-            Next
-            cnn1.Close()
-
-            IVATOTAL = FormatNumber(IVATOTAL, 2)
-            SUBTOTAL = FormatNumber(CDec(txtTotalP.Text) - CDec(IVATOTAL), 2)
-
-            ope1 = Math.Cos(CDbl(lblNumCita.Text))
-            If ope1 > 0 Then
-                cadena = Strings.Left(Replace(CStr(ope1), ".", "9"), 10)
-            Else
-                cadena = Strings.Left(Replace(CStr(Math.Abs(ope1)), ".", "8"), 10)
-            End If
-            For i = 1 To 10
-                Car = Mid(cadena, i, 1)
-                Select Case Car
-                    Case Is = 0
-                        letters = letters & "Y"
-                    Case Is = 1
-                        letters = letters & "Z"
-                    Case Is = 2
-                        letters = letters & "W"
-                    Case Is = 3
-                        letters = letters & "H"
-                    Case Is = 4
-                        letters = letters & "S"
-                    Case Is = 5
-                        letters = letters & "B"
-                    Case Is = 6
-                        letters = letters & "C"
-                    Case Is = 7
-                        letters = letters & "P"
-                    Case Is = 8
-                        letters = letters & "Q"
-                    Case Is = 9
-                        letters = letters & "A"
-                    Case Else
-                        letters = letters & Car
-                End Select
-            Next
-            For w = 1 To 10 Step 2
-                Numeros = Mid(lblNumCita.Text, w, 4)
-                Letras = Mid(letters, w, 4)
-                lic = lic & Numeros & Letras & "-"
-            Next
-            lic = Strings.Left(lic, Len(lic) - 1)
-            CodCadena = lic
-            CodCadena = Trim(CodCadena)
-
-            If txtResta.Text > 0 Then
-                status = "RESTA"
-            Else
-                status = "PAGADO"
-            End If
-
-            cnn1.Close() : cnn1.Open()
-            cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,FVenta,HVenta,Fpago,Status,FEntrega,CodFactura,IP,Formato,Fecha) VALUES('" & txtId.Text & "','" & txtNombre.Text & "'," & SUBTOTAL & "," & IVATOTAL & "," & total & "," & acuenta & "," & resta & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & status & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & CodCadena & "','" & dameIP2() & "','TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
-            cmd1.ExecuteNonQuery()
+            'cmd1 = cnn1.CreateCommand
+            'cmd1.CommandText = "INSERT INTO ventas(IdCliente,Cliente,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,FVenta,HVenta,Fpago,Status,FEntrega,CodFactura,IP,Formato,Fecha) VALUES('" & txtId.Text & "','" & txtNombre.Text & "'," & SUBTOTAL & "," & IVATOTAL & "," & total & "," & acuenta & "," & resta & ",'" & lblUsuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & status & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & CodCadena & "','" & dameIP2() & "','TICKET','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
+            'cmd1.ExecuteNonQuery()
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText = "INSERT INTO hisclinicadental(Fecha,Hora,FechaC,Medico,IdCliente,Paciente,Edad,Sexo,Motivo,Total,ACuenta,Cambio,Resta) values('" & Format(Date.Now, "yyyy-MM-dd") & "','" & lblHora.Text & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & cboMedicos.Text & "'," & txtId.Text & ",'" & txtNombre.Text & "','" & txtEdad.Text & "','" & txtSexo.Text & "','" & motivo & "'," & total & "," & acuenta & "," & cambio & "," & resta & ")"
@@ -505,58 +509,58 @@ Public Class frmHisClinica
             End If
             rd2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT MAX(Folio) FROM ventas"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    lblNumCita.Text = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-                End If
-            Else
-                lblNumCita.Text = 1
-            End If
-            rd2.Close()
+            'cmd2 = cnn2.CreateCommand
+            'cmd2.CommandText = "SELECT MAX(Folio) FROM ventas"
+            'rd2 = cmd2.ExecuteReader
+            'If rd2.HasRows Then
+            '    If rd2.Read Then
+            '        lblNumCita.Text = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+            '    End If
+            'Else
+            '    lblNumCita.Text = 1
+            'End If
+            'rd2.Close()
             cnn2.Close()
 
-            If acuenta > 0 Then
+            'If acuenta > 0 Then
 
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & txtNombre.Text & "')"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MYSALDO = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) + txtTotalP.Text, 2)
-                    End If
-                Else
-                    MYSALDO = FormatNumber(txtTotalP.Text, 2)
-                End If
-                rd1.Close()
+            '    cnn1.Close() : cnn1.Open()
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & txtNombre.Text & "')"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            MYSALDO = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) + txtTotalP.Text, 2)
+            '        End If
+            '    Else
+            '        MYSALDO = FormatNumber(txtTotalP.Text, 2)
+            '    End If
+            '    rd1.Close()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & MyFolio & "," & txtId.Text & ",'" & txtNombre.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & total & ",0," & MYSALDO & ",'','','" & lblUsuario.Text & "',0,'')"
-                cmd1.ExecuteNonQuery()
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText = "insert into AbonoI(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Cargo,Abono,Saldo,Banco,Referencia,Usuario,MontoSF,Comentario) values(" & MyFolio & "," & txtId.Text & ",'" & txtNombre.Text & "','NOTA VENTA','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "'," & total & ",0," & MYSALDO & ",'','','" & lblUsuario.Text & "',0,'')"
+            '    cmd1.ExecuteNonQuery()
 
-                MYSALDO = 0
+            '    MYSALDO = 0
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & txtNombre.Text & "')"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        MYSALDO = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) - acuenta, 2)
-                    End If
-                Else
-                    MYSALDO = FormatNumber(txtTotalP.Text, 2)
-                End If
-                rd1.Close()
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText = "select Saldo from AbonoI where Id=(select MAX(Id) from AbonoI where Cliente='" & txtNombre.Text & "')"
+            '    rd1 = cmd1.ExecuteReader
+            '    If rd1.HasRows Then
+            '        If rd1.Read Then
+            '            MYSALDO = FormatNumber(IIf(rd1(0).ToString = "", 0, rd1(0).ToString) - acuenta, 2)
+            '        End If
+            '    Else
+            '        MYSALDO = FormatNumber(txtTotalP.Text, 2)
+            '    End If
+            '    rd1.Close()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Abono,Saldo,FormaPago,Monto,Usuario) VALUES(" & lblNumCita.Text & "," & txtId.Text & ",'" & txtNombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & acuenta & "'," & MYSALDO & ",'EFECTIVO'," & acuenta & ",'" & lblUsuario.Text & "')"
-                cmd1.ExecuteNonQuery()
-                cnn1.Close()
+            '    cmd1 = cnn1.CreateCommand
+            '    cmd1.CommandText = "INSERT INTO abonoi(NumFolio,IdCliente,Cliente,Concepto,Fecha,Hora,FechaCompleta,Abono,Saldo,FormaPago,Monto,Usuario) VALUES(" & lblNumCita.Text & "," & txtId.Text & ",'" & txtNombre.Text & "','ABONO','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & acuenta & "'," & MYSALDO & ",'EFECTIVO'," & acuenta & ",'" & lblUsuario.Text & "')"
+            '    cmd1.ExecuteNonQuery()
+            '    cnn1.Close()
 
-            End If
+            'End If
 
 
             cnn2.Close() : cnn2.Open()
@@ -571,102 +575,102 @@ Public Class frmHisClinica
                 Dim precio As Double = grdCaptura.Rows(luffy).Cells(5).Value.ToString
                 Dim totalp As Double = grdCaptura.Rows(luffy).Cells(6).Value.ToString
 
-                cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT UVenta,MCD,PrecioCompra,Departamento,Grupo,IVA,Multiplo,Existencia,ProvRes FROM productos WHERE Codigo='" & codigo & "'"
-                rd2 = cmd2.ExecuteReader
-                If rd2.HasRows Then
-                    If rd2.Read Then
-                        uventa = rd2("UVenta").ToString
-                        mymcd = rd2("MCD").ToString
-                        mymultiplo = rd2("Multiplo").ToString
-                        depto = rd2("Departamento").ToString
-                        grupo = rd2("Grupo").ToString
-                        exispro = rd2("Existencia").ToString
-                        existencia = exispro / mymultiplo
-                        IVAP = rd2("IVA").ToString
-                        kit = rd2("ProvRes").ToString
+                'cmd2 = cnn2.CreateCommand
+                'cmd2.CommandText = "SELECT UVenta,MCD,PrecioCompra,Departamento,Grupo,IVA,Multiplo,Existencia,ProvRes FROM productos WHERE Codigo='" & codigo & "'"
+                'rd2 = cmd2.ExecuteReader
+                'If rd2.HasRows Then
+                '    If rd2.Read Then
+                '        uventa = rd2("UVenta").ToString
+                '        mymcd = rd2("MCD").ToString
+                '        mymultiplo = rd2("Multiplo").ToString
+                '        depto = rd2("Departamento").ToString
+                '        grupo = rd2("Grupo").ToString
+                '        exispro = rd2("Existencia").ToString
+                '        existencia = exispro / mymultiplo
+                '        IVAP = rd2("IVA").ToString
+                '        kit = rd2("ProvRes").ToString
 
-                        If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
-                            preciocompra = rd2("PrecioCompra").ToString
-                            MYCOSTVUE = preciocompra * (cantidad / mymcd)
-                        End If
-                    End If
-                End If
-                rd2.Close()
+                '        If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
+                '            preciocompra = rd2("PrecioCompra").ToString
+                '            MYCOSTVUE = preciocompra * (cantidad / mymcd)
+                '        End If
+                '    End If
+                'End If
+                'rd2.Close()
 
-                If IVAP > 0 Then
-                    PrecioSiniVA = precio / (1 + IVAP)
-                    TotalSinIVA = totalp / (1 + IVAP)
-                Else
-                    PrecioSiniVA = precio
-                    TotalSinIVA = totalp
-                End If
+                'If IVAP > 0 Then
+                '    PrecioSiniVA = precio / (1 + IVAP)
+                '    TotalSinIVA = totalp / (1 + IVAP)
+                'Else
+                '    PrecioSiniVA = precio
+                '    TotalSinIVA = totalp
+                'End If
 
-                cnn1.Close() : cnn1.Open()
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVUE,Precio,Total,PrecioSinIVA,TotalSiniVA,Fecha,FechaCompleta,Depto,Grupo) VALUES(" & lblNumCita.Text & ",'" & codigo & "','" & descripcion & "','" & uventa & "'," & cantidad & "," & MYCOSTVUE & "," & precio & "," & totalp & "," & PrecioSiniVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & depto & "','" & grupo & "')"
-                cmd1.ExecuteNonQuery()
+                'cnn1.Close() : cnn1.Open()
+                'cmd1 = cnn1.CreateCommand
+                'cmd1.CommandText = "INSERT INTO ventasdetalle(Folio,Codigo,Nombre,Unidad,Cantidad,CostoVUE,Precio,Total,PrecioSinIVA,TotalSiniVA,Fecha,FechaCompleta,Depto,Grupo) VALUES(" & lblNumCita.Text & ",'" & codigo & "','" & descripcion & "','" & uventa & "'," & cantidad & "," & MYCOSTVUE & "," & precio & "," & totalp & "," & PrecioSiniVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & depto & "','" & grupo & "')"
+                'cmd1.ExecuteNonQuery()
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText = "INSERT INTO hisclinicadentaldet(Folio,Notacion,Diente,Codigo,Descripcion,Cantidad,Precio,Total,Fecha) VALUES(" & folio & ",'" & notacion & "','" & diente & "','" & codigo & "','" & descripcion & "'," & cantidad & "," & precio & "," & totalp & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "')"
                 cmd1.ExecuteNonQuery()
 
-                Dim nuevaexistencia As Double = 0
-                If mymultiplo > 1 And mymcd > 1 Then
-                    nuevaexistencia = FormatNumber(CDec(cantidad) * CDec(mymultiplo), 2)
-                Else
-                    nuevaexistencia = FormatNumber(CDec(cantidad) * CDec(mymultiplo), 2)
-                End If
+                'Dim nuevaexistencia As Double = 0
+                'If mymultiplo > 1 And mymcd > 1 Then
+                '    nuevaexistencia = FormatNumber(CDec(cantidad) * CDec(mymultiplo), 2)
+                'Else
+                '    nuevaexistencia = FormatNumber(CDec(cantidad) * CDec(mymultiplo), 2)
+                'End If
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "UPDATE Productos SET CargadoInv=0, Cargado=0, Existencia=Existencia - " & nuevaexistencia & " WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
-                cmd1.ExecuteNonQuery()
+                'cmd1 = cnn1.CreateCommand
+                'cmd1.CommandText = "UPDATE Productos SET CargadoInv=0, Cargado=0, Existencia=Existencia - " & nuevaexistencia & " WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
+                'cmd1.ExecuteNonQuery()
 
-                cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT Existencia FROM Productos WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
-                rd1 = cmd1.ExecuteReader
-                If rd1.HasRows Then
-                    If rd1.Read Then
-                        existencia2 = rd1(0).ToString
-                    End If
-                End If
-                rd1.Close()
+                'cmd1 = cnn1.CreateCommand
+                'cmd1.CommandText = "SELECT Existencia FROM Productos WHERE Codigo='" & Strings.Left(codigo, 6) & "'"
+                'rd1 = cmd1.ExecuteReader
+                'If rd1.HasRows Then
+                '    If rd1.Read Then
+                '        existencia2 = rd1(0).ToString
+                '    End If
+                'End If
+                'rd1.Close()
 
-                If Len(codigo) = 6 Then
-                    myexistencia = FormatNumber(existencia2 / mymultiplo, 2)
+                'If Len(codigo) = 6 Then
+                '    myexistencia = FormatNumber(existencia2 / mymultiplo, 2)
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
-                    cmd1.ExecuteNonQuery()
-                Else
-                    myexistencia = FormatNumber(CDec(existencia - cantidad) / CDec(mymultiplo), 2)
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText = "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
+                '    cmd1.ExecuteNonQuery()
+                'Else
+                '    myexistencia = FormatNumber(CDec(existencia - cantidad) / CDec(mymultiplo), 2)
 
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
-                    cmd1.ExecuteNonQuery()
-                End If
+                '    cmd1 = cnn1.CreateCommand
+                '    cmd1.CommandText =
+                '        "insert into Cardex(Codigo,Nombre,Movimiento,Inicial,Cantidad,Final,Precio,Fecha,Usuario,Folio,Tipo,Cedula,Receta,Medico,Domicilio) values('" & codigo & "','" & descripcion & "','Venta'," & existencia & "," & cantidad & "," & myexistencia & "," & precio & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblUsuario.Text & "','" & MyFolio & "','','','','" & cboMedicos.Text & "','')"
+                '    cmd1.ExecuteNonQuery()
+                'End If
 
             Next
             cnn1.Close()
             cnn2.Close()
 
-            Dim tamticket As Integer = TamImpre()
-            Dim tampapel As String = TraerFormatoImpresion()
-            Dim IMPRESORA As String = ImpresoraImprimir()
+            'Dim tamticket As Integer = TamImpre()
+            'Dim tampapel As String = TraerFormatoImpresion()
+            'Dim IMPRESORA As String = ImpresoraImprimir()
 
-            If tampapel = "TICKET" Then
-                If TamImpre() = "80" Then
-                    PDentista80.DefaultPageSettings.PrinterSettings.PrinterName = IMPRESORA
-                    PDentista80.Print()
-                End If
+            'If tampapel = "TICKET" Then
+            '    If TamImpre() = "80" Then
+            '        PDentista80.DefaultPageSettings.PrinterSettings.PrinterName = IMPRESORA
+            '        PDentista80.Print()
+            '    End If
 
-                If TamImpre() = "58" Then
-                    pDentista58.DefaultPageSettings.PrinterSettings.PrinterName = IMPRESORA
-                    pDentista58.Print()
-                End If
+            '    If TamImpre() = "58" Then
+            '        pDentista58.DefaultPageSettings.PrinterSettings.PrinterName = IMPRESORA
+            '        pDentista58.Print()
+            '    End If
 
-            End If
+            'End If
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -797,15 +801,14 @@ Public Class frmHisClinica
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
             e.Graphics.DrawString("MÉDICO", New Drawing.Font(tipografia, 18, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 15
+            Y += 17
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
 
             e.Graphics.DrawString("Nombre: " & Mid(cboMedicos.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
             Y += 15
             e.Graphics.DrawString("Cedula: " & Mid(txtCedula.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
             Y += 17
-
-            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
-            Y += 18
 
             '[2]. Datos del cliente
             If txtNombre.Text <> "" Then
@@ -816,12 +819,24 @@ Public Class frmHisClinica
                 e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
                 Y += 15
 
-                e.Graphics.DrawString("Nombre: " & Mid(txtNombre.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
-                Y += 15
+                Dim caracteresPorLinea11 As Integer = 36
+                Dim texto11 As String = txtNombre.Text
+                Dim inicio11 As Integer = 0
+                Dim longitudTexto11 As Integer = texto11.Length
+
+                While inicio11 < longitudTexto11
+                    Dim longitudBloque11 As Integer = Math.Min(caracteresPorLinea11, longitudTexto11 - inicio11)
+                    Dim bloque11 As String = texto11.Substring(inicio11, longitudBloque11)
+                    e.Graphics.DrawString(bloque11, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio11 += caracteresPorLinea11
+                End While
+
+
             End If
 
             e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
-            Y += 11
+            Y += 15
             e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
             e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 195, Y, sf)
             e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 240, Y)
@@ -889,20 +904,20 @@ Public Class frmHisClinica
             e.Graphics.DrawString(convLetras(txtTotalP.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
             Y += 18
 
-            If CDbl(txtEfectivo.Text) > 0 Then
+            If CDbl(frmPagarD.efectivo) > 0 Then
                 e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtEfectivo.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(frmPagarD.efectivo, 2), fuente_prods, Brushes.Black, 170, Y)
                 Y += 20
             End If
-            If CDbl(txtCambio.Text) > 0 Then
+            If CDbl(frmPagarD.cambio) > 0 Then
                 e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(frmPagarD.cambio, 2), fuente_prods, Brushes.Black, 170, Y)
                 Y += 20
             End If
 
-            If CDbl(txtResta.Text) > 0 Then
+            If CDbl(frmPagarD.resta) > 0 Then
                 e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
-                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(frmPagarD.resta, 2), fuente_prods, Brushes.Black, 170, Y)
                 Y += 20
             End If
 

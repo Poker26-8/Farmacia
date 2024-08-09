@@ -64,16 +64,18 @@
                                         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
     'hismesass
     Public vartablahismesas As String = "CREATE TABLE `hismesa` (
-                                                  `Id` int(11) NOT NULL,
-                                                  `Mesa` varchar(100) DEFAULT '',
-                                                  `Mesero` varchar(100) DEFAULT '',
-                                                  `Cerro` varchar(100) DEFAULT '',
-                                                  `FAbierto` varchar(50) DEFAULT '',
-                                                  `HAbierto` time DEFAULT NULL,
-                                                  `FCerrado` varchar(50) DEFAULT '',
-                                                  `HCerrado` time DEFAULT NULL,
-                                                  `Status` int(11) DEFAULT '0'
-                                                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+                                          `Id` int(11) NOT NULL,
+                                          `Mesa` varchar(100) DEFAULT '',
+                                          `Mesero` varchar(100) DEFAULT '',
+                                          `Cerro` varchar(100) DEFAULT '',
+                                          `FAbierto` varchar(50) DEFAULT '',
+                                          `HAbierto` time DEFAULT NULL,
+                                          `FA` datetime DEFAULT NULL,
+                                          `FCerrado` varchar(50) DEFAULT '',
+                                          `HCerrado` time DEFAULT NULL,
+                                          `FH` datetime DEFAULT NULL,
+                                          `Status` int(11) DEFAULT '0'
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 
     'precios
     Public vartablaprecios As String = "CREATE TABLE IF NOT EXISTS `precios` (

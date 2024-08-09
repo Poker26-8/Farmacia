@@ -312,7 +312,7 @@ Partial Class frmPagarD
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 379)
+        Me.Panel1.Location = New System.Drawing.Point(0, 456)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(484, 69)
         Me.Panel1.TabIndex = 21
@@ -386,7 +386,7 @@ Partial Class frmPagarD
         Me.pCredito.Controls.Add(Me.Label2)
         Me.pCredito.Controls.Add(Me.Button3)
         Me.pCredito.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pCredito.Location = New System.Drawing.Point(0, 317)
+        Me.pCredito.Location = New System.Drawing.Point(0, 394)
         Me.pCredito.Name = "pCredito"
         Me.pCredito.Size = New System.Drawing.Size(484, 62)
         Me.pCredito.TabIndex = 25
@@ -498,7 +498,7 @@ Partial Class frmPagarD
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(484, 448)
+        Me.ClientSize = New System.Drawing.Size(484, 525)
         Me.Controls.Add(Me.pCredito)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
