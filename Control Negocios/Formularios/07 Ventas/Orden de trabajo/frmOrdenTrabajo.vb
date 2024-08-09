@@ -348,7 +348,7 @@
                 txtPrecioP.Text = "0.00"
                 txttotalP.Text = "0.00"
             End If
-            SumaTotal()
+            SumaTotal2()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             cnn1.Close()
