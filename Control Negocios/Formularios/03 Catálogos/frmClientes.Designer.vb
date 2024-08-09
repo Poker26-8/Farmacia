@@ -53,7 +53,6 @@ Partial Class frmClientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtnexterior = New System.Windows.Forms.TextBox()
-        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtninterior = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -68,6 +67,7 @@ Partial Class frmClientes
         Me.txtColonia = New System.Windows.Forms.TextBox()
         Me.txtCalle = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.barsube = New System.Windows.Forms.ProgressBar()
         Me.txtId = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.cboregimen = New System.Windows.Forms.ComboBox()
@@ -408,13 +408,6 @@ Partial Class frmClientes
         Me.txtnexterior.Size = New System.Drawing.Size(174, 23)
         Me.txtnexterior.TabIndex = 43
         '
-        'barsube
-        '
-        Me.barsube.Location = New System.Drawing.Point(247, 224)
-        Me.barsube.Name = "barsube"
-        Me.barsube.Size = New System.Drawing.Size(66, 14)
-        Me.barsube.TabIndex = 221
-        '
         'Label19
         '
         Me.Label19.AutoSize = True
@@ -548,6 +541,13 @@ Partial Class frmClientes
         Me.Label12.TabIndex = 29
         Me.Label12.Text = "Calle:"
         '
+        'barsube
+        '
+        Me.barsube.Location = New System.Drawing.Point(247, 224)
+        Me.barsube.Name = "barsube"
+        Me.barsube.Size = New System.Drawing.Size(66, 14)
+        Me.barsube.TabIndex = 221
+        '
         'txtId
         '
         Me.txtId.BackColor = System.Drawing.Color.White
@@ -602,6 +602,7 @@ Partial Class frmClientes
         Me.btnmigra.Text = "Migración"
         Me.btnmigra.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnmigra.UseVisualStyleBackColor = True
+        Me.btnmigra.Visible = False
         '
         'Button1
         '
