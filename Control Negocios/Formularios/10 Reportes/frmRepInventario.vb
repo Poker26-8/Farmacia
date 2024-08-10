@@ -2587,8 +2587,8 @@ quepaso_wey:
             Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
             Dim conteo As Integer = 0
 
-            barCarga.Value = 0
-            barCarga.Maximum = DataGridView1.Rows.Count
+            '  barCarga.Value = 0
+            ' barCarga.Maximum = DataGridView1.Rows.Count
 
             cnn1.Close() : cnn1.Open()
             Dim contadorconexion As Integer = 0
@@ -2635,17 +2635,17 @@ quepaso_wey:
                     rd1.Close()
                 Else
                     conteo += 1
-                    barCarga.Value = conteo
+                    ' barCarga.Value = conteo
                     Continue For
                 End If
                 conteo += 1
-                barCarga.Value = conteo
+                '   barCarga.Value = conteo
             Next
             cnn1.Close()
-            tabla.DataSource = Nothing
-            tabla.Dispose()
+            '  tabla.DataSource = Nothing
+            '  tabla.Dispose()
             DataGridView1.Rows.Clear()
-            barCarga.Value = 0
+            '  barCarga.Value = 0
 
             MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         Catch ex As Exception

@@ -554,13 +554,13 @@ Public Class frmMesas
 
         If simesaspropianm = 1 Then
             If simesaspropusuarionm = 1 Then
-                cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa WHERE ubicacion='" & nombreubicacion & "'"
+                cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa WHERE ubicacion='" & nombreubicacion & "' AND IdEmpleado=" & idempleado & ""
             Else
 
                 If tomacontralog = 1 Then
 
 
-                    cmd3.CommandText = "SELECT COUNT(Mesa) FROM Mesasxempleados INNER JOIN mesa ON Mesasxempleados.IdMesa=mesa.IdMesa WHERE IdEmpleado=" & id_usu_log & " AND mesa.Ubicacion='" & nombreubicacion & "'"
+                    cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa ON Mesasxempleados.IdMesa=mesa.IdMesa WHERE Mesasxempleados.IdEmpleado=" & idempleado & " AND mesa.Ubicacion='" & nombreubicacion & "'"
                 Else
                     If esadmin = 1 Then
                         cmd3.CommandText = "SELECT COUNT(Mesasxempleados.Mesa) FROM Mesasxempleados INNER JOIN mesa on Mesasxempleados.IdMesa=mesa.IdMesa  WHERE mesa.Ubicacion='" & nombreubicacion & "'"
@@ -642,7 +642,7 @@ Public Class frmMesas
                 If simesaspropusuarionm = 0 Then
 
                     If tomacontralog = "1" Then
-                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
+                        cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                     Else
                         cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & idempleado & " AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
                     End If

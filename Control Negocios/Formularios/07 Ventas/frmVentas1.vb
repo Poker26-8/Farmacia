@@ -6388,7 +6388,6 @@ Door:
             System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
         End If
     End Sub
-
     Public Sub PDF_Cotizacion_Img()
         Dim root_name_recibo As String = ""
         Dim FileOpen As New ProcessStartInfo
@@ -7869,6 +7868,26 @@ kakaxd:
                 Dim descuentotal As Double = 0
                 Dim MyIVA As Double = 0
 
+                Dim existe As Double = 0
+
+                Dim Unico As Boolean = False
+                Dim MyMCD As Double = 0
+                Dim MyMulti2 As Double = 0
+                Dim MyMultiplo As Double = 0
+                Dim MyDepto As String = ""
+                Dim MyGrupo As String = ""
+                Dim Kit As Boolean = False
+                Dim Existencia As Double = 0
+                Dim Pre_Comp As Double = 0
+
+                Dim MyCostVUE As Double = 0
+                Dim MyProm As Double = 0
+
+                Dim myprecioS As Double = 0
+                Dim mytotalS As Double = 0
+
+                Dim gprint As String = ""
+
                 mycode = grdcaptura.Rows(R).Cells(0).Value.ToString
                 mydesc = grdcaptura.Rows(R).Cells(1).Value.ToString
                 myunid = grdcaptura.Rows(R).Cells(2).Value.ToString
@@ -7876,22 +7895,59 @@ kakaxd:
                 If ordetrabajo = 0 Then
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select IVA from Productos where Codigo='" & mycode & "'"
+                        "select p1.Departamento, p1.Grupo, p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.PrecioCompra FROM Productos p1 LEFT JOIN Productos p2 ON p2.Codigo = LEFT(p1.Codigo, 6) WHERE p1.Codigo = '" & mycode & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MyIVA = rd1(0).ToString
+                            MyCostVUE = 0
+                            MyProm = 0
+                            MyDepto = rd1("Departamento").ToString()
+                            MyGrupo = rd1("Grupo").ToString()
+                            Kit = rd1("ProvRes").ToString()
+                            MyMCD = rd1("MCD").ToString()
+                            MyMulti2 = rd1("Multiplo").ToString()
+                            Unico = rd1("Unico").ToString()
+                            gprint = rd1("GPrint").ToString
+                            MyIVA = rd1("IVA").ToString
+                            If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
+                                rd1.Close()
+                            Else
+                                existe = rd1("Existencia").ToString()
+                                MyMultiplo = rd1("Multiplo").ToString()
+                                Existencia = existe / MyMultiplo
+                                Pre_Comp = rd1("PrecioCompra").ToString()
+                                MyCostVUE = Pre_Comp * (mycant / MyMCD)
+                            End If
+
                         End If
                     End If
                     rd1.Close()
                 Else
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select IVA from OrdenTrabajo where Codigo='" & mycode & "'"
+                        "select p1.Departamento, p1.Grupo, p1.ProvRes, p1.MCD, p1.Multiplo, p1.Unico, p1.GPrint, p1.IVA, p2.Existencia, p2.Multiplo, p2.PrecioCompra  from OrdenTrabajo p1 LEFT JOIN OrdenTrabajo p2 ON p2.Codigo = LEFT(p1.Codigo, 6) where p1.Codigo='" & mycode & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            MyIVA = rd1(0).ToString
+                            MyCostVUE = 0
+                            MyProm = 0
+                            MyDepto = rd1("Departamento").ToString()
+                            MyGrupo = rd1("Grupo").ToString()
+                            Kit = rd1("ProvRes").ToString()
+                            MyMCD = rd1("MCD").ToString()
+                            MyMulti2 = rd1("Multiplo").ToString()
+                            Unico = rd1("Unico").ToString()
+                            gprint = rd1("GPrint").ToString
+                            MyIVA = rd1("IVA").ToString
+                            If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
+                                rd1.Close()
+                            Else
+                                existe = rd1("Existencia").ToString()
+                                MyMultiplo = rd1("Multiplo").ToString()
+                                Existencia = existe / MyMultiplo
+                                Pre_Comp = rd1("PrecioCompra").ToString()
+                                MyCostVUE = Pre_Comp * (mycant / MyMCD)
+                            End If
                         End If
                     End If
                     rd1.Close()
@@ -7937,33 +7993,11 @@ kakaxd:
                     monedero = 0
                 End If
 
-                Dim Unico As Boolean = False
-                Dim MyMCD As Double = 0
-                Dim MyMulti2 As Double = 0
-                Dim MyMultiplo As Double = 0
-                Dim MyDepto As String = ""
-                Dim MyGrupo As String = ""
-                Dim Kit As Boolean = False
-                Dim Existencia As Double = 0
-                Dim Pre_Comp As Double = 0
-
-                Dim MyCostVUE As Double = 0
-                Dim MyProm As Double = 0
-
-                Dim myprecioS As Double = 0
-                Dim mytotalS As Double = 0
-
-
-
-                Dim gprint As String = ""
                 If ordetrabajo = 0 Then
                     TotalIEPSPrint = TotalIEPSPrint + CDbl(IIf(grdcaptura.Rows(R).Cells(10).Value.ToString = "", 0, grdcaptura.Rows(R).Cells(10).Value.ToString))
                 Else
                     TotalIEPSPrint = TotalIEPSPrint
                 End If
-
-
-
 
                 ' myprecioS = FormatNumber(myprecio / (1 + MyIVA) - DsctoProd, 6)
                 myprecioS = FormatNumber(mypreciodescuento / (1 + MyIVA), 6)
@@ -7971,90 +8005,6 @@ kakaxd:
                 myprecioS = FormatNumber(myprecioS, 6)
                 mytotalS = FormatNumber(mytotalS, 6)
 
-                If ordetrabajo = 0 Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint,Departamento from Productos where Codigo='" & mycode & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            MyCostVUE = 0
-                            MyProm = 0
-                            MyDepto = rd1("Departamento").ToString()
-                            MyGrupo = rd1("Grupo").ToString()
-                            Kit = rd1("ProvRes").ToString()
-                            MyMCD = rd1("MCD").ToString()
-                            MyMulti2 = rd1("Multiplo").ToString()
-                            Unico = rd1("Unico").ToString()
-                            gprint = rd1("GPrint").ToString
-                            If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
-                                rd1.Close()
-                                GoTo Door
-                            End If
-                        End If
-                    End If
-                    rd1.Close()
-                Else
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint,Departamento from OrdenTrabajo where Codigo='" & mycode & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            MyCostVUE = 0
-                            MyProm = 0
-                            MyDepto = rd1("Departamento").ToString()
-                            MyGrupo = rd1("Grupo").ToString()
-                            Kit = rd1("ProvRes").ToString()
-                            MyMCD = rd1("MCD").ToString()
-                            MyMulti2 = rd1("Multiplo").ToString()
-                            Unico = rd1("Unico").ToString()
-                            gprint = rd1("GPrint").ToString
-                            If CStr(rd1("Departamento").ToString()) = "SERVICIOS" Then
-                                rd1.Close()
-                                GoTo Door
-                            End If
-                        End If
-                    End If
-                    rd1.Close()
-                End If
-                Dim existe As Double = 0
-
-                If ordetrabajo = 0 Then
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Existencia,Multiplo,Departamento,PrecioCompra from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            existe = rd1("Existencia").ToString()
-                            MyMultiplo = rd1("Multiplo").ToString()
-                            Existencia = existe / MyMultiplo
-                            If rd1("Departamento").ToString() <> "SERVICIOS" Then
-                                Pre_Comp = rd1("PrecioCompra").ToString()
-                                MyCostVUE = Pre_Comp * (mycant / MyMCD)
-                            End If
-                        End If
-                    End If
-                    rd1.Close()
-                Else
-                    cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText =
-                        "select Existencia,Multiplo,Departamento,PrecioCompra from OrdenTrabajo where Codigo='" & Strings.Left(mycode, 6) & "'"
-                    rd1 = cmd1.ExecuteReader
-                    If rd1.HasRows Then
-                        If rd1.Read Then
-                            existe = rd1("Existencia").ToString()
-                            MyMultiplo = rd1("Multiplo").ToString()
-                            Existencia = existe / MyMultiplo
-                            If rd1("Departamento").ToString() <> "SERVICIOS" Then
-                                Pre_Comp = rd1("PrecioCompra").ToString()
-                                MyCostVUE = Pre_Comp * (mycant / MyMCD)
-                            End If
-                        End If
-                    End If
-                    rd1.Close()
-                End If
 Door:
                 If grdcaptura.Rows(R).Cells(0).Value.ToString() <> "" Then
                     Dim mycodd As String = mycode
@@ -10272,7 +10222,8 @@ ecomoda:
                 If lote = "" Then
                 Else
                     e.Graphics.DrawString("Lote: " & lote, fuente_prods, Brushes.Black, 1, Y)
-                    e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 270, Y, sf)
+                    Y += 17
+                    e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 1, Y)
                 End If
                 Y += 6
                 If codigo = "RECARG" Then
