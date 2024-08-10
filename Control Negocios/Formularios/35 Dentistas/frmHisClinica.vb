@@ -1062,4 +1062,13 @@ Public Class frmHisClinica
         frmPagarD.BringToFront()
         frmPagarD.Show()
     End Sub
+
+    Private Sub btnIncapacidad_Click(sender As Object, e As EventArgs) Handles btnIncapacidad.Click
+        frmRepCitas.BringToFront()
+        frmRepCitas.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
+    End Sub
 End Class

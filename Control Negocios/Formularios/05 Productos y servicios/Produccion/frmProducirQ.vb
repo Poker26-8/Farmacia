@@ -1638,8 +1638,6 @@ Public Class frmProducirQ
                     Dim lote As String = grdcaptura.Rows(luffy).Cells(9).Value.ToString
                     Dim fase As String = grdcaptura.Rows(luffy).Cells(11).Value.ToString
 
-
-
                     'Inserta en la tabla de miprod
                     If .runSp(a_cnn, "INSERT INTO miprod(CodigoP,DescripP,UVentaP,CantidadP,Codigo,Descrip,UVenta,Cantidad,Precio,Lote,Fase,Teorico,RealT) VALUES('" & cbocodigo.Text & "','" & cbonombre.Text & "','" & txtunidad.Text & "'," & txtcantidad.Text & ",'" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & "," & precio & ",'" & lote & "','" & fase & "'," & teorico & ",'" & real & "')", sinfo) Then
                         sinfo = ""

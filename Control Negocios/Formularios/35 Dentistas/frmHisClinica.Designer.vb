@@ -26,6 +26,8 @@ Partial Class frmHisClinica
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHisClinica))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtcontraseña = New System.Windows.Forms.TextBox()
+        Me.lblUsuario = New System.Windows.Forms.Label()
         Me.lblHora = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
@@ -36,6 +38,14 @@ Partial Class frmHisClinica
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCodigo = New System.Windows.Forms.ComboBox()
+        Me.grdCaptura = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtResta = New System.Windows.Forms.TextBox()
@@ -46,21 +56,19 @@ Partial Class frmHisClinica
         Me.txtEfectivo = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnIncapacidad = New System.Windows.Forms.Button()
-        Me.grdCaptura = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cboDescripcion = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.txtCedula = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.cboMedicos = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -77,16 +85,11 @@ Partial Class frmHisClinica
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.btnMotivo = New System.Windows.Forms.Button()
         Me.gbxMotivo = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.rbMotivo = New System.Windows.Forms.RichTextBox()
         Me.PDentista80 = New System.Drawing.Printing.PrintDocument()
         Me.pDentista58 = New System.Drawing.Printing.PrintDocument()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.txtcontraseña = New System.Windows.Forms.TextBox()
-        Me.lblUsuario = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.txtCedula = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.btnd32 = New System.Windows.Forms.Button()
         Me.btnd31 = New System.Windows.Forms.Button()
         Me.btnd30 = New System.Windows.Forms.Button()
@@ -119,15 +122,13 @@ Partial Class frmHisClinica
         Me.btnd2 = New System.Windows.Forms.Button()
         Me.btnd17 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btnPagar = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnd1 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.gbxMotivo.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,6 +158,30 @@ Partial Class frmHisClinica
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(902, 61)
         Me.Panel1.TabIndex = 84
+        '
+        'txtcontraseña
+        '
+        Me.txtcontraseña.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtcontraseña.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcontraseña.ForeColor = System.Drawing.Color.Gray
+        Me.txtcontraseña.Location = New System.Drawing.Point(787, 4)
+        Me.txtcontraseña.Name = "txtcontraseña"
+        Me.txtcontraseña.Size = New System.Drawing.Size(112, 25)
+        Me.txtcontraseña.TabIndex = 13
+        Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtcontraseña.UseSystemPasswordChar = True
+        '
+        'lblUsuario
+        '
+        Me.lblUsuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblUsuario.BackColor = System.Drawing.Color.Navy
+        Me.lblUsuario.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsuario.ForeColor = System.Drawing.Color.White
+        Me.lblUsuario.Location = New System.Drawing.Point(787, 32)
+        Me.lblUsuario.Name = "lblUsuario"
+        Me.lblUsuario.Size = New System.Drawing.Size(112, 25)
+        Me.lblUsuario.TabIndex = 155
+        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblHora
         '
@@ -265,6 +290,76 @@ Partial Class frmHisClinica
         Me.txtCodigo.Size = New System.Drawing.Size(95, 21)
         Me.txtCodigo.TabIndex = 33
         '
+        'grdCaptura
+        '
+        Me.grdCaptura.AllowUserToAddRows = False
+        Me.grdCaptura.AllowUserToDeleteRows = False
+        Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
+        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
+        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grdCaptura.Location = New System.Drawing.Point(0, 64)
+        Me.grdCaptura.Name = "grdCaptura"
+        Me.grdCaptura.ReadOnly = True
+        Me.grdCaptura.RowHeadersVisible = False
+        Me.grdCaptura.Size = New System.Drawing.Size(808, 208)
+        Me.grdCaptura.TabIndex = 22
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column1.HeaderText = "N° Diente"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 78
+        '
+        'Column2
+        '
+        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column2.HeaderText = "Diente"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 63
+        '
+        'Column3
+        '
+        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column3.HeaderText = "Codigo"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 65
+        '
+        'Column4
+        '
+        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column4.HeaderText = "Descripción"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column5.HeaderText = "Cantidad"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 74
+        '
+        'Column6
+        '
+        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column6.HeaderText = "Precio"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 62
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.Column7.HeaderText = "Total"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Width = 56
+        '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.Label15)
@@ -367,6 +462,7 @@ Partial Class frmHisClinica
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.Button3)
         Me.Panel4.Controls.Add(Me.Button2)
         Me.Panel4.Controls.Add(Me.btnLimpiar)
         Me.Panel4.Controls.Add(Me.btnIncapacidad)
@@ -377,6 +473,31 @@ Partial Class frmHisClinica
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(263, 272)
         Me.Panel4.TabIndex = 23
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Yellow
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Location = New System.Drawing.Point(3, 143)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(257, 40)
+        Me.Button2.TabIndex = 86
+        Me.Button2.Text = "CITA MEDICA"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(3, 187)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(71, 77)
+        Me.btnLimpiar.TabIndex = 83
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'btnIncapacidad
         '
@@ -389,75 +510,31 @@ Partial Class frmHisClinica
         Me.btnIncapacidad.Text = "INCAPACIDAD MEDICA"
         Me.btnIncapacidad.UseVisualStyleBackColor = False
         '
-        'grdCaptura
+        'btnPagar
         '
-        Me.grdCaptura.AllowUserToAddRows = False
-        Me.grdCaptura.AllowUserToDeleteRows = False
-        Me.grdCaptura.BackgroundColor = System.Drawing.Color.White
-        Me.grdCaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdCaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7})
-        Me.grdCaptura.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grdCaptura.Location = New System.Drawing.Point(0, 64)
-        Me.grdCaptura.Name = "grdCaptura"
-        Me.grdCaptura.ReadOnly = True
-        Me.grdCaptura.RowHeadersVisible = False
-        Me.grdCaptura.Size = New System.Drawing.Size(808, 208)
-        Me.grdCaptura.TabIndex = 22
+        Me.btnPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(3, 51)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(257, 40)
+        Me.btnPagar.TabIndex = 1
+        Me.btnPagar.Text = "PAGAR"
+        Me.btnPagar.UseVisualStyleBackColor = False
         '
-        'Column1
+        'btnGuardar
         '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column1.HeaderText = "N° Diente"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 78
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column2.HeaderText = "Diente"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 63
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column3.HeaderText = "Codigo"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 65
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column4.HeaderText = "Descripción"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column5.HeaderText = "Cantidad"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 74
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column6.HeaderText = "Precio"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 62
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.Column7.HeaderText = "Total"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 56
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGuardar.Location = New System.Drawing.Point(3, 6)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(257, 40)
+        Me.btnGuardar.TabIndex = 0
+        Me.btnGuardar.Text = "GUARDAR"
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'txtPrecio
         '
@@ -535,6 +612,24 @@ Partial Class frmHisClinica
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(902, 87)
         Me.Panel3.TabIndex = 87
+        '
+        'txtCedula
+        '
+        Me.txtCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCedula.Location = New System.Drawing.Point(600, 59)
+        Me.txtCedula.Name = "txtCedula"
+        Me.txtCedula.Size = New System.Drawing.Size(213, 22)
+        Me.txtCedula.TabIndex = 17
+        '
+        'Label19
+        '
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(526, 57)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(78, 23)
+        Me.Label19.TabIndex = 16
+        Me.Label19.Text = "Cedula:"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cboMedicos
         '
@@ -685,74 +780,6 @@ Partial Class frmHisClinica
         Me.gbxMotivo.Text = "Ingrese el motivo de la consulta"
         Me.gbxMotivo.Visible = False
         '
-        'rbMotivo
-        '
-        Me.rbMotivo.Font = New System.Drawing.Font("Bahnschrift SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbMotivo.Location = New System.Drawing.Point(12, 23)
-        Me.rbMotivo.Name = "rbMotivo"
-        Me.rbMotivo.Size = New System.Drawing.Size(578, 208)
-        Me.rbMotivo.TabIndex = 0
-        Me.rbMotivo.Text = ""
-        '
-        'PDentista80
-        '
-        '
-        'pDentista58
-        '
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Yellow
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(3, 143)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(257, 40)
-        Me.Button2.TabIndex = 86
-        Me.Button2.Text = "CITA MEDICA"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'txtcontraseña
-        '
-        Me.txtcontraseña.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtcontraseña.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontraseña.ForeColor = System.Drawing.Color.Gray
-        Me.txtcontraseña.Location = New System.Drawing.Point(787, 4)
-        Me.txtcontraseña.Name = "txtcontraseña"
-        Me.txtcontraseña.Size = New System.Drawing.Size(112, 25)
-        Me.txtcontraseña.TabIndex = 13
-        Me.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtcontraseña.UseSystemPasswordChar = True
-        '
-        'lblUsuario
-        '
-        Me.lblUsuario.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblUsuario.BackColor = System.Drawing.Color.Navy
-        Me.lblUsuario.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.ForeColor = System.Drawing.Color.White
-        Me.lblUsuario.Location = New System.Drawing.Point(787, 32)
-        Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(112, 25)
-        Me.lblUsuario.TabIndex = 155
-        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label19
-        '
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(526, 57)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(78, 23)
-        Me.Label19.TabIndex = 16
-        Me.Label19.Text = "Cedula:"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtCedula
-        '
-        Me.txtCedula.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCedula.Location = New System.Drawing.Point(600, 59)
-        Me.txtCedula.Name = "txtCedula"
-        Me.txtCedula.Size = New System.Drawing.Size(213, 22)
-        Me.txtCedula.TabIndex = 17
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.White
@@ -784,6 +811,21 @@ Partial Class frmHisClinica
         Me.btnSave.Text = "Guardar"
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'rbMotivo
+        '
+        Me.rbMotivo.Font = New System.Drawing.Font("Bahnschrift SemiLight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbMotivo.Location = New System.Drawing.Point(12, 23)
+        Me.rbMotivo.Name = "rbMotivo"
+        Me.rbMotivo.Size = New System.Drawing.Size(578, 208)
+        Me.rbMotivo.TabIndex = 0
+        Me.rbMotivo.Text = ""
+        '
+        'PDentista80
+        '
+        '
+        'pDentista58
+        '
         '
         'btnd32
         '
@@ -1138,46 +1180,6 @@ Partial Class frmHisClinica
         Me.PictureBox2.TabIndex = 142
         Me.PictureBox2.TabStop = False
         '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(3, 187)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(71, 77)
-        Me.btnLimpiar.TabIndex = 83
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'btnPagar
-        '
-        Me.btnPagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnPagar.Image = CType(resources.GetObject("btnPagar.Image"), System.Drawing.Image)
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(3, 51)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(257, 40)
-        Me.btnPagar.TabIndex = 1
-        Me.btnPagar.Text = "PAGAR"
-        Me.btnPagar.UseVisualStyleBackColor = False
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(3, 6)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(257, 40)
-        Me.btnGuardar.TabIndex = 0
-        Me.btnGuardar.Text = "GUARDAR"
-        Me.btnGuardar.UseVisualStyleBackColor = False
-        '
         'btnd1
         '
         Me.btnd1.BackgroundImage = CType(resources.GetObject("btnd1.BackgroundImage"), System.Drawing.Image)
@@ -1188,6 +1190,20 @@ Partial Class frmHisClinica
         Me.btnd1.Size = New System.Drawing.Size(44, 70)
         Me.btnd1.TabIndex = 82
         Me.btnd1.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Location = New System.Drawing.Point(189, 187)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(71, 77)
+        Me.Button3.TabIndex = 87
+        Me.Button3.Text = "Salir"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'frmHisClinica
         '
@@ -1245,10 +1261,10 @@ Partial Class frmHisClinica
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
-        CType(Me.grdCaptura, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.gbxMotivo.ResumeLayout(False)
@@ -1356,4 +1372,5 @@ Partial Class frmHisClinica
     Friend WithEvents lblUsuario As Label
     Friend WithEvents txtCedula As TextBox
     Friend WithEvents Label19 As Label
+    Friend WithEvents Button3 As Button
 End Class
