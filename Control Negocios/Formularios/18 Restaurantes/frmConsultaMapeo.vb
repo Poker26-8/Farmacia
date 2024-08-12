@@ -13,7 +13,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd1.CommandText = "SELECT Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then

@@ -275,25 +275,10 @@ Public Class frmMesas
         End If
 
         Try
+
+            Dim mesapropia As Integer = DatosRecarga2("MesasPropias")
             cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    If rd2("numPart").ToString = 1 Then
-                        simesaspropia = 1
-                    Else
-                        simesaspropia = 0
-                    End If
-                Else
-                    simesaspropia = 0
-                End If
-            End If
-            rd2.Close()
-
-
-            If simesaspropia = 1 Then
+            If mesapropia = 1 Then
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & id_usu_log & ""
                 rd2 = cmd2.ExecuteReader
@@ -310,7 +295,7 @@ Public Class frmMesas
             End If
 
 
-            If simesaspropia = 1 Then
+            If mesapropia = 1 Then
                 cmd2 = cnn2.CreateCommand
 
                 If simesaspropusuario = 1 Then
@@ -328,7 +313,7 @@ Public Class frmMesas
             rd2.Close()
 
             cmd2 = cnn2.CreateCommand
-            If simesaspropia = 1 Then
+            If mesapropia = 1 Then
                 If simesaspropusuario = 1 Then
 
                     cmd2.CommandText = "SELECT Nombre_mesa,TempNom,X,y,Tipo,IdEmpleado FROM Mesa  WHERE Ubicacion='" & ubicacion & "' order by Orden"
@@ -515,24 +500,12 @@ Public Class frmMesas
         ' Aquí implementa la lógica para obtener el total de mesas
         Dim totalmesa2 As Double = 0
         Dim esadmin As Integer = 0
-        cnn3.Close() : cnn3.Open()
-        cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
-        rd3 = cmd3.ExecuteReader
-        If rd3.HasRows Then
-            If rd3.Read Then
-                If rd3("NumPart").ToString = 1 Then
-                    simesaspropianm = 1
-                Else
-                    simesaspropianm = 0
-                End If
-            Else
-                simesaspropianm = 0
-            End If
-        End If
-        rd3.Close()
 
-        If simesaspropianm = 1 Then
+        Dim mesapropia As Integer = DatosRecarga("MesasPropias")
+
+        cnn3.Close() : cnn3.Open()
+
+        If mesapropia = 1 Then
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & idempleado & ""
             rd3 = cmd3.ExecuteReader
@@ -550,7 +523,7 @@ Public Class frmMesas
             rd3.Close()
         End If
 
-        If simesaspropianm = 1 Then
+        If mesapropia = 1 Then
             If simesaspropusuarionm = 1 Then
                 cmd3.CommandText = "SELECT COUNT(Nombre_mesa) FROM Mesa WHERE ubicacion='" & nombreubicacion & "' AND IdEmpleado=" & idempleado & ""
             Else
@@ -893,7 +866,7 @@ Public Class frmMesas
 
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Comandas WHERE Nmesa='" & tables.Text & "' ORDER BY Comensal"
+                cmd1.CommandText = "SELECT IDC FROM Comandas WHERE Nmesa='" & tables.Text & "' ORDER BY Comensal"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -930,7 +903,7 @@ Public Class frmMesas
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Formatos WHERE Facturas='TomaContra'"
+                cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TomaContra'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -949,7 +922,7 @@ Public Class frmMesas
                 btnconsulta.Enabled = False
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & mesa & "'"
+                cmd1.CommandText = "SELECT Nombre_mesa FROM Mesa WHERE Nombre_mesa='" & mesa & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -984,7 +957,7 @@ Public Class frmMesas
                                     Try
                                         cnn2.Close() : cnn2.Open()
                                         cmd2 = cnn2.CreateCommand
-                                        cmd2.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & tables.Text & "'"
+                                        cmd2.CommandText = "SELECT Id FROM AsigPC WHERE Nombre='" & tables.Text & "'"
                                         rd2 = cmd2.ExecuteReader
                                         If rd2.HasRows Then
                                             If rd2.Read Then
@@ -1156,7 +1129,7 @@ Public Class frmMesas
                         Try
                             cnn1.Close() : cnn1.Open()
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & txtUsuario.Text & "'"
+                            cmd1.CommandText = "SELECT IdEmpleado,Area FROM Usuarios WHERE Clave='" & txtUsuario.Text & "'"
                             rd1 = cmd1.ExecuteReader
                             If rd1.HasRows Then
                                 If rd1.Read Then
@@ -1167,7 +1140,7 @@ Public Class frmMesas
                             rd1.Close()
 
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & txtMesa.Text & "'"
+                            cmd1.CommandText = "SELECT IdEmpleado FROM Mesa WHERE Nombre_mesa='" & txtMesa.Text & "'"
                             rd1 = cmd1.ExecuteReader
                             If rd1.HasRows Then
                                 If rd1.Read Then
@@ -1188,7 +1161,7 @@ Public Class frmMesas
 
                             cnn1.Close() : cnn1.Open()
                             cmd1 = cnn1.CreateCommand
-                            cmd1.CommandText = "SELECT * FROM Comandas WHERE Nmesa='" & txtMesa.Text & "'"
+                            cmd1.CommandText = "SELECT CUsuario FROM Comandas WHERE Nmesa='" & txtMesa.Text & "'"
                             rd1 = cmd1.ExecuteReader
                             If rd1.HasRows Then
                                 If rd1.Read Then
@@ -1238,7 +1211,7 @@ Public Class frmMesas
                             If mesero = 0 Then
                                 cnn1.Close() : cnn1.Open()
                                 cmd1 = cnn1.CreateCommand
-                                cmd1.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & txtMesa.Text & "'"
+                                cmd1.CommandText = "SELECT CUsuario FROM Comandas WHERE NMESA='" & txtMesa.Text & "'"
                                 rd1 = cmd1.ExecuteReader
                                 If rd1.HasRows Then
                                     If rd1.Read Then

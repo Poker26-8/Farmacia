@@ -291,7 +291,7 @@ Public Class frmDivProducto
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
+                cmd1.CommandText = "SELECT IdMesa FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -332,7 +332,7 @@ Public Class frmDivProducto
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        cmd1.CommandText = "SELECT UVenta,Departamento,Grupo,GPrint FROM productos WHERE Codigo='" & cod & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -382,7 +382,7 @@ Public Class frmDivProducto
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
+                cmd1.CommandText = "SELECT IdMesa FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -423,7 +423,7 @@ Public Class frmDivProducto
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        cmd1.CommandText = "SELECT UVenta,Departamento,Grupo,GPrint FROM productos WHERE Codigo='" & cod & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then
@@ -468,7 +468,7 @@ Public Class frmDivProducto
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
+                cmd1.CommandText = "SELECT IdMesa FROM mesasxempleados WHERE Mesa='" & nuevonombre & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -508,7 +508,7 @@ Public Class frmDivProducto
 
                         cnn1.Close() : cnn1.Open()
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cod & "'"
+                        cmd1.CommandText = "SELECT UVenta,Departamento,Grupo,GPrint FROM productos WHERE Codigo='" & cod & "'"
                         rd1 = cmd1.ExecuteReader
                         If rd1.HasRows Then
                             If rd1.Read Then

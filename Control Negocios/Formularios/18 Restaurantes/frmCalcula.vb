@@ -53,7 +53,7 @@
                     If rd1(0).ToString = "HORA" Then
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+                        cmd2.CommandText = "SELECT HorEnt FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -102,7 +102,7 @@
                                 If CDec(txtTiempoUso.Text) <= CDec(ToleBillar) Then
 
                                     cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
+                                    cmd3.CommandText = "SELECT Precio FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -115,7 +115,7 @@
                                 Else
                                     If txtTiempoUso.Text <= 60.0 Then
                                         cmd3 = cnn3.CreateCommand
-                                        cmd3.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
+                                        cmd3.CommandText = "SELECT Precio FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
                                         rd3 = cmd3.ExecuteReader
                                         If rd3.HasRows Then
                                             If rd3.Read Then
@@ -127,7 +127,7 @@
                                         rd3.Close()
                                     Else
                                         cmd3 = cnn3.CreateCommand
-                                        cmd3.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
+                                        cmd3.CommandText = "SELECT Precio FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
                                         rd3 = cmd3.ExecuteReader
                                         If rd3.HasRows Then
                                             If rd3.Read Then
@@ -182,7 +182,7 @@
                     Else
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+                        cmd2.CommandText = "SELECT HorEnt FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -211,7 +211,7 @@
 
                                 If CDec(txtTiempoUso.Text) <= CDec(ToleBillar) Then
                                     cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
+                                    cmd3.CommandText = "SELECT Precio FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -222,7 +222,7 @@
                                     rd3.Close()
                                 Else
                                     cmd3 = cnn3.CreateCommand
-                                    cmd3.CommandText = "SELECT * FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
+                                    cmd3.CommandText = "SELECT Precio FROM Mesa WHERE Nombre_mesa='" & lblpc.Text & "'"
                                     rd3 = cmd3.ExecuteReader
                                     If rd3.HasRows Then
                                         If rd3.Read Then
@@ -309,7 +309,7 @@
             cnn3.Close() : cnn3.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
+            cmd1.CommandText = "SELECT HorEnt FROM AsigPC WHERE Nombre='" & lblpc.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

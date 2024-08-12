@@ -83,7 +83,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & lblmesa.Text & "'"
+            cmd1.CommandText = "SELECT Contabiliza FROM mesa WHERE Nombre_mesa='" & lblmesa.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -91,7 +91,7 @@
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & lblmesa.Text & "'"
+                        cmd2.CommandText = "SELECT Id FROM asigpc WHERE Nombre='" & lblmesa.Text & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then

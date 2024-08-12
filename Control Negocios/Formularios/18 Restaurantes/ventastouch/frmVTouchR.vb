@@ -149,7 +149,7 @@ Public Class frmVTouchR
             'Primero 2x1
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Promos where " & dia_tex & "=1"
+                "select Codigo from Promos where " & dia_tex & "=1"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -166,7 +166,7 @@ Public Class frmVTouchR
             'Primero 3x2
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Promos where " & dia_tex & "2=1"
+                "select Codigo from Promos where " & dia_tex & "2=1"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -193,7 +193,7 @@ Public Class frmVTouchR
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Terminal,Clave,Solicitud,Resultado from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 hayTerminal = 1
@@ -374,7 +374,7 @@ nopaso:
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo2x1=1"
+                cmd2.CommandText = "select Promo2x1,Domingo,HInicioD,HFinD,HInicioD2,HFinD2,Lunes,HInicioL,HFinL,HInicioL2,HFinL2,Martes,HInicioM,HFinM,HInicioM2,HFinM2,Miercoles,HInicioMi,HFinMi,HInicioMi2,HFinMi2,Jueves,HInicioJ,HFinJ,HInicioJ2,HFinJ2,Viernes,HInicioV,HFinV,HInicioV2,HFinV2,Sabado,HInicioS,HFinS,HInicioS2,HFinS2 from Promos where Codigo='" & Codigo & "' and Promo2x1=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -483,7 +483,7 @@ nopaso:
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "select * from Promos where Codigo='" & Codigo & "' and Promo3x2=1"
+                cmd2.CommandText = "select Promo3x2,Domingo2,HInicioD3,HFinD3,HInicioD33,HFinD33,Lunes2,HInicioL3,HFinL3,HInicioL33,HFinL33,Martes2,HInicioM3,HFin1M3,HInicioM33,HFinM33,Miercoles2,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,Jueves2,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,Viernes2,HInicioV3,HFinV3,HInicioV33,HFinV33,Sabado2,HInicioS3,HFinS3,HInicioS33,HFinS33 from Promos where Codigo='" & Codigo & "' and Promo3x2=1"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -620,7 +620,7 @@ nopaso:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+            cmd2.CommandText = "SELECT Grupo,PrecioVentaIVA FROM Productos WHERE Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1113,7 +1113,7 @@ deku:
 
                 cnn5.Close() : cnn5.Open()
                 cmd5 = cnn5.CreateCommand
-                cmd5.CommandText = "SELECT * FROM Productos WHERE Codigo='" & CODIG & "'"
+                cmd5.CommandText = "SELECT PrecioCompra,Departamento,Grupo,UVenta FROM Productos WHERE Codigo='" & CODIG & "'"
                 rd5 = cmd5.ExecuteReader
                 If rd5.HasRows <> 0 Then
                     If rd5.Read Then
@@ -1311,7 +1311,7 @@ deku:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Pie2,Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
@@ -1414,7 +1414,7 @@ deku:
         cnn4.Close() : cnn4.Open()
 
         cmd3 = cnn3.CreateCommand
-        cmd3.CommandText = "select * from VentasDetalle where Folio='" & MYFOLIO & "'"
+        cmd3.CommandText = "select Cantidad,Nombre,Precio,Total from VentasDetalle where Folio='" & MYFOLIO & "'"
         rd3 = cmd3.ExecuteReader
         Do While rd3.Read
             If rd3.HasRows Then
@@ -2301,7 +2301,7 @@ deku:
             End If
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT DISTINCT Descx,Codigo FROM    Extras WHERE CodigoAlpha='" & producto & "' order by Descx"
+            cmd1.CommandText = "SELECT DISTINCT Descx,Codigo FROM Extras WHERE CodigoAlpha='" & producto & "' order by Descx"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -2374,7 +2374,7 @@ deku:
             cantpromo = 0
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Productos where Codigo = '" & CodigoProducto & "'"
+            cmd1.CommandText = "select F44 from Productos where Codigo = '" & CodigoProducto & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2787,7 +2787,7 @@ deku:
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Formatos where Facturas='Porc_Mone'"
+                    "select NumPart,NotasCred from Formatos where Facturas='Porc_Mone'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2905,7 +2905,7 @@ kakaxd:
                 Adeuda_Cliente = 0
             Else
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Clientes WHERE Nombre='" & lblCliente.Text & "'"
+                cmd1.CommandText = "SELECT Id,Credito FROM Clientes WHERE Nombre='" & lblCliente.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -3437,7 +3437,7 @@ kakaxd:
                 If EfectivoX > 0 Then
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & MYFOLIO
+                    cmd2.CommandText = "SELECT Id FROM abonoi WHERE NumFolio=" & MYFOLIO
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

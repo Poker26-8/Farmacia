@@ -536,7 +536,7 @@
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "SELECT * FROM Clientes WHERE Nombre='" & cboNombre.Text & "'"
+                "SELECT Telefono,Credito,Id FROM Clientes WHERE Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

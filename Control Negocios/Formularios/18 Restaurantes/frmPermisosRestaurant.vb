@@ -5,9 +5,6 @@
     Private Sub frmPermisosRestaurant_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
-            Dim TIPOCOBRO As String = ""
-            Dim cobroexacto As Integer = 0
-
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText = "SELECT Comensal FROM Ticket"
@@ -24,164 +21,70 @@
                 End If
             End If
             rd2.Close()
+            cnn2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Propina'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    txtPorcentage.Text = rd2(0).ToString
-                End If
+            Dim propina As String = DatosRecarga("Propina")
+            txtPorcentage.Text = propina
+
+            Dim cobroexacto As String = DatosRecarga("CobroExacto")
+            If cobroexacto = 1 Then
+                cbCobroExacto.Checked = True
+            Else
+                cbCobroExacto.Checked = False
             End If
-            rd2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='CobroExacto'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    cobroexacto = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-
-                    If cobroexacto = 1 Then
-                        cbCobroExacto.Checked = True
-                    Else
-                        cbCobroExacto.Checked = False
-                    End If
-
-                End If
+            Dim cobrosimplificado As String = DatosRecarga("CobroSimplificado")
+            If cobrosimplificado = "1" Then
+                cbCobroSimplificado.Checked = True
+            Else
+                cbCobroSimplificado.Checked = False
             End If
-            rd2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='CobroSimplificado'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    cobroexacto = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
+            Dim tolebillar As String = DatosRecarga("ToleBillar")
+            txttolerancia.Text = tolebillar
 
-                    If cobroexacto = 1 Then
-                        cbCobroSimplificado.Checked = True
-                    Else
-                        cbCobroSimplificado.Checked = False
-                    End If
-
-                End If
+            Dim propias As Integer = DatosRecarga2("MesasPropias")
+            If propias = 1 Then
+                cbMesasPropias.Checked = True
+            Else
+                cbMesasPropias.Checked = False
             End If
-            rd2.Close()
 
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='ToleBillar'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    txttolerancia.Text = rd2(0).ToString
-                End If
+            Dim cuartos As String = DatosRecarga("Cuartos")
+            If cuartos = 1 Then
+                chkCuartos.Checked = True
+            Else
+                chkCuartos.Checked = False
             End If
-            rd2.Close()
 
-            Dim propias As Integer = 0
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='MesasPropias'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    propias = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-
-                    If propias = 1 Then
-                        cbMesasPropias.Checked = True
-                    Else
-                        cbMesasPropias.Checked = False
-                    End If
-
-                End If
+            Dim copa As Integer = DatosRecarga2("Copa")
+            If copa = 1 Then
+                cbCopas.Checked = True
+            Else
+                cbCopas.Checked = False
             End If
-            rd2.Close()
 
-            Dim cuartos As Integer = 0
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Cuartos'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    cuartos = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-
-                    If cuartos = 1 Then
-                        chkCuartos.Checked = True
-                    Else
-                        chkCuartos.Checked = False
-                    End If
-
-                End If
-            End If
-            rd2.Close()
-
-            Dim copa As Integer = 0
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Copa'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    copa = IIf(rd2(0).ToString = "", 0, rd2(0).ToString)
-
-                    If copa = 1 Then
-                        cbCopas.Checked = True
-                    Else
-                        cbCopas.Checked = False
-                    End If
-
-                End If
-            End If
-            rd2.Close()
-
-
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='TipoCobroBillar'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    TIPOCOBRO = rd2(0).ToString
-                End If
-            End If
-            rd2.Close()
-
+            Dim TIPOCOBRO As String = DatosRecarga("TipoCobroBillar")
             If TIPOCOBRO = "HORA" Then
                 rbhora.Checked = True
             ElseIf TIPOCOBRO = "MINUTO" Then
                 rbminuto.Checked = True
             End If
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='SinNumCoemensal'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    If rd2(0).ToString = 1 Then
-                        chkSinComensal.Checked = True
-                    Else
-                        chkSinComensal.Checked = False
-                    End If
-                End If
+            Dim sinnumcomensal As String = DatosRecarga("SinNumCoemensal")
+            If sinnumcomensal = 1 Then
+                chkSinComensal.Checked = True
+            Else
+                chkSinComensal.Checked = False
             End If
-            rd2.Close()
 
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Mapeo'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    If rd2(0).ToString = 1 Then
-                        rbM.Checked = True
-                    Else
-                        rbNM.Checked = True
-                    End If
-                End If
+            Dim mapeo As String = DatosRecarga("Mapeo")
+            If mapeo = 1 Then
+                rbM.Checked = True
+            Else
+                rbNM.Checked = True
             End If
-            rd2.Close()
-            cnn2.Close()
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -230,7 +133,7 @@
 
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM PermisosM WHERE IdEmpleado=" & lblid_usu.Text
+            cmd1.CommandText = "SELECT Precuenta,CambioM,CancelarM,CortesiaM,JuntarM,CobrarM FROM PermisosM WHERE IdEmpleado=" & lblid_usu.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -287,7 +190,7 @@
                 Try
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM Usuarios WHERE Clave='" & txtcontraseña.Text & "'"
+                    cmd1.CommandText = "SELECT Area,IdEmpleado,Alias FROM Usuarios WHERE Clave='" & txtcontraseña.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -366,7 +269,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "SELECT * FROM Usuarios WHERE Clave='" & txtcontraR.Text & "'"
+                    "SELECT IdEmpleado FROM Usuarios WHERE Clave='" & txtcontraR.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -383,7 +286,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "SELECT * FROM Usuarios WHERE Nombre='" & cboNombre.Text & "'"
+                    "SELECT IdEmpleado FROM Usuarios WHERE Nombre='" & cboNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -394,7 +297,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from PermisosM where IdEmpleado=" & id_emp
+                    "select IdEmpleado from PermisosM where IdEmpleado=" & id_emp
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -634,7 +537,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM rutasimpresion WHERE Tipo='UNICO'"
+            cmd1.CommandText = "SELECT Tipo FROM rutasimpresion WHERE Tipo='UNICO'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -889,7 +792,7 @@
             Dim timepo As Integer = 0
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+            cmd1.CommandText = "SELECT IdMesa,Ubicacion,Tipo,precio,Contabiliza FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -946,7 +849,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Mesa WHERE IdMesa=" & idmesa & ""
+            cmd1.CommandText = "SELECT IdMesa FROM Mesa WHERE IdMesa=" & idmesa & ""
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -995,7 +898,7 @@
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
+                cmd1.CommandText = "SELECT IdMesa FROM mesa WHERE Nombre_mesa='" & cboMesa.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

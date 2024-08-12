@@ -428,7 +428,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM promos WHERE Codigo='" & cboCodigo.Text & "'"
+                    cmd2.CommandText = "SELECT Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Domingo,Promo2x1,HInicioL,HFinL,HInicioL2,HFinL2,HInicioM,HFinM,HInicioM2,HFinM2,HInicioMi,HFinMi,HInicioMi2,HFinMi2,HInicioJ,HFinJ,HInicioJ2,HFinJ2,HInicioV,HFinV,HInicioV2,HFinV2,HInicioS,HFinS,HInicioS2,HFinS2,HInicioD,HFinD,HInicioD2,HFinD2,Promo3x2,Lunes2,Martes2,Miercoles2,Jueves2,Viernes2,Sabado2,Domingo2,HinicioL3,HFinL3,HInicioL33,HFinL33,HInicioM3,HFinM3,HInicioM33,HFinM33,HInicioMi3,HFinMi3,HInicioMi33,HFinMi33,HInicioJ3,HFinJ3,HInicioJ33,HFinJ33,HInicioV3,HFinV3,HInicioV33,HFinV33,HInicioS3,HFinS3,HInicioS33,HFinS33,HInicioD3,HFinD3,HInicioD33,HFinD33 FROM promos WHERE Codigo='" & cboCodigo.Text & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -695,7 +695,7 @@
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "SELECT * FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
+                "SELECT Nombre,UVenta FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -740,7 +740,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM promos WHERE Codigo='" & cboCodigo.Text & "'"
+            cmd1.CommandText = "SELECT Codigo FROM promos WHERE Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

@@ -90,7 +90,7 @@ Public Class frmProductosSR
                 txtcantidadpromo.Text = "0"
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+                cmd1.CommandText = "SELECT NombrePrefe FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -255,7 +255,7 @@ Public Class frmProductosSR
             cnn2.Close() : cnn2.Open()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd1.CommandText = "SELECT Codigo FROM Productos WHERE Codigo='" & cboCodCorto.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -309,7 +309,7 @@ Public Class frmProductosSR
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "' AND NombrePrefe='" & preferencia & "'"
+                    cmd1.CommandText = "SELECT Codigo FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "' AND NombrePrefe='" & preferencia & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -335,7 +335,7 @@ Public Class frmProductosSR
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "' AND Codigo='" & codigoextra & "' AND Descx='" & extra & "'"
+                    cmd1.CommandText = "SELECT CodigoAlpha FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "' AND Codigo='" & codigoextra & "' AND Descx='" & extra & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.HasRows Then
@@ -370,7 +370,7 @@ Public Class frmProductosSR
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM promociones WHERE Codigo='" & codigopromo & "' AND Descx='" & descpromo & "' AND CodigoAlpha='" & cboCodCorto.Text & "'"
+                    cmd1.CommandText = "SELECT Codigo FROM promociones WHERE Codigo='" & codigopromo & "' AND Descx='" & descpromo & "' AND CodigoAlpha='" & cboCodCorto.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -627,7 +627,7 @@ Public Class frmProductosSR
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM preferencia WHERE NombrePrefe='" & prefe & "' AND Codigo='" & cboCodCorto.Text & "'"
+            cmd1.CommandText = "SELECT IdPrefe FROM preferencia WHERE NombrePrefe='" & prefe & "' AND Codigo='" & cboCodCorto.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -699,7 +699,7 @@ Public Class frmProductosSR
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "' AND Codigo='" & codextra & "' AND Descx='" & extra & "'"
+            cmd1.CommandText = "SELECT Id FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "' AND Codigo='" & codextra & "' AND Descx='" & extra & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -778,7 +778,7 @@ Public Class frmProductosSR
 
                 cnn2.Close() : cnn2.Open()
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodCorto.Text & "' AND Nombre='" & cboDescripcion.Text & "'"
+                cmd2.CommandText = "SELECT Codigo FROM productos WHERE Codigo='" & cboCodCorto.Text & "' AND Nombre='" & cboDescripcion.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -791,7 +791,7 @@ Public Class frmProductosSR
 
 
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+                        cmd3.CommandText = "SELECT Codigo FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -808,7 +808,7 @@ Public Class frmProductosSR
 
 
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT * FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+                        cmd3.CommandText = "SELECT CodigoAlpha FROM extras WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -824,7 +824,7 @@ Public Class frmProductosSR
                         rd3.Close()
 
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT * FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
+                        cmd3.CommandText = "SELECT CodigoAlpha FROM promociones WHERE CodigoAlpha='" & cboCodCorto.Text & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -840,7 +840,7 @@ Public Class frmProductosSR
                         rd3.Close()
 
                         cmd3 = cnn3.CreateCommand
-                        cmd3.CommandText = "SELECT * FROM miprod WHERE CodigoP='" & cboCodCorto.Text & "' AND DescripP='" & cboDescripcion.Text & "'"
+                        cmd3.CommandText = "SELECT CodigoP FROM miprod WHERE CodigoP='" & cboCodCorto.Text & "' AND DescripP='" & cboDescripcion.Text & "'"
                         rd3 = cmd3.ExecuteReader
                         If rd3.HasRows Then
                             If rd3.Read Then
@@ -1011,7 +1011,7 @@ nopasowey:
         rd2.Close()
 
         cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+        cmd2.CommandText = "SELECT Codigo FROM Productos WHERE Codigo='" & codigo & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1023,7 +1023,7 @@ nopasowey:
 
         cmd2 = cnn2.CreateCommand
         cmd2.CommandText =
-            "select * from Productos where CodBarra='" & barras & "'"
+            "select CodBarra from Productos where CodBarra='" & barras & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1037,7 +1037,7 @@ nopasowey:
 
         cmd2 = cnn2.CreateCommand
         cmd2.CommandText =
-            "select * from Productos where Nombre='" & nombre & "'"
+            "select Nombre from Productos where Nombre='" & nombre & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1055,7 +1055,7 @@ nopasowey:
         txtrutaimagen.Text = ""
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT * FROM Productos WHERE codigo='" & cboCodCorto.Text & "'"
+        cmd1.CommandText = "SELECT codigo FROM Productos WHERE codigo='" & cboCodCorto.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
 
@@ -1114,7 +1114,7 @@ nopasowey:
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd4.CommandText = "SELECT NombrePrefe FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then
@@ -1233,7 +1233,7 @@ nopasowey:
             rd3.Close()
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd3.CommandText = "SELECT NombrePrefe FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -1337,7 +1337,7 @@ nopasowey:
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
+            cmd4.CommandText = "SELECT NombrePrefe FROM preferencia WHERE Codigo='" & cboCodCorto.Text & "'"
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then
@@ -1539,7 +1539,7 @@ nopasowey:
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos ORDER BY Codigo"
+            cmd1.CommandText = "SELECT Codigo,CodBarra,Nombre,ProvPri,ProvEme,ProvRes,UCompra,UVenta,VentaMin,MCD,Multiplo,Departamento,Grupo,Ubicacion,Min,Max,Comision,PrecioCompra,PrecioVenta,PrecioVentaIVA,PecioVentaMinIVA,PorcentageMin,IVA,Existencia,Porcentage,PorMay,PorMM,PorEsp,PreMay,PreMM,PreEsp,CantMin,CantMin2,CantMay,CantMay2,CantMM,CantMM2,CantEsp,CantEsp2,CantLta,CantLta2,pres_vol,IIEPS,ClaveSat,ClaveUnidadSat,Status_Promocion,Porcentaje_Promo,E1,E2,F44 FROM Productos ORDER BY Codigo"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 Do While rd1.Read
@@ -1664,7 +1664,7 @@ nopasowey:
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select Codigo from Productos where Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1678,7 +1678,7 @@ nopasowey:
             If barras <> "" Then
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where CodBarra='" & barras & "'"
+                    "select CodBarra from Productos where CodBarra='" & barras & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -1692,7 +1692,7 @@ nopasowey:
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Nombre='" & nombre & "'"
+                "select Nombre from Productos where Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

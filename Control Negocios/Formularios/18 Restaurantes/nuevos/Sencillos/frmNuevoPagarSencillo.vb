@@ -76,7 +76,7 @@ Public Class frmNuevoPagarSencillo
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from DatosProsepago"
+            cmd1.CommandText = "Select Terminal,Clave,Solicitud,Resultado from DatosProsepago"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 hayTerminal = 1
@@ -104,7 +104,7 @@ Public Class frmNuevoPagarSencillo
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -148,24 +148,24 @@ Public Class frmNuevoPagarSencillo
             If cboComanda.Text <> "" Then
 
                 If cboComensal.Text = "" Then
-                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text & " AND Comensal='" & cboComensal.Text & "'"
+                    cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text & " AND Comensal='" & cboComensal.Text & "'"
                 Else
-                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text
+                    cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Id=" & cboComanda.Text
                 End If
 
             End If
 
             If cboComensal.Text <> "" Then
                 If cboComanda.Text = "" Then
-                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "' AND Comanda" & cboComanda.Text
+                    cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "' AND Comanda" & cboComanda.Text
                 Else
-                    cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "'"
+                    cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "' AND Comensal='" & cboComensal.Text & "'"
                 End If
 
             End If
 
             If cboComensal.Text = "" And cboComanda.Text = "" Then
-                cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+                cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             End If
 
 
@@ -496,7 +496,7 @@ Public Class frmNuevoPagarSencillo
         Try
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -534,7 +534,7 @@ Public Class frmNuevoPagarSencillo
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE Id='" & cboComanda.Text & "' AND NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE Id='" & cboComanda.Text & "' AND NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -570,7 +570,7 @@ Public Class frmNuevoPagarSencillo
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Comandas WHERE Comensal='" & cboComensal.Text & "' AND NMESA='" & lblmesa.Text & "'"
+            cmd1.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE Comensal='" & cboComensal.Text & "' AND NMESA='" & lblmesa.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -775,7 +775,7 @@ Public Class frmNuevoPagarSencillo
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM formatos WHERE Facturas='Porc_Mone'"
+            cmd2.CommandText = "SELECT NumPart,NotasCred FROM formatos WHERE Facturas='Porc_Mone'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -786,7 +786,7 @@ Public Class frmNuevoPagarSencillo
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Monedero WHERE Barras='" & txtMonedero.Text & "'"
+            cmd2.CommandText = "SELECT Saldo FROM Monedero WHERE Barras='" & txtMonedero.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -901,7 +901,7 @@ kakaxd:
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & CODIGO & "'"
+            cmd2.CommandText = "SELECT Comision,IVA FROM Productos WHERE Codigo='" & CODIGO & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1054,7 +1054,7 @@ kakaxd:
             mycantidad = FormatNumber(mycantidad, 2)
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+            cmd2.CommandText = "SELECT PrecioCompra,IVA,Departamento,Grupo,Multiplo FROM Productos WHERE Codigo='" & mycodigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1192,7 +1192,7 @@ kakaxd:
         If txtEfectivo.Text > 0 Then
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM abonoi WHERE NumFolio=" & folio
+            cmd2.CommandText = "SELECT Id FROM abonoi WHERE NumFolio=" & folio
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1282,7 +1282,7 @@ kakaxd:
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "' "
+            cmd1.CommandText = "SELECT Multiplo,Modo_Almacen FROM Productos WHERE Codigo='" & mycodigo & "' "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1304,7 +1304,7 @@ kakaxd:
 
                                 cnn3.Close() : cnn3.Open()
                                 cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
+                                cmd3.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint,Departamento FROM Productos WHERE Codigo='" & VarCodigo & "'"
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -1329,7 +1329,7 @@ kakaxd:
 
 
                                 cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
+                                cmd3.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(VarCodigo, 6) & "'"
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -1378,7 +1378,7 @@ kakaxd:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+                        cmd2.CommandText = "SELECT Departamento,Grupo,ProvRes,MCD,Multiplo,Unico,GPrint FROM Productos WHERE Codigo='" & mycodigo & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1401,7 +1401,7 @@ kakaxd:
 
 
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
+                        cmd2.CommandText = "SELECT Existencia,MCD,Departamento,PrecioCompra FROM Productos WHERE Codigo='" & Strings.Left(mycodigo, 6) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1451,7 +1451,7 @@ Door:
         If CDec(txtResta.Text) = 0 Then
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM comandas WHERE Nmesa='" & lblmesa.Text & "'"
+            cmd1.CommandText = "SELECT IDC FROM comandas WHERE Nmesa='" & lblmesa.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1488,7 +1488,7 @@ Door:
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT  * from mesa WHERE Nombre_mesa LIKE '%" & parteDeseada & "_" & "%'"
+        cmd1.CommandText = "SELECT IdMesa from mesa WHERE Nombre_mesa LIKE '%" & parteDeseada & "_" & "%'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -1688,7 +1688,7 @@ Door:
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codi & "'"
+                cmd1.CommandText = "SELECT PrecioCompra,PrecioVentaIVA,IVA,Departamento,Grupo FROM Productos WHERE Codigo='" & codi & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1797,7 +1797,7 @@ Door:
             cnn1.Close() : cnn1.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie3,Pie2,Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1873,7 +1873,7 @@ Door:
             If SinNumComensal = 1 Then
 
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+                cmd3.CommandText = "SELECT Nombre,Precio,Total,Cantidad FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
                 rd3 = cmd3.ExecuteReader
                 Do While rd3.Read
                     If rd3.HasRows Then
@@ -2163,7 +2163,7 @@ Door:
             cnn1.Close() : cnn1.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie3,Pie2,Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2240,7 +2240,7 @@ Door:
             If SinNumComensal = 1 Then
 
                 cmd3 = cnn3.CreateCommand
-                cmd3.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+                cmd3.CommandText = "SELECT Nombre,Precio,Total FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
                 rd3 = cmd3.ExecuteReader
                 Do While rd3.Read
                     If rd3.HasRows Then
@@ -2647,7 +2647,7 @@ Door:
 
                     cnn3.Close() : cnn3.Open()
                     cmd3 = cnn3.CreateCommand
-                    cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigoeliminar & "'"
+                    cmd3.CommandText = "SELECT PrecioCompra,PrecioVentaIVA,IVA,Departamento,Grupo FROM Productos WHERE Codigo='" & codigoeliminar & "'"
                     rd3 = cmd3.ExecuteReader
                     If rd3.Read Then
                         If rd3.HasRows Then
@@ -2743,7 +2743,7 @@ Door:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM Rep_Comandas WHERE Id=" & verid & " AND Codigo='" & vercodigo & "' AND Status<>'CANCELADA'"
+                        cmd2.CommandText = "SELECT IDC FROM Rep_Comandas WHERE Id=" & verid & " AND Codigo='" & vercodigo & "' AND Status<>'CANCELADA'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -2872,7 +2872,7 @@ Door:
             cnn4.Close() : cnn4.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie3,Pie2,Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -2943,7 +2943,7 @@ Door:
             Y += 20
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM Comandas WHERE IDC='" & comandaeliminar & "'"
+            cmd4.CommandText = "SELECT IDC FROM Comandas WHERE IDC='" & comandaeliminar & "'"
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then
@@ -3005,7 +3005,7 @@ Door:
             cnn4.Close() : cnn4.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie3,Pie2,Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -3076,7 +3076,7 @@ Door:
             Y += 15
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM Comandas WHERE IDC=" & comandaeliminar & ""
+            cmd4.CommandText = "SELECT IDC FROM Comandas WHERE IDC=" & comandaeliminar & ""
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then
@@ -3201,7 +3201,7 @@ Door:
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -3342,7 +3342,7 @@ Door:
                         rd3 = cmd3.ExecuteReader
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * from VtaImpresion where comensal='" & comensal & "'"
+                        cmd1.CommandText = "SELECT Id from VtaImpresion where comensal='" & comensal & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             conta = conta + 1
@@ -3786,7 +3786,7 @@ Door:
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -3930,7 +3930,7 @@ Door:
                         rd3 = cmd3.ExecuteReader
 
                         cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText = "SELECT * from VtaImpresion where comensal='" & comensal & "'"
+                        cmd1.CommandText = "SELECT Id from VtaImpresion where comensal='" & comensal & "'"
                         rd1 = cmd1.ExecuteReader
                         Do While rd1.Read
                             conta = conta + 1
@@ -4606,7 +4606,7 @@ Door:
 
                 cnn5.Close() : cnn5.Open()
                 cmd5 = cnn5.CreateCommand
-                cmd5.CommandText = "SELECT * FROM Productos WHERE Codigo='" & CODIG & "'"
+                cmd5.CommandText = "SELECT PrecioCompra,Departamento,Grupo,UVenta FROM Productos WHERE Codigo='" & CODIG & "'"
                 rd5 = cmd5.ExecuteReader
                 If rd5.HasRows <> 0 Then
                     If rd5.Read Then
@@ -4716,7 +4716,7 @@ Door:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Pie2,Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
@@ -4900,7 +4900,7 @@ Door:
 
         cmd4 = cnn4.CreateCommand
         cmd4.CommandText =
-                "select * from Ticket"
+                "select Pie1,Pie2,Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
         rd4 = cmd4.ExecuteReader
         If rd4.HasRows Then
             If rd4.Read Then
