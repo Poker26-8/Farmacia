@@ -771,9 +771,9 @@ Public Class frmServicioCuarto
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             If txtBarras.Text = "" Then
-                cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+                cmd2.CommandText = "SELECT PrecioVentaIVA FROM Productos WHERE Codigo='" & codigo & "'"
             Else
-                cmd2.CommandText = "SELECT * FROM Productos WHERE CodBarra='" & codigo & "'"
+                cmd2.CommandText = "SELECT PrecioVentaIVA FROM Productos WHERE CodBarra='" & codigo & "'"
             End If
 
             rd2 = cmd2.ExecuteReader
@@ -826,9 +826,9 @@ nopaso:
             cmd1 = cnn1.CreateCommand
 
             If txtBarras.Text = "" Then
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & Codigo & "'"
+                cmd1.CommandText = "SELECT Departamento,Nombre,UVenta,Min,Multiplo,Existencia FROM Productos WHERE Codigo='" & Codigo & "'"
             Else
-                cmd1.CommandText = "SELECT * FROM Productos WHERE CodBarra='" & Codigo & "'"
+                cmd1.CommandText = "SELECT Departamento,Nombre,UVenta,Min,Multiplo,Existencia FROM Productos WHERE CodBarra='" & Codigo & "'"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -896,7 +896,7 @@ nopaso:
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM ticket"
+            cmd1.CommandText = "SELECT Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1043,7 +1043,7 @@ nopaso:
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM ticket"
+            cmd1.CommandText = "SELECT Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1327,7 +1327,7 @@ nopaso:
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & codigohot & "'"
+                cmd1.CommandText = "SELECT IVA,Departamento,Grupo,MCD,Multiplo,GPrint,UVenta FROM productos WHERE Codigo='" & codigohot & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -1352,7 +1352,7 @@ nopaso:
 
                         cnn2.Close() : cnn2.Open()
                         cmd2 = cnn2.CreateCommand
-                        cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & Strings.Left(codigohot, 7) & "'"
+                        cmd2.CommandText = "SELECT Existencia,Multiplo,Departamento,PrecioCompra FROM productos WHERE Codigo='" & Strings.Left(codigohot, 7) & "'"
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -1474,6 +1474,11 @@ nopaso:
                     End If
                     rd3.Close()
 
+                    If impresoracomanda = "" Then
+                        MsgBox("Impresora no configurada", vbInformation + vbOKOnly, titulocentral)
+                        GoTo deku
+                    End If
+
                     If tamimpre = 80 Then
                         PComandaH80.DefaultPageSettings.PrinterSettings.PrinterName = impresoracomanda
                         PComandaH80.Print()
@@ -1488,6 +1493,7 @@ nopaso:
 
             End If
         Loop
+deku:
         rd2.Close()
         cnn2.Close()
         cnn3.Close()

@@ -55,7 +55,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM habitacion WHERE N_Habitacion='" & cbonumero.Text & "'"
+            cmd1.CommandText = "SELECT IdHabitacion FROM habitacion WHERE N_Habitacion='" & cbonumero.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -131,7 +131,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM habitacion WHERE N_Habitacion='" & cbonumero.Text & "'"
+            cmd1.CommandText = "SELECT Ubicacion,Tipo,Caracteristicas,Horas,PrecioH,PreDia FROM habitacion WHERE N_Habitacion='" & cbonumero.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

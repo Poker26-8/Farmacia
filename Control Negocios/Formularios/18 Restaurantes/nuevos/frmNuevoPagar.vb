@@ -2109,9 +2109,15 @@ Door:
         rd1.Close()
         cnn1.Close()
 
+        If impresora = "" Then
+            MsgBox("Impresora no configurada", vbInformation + vbOKOnly, titulorestaurante)
+            GoTo deku
+        End If
+
         If imprime = 1 Then
 
             If MessageBox.Show("Desea imprimir esta Ventana", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+
 
                 If TamImpre = "80" Then
                     For naruto As Integer = 1 To copias
@@ -2134,9 +2140,12 @@ Door:
             If TamImpre = "80" Then
                 For naruto As Integer = 1 To copias
                     PVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora
-                    Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
-                    PVentaMapeo80.DefaultPageSettings.PaperSize = ps
-                    PVentaMapeo80.Print()
+                    If PVentaMapeo80.DefaultPageSettings.PrinterSettings.PrinterName = impresora Then
+                        Dim ps As New System.Drawing.Printing.PaperSize("Custom", 310, 3100)
+                        PVentaMapeo80.DefaultPageSettings.PaperSize = ps
+                        PVentaMapeo80.Print()
+                    End If
+
                 Next
             End If
 
@@ -2152,7 +2161,7 @@ Door:
 
 #End Region
 
-
+deku:
 
         Me.Close()
 

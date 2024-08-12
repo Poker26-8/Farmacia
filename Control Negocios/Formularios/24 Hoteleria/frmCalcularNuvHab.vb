@@ -185,7 +185,7 @@
 
             If lblPagar.Text > 0 Then
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM comandas WHERE NMesa='" & lblpc.Text & "' AND Codigo='xc3'"
+                cmd1.CommandText = "SELECT IDC FROM comandas WHERE NMesa='" & lblpc.Text & "' AND Codigo='xc3'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -214,7 +214,7 @@
             Else
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM asigpc WHERE Nombre='" & lblpc.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM asigpc WHERE Nombre='" & lblpc.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
