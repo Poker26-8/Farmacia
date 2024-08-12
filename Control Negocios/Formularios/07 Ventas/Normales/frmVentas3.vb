@@ -10,6 +10,7 @@ Imports System.Net
 Imports System.Threading.Tasks
 Imports System.Xml
 Imports System.Text
+Imports Gma.QrCodeNet.Encoding.Windows.Forms
 Public Class frmVentas3
 
     ''' variablesm para terminal bancaria
@@ -407,7 +408,6 @@ Public Class frmVentas3
         Folio()
         Timer1.Start()
     End Sub
-
     Private Sub txtcontraseña_Click(sender As Object, e As EventArgs) Handles txtcontraseña.Click
         If txtcontraseña.Text = "CONTRASEÑA" Then
             txtcontraseña.Text = ""
@@ -418,7 +418,6 @@ Public Class frmVentas3
             txtcontraseña.SelectionLength = Len(txtcontraseña.Text)
         End If
     End Sub
-
     Private Sub txtcontraseña_GotFocus(sender As Object, e As EventArgs) Handles txtcontraseña.GotFocus
         If txtcontraseña.Text = "CONTRASEÑA" Then
             txtcontraseña.Text = ""
@@ -464,7 +463,6 @@ Public Class frmVentas3
             End If
         End If
     End Sub
-
     Private Sub txtcontraseña_LostFocus(sender As Object, e As EventArgs) Handles txtcontraseña.LostFocus
         If txtcontraseña.Text = "" Then
             txtcontraseña.Text = "CONTRASEÑA"
@@ -2178,7 +2176,6 @@ doorcita:
         End If
         cbodesc.Focus().Equals(True)
     End Sub
-
     Private Sub cboNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboNombre.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -2345,7 +2342,6 @@ doorcita:
             End If
         End If
     End Sub
-
     Private Sub cboNombre_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboNombre.SelectedValueChanged
         Dim MySaldo As Double = 0
         If franquicia = 0 Then
@@ -2542,7 +2538,6 @@ doorcita:
             End Try
         End If
     End Sub
-
     Private Sub cboNombre_TextChanged(sender As Object, e As EventArgs) Handles cboNombre.TextChanged
         If cboNombre.Text = "" Then
             Label1.Visible = False
@@ -2562,7 +2557,6 @@ doorcita:
             My.Application.DoEvents()
         End If
     End Sub
-
     Private Sub cbotipo_DropDown(sender As Object, e As EventArgs) Handles cbotipo.DropDown
         cbotipo.Items.Clear()
         cbotipo.Items.Add("Lista")
@@ -2576,7 +2570,6 @@ doorcita:
         cbotipo.Items.Add("Especial")
         cbotipo.Items.Add("Especial 2")
     End Sub
-
     Private Sub cboDomi_DropDown(sender As Object, e As EventArgs) Handles cboDomi.DropDown
         cboDomi.Items.Clear()
         Try
@@ -2598,7 +2591,6 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cboDomi_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboDomi.SelectedValueChanged
         Try
             cnn1.Close() : cnn1.Open()
@@ -2619,14 +2611,12 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtdireccion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdireccion.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             txttel.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub cbocomisionista_DropDown(sender As Object, e As EventArgs) Handles cbocomisionista.DropDown
         cbocomisionista.Items.Clear()
         Try
@@ -2648,14 +2638,12 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cbocomisionista_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbocomisionista.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             btnventa.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub picProd_DoubleClick(sender As Object, e As EventArgs) Handles picProd.DoubleClick
         If picProd.Width = 72 Then
             picProd.Left = 767
@@ -2669,7 +2657,6 @@ doorcita:
             picProd.Height = 72
         End If
     End Sub
-
     Private Sub cbonota_DropDown(sender As Object, e As EventArgs) Handles cbonota.DropDown
         cbonota.Items.Clear()
         Try
@@ -2691,14 +2678,12 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cbonota_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbonota.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub cbonota_LostFocus(sender As Object, e As EventArgs) Handles cbonota.LostFocus
         If cbonota.Text <> "" Then
             Try
@@ -2736,19 +2721,16 @@ doorcita:
             Exit Sub
         End If
     End Sub
-
     Private Sub cbonota_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbonota.SelectedValueChanged
         cbodesc.Focus().Equals(True)
         Call cbonota_LostFocus(cbonota, New EventArgs())
     End Sub
-
     Private Sub cboimpresion_DropDown(sender As Object, e As EventArgs) Handles cboimpresion.DropDown
         cboimpresion.Items.Clear()
         cboimpresion.Items.Add("TICKET")
         cboimpresion.Items.Add("PDF - CARTA 1")
         cboimpresion.Items.Add("PDF - CARTA 2")
     End Sub
-
     Private Sub chkBuscaCliente_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaCliente.CheckedChanged
         If (chkBuscaCliente.Checked) Then
             txtNombreClave.Text = ""
@@ -2757,7 +2739,6 @@ doorcita:
             txtNombreClave.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtNombreClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombreClave.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboNombre.Items.Clear()
@@ -2815,13 +2796,11 @@ doorcita:
         '    End Try
         'End If
     End Sub
-
     Private Sub cbodesc_GotFocus(sender As Object, e As EventArgs) Handles cbodesc.GotFocus
         T_Precio = DatosRecarga("TipoPrecio")
         H_Inicia = DatosRecarga("HoraInicia")
         H_Final = DatosRecarga("HoraTermina")
     End Sub
-
     Private Sub cbodesc_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbodesc.SelectedValueChanged
         Dim tasm_impre As String = DatosRecarga("TPapelV")
         Dim MyCode As String = ""
@@ -2870,7 +2849,6 @@ doorcita:
             cnn4.Close()
         End Try
     End Sub
-
     Private Sub cbodesc_KeyDown(sender As Object, e As KeyEventArgs) Handles cbodesc.KeyDown
         Select Case e.KeyCode
             Case Is = Keys.F2
@@ -2893,7 +2871,6 @@ doorcita:
                 chkBuscaProd.Checked = True
         End Select
     End Sub
-
     Private Sub cbodesc_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbodesc.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         Dim Multiplica As String = ""
@@ -3884,19 +3861,16 @@ kaka:
             End Try
         End If
     End Sub
-
     Private Sub cbocodigo_Click(sender As Object, e As EventArgs) Handles cbocodigo.Click
         cbocodigo.SelectionStart = 0
         cbocodigo.SelectionLength = Len(cbocodigo.Text)
     End Sub
-
     Private Sub cbocodigo_TextChanged(sender As Object, e As EventArgs) Handles cbocodigo.TextChanged
         Dim nombre As String = cbocodigo.Text
         If System.IO.File.Exists(ruta_servidor & "\ProductosImg\" & nombre & ".jpg") Then
             picProd.Image = System.Drawing.Image.FromFile(ruta_servidor & "\ProductosImg\" & nombre & ".jpg")
         End If
     End Sub
-
     Private Sub cbocodigo_DropDown(sender As Object, e As EventArgs) Handles cbocodigo.DropDown
         cbocodigo.Items.Clear()
         Try
@@ -3917,7 +3891,6 @@ kaka:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cbocodigo_GotFocus(sender As Object, e As EventArgs) Handles cbocodigo.GotFocus
         cbocodigo.SelectionStart = 0
         cbocodigo.SelectionLength = Len(cbocodigo.Text)
@@ -3926,7 +3899,6 @@ kaka:
         H_Inicia = DatosRecarga("HoraInicia")
         H_Final = DatosRecarga("HoraTermina")
     End Sub
-
     Private Sub cbocodigo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbocodigo.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter And (cbocodigo.Text <> "" Or cbodesc.Text <> "") Then
@@ -4156,7 +4128,6 @@ kaka:
         End If
         If AscW(e.KeyChar) = Keys.Enter And btndevo.Text = "GUARDAR DEVOLUCIÓN" And cbocodigo.Text = "" Then btndevo.Focus().Equals(True)
     End Sub
-
     Private Sub txtdescuento1_TextChanged(sender As Object, e As EventArgs) Handles txtdescuento1.TextChanged
         If donde_va = "Descuento Porcentaje" Then
             If txtdescuento1.Text = "" Then
@@ -4223,17 +4194,14 @@ kaka:
             txtResta.Text = FormatNumber(txtSubTotal.Text, 2)
         End If
     End Sub
-
     Private Sub txtcantidad_Click(sender As Object, e As EventArgs) Handles txtcantidad.Click
         txtcantidad.SelectionStart = 0
         txtcantidad.SelectionLength = Len(txtcantidad.Text)
     End Sub
-
     Private Sub txtcantidad_GotFocus(sender As Object, e As EventArgs) Handles txtcantidad.GotFocus
         txtcantidad.SelectionStart = 0
         txtcantidad.SelectionLength = Len(txtcantidad.Text)
     End Sub
-
     Private Sub txtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcantidad.KeyPress
         If txtcantidad.Text = "" Then Exit Sub
         If AscW(e.KeyChar) = Keys.Enter And cbodesc.Text = "" Then cbodesc.Focus().Equals(True)
@@ -4344,7 +4312,6 @@ kaka:
 
         End If
     End Sub
-
     Private Sub txtcantidad_TextChanged(sender As Object, e As EventArgs) Handles txtcantidad.TextChanged
         Dim temp As Double = 0
         Dim TiCambio As Double = 0
@@ -4536,17 +4503,14 @@ kaka:
         End Try
         If txtprecio.Text = "" Then txtprecio.Text = "0.00"
     End Sub
-
     Private Sub txtprecio_Click(sender As Object, e As EventArgs) Handles txtprecio.Click
         txtprecio.SelectionStart = 0
         txtprecio.SelectionLength = Len(txtprecio.Text)
     End Sub
-
     Private Sub txtprecio_GotFocus(sender As Object, e As EventArgs) Handles txtprecio.GotFocus
         txtprecio.SelectionStart = 0
         txtprecio.SelectionLength = Len(txtprecio.Text)
     End Sub
-
     Private Sub txtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio.KeyPress
         Dim chec As Boolean = False
         Dim editap As Boolean = False
@@ -4718,14 +4682,12 @@ kaka:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtprecio_TextChanged(sender As Object, e As EventArgs) Handles txtprecio.TextChanged
         txttotal.Text = CDbl(IIf(txtcantidad.Text = "" Or txtcantidad.Text = ".", "0", txtcantidad.Text)) * CDbl(IIf(txtprecio.Text = "" Or txtprecio.Text = ".", "0", txtprecio.Text))
 
         'txttotal.Text = CDbl(IIf(txtcantidad.Text = "", "0", txtcantidad.Text)) * CDbl(IIf(txtprecio.Text = "" Or txtprecio.Text = ".", "0", txtprecio.Text))
         txttotal.Text = FormatNumber(txttotal.Text, 4)
     End Sub
-
     Private Sub cboLote_DropDown(sender As Object, e As EventArgs) Handles cboLote.DropDown
         cboLote.Items.Clear()
         cnn1.Close() : cnn1.Open()
@@ -4754,7 +4716,6 @@ kaka:
         End If
         cnn1.Close()
     End Sub
-
     Private Sub cboLote_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboLote.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         Dim chec As Boolean = False
@@ -4993,17 +4954,14 @@ kaka:
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txttotal_Click(sender As Object, e As EventArgs) Handles txttotal.Click
         txttotal.SelectionStart = 0
         txttotal.SelectionLength = Len(txttotal.Text)
     End Sub
-
     Private Sub txttotal_GotFocus(sender As Object, e As EventArgs) Handles txttotal.GotFocus
         txttotal.SelectionStart = 0
         txttotal.SelectionLength = Len(txttotal.Text)
     End Sub
-
     Private Sub txttotal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttotal.KeyPress
         Dim edita_pr As Boolean = False
 
@@ -5030,11 +4988,9 @@ kaka:
             End If
         End If
     End Sub
-
     Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txttotal.TextChanged
         Call Actualiza()
     End Sub
-
     Private Sub txtcoment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcoment.KeyPress
         If AscW(e.KeyChar) = 0 Then
             txtcoment.Text = ""
@@ -5061,7 +5017,6 @@ kaka:
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtcomentario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcomentario.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -5069,7 +5024,6 @@ kaka:
             btnventa.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub grdcaptura_KeyDown(sender As Object, e As KeyEventArgs) Handles grdcaptura.KeyDown
         If e.KeyCode = Keys.Delete Then
 
@@ -5288,7 +5242,6 @@ kaka:
 
         End If
     End Sub
-
     Private Sub grdcaptura_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdcaptura.CellDoubleClick
         Dim Tpagar As Single = 0, tmpIva As Single = 0, tmpDsct As Single = 0, tmpSub As Single = 0
         Dim index As Integer = grdcaptura.CurrentRow.Index
@@ -5421,7 +5374,6 @@ kaka:
         txtcant_productos.Text = txtcant_productos.Text - CantDX
         Call cbocodigo_KeyPress(cbocodigo, New KeyPressEventArgs(Chr(Keys.Enter)))
     End Sub
-
     Private Sub chkBuscaProd_CheckedChanged(sender As Object, e As EventArgs) Handles chkBuscaProd.CheckedChanged
         If (chkBuscaProd.Checked) Then
             txtProdClave.Text = ""
@@ -5430,7 +5382,6 @@ kaka:
             txtProdClave.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtProdClave_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProdClave.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Items.Clear()
@@ -5456,7 +5407,6 @@ kaka:
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtPagar_DoubleClick(sender As Object, e As EventArgs) Handles txtPagar.DoubleClick
         Dim TotalNV As Double = 0
         If MsgBox("¿Deseas agregar 16% de IVA a todos los productos?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then
@@ -5481,19 +5431,16 @@ kaka:
             txtefectivo.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtdescuento1_Click(sender As Object, e As EventArgs) Handles txtdescuento1.Click
         donde_va = "Descuento Porcentaje"
         txtdescuento1.SelectionStart = 0
         txtdescuento1.SelectionLength = Len(txtdescuento1.Text)
     End Sub
-
     Private Sub txtdescuento1_GotFocus(sender As Object, e As EventArgs) Handles txtdescuento1.GotFocus
         donde_va = "Descuento Porcentaje"
         txtdescuento1.SelectionStart = 0
         txtdescuento1.SelectionLength = Len(txtdescuento1.Text)
     End Sub
-
     Private Sub txtdescuento1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescuento1.KeyPress
         If txtdescuento1.Text = "" And AscW(e.KeyChar) = 46 Then
             txtdescuento1.Text = "0.00"
@@ -5509,7 +5456,6 @@ kaka:
             End If
         End If
     End Sub
-
     Private Sub txtdescuento2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescuento2.KeyPress
         If Not IsNumeric(txtdescuento2.Text) Then txtdescuento2.Text = "" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -5519,27 +5465,22 @@ kaka:
             txtefectivo.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtdescuento2_GotFocus(sender As Object, e As EventArgs) Handles txtdescuento2.GotFocus
         txtdescuento2.SelectionStart = 0
         txtdescuento2.SelectionLength = Len(txtdescuento2.Text)
     End Sub
-
     Private Sub txtdescuento2_TextChanged(sender As Object, e As EventArgs) Handles txtdescuento2.TextChanged
         txtdescuento2.SelectionStart = 0
         txtdescuento2.SelectionLength = Len(txtdescuento2.Text)
     End Sub
-
     Private Sub txtefectivo_Click(sender As Object, e As EventArgs) Handles txtefectivo.Click
         txtefectivo.SelectionStart = 0
         txtefectivo.SelectionLength = Len(txtefectivo.Text)
     End Sub
-
     Private Sub txtefectivo_GotFocus(sender As Object, e As EventArgs) Handles txtefectivo.GotFocus
         txtefectivo.SelectionStart = 0
         txtefectivo.SelectionLength = Len(txtefectivo.Text)
     End Sub
-
     Private Sub txtefectivo_KeyDown(sender As Object, e As KeyEventArgs) Handles txtefectivo.KeyDown
         If txtSubTotal.Text <> "" Then
             If modo_caja = "CAJA" Then
@@ -5549,7 +5490,6 @@ kaka:
             txtefectivo.ReadOnly = True
         End If
     End Sub
-
     Private Sub txtefectivo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtefectivo.KeyPress
         If Not IsNumeric(txtefectivo.Text) Then txtefectivo.Text = "" : Exit Sub
         If txtefectivo.Text = "" And AscW(e.KeyChar) = 46 Then
@@ -5574,7 +5514,6 @@ kaka:
             btnventa.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtefectivo_TextChanged(sender As Object, e As EventArgs) Handles txtefectivo.TextChanged
         Dim MyOpe As Double = CDbl(IIf(txtPagar.Text = "", "0", txtPagar.Text)) - (CDbl(IIf(txtMontoP.Text = "", "0", txtMontoP.Text)) + CDbl(IIf(txtefectivo.Text = "", "0", txtefectivo.Text)))
         If MyOpe < 0 Then
@@ -5587,7 +5526,6 @@ kaka:
         txtCambio.Text = FormatNumber(txtCambio.Text, 2)
         txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
-
     Private Sub cbobanco_DropDown(sender As Object, e As EventArgs) Handles cbobanco.DropDown
         cbobanco.Items.Clear()
         Try
@@ -5609,30 +5547,25 @@ kaka:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cbobanco_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbobanco.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             txtnumref.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub cbotpago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbotpago.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cbobanco.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtnumref_Click(sender As Object, e As EventArgs) Handles txtnumref.Click
         txtnumref.SelectionStart = 0
         txtnumref.SelectionLength = Len(txtnumref.Text)
     End Sub
-
     Private Sub txtnumref_GotFocus(sender As Object, e As EventArgs) Handles txtnumref.GotFocus
         txtnumref.SelectionStart = 0
         txtnumref.SelectionLength = Len(txtnumref.Text)
     End Sub
-
     Private Sub txtnumref_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnumref.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             Dim saldo As Double = 0
@@ -5731,17 +5664,14 @@ kaka:
             txtmonto.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtmonto_Click(sender As Object, e As EventArgs) Handles txtmonto.Click
         txtmonto.SelectionStart = 0
         txtmonto.SelectionLength = Len(txtmonto.Text)
     End Sub
-
     Private Sub txtmonto_GotFocus(sender As Object, e As EventArgs) Handles txtmonto.GotFocus
         txtmonto.SelectionStart = 0
         txtmonto.SelectionLength = Len(txtmonto.Text)
     End Sub
-
     Private Sub txtmonto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtmonto.KeyPress
         If Not IsNumeric(txtmonto.Text) Then txtmonto.Text = "" : Exit Sub
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -5802,7 +5732,6 @@ kaka:
             End If
         End If
     End Sub
-
     Private Sub txtMontoP_TextChanged(sender As Object, e As EventArgs) Handles txtMontoP.TextChanged
         If txtMontoP.Text = "" Then txtMontoP.Text = "0.00"
         If txtefectivo.Text = "" Then txtefectivo.Text = "0.00"
@@ -5820,7 +5749,6 @@ kaka:
         txtCambio.Text = FormatNumber(txtCambio.Text, 2)
         txtResta.Text = FormatNumber(txtResta.Text, 2)
     End Sub
-
     Private Sub cbotpago_DropDown(sender As Object, e As EventArgs) Handles cbotpago.DropDown
         cbotpago.Items.Clear()
         Try
@@ -5839,13 +5767,11 @@ kaka:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub dtpFecha_P_KeyPress(sender As Object, e As KeyPressEventArgs) Handles dtpFecha_P.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             Button9.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub grdpago_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdpago.CellDoubleClick
         Dim indexito As Integer = grdpago.CurrentRow.Index
 
@@ -5866,7 +5792,6 @@ kaka:
 
         txtMontoP.Text = FormatNumber(pagos, 4)
     End Sub
-
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim tpago As String = cbotpago.Text
         Dim banco As String = cbobanco.Text
@@ -5952,7 +5877,6 @@ kaka:
         boxcomentario.Visible = True
         txtcomentario.Focus().Equals(True)
     End Sub
-
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
 
         Dim limpiar As Integer = DatosRecarga2("LimpiarV")
@@ -6147,12 +6071,10 @@ kaka:
         txtcomentario.Text = ""
         Timer1.Start()
     End Sub
-
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         frmConsultaNotas.Show()
         frmConsultaNotas.BringToFront()
     End Sub
-
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         Try
             cnn1.Close() : cnn1.Open()
@@ -6180,21 +6102,17 @@ kaka:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         frmMonederos.Show()
         frmMonederos.BringToFront()
     End Sub
-
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         frmAbonoNotas.Show()
         frmAbonoNotas.BringToFront()
     End Sub
-
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         frmPedidosCli.Show()
     End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmVentas1.Show()
         frmVentas1.BringToFront()
@@ -6292,12 +6210,14 @@ doorcita:
                         .runSp(a_cnn, "update CotPedDetalle set Comentario='" & grdcaptura.Rows(pipo).Cells(1).Value.ToString() & "' where Id=" & id_a, sInfo)
                         sInfo = ""
                     End If
+
+
+
                 Next
                 a_cnn.Close()
             End If
         End With
     End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Text = "Cotización (3)"
         If Me.Text = "Ventas (3)" Then
@@ -6766,7 +6686,6 @@ Door:
             End Try
         End If
     End Sub
-
     Public Sub PDF_Cotizacion()
         Dim root_name_recibo As String = ""
         Dim FileOpen As New ProcessStartInfo
@@ -6876,7 +6795,6 @@ Door:
             System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
         End If
     End Sub
-
     Public Sub PDF_Cotizacion_Img()
         Dim root_name_recibo As String = ""
         Dim FileOpen As New ProcessStartInfo
@@ -6986,7 +6904,6 @@ Door:
             System.IO.File.Copy(My.Application.Info.DirectoryPath & "\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf", "\\" & varrutabase & "\ControlNegociosPro\ARCHIVOSDL1\COTIZACIONES\" & MYFOLIO & ".pdf")
         End If
     End Sub
-
     Public Sub Termina_Error_Coti()
         Dim pide As String = "", contra As String = txtcontraseña.Text, usu As String = lblusuario.Text
 
@@ -7011,7 +6928,6 @@ Door:
         MYFOLIO = 0
         cbodesc.Focus().Equals(True)
     End Sub
-
     Private Function Dame_FolioFac(ByVal Folio_Venta As String) As String
         Dame_FolioFac = ""
 
@@ -7067,7 +6983,6 @@ Door:
 
         Return Dame_FolioFac
     End Function
-
     Private Sub Corrobora_LimpiaTabla(ByVal tabla As String)
         Dim oData As New ToolKitSQL.oledbdata
         Dim sSql As String = ""
@@ -7099,7 +7014,6 @@ Door:
         End If
 
     End Sub
-
     Private Sub Valida_Datos_Cliente(ByVal nombre As String)
         Try
             cnn4.Close() : cnn4.Open()
@@ -7204,7 +7118,6 @@ Door:
             cnn4.Close()
         End Try
     End Sub
-
     Async Function EnviarSolicitudAPI() As Task
 
         ' Label1.Visible = True
@@ -7262,7 +7175,6 @@ Door:
             MessageBox.Show("Error en la solicitud: " & ex.Message)
         End Try
     End Function
-
     Private Function CalculateSHA1(input As String) As String
         Try
             Dim sha1Obj As New System.Security.Cryptography.SHA1CryptoServiceProvider
@@ -7278,8 +7190,6 @@ Door:
         End Try
 
     End Function
-
-
     Async Function EnviarSolicitudAPI2() As Task
         ' Valores a enviar a la API
         Dim idsolicitud As String = valorxd
@@ -9247,7 +9157,6 @@ Door:
         MYFOLIO = 0
 
     End Sub
-
     Private Sub btndevo_Click(sender As Object, e As EventArgs) Handles btndevo.Click
         Dim id_usu As Integer = 0
         Dim per_dev As Boolean = False
@@ -9945,7 +9854,6 @@ ecomoda:
             txtprecio.ReadOnly = True
         End If
     End Sub
-
     Private Sub pVenta80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta80.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -9967,6 +9875,9 @@ ecomoda:
         Dim ligaqr As String = ""
         Dim whats As String = DatosRecarga("Whatsapp")
 
+        Dim autofact As String = DatosRecarga("LinkAuto")
+        Dim siqr As String = DatosRecarga2("LinkAuto")
+
         If whats <> "" Then
             ligaqr = "http://wa.me/" & whats
         End If
@@ -9980,11 +9891,11 @@ ecomoda:
                     Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
                     If tLogo = "CUAD" Then
                         e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
-                        Y += 153
+                        Y += 130
                     End If
                     If tLogo = "RECT" Then
-                        e.Graphics.DrawImage(Logotipo, 30, 0, 250, 150)
-                        Y += 153
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 240, 110)
+                        Y += 120
                     End If
                 End If
             Else
@@ -10128,6 +10039,24 @@ ecomoda:
                 Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
                 Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
                 Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+                Dim lote As String = ""
+                Dim caducidad As Date = Date.Now
+                Dim fechacaducidad As String = ""
+
+                If ordetrabajo = 0 Then
+                    If grdcaptura.Rows(miku).Cells(8).Value.ToString() = "" Then
+                    Else
+                        lote = grdcaptura.Rows(miku).Cells(8).Value.ToString()
+                        caducidad = grdcaptura.Rows(miku).Cells(9).Value.ToString()
+                        fechacaducidad = Format(caducidad, "yyyy-MM-dd")
+                    End If
+                Else
+                    lote = ""
+                    caducidad = caducidad
+                    fechacaducidad = Format(caducidad, "yyyy-MM-dd")
+                End If
+
+
                 Dim total As Double = FormatNumber(canti * precio, 4)
 
                 e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
@@ -10137,8 +10066,15 @@ ecomoda:
                 e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 55, Y)
                 e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 110, Y)
                 e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 193, Y, sf)
-                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 280, Y, sf)
-                Y += 21
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 270, Y, sf)
+                Y += 15
+                If lote = "" Then
+                Else
+                    e.Graphics.DrawString("Lote: " & lote, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 17
+                    e.Graphics.DrawString("Caducidad: " & fechacaducidad, fuente_prods, Brushes.Black, 1, Y)
+                End If
+                Y += 6
                 If codigo = "RECARG" Then
                     e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
                     Y += 21
@@ -10173,6 +10109,8 @@ ecomoda:
 
             End If
 
+
+
             e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
             Y += 15
             e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -10189,29 +10127,43 @@ ecomoda:
                 cnn1.Close() : cnn1.Open()
                 For N As Integer = 0 To grdcaptura.Rows.Count - 1
                     If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
-                        cmd1 = cnn1.CreateCommand
-                        cmd1.CommandText =
-                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
-                        rd1 = cmd1.ExecuteReader
-                        If rd1.HasRows Then
-                            If rd1.Read Then
+                        If ordetrabajo = 0 Then
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                            "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
 
-                                If rd1(0).ToString > 0 Then
-                                    MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
-                                    IVAPRODUCTO = MySubtotal / (1 + rd1(0).ToString)
-                                    IVADELPRODUCTO = MySubtotal - IVAPRODUCTO
-                                    TotalIVAPrint = TotalIVAPrint + IVADELPRODUCTO
+                                    If rd1(0).ToString > 0 Then
+                                        MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                        IVAPRODUCTO = MySubtotal / (1 + rd1(0).ToString)
+                                        IVADELPRODUCTO = MySubtotal - IVAPRODUCTO
+                                        TotalIVAPrint = TotalIVAPrint + IVADELPRODUCTO
+                                    End If
+
                                 End If
-                                'If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
-
-                                '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
-
-                                '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
-
-                                'End If
                             End If
+                            rd1.Close()
+                        Else
+                            cmd1 = cnn1.CreateCommand
+                            cmd1.CommandText =
+                            "select IVA from OrdenTrabajo where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                            rd1 = cmd1.ExecuteReader
+                            If rd1.HasRows Then
+                                If rd1.Read Then
+
+                                    If rd1(0).ToString > 0 Then
+                                        MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                        IVAPRODUCTO = MySubtotal / (1 + rd1(0).ToString)
+                                        IVADELPRODUCTO = MySubtotal - IVAPRODUCTO
+                                        TotalIVAPrint = TotalIVAPrint + IVADELPRODUCTO
+                                    End If
+
+                                End If
+                            End If
+                            rd1.Close()
                         End If
-                        rd1.Close()
                     End If
                 Next
                 TotalIVAPrint = FormatNumber(TotalIVAPrint, 2)
@@ -10363,7 +10315,7 @@ ecomoda:
             End If
 
             Y += 7
-            e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 142.5, Y, sc)
+            e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 137, Y, sc)
             Y += 20
 
             If txtResta.Text > 0 Then
@@ -10398,56 +10350,66 @@ ecomoda:
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='LinkAuto'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
                     linkauto = rd1(0).ToString
+                    siqr = rd1(1).ToString
                 End If
             End If
             rd1.Close()
+
+            Dim siqrwhats As Integer = 0
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred,NumPart FROM formatos WHERE Facturas='WhatsApp'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    siqrwhats = rd1(1).ToString
+                End If
+            End If
+            rd1.Close()
+
             cnn1.Close()
+            If siqrwhats = 1 Then
+                If ligaqr <> "" Then
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = ligaqr
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-            If ligaqr <> "" Then
-                'picQR.Image.Dispose()
-                Dim entrada As String = ligaqr
-                Dim Gen As New QRCodeGenerator
-                Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                Dim Code As New QRCode(data)
+                    e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 15
+                    e.Graphics.DrawImage(ima, 50, CInt(Y), 85, 85)
+                    Y += 60
 
-                picQR.Image = Code.GetGraphic(200)
-                My.Application.DoEvents()
-                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
-                Y += 25
-                e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
-                picQR.Image.Dispose()
+                    picQR.Image = Nothing
+                End If
+
             End If
 
-            Y += 20
+            Y += 35
             If autofac = 1 Then
 
-                If linkauto <> "" Then
-                    'picQR.Image.Dispose()
-                    Dim entrada As String = linkauto
-                    Dim Gen As New QRCodeGenerator
-                    Dim data = Gen.CreateQrCode(entrada, QRCodeGenerator.ECCLevel.Q)
-                    Dim Code As New QRCode(data)
+                If siqr = "1" Then
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
 
-                    ' Asegúrate de liberar los recursos de la imagen anterior antes de asignar la nueva imagen
-                    If picQR.Image IsNot Nothing Then
-                        picQR.Image.Dispose()
-                    End If
-
-                    ' Asigna la nueva imagen al PictureBox
-                    picQR.Image = Code.GetGraphic(200)
-                    My.Application.DoEvents()
-
+                    e.Graphics.DrawString("Codigo para facturar:", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
+                    e.Graphics.DrawString(Trim(cadenafact), fuente_datos, Brushes.Black, 1, Y)
+                    Y += 25
                     ' Usa Using para garantizar la liberación de recursos de la fuente
-                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
-                    Y += 15
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 1, Y)
+                    Y += 10
                     ' Dibuja la imagen en el contexto gráfico
-                    e.Graphics.DrawImage(picQR.Image, 30, CInt(Y), 240, 240)
-                    picQR.Image.Dispose()
+                    e.Graphics.DrawImage(ima, 50, CInt(Y + 15), 85, 85)
+                    Y += 20
+
                 End If
 
             Else
@@ -10460,7 +10422,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pCotiza80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCotiza80.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -10727,7 +10688,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub PPedido80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PPedido80.PrintPage
         Try
             'Fuentes prederminadas
@@ -10976,7 +10936,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pDevo80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevo80.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -11272,7 +11231,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pVentaCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaCarta.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -11844,7 +11802,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pCotizaCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCotizaCarta.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -12102,7 +12059,6 @@ ecomoda:
 
         e.HasMorePages = False
     End Sub
-
     Private Sub pPedidoCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pPedidoCarta.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -12420,7 +12376,6 @@ ecomoda:
 
         e.HasMorePages = False
     End Sub
-
     Private Sub pDevoCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevoCarta.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -12646,7 +12601,6 @@ ecomoda:
 
         e.HasMorePages = False
     End Sub
-
     Private Sub chkFiscal_CheckedChanged(sender As Object, e As EventArgs) Handles chkFiscal.CheckedChanged
         If (chkFiscal.Checked) Then
 
@@ -12718,11 +12672,9 @@ ecomoda:
             txtdireccion.Text = ""
         End If
     End Sub
-
     Private Sub cboLote_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboLote.SelectedValueChanged
         ReviewLote()
     End Sub
-
     Private Sub cbocedula_DropDown(sender As Object, e As EventArgs) Handles cbocedula.DropDown
         cbocedula.Items.Clear()
         Try
@@ -12743,7 +12695,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cbocedula_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbocedula.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
@@ -12757,7 +12708,6 @@ ecomoda:
             End If
         End If
     End Sub
-
     Private Sub cbocedula_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbocedula.SelectedValueChanged
         Try
             cnn1.Close() : cnn1.Open()
@@ -12783,55 +12733,45 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtreceta_Click(sender As Object, e As EventArgs) Handles txtreceta.Click
         txtreceta.SelectionStart = 0
         txtreceta.SelectionLength = Len(txtreceta.Text)
     End Sub
-
     Private Sub txtreceta_GotFocus(sender As Object, e As EventArgs) Handles txtreceta.GotFocus
         txtreceta.SelectionStart = 0
         txtreceta.SelectionLength = Len(txtreceta.Text)
     End Sub
-
     Private Sub txtreceta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtreceta.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             txtmedico.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtmedico_Click(sender As Object, e As EventArgs) Handles txtmedico.Click
         txtmedico.SelectionStart = 0
         txtmedico.SelectionLength = Len(txtmedico.Text)
     End Sub
-
     Private Sub txtmedico_GotFocus(sender As Object, e As EventArgs) Handles txtmedico.GotFocus
         txtmedico.SelectionStart = 0
         txtmedico.SelectionLength = Len(txtmedico.Text)
     End Sub
-
     Private Sub txtmedico_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtmedico.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             txtdireccion_med.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txtdireccion_med_Click(sender As Object, e As EventArgs) Handles txtdireccion_med.Click
         txtdireccion_med.SelectionStart = 0
         txtdireccion_med.SelectionLength = Len(txtdireccion_med.Text)
     End Sub
-
     Private Sub txtdireccion_med_GotFocus(sender As Object, e As EventArgs) Handles txtdireccion_med.GotFocus
         txtdireccion_med.SelectionStart = 0
         txtdireccion_med.SelectionLength = Len(txtdireccion_med.Text)
     End Sub
-
     Private Sub txtdireccion_med_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdireccion_med.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             btnantis.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub btnantis_Click(sender As Object, e As EventArgs) Handles btnantis.Click
         If cbocedula.Text = "" Then MsgBox("Introduce los datos del médico para continuar.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbocedula.Focus().Equals(True) : Exit Sub
         If txtreceta.Text = "" Then MsgBox("Introduce el número de la receta.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtreceta.Focus().Equals(True) : Exit Sub
@@ -12884,13 +12824,11 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtComentarioPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComentarioPago.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboCuentaRecepcion.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txttel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttel.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             txtObservaciones.Focus.Equals(True)
@@ -12918,7 +12856,6 @@ ecomoda:
 
         End If
     End Sub
-
     Private Sub pVenta58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta58.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -13398,7 +13335,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pCotiza58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCotiza58.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -13703,7 +13639,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub PPedido58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PPedido58.PrintPage
         Try
             'Fuentes prederminadas
@@ -13952,7 +13887,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_DropDown(sender As Object, e As EventArgs) Handles cboCuentaRecepcion.DropDown
         Try
             cboCuentaRecepcion.Items.Clear()
@@ -13973,7 +13907,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuentaRecepcion.SelectedValueChanged
         Try
             cnn2.Close() : cnn2.Open()
@@ -13992,19 +13925,16 @@ ecomoda:
             cnn2.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuentaRecepcion.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboBancoRecepcion.Focus.Equals(True)
         End If
     End Sub
-
     Private Sub cboBancoRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBancoRecepcion.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             dtpFecha_P.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Try
             cnn1.Close()
@@ -14024,13 +13954,11 @@ ecomoda:
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
-
     Private Sub frmVentas3_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control AndAlso e.KeyCode = Keys.A Then
             btnventa.PerformClick()
         End If
     End Sub
-
     Private Sub pComanda80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda80.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -14146,7 +14074,6 @@ ecomoda:
 
         End Try
     End Sub
-
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         Try
             cnn1.Close()
@@ -14167,19 +14094,16 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtdescu_Click(sender As Object, e As EventArgs) Handles txtdescu.Click
         donde_va = "Descuento Moneda"
         txtdescu.SelectionStart = 0
         txtdescu.SelectionLength = Len(txtdescu.Text)
     End Sub
-
     Private Sub txtdescu_GotFocus(sender As Object, e As EventArgs) Handles txtdescu.GotFocus
         donde_va = "Descuento Moneda"
         txtdescu.SelectionStart = 0
         txtdescu.SelectionLength = Len(txtdescu.Text)
     End Sub
-
     Private Sub txtdescu_TextChanged(sender As Object, e As EventArgs) Handles txtdescu.TextChanged
         If donde_va = "Descuento Moneda" Then
             Dim resta As Double = 0
@@ -14251,7 +14175,6 @@ ecomoda:
             End If
         End If
     End Sub
-
     Private Sub txtdescu_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescu.KeyPress
         If txtdescu.Text = "" And AscW(e.KeyChar) = 46 Then
             txtdescu.Text = "0.00"
@@ -14267,7 +14190,6 @@ ecomoda:
             End If
         End If
     End Sub
-
     Private Sub cbotpago_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbotpago.SelectedValueChanged
         Try
             cnn1.Close()
@@ -14297,11 +14219,9 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub grdcaptura_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles grdcaptura.CellPainting
 
     End Sub
-
     Private Sub grdcaptura_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles grdcaptura.RowPrePaint
         If e.RowIndex Mod 2 = 0 Then
             grdcaptura.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
@@ -14311,19 +14231,16 @@ ecomoda:
             'grdcaptura.Rows(e.RowIndex).DefaultCellStyle.Font = New Font(grdcaptura.Font, FontStyle.Bold)
         End If
     End Sub
-
     Private Sub txtObservaciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtObservaciones.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
         frmRepExistenciaSincronizador.Show()
         frmRepExistenciaSincronizador.BringToFront()
     End Sub
-
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         Try
             Me.Text = "Pedidos (3)"
@@ -14424,7 +14341,7 @@ ecomoda:
                 End If
                 cnn1.Close()
 
-                If MsgBox("¿Deseas guardar los datos de esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
+                If MsgBox("¿Deseas guardar los datos de este pedido?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbCancel Then cnn1.Close() : Exit Sub
 
                 cnn1.Close() : cnn1.Open()
                 For i As Integer = 0 To grdcaptura.Rows.Count - 1
@@ -14489,7 +14406,7 @@ ecomoda:
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,FPago,PorcentajeDesc,MontoSinDesc,IP,Descto) VALUES(" & IdCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','','" & cboimpresion.Text & "'," & MyDescuento & ",''," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "','0')"
+                cmd1.CommandText = "INSERT INTO pedidosven(IdCliente,Cliente,Direccion,Subtotal,IVA,Totales,ACuenta,Resta,Usuario,Fecha,Hora,Status,Tipo,Comentario,Formato,Descuento,FPago,PorcentajeDesc,MontoSinDesc,IP,Descto) VALUES(" & IdCliente & ",'" & Cliente & "','" & txtdireccion.Text & "'," & MySubtotal & "," & sumadeivas & "," & MyTotVenta & "," & MyPago & "," & MyResta & ",'" & lblusuario.Text & "','" & Format(Date.Now, "yyyy-MM-dd") & "','" & Format(Date.Now, "HH:mm:ss") & "','PENDIENTE','PEDIDO','" & txtcomentario.Text & "','" & cboimpresion.Text & "'," & MyDescuento & ",''," & MyPorcDesc & "," & MyTotVenta & ",'" & dameIP2() & "','0')"
                 cmd1.ExecuteNonQuery()
                 cnn1.Close()
 
@@ -14617,7 +14534,9 @@ ecomoda:
 
                 cnn1.Close() : cnn1.Open()
                 For monkey As Integer = 0 To grdcaptura.Rows.Count - 1
-                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then GoTo rayos
+                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" Then
+                        GoTo rayos2
+                    End If
 
                     Dim MyCodigo As String = grdcaptura.Rows(monkey).Cells(0).Value.ToString
                     Dim MyNombre As String = grdcaptura.Rows(monkey).Cells(1).Value.ToString
@@ -14674,6 +14593,15 @@ rayos:
                     cmd2.CommandText = "INSERT INTO pedidosvendet(Folio,Codigo,Nombre,Cantidad,Unidad,CostoV,Precio,Total,PrecioSIVA,TotalSIVA,Fecha,Usuario,Depto,Grupo,CostVR,Tipo,Comisionista,Descuento,Descto,Porc_Descuento) VALUES(" & MYFOLIO & ",'" & MyCodigo & "','" & MyNombre & "'," & MyCantidad & ",'" & MYUnidad & "'," & MyCostVUE & "," & MyPrecio & "," & MyTotal & "," & PrecioSinIVA & "," & TotalSinIVA & ",'" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','" & lblusuario.Text & "','" & MyDepa & "','" & MyGrupo & "','0','PEDIDO','',0,0,0)"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
+
+rayos2:
+                    If grdcaptura.Rows(monkey).Cells(0).Value.ToString = "" And grdcaptura.Rows(monkey).Cells(1).Value.ToString <> "" Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                            "update pedidosvendet set Comisionista='" & grdcaptura.Rows(monkey).Cells(1).Value.ToString & "' where Codigo='" & MyCodigo & "' and Folio=" & MYFOLIO
+                        cmd1.ExecuteNonQuery()
+                    End If
+
                 Next
                 cnn1.Close()
 
@@ -14752,7 +14680,7 @@ rayos:
                 cnn1.Close()
 
                 If (Imprime) Then
-                    If MsgBox("¿Deseas imprimir esta cotización?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
+                    If MsgBox("¿Deseas imprimir este pedido?", vbInformation + vbOKCancel, "Delsscom Control Negocios Pro") = vbOK Then
                         Pasa_Print = True
                     Else
                         Pasa_Print = False
@@ -14841,7 +14769,6 @@ rayos:
             cnn1.Close()
         End Try
     End Sub
-
     Public Sub Insert_Pedido()
 
         Dim oData As New ToolKitSQL.oledbdata
@@ -14935,8 +14862,480 @@ doorcita:
         End With
 
     End Sub
-
     Private Sub pComanda58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda58.PrintPage
 
+    End Sub
+    Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
+        frmOrdenTrabajo.Show()
+        frmOrdenTrabajo.BringToFront()
+    End Sub
+    Private Sub pVentaMatriz80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMatriz80.PrintPage
+        'Fuentes prederminadas
+        Dim tipografia As String = "Arial"
+        Dim fuente_datos As New Drawing.Font(tipografia, 10, FontStyle.Regular)
+        Dim fuente_prods As New Drawing.Font(tipografia, 9, FontStyle.Regular)
+        Dim fuente_fecha As New Drawing.Font(tipografia, 8, FontStyle.Regular)
+        'Variables
+        Dim sc As New StringFormat With {.Alignment = StringAlignment.Center}
+        Dim sf As New StringFormat With {.Alignment = StringAlignment.Far}
+        Dim pen As New Pen(Brushes.Black, 1)
+        Dim Y As Double = 0
+        Dim nLogo As String = DatosRecarga("LogoG")
+        Dim Logotipo As Drawing.Image = Nothing
+        Dim tLogo As String = DatosRecarga("TipoLogo")
+        Dim simbolo As String = DatosRecarga("Simbolo")
+        Dim Pie As String = ""
+        Dim pagare As String = ""
+        Dim DesglosaIVA As String = DatosRecarga("Desglosa")
+        Dim ligaqr As String = ""
+        Dim whats As String = DatosRecarga("Whatsapp")
+
+        If whats <> "" Then
+            ligaqr = "http://wa.me/" & whats
+        End If
+
+        Dim saldomonedero As Double = 0
+
+        Try
+            '[°]. Logotipo
+            If tLogo <> "SIN" Then
+                If File.Exists(My.Application.Info.DirectoryPath & "\" & nLogo) Then
+                    Logotipo = Drawing.Image.FromFile(My.Application.Info.DirectoryPath & "\" & nLogo)
+                    If tLogo = "CUAD" Then
+                        e.Graphics.DrawImage(Logotipo, 80, 0, 120, 120)
+                        Y += 153
+                    End If
+                    If tLogo = "RECT" Then
+                        e.Graphics.DrawImage(Logotipo, 30, 0, 250, 150)
+                        Y += 153
+                    End If
+                End If
+            Else
+                Y = 0
+            End If
+
+            '[°]. Datos del negocio
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT Saldo FROM monedero WHERE Barras='" & txttel.Text & "'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    saldomonedero = rd1("Saldo").ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText =
+                "select Pie1,Pagare,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    Pie = rd1("Pie1").ToString
+                    pagare = rd1("Pagare").ToString
+
+                    'Razón social
+                    If rd1("Cab0").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab0").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'RFC
+                    If rd1("Cab1").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab1").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'Calle  N°.
+                    If rd1("Cab2").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab2").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'Colonia
+                    If rd1("Cab3").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab3").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'Delegación / Municipio - Entidad
+                    If rd1("Cab4").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab4").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'Teléfono
+                    If rd1("Cab5").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab5").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    'Correo
+                    If rd1("Cab6").ToString() <> "" Then
+                        e.Graphics.DrawString(rd1("Cab6").ToString, fuente_prods, Brushes.Black, 140, Y, sc)
+                        Y += 16
+                    End If
+                    Y += 3
+                End If
+            Else
+                Y += 0
+            End If
+            rd1.Close()
+
+            '[1]. Datos de la venta
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("NOTA DE VENTA", New Drawing.Font(tipografia, 15, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+            Y += 17
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            e.Graphics.DrawString("Folio: " & MYFOLIO, fuente_datos, Brushes.Black, 220, Y, sf)
+            Y += 15
+            e.Graphics.DrawString("Fecha: " & FormatDateTime(Date.Now, DateFormat.ShortDate), fuente_fecha, Brushes.Black, 1, Y)
+            e.Graphics.DrawString("Hora: " & FormatDateTime(Date.Now, DateFormat.LongTime), fuente_fecha, Brushes.Black, 220, Y, sf)
+            Y += 19
+
+            '[2]. Datos del cliente
+            If cboNombre.Text <> "" Then
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+                e.Graphics.DrawString("C L I E N T E", New Drawing.Font(tipografia, 10, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+                Y += 7.5
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 15
+
+                e.Graphics.DrawString("Nombre: " & Mid(cboNombre.Text, 1, 48), fuente_prods, Brushes.Black, 1, Y)
+                Y += 13.5
+                If Mid(cboNombre.Text, 49, 100) <> "" Then
+                    e.Graphics.DrawString(Mid(cboNombre.Text, 49, 100), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                End If
+                Y += 3
+                If txtdireccion.Text <> "" Then
+                    e.Graphics.DrawString(Mid(txtdireccion.Text, 1, 35), fuente_prods, Brushes.Black, 1, Y)
+                    Y += 13.5
+                    If Mid(txtdireccion.Text, 36, 70) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 36, 70), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                    If Mid(txtdireccion.Text, 71, 105) <> "" Then
+                        e.Graphics.DrawString(Mid(txtdireccion.Text, 71, 105), fuente_prods, Brushes.Black, 1, Y)
+                        Y += 13.5
+                    End If
+                End If
+                Y += 8
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            Else
+                Y += 4
+                e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 12
+            End If
+
+            e.Graphics.DrawString("PRODUCTO", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 140, Y, sc)
+            Y += 13
+            e.Graphics.DrawString("CANTIDAD", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 1, Y)
+            e.Graphics.DrawString("PRECIO U.", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 100, Y)
+            e.Graphics.DrawString("TOTAL", New Drawing.Font(tipografia, 9, FontStyle.Bold), Brushes.Black, 200, Y)
+            Y += 6
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            Dim total_prods As Double = 0
+
+            For miku As Integer = 0 To grdcaptura.Rows.Count - 1
+                If grdcaptura.Rows(miku).Cells(1).Value.ToString() <> "" And grdcaptura.Rows(miku).Cells(0).Value.ToString = "" Then
+                    Y -= 5
+                    e.Graphics.DrawString(grdcaptura.Rows(miku).Cells(1).Value.ToString(), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+                    Y += 21
+                    Continue For
+                End If
+                Dim codigo As String = grdcaptura.Rows(miku).Cells(0).Value.ToString()
+                Dim nombre As String = grdcaptura.Rows(miku).Cells(1).Value.ToString()
+                Dim unidad As String = grdcaptura.Rows(miku).Cells(2).Value.ToString()
+                Dim canti As Double = grdcaptura.Rows(miku).Cells(3).Value.ToString()
+                Dim precio As Double = grdcaptura.Rows(miku).Cells(4).Value.ToString()
+                Dim total As Double = FormatNumber(canti * precio, 4)
+
+                e.Graphics.DrawString(codigo, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(Mid(nombre, 1, 48), fuente_prods, Brushes.Black, 52, Y)
+                Y += 12.5
+                e.Graphics.DrawString(canti, fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(unidad, fuente_prods, Brushes.Black, 20, Y)
+                e.Graphics.DrawString("x", fuente_prods, Brushes.Black, 50, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(precio, 2), fuente_prods, Brushes.Black, 170, Y, sf)
+                e.Graphics.DrawString(simbolo & FormatNumber(total, 2), fuente_prods, Brushes.Black, 200, Y)
+                Y += 21
+                If codigo = "RECARG" Then
+                    e.Graphics.DrawString("COMPAÑIA: " & varcompañia, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 21
+                    e.Graphics.DrawString("MONTO: " & varmonto, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 21
+                    e.Graphics.DrawString("TELEFONO: " & vartelefono, fuente_prods, Brushes.Black, 1, Y)
+                    Y += 21
+                    e.Graphics.DrawString(varfolrecarga, fuente_fecha, Brushes.Black, 1, Y)
+                    Y += 21
+                End If
+                total_prods = total_prods + canti
+            Next
+            Y += 3
+
+            If txtcomentario.Text <> "" Then
+
+                Dim comentariogen As String = ""
+                comentariogen = txtcomentario.Text.TrimEnd(vbCrLf.ToCharArray)
+
+                Dim caracteresPorLinea As Integer = 36
+                Dim texto As String = comentariogen
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+
+            End If
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 15
+            e.Graphics.DrawString("TOTAL DE PRODUCTOS " & total_prods, New Drawing.Font(tipografia, 10, FontStyle.Regular), Brushes.Black, 140, Y, sc)
+            Y += 7
+            e.Graphics.DrawString("--------------------------------------------------------", New Drawing.Font(tipografia, 12, FontStyle.Regular), Brushes.Black, 1, Y)
+            Y += 18
+
+            Dim MySubtotal As Double = 0
+            Dim TotalIVAPrint As Double = 0
+            Dim TotalIEPS As Double = 0
+            Dim IVAPRODUCTO As Double = 0
+            Dim IVADELPRODUCTO As Double = 0
+            Try
+                cnn1.Close() : cnn1.Open()
+                For N As Integer = 0 To grdcaptura.Rows.Count - 1
+                    If CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) <> "" Then
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText =
+                        "select IVA from Productos where Codigo='" & CStr(grdcaptura.Rows(N).Cells(0).Value.ToString) & "'"
+                        rd1 = cmd1.ExecuteReader
+                        If rd1.HasRows Then
+                            If rd1.Read Then
+
+                                If rd1(0).ToString > 0 Then
+                                    MySubtotal = grdcaptura.Rows(N).Cells(5).Value.ToString
+                                    IVAPRODUCTO = MySubtotal / (1 + rd1(0).ToString)
+                                    IVADELPRODUCTO = MySubtotal - IVAPRODUCTO
+                                    TotalIVAPrint = TotalIVAPrint + IVADELPRODUCTO
+                                End If
+                                'If CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) <> 0 Then
+
+                                '    MySubtotal = MySubtotal + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)))
+
+                                '    TotalIVAPrint = TotalIVAPrint + (CDbl(grdcaptura.Rows(N).Cells(13).Value.ToString) - (CDbl(grdcaptura.Rows(N).Cells(12).Value.ToString) * (CDbl(txtdescuento1.Text) / 100)) * CDbl(rd1(0).ToString))
+
+                                'End If
+                            End If
+                        End If
+                        rd1.Close()
+                    End If
+                Next
+                TotalIVAPrint = FormatNumber(TotalIVAPrint, 2)
+                MySubtotal = FormatNumber(MySubtotal, 2)
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString())
+                cnn1.Close()
+            End Try
+
+            If CDbl(txtdescuento2.Text) > 0 Then
+                e.Graphics.DrawString("Descuento:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtdescuento2.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                Y += 13.5
+            End If
+
+            e.Graphics.DrawString("Total:", fuente_prods, Brushes.Black, 1, Y)
+            e.Graphics.DrawString(simbolo & FormatNumber(txtPagar.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+            Y += 18
+
+            e.Graphics.DrawString(convLetras(txtPagar.Text), New Drawing.Font(tipografia, 7, FontStyle.Italic), Brushes.Black, 1, Y)
+            Y += 18
+
+            If CDbl(txtefectivo.Text) > 0 Then
+                e.Graphics.DrawString("Efectivo:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtefectivo.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                Y += 20
+            End If
+            If CDbl(txtCambio.Text) > 0 Then
+                e.Graphics.DrawString("Cambio:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtCambio.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                Y += 20
+            End If
+
+            Dim formapagon As String = ""
+            Dim montopagon As Double = 0
+
+            If CDbl(txtMontoP.Text) > 0 Then
+                For r As Integer = 0 To grdpago.Rows.Count - 1
+
+                    formapagon = grdpago.Rows(r).Cells(0).Value.ToString
+                    montopagon = grdpago.Rows(r).Cells(3).Value.ToString
+
+                    If montopagon > 0 Then
+
+                        e.Graphics.DrawString("Pago con " & formapagon & "", fuente_prods, Brushes.Black, 1, Y)
+                        If Len("Pago con " & formapagon & "") > 26 Then
+                            Y += 13.5
+                        End If
+                        e.Graphics.DrawString(simbolo & FormatNumber(montopagon, 2), fuente_prods, Brushes.Black, 170, Y)
+                        Y += 13.5
+                    End If
+                Next
+            End If
+
+
+            If CDbl(txtResta.Text) > 0 Then
+                e.Graphics.DrawString("Resta:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(simbolo & FormatNumber(txtResta.Text, 2), fuente_prods, Brushes.Black, 170, Y)
+                Y += 20
+            End If
+
+            If txttel.Text <> "" Then
+                e.Graphics.DrawString("Saldo de Monedero:", fuente_prods, Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(saldomonedero, 2), fuente_prods, Brushes.Black, 170, Y)
+                Y += 20
+            End If
+
+            Dim IVA As Double = CDbl(txtPagar.Text) - TotalIVAPrint
+            If DesglosaIVA = "1" Then
+                If TotalIVAPrint > 0 Then
+                    If IVA > 0 And IVA <> CDbl(txtPagar.Text) Then
+                        Y += 12
+                        e.Graphics.DrawString("*** IVA 16%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                        e.Graphics.DrawString(simbolo & FormatNumber(TotalIVAPrint, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 170, Y)
+                        Y += 15
+                    End If
+                End If
+                If TotalIEPS > 0 Then
+                    e.Graphics.DrawString("*** IEPS 8%", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                    e.Graphics.DrawString(simbolo & FormatNumber(TotalIEPS, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 170, Y)
+                    Y += 15
+                End If
+            End If
+
+            Y += 8
+
+            If lblmonedero_saldo.Visible = True Then
+                Y += 10
+                e.Graphics.DrawString("Saldo monedero", New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+                e.Graphics.DrawString(FormatNumber(nuevo_saldo_monedero, 2), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 170, Y, sf)
+                Y += 13.5
+                Y += 8
+            End If
+
+            Y += 8
+
+            'Imprime pie de página
+            Dim cadena_pie As String = Pie
+
+            'e.Graphics.DrawString(Mid(Pie, 1, 40), New Drawing.Font(tipografia, 8, FontStyle.Regular), Brushes.Black, 1, Y)
+            'Y += 13.5
+
+
+            Dim caracteresPorLinea1 As Integer = 47
+            Dim texto1 As String = cadena_pie
+            Dim inicio1 As Integer = 0
+            Dim longitudTexto1 As Integer = texto1.Length
+
+            While inicio1 < longitudTexto1
+                Dim longitudBloque1 As Integer = Math.Min(caracteresPorLinea1, longitudTexto1 - inicio1)
+                Dim bloque1 As String = texto1.Substring(inicio1, longitudBloque1)
+                e.Graphics.DrawString(bloque1, New Font("Arial", 7, FontStyle.Regular), Brushes.Black, 1, Y)
+                Y += 16
+                inicio1 += caracteresPorLinea1
+            End While
+
+
+            Y += 7
+            e.Graphics.DrawString("Lo atiende " & lblusuario.Text, fuente_prods, Brushes.Black, 140, Y, sc)
+            Y += 20
+
+            If txtResta.Text > 0 Then
+                Dim caracteresPorLinea As Integer = 40
+                Dim texto As String = pagare
+                Dim inicio As Integer = 0
+                Dim longitudTexto As Integer = texto.Length
+
+                While inicio < longitudTexto
+                    Dim longitudBloque As Integer = Math.Min(caracteresPorLinea, longitudTexto - inicio)
+                    Dim bloque As String = texto.Substring(inicio, longitudBloque)
+                    e.Graphics.DrawString(bloque, New Font("Arial", 9, FontStyle.Regular), Brushes.Black, 1, Y)
+                    Y += 13
+                    inicio += caracteresPorLinea
+                End While
+            End If
+
+            'para el qr
+
+            Dim autofac As Integer = 0
+            Dim linkauto As String = ""
+
+            cnn1.Close() : cnn1.Open()
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='AutoFac'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    autofac = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+
+            cmd1 = cnn1.CreateCommand
+            cmd1.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='LinkAuto'"
+            rd1 = cmd1.ExecuteReader
+            If rd1.HasRows Then
+                If rd1.Read Then
+                    linkauto = rd1(0).ToString
+                End If
+            End If
+            rd1.Close()
+            cnn1.Close()
+
+            If ligaqr <> "" Then
+                ' picQR.Image.Dispose()
+                Dim qre As New QrCodeImgControl
+                qre.Size = New System.Drawing.Size(200, 200)
+                qre.Text = ligaqr
+                Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
+                e.Graphics.DrawString("Escríbenos por Whatsapp", fuente_datos, Brushes.Black, 130, Y, sc)
+                Y += 25
+                e.Graphics.DrawImage(ima, 30, CInt(Y), 240, 240)
+                ' picQR.Image.Dispose()
+            End If
+
+            Y += 20
+            If autofac = 1 Then
+
+                If linkauto <> "" Then
+                    Dim qre As New QrCodeImgControl
+                    qre.Size = New System.Drawing.Size(200, 200)
+                    qre.Text = linkauto
+                    Dim ima As Image = DirectCast(qre.Image.Clone, Image)
+
+                    ' Usa Using para garantizar la liberación de recursos de la fuente
+                    e.Graphics.DrawString("Realiza tu factura aqui", fuente_datos, Brushes.Black, 125, Y, sc)
+                    Y += 15
+                    ' Dibuja la imagen en el contexto gráfico
+                    e.Graphics.DrawImage(ima, 30, CInt(Y), 240, 240)
+                    'picQR.Image.Dispose()
+                End If
+
+            Else
+
+            End If
+
+            e.HasMorePages = False
+
+        Catch ex As Exception
+            MessageBox.Show("No se pudo generar el docuemnto, a continuación se muestra la descripción del error." & vbNewLine & ex.ToString())
+            cnn1.Close()
+        End Try
     End Sub
 End Class

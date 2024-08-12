@@ -13092,13 +13092,11 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub txtComentarioPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtComentarioPago.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboCuentaRecepcion.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub txttel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttel.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             txtObservaciones.Focus.Equals(True)
@@ -13126,8 +13124,6 @@ ecomoda:
 
         End If
     End Sub
-
-
     Private Sub pVenta58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVenta58.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -13722,7 +13718,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pCotiza58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pCotiza58.PrintPage
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -14039,7 +14034,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub pPedido58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs)
         'Fuentes prederminadas
         Dim tipografia As String = "Lucida Sans Typewriter"
@@ -14413,7 +14407,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_DropDown(sender As Object, e As EventArgs) Handles cboCuentaRecepcion.DropDown
         Try
             cboCuentaRecepcion.Items.Clear()
@@ -14434,7 +14427,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCuentaRecepcion.SelectedValueChanged
         Try
             cnn2.Close() : cnn2.Open()
@@ -14453,19 +14445,16 @@ ecomoda:
             cnn2.Close()
         End Try
     End Sub
-
     Private Sub cboCuentaRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboCuentaRecepcion.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             cboBancoRecepcion.Focus.Equals(True)
         End If
     End Sub
-
     Private Sub cboBancoRecepcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboBancoRecepcion.KeyPress
         If AscW(e.KeyChar) = Keys.Enter Then
             dtpFecha_P.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Try
             cnn1.Close()
@@ -14485,13 +14474,11 @@ ecomoda:
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
-
     Private Sub frmVentas1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.Control AndAlso e.KeyCode = Keys.A Then
             btnventa.PerformClick()
         End If
     End Sub
-
     Private Sub pComanda80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pComanda80.PrintPage
 
         'Fuentes prederminadas
@@ -14610,8 +14597,6 @@ ecomoda:
         End Try
 
     End Sub
-
-
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
         Try
             cnn1.Close()
@@ -14633,19 +14618,16 @@ ecomoda:
         End Try
 
     End Sub
-
     Private Sub txtdescu_Click(sender As Object, e As EventArgs) Handles txtdescu.Click
         donde_va = "Descuento Moneda"
         txtdescu.SelectionStart = 0
         txtdescu.SelectionLength = Len(txtdescu.Text)
     End Sub
-
     Private Sub txtdescu_GotFocus(sender As Object, e As EventArgs) Handles txtdescu.GotFocus
         donde_va = "Descuento Moneda"
         txtdescu.SelectionStart = 0
         txtdescu.SelectionLength = Len(txtdescu.Text)
     End Sub
-
     Private Sub txtdescu_TextChanged(sender As Object, e As EventArgs) Handles txtdescu.TextChanged
         If donde_va = "Descuento Moneda" Then
             Dim resta As Double = 0
@@ -14717,7 +14699,6 @@ ecomoda:
             End If
         End If
     End Sub
-
     Private Sub txtdescu_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdescu.KeyPress
         If txtdescu.Text = "" And AscW(e.KeyChar) = 46 Then
             txtdescu.Text = "0.00"
@@ -14733,7 +14714,6 @@ ecomoda:
             End If
         End If
     End Sub
-
     Private Sub cbotpago_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbotpago.SelectedValueChanged
         Try
             cnn1.Close()
@@ -14763,7 +14743,6 @@ ecomoda:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub grdcaptura_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles grdcaptura.RowPrePaint
 
         If e.RowIndex Mod 2 = 0 Then
@@ -14774,29 +14753,24 @@ ecomoda:
             'grdcaptura.Rows(e.RowIndex).DefaultCellStyle.Font = New Font(grdcaptura.Font, FontStyle.Bold)
         End If
     End Sub
-
     Private Sub txtObservaciones_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtObservaciones.KeyPress
         e.KeyChar = UCase(e.KeyChar)
         If AscW(e.KeyChar) = Keys.Enter Then
             cbodesc.Focus().Equals(True)
         End If
     End Sub
-
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
         frmRepExistenciaSincronizador.Show()
         frmRepExistenciaSincronizador.BringToFront()
         'frmOrdenTrabajo.Show()
         'frmOrdenTrabajo.BringToFront()
     End Sub
-
     Private Sub Panel9_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
-
     Private Sub Button14_Click(sender As Object, e As EventArgs)
 
     End Sub
-
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         Try
             Me.Text = "Pedidos (1)"
@@ -15325,7 +15299,6 @@ rayos2:
             cnn1.Close()
         End Try
     End Sub
-
     Public Sub Insert_Pedido()
 
         Dim oData As New ToolKitSQL.oledbdata
@@ -15419,7 +15392,6 @@ doorcita:
         End With
 
     End Sub
-
     Private Sub PPedido80_PrintPage_1(sender As Object, e As Printing.PrintPageEventArgs) Handles PPedido80.PrintPage
         Try
             'Fuentes prederminadas
@@ -15668,7 +15640,6 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub PPedido58_PrintPage_1(sender As Object, e As Printing.PrintPageEventArgs) Handles PPedido58.PrintPage
         Try
             'Fuentes prederminadas
@@ -15939,30 +15910,16 @@ doorcita:
             cnn1.Close()
         End Try
     End Sub
-
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
-
     Private Sub Button14_Click_1(sender As Object, e As EventArgs)
 
     End Sub
-
     Private Sub btnOrdenes_Click(sender As Object, e As EventArgs) Handles btnOrdenes.Click
         frmOrdenTrabajo.Show()
         frmOrdenTrabajo.BringToFront()
     End Sub
-
-
-
-    Private Sub pDevo58_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pDevo58.PrintPage
-
-    End Sub
-
-    Private Sub pVentaMediaCarta_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMediaCarta.PrintPage
-
-    End Sub
-
     Private Sub pVentaMatriz80_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles pVentaMatriz80.PrintPage
 
         'Fuentes prederminadas
