@@ -30,7 +30,7 @@
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Alumnos where Nombre='" & cboNombre.Text & "'"
+                "select Id,Matricula,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado,Grupo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Inscripcion,Baja from Alumnos where Nombre='" & cboNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -73,7 +73,7 @@
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Grupos where Nombre='" & grupo & "'"
+                "select Inicio,Termino from Grupos where Nombre='" & grupo & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -96,7 +96,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Alumnos where Nombre='" & cboNombre.Text & "'"
+                        "select Id,Matricula,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado,Grupo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Inscripcion,Baja from Alumnos where Nombre='" & cboNombre.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -163,7 +163,7 @@
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Alumnos where Matricula=" & cboMatricula.Text & ""
+                "select Id,Nombre,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado,Grupo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Inscripcion,Baja from Alumnos where Matricula=" & cboMatricula.Text & ""
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -209,7 +209,7 @@
 
                     cmd2 = cnn2.CreateCommand
                     cmd2.CommandText =
-                        "select * from Alumnos where Matricula=" & cboMatricula.Text & ""
+                        "select Id,Nombre,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado,Grupo,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado,Inscripcion,Baja from Alumnos where Matricula=" & cboMatricula.Text & ""
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -336,7 +336,7 @@
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Grupos where Nombre='" & txtgrupo.Text & "'"
+                "select Inicio,Termino from Grupos where Nombre='" & txtgrupo.Text & "'"
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -446,7 +446,7 @@
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        "select Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -511,7 +511,7 @@
 
             cmd5 = cnn5.CreateCommand
             cmd5.CommandText =
-                "select * from Ventas where Cliente='" & cboNombre.Text & "' and Resta>0 order by Folio"
+                "select Folio,IdCliente,ACuenta,Resta,Totales from Ventas where Cliente='" & cboNombre.Text & "' and Resta>0 order by Folio"
             rd5 = cmd5.ExecuteReader
             Do While rd5.Read
                 If rd5.HasRows Then

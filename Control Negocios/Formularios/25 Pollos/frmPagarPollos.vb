@@ -28,7 +28,7 @@ Public Class frmPagarPollos
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Comensal,CUsuario,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -177,7 +177,7 @@ Public Class frmPagarPollos
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codi & "'"
+                cmd1.CommandText = "SELECT PrecioCompra,PrecioVentaIVA,IVA,Departamento,Grupo FROM Productos WHERE Codigo='" & codi & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -270,7 +270,7 @@ Public Class frmPagarPollos
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Ticket"
+            cmd2.CommandText = "SELECT Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -342,7 +342,7 @@ Public Class frmPagarPollos
             cnn4.Close() : cnn4.Open()
 
             cmd3 = cnn3.CreateCommand
-            cmd3.CommandText = "SELECT * FROM vtaimpresion WHERE Mesa='" & lblmesa.Text & "'"
+            cmd3.CommandText = "SELECT Nombre,Precio,Total,Cantidad FROM vtaimpresion WHERE Mesa='" & lblmesa.Text & "'"
             rd3 = cmd3.ExecuteReader
             Do While rd3.Read
                 If rd3.HasRows Then
@@ -598,7 +598,7 @@ Public Class frmPagarPollos
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
+            cmd2.CommandText = "SELECT IDC,Codigo,Nombre,UVenta,Cantidad,Precio,Total,Id FROM Comandas WHERE NMESA='" & lblmesa.Text & "'"
             rd2 = cmd2.ExecuteReader
             Do While rd2.Read
                 If rd2.HasRows Then
@@ -791,7 +791,7 @@ Public Class frmPagarPollos
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "'"
+            cmd2.CommandText = "SELECT PrecioCompra,PrecioVentaIVA,iva,Departamento,Grupo,Multiplo FROM Productos WHERE Codigo='" & mycodigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -867,7 +867,7 @@ Public Class frmPagarPollos
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & mycodigo & "' "
+            cmd1.CommandText = "SELECT Multiplo,Modo_Almacen,Existencia FROM Productos WHERE Codigo='" & mycodigo & "' "
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -890,7 +890,7 @@ Public Class frmPagarPollos
 
                                 cnn3.Close() : cnn3.Open()
                                 cmd3 = cnn3.CreateCommand
-                                cmd3.CommandText = "SELECT * FROM Productos WHERE Codigo='" & VarCodigo & "'"
+                                cmd3.CommandText = "SELECT Existencia,Multiplo FROM Productos WHERE Codigo='" & VarCodigo & "'"
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -1141,11 +1141,11 @@ Public Class frmPagarPollos
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie1 = rd2("Pie3").ToString
+                    pie1 = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -1215,7 +1215,7 @@ Public Class frmPagarPollos
             cnn3.Close() : cnn3.Open()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT * FROM vtaimpresion WHERE Mesa='" & lblmesa.Text & "'"
+            cmd4.CommandText = "SELECT Codigo,Nombre,Precio,Total,Cantidad FROM vtaimpresion WHERE Mesa='" & lblmesa.Text & "'"
             rd4 = cmd4.ExecuteReader
             Do While rd4.Read
                 If rd4.HasRows Then

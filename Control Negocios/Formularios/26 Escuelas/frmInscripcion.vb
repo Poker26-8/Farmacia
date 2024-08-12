@@ -87,7 +87,7 @@ Public Class frmInscripcion
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Grupos where Nombre='" & cbogrupo.Text & "'"
+                "select Inicio,Termino,Cupo from Grupos where Nombre='" & cbogrupo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -126,7 +126,7 @@ Public Class frmInscripcion
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Matricula=" & txtmatricula.Text & ""
+                    "select Nombre,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado from Alumnos where Matricula=" & txtmatricula.Text & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -247,7 +247,7 @@ Public Class frmInscripcion
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Usuarios where Clave='" & txtcontraseña.Text & "'"
+                        "select Alias from Usuarios where Clave='" & txtcontraseña.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -312,7 +312,7 @@ Public Class frmInscripcion
                 'Valida el numero de matricula y el nombre
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Nombre='" & txtNombre.Text & "'"
+                    "select Baja from Alumnos where Nombre='" & txtNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -375,7 +375,7 @@ Public Class frmInscripcion
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & txtNombre.Text & "'"
+                    "select Id from Clientes where Nombre='" & txtNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                 Else
@@ -695,7 +695,7 @@ Public Class frmInscripcion
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Kits where Nombre='" & ComboBox1.Text & "' order by Fecha"
+                    "select Descrip,Fecha,CTotal from Kits where Nombre='" & ComboBox1.Text & "' order by Fecha"
                 rd2 = cmd2.ExecuteReader
                 Do While rd2.Read
                     If rd2.HasRows Then
@@ -774,7 +774,7 @@ Public Class frmInscripcion
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Alumnos where Nombre='" & txtNombre.Text & "'"
+                "select Matricula,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado,Lunes,Martes,Miercoles,Jueves,Viernes,Sabado from Alumnos where Nombre='" & txtNombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -819,7 +819,7 @@ Public Class frmInscripcion
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                "select * from Alumnos where Nombre='" & txtNombre.Text & "'"
+                "select Matricula,Telefono,Tutor,Contacto,Calle,N_Int,N_Ext,Colonia,CP,Delegacion,Estado from Alumnos where Nombre='" & txtNombre.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then

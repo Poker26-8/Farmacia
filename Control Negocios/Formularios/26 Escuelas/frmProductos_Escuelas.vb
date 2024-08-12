@@ -55,7 +55,7 @@ Public Class frmProductos_Escuelas
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Kits where Nombre='" & cboNombre.Text & "' order by Codigo"
+                "select Codigo,Descrip,Fecha,CTotal from Kits where Nombre='" & cboNombre.Text & "' order by Codigo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -88,7 +88,7 @@ Public Class frmProductos_Escuelas
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Kits where Nombre='" & cboNombre.Text & "' order by Codigo"
+                "select Codigo,Descrip,Fecha,CTotal from Kits where Nombre='" & cboNombre.Text & "' order by Codigo"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -177,7 +177,7 @@ Public Class frmProductos_Escuelas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Kits where Nombre='" & cboNombre.Text & "'"
+                "select Nombre from Kits where Nombre='" & cboNombre.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -372,7 +372,7 @@ Public Class frmProductos_Escuelas
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from VentasDetalle where Nombre='" & concepto & "'"
+                "select Folio from VentasDetalle where Nombre='" & concepto & "'"
             rd2 = cmd2.ExecuteReader
             cnn3.Close() : cnn3.Open()
 
@@ -382,7 +382,7 @@ Public Class frmProductos_Escuelas
 
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from Ventas where Folio=" & folio_v
+                        "select IdCliente,Status from Ventas where Folio=" & folio_v
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -438,5 +438,9 @@ Public Class frmProductos_Escuelas
             MessageBox.Show(ex.ToString())
             cnn2.Close()
         End Try
+    End Sub
+
+    Private Sub frmProductos_Escuelas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -1219,7 +1219,7 @@ Public Class frmPolleria
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & Codigo & "'"
+            cmd1.CommandText = "SELECT Departamento,Nombre,UVenta,Min,Ubicacion,Multiplo,E1,E2,Existencia FROM productos WHERE Codigo='" & Codigo & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1235,7 +1235,7 @@ Public Class frmPolleria
                     ubicacion = rd1("Ubicacion").ToString
                     multiplo = rd1("Multiplo").ToString
                     dosxuno = rd1("E1").ToString
-                    tresxdos = rd1("e2").ToString
+                    tresxdos = rd1("E2").ToString
                     existencia = rd1("Existencia").ToString
                 End If
             End If
@@ -1345,7 +1345,7 @@ Public Class frmPolleria
 
         cnn2.Close() : cnn2.Open()
         cmd2 = cnn2.CreateCommand
-        cmd2.CommandText = "SELECT * FROM Productos WHERE Codigo='" & codigo & "'"
+        cmd2.CommandText = "SELECT PrecioVentaIVA,PecioVentaMinIVA FROM Productos WHERE Codigo='" & codigo & "'"
         rd2 = cmd2.ExecuteReader
         If rd2.HasRows Then
             If rd2.Read Then
@@ -1532,7 +1532,7 @@ Public Class frmPolleria
                     MYTOTAL = FormatNumber(MYTOTAL, 2)
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & MYCODE & "'"
+                    cmd2.CommandText = "SELECT iva,Departamento,Grupo,MCD,Multiplo,UVenta FROM productos WHERE Codigo='" & MYCODE & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -1562,7 +1562,7 @@ Public Class frmPolleria
                     rd2.Close()
 
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & Strings.Left(MYCODE, 7) & "'"
+                    cmd2.CommandText = "SELECT Multiplo,Existencia,Departamento,PrecioCompra FROM productos WHERE Codigo='" & Strings.Left(MYCODE, 7) & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

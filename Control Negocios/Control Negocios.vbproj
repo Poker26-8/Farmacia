@@ -2043,12 +2043,6 @@
     <Compile Include="Formularios\25 Pollos\frmPolleria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\25 Pollos\FRMPRUBEA.Designer.vb">
-      <DependentUpon>FRMPRUBEA.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\25 Pollos\FRMPRUBEA.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\27 Mensajes\frmClientesW.Designer.vb">
       <DependentUpon>frmClientesW.vb</DependentUpon>
     </Compile>
@@ -3168,9 +3162,6 @@
     <EmbeddedResource Include="Formularios\25 Pollos\frmPolleria.resx">
       <DependentUpon>frmPolleria.vb</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\25 Pollos\FRMPRUBEA.resx">
-      <DependentUpon>FRMPRUBEA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\27 Mensajes\frmClientesW.resx">
       <DependentUpon>frmClientesW.vb</DependentUpon>

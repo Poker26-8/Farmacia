@@ -57,7 +57,7 @@
 
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Grupos where Nombre='" & cbogrupo.Text & "'"
+                    "select Id,Inicio,Termino,Cupo from Grupos where Nombre='" & cbogrupo.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -98,19 +98,19 @@
         Dim Inicio As String = Format(dtpInicio.Value, "HH:mm:ss")
         Dim Termino As String = Format(dtpTermino.Value, "HH:mm:ss")
 
-        If cbogrupo.Text = "" Then MsgBox("Ingresa el nombre dle grupo.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : cbogrupo.Focus().Equals(True) : Exit Sub
-        If CDbl(txtcupo.Text) = 0 Then MsgBox("El cupo del grupo debe de ser mayor a 0.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro") : txtcupo.Focus().Equals(True) : Exit Sub
+        If cbogrupo.Text = "" Then MsgBox("Ingresa el nombre dle grupo.", vbInformation + vbOKOnly, titulocentral) : cbogrupo.Focus().Equals(True) : Exit Sub
+        If CDbl(txtcupo.Text) = 0 Then MsgBox("El cupo del grupo debe de ser mayor a 0.", vbInformation + vbOKOnly, titulocentral) : txtcupo.Focus().Equals(True) : Exit Sub
 
         Try
             cnn1.Close() : cnn1.Open()
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Grupos where Nombre='" & cbogrupo.Text & "'"
+                "select Id from Grupos where Nombre='" & cbogrupo.Text & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    MsgBox("El grupo ya existe.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+                    MsgBox("El grupo ya existe.", vbInformation + vbOKOnly, titulocentral)
 
                     txtId.Text = rd2("Id").ToString()
                     My.Application.DoEvents()

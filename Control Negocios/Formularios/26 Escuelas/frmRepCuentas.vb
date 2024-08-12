@@ -33,7 +33,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos order by Nombre"
+                    "select Nombre,Matricula,Grupo,Curso,Inscripcion,Baja from Alumnos order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -100,7 +100,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Grupo='" & cbo.Text & "' order by Nombre"
+                    "select Nombre,Matricula,Inscripcion,Baja from Alumnos where Grupo='" & cbo.Text & "' order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -166,7 +166,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from AbonoI where Cliente='" & cbo.Text & "'  and Fecha between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Id"
+                    "select NumFolio,Concepto,Cargo,Abono,Saldo,Fecha from AbonoI where Cliente='" & cbo.Text & "'  and Fecha between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Id"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -181,7 +181,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from VentasDetalle where Folio=" & Folio
+                            "select Nombre from VentasDetalle where Folio=" & Folio
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -247,7 +247,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Ventas where Cliente='" & cbo.Text & "' and Resta>0 and FPago between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "'"
+                    "select Folio,ACuenta,Resta from Ventas where Cliente='" & cbo.Text & "' and Resta>0 and FPago between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -258,7 +258,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from VentasDetalle where Folio=" & folio & ""
+                            "select Nombre from VentasDetalle where Folio=" & folio & ""
                         rd2 = cmd2.ExecuteReader
                         If rd2.HasRows Then
                             If rd2.Read Then
@@ -312,7 +312,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Grupo='" & cbo.Text & "'"
+                    "select Nombre from Alumnos where Grupo='" & cbo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -320,7 +320,7 @@
 
                         cmd2 = cnn2.CreateCommand
                         cmd2.CommandText =
-                            "select * from Ventas where Cliente='" & alumno & "' and Resta>0 and FPago between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "'"
+                            "select Folio,ACuenta,Resta from Ventas where Cliente='" & alumno & "' and Resta>0 and FPago between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "'"
                         rd2 = cmd2.ExecuteReader
                         Do While rd2.Read
                             If rd2.HasRows Then
@@ -331,7 +331,7 @@
 
                                 cmd3 = cnn3.CreateCommand
                                 cmd3.CommandText =
-                                    "select * from VentasDetalle where Folio=" & folio & ""
+                                    "select Nombre from VentasDetalle where Folio=" & folio & ""
                                 rd3 = cmd3.ExecuteReader
                                 If rd3.HasRows Then
                                     If rd3.Read Then
@@ -386,7 +386,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Inscripcion between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Nombre"
+                    "select Nombre,Matricula,Grupo,Curso,Inscripcion from Alumnos where Inscripcion between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -437,7 +437,7 @@
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Alumnos where Baja between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Nombre"
+                    "select Nombre,Matricula,Grupo,Curso,Baja from Alumnos where Baja between '" & Format(m1, "yyyy-MM-dd") & "' and '" & Format(m2, "yyyy-MM-dd") & "' order by Nombre"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
@@ -982,5 +982,9 @@
                 End With
             End With
         End If
+    End Sub
+
+    Private Sub frmRepCuentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
