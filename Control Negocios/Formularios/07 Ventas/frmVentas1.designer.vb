@@ -1327,9 +1327,6 @@ Partial Class frmVentas1
         'pDevo80
         '
         '
-        'pDevo58
-        '
-        '
         'pDevoCarta
         '
         '
@@ -2830,9 +2827,6 @@ Partial Class frmVentas1
         '
         '
         'PPedido58
-        '
-        '
-        'pVentaMediaCarta
         '
         '
         'pVentaMatriz80

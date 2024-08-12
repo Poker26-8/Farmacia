@@ -9192,13 +9192,24 @@ Door:
                 If Tamaño = "80" Then
                     For t As Integer = 1 To Copias
                         pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pVenta80.Print()
+                        If pVenta80.DefaultPageSettings.PrinterSettings.PrinterName = Impresora Then
+                            pVenta80.Print()
+                        Else
+                            MsgBox("La impresora no esta configurada", vbInformation + vbOKOnly, titulocentral)
+                            GoTo safo
+                        End If
+
                     Next
                 End If
                 If Tamaño = "58" Then
                     For t As Integer = 1 To Copias
                         pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora
-                        pVenta58.Print()
+                        If pVenta58.DefaultPageSettings.PrinterSettings.PrinterName = Impresora Then
+                            pVenta58.Print()
+                        Else
+                            MsgBox("La impresora no esta configurada", vbInformation + vbOKOnly, titulocentral)
+                            GoTo safo
+                        End If
                     Next
                 End If
 
@@ -9220,7 +9231,7 @@ Door:
                 End If
             End If
         End If
-
+safo:
         cnn1.Close() : cnn1.Open()
         If txtcotped.Text <> "" Then
             cmd1 = cnn1.CreateCommand
