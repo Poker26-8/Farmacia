@@ -259,8 +259,6 @@ Public Class frmMesas
 
     End Sub
 
-
-
     Public Sub Crea_Mesas(ByVal ubicacion As String)
 
         Dim tables As Integer = 0
@@ -602,24 +600,12 @@ Public Class frmMesas
                 Exit Sub
             End If
 
-            cnn2.Close() : cnn2.Open()
-            cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Formatos WHERE Facturas='MesasPropias'"
-            rd2 = cmd2.ExecuteReader
-            If rd2.HasRows Then
-                If rd2.Read Then
-                    If rd2("NumPart").ToString = 1 Then
-                        simesaspropianm = 1
-                    Else
-                        simesaspropianm = 0
-                    End If
-                Else
-                    simesaspropianm = 0
-                End If
-            End If
-            rd2.Close()
+            Dim tomarcontra As Integer = DatosRecarga2("TomaContra")
+            Dim mesaspropias As Integer = DatosRecarga2("MesasPropias")
 
-            If simesaspropianm = 1 Then
+            cnn2.Close() : cnn2.Open()
+
+            If mesaspropias = 1 Then
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText = "SELECT Area FROM Usuarios WHERE IdEmpleado=" & idempleado & ""
                 rd2 = cmd2.ExecuteReader
@@ -638,7 +624,7 @@ Public Class frmMesas
             End If
 
             cmd2 = cnn2.CreateCommand
-            If simesaspropianm = 1 Then
+            If mesaspropias = 1 Then
                 If simesaspropusuarionm = 0 Then
 
                     If tomacontralog = "1" Then
@@ -649,9 +635,14 @@ Public Class frmMesas
 
                 Else
 
-                    If tomacontralog = "1" Then
+                    If tomarcontra = "1" Then
+
+
                         cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa and Mesasxempleados.IdEmpleado = " & id_usu_log & " AND Mesa.Ubicacion='" & ubicacion & "'  order by Orden"
-                    Else
+
+
+
+                            Else
 
                         If esadminocaj = 1 Then
                             cmd2.CommandText = "SELECT Mesa.Nombre_mesa, Mesa.TempNom,Mesa.X,Mesa.Y,Mesa.Tipo,Mesa.IdEmpleado FROM Mesa, Mesasxempleados where Mesasxempleados.Mesa = Mesa.Nombre_mesa AND Mesa.Ubicacion='" & ubicacion & "' order by Orden"
