@@ -2504,22 +2504,25 @@ quepaso_wey:
                 exSheet = exBook.Application.ActiveSheet
                 exSheet.Columns("A").NumberFormat = "@"
 
+                Dim columnasAExportar As Integer() = {0, 2, 4} ' Aquí se colocan los índices de las columnas que quieres exportar
                 Dim Fila As Integer = 0
                 Dim Col As Integer = 0
-                Dim NCol As Integer = grdcaptura.ColumnCount
+                ' Dim NCol As Integer = grdcaptura.ColumnCount
                 Dim NRow As Integer = grdcaptura.RowCount
 
-                For i As Integer = 1 To NCol
-                    exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                For i As Integer = 1 To columnasAExportar.Length - 1
+                    ' exSheet.Cells.Item(1, i) = grdcaptura.Columns(i - 1).HeaderText.ToString
+                    exSheet.Cells.Item(1, i + 1) = grdcaptura.Columns(columnasAExportar(i)).HeaderText.ToString()
                 Next
 
                 For Fila = 0 To NRow - 1
-                    For Col = 0 To NCol - 1
-                        exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+                    For Col = 0 To columnasAExportar.Length - 1
+                        'exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(Col).Value.ToString
+                        exSheet.Cells.Item(Fila + 2, Col + 1) = grdcaptura.Rows(Fila).Cells(columnasAExportar(Col)).Value.ToString()
                     Next
                 Next
 
-                exSheet.Rows.Item(1).Font.Bold = 1
+                exSheet.Rows.Item(1).Font.Bold = True
                 exSheet.Rows.Item(1).HorizontalAlignment = 3
                 exSheet.Columns.AutoFit()
 
@@ -2587,18 +2590,19 @@ quepaso_wey:
             Dim EXISTENCIA, existenciacardex, existencia_final, diferencia, mcd, MyPreci As Double
             Dim conteo As Integer = 0
 
-            '  barCarga.Value = 0
-            ' barCarga.Maximum = DataGridView1.Rows.Count
-
             cnn1.Close() : cnn1.Open()
             Dim contadorconexion As Integer = 0
 
-            For luffy As Integer = 0 To DataGridView1.Rows.Count - 1
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                If row.IsNewRow Then Continue For ' Ignorar la última fila nueva
+
                 contadorconexion += 1
 
-                CODIGO = DataGridView1.Rows(luffy).Cells(0).Value.ToString()
-                NOMBRE = DataGridView1.Rows(luffy).Cells(1).Value.ToString()
-                EXISTENCIA = NulVa(DataGridView1.Rows(luffy).Cells(2).Value.ToString())
+                CODIGO = If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), "", row.Cells(0).Value.ToString())
+                NOMBRE = row.Cells(1).Value?.ToString()
+                EXISTENCIA = If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, CDbl(row.Cells(2).Value))
+
+                If String.IsNullOrEmpty(CODIGO) Then Continue For
 
                 If contadorconexion > 499 Then
                     cnn1.Close() : cnn1.Open()
@@ -2606,16 +2610,19 @@ quepaso_wey:
                 End If
 
                 If (Comprueba(CODIGO)) Then
-                    If cnn1.State = 0 Then cnn1.Open()
+                    If cnn1.State = ConnectionState.Closed Then cnn1.Open()
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText = "SELECT Existencia,MCD,PrecioVentaIVA FROM productos WHERE Codigo='" & CODIGO & "'"
+                    cmd1.Parameters.AddWithValue("@Codigo", CODIGO)
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
-                            existenciacardex = rd1(0).ToString
-                            mcd = rd1(1).ToString
-                            MyPreci = IIf(rd1("PrecioVentaIVA").ToString = "", 0, rd1("PrecioVentaIVA").ToString)
+
+                            existenciacardex = If(IsDBNull(rd1("Existencia")), 0, CDbl(rd1("Existencia")))
+                            mcd = If(IsDBNull(rd1("MCD")), 1, CDbl(rd1("MCD")))
+                            MyPreci = If(IsDBNull(rd1("PrecioVentaIVA")), 0, CDbl(rd1("PrecioVentaIVA")))
+
 
                             diferencia = existenciacardex - EXISTENCIA
                             existencia_final = EXISTENCIA / mcd
@@ -2635,18 +2642,11 @@ quepaso_wey:
                     rd1.Close()
                 Else
                     conteo += 1
-                    ' barCarga.Value = conteo
                     Continue For
                 End If
                 conteo += 1
-                '   barCarga.Value = conteo
             Next
             cnn1.Close()
-            '  tabla.DataSource = Nothing
-            '  tabla.Dispose()
-            DataGridView1.Rows.Clear()
-            '  barCarga.Value = 0
-
             MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
