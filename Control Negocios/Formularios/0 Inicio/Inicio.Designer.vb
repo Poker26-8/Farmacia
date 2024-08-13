@@ -948,21 +948,21 @@ Partial Class Inicio
         '
         Me.pInventario.BackColor = System.Drawing.Color.White
         Me.pInventario.Name = "pInventario"
-        Me.pInventario.Size = New System.Drawing.Size(179, 22)
+        Me.pInventario.Size = New System.Drawing.Size(180, 22)
         Me.pInventario.Text = "Inventario"
         '
         'pAjuste
         '
         Me.pAjuste.BackColor = System.Drawing.Color.White
         Me.pAjuste.Name = "pAjuste"
-        Me.pAjuste.Size = New System.Drawing.Size(179, 22)
+        Me.pAjuste.Size = New System.Drawing.Size(180, 22)
         Me.pAjuste.Text = "Ajuste de inventario"
         '
         'ReporteCOFEPRISToolStripMenuItem
         '
         Me.ReporteCOFEPRISToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.ReporteCOFEPRISToolStripMenuItem.Name = "ReporteCOFEPRISToolStripMenuItem"
-        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ReporteCOFEPRISToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteCOFEPRISToolStripMenuItem.Text = "Reporte COFEPRIS"
         '
         'pEstResultados

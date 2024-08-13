@@ -127,27 +127,21 @@ Public Class frmConfigs
                 chkwhats.Checked = True
                 txtwhats.Text = telwhats
             Else
-
                 chkwhats.Checked = False
                 txtwhats.Text = telwhats
             End If
 
-            cmd4 = cnn4.CreateCommand()
-            cmd4.CommandText =
-                 "select NumPart,NotasCred from Formatos where Facturas='LinkAuto'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        chkauto.Checked = True
-                        txtlink.Text = rd4(1).ToString
-                    Else
-                        chkauto.Checked = False
-                        txtlink.Text = rd4(1).ToString
-                    End If
-                End If
+            Dim linkauto As Integer = DatosRecarga2("LinkAuto")
+            Dim linkautos As String = DatosRecarga("LinkAuto")
+
+            If linkauto = 1 Then
+                chkauto.Checked = True
+                txtlink.Text = linkautos
+            Else
+                chkauto.Checked = False
+                txtlink.Text = linkautos
+
             End If
-            rd4.Close()
 
             Dim linkau As String = ""
             Dim auto As Integer = 0
@@ -169,7 +163,7 @@ Public Class frmConfigs
             rd4.Close()
 
             cmd4 = cnn4.CreateCommand
-            cmd4.CommandText = "SELECT NotasCred FROM formatos WHERE Facturas='Series'"
+            cmd4.CommandText = "SELECT numpart FROM formatos WHERE Facturas='Series'"
             rd4 = cmd4.ExecuteReader
             If rd4.HasRows Then
                 If rd4.Read Then
