@@ -34,7 +34,7 @@ Public Class frmMovCuentas
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM usuarios WHERE Clave='" & txtContra.Text & "'"
+            cmd1.CommandText = "SELECT Status,Alias FROM usuarios WHERE Clave='" & txtContra.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -279,7 +279,7 @@ Public Class frmMovCuentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolio.Text
+                cmd1.CommandText = "SELECT Deposito,Saldo FROM movcuenta WHERE Id=" & cboFolio.Text
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -356,7 +356,7 @@ Public Class frmMovCuentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Cuenta='" & cboCuneta.Text & "' AND Id=" & lblFolio.Text & ""
+                cmd1.CommandText = "SELECT Id FROM movcuenta WHERE Cuenta='" & cboCuneta.Text & "' AND Id=" & lblFolio.Text & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -432,7 +432,7 @@ Public Class frmMovCuentas
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolio.Text
+            cmd1.CommandText = "SELECT Cliente,Tipo,Banco,Referencia,Total,Cuenta,BancoCuenta,Comentario FROM movcuenta WHERE Id=" & cboFolio.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -479,7 +479,7 @@ Public Class frmMovCuentas
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolio.Text
+            cmd1.CommandText = "SELECT Saldo,Deposito FROM movcuenta WHERE Id=" & cboFolio.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -733,7 +733,7 @@ Public Class frmMovCuentas
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolioE.Text
+            cmd1.CommandText = "SELECT Cliente,Fecha,Tipo,Banco,Referencia,Total,Cuenta,BancoCuenta,Comentario FROM movcuenta WHERE Id=" & cboFolioE.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -778,7 +778,7 @@ Public Class frmMovCuentas
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Id=" & cboFolioE.Text
+                cmd1.CommandText = "SELECT Deposito,Saldo,Retiro FROM movcuenta WHERE Id=" & cboFolioE.Text
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -855,7 +855,7 @@ Public Class frmMovCuentas
             If cboFolioE.Text = "" Then
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM movcuenta WHERE Cuenta='" & cboCuentaE.Text & "' AND Id=" & lblFolio.Text & ""
+                cmd1.CommandText = "SELECT Id FROM movcuenta WHERE Cuenta='" & cboCuentaE.Text & "' AND Id=" & lblFolio.Text & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -979,7 +979,7 @@ Public Class frmMovCuentas
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Ticket"
+            cmd2.CommandText = "SELECT Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1122,7 +1122,7 @@ Public Class frmMovCuentas
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Ticket"
+            cmd2.CommandText = "SELECT Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1408,7 +1408,7 @@ Public Class frmMovCuentas
 
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "SELECT * FROM Ticket"
+            cmd2.CommandText = "SELECT Pie3,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then

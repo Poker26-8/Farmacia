@@ -86,7 +86,7 @@
             Try
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM citas"
+                cmd1.CommandText = "SELECT FechaC,Medico,Cliente,Telefono,Motivo FROM citas"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then

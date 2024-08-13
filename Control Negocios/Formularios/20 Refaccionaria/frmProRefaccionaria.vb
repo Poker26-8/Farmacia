@@ -10,18 +10,18 @@ Public Class frmProRefaccionaria
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             If tipo = "BARRAS" Then
-                cmd1.CommandText = "SELECT * FROM Productos WHERE CodBarra='" & txtbarras.Text & "'"
+                cmd1.CommandText = "SELECT CodBarra,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,N_Serie,GPrint FROM Productos WHERE CodBarra='" & txtbarras.Text & "'"
             End If
 
             If tipo = "CODIGO" Then
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Codigo='" & cboCodigo.Text & "'"
+                cmd1.CommandText = "SELECT CodBarra,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,N_Serie,GPrint FROM Productos WHERE Codigo='" & cboCodigo.Text & "'"
             End If
 
             If tipo = "PRODU" Then
-                cmd1.CommandText = "SELECT * FROM Productos WHERE Nombre='" & cboNombre.Text & "' and Length(Codigo)<=6"
+                cmd1.CommandText = "SELECT CodBarra,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,N_Serie,GPrint FROM Productos WHERE Nombre='" & cboNombre.Text & "' and Length(Codigo)<=6"
             End If
             If tipo = "SERIE" Then
-                cmd1.CommandText = "SELECT * FROM Productos WHERE N_Serie='" & txtn_serie.Text & "'"
+                cmd1.CommandText = "SELECT CodBarra,Codigo,Nombre,IVA,UVenta,PrecioCompra,PrecioVentaIVA,ProvPri,Departamento,Grupo,Ubicacion,ProvRes,UnidadSat,ClaveSat,Porcentaje,N_Serie,GPrint FROM Productos WHERE N_Serie='" & txtn_serie.Text & "'"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -99,9 +99,9 @@ Public Class frmProRefaccionaria
             cmd5 = cnn5.CreateCommand
 
             If cboNombre.Text <> "" Then
-                cmd5.CommandText = "SELECT * FROM Productos WHERE Nombre='" & cboNombre.Text & "'"
+                cmd5.CommandText = "SELECT Codigo FROM Productos WHERE Nombre='" & cboNombre.Text & "'"
             Else
-                cmd5.CommandText = "SELECT * FROM Productos"
+                cmd5.CommandText = "SELECT Codigo FROM Productos"
             End If
 
             rd5 = cmd5.ExecuteReader
@@ -418,7 +418,7 @@ Public Class frmProRefaccionaria
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
             Else
@@ -489,7 +489,7 @@ Public Class frmProRefaccionaria
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -684,7 +684,7 @@ Public Class frmProRefaccionaria
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Productos where Codigo='" & cboCodigo.Text & "'"
+                "select Codigo from Productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -857,7 +857,7 @@ Public Class frmProRefaccionaria
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Codigo='" & codigo & "'"
+                "select Codigo from Productos where Codigo='" & codigo & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -871,7 +871,7 @@ Public Class frmProRefaccionaria
             Else
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where CodBarra='" & barras & "'"
+                    "select CodBarra from Productos where CodBarra='" & barras & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -884,7 +884,7 @@ Public Class frmProRefaccionaria
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Productos where Nombre='" & nombre & "'"
+                "select Nombre from Productos where Nombre='" & nombre & "'"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -898,7 +898,7 @@ Public Class frmProRefaccionaria
             Else
                 cmd2 = cnn2.CreateCommand
                 cmd2.CommandText =
-                    "select * from Productos where N_Serie='" & n_serie & "'"
+                    "select N_Serie from Productos where N_Serie='" & n_serie & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then

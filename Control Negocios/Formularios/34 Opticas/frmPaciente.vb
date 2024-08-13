@@ -145,7 +145,7 @@ Public Class frmPaciente
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM optica WHERE Cliente='" & cboCliente.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM optica WHERE Cliente='" & cboCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -263,7 +263,7 @@ Public Class frmPaciente
             cnn2.Close() : cnn2.Open()
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -384,5 +384,9 @@ Public Class frmPaciente
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

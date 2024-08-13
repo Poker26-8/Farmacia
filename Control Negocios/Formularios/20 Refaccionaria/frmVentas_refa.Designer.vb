@@ -231,6 +231,7 @@ Partial Class frmVentas_refa
         Me.pDevoCarta = New System.Drawing.Printing.PrintDocument()
         Me.pComanda80 = New System.Drawing.Printing.PrintDocument()
         Me.pComanda58 = New System.Drawing.Printing.PrintDocument()
+        Me.pVentaMatriz80 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.pInfirior.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2727,4 +2728,5 @@ Partial Class frmVentas_refa
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
     Friend WithEvents Column23 As DataGridViewTextBoxColumn
+    Friend WithEvents pVentaMatriz80 As Printing.PrintDocument
 End Class

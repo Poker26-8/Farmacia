@@ -36,7 +36,7 @@ Public Class frmIngreso
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM dispositivos WHERE Serie='" & cboSerie.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM dispositivos WHERE Serie='" & cboSerie.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -70,7 +70,7 @@ Public Class frmIngreso
                     Dim accesorio As String = grdaccesorio.Rows(luffy).Cells(0).Value.ToString
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM accesorios WHERE Serie='" & cboSerie.Text & "' AND Descripcion='" & accesorio & "'"
+                    cmd1.CommandText = "SELECT Id FROM accesorios WHERE Serie='" & cboSerie.Text & "' AND Descripcion='" & accesorio & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -100,7 +100,7 @@ Public Class frmIngreso
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM tallerd WHERE SerieD='" & cboSerie.Text & "'"
+            cmd1.CommandText = "SELECT SerieD FROM tallerd WHERE SerieD='" & cboSerie.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -359,7 +359,7 @@ Public Class frmIngreso
 
         cnn1.Close() : cnn1.Open()
         cmd1 = cnn1.CreateCommand
-        cmd1.CommandText = "SELECT * FROM dispositivos WHERE Serie='" & cboSerie.Text & "'"
+        cmd1.CommandText = "SELECT Tipo,Marca,Modelo,Comentario,Color FROM dispositivos WHERE Serie='" & cboSerie.Text & "'"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -384,7 +384,7 @@ Public Class frmIngreso
                 rd2.Close()
 
                 cmd2 = cnn2.CreateCommand
-                cmd2.CommandText = "SELECT * FROM tallerd WHERE SerieD='" & cboSerie.Text & "'"
+                cmd2.CommandText = "SELECT Tecnico,Status,Operacion,FechaEstimada,Fallas FROM tallerd WHERE SerieD='" & cboSerie.Text & "'"
                 rd2 = cmd2.ExecuteReader
                 If rd2.HasRows Then
                     If rd2.Read Then
@@ -477,11 +477,11 @@ Public Class frmIngreso
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie = rd2("Pie3").ToString
+                    Pie = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 140, Y, sc)
@@ -692,11 +692,11 @@ Public Class frmIngreso
 
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
-                    Pie = rd2("Pie3").ToString
+                    Pie = rd2("Pie1").ToString
                     'Razón social
                     If rd2("Cab0").ToString() <> "" Then
                         e.Graphics.DrawString(rd2("Cab0").ToString, New Drawing.Font(tipografia, 8, FontStyle.Bold), Brushes.Black, 90, Y, sc)

@@ -24,13 +24,15 @@ Partial Class frmMapa
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMapa))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.pBotones = New System.Windows.Forms.Panel()
+        Me.pUbicaciones = New System.Windows.Forms.Panel()
+        Me.btnconsulta = New System.Windows.Forms.Button()
+        Me.btnnueva = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pUbicaciones = New System.Windows.Forms.Panel()
-        Me.btnnueva = New System.Windows.Forms.Button()
-        Me.btnconsulta = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtbodega = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblbodega = New System.Windows.Forms.Label()
         Me.pAgregarMesa = New System.Windows.Forms.Panel()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,13 +41,11 @@ Partial Class frmMapa
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblpersonas = New System.Windows.Forms.Label()
         Me.cbopersonas = New System.Windows.Forms.ComboBox()
-        Me.lblbodega = New System.Windows.Forms.Label()
-        Me.txtbodega = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.pBotones = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.pAgregarMesa.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,25 +61,45 @@ Partial Class frmMapa
         Me.Panel1.Size = New System.Drawing.Size(1155, 83)
         Me.Panel1.TabIndex = 0
         '
-        'Panel2
+        'pUbicaciones
         '
-        Me.Panel2.Controls.Add(Me.txtbodega)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.lblbodega)
-        Me.Panel2.Controls.Add(Me.pAgregarMesa)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 83)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(180, 626)
-        Me.Panel2.TabIndex = 1
+        Me.pUbicaciones.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.pUbicaciones.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pUbicaciones.Location = New System.Drawing.Point(180, 0)
+        Me.pUbicaciones.Name = "pUbicaciones"
+        Me.pUbicaciones.Size = New System.Drawing.Size(815, 83)
+        Me.pUbicaciones.TabIndex = 12
         '
-        'pBotones
+        'btnconsulta
         '
-        Me.pBotones.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pBotones.Location = New System.Drawing.Point(180, 83)
-        Me.pBotones.Name = "pBotones"
-        Me.pBotones.Size = New System.Drawing.Size(975, 626)
-        Me.pBotones.TabIndex = 2
+        Me.btnconsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnconsulta.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnconsulta.FlatAppearance.BorderSize = 0
+        Me.btnconsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnconsulta.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnconsulta.ForeColor = System.Drawing.Color.Black
+        Me.btnconsulta.Location = New System.Drawing.Point(995, 0)
+        Me.btnconsulta.Name = "btnconsulta"
+        Me.btnconsulta.Size = New System.Drawing.Size(80, 83)
+        Me.btnconsulta.TabIndex = 13
+        Me.btnconsulta.Text = "Consulta"
+        Me.btnconsulta.UseVisualStyleBackColor = False
+        '
+        'btnnueva
+        '
+        Me.btnnueva.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnnueva.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnnueva.FlatAppearance.BorderSize = 0
+        Me.btnnueva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnnueva.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnueva.ForeColor = System.Drawing.Color.Black
+        Me.btnnueva.Location = New System.Drawing.Point(1075, 0)
+        Me.btnnueva.Name = "btnnueva"
+        Me.btnnueva.Size = New System.Drawing.Size(80, 83)
+        Me.btnnueva.TabIndex = 14
+        Me.btnnueva.Text = "Nueva"
+        Me.btnnueva.UseVisualStyleBackColor = False
+        Me.btnnueva.Visible = False
         '
         'Panel4
         '
@@ -100,45 +120,54 @@ Partial Class frmMapa
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'pUbicaciones
+        'Panel2
         '
-        Me.pUbicaciones.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.pUbicaciones.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pUbicaciones.Location = New System.Drawing.Point(180, 0)
-        Me.pUbicaciones.Name = "pUbicaciones"
-        Me.pUbicaciones.Size = New System.Drawing.Size(815, 83)
-        Me.pUbicaciones.TabIndex = 12
+        Me.Panel2.Controls.Add(Me.txtbodega)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.lblbodega)
+        Me.Panel2.Controls.Add(Me.pAgregarMesa)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 83)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(180, 626)
+        Me.Panel2.TabIndex = 1
         '
-        'btnnueva
+        'txtbodega
         '
-        Me.btnnueva.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnnueva.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnnueva.FlatAppearance.BorderSize = 0
-        Me.btnnueva.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnnueva.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnueva.ForeColor = System.Drawing.Color.Black
-        Me.btnnueva.Location = New System.Drawing.Point(1075, 0)
-        Me.btnnueva.Name = "btnnueva"
-        Me.btnnueva.Size = New System.Drawing.Size(80, 83)
-        Me.btnnueva.TabIndex = 14
-        Me.btnnueva.Text = "Nueva"
-        Me.btnnueva.UseVisualStyleBackColor = False
-        Me.btnnueva.Visible = False
+        Me.txtbodega.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtbodega.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbodega.Location = New System.Drawing.Point(10, 68)
+        Me.txtbodega.Name = "txtbodega"
+        Me.txtbodega.Size = New System.Drawing.Size(160, 29)
+        Me.txtbodega.TabIndex = 49
+        Me.txtbodega.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btnconsulta
+        'Label2
         '
-        Me.btnconsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnconsulta.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnconsulta.FlatAppearance.BorderSize = 0
-        Me.btnconsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnconsulta.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnconsulta.ForeColor = System.Drawing.Color.Black
-        Me.btnconsulta.Location = New System.Drawing.Point(995, 0)
-        Me.btnconsulta.Name = "btnconsulta"
-        Me.btnconsulta.Size = New System.Drawing.Size(80, 83)
-        Me.btnconsulta.TabIndex = 13
-        Me.btnconsulta.Text = "Consulta"
-        Me.btnconsulta.UseVisualStyleBackColor = False
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(124, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(10, 41)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(160, 24)
+        Me.Label2.TabIndex = 48
+        Me.Label2.Text = "NOMBRE BODEGA"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblbodega
+        '
+        Me.lblbodega.BackColor = System.Drawing.Color.MidnightBlue
+        Me.lblbodega.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblbodega.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblbodega.ForeColor = System.Drawing.Color.White
+        Me.lblbodega.Location = New System.Drawing.Point(0, 0)
+        Me.lblbodega.Name = "lblbodega"
+        Me.lblbodega.Size = New System.Drawing.Size(180, 33)
+        Me.lblbodega.TabIndex = 47
+        Me.lblbodega.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pAgregarMesa
         '
@@ -225,42 +254,13 @@ Partial Class frmMapa
         Me.cbopersonas.Size = New System.Drawing.Size(164, 23)
         Me.cbopersonas.TabIndex = 13
         '
-        'lblbodega
+        'pBotones
         '
-        Me.lblbodega.BackColor = System.Drawing.Color.MidnightBlue
-        Me.lblbodega.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblbodega.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblbodega.ForeColor = System.Drawing.Color.White
-        Me.lblbodega.Location = New System.Drawing.Point(0, 0)
-        Me.lblbodega.Name = "lblbodega"
-        Me.lblbodega.Size = New System.Drawing.Size(180, 33)
-        Me.lblbodega.TabIndex = 47
-        Me.lblbodega.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtbodega
-        '
-        Me.txtbodega.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtbodega.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbodega.Location = New System.Drawing.Point(10, 68)
-        Me.txtbodega.Name = "txtbodega"
-        Me.txtbodega.Size = New System.Drawing.Size(160, 29)
-        Me.txtbodega.TabIndex = 49
-        Me.txtbodega.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(124, Byte), Integer))
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(10, 41)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(160, 24)
-        Me.Label2.TabIndex = 48
-        Me.Label2.Text = "NOMBRE BODEGA"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.pBotones.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pBotones.Location = New System.Drawing.Point(180, 83)
+        Me.pBotones.Name = "pBotones"
+        Me.pBotones.Size = New System.Drawing.Size(975, 626)
+        Me.pBotones.TabIndex = 2
         '
         'frmMapa
         '
@@ -276,10 +276,10 @@ Partial Class frmMapa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Bodegas"
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.pAgregarMesa.ResumeLayout(False)
         Me.pAgregarMesa.PerformLayout()
         Me.ResumeLayout(False)

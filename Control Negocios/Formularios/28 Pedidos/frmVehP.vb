@@ -11,7 +11,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
+            cmd1.CommandText = "SELECT IdVehiculo FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.HasRows Then
@@ -120,7 +120,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
+            cmd1.CommandText = "SELECT Marca,Modelo,NEconomico,StatusT FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -148,7 +148,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
+            cmd1.CommandText = "SELECT IdVehiculo FROM vehiculo WHERE Placa='" & cboPlaca.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

@@ -253,7 +253,7 @@
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             If dato = "NOMBRE" Then
-                cmd1.CommandText = "SELECT * FROM productos WHERE Nombre='" & cboNombre.Text & "'"
+                cmd1.CommandText = "SELECT Codigo,CodBarra,N_Serie,Ubicacion FROM productos WHERE Nombre='" & cboNombre.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
@@ -265,7 +265,7 @@
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM refaccionaria WHERE Nombre='" & cboNombre.Text & "' AND CodigoPro='" & cboCodigo.Text & "'"
+                    cmd2.CommandText = "SELECT Observaciones FROM refaccionaria WHERE Nombre='" & cboNombre.Text & "' AND CodigoPro='" & cboCodigo.Text & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then
@@ -295,7 +295,7 @@
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             If dato = "CODIGO" Then
-                cmd1.CommandText = "SELECT * FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
+                cmd1.CommandText = "SELECT Nombre,CodBarra,N_Serie,Ubicacion FROM productos WHERE Codigo='" & cboCodigo.Text & "'"
             End If
 
             rd1 = cmd1.ExecuteReader
@@ -341,7 +341,7 @@
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Nombre='" & nombre & "' AND Marca='" & marca & "' AND Modelo='" & modelo & "'"
+                    cmd1.CommandText = "SELECT Id FROM refaccionaria WHERE Nombre='" & nombre & "' AND Marca='" & marca & "' AND Modelo='" & modelo & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

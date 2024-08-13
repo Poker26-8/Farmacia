@@ -28,7 +28,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM optica WHERE cliente='" & cboCliente.Text & "'"
+            cmd1.CommandText = "SELECT Fecha,Medico,EsfD,CilD,EjeD,AddD,EsfI,CilI,EjeI,AddI,DIP,Nota,Usuario FROM optica WHERE cliente='" & cboCliente.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -58,5 +58,9 @@
             MessageBox.Show(ex.ToString)
             cnn1.Close()
         End Try
+    End Sub
+
+    Private Sub frmRegistros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

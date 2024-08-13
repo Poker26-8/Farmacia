@@ -38,11 +38,11 @@ Public Class frmConsultarRefaccion
             cmd1 = cnn1.CreateCommand
 
             If cboModelo.Text = "" Then
-                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "'"
+                cmd1.CommandText = "SELECT CodigoPro,NumParte,Nombre,Observaciones FROM refaccionaria WHERE Marca='" & cboMarca.Text & "'"
             End If
 
             If cboModelo.Text <> "" Then
-                cmd1.CommandText = "SELECT * FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboaño.Text & "' AND Motor='" & cboMotor.Text & "'"
+                cmd1.CommandText = "SELECT CodigoPro,NumParte,Nombre,Observaciones FROM refaccionaria WHERE Marca='" & cboMarca.Text & "' AND Modelo='" & cboModelo.Text & "' AND Ano='" & cboaño.Text & "' AND Motor='" & cboMotor.Text & "'"
             End If
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
@@ -50,7 +50,7 @@ Public Class frmConsultarRefaccion
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "SELECT * FROM productos WHERE Codigo='" & rd1("CodigoPro").ToString & "'"
+                    cmd2.CommandText = "SELECT UVenta,PrecioVentaIVA,ProvPri FROM productos WHERE Codigo='" & rd1("CodigoPro").ToString & "'"
                     rd2 = cmd2.ExecuteReader
                     If rd2.HasRows Then
                         If rd2.Read Then

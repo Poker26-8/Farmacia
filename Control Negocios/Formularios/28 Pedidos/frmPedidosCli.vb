@@ -161,7 +161,7 @@ Public Class frmPedidosCli
             If cboCliente.Text = "" Then
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM pedidosven WHERE Folio='" & cboPedido.Text & "'"
+                cmd1.CommandText = "SELECT Cliente,Direccion FROM pedidosven WHERE Folio='" & cboPedido.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -174,7 +174,7 @@ Public Class frmPedidosCli
             End If
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM pedidosvendet WHERE Folio='" & cboPedido.Text & "'"
+            cmd1.CommandText = "SELECT Fecha,Folio,Codigo,Nombre,Unidad,Cantidad,Precio,Total,Usuario FROM pedidosvendet WHERE Folio='" & cboPedido.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -348,14 +348,26 @@ Public Class frmPedidosCli
                 Dim fecham As String = ""
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM pedidosasignados WHERE Status='ASIGNADO'"
+                cmd1.CommandText = "SELECT FechaAsignacion,Folio,Cliente,Direccion,Precio,Cantidad,Total,ACuenta,Resta,Status,Chofer,Vehiculo,HoraAsignacion FROM pedidosasignados WHERE Status='ASIGNADO'"
                 rd1 = cmd1.ExecuteReader
                 Do While rd1.Read
                     If rd1.HasRows Then
                         fecha = rd1("FechaAsignacion").ToString
                         fecham = Format(fecha, "yyyy-MM-dd")
 
-                        grdCaptura.Rows.Add(rd1("Folio").ToString, rd1("Cliente").ToString, rd1("Direccion").ToString, rd1("Precio").ToString, rd1("Cantidad").ToString, rd1("Total").ToString, rd1("ACuenta").ToString, rd1("Resta").ToString, rd1("Status").ToString, rd1("Chofer").ToString, rd1("Vehiculo").ToString, fecham, rd1("HoraAsignacion").ToString)
+                        grdCaptura.Rows.Add(rd1("Folio").ToString,
+                                            rd1("Cliente").ToString,
+                                            rd1("Direccion").ToString,
+                                            rd1("Precio").ToString,
+                                            rd1("Cantidad").ToString,
+                                            rd1("Total").ToString,
+                                            rd1("ACuenta").ToString,
+                                            rd1("Resta").ToString,
+                                            rd1("Status").ToString,
+                                            rd1("Chofer").ToString,
+                                            rd1("Vehiculo").ToString,
+                                            fecham,
+                                            rd1("HoraAsignacion").ToString)
                     End If
                 Loop
                 rd1.Close()
@@ -379,7 +391,7 @@ Public Class frmPedidosCli
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM pedidosasignados WHERE Folio='" & cboPedido.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM pedidosasignados WHERE Folio='" & cboPedido.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

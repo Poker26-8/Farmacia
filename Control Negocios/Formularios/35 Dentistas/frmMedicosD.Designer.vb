@@ -50,9 +50,9 @@ Partial Class frmMedicosD
         Me.rbnunam = New System.Windows.Forms.RadioButton()
         Me.optUMSN = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -373,6 +373,21 @@ Partial Class frmMedicosD
         Me.Panel1.Size = New System.Drawing.Size(519, 81)
         Me.Panel1.TabIndex = 47
         '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Bahnschrift SemiLight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(330, 9)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
+        Me.Button1.Size = New System.Drawing.Size(58, 69)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'btnGuardar
         '
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -402,21 +417,6 @@ Partial Class frmMedicosD
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Bahnschrift SemiLight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(330, 9)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.Button1.Size = New System.Drawing.Size(58, 69)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "Salir"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmMedicosD
         '

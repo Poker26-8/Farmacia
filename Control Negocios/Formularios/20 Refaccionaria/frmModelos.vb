@@ -53,7 +53,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM marcas WHERE Nombre='" & cboMarca.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM marcas WHERE Nombre='" & cboMarca.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -69,7 +69,7 @@
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM vehiculo2 WHERE Modelo='" & cboModelo.Text & "'"
+            cmd1.CommandText = "SELECT Id FROM vehiculo2 WHERE Modelo='" & cboModelo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -85,7 +85,7 @@
 
                     cnn1.Close() : cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "SELECT * FROM vehiculo2 WHERE Modelo='" & modelo & "' AND Motor='" & motor & "'"
+                    cmd1.CommandText = "SELECT Id FROM vehiculo2 WHERE Modelo='" & modelo & "' AND Motor='" & motor & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then

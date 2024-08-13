@@ -213,7 +213,7 @@ Public Class frmPedidos_Tienda
             'Obtiene datos base
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Pedidos_Tienda where Id_Orden=" & cbofolio.Text
+                "select Cliente,Direccion,Id_Cliente,Referencia,Tipo_Pago,Estado_Pago,Tipo_Envio,Status from Pedidos_Tienda where Id_Orden=" & cbofolio.Text
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -262,7 +262,7 @@ Public Class frmPedidos_Tienda
             'Obtiene datos de los productos
             cmd2 = cnn2.CreateCommand
             cmd2.CommandText =
-                "select * from Det_Pedidos_Tienda where Id_Orden=" & cbofolio.Text
+                "select Codigo,Cantidad,Precio,Comentario from Det_Pedidos_Tienda where Id_Orden=" & cbofolio.Text
             rd2 = cmd2.ExecuteReader
 
             cnn3.Close() : cnn3.Open()
@@ -276,7 +276,7 @@ Public Class frmPedidos_Tienda
 
                     cmd3 = cnn3.CreateCommand
                     cmd3.CommandText =
-                        "select * from Productos where Codigo='" & cod_prod & "'"
+                        "select Nombre,UVenta,Existencia from Productos where Codigo='" & cod_prod & "'"
                     rd3 = cmd3.ExecuteReader
                     If rd3.HasRows Then
                         If rd3.Read Then
@@ -310,7 +310,7 @@ Public Class frmPedidos_Tienda
             Dim nuevototalpedido As Double = 0
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Pedidos_Tienda where Id_Orden=" & cbofolio.Text
+            cmd2.CommandText = "select Subtotal,Envio,Total,Status from Pedidos_Tienda where Id_Orden=" & cbofolio.Text
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -353,7 +353,7 @@ Public Class frmPedidos_Tienda
 
             cmd3 = cnn3.CreateCommand
             cmd3.CommandText =
-                "select * from Clientes where Id=" & id_tienda
+                "select Id from Clientes where Id=" & id_tienda
             rd3 = cmd3.ExecuteReader
             If rd3.HasRows Then
                 If rd3.Read Then
@@ -465,7 +465,7 @@ Public Class frmPedidos_Tienda
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Pagos_Tienda where Id_Orden=" & cbofolio.Text
+                "select Tipo_Pago,Ref_Pago,Monto from Pagos_Tienda where Id_Orden=" & cbofolio.Text
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -594,7 +594,7 @@ Public Class frmPedidos_Tienda
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from Productos where Codigo='" & codigo_p & "'"
+                        "select Departamento,Grupo,GPrint from Productos where Codigo='" & codigo_p & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -814,7 +814,7 @@ Public Class frmPedidos_Tienda
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                    "select Alias from Usuarios where Clave='" & txtusuario.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -880,7 +880,7 @@ Public Class frmPedidos_Tienda
             cnn2.Close() : cnn2.Open()
 
             cmd2 = cnn2.CreateCommand
-            cmd2.CommandText = "select * from Ticket"
+            cmd2.CommandText = "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd2 = cmd2.ExecuteReader
             If rd2.HasRows Then
                 If rd2.Read Then
@@ -1386,7 +1386,7 @@ Public Class frmPedidos_Tienda
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MovCuenta where Tipo='TARJETA' and Referencia='" & txtnumref.Text & "'"
+                        "select Id from MovCuenta where Tipo='TARJETA' and Referencia='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1409,7 +1409,7 @@ Public Class frmPedidos_Tienda
 
                     cmd1 = cnn1.CreateCommand
                     cmd1.CommandText =
-                        "select * from MovCuenta where Tipo='TRANSFERENCIA' and Referencia='" & txtnumref.Text & "'"
+                        "select Id from MovCuenta where Tipo='TRANSFERENCIA' and Referencia='" & txtnumref.Text & "'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.HasRows Then
                         If rd1.Read Then
@@ -1919,7 +1919,7 @@ Public Class frmPedidos_Tienda
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                    "select * from Clientes where Nombre='" & cbonombre.Text & "'"
+                    "select Id,DiasCred from Clientes where Nombre='" & cbonombre.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1951,7 +1951,7 @@ Public Class frmPedidos_Tienda
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Usuarios where Clave='" & txtusuario.Text & "'"
+                "select Alias,IdEmpleado from Usuarios where Clave='" & txtusuario.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -1967,7 +1967,7 @@ Public Class frmPedidos_Tienda
 
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-            "select * from Permisos where IdEmpleado= " & VarIdUsuario
+            "select Vent_NVen from Permisos where IdEmpleado= " & VarIdUsuario
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2201,7 +2201,7 @@ Public Class frmPedidos_Tienda
 
                             cmd2 = cnn2.CreateCommand
                             cmd2.CommandText =
-                                "select * from Pagos_Tienda where Tipo_Pago='" & FormaPago & "' and Ref_Pago='" & ReferenciaFP & "'"
+                                "select Id from Pagos_Tienda where Tipo_Pago='" & FormaPago & "' and Ref_Pago='" & ReferenciaFP & "'"
                             rd2 = cmd2.ExecuteReader
                             If rd2.HasRows Then
                                 If rd2.Read Then
@@ -2299,7 +2299,7 @@ Public Class frmPedidos_Tienda
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & mycode & "'"
+                    "select Departamento,Grupo,ProvRes,MCD,Multiplo,GPrint,Departamento from Productos where Codigo='" & mycode & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2322,7 +2322,7 @@ Public Class frmPedidos_Tienda
 
                 cmd1 = cnn1.CreateCommand
                 cmd1.CommandText =
-                    "select * from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
+                    "select Existencia,Multiplo,Departamento,PrecioCompra from Productos where Codigo='" & Strings.Left(mycode, 6) & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -2435,7 +2435,7 @@ Door:
 
         cmd1 = cnn1.CreateCommand
         cmd1.CommandText =
-            "select * from Ticket"
+            "select NoPrint,Copias from Ticket"
         rd1 = cmd1.ExecuteReader
         If rd1.HasRows Then
             If rd1.Read Then
@@ -2613,7 +2613,7 @@ Door:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 FROM Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
@@ -2982,7 +2982,7 @@ Door:
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
             cmd1.CommandText =
-                "select * from Ticket"
+                "select Pie1,Cab0,Cab1,Cab2,Cab3,Cab4,Cab5,Cab6 from Ticket"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

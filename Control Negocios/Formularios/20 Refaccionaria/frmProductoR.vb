@@ -47,7 +47,7 @@ Public Class frmProductoR
                 nombre = grdcaptura.Rows(luffy).Cells(12).Value.ToString
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM vehiculo WHERE IdVehiculo='" & vehiculo & "'"
+                cmd1.CommandText = "SELECT Marca,Modelo FROM vehiculo WHERE IdVehiculo='" & vehiculo & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -58,7 +58,7 @@ Public Class frmProductoR
                 rd1.Close()
 
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM Refaccionaria WHERE CodigoPro='" & cboCodigo.Text & "' AND IdVehiculo=" & vehiculo & ""
+                cmd1.CommandText = "SELECT Id FROM Refaccionaria WHERE CodigoPro='" & cboCodigo.Text & "' AND IdVehiculo=" & vehiculo & ""
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -351,7 +351,7 @@ Public Class frmProductoR
             rd1.Close()
 
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM refaccionaria WHERE IdVehiculo=" & txtidvehiculo.Text & " AND Servicio='" & cboservicio.Text & "'"
+            cmd1.CommandText = "SELECT CodigoPro,NumParte,CodBarra,Nombre,MarcaRefa,Medida,Observaciones,Ubicacion,Servicio,UVenta,NPiezas,IdVehiculo FROM refaccionaria WHERE IdVehiculo=" & txtidvehiculo.Text & " AND Servicio='" & cboservicio.Text & "'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
@@ -407,7 +407,7 @@ Public Class frmProductoR
             Else
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM vehiculo WHERE Descripcion='" & cbovehiculo.Text & "'"
+                cmd1.CommandText = "SELECT IdVehiculo FROM vehiculo WHERE Descripcion='" & cbovehiculo.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -547,7 +547,7 @@ Public Class frmProductoR
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM productos where Codigo='" & cboCodigo.Text & "'"
+            cmd1.CommandText = "SELECT Codigo FROM productos where Codigo='" & cboCodigo.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

@@ -37,9 +37,9 @@ Partial Class frmCitasD
         Me.Label8 = New System.Windows.Forms.Label()
         Me.rtMotivo = New System.Windows.Forms.RichTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -177,19 +177,19 @@ Partial Class frmCitasD
         Me.Panel1.Size = New System.Drawing.Size(363, 81)
         Me.Panel1.TabIndex = 217
         '
-        'btnGuardar
+        'btnSalir
         '
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
-        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(285, 3)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(75, 75)
-        Me.btnGuardar.TabIndex = 0
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(123, 3)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(75, 75)
+        Me.btnSalir.TabIndex = 2
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnLimpiar
         '
@@ -205,19 +205,19 @@ Partial Class frmCitasD
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiar.UseVisualStyleBackColor = True
         '
-        'btnSalir
+        'btnGuardar
         '
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(123, 3)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 75)
-        Me.btnSalir.TabIndex = 2
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = True
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(285, 3)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(75, 75)
+        Me.btnGuardar.TabIndex = 0
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'frmCitasD
         '

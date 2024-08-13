@@ -121,6 +121,9 @@ Partial Class frmProducirQ
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.grdcaptura = New System.Windows.Forms.DataGridView()
+        Me.rtComentario = New System.Windows.Forms.RichTextBox()
+        Me.pDocumento80 = New System.Drawing.Printing.PrintDocument()
+        Me.pDocumento58 = New System.Drawing.Printing.PrintDocument()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -134,9 +137,6 @@ Partial Class frmProducirQ
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.rtComentario = New System.Windows.Forms.RichTextBox()
-        Me.pDocumento80 = New System.Drawing.Printing.PrintDocument()
-        Me.pDocumento58 = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -1304,7 +1304,6 @@ Partial Class frmProducirQ
         Me.grdcaptura.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdcaptura.BackgroundColor = System.Drawing.Color.White
         Me.grdcaptura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdcaptura.ColumnHeadersVisible = False
         Me.grdcaptura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13})
         Me.grdcaptura.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdcaptura.GridColor = System.Drawing.Color.White
@@ -1314,6 +1313,22 @@ Partial Class frmProducirQ
         Me.grdcaptura.RowHeadersVisible = False
         Me.grdcaptura.Size = New System.Drawing.Size(1211, 163)
         Me.grdcaptura.TabIndex = 166
+        '
+        'rtComentario
+        '
+        Me.rtComentario.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.rtComentario.Location = New System.Drawing.Point(10, 231)
+        Me.rtComentario.Name = "rtComentario"
+        Me.rtComentario.Size = New System.Drawing.Size(529, 139)
+        Me.rtComentario.TabIndex = 167
+        Me.rtComentario.Text = ""
+        Me.rtComentario.Visible = False
+        '
+        'pDocumento80
+        '
+        '
+        'pDocumento58
+        '
         '
         'Column1
         '
@@ -1327,7 +1342,7 @@ Partial Class frmProducirQ
         Me.Column2.HeaderText = "Descripción"
         Me.Column2.Name = "Column2"
         Me.Column2.ReadOnly = True
-        Me.Column2.Width = 330
+        Me.Column2.Width = 350
         '
         'Column3
         '
@@ -1405,22 +1420,6 @@ Partial Class frmProducirQ
         Me.Column13.Name = "Column13"
         Me.Column13.ReadOnly = True
         Me.Column13.Visible = False
-        '
-        'rtComentario
-        '
-        Me.rtComentario.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.rtComentario.Location = New System.Drawing.Point(10, 231)
-        Me.rtComentario.Name = "rtComentario"
-        Me.rtComentario.Size = New System.Drawing.Size(529, 139)
-        Me.rtComentario.TabIndex = 167
-        Me.rtComentario.Text = ""
-        Me.rtComentario.Visible = False
-        '
-        'pDocumento80
-        '
-        '
-        'pDocumento58
-        '
         '
         'frmProducirQ
         '

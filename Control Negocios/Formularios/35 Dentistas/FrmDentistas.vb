@@ -14,7 +14,7 @@ Public Class FrmDentistas
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "select * from Clientes where Nombre LIKE '%" & txtCliente.Text & "%'"
+            cmd1.CommandText = "select Id,Nombre,Edad,Sexo from Clientes where Nombre LIKE '%" & txtCliente.Text & "%'"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 grdCaptura.Rows.Add(rd1("Id").ToString, rd1("Nombre").ToString, rd1("Edad").ToString, rd1("Sexo").ToString)

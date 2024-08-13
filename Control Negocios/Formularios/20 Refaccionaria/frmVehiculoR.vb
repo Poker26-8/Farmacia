@@ -22,7 +22,7 @@
 
                 cnn1.Close() : cnn1.Open()
                 cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "SELECT * FROM clientes WHERE Nombre='" & cboCliente.Text & "'"
+                cmd1.CommandText = "SELECT Id FROM clientes WHERE Nombre='" & cboCliente.Text & "'"
                 rd1 = cmd1.ExecuteReader
                 If rd1.HasRows Then
                     If rd1.Read Then
@@ -201,7 +201,7 @@
         Try
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM vehiculo WHERE Descripcion='" & cbodescripcion.Text & "'"
+            cmd1.CommandText = "SELECT Marca,Submarca,Cilindros,Modelo,Placa,Version,Desplazamiento,IdVehiculo FROM vehiculo WHERE Descripcion='" & cbodescripcion.Text & "'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then

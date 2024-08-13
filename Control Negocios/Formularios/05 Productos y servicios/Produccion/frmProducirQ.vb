@@ -1286,7 +1286,7 @@ Public Class frmProducirQ
                             If rd3.Read Then
                                 cnn2.Close() : cnn2.Open()
                                 cmd2 = cnn2.CreateCommand
-                                cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & teorico & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
+                                cmd2.CommandText = "UPDATE produccioncdetalle SET Cantidad=" & cantidad & ",Precio=" & precio & ",Fase='" & fase & "',Teorico=" & teorico & ",RealT='" & real & "' WHERE Codigo='" & codigo & "' AND Folio='" & cboLoteB.Text & "'"
                                 cmd2.ExecuteNonQuery()
                                 cnn2.Close()
 
@@ -1294,7 +1294,7 @@ Public Class frmProducirQ
                         Else
                             cnn2.Close() : cnn2.Open()
                             cmd2 = cnn2.CreateCommand
-                            cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & teorico & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                            cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                             cmd2.ExecuteNonQuery()
                             cnn2.Close()
                         End If
@@ -1330,7 +1330,7 @@ Public Class frmProducirQ
 
                     cnn2.Close() : cnn2.Open()
                     cmd2 = cnn2.CreateCommand
-                    cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & teorico & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
+                    cmd2.CommandText = "INSERT INTO produccioncdetalle(Folio,Codigo,Descripcion,UVenta,Cantidad,LoteP,FloteP,Precio,Fase,Teorico,RealT) VALUES('" & cboLote.Text & "','" & codigo & "','" & descripcion & "','" & unidad & "'," & cantidad & ",'" & lote & "','" & fechalote & "'," & precio & ",'" & fase & "'," & teorico & ",'" & real & "')"
                     cmd2.ExecuteNonQuery()
                     cnn2.Close()
                 Next

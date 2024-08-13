@@ -196,4 +196,8 @@
             logor = "IESCH"
         End If
     End Sub
+
+    Private Sub frmMedicosD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

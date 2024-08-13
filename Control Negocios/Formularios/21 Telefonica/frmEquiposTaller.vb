@@ -87,19 +87,19 @@
                 cmd1 = cnn1.CreateCommand
 
                 If (rbOrden.Checked) Then
-                    cmd1.CommandText = "SELECT * FROM tallerd WHERE SerieD='" & cboOpciones.Text & "'"
+                    cmd1.CommandText = "SELECT Id,Operacion,Cliente,Tecnico,SerieD,FechaEntrada,FechaEstimada,Status FROM tallerd WHERE SerieD='" & cboOpciones.Text & "'"
                 End If
 
                 If (rbCliente.Checked) Then
-                    cmd1.CommandText = "SELECT * FROM tallerd WHERE Cliente='" & cboOpciones.Text & "'"
+                    cmd1.CommandText = "SELECT Id,Operacion,Cliente,Tecnico,SerieD,FechaEntrada,FechaEstimada,Status FROM tallerd WHERE Cliente='" & cboOpciones.Text & "'"
                 End If
 
                 If (rbtecnico.Checked) Then
-                    cmd1.CommandText = "SELECT * FROM tallerd WHERE Tecnico='" & cboOpciones.Text & "'"
+                    cmd1.CommandText = "SELECT Id,Operacion,Cliente,Tecnico,SerieD,FechaEntrada,FechaEstimada,Status FROM tallerd WHERE Tecnico='" & cboOpciones.Text & "'"
                 End If
 
                 If (rbtarea.Checked) Then
-                    cmd1.CommandText = "SELECT * FROM tallerd WHERE Operacion='" & cboOpciones.Text & "'"
+                    cmd1.CommandText = "SELECT Id,Operacion,Cliente,Tecnico,SerieD,FechaEntrada,FechaEstimada,Status FROM tallerd WHERE Operacion='" & cboOpciones.Text & "'"
                 End If
 
                 rd1 = cmd1.ExecuteReader
@@ -181,7 +181,7 @@
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT * FROM tallerd ORDER BY Id"
+            cmd1.CommandText = "SELECT Id,Operacion,Cliente,Tecnico,SerieD,FechaEntrada,FechaEstimada,Status FROM tallerd ORDER BY Id"
             rd1 = cmd1.ExecuteReader
             Do While rd1.Read
                 If rd1.HasRows Then
