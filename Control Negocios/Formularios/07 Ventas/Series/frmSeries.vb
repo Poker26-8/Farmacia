@@ -576,26 +576,38 @@ Public Class frmSeries
                 nombre = Trim(Replace(nombre, "*", ""))
                 nombre = Trim(Replace(nombre, "", ""))
 
-                If cnn1.State = 0 Then cnn1.Open()
+                cnn2.Close() : cnn2.Open()
+                cmd2 = cnn2.CreateCommand
+                cmd2.CommandText = "SELECT Codigo,Nombre from productos WHERE Codigo='" & codigo & "' AND Nombre='" & nombre & "'"
+                rd2 = cmd2.ExecuteReader
+                If rd2.HasRows Then
+                    If rd2.Read Then
 
-                    cmd1 = cnn1.CreateCommand
-                cmd1.CommandText = "INSERT INTO series() VALUES()"
-                If cmd1.ExecuteNonQuery Then
-                Else
-                    'MsgBox(codigo, nombre)
+                        If cnn1.State = 0 Then cnn1.Open()
+
+                        cmd1 = cnn1.CreateCommand
+                        cmd1.CommandText = "INSERT INTO series(Codigo,Nombre,Serie,Fecha,NotaVenta,FechaEliminado,Status,Factura,FFactura) VALUES('" & codigo & "','" & nombre & "','" & serie & "','" & Format(Date.Now, "yyyy-MM-dd HH:mm:ss") & "','','',0,'','')"
+                        If cmd1.ExecuteNonQuery Then
+                        Else
+                            'MsgBox(codigo, nombre)
+                        End If
+
+                        conteo += 1
+                    End If
                 End If
+                rd2.Close()
 
-                conteo += 1
+
 
             Next
-
+            cnn2.Close()
             cnn1.Close()
             tabla.DataSource = Nothing
             tabla.Dispose()
             DataGridView1.Rows.Clear()
 
 
-            MsgBox(conteo & " productos fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
+            MsgBox(conteo & " series fueron importados correctamente.", vbInformation + vbOKOnly, "Delsscom Control Negocios Pro")
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
