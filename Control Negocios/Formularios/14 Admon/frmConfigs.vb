@@ -100,59 +100,37 @@ Public Class frmConfigs
             cnn4.Close() : cnn4.Open()
 
             'Costeo (una única vez)
-            cmd4 = cnn4.CreateCommand
-            cmd4.CommandText =
-                 "select NumPart from Formatos where Facturas='Costeo'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        boxCosteo.Enabled = False
-                        If rd4(0).ToString() = "PEPS" Then
-                            optPEPS.Checked = True
-                        Else
-                            optPromedio.Checked = True
-                        End If
-                    End If
+            Dim costeo As Integer = DatosRecarga2("Costeo")
+            Dim peps As String = DatosRecarga("Costeo")
+            If costeo = 1 Then
+                boxCosteo.Enabled = False
+                If peps = "PEPS" Then
+                    optPEPS.Checked = True
+                Else
+                    optPromedio.Checked = True
                 End If
             End If
-            rd4.Close()
 
-            cmd4 = cnn4.CreateCommand()
-            cmd4.CommandText =
-                 "select NumPart from Formatos where Facturas='CodAutoma'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        chkCodAuto.Checked = True
-                        chkCodAuto.Enabled = False
-                    Else
-                        chkCodAuto.Checked = False
-                        chkCodAuto.Enabled = True
-                    End If
-                End If
+            Dim CODAUTOMA As Integer = DatosRecarga2("CodAutoma")
+            If CODAUTOMA = 1 Then
+                chkCodAuto.Checked = True
+                chkCodAuto.Enabled = False
+            Else
+                chkCodAuto.Checked = False
+                chkCodAuto.Enabled = True
             End If
-            rd4.Close()
 
-            rd4.Close()
+            Dim whatsapp As Integer = DatosRecarga2("Whatsapp")
+            Dim telwhats As String = DatosRecarga("Whatsapp")
 
-            cmd4 = cnn4.CreateCommand()
-            cmd4.CommandText =
-                 "select NumPart,NotasCred from Formatos where Facturas='Whatsapp'"
-            rd4 = cmd4.ExecuteReader
-            If rd4.HasRows Then
-                If rd4.Read Then
-                    If rd4(0).ToString() = 1 Then
-                        chkwhats.Checked = True
-                        txtwhats.Text = rd4(1).ToString
-                    Else
-                        chkwhats.Checked = False
-                        txtwhats.Text = rd4(1).ToString
-                    End If
-                End If
+            If whatsapp = 1 Then
+                chkwhats.Checked = True
+                txtwhats.Text = telwhats
+            Else
+
+                chkwhats.Checked = False
+                txtwhats.Text = telwhats
             End If
-            rd4.Close()
 
             cmd4 = cnn4.CreateCommand()
             cmd4.CommandText =

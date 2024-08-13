@@ -40,7 +40,7 @@
 
                     cnn1.Open()
                     cmd1 = cnn1.CreateCommand
-                    cmd1.CommandText = "Select * from Productos where Codigo='RECAR'"
+                    cmd1.CommandText = "Select Codigo from Productos where Codigo='RECAR'"
                     rd1 = cmd1.ExecuteReader
                     If rd1.Read Then
                         rd1.Close()
@@ -75,7 +75,7 @@
             cnn1.Close()
             cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "Select * from loginrecargas"
+            cmd1.CommandText = "Select numero,usuario,password,id from loginrecargas"
             rd1 = cmd1.ExecuteReader
             If rd1.Read Then
                 txtnumero.Text = rd1("numero").ToString

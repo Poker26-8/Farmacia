@@ -157,4 +157,9 @@
         frmAct_Dentista.BringToFront()
         frmAct_Dentista.Show()
     End Sub
+
+    Private Sub btnSeries_Click(sender As Object, e As EventArgs) Handles btnSeries.Click
+        frmAct_Series.BringToFront()
+        frmAct_Series.Show()
+    End Sub
 End Class

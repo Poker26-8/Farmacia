@@ -78,6 +78,8 @@ Partial Class frmModulos
         Me.btnEntregas = New System.Windows.Forms.Button()
         Me.btnPrecios = New System.Windows.Forms.Button()
         Me.btnControl = New System.Windows.Forms.Button()
+        Me.btnSeries = New System.Windows.Forms.Button()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -100,7 +102,7 @@ Partial Class frmModulos
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(900, 61)
+        Me.Label2.Size = New System.Drawing.Size(1001, 61)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "¡Conoce nuestros módulos especializados para cada giro de negocio!"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -314,7 +316,7 @@ Partial Class frmModulos
         Me.Label20.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.Black
-        Me.Label20.Location = New System.Drawing.Point(8, 303)
+        Me.Label20.Location = New System.Drawing.Point(899, 189)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(93, 37)
         Me.Label20.TabIndex = 37
@@ -326,7 +328,7 @@ Partial Class frmModulos
         Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.Black
-        Me.Label21.Location = New System.Drawing.Point(107, 303)
+        Me.Label21.Location = New System.Drawing.Point(8, 303)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(93, 37)
         Me.Label21.TabIndex = 39
@@ -338,7 +340,7 @@ Partial Class frmModulos
         Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.Black
-        Me.Label22.Location = New System.Drawing.Point(206, 303)
+        Me.Label22.Location = New System.Drawing.Point(107, 303)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(93, 37)
         Me.Label22.TabIndex = 41
@@ -350,7 +352,7 @@ Partial Class frmModulos
         Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.Black
-        Me.Label23.Location = New System.Drawing.Point(305, 303)
+        Me.Label23.Location = New System.Drawing.Point(206, 303)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(93, 37)
         Me.Label23.TabIndex = 43
@@ -362,7 +364,7 @@ Partial Class frmModulos
         Me.Label24.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.Black
-        Me.Label24.Location = New System.Drawing.Point(404, 303)
+        Me.Label24.Location = New System.Drawing.Point(305, 303)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(93, 37)
         Me.Label24.TabIndex = 45
@@ -374,7 +376,7 @@ Partial Class frmModulos
         Me.Label25.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.Black
-        Me.Label25.Location = New System.Drawing.Point(503, 303)
+        Me.Label25.Location = New System.Drawing.Point(404, 303)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(93, 37)
         Me.Label25.TabIndex = 47
@@ -386,7 +388,7 @@ Partial Class frmModulos
         Me.Label26.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.ForeColor = System.Drawing.Color.Black
-        Me.Label26.Location = New System.Drawing.Point(602, 303)
+        Me.Label26.Location = New System.Drawing.Point(503, 303)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(93, 37)
         Me.Label26.TabIndex = 49
@@ -398,7 +400,7 @@ Partial Class frmModulos
         Me.Label27.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.Black
-        Me.Label27.Location = New System.Drawing.Point(701, 303)
+        Me.Label27.Location = New System.Drawing.Point(602, 303)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(93, 37)
         Me.Label27.TabIndex = 51
@@ -410,7 +412,7 @@ Partial Class frmModulos
         Me.Label28.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.Black
-        Me.Label28.Location = New System.Drawing.Point(800, 303)
+        Me.Label28.Location = New System.Drawing.Point(701, 303)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(93, 37)
         Me.Label28.TabIndex = 53
@@ -421,7 +423,7 @@ Partial Class frmModulos
         '
         Me.btnDentista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnDentista.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnDentista.Location = New System.Drawing.Point(800, 343)
+        Me.btnDentista.Location = New System.Drawing.Point(701, 343)
         Me.btnDentista.Name = "btnDentista"
         Me.btnDentista.Size = New System.Drawing.Size(93, 71)
         Me.btnDentista.TabIndex = 54
@@ -432,7 +434,7 @@ Partial Class frmModulos
         Me.btnTiendaLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnTiendaLinea.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTiendaLinea.Image = CType(resources.GetObject("btnTiendaLinea.Image"), System.Drawing.Image)
-        Me.btnTiendaLinea.Location = New System.Drawing.Point(701, 343)
+        Me.btnTiendaLinea.Location = New System.Drawing.Point(602, 343)
         Me.btnTiendaLinea.Name = "btnTiendaLinea"
         Me.btnTiendaLinea.Size = New System.Drawing.Size(93, 71)
         Me.btnTiendaLinea.TabIndex = 52
@@ -442,7 +444,7 @@ Partial Class frmModulos
         '
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(602, 343)
+        Me.Button2.Location = New System.Drawing.Point(503, 343)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(93, 71)
         Me.Button2.TabIndex = 50
@@ -452,7 +454,7 @@ Partial Class frmModulos
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(503, 343)
+        Me.Button1.Location = New System.Drawing.Point(404, 343)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(93, 71)
         Me.Button1.TabIndex = 48
@@ -462,7 +464,7 @@ Partial Class frmModulos
         '
         Me.frmOpticas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.frmOpticas.Image = CType(resources.GetObject("frmOpticas.Image"), System.Drawing.Image)
-        Me.frmOpticas.Location = New System.Drawing.Point(404, 343)
+        Me.frmOpticas.Location = New System.Drawing.Point(305, 343)
         Me.frmOpticas.Name = "frmOpticas"
         Me.frmOpticas.Size = New System.Drawing.Size(93, 71)
         Me.frmOpticas.TabIndex = 46
@@ -472,7 +474,7 @@ Partial Class frmModulos
         '
         Me.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCuentas.Image = CType(resources.GetObject("btnCuentas.Image"), System.Drawing.Image)
-        Me.btnCuentas.Location = New System.Drawing.Point(305, 343)
+        Me.btnCuentas.Location = New System.Drawing.Point(206, 343)
         Me.btnCuentas.Name = "btnCuentas"
         Me.btnCuentas.Size = New System.Drawing.Size(93, 71)
         Me.btnCuentas.TabIndex = 44
@@ -482,7 +484,7 @@ Partial Class frmModulos
         '
         Me.btnConsignacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnConsignacion.Image = CType(resources.GetObject("btnConsignacion.Image"), System.Drawing.Image)
-        Me.btnConsignacion.Location = New System.Drawing.Point(206, 343)
+        Me.btnConsignacion.Location = New System.Drawing.Point(107, 343)
         Me.btnConsignacion.Name = "btnConsignacion"
         Me.btnConsignacion.Size = New System.Drawing.Size(93, 71)
         Me.btnConsignacion.TabIndex = 42
@@ -492,7 +494,7 @@ Partial Class frmModulos
         '
         Me.btnFarmacia.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnFarmacia.Image = CType(resources.GetObject("btnFarmacia.Image"), System.Drawing.Image)
-        Me.btnFarmacia.Location = New System.Drawing.Point(107, 343)
+        Me.btnFarmacia.Location = New System.Drawing.Point(8, 343)
         Me.btnFarmacia.Name = "btnFarmacia"
         Me.btnFarmacia.Size = New System.Drawing.Size(93, 71)
         Me.btnFarmacia.TabIndex = 40
@@ -502,7 +504,7 @@ Partial Class frmModulos
         '
         Me.btnMedicas.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMedicas.Image = CType(resources.GetObject("btnMedicas.Image"), System.Drawing.Image)
-        Me.btnMedicas.Location = New System.Drawing.Point(8, 343)
+        Me.btnMedicas.Location = New System.Drawing.Point(899, 229)
         Me.btnMedicas.Name = "btnMedicas"
         Me.btnMedicas.Size = New System.Drawing.Size(93, 71)
         Me.btnMedicas.TabIndex = 38
@@ -688,12 +690,35 @@ Partial Class frmModulos
         Me.btnControl.TabIndex = 2
         Me.btnControl.UseVisualStyleBackColor = True
         '
+        'btnSeries
+        '
+        Me.btnSeries.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSeries.Location = New System.Drawing.Point(899, 115)
+        Me.btnSeries.Name = "btnSeries"
+        Me.btnSeries.Size = New System.Drawing.Size(93, 71)
+        Me.btnSeries.TabIndex = 56
+        Me.btnSeries.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.Black
+        Me.Label29.Location = New System.Drawing.Point(899, 71)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(93, 37)
+        Me.Label29.TabIndex = 55
+        Me.Label29.Text = "Series"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmModulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(900, 424)
+        Me.ClientSize = New System.Drawing.Size(1001, 424)
+        Me.Controls.Add(Me.btnSeries)
+        Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.btnDentista)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.btnTiendaLinea)
@@ -812,4 +837,6 @@ Partial Class frmModulos
     Friend WithEvents btnTiendaLinea As Button
     Friend WithEvents Label28 As Label
     Friend WithEvents btnDentista As Button
+    Friend WithEvents btnSeries As Button
+    Friend WithEvents Label29 As Label
 End Class

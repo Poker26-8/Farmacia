@@ -2871,7 +2871,7 @@ Public Class Inicio
 
             cnn1.Close() : cnn1.Open()
             cmd1 = cnn1.CreateCommand
-            cmd1.CommandText = "SELECT NotasCred FROM Formatos WHERE Facturas='Series'"
+            cmd1.CommandText = "SELECT NumPart FROM Formatos WHERE Facturas='Series'"
             rd1 = cmd1.ExecuteReader
             If rd1.HasRows Then
                 If rd1.Read Then
